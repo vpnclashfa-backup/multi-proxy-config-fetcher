@@ -36,61 +36,58 @@ def is_config_valid(config_text, date):
 
 def extract_configs_from_text(text):
     configs = []
-    for protocol in SUPPORTED_PROTOCOLS:
-        # الگوی پیچیده تر برای پیدا کردن کانفیگ ها
-        pattern = rf"({protocol}[^\s\u0600-\u06FF\x{2000}-\x{200F}\x{202A}-\x{202E}\x{2060}-\x{206F}]+)"
+    # عبارات با قاعده برای هر پروتکل به صورت جداگانه
+    patterns = {
+        "vmess://": r"(vmess://[^\s]+)",
+        "vless://": r"(vless://[^\s]+)",
+        "ss://": r"(ss://[^\s]+)",
+        "trojan://": r"(trojan://[^\s]+)",
+        "wireguard://": r"(wireguard://[^\s]+)",
+        "hysteria2://": r"(hysteria2://[^\s]+)",
+    }
+    for protocol, pattern in patterns.items():
         matches = re.findall(pattern, text)
-        for match in matches:
-            config = match.strip()
-
-            #حذف کاراکترهای اضافه در انتهای لینک
-            config = re.sub(r'[^\x00-\x7F]+$', '', config)
-
-            if config:
-                configs.append(config)
+        configs.extend(matches)
     return configs
 
 def fetch_configs_from_channel(channel_url):
     try:
         response = requests.get(channel_url, headers=HEADERS)
         response.raise_for_status()
-
+        
         soup = BeautifulSoup(response.text, 'html.parser')
         messages = soup.find_all('div', class_='tgme_widget_message_text')
-
+        
         configs = []
         for message in messages:
-            if not message:
+            if not message or not message.text:
                 continue
 
             message_date = extract_date_from_message(message)
             if not is_config_valid(message.text, message_date):
                 continue
-
+            
             extracted_configs = extract_configs_from_text(message.text)
             configs.extend(extracted_configs)
-
+            
             if len(configs) >= MIN_CONFIGS_PER_CHANNEL:
                 break
-
+        
         return configs
-
+        
     except Exception as e:
         logger.error(f"Error fetching from {channel_url}: {str(e)}")
         return []
 
 def fetch_all_configs():
     all_configs = []
-
     for channel in TELEGRAM_CHANNELS:
         logger.info(f"Fetching configs from {channel}")
         channel_configs = fetch_configs_from_channel(channel)
-
         if len(channel_configs) >= MIN_CONFIGS_PER_CHANNEL:
             all_configs.extend(channel_configs)
         else:
             logger.warning(f"Not enough valid configs found in {channel}")
-
     unique_configs = list(dict.fromkeys(all_configs))
     return unique_configs
 
