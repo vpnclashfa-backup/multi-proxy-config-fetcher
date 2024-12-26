@@ -35,7 +35,7 @@ def is_valid_config(config, protocol):
 
     if protocol in ['vmess://', 'vless://', 'ss://']:
         return is_base64(config_part)
-    elif protocol == 'wireguard://':  # بررسی بیشتر برای WireGuard
+    elif protocol == 'wireguard://':
         parts = config_part.split('@')
         if len(parts) != 2:
             return False
@@ -127,10 +127,14 @@ def fetch_all_configs():
 
 def save_configs(configs):
     os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
-    with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
-        for i, config in enumerate(configs):
-            cleaned_config = config.split('#')[0].strip()
-            f.write(f"{cleaned_config}#Anon{i+1}\n\n")
+    try:
+        with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
+            for i, config in enumerate(configs):
+                cleaned_config = config.split('#')[0].strip()
+                f.write(f"{cleaned_config}#Anon{i+1}\n\n")
+        logger.info(f"Configs successfully saved to {OUTPUT_FILE}")
+    except Exception as e:
+        logger.error(f"Error saving configs to file: {e}")
 
 def extract_date_from_message(message):
     try:
