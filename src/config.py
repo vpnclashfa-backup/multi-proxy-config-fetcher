@@ -4,6 +4,7 @@ import os
 TELEGRAM_CHANNELS = [
     "https://t.me/s/v2rayngvpn",
     "https://t.me/s/V2ray_Alpha",
+    "https://t.me/s/freewireguard",
     # ... اضافه کردن کانال‌های بیشتر
 ]
 
