@@ -34,9 +34,16 @@ def is_config_valid(config_text, date):
     cutoff_date = datetime.now(date.tzinfo) - timedelta(days=MAX_CONFIG_AGE_DAYS)
     return date >= cutoff_date
 
-def process_config(config):
-    base_config = config.split('#')[0].strip() # حذف فاصله های خالی ابتدا و انتها
-    return base_config
+def extract_configs_from_text(text):
+    configs = []
+    for protocol in SUPPORTED_PROTOCOLS:
+        matches = re.findall(rf"({protocol}[^\s]+)", text) #عبارت با قاعده برای پیدا کردن دقیق کانفیگ
+        for match in matches:
+            config = match.strip()
+            if config:
+                configs.append(config)
+    return configs
+
 
 def fetch_configs_from_channel(channel_url):
     try:
@@ -55,12 +62,9 @@ def fetch_configs_from_channel(channel_url):
             if not is_config_valid(message.text, message_date):
                 continue
             
-            for protocol in SUPPORTED_PROTOCOLS:
-                matches = re.finditer(f'{protocol}[^\s]+', message.text)
-                for match in matches:
-                    config = process_config(match.group(0))
-                    configs.append(config)
-            
+            extracted_configs = extract_configs_from_text(message.text)
+            configs.extend(extracted_configs)
+
             if len(configs) >= MIN_CONFIGS_PER_CHANNEL:
                 break
         
@@ -82,8 +86,7 @@ def fetch_all_configs():
         else:
             logger.warning(f"Not enough valid configs found in {channel}")
     
-    unique_configs = list(dict.fromkeys(all_configs)) #حذف موارد تکراری
-    
+    unique_configs = list(dict.fromkeys(all_configs))
     return unique_configs
 
 def save_configs(configs):
@@ -92,9 +95,9 @@ def save_configs(configs):
         with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
             if configs:
                 for i, config in enumerate(configs):
-                    f.write(f"{config}#Anon{i+1}\n\n") #نوشتن کانفیگ با نامگذاری
+                    f.write(f"{config}#Anon{i+1}\n\n")
             else:
-                f.write("") #خالی کردن فایل در صورت نبود کانفیگ
+                f.write("")
         logger.info(f"Configs successfully saved to {OUTPUT_FILE}")
     except Exception as e:
         logger.error(f"Error saving configs to file: {e}")
@@ -106,7 +109,7 @@ def main():
         if configs:
             logger.info(f"Successfully saved {len(configs)} configs at {datetime.now()}")
         else:
-            logger.info("No valid configs found, output file cleared.") #پیغام واضح تر
+            logger.info("No valid configs found, output file cleared.")
     except Exception as e:
         logger.error(f"Error in main execution: {str(e)}")
 
