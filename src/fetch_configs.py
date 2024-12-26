@@ -129,9 +129,12 @@ def save_configs(configs):
     os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
     try:
         with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
-            for i, config in enumerate(configs):
-                cleaned_config = config.split('#')[0].strip()
-                f.write(f"{cleaned_config}#Anon{i+1}\n\n")
+            if configs:  # فقط اگر کانفیگی وجود داشت، بنویس
+                for i, config in enumerate(configs):
+                    cleaned_config = config.split('#')[0].strip()
+                    f.write(f"{cleaned_config}#Anon{i+1}\n\n")
+            else: #اگر کانفیگی وجود نداشت فایل رو خالی میکنه
+                f.write("")
         logger.info(f"Configs successfully saved to {OUTPUT_FILE}")
     except Exception as e:
         logger.error(f"Error saving configs to file: {e}")
@@ -154,11 +157,11 @@ def is_config_valid(config_text, date):
 def main():
     try:
         configs = fetch_all_configs()
+        save_configs(configs) # save_configs همیشه فراخوانی می‌شود
         if configs:
-            save_configs(configs)
             logger.info(f"Successfully saved {len(configs)} configs at {datetime.now()}")
         else:
-            logger.info("No valid configs found!")
+            logger.info("No valid configs found, output file cleared.")
     except Exception as e:
         logger.error(f"Error in main execution: {str(e)}")
 
