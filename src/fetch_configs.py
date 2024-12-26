@@ -111,20 +111,6 @@ def fetch_configs_from_channel(channel_url):
         logger.error(f"Error fetching from {channel_url}: {e}")
         return []
 
-def merge_with_existing_configs(new_configs):
-    existing_configs = set()
-    if os.path.exists(OUTPUT_FILE):
-        try:
-            with open(OUTPUT_FILE, 'r', encoding='utf-8') as f:
-                for line in f:
-                    line = line.strip()
-                    if line:
-                        existing_configs.add(line.split('#')[0].strip())
-        except FileNotFoundError:
-            pass
-    existing_configs.update(new_configs)
-    return list(existing_configs)
-
 def fetch_all_configs():
     all_configs = []
     for channel in TELEGRAM_CHANNELS:
@@ -137,16 +123,14 @@ def fetch_all_configs():
         else:
             logger.warning(f"Not enough valid configs found in {channel}")
 
-    if all_configs:
-        all_configs = merge_with_existing_configs(all_configs)
-        final_configs = [f"{config}#Anon{i+1}" for i, config in enumerate(all_configs)]
-        return final_configs
-    return []
+    return all_configs
 
 def save_configs(configs):
     os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
     with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
-        f.write('\n\n'.join(configs))
+        for i, config in enumerate(configs):
+            cleaned_config = config.split('#')[0].strip()
+            f.write(f"{cleaned_config}#Anon{i+1}\n\n")
 
 def extract_date_from_message(message):
     try:
