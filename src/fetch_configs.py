@@ -40,14 +40,14 @@ def is_valid_config(config, protocol):
             return False
         return True
     elif protocol == 'hysteria2://':
-        return True  # بررسی دقیق تر hysteria2 نیاز به بررسی ساختار لینک دارد.
+        return True
     elif protocol == 'trojan://':
         parts = config_part.split('@')
         if len(parts) != 2:
             return False
         return True
     else:
-        return True  # سایر پروتکل ها
+        return True
 
 def extract_config(text, start_index, protocol):
     try:
@@ -108,8 +108,8 @@ def fetch_configs_from_channel(channel_url):
 
         text = message.text
         for protocol in SUPPORTED_PROTOCOLS:
-            for match in re.finditer(re.escape(protocol), text):
-                config = extract_config(text, match.start(), protocol)
+            if text.startswith(protocol):  # بررسی مستقیم شروع متن با پروتکل
+                config = extract_config(text, 0, protocol) #شروع از ایندکس صفر
                 if config:
                     configs.append(config)
     return configs
