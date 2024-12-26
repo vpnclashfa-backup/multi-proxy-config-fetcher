@@ -1,6 +1,5 @@
 import re
 import os
-import time
 import logging
 import base64
 from datetime import datetime, timedelta
@@ -41,10 +40,7 @@ def is_valid_config(config, protocol):
             return False
         return True
     elif protocol == 'hysteria2://':
-        parts = config_part.split('?')
-        if len(parts) < 1:
-            return False
-        return True
+        return True # بررسی دقیق تر hysteria نیاز به بررسی ساختار لینک دارد.
     elif protocol == 'trojan://':
         parts = config_part.split('@')
         if len(parts) != 2:
@@ -71,6 +67,53 @@ def extract_config(text, start_index, protocol):
         logger.error(f"Error extracting config: {e}")
         return None
 
+def fetch_all_messages_from_channel(channel_url):
+    try:
+        all_messages = []
+        page = 1
+        while True:
+            response = requests.get(channel_url, headers=HEADERS, params={'page': page})
+            response.raise_for_status()
+            soup = BeautifulSoup(response.text, 'html.parser')
+            messages = soup.find_all('div', class_='tgme_widget_message_text')
+            if not messages:
+                break
+            all_messages.extend(messages)
+
+            pagination = soup.find('a', class_='tgme_widget_message_pagination')
+            if not pagination:
+                break
+
+            page += 1
+
+        return all_messages
+
+    except requests.exceptions.RequestException as e:
+        logger.error(f"Request error for {channel_url}: {e}")
+        return []
+    except Exception as e:
+        logger.error(f"Error fetching messages: {e}")
+        return []
+
+def fetch_configs_from_channel(channel_url):
+    configs = []
+    messages = fetch_all_messages_from_channel(channel_url)
+    for message in messages:
+        if not message or not message.text:
+            continue
+
+        message_date = extract_date_from_message(message)
+        if not is_config_valid(message.text, message_date):
+            continue
+
+        text = message.text
+        for protocol in SUPPORTED_PROTOCOLS:
+            for match in re.finditer(re.escape(protocol), text):
+                config = extract_config(text, match.start(), protocol)
+                if config:
+                    configs.append(config)
+    return configs
+
 def process_configs(configs):
     processed = set()
     for config in configs:
@@ -80,36 +123,6 @@ def process_configs(configs):
                     processed.add(config)
                 break
     return list(processed)
-
-def fetch_configs_from_channel(channel_url):
-    try:
-        response = requests.get(channel_url, headers=HEADERS)
-        response.raise_for_status()
-        soup = BeautifulSoup(response.text, 'html.parser')
-        messages = soup.find_all('div', class_='tgme_widget_message_text')
-
-        configs = []
-        for message in messages:
-            if not message or not message.text:
-                continue
-
-            message_date = extract_date_from_message(message)
-            if not is_config_valid(message.text, message_date):
-                continue
-            text = message.text
-            for protocol in SUPPORTED_PROTOCOLS:
-                for match in re.finditer(re.escape(protocol), text):
-                    config = extract_config(text, match.start(), protocol)
-                    if config:
-                        configs.append(config)
-        return configs
-
-    except requests.exceptions.RequestException as e:
-        logger.error(f"Request error for {channel_url}: {e}")
-        return []
-    except Exception as e:
-        logger.error(f"Error fetching from {channel_url}: {e}")
-        return []
 
 def fetch_all_configs():
     all_configs = []
@@ -122,18 +135,17 @@ def fetch_all_configs():
             all_configs.extend(processed_configs)
         else:
             logger.warning(f"Not enough valid configs found in {channel}")
-
     return all_configs
 
 def save_configs(configs):
     os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
     try:
         with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
-            if configs:  # فقط اگر کانفیگی وجود داشت، بنویس
+            if configs:
                 for i, config in enumerate(configs):
                     cleaned_config = config.split('#')[0].strip()
                     f.write(f"{cleaned_config}#Anon{i+1}\n\n")
-            else: #اگر کانفیگی وجود نداشت فایل رو خالی میکنه
+            else:
                 f.write("")
         logger.info(f"Configs successfully saved to {OUTPUT_FILE}")
     except Exception as e:
@@ -154,10 +166,11 @@ def is_config_valid(config_text, date):
     cutoff_date = datetime.now(date.tzinfo) - timedelta(days=MAX_CONFIG_AGE_DAYS)
     return date >= cutoff_date
 
+
 def main():
     try:
         configs = fetch_all_configs()
-        save_configs(configs) # save_configs همیشه فراخوانی می‌شود
+        save_configs(configs)
         if configs:
             logger.info(f"Successfully saved {len(configs)} configs at {datetime.now()}")
         else:
