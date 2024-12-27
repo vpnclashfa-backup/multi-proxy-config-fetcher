@@ -19,87 +19,84 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 def is_base64(s):
+    """بررسی میکند آیا رشته base64 معتبر است"""
     try:
+        # حذف پدینگ = از انتها برای بررسی دقیق‌تر
         s = s.rstrip('=')
-        if not bool(re.match(r'^[A-Za-z0-9+/]*$', s)):
-            return False
-        if len(s) % 4 == 1:
-            return False
-        try:
-            base64.b64decode(s + '=' * (-len(s) % 4))
-            return True
-        except:
-            return False
+        return bool(re.match(r'^[A-Za-z0-9+/]*$', s))
     except:
         return False
 
 def clean_config(config):
+    """حذف کاراکترهای غیر استاندارد از انتهای کانفیگ"""
+    # حذف ایموجی‌ها و کاراکترهای یونیکد خاص
     config = re.sub(r'[\U0001F300-\U0001F9FF]', '', config)
+    # حذف کاراکترهای کنترلی به جز newline
     config = re.sub(r'[\x00-\x08\x0B-\x1F\x7F-\x9F]', '', config)
     return config.strip()
 
 def extract_config(text, start_index, protocol):
+    """استخراج کانفیگ با در نظر گرفتن شرایط مختلف"""
     try:
         remaining_text = text[start_index:]
         
+        # یافتن پایان کانفیگ
+        possible_endings = [' ', '\n', '\r', '\t', '🔹', '♾', '🛜']
+        end_index = len(remaining_text)
+        
+        for ending in possible_endings:
+            pos = remaining_text.find(ending)
+            if pos != -1 and pos < end_index:
+                end_index = pos
+        
+        config = remaining_text[:end_index].strip()
+        
+        # پاکسازی کانفیگ
+        config = clean_config(config)
+        
+        # بررسی اعتبار base64 برای پروتکل‌های خاص
         if protocol in ['vmess://', 'vless://', 'ss://']:
-            current_pos = 0
-            base64_chars = set('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=')
-            
-            while current_pos < len(remaining_text):
-                if remaining_text[current_pos] not in base64_chars:
-                    break
-                current_pos += 1
-            
-            while current_pos < len(remaining_text) and remaining_text[current_pos] == '=':
-                current_pos += 1
-            
-            config = remaining_text[:current_pos].strip()
-            
-            if is_base64(config[len(protocol):]):
+            base64_part = config[len(protocol):]
+            if is_base64(base64_part):
                 return config
-                
+            # اگر base64 نبود، سعی در یافتن بخش معتبر
+            equal_pos = base64_part.rfind('=')
+            if equal_pos != -1:
+                config = protocol + base64_part[:equal_pos + 1]
+                if is_base64(config[len(protocol):]):
+                    return config
         else:
-            valid_chars = set('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._~:/?#[]@!$&\'()*+,;=')
-            current_pos = 0
-            
-            while current_pos < len(remaining_text):
-                if remaining_text[current_pos] not in valid_chars:
-                    break
-                current_pos += 1
-            
-            config = remaining_text[:current_pos].strip()
-            
-            while config and config[-1] not in valid_chars:
-                config = config[:-1]
-            
-            if len(config) > len(protocol) and config.startswith(protocol):
+            # برای سایر پروتکل‌ها
+            if all(c.isprintable() for c in config):
                 return config
         
         return None
-        
     except Exception as e:
         logger.error(f"Error in extract_config: {str(e)}")
         return None
 
 def process_configs(configs):
+    """پردازش و یکپارچه‌سازی کانفیگ‌ها"""
     processed = []
     seen = set()
     
     for config in configs:
         config = clean_config(config)
         
+        # بررسی تکراری نبودن
         if config in seen:
             continue
             
         for protocol in SUPPORTED_PROTOCOLS:
             if config.startswith(protocol):
+                # برای کانفیگ‌های base64
                 if protocol in ['vmess://', 'vless://', 'ss://']:
                     base64_part = config[len(protocol):]
                     if is_base64(base64_part):
                         processed.append(config)
                         seen.add(config)
                 else:
+                    # برای سایر پروتکل‌ها
                     processed.append(config)
                     seen.add(config)
                 break
@@ -107,6 +104,7 @@ def process_configs(configs):
     return processed
 
 def fetch_configs_from_channel(channel_url):
+    """دریافت کانفیگ‌ها از کانال تلگرام"""
     try:
         response = requests.get(channel_url, headers=HEADERS)
         response.raise_for_status()
@@ -150,6 +148,7 @@ def fetch_configs_from_channel(channel_url):
         return []
 
 def fetch_all_configs():
+    """دریافت و پردازش تمام کانفیگ‌ها"""
     all_configs = []
     
     for channel in TELEGRAM_CHANNELS:
@@ -158,13 +157,16 @@ def fetch_all_configs():
         processed_configs = process_configs(channel_configs)
         all_configs.extend(processed_configs)
     
+    # مرتب‌سازی و اضافه کردن شماره ترتیب
     if all_configs:
-        all_configs = sorted(set(all_configs))
+        all_configs = sorted(set(all_configs))  # حذف موارد تکراری
         final_configs = []
         for i, config in enumerate(all_configs):
+            # اگر کانفیگ base64 است و # ندارد، مستقیماً ذخیره می‌شود
             if any(config.startswith(p) for p in ['vmess://', 'vless://', 'ss://']) and is_base64(config.split('://', 1)[1]):
                 final_configs.append(config)
             else:
+                # برای سایر موارد، #Anon اضافه می‌شود
                 if '#' in config:
                     config = config.split('#')[0]
                 final_configs.append(f"{config}#Anon{i+1}")
@@ -174,11 +176,14 @@ def fetch_all_configs():
     return []
 
 def save_configs(configs):
+    """ذخیره کانفیگ‌ها در فایل"""
     os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
+    # پاک کردن محتوای فایل قبلی
     with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
-        f.write('\n\n'.join(configs))
+        f.write('\n\n'.join(configs))  # اضافه کردن دو خط فاصله بین هر کانفیگ
 
 def extract_date_from_message(message):
+    """استخراج تاریخ پیام"""
     try:
         time_element = message.find_parent('div', class_='tgme_widget_message').find('time')
         if time_element and 'datetime' in time_element.attrs:
@@ -188,6 +193,7 @@ def extract_date_from_message(message):
     return None
 
 def is_config_valid(config_text, date):
+    """بررسی اعتبار تاریخ کانفیگ"""
     if not date:
         return False
     
@@ -195,6 +201,7 @@ def is_config_valid(config_text, date):
     return date >= cutoff_date
 
 def main():
+    """تابع اصلی برنامه"""
     try:
         configs = fetch_all_configs()
         if configs:
