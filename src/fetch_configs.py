@@ -1,4 +1,3 @@
-# fetch_configs.py
 import re
 import os
 import time
@@ -21,21 +20,15 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 def is_base64(s):
-    """بررسی اعتبار رشته base64 با در نظر گرفتن استثناها"""
     try:
-        # حذف پدینگ = از انتها
         s = s.rstrip('=')
-        # بررسی کاراکترهای مجاز با در نظر گرفتن - و _ که در برخی کانفیگ‌ها استفاده می‌شوند
         return bool(re.match(r'^[A-Za-z0-9+/\-_]*$', s))
     except:
         return False
 
 def decode_base64_url(s):
-    """دیکد کردن base64 با پشتیبانی از فرمت URL-safe"""
     try:
-        # جایگزینی کاراکترهای URL-safe
         s = s.replace('-', '+').replace('_', '/')
-        # اضافه کردن پدینگ
         padding = 4 - (len(s) % 4)
         if padding != 4:
             s += '=' * padding
@@ -44,36 +37,26 @@ def decode_base64_url(s):
         return None
 
 def clean_config(config):
-    """پاکسازی و نرمال‌سازی کانفیگ"""
-    # حذف کاراکترهای غیرضروری
     config = re.sub(r'[\U0001F300-\U0001F9FF]', '', config)
     config = re.sub(r'[\x00-\x08\x0B-\x1F\x7F-\x9F]', '', config)
-    # حذف فضاهای خالی اضافی
     config = config.strip()
-    # حذف کامنت‌های اضافی
     if '#' in config:
         config = config.split('#')[0]
     return config
 
 def validate_protocol_config(config, protocol):
-    """اعتبارسنجی کانفیگ بر اساس پروتکل"""
     try:
         if protocol in ['vmess://', 'vless://', 'ss://']:
             base64_part = config[len(protocol):]
-            # URLدیکد کردن برای کانفیگ‌های 
             decoded_url = unquote(base64_part)
-            # بررسی اعتبار base64
             if is_base64(decoded_url) or is_base64(base64_part):
                 return True
-            # تلاش برای دیکد کردن
             if decode_base64_url(base64_part) or decode_base64_url(decoded_url):
                 return True
         elif protocol == 'trojan://':
-            # بررسی ساختار اصلی trojan
             if '@' in config and ':' in config:
                 return True
         elif protocol == 'hysteria2://' or protocol == 'wireguard://':
-            # بررسی ساده برای سایر پروتکل‌ها
             if '@' in config or ':' in config:
                 return True
         return False
@@ -81,11 +64,9 @@ def validate_protocol_config(config, protocol):
         return False
 
 def extract_config(text, start_index, protocol):
-    """استخراج کانفیگ با پشتیبانی بهتر از فرمت‌های مختلف"""
     try:
         remaining_text = text[start_index:]
         
-        # تعریف پایان‌دهنده‌های احتمالی
         possible_endings = [' ', '\n', '\r', '\t', '🔹', '♾', '🛜', '<', '>', '"', "'"]
         end_index = len(remaining_text)
         
@@ -97,7 +78,6 @@ def extract_config(text, start_index, protocol):
         config = remaining_text[:end_index].strip()
         config = clean_config(config)
         
-        # اعتبارسنجی نهایی
         if validate_protocol_config(config, protocol):
             return config
         
@@ -107,10 +87,9 @@ def extract_config(text, start_index, protocol):
         return None
 
 def fetch_configs_from_channel(channel_url):
-    """دریافت کانفیگ‌ها از کانال با تلاش مجدد در صورت خطا"""
     configs = []
     max_retries = 3
-    retry_delay = 5  # ثانیه
+    retry_delay = 5
     
     for attempt in range(max_retries):
         try:
@@ -148,7 +127,6 @@ def fetch_configs_from_channel(channel_url):
                     if not found_config:
                         current_position += 1
             
-            # بررسی تعداد کانفیگ‌های معتبر
             if len(configs) >= MIN_CONFIGS_PER_CHANNEL:
                 break
             elif attempt < max_retries - 1:
@@ -164,7 +142,6 @@ def fetch_configs_from_channel(channel_url):
     return configs
 
 def process_configs(configs):
-    """پردازش و فیلتر کردن کانفیگ‌ها"""
     processed = []
     seen = set()
     
@@ -184,7 +161,6 @@ def process_configs(configs):
     return processed
 
 def extract_date_from_message(message):
-    """استخراج تاریخ پیام از HTML"""
     try:
         time_element = message.find_parent('div', class_='tgme_widget_message').find('time')
         if time_element and 'datetime' in time_element.attrs:
@@ -194,15 +170,13 @@ def extract_date_from_message(message):
     return None
 
 def is_config_valid(config_text, date):
-    """بررسی اعتبار تاریخ کانفیگ"""
     if not date:
-        return True  # اگر تاریخ پیدا نشد، کانفیگ را قبول می‌کنیم
+        return True
     
     cutoff_date = datetime.now(date.tzinfo) - timedelta(days=MAX_CONFIG_AGE_DAYS)
     return date >= cutoff_date
 
 def fetch_all_configs():
-    """دریافت و پردازش تمام کانفیگ‌ها از همه کانال‌ها"""
     all_configs = []
     
     for channel in TELEGRAM_CHANNELS:
@@ -228,7 +202,6 @@ def fetch_all_configs():
     return []
 
 def save_configs(configs):
-    """ذخیره کانفیگ‌ها در فایل"""
     try:
         os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
         with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
@@ -238,7 +211,6 @@ def save_configs(configs):
         logger.error(f"Error saving configs: {str(e)}")
 
 def main():
-    """تابع اصلی برنامه"""
     try:
         configs = fetch_all_configs()
         if configs:
