@@ -1,6 +1,7 @@
 import os
 
 TELEGRAM_CHANNELS = [
+    "https://t.me/s/v2ray_free_conf",
     "https://t.me/s/v2rayngvpn",
     "https://t.me/s/V2ray_Alpha",
     "https://t.me/s/SvnV2ray",
