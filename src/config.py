@@ -5,7 +5,7 @@ TELEGRAM_CHANNELS = [
     "https://t.me/s/v2rayngvpn",
     "https://t.me/s/V2ray_Alpha",
     "https://t.me/s/SvnV2ray",
-    "https://t.me/s/RadixVPN",
+    "https://t.me/s/RadixVPN"
     # ... اضافه کردن کانال‌های بیشتر
 ]
 
@@ -20,8 +20,8 @@ SUPPORTED_PROTOCOLS = [
 ]
 
 # تنظیمات عمومی
-MIN_CONFIGS_PER_CHANNEL = 10
-MAX_CONFIG_AGE_DAYS = 60  # 2 ماه
+MIN_CONFIGS_PER_CHANNEL = 5
+MAX_CONFIG_AGE_DAYS = 90  # 2 ماه
 OUTPUT_FILE = 'configs/proxy_configs.txt'
 
 # تنظیمات هدر برای درخواست‌های HTTP
