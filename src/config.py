@@ -1,4 +1,3 @@
-# config.py
 import os
 
 TELEGRAM_CHANNELS = [
