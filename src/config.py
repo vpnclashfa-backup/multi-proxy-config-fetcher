@@ -20,8 +20,8 @@ SUPPORTED_PROTOCOLS = [
 ]
 
 # تنظیمات عمومی
-MIN_CONFIGS_PER_CHANNEL = 5
-MAX_CONFIG_AGE_DAYS = 90  # 2 ماه
+MIN_CONFIGS_PER_CHANNEL = 20
+MAX_CONFIG_AGE_DAYS = 90
 OUTPUT_FILE = 'configs/proxy_configs.txt'
 
 # تنظیمات هدر برای درخواست‌های HTTP
