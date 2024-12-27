@@ -11,8 +11,8 @@ TELEGRAM_CHANNELS = [
 SUPPORTED_PROTOCOLS = [
     "wireguard://",
     "hysteria2://",
-    #"vless://",
-    #"vmess://",
+    "vless://",
+    "vmess://",
     "ss://",
     "trojan://"
 ]
