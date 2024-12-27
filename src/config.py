@@ -5,7 +5,7 @@ TELEGRAM_CHANNELS = [
     "https://t.me/s/v2rayngvpn",
     "https://t.me/s/V2ray_Alpha",
     "https://t.me/s/SvnV2ray",
-    "https://t.me/s/RadixVPN",
+    "https://t.me/s/RadixVPN"
 ]
 
 SUPPORTED_PROTOCOLS = [
@@ -17,8 +17,8 @@ SUPPORTED_PROTOCOLS = [
     "trojan://"
 ]
 
-MIN_CONFIGS_PER_CHANNEL = 5
-MAX_CONFIG_AGE_DAYS = 10
+MIN_CONFIGS_PER_CHANNEL = 2
+MAX_CONFIG_AGE_DAYS = 2
 OUTPUT_FILE = 'configs/proxy_configs.txt'
 
 HEADERS = {
