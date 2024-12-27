@@ -1,4 +1,3 @@
-# Python
 __pycache__/
 *.py[cod]
 *$py.class
@@ -20,13 +19,11 @@ var/
 .installed.cfg
 *.egg
 
-# IDE
 .idea/
 .vscode/
 *.swp
 *.swo
 
-# Project specific
 *.session
 *.session-journal
 .env
