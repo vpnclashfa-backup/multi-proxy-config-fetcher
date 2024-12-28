@@ -176,7 +176,6 @@ class ConfigFetcher:
         return date >= cutoff_date
 
     def balance_protocols(self, configs: List[str]) -> List[str]:
-        # Count configs per protocol
         protocol_configs: Dict[str, List[str]] = {p: [] for p in self.config.SUPPORTED_PROTOCOLS}
         for config in configs:
             for protocol in self.config.SUPPORTED_PROTOCOLS:
@@ -267,7 +266,6 @@ def main():
         else:
             logger.error("No valid configs found!")
             
-        # Save channel statistics
         save_channel_stats(config)
             
     except Exception as e:
