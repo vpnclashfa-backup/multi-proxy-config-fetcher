@@ -10,6 +10,7 @@ import requests
 from bs4 import BeautifulSoup
 from urllib.parse import unquote
 from config import ProxyConfig, ChannelConfig
+from config_validator import ConfigValidator
 
 logging.basicConfig(
     level=logging.INFO,
@@ -21,50 +22,15 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-class ConfigValidator:
-    @staticmethod
-    def is_base64(s: str) -> bool:
-        try:
-            s = s.rstrip('=')
-            return bool(re.match(r'^[A-Za-z0-9+/\-_]*$', s))
-        except:
-            return False
-
-    @staticmethod
-    def decode_base64_url(s: str) -> Optional[bytes]:
-        try:
-            s = s.replace('-', '+').replace('_', '/')
-            padding = 4 - (len(s) % 4)
-            if padding != 4:
-                s += '=' * padding
-            return base64.b64decode(s)
-        except:
-            return None
-
-    @staticmethod
-    def clean_config(config: str) -> str:
-        config = re.sub(r'[\U0001F300-\U0001F9FF]', '', config)
-        config = re.sub(r'[\x00-\x08\x0B-\x1F\x7F-\x9F]', '', config)
-        config = config.strip()
-        if '#' in config:
-            config = config.split('#')[0]
+def add_config_name(config: str, index: int) -> str:
+    is_base64, protocol = ConfigValidator.is_base64_config(config)
+    
+    if is_base64:
         return config
-
-    @classmethod
-    def validate_protocol_config(cls, config: str, protocol: str) -> bool:
-        try:
-            if protocol in ['vmess://', 'vless://', 'ss://']:
-                base64_part = config[len(protocol):]
-                decoded_url = unquote(base64_part)
-                if cls.is_base64(decoded_url) or cls.is_base64(base64_part):
-                    return True
-                if cls.decode_base64_url(base64_part) or cls.decode_base64_url(decoded_url):
-                    return True
-            elif protocol in ['trojan://', 'hysteria2://', 'wireguard://']:
-                return '@' in config and ':' in config
-            return False
-        except:
-            return False
+    elif '#' not in config:
+        return f"{config}#Anon{index+1}"
+    
+    return config
 
 class ConfigFetcher:
     def __init__(self, config: ProxyConfig):
@@ -210,9 +176,7 @@ class ConfigFetcher:
             all_configs = self.balance_protocols(sorted(set(all_configs)))
             final_configs = []
             for i, config in enumerate(all_configs):
-                if '#' not in config:
-                    config = f"{config}#Anon{i+1}"
-                final_configs.append(config)
+                final_configs.append(add_config_name(config, i))
             
             return final_configs
         
