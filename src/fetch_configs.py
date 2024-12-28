@@ -5,10 +5,11 @@ import json
 import logging
 import base64
 from datetime import datetime, timedelta
-from typing import List, Dict, Set, Optional, Tuple
+from typing import List, Dict, Optional
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import unquote
+from config import ProxyConfig, ChannelConfig  # اضافه کردن import های مورد نیاز
 
 logging.basicConfig(
     level=logging.INFO,
@@ -175,6 +176,7 @@ class ConfigFetcher:
         return date >= cutoff_date
 
     def balance_protocols(self, configs: List[str]) -> List[str]:
+        # Count configs per protocol
         protocol_configs: Dict[str, List[str]] = {p: [] for p in self.config.SUPPORTED_PROTOCOLS}
         for config in configs:
             for protocol in self.config.SUPPORTED_PROTOCOLS:
@@ -182,12 +184,14 @@ class ConfigFetcher:
                     protocol_configs[protocol].append(config)
                     break
         
+        # Calculate minimum configs needed per protocol
         total_configs = len(configs)
         min_configs_per_protocol = max(
             self.config.MIN_CONFIGS_PER_CHANNEL,
             int(total_configs * self.config.MIN_PROTOCOL_RATIO)
         )
         
+        # Balance configs
         balanced_configs: List[str] = []
         for protocol, protocol_config_list in protocol_configs.items():
             if len(protocol_config_list) < min_configs_per_protocol:
@@ -226,27 +230,6 @@ def save_configs(configs: List[str], config: ProxyConfig):
     except Exception as e:
         logger.error(f"Error saving configs: {str(e)}")
 
-def main():
-    try:
-        config = ProxyConfig()
-        fetcher = ConfigFetcher(config)
-        configs = fetcher.fetch_all_configs()
-        
-        if configs:
-            save_configs(configs, config)
-            logger.info(f"Successfully processed {len(configs)} configs at {datetime.now()}")
-            
-            for protocol, count in fetcher.protocol_counts.items():
-                logger.info(f"{protocol}: {count} configs")
-        else:
-            logger.error("No valid configs found!")
-            
-        # Save channel statistics
-        save_channel_stats(config)
-            
-    except Exception as e:
-        logger.error(f"Error in main execution: {str(e)}")
-
 def save_channel_stats(config: ProxyConfig):
     """Save channel statistics to a JSON file for monitoring"""
     try:
@@ -271,6 +254,28 @@ def save_channel_stats(config: ProxyConfig):
         logger.info(f"Channel statistics saved to {config.STATS_FILE}")
     except Exception as e:
         logger.error(f"Error saving channel statistics: {str(e)}")
+
+def main():
+    try:
+        config = ProxyConfig()
+        fetcher = ConfigFetcher(config)
+        configs = fetcher.fetch_all_configs()
+        
+        if configs:
+            save_configs(configs, config)
+            logger.info(f"Successfully processed {len(configs)} configs at {datetime.now()}")
+            
+            # Log protocol distribution
+            for protocol, count in fetcher.protocol_counts.items():
+                logger.info(f"{protocol}: {count} configs")
+        else:
+            logger.error("No valid configs found!")
+            
+        # Save channel statistics
+        save_channel_stats(config)
+            
+    except Exception as e:
+        logger.error(f"Error in main execution: {str(e)}")
 
 if __name__ == '__main__':
     main()
