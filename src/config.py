@@ -1,5 +1,4 @@
-import os
-from typing import Dict, List, Set
+from typing import Dict, List
 
 class ChannelConfig:
     def __init__(self, url: str, enabled: bool = True, retry_count: int = 0):
@@ -27,17 +26,21 @@ class ProxyConfig:
             "trojan://": {"min_configs": 2, "max_configs": 10}
         }
 
+        # Channel configuration
         self.MIN_CONFIGS_PER_CHANNEL = 2
         self.MAX_CONFIGS_PER_CHANNEL = 20
         self.MAX_CONFIG_AGE_DAYS = 2
         self.CHANNEL_RETRY_LIMIT = 3
         self.CHANNEL_ERROR_THRESHOLD = 0.7  # 70% success rate threshold
 
-        self.MIN_PROTOCOL_RATIO = 0.1
+        # Protocol balance settings
+        self.MIN_PROTOCOL_RATIO = 0.1  # Minimum 10% of total configs per protocol
 
+        # Output settings
         self.OUTPUT_FILE = 'configs/proxy_configs.txt'
         self.STATS_FILE = 'configs/channel_stats.json'
 
+        # Request settings
         self.MAX_RETRIES = 3
         self.RETRY_DELAY = 5
         self.REQUEST_TIMEOUT = 30
@@ -59,9 +62,11 @@ class ProxyConfig:
     def update_channel_stats(self, channel: ChannelConfig, success: bool):
         channel.retry_count = 0 if success else channel.retry_count + 1
         
-        weight = 0.7
+        # Update success rate
+        weight = 0.7  # Weight for new result vs historical data
         new_rate = 100.0 if success else 0.0
         channel.success_rate = (weight * new_rate) + ((1 - weight) * channel.success_rate)
         
+        # Disable channel if it's performing poorly
         if channel.success_rate < self.CHANNEL_ERROR_THRESHOLD * 100:
             channel.enabled = False
