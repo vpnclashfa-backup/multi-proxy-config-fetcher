@@ -11,11 +11,15 @@ This project automatically fetches and updates various proxy configurations from
   - VMess
   - Shadowsocks (SS)
   - Trojan
+- Smart handling of base64-encoded configs (preserves original format)
+- Intelligent config naming (adds #AnonX only to non-base64 configs)
+- Protocol-specific validation and verification
 - Fetches configs from multiple Telegram channels
 - Automatically updates configs every hour
-- Validates config age (excludes configs older than 2 months)
+- Validates config age (excludes configs older than 2 days)
 - Removes duplicates
-- Adds consistent naming format (#Anon1, #Anon2, etc.)
+- Tracks channel reliability and success rates
+- Balances config distribution across protocols
 
 ## Setup
 
@@ -42,10 +46,34 @@ python src/fetch_configs.py
 
 Edit `src/config.py` to modify:
 - Telegram channel list
-- Minimum configs per channel
+- Minimum/maximum configs per protocol
+- Protocol ratios and balancing
 - Maximum config age
 - Output file location
 - Supported protocols
+- Request headers and timeouts
+
+## Project Structure
+
+```
+├── src/
+│   ├── config.py              # Project configuration
+│   ├── config_validator.py    # Config validation and verification
+│   └── fetch_configs.py       # Main fetcher implementation
+├── configs/
+│   ├── proxy_configs.txt      # Output configs
+│   └── channel_stats.json     # Channel performance stats
+└── .github/
+    └── workflows/
+        └── update-configs.yml # GitHub Actions workflow
+```
+
+## Channel Statistics
+
+The project now tracks channel performance metrics in `configs/channel_stats.json`:
+- Success rate for config fetching
+- Channel reliability tracking
+- Retry counts and status
 
 ## License
 
