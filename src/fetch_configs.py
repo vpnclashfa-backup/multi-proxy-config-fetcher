@@ -9,7 +9,7 @@ from typing import List, Dict, Optional
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import unquote
-from config import ProxyConfig, ChannelConfig  # اضافه کردن import های مورد نیاز
+from config import ProxyConfig, ChannelConfig
 
 logging.basicConfig(
     level=logging.INFO,
@@ -184,14 +184,12 @@ class ConfigFetcher:
                     protocol_configs[protocol].append(config)
                     break
         
-        # Calculate minimum configs needed per protocol
         total_configs = len(configs)
         min_configs_per_protocol = max(
             self.config.MIN_CONFIGS_PER_CHANNEL,
             int(total_configs * self.config.MIN_PROTOCOL_RATIO)
         )
         
-        # Balance configs
         balanced_configs: List[str] = []
         for protocol, protocol_config_list in protocol_configs.items():
             if len(protocol_config_list) < min_configs_per_protocol:
@@ -231,7 +229,6 @@ def save_configs(configs: List[str], config: ProxyConfig):
         logger.error(f"Error saving configs: {str(e)}")
 
 def save_channel_stats(config: ProxyConfig):
-    """Save channel statistics to a JSON file for monitoring"""
     try:
         stats = {
             'timestamp': datetime.now().isoformat(),
@@ -265,7 +262,6 @@ def main():
             save_configs(configs, config)
             logger.info(f"Successfully processed {len(configs)} configs at {datetime.now()}")
             
-            # Log protocol distribution
             for protocol, count in fetcher.protocol_counts.items():
                 logger.info(f"{protocol}: {count} configs")
         else:
