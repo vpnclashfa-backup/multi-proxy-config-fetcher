@@ -2,6 +2,14 @@
 
 This project automatically fetches and updates various proxy configurations from public Telegram channels. It supports multiple proxy protocols including WireGuard, Hysteria2, VLESS, VMess, Shadowsocks, and Trojan.
 
+## Channel Performance
+
+Below is the real-time performance statistics of the configured channels. This chart is automatically updated every hour.
+
+![Channel Statistics](assets/channel_stats_chart.svg?v=1)
+
+> **Note**: These channels are configured as examples. You can easily modify the channel list in `src/config.py` to use your preferred Telegram channels. The success rates shown above are based on real-time monitoring of each channel's reliability in providing valid configurations.
+
 ## Features
 
 - Supports multiple proxy protocols:
