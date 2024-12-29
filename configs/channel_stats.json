@@ -1,0 +1,53 @@
+{
+  "timestamp": "2024-12-29T00:40:17.832610",
+  "channels": [
+    {
+      "url": "https://t.me/s/v2ray_free_conf",
+      "enabled": true,
+      "retry_count": 0,
+      "success_rate": 100.0
+    },
+    {
+      "url": "https://t.me/s/v2rayngvpn",
+      "enabled": false,
+      "retry_count": 1,
+      "success_rate": 30.000000000000004
+    },
+    {
+      "url": "https://t.me/s/V2ray_Alpha",
+      "enabled": true,
+      "retry_count": 0,
+      "success_rate": 100.0
+    },
+    {
+      "url": "https://t.me/s/SvnV2ray",
+      "enabled": false,
+      "retry_count": 1,
+      "success_rate": 30.000000000000004
+    },
+    {
+      "url": "https://t.me/s/RadixVPN",
+      "enabled": false,
+      "retry_count": 1,
+      "success_rate": 30.000000000000004
+    },
+    {
+      "url": "https://t.me/s/PrivateVPNs",
+      "enabled": true,
+      "retry_count": 0,
+      "success_rate": 100.0
+    },
+    {
+      "url": "https://t.me/s/VlessConfig",
+      "enabled": true,
+      "retry_count": 0,
+      "success_rate": 100.0
+    },
+    {
+      "url": "https://t.me/s/freewireguard",
+      "enabled": true,
+      "retry_count": 0,
+      "success_rate": 100.0
+    }
+  ]
+}
