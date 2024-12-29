@@ -3,14 +3,12 @@ import os
 from datetime import datetime
 
 def generate_chart_svg(stats_data):
-    # Calculate chart dimensions
     width = 800
     height = 400
     margin = 60
     bar_width = (width - 2 * margin) / len(stats_data['channels'])
     max_success_rate = 100
 
-    # Generate SVG
     svg = f'''
     <svg width="{width}" height="{height}" xmlns="http://www.w3.org/2000/svg">
         <style>
@@ -49,7 +47,6 @@ def generate_chart_svg(stats_data):
         bar_height = ((height - 2 * margin) * success_rate) / max_success_rate
         bar_y = height - margin - bar_height
         
-        # Add bar
         svg += f'''
         <g>
             <rect x="{bar_x}" y="{bar_y}" width="{bar_width-5}" height="{bar_height}"
