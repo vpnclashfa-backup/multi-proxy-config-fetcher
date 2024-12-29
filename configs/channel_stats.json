@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-12-29T22:08:26.454902",
+  "timestamp": "2024-12-29T22:45:59.949772",
   "channels": [
     {
       "url": "https://t.me/s/v2ray_free_conf",
@@ -15,6 +15,12 @@
     },
     {
       "url": "https://t.me/s/ZibaNabz",
+      "enabled": true,
+      "retry_count": 0,
+      "success_rate": 100.0
+    },
+    {
+      "url": "https://t.me/s/configV2rayForFree",
       "enabled": true,
       "retry_count": 0,
       "success_rate": 100.0
