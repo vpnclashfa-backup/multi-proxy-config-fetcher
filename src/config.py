@@ -13,29 +13,34 @@ class ProxyConfig:
             ChannelConfig("https://t.me/s/v2ray_free_conf"),
             ChannelConfig("https://t.me/s/v2rayngvpn"),
             ChannelConfig("https://t.me/s/V2ray_Alpha"),
-            ChannelConfig("https://t.me/s/SvnV2ray"),
+            ChannelConfig("https://t.me/s/SvnV2ray"), 
             ChannelConfig("https://t.me/s/RadixVPN"),
             ChannelConfig("https://t.me/s/PrivateVPNs"),
             ChannelConfig("https://t.me/s/VlessConfig"),
             ChannelConfig("https://t.me/s/freewireguard")
         ]
 
-        self.SUPPORTED_PROTOCOLS: Dict[str, Dict] = {
-            "wireguard://": {"min_configs": 2, "max_configs": 10},
-            "hysteria2://": {"min_configs": 2, "max_configs": 10},
-            "vless://": {"min_configs": 2, "max_configs": 10},
-            "vmess://": {"min_configs": 2, "max_configs": 10},
-            "ss://": {"min_configs": 2, "max_configs": 10},
-            "trojan://": {"min_configs": 2, "max_configs": 10}
+        self.PROTOCOL_CONFIG_LIMITS = {
+            "min": 5,
+            "max": 15
         }
 
-        self.MIN_CONFIGS_PER_CHANNEL = 2
-        self.MAX_CONFIGS_PER_CHANNEL = 20
-        self.MAX_CONFIG_AGE_DAYS = 2
-        self.CHANNEL_RETRY_LIMIT = 3
-        self.CHANNEL_ERROR_THRESHOLD = 0.7
+        self.SUPPORTED_PROTOCOLS: Dict[str, Dict] = {
+            "wireguard://": {"min_configs": self.PROTOCOL_CONFIG_LIMITS["min"], "max_configs": self.PROTOCOL_CONFIG_LIMITS["max"]},
+            "hysteria2://": {"min_configs": self.PROTOCOL_CONFIG_LIMITS["min"], "max_configs": self.PROTOCOL_CONFIG_LIMITS["max"]},
+            "vless://": {"min_configs": self.PROTOCOL_CONFIG_LIMITS["min"], "max_configs": self.PROTOCOL_CONFIG_LIMITS["max"]},
+            "vmess://": {"min_configs": self.PROTOCOL_CONFIG_LIMITS["min"], "max_configs": self.PROTOCOL_CONFIG_LIMITS["max"]},
+            "ss://": {"min_configs": self.PROTOCOL_CONFIG_LIMITS["min"], "max_configs": self.PROTOCOL_CONFIG_LIMITS["max"]},
+            "trojan://": {"min_configs": self.PROTOCOL_CONFIG_LIMITS["min"], "max_configs": self.PROTOCOL_CONFIG_LIMITS["max"]}
+        }
 
-        self.MIN_PROTOCOL_RATIO = 0.1
+        self.MIN_CONFIGS_PER_CHANNEL = 5
+        self.MAX_CONFIGS_PER_CHANNEL = 30
+        self.MAX_CONFIG_AGE_DAYS = 7
+        self.CHANNEL_RETRY_LIMIT = 3
+        self.CHANNEL_ERROR_THRESHOLD = 0.5
+
+        self.MIN_PROTOCOL_RATIO = 0.15
 
         self.OUTPUT_FILE = 'configs/proxy_configs.txt'
         self.STATS_FILE = 'configs/channel_stats.json'
@@ -61,7 +66,7 @@ class ProxyConfig:
     def update_channel_stats(self, channel: ChannelConfig, success: bool):
         channel.retry_count = 0 if success else channel.retry_count + 1
         
-        weight = 0.7
+        weight = 0.5
         new_rate = 100.0 if success else 0.0
         channel.success_rate = (weight * new_rate) + ((1 - weight) * channel.success_rate)
         
