@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-12-29T09:08:38.911582",
+  "timestamp": "2024-12-29T09:13:22.521101",
   "channels": [
     {
       "url": "https://t.me/s/v2ray_free_conf",
@@ -33,9 +33,9 @@
     },
     {
       "url": "https://t.me/s/PrivateVPNs",
-      "enabled": true,
-      "retry_count": 0,
-      "success_rate": 100.0
+      "enabled": false,
+      "retry_count": 1,
+      "success_rate": 30.000000000000004
     },
     {
       "url": "https://t.me/s/VlessConfig",
