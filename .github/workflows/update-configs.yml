@@ -30,9 +30,17 @@ jobs:
     - name: Run config fetcher
       run: python src/fetch_configs.py
     
+    - name: Generate performance chart
+      run: python src/generate_charts.py
+    
+    - name: Update README with latest stats
+      run: |
+        # Create new README with updated timestamp
+        sed -i "s|channel-stats-chart.svg?v=.*|channel-stats-chart.svg?v=$(date +%s)|" README.md
+    
     - name: Commit and push if changed
       run: |
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git add configs/proxy_configs.txt configs/channel_stats.json
-        git diff --quiet && git diff --staged --quiet || (git commit -m "Update proxy configs and stats" && git push)
+        git add configs/proxy_configs.txt configs/channel_stats.json assets/channel_stats_chart.svg README.md
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Update proxy configs, stats and charts" && git push)
