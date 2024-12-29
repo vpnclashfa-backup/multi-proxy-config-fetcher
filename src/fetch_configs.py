@@ -4,10 +4,9 @@ import time
 import json
 import logging
 import base64
-import asyncio
-import aiohttp
 from datetime import datetime, timedelta
-from typing import List, Dict, Optional, Set
+from typing import List, Dict, Optional
+import requests
 from bs4 import BeautifulSoup
 from urllib.parse import unquote
 from config import ProxyConfig, ChannelConfig
@@ -38,18 +37,6 @@ class ConfigFetcher:
         self.config = config
         self.validator = ConfigValidator()
         self.protocol_counts: Dict[str, int] = {p: 0 for p in config.SUPPORTED_PROTOCOLS}
-        self.session: Optional[aiohttp.ClientSession] = None
-        self.configs_seen: Set[str] = set()
-
-    async def create_session(self):
-        if not self.session:
-            timeout = aiohttp.ClientTimeout(total=self.config.REQUEST_TIMEOUT)
-            self.session = aiohttp.ClientSession(timeout=timeout, headers=self.config.HEADERS)
-
-    async def close_session(self):
-        if self.session:
-            await self.session.close()
-            self.session = None
 
     def extract_config(self, text: str, start_index: int, protocol: str) -> Optional[str]:
         try:
@@ -65,11 +52,7 @@ class ConfigFetcher:
             config = remaining_text[:end_index].strip()
             config = self.validator.clean_config(config)
             
-            if config in self.configs_seen:
-                return None
-                
             if self.validator.validate_protocol_config(config, protocol):
-                self.configs_seen.add(config)
                 return config
             
             return None
@@ -77,18 +60,20 @@ class ConfigFetcher:
             logger.error(f"Error in extract_config: {str(e)}")
             return None
 
-    async def fetch_configs_from_channel(self, channel: ChannelConfig) -> List[str]:
+    def fetch_configs_from_channel(self, channel: ChannelConfig) -> List[str]:
         configs: List[str] = []
         
         for attempt in range(self.config.MAX_RETRIES):
             try:
-                async with self.session.get(channel.url) as response:
-                    if response.status != 200:
-                        raise Exception(f"HTTP {response.status}")
-                    
-                    text = await response.text()
-                    soup = BeautifulSoup(text, 'html.parser')
-                    messages = soup.find_all('div', class_='tgme_widget_message_text')
+                response = requests.get(
+                    channel.url,
+                    headers=self.config.HEADERS,
+                    timeout=self.config.REQUEST_TIMEOUT
+                )
+                response.raise_for_status()
+                
+                soup = BeautifulSoup(response.text, 'html.parser')
+                messages = soup.find_all('div', class_='tgme_widget_message_text')
                 
                 for message in messages:
                     if not message or not message.text:
@@ -127,12 +112,12 @@ class ConfigFetcher:
                     break
                 elif attempt < self.config.MAX_RETRIES - 1:
                     logger.warning(f"Not enough configs found in {channel.url}, retrying...")
-                    await asyncio.sleep(self.config.RETRY_DELAY)
+                    time.sleep(self.config.RETRY_DELAY)
                 
             except Exception as e:
                 logger.error(f"Attempt {attempt + 1}/{self.config.MAX_RETRIES} failed for {channel.url}: {str(e)}")
                 if attempt < self.config.MAX_RETRIES - 1:
-                    await asyncio.sleep(self.config.RETRY_DELAY)
+                    time.sleep(self.config.RETRY_DELAY)
                 continue
         
         if not configs:
@@ -178,31 +163,24 @@ class ConfigFetcher:
         
         return balanced_configs
 
-    async def fetch_all_configs(self) -> List[str]:
-        await self.create_session()
+    def fetch_all_configs(self) -> List[str]:
+        all_configs: List[str] = []
+        enabled_channels = self.config.get_enabled_channels()
         
-        try:
-            all_configs: List[str] = []
-            enabled_channels = self.config.get_enabled_channels()
+        for channel in enabled_channels:
+            logger.info(f"Fetching configs from {channel.url}")
+            channel_configs = self.fetch_configs_from_channel(channel)
+            all_configs.extend(channel_configs)
+        
+        if all_configs:
+            all_configs = self.balance_protocols(sorted(set(all_configs)))
+            final_configs = []
+            for i, config in enumerate(all_configs):
+                final_configs.append(add_config_name(config, i))
             
-            tasks = [self.fetch_configs_from_channel(channel) for channel in enabled_channels]
-            results = await asyncio.gather(*tasks, return_exceptions=True)
-            
-            for channel_configs in results:
-                if isinstance(channel_configs, list):
-                    all_configs.extend(channel_configs)
-            
-            if all_configs:
-                all_configs = self.balance_protocols(sorted(set(all_configs)))
-                final_configs = []
-                for i, config in enumerate(all_configs):
-                    final_configs.append(add_config_name(config, i))
-                
-                return final_configs
-            
-            return []
-        finally:
-            await self.close_session()
+            return final_configs
+        
+        return []
 
 def save_configs(configs: List[str], config: ProxyConfig):
     try:
@@ -237,11 +215,11 @@ def save_channel_stats(config: ProxyConfig):
     except Exception as e:
         logger.error(f"Error saving channel statistics: {str(e)}")
 
-async def main():
+def main():
     try:
         config = ProxyConfig()
         fetcher = ConfigFetcher(config)
-        configs = await fetcher.fetch_all_configs()
+        configs = fetcher.fetch_all_configs()
         
         if configs:
             save_configs(configs, config)
@@ -258,4 +236,4 @@ async def main():
         logger.error(f"Error in main execution: {str(e)}")
 
 if __name__ == '__main__':
-    asyncio.run(main())
+    main()
