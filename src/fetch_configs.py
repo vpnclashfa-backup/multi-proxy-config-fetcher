@@ -22,38 +22,34 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+def add_config_name(config: str, index: int) -> str:
+    is_base64, protocol = ConfigValidator.is_base64_config(config)
+    
+    if is_base64:
+        return config
+    elif '#' not in config:
+        return f"{config}#Anon{index+1}"
+    
+    return config
+
 class ConfigFetcher:
     def __init__(self, config: ProxyConfig):
         self.config = config
         self.validator = ConfigValidator()
         self.protocol_counts: Dict[str, int] = {p: 0 for p in config.SUPPORTED_PROTOCOLS}
 
-    def find_next_protocol_index(self, text: str, start_pos: int) -> tuple[int, str]:
-        min_index = float('inf')
-        found_protocol = None
-        
-        for protocol in self.config.SUPPORTED_PROTOCOLS:
-            index = text.find(protocol, start_pos)
-            if index != -1 and index < min_index:
-                min_index = index
-                found_protocol = protocol
-                
-        if min_index == float('inf'):
-            return -1, None
-            
-        return min_index, found_protocol
-
-    def extract_config(self, text: str, start_index: int) -> Optional[str]:
+    def extract_config(self, text: str, start_index: int, protocol: str) -> Optional[str]:
         try:
-            next_index, _ = self.find_next_protocol_index(text, start_index + 1)
+            remaining_text = text[start_index:]
+            configs = self.validator.split_configs(remaining_text)
             
-            if next_index == -1:
-                config = text[start_index:].strip()
-            else:
-                config = text[start_index:next_index].strip()
+            for config in configs:
+                if config.startswith(protocol):
+                    clean_config = self.validator.clean_config(config)
+                    if self.validator.validate_protocol_config(clean_config, protocol):
+                        return clean_config
             
-            return self.validator.clean_config(config)
-            
+            return None
         except Exception as e:
             logger.error(f"Error in extract_config: {str(e)}")
             return None
@@ -82,24 +78,19 @@ class ConfigFetcher:
                         continue
                     
                     text = message.text
-                    current_position = 0
+                    found_configs = self.validator.split_configs(text)
                     
-                    while current_position < len(text):
-                        protocol_index, protocol = self.find_next_protocol_index(text, current_position)
-                        
-                        if protocol_index == -1:
-                            break
-                            
-                        if self.protocol_counts[protocol] >= self.config.SUPPORTED_PROTOCOLS[protocol]["max_configs"]:
-                            current_position = protocol_index + len(protocol)
-                            continue
-                        
-                        config = self.extract_config(text, protocol_index)
-                        if config and self.validator.validate_protocol_config(config, protocol):
-                            configs.append(config)
-                            self.protocol_counts[protocol] += 1
-                            
-                        current_position = protocol_index + len(protocol)
+                    for config in found_configs:
+                        for protocol in self.config.SUPPORTED_PROTOCOLS:
+                            if config.startswith(protocol):
+                                if self.protocol_counts[protocol] >= self.config.SUPPORTED_PROTOCOLS[protocol]["max_configs"]:
+                                    continue
+                                    
+                                clean_config = self.validator.clean_config(config)
+                                if self.validator.validate_protocol_config(clean_config, protocol):
+                                    configs.append(clean_config)
+                                    self.protocol_counts[protocol] += 1
+                                break
                 
                 if len(configs) >= self.config.MIN_CONFIGS_PER_CHANNEL:
                     self.config.update_channel_stats(channel, True)
@@ -168,7 +159,11 @@ class ConfigFetcher:
         
         if all_configs:
             all_configs = self.balance_protocols(sorted(set(all_configs)))
-            return all_configs
+            final_configs = []
+            for i, config in enumerate(all_configs):
+                final_configs.append(add_config_name(config, i))
+            
+            return final_configs
         
         return []
 
@@ -176,7 +171,8 @@ def save_configs(configs: List[str], config: ProxyConfig):
     try:
         os.makedirs(os.path.dirname(config.OUTPUT_FILE), exist_ok=True)
         with open(config.OUTPUT_FILE, 'w', encoding='utf-8') as f:
-            f.write('\n\n'.join(configs))
+            for config in configs:
+                f.write(config + '\n\n')
         logger.info(f"Successfully saved {len(configs)} configs to {config.OUTPUT_FILE}")
     except Exception as e:
         logger.error(f"Error saving configs: {str(e)}")
