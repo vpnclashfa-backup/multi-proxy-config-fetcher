@@ -22,35 +22,38 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-def add_config_name(config: str, index: int) -> str:
-    if '#' not in config:
-        return f"{config}#{index+1}"
-    return config
-
 class ConfigFetcher:
     def __init__(self, config: ProxyConfig):
         self.config = config
         self.validator = ConfigValidator()
         self.protocol_counts: Dict[str, int] = {p: 0 for p in config.SUPPORTED_PROTOCOLS}
 
-    def extract_config(self, text: str, start_index: int, protocol: str) -> Optional[str]:
+    def find_next_protocol_index(self, text: str, start_pos: int) -> tuple[int, str]:
+        min_index = float('inf')
+        found_protocol = None
+        
+        for protocol in self.config.SUPPORTED_PROTOCOLS:
+            index = text.find(protocol, start_pos)
+            if index != -1 and index < min_index:
+                min_index = index
+                found_protocol = protocol
+                
+        if min_index == float('inf'):
+            return -1, None
+            
+        return min_index, found_protocol
+
+    def extract_config(self, text: str, start_index: int) -> Optional[str]:
         try:
-            remaining_text = text[start_index:]
-            possible_endings = [' ', '\n', '\r', '\t', '🔹', '♾', '🛜', '<', '>', '"', "'"]
-            end_index = len(remaining_text)
+            next_index, _ = self.find_next_protocol_index(text, start_index + 1)
             
-            for ending in possible_endings:
-                pos = remaining_text.find(ending)
-                if pos != -1 and pos < end_index:
-                    end_index = pos
+            if next_index == -1:
+                config = text[start_index:].strip()
+            else:
+                config = text[start_index:next_index].strip()
             
-            config = remaining_text[:end_index].strip()
-            config = self.validator.clean_config(config)
+            return self.validator.clean_config(config)
             
-            if self.validator.validate_protocol_config(config, protocol):
-                return config
-            
-            return None
         except Exception as e:
             logger.error(f"Error in extract_config: {str(e)}")
             return None
@@ -82,25 +85,21 @@ class ConfigFetcher:
                     current_position = 0
                     
                     while current_position < len(text):
-                        found_config = False
+                        protocol_index, protocol = self.find_next_protocol_index(text, current_position)
                         
-                        for protocol in self.config.SUPPORTED_PROTOCOLS:
-                            if self.protocol_counts[protocol] >= self.config.SUPPORTED_PROTOCOLS[protocol]["max_configs"]:
-                                continue
-                                
-                            protocol_index = text.find(protocol, current_position)
+                        if protocol_index == -1:
+                            break
                             
-                            if protocol_index != -1:
-                                config = self.extract_config(text, protocol_index, protocol)
-                                if config:
-                                    configs.append(config)
-                                    self.protocol_counts[protocol] += 1
-                                    current_position = protocol_index + len(config)
-                                    found_config = True
-                                    break
+                        if self.protocol_counts[protocol] >= self.config.SUPPORTED_PROTOCOLS[protocol]["max_configs"]:
+                            current_position = protocol_index + len(protocol)
+                            continue
                         
-                        if not found_config:
-                            current_position += 1
+                        config = self.extract_config(text, protocol_index)
+                        if config and self.validator.validate_protocol_config(config, protocol):
+                            configs.append(config)
+                            self.protocol_counts[protocol] += 1
+                            
+                        current_position = protocol_index + len(protocol)
                 
                 if len(configs) >= self.config.MIN_CONFIGS_PER_CHANNEL:
                     self.config.update_channel_stats(channel, True)
@@ -169,12 +168,7 @@ class ConfigFetcher:
         
         if all_configs:
             all_configs = self.balance_protocols(sorted(set(all_configs)))
-            final_configs = []
-            for i, config in enumerate(all_configs):
-                config_with_index = add_config_name(config, i)
-                final_configs.append(config_with_index)
-            
-            return final_configs
+            return all_configs
         
         return []
 
