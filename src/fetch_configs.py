@@ -23,13 +23,8 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 def add_config_name(config: str, index: int) -> str:
-    is_base64, protocol = ConfigValidator.is_base64_config(config)
-    
-    if is_base64:
-        return config
-    elif '#' not in config:
-        return f"{config}#Anon{index+1}"
-    
+    if '#' not in config:
+        return f"{config}#{index+1}"
     return config
 
 class ConfigFetcher:
@@ -176,7 +171,8 @@ class ConfigFetcher:
             all_configs = self.balance_protocols(sorted(set(all_configs)))
             final_configs = []
             for i, config in enumerate(all_configs):
-                final_configs.append(add_config_name(config, i))
+                config_with_index = add_config_name(config, i)
+                final_configs.append(config_with_index)
             
             return final_configs
         
