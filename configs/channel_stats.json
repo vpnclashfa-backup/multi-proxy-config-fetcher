@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-12-29T09:13:22.521101",
+  "timestamp": "2024-12-29T10:08:48.087952",
   "channels": [
     {
       "url": "https://t.me/s/v2ray_free_conf",
@@ -33,15 +33,15 @@
     },
     {
       "url": "https://t.me/s/PrivateVPNs",
-      "enabled": false,
-      "retry_count": 1,
-      "success_rate": 30.000000000000004
+      "enabled": true,
+      "retry_count": 0,
+      "success_rate": 100.0
     },
     {
       "url": "https://t.me/s/VlessConfig",
-      "enabled": false,
-      "retry_count": 1,
-      "success_rate": 30.000000000000004
+      "enabled": true,
+      "retry_count": 0,
+      "success_rate": 100.0
     },
     {
       "url": "https://t.me/s/freewireguard",
