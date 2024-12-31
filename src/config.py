@@ -15,7 +15,6 @@ class ProxyConfig:
             ChannelConfig("https://t.me/s/ZibaNabz"),
             ChannelConfig("https://t.me/s/configV2rayForFree"),
             ChannelConfig("https://t.me/s/v2rayngvpn"),
-            ChannelConfig("https://t.me/s/V2ray_Alpha"),
             ChannelConfig("https://t.me/s/SvnV2ray"), 
             ChannelConfig("https://t.me/s/RadixVPN"),
             ChannelConfig("https://t.me/s/PrivateVPNs"),
