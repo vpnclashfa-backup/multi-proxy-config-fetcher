@@ -6,9 +6,6 @@ def get_gauge_path(cx, cy, radius, value, start_angle=-180, end_angle=0):
     max_angle = end_angle - start_angle
     angle = start_angle + (max_angle * value / 100)
     
-    start_rad = start_angle * 3.14159 / 180
-    end_rad = angle * 3.14159 / 180
-    
     x1 = cx + radius * -1
     y1 = cy + 0
     x2 = cx + radius * -1 * (angle / -180)
@@ -33,7 +30,8 @@ def generate_chart_svg(stats_data):
         <defs>
             <linearGradient id="score-gradient" x1="0%" y1="0%" x2="100%" y1="0%">
                 <stop offset="0%" style="stop-color:#ef4444"/>
-                <stop offset="50%" style="stop-color:#eab308"/>
+                <stop offset="33%" style="stop-color:#f97316"/>
+                <stop offset="66%" style="stop-color:#eab308"/>
                 <stop offset="100%" style="stop-color:#22c55e"/>
             </linearGradient>
         </defs>
@@ -66,19 +64,16 @@ def generate_chart_svg(stats_data):
         
         score = channel['metrics']['overall_score']
         channel_name = channel['url'].split('/')[-1]
+        success_rate = (channel['metrics']['success_count'] / max(1, channel['metrics']['success_count'] + channel['metrics']['fail_count'])) * 100
         
         svg += f'''
         <circle cx="{cx}" cy="{cy}" r="{gauge_size/2}" 
                 fill="none" stroke="#e5e7eb" stroke-width="15"/>
-        '''
-        
-        svg += f'''
+                
         <path d="{get_gauge_path(cx, cy, gauge_size/2, score)}"
               fill="url(#score-gradient)"
               opacity="0.8"/>
-        '''
-        
-        svg += f'''
+              
         <text x="{cx}" y="{cy-15}" text-anchor="middle" class="gauge-title">
             {channel_name}
         </text>
@@ -89,10 +84,10 @@ def generate_chart_svg(stats_data):
         
         metrics_y = cy + 50
         metrics = [
-            ('Success Rate', f"{(channel['metrics']['success_count']/(channel['metrics']['success_count']+channel['metrics']['fail_count'])*100):.1f}%"),
-            ('Valid Configs', str(channel['metrics']['valid_configs'])),
-            ('Unique Configs', str(channel['metrics']['unique_configs'])),
-            ('Avg Response', f"{channel['metrics']['avg_response_time']:.2f}s")
+            ('Success Rate', f"{success_rate:.1f}%"),
+            ('Valid/Total', f"{channel['metrics']['valid_configs']}/{channel['metrics']['total_configs']}"),
+            ('Unique', f"{channel['metrics']['unique_configs']}"),
+            ('Response', f"{channel['metrics']['avg_response_time']:.1f}s")
         ]
         
         for idx, (label, value) in enumerate(metrics):
