@@ -3,12 +3,10 @@ import os
 import time
 import json
 import logging
-import base64
 from datetime import datetime, timedelta
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Set
 import requests
 from bs4 import BeautifulSoup
-from urllib.parse import unquote
 from config import ProxyConfig, ChannelConfig
 from config_validator import ConfigValidator
 
@@ -23,13 +21,8 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 def add_config_name(config: str, index: int) -> str:
-    is_base64, protocol = ConfigValidator.is_base64_config(config)
-    
-    if is_base64:
-        return config
-    elif '#' not in config:
+    if '#' not in config:
         return f"{config}#Anon{index+1}"
-    
     return config
 
 class ConfigFetcher:
@@ -37,6 +30,7 @@ class ConfigFetcher:
         self.config = config
         self.validator = ConfigValidator()
         self.protocol_counts: Dict[str, int] = {p: 0 for p in config.SUPPORTED_PROTOCOLS}
+        self.seen_configs: Set[str] = set()
 
     def extract_config(self, text: str, start_index: int, protocol: str) -> Optional[str]:
         try:
@@ -48,7 +42,6 @@ class ConfigFetcher:
                     clean_config = self.validator.clean_config(config)
                     if self.validator.validate_protocol_config(clean_config, protocol):
                         return clean_config
-            
             return None
         except Exception as e:
             logger.error(f"Error in extract_config: {str(e)}")
@@ -56,6 +49,11 @@ class ConfigFetcher:
 
     def fetch_configs_from_channel(self, channel: ChannelConfig) -> List[str]:
         configs: List[str] = []
+        channel.metrics.total_configs = 0
+        channel.metrics.valid_configs = 0
+        channel.metrics.unique_configs = 0
+        
+        start_time = time.time()
         
         for attempt in range(self.config.MAX_RETRIES):
             try:
@@ -65,6 +63,8 @@ class ConfigFetcher:
                     timeout=self.config.REQUEST_TIMEOUT
                 )
                 response.raise_for_status()
+                
+                response_time = time.time() - start_time
                 
                 soup = BeautifulSoup(response.text, 'html.parser')
                 messages = soup.find_all('div', class_='tgme_widget_message_text')
@@ -79,6 +79,7 @@ class ConfigFetcher:
                     
                     text = message.text
                     found_configs = self.validator.split_configs(text)
+                    channel.metrics.total_configs += len(found_configs)
                     
                     for config in found_configs:
                         for protocol in self.config.SUPPORTED_PROTOCOLS:
@@ -88,12 +89,16 @@ class ConfigFetcher:
                                     
                                 clean_config = self.validator.clean_config(config)
                                 if self.validator.validate_protocol_config(clean_config, protocol):
-                                    configs.append(clean_config)
-                                    self.protocol_counts[protocol] += 1
+                                    channel.metrics.valid_configs += 1
+                                    if clean_config not in self.seen_configs:
+                                        channel.metrics.unique_configs += 1
+                                        self.seen_configs.add(clean_config)
+                                        configs.append(clean_config)
+                                        self.protocol_counts[protocol] += 1
                                 break
                 
                 if len(configs) >= self.config.MIN_CONFIGS_PER_CHANNEL:
-                    self.config.update_channel_stats(channel, True)
+                    self.config.update_channel_stats(channel, True, response_time)
                     break
                 elif attempt < self.config.MAX_RETRIES - 1:
                     logger.warning(f"Not enough configs found in {channel.url}, retrying...")
@@ -122,7 +127,6 @@ class ConfigFetcher:
     def is_config_valid(self, config_text: str, date: Optional[datetime]) -> bool:
         if not date:
             return True
-        
         cutoff_date = datetime.now(date.tzinfo) - timedelta(days=self.config.MAX_CONFIG_AGE_DAYS)
         return date >= cutoff_date
 
@@ -134,16 +138,8 @@ class ConfigFetcher:
                     protocol_configs[protocol].append(config)
                     break
         
-        total_configs = len(configs)
-        min_configs_per_protocol = max(
-            self.config.MIN_CONFIGS_PER_CHANNEL,
-            int(total_configs * self.config.MIN_PROTOCOL_RATIO)
-        )
-        
         balanced_configs: List[str] = []
-        for protocol, protocol_config_list in protocol_configs.items():
-            if len(protocol_config_list) < min_configs_per_protocol:
-                logger.warning(f"Insufficient configs for {protocol}: {len(protocol_config_list)}/{min_configs_per_protocol}")
+        for protocol, protocol_config_list in sorted(protocol_configs.items()):
             balanced_configs.extend(protocol_config_list[:self.config.SUPPORTED_PROTOCOLS[protocol]["max_configs"]])
         
         return balanced_configs
@@ -162,9 +158,7 @@ class ConfigFetcher:
             final_configs = []
             for i, config in enumerate(all_configs):
                 final_configs.append(add_config_name(config, i))
-            
             return final_configs
-        
         return []
 
 def save_configs(configs: List[str], config: ProxyConfig):
@@ -188,8 +182,16 @@ def save_channel_stats(config: ProxyConfig):
             channel_stats = {
                 'url': channel.url,
                 'enabled': channel.enabled,
-                'retry_count': channel.retry_count,
-                'success_rate': channel.success_rate
+                'metrics': {
+                    'total_configs': channel.metrics.total_configs,
+                    'valid_configs': channel.metrics.valid_configs,
+                    'unique_configs': channel.metrics.unique_configs,
+                    'avg_response_time': round(channel.metrics.avg_response_time, 2),
+                    'success_count': channel.metrics.success_count,
+                    'fail_count': channel.metrics.fail_count,
+                    'overall_score': round(channel.metrics.overall_score, 2),
+                    'last_success': channel.metrics.last_success_time.isoformat() if channel.metrics.last_success_time else None
+                }
             }
             stats['channels'].append(channel_stats)
             
