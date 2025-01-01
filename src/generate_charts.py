@@ -2,75 +2,117 @@ import json
 import os
 from datetime import datetime
 
-def generate_chart_svg(stats_data):
-    width = 800
-    height = 400
-    margin = 60
-    bar_width = (width - 2 * margin) / len(stats_data['channels'])
-    max_success_rate = 100
+def get_gauge_path(cx, cy, radius, value, start_angle=-180, end_angle=0):
+    max_angle = end_angle - start_angle
+    angle = start_angle + (max_angle * value / 100)
+    
+    start_rad = start_angle * 3.14159 / 180
+    end_rad = angle * 3.14159 / 180
+    
+    x1 = cx + radius * -1
+    y1 = cy + 0
+    x2 = cx + radius * -1 * (angle / -180)
+    y2 = cy + radius * (angle / -180)
+    
+    large_arc = 1 if (angle - start_angle) > 180 else 0
+    
+    path = f"M {cx} {cy} L {x1} {y1} A {radius} {radius} 0 {large_arc} 1 {x2} {y2} Z"
+    return path
 
+def generate_chart_svg(stats_data):
+    channels = stats_data['channels']
+    width = 1200
+    height = 800
+    margin = 60
+    gauge_size = 160
+    gauges_per_row = 5
+    row_height = gauge_size + 80
+    
     svg = f'''
     <svg width="{width}" height="{height}" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="score-gradient" x1="0%" y1="0%" x2="100%" y1="0%">
+                <stop offset="0%" style="stop-color:#ef4444"/>
+                <stop offset="50%" style="stop-color:#eab308"/>
+                <stop offset="100%" style="stop-color:#22c55e"/>
+            </linearGradient>
+        </defs>
         <style>
-            .chart-title {{ font: bold 16px sans-serif; }}
-            .axis-label {{ font: 12px sans-serif; }}
-            .tick-label {{ font: 10px sans-serif; }}
-            .bar {{ fill: #4f46e5; }}
-            .bar:hover {{ fill: #6366f1; }}
-            .timestamp {{ font: 10px sans-serif; fill: #666; }}
+            .title {{ font: bold 24px sans-serif; fill: #1f2937; }}
+            .subtitle {{ font: 14px sans-serif; fill: #6b7280; }}
+            .gauge-title {{ font: bold 16px sans-serif; fill: #1f2937; }}
+            .gauge-value {{ font: bold 24px sans-serif; fill: #1f2937; }}
+            .gauge-label {{ font: 12px sans-serif; fill: #6b7280; }}
+            .metric-value {{ font: bold 14px sans-serif; fill: #1f2937; }}
+            .metric-label {{ font: 12px sans-serif; fill: #6b7280; }}
+            .timestamp {{ font: 12px sans-serif; fill: #6b7280; }}
         </style>
         
-        <!-- Title -->
-        <text x="{width/2}" y="30" text-anchor="middle" class="chart-title">
-            Channel Success Rates
+        <text x="{width/2}" y="40" text-anchor="middle" class="title">
+            Channel Performance Dashboard
         </text>
-        
-        <!-- Y-axis -->
-        <line x1="{margin}" y1="{height-margin}" x2="{margin}" y2="{margin}" 
-              stroke="black" stroke-width="1"/>
-        
-        <!-- X-axis -->
-        <line x1="{margin}" y1="{height-margin}" x2="{width-margin}" y2="{height-margin}" 
-              stroke="black" stroke-width="1"/>
-        
-        <!-- Y-axis labels -->
-        <text x="{margin-10}" y="{height-margin}" text-anchor="end" class="axis-label">0%</text>
-        <text x="{margin-10}" y="{margin}" text-anchor="end" class="axis-label">100%</text>
-        
-        <!-- Bars and labels -->
+        <text x="{width/2}" y="65" text-anchor="middle" class="subtitle">
+            Real-time monitoring of proxy configuration sources
+        </text>
     '''
-
-    bar_x = margin
-    for channel in stats_data['channels']:
+    
+    y_offset = 100
+    for idx, channel in enumerate(channels):
+        row = idx // gauges_per_row
+        col = idx % gauges_per_row
+        
+        cx = margin + (col * (width-2*margin)/gauges_per_row) + gauge_size
+        cy = y_offset + (row * row_height) + gauge_size/2
+        
+        score = channel['metrics']['overall_score']
         channel_name = channel['url'].split('/')[-1]
-        success_rate = channel['success_rate']
-        bar_height = ((height - 2 * margin) * success_rate) / max_success_rate
-        bar_y = height - margin - bar_height
         
         svg += f'''
-        <g>
-            <rect x="{bar_x}" y="{bar_y}" width="{bar_width-5}" height="{bar_height}"
-                  class="bar"/>
-            <text x="{bar_x + bar_width/2}" y="{height-margin+40}" 
-                  transform="rotate(45, {bar_x + bar_width/2}, {height-margin+40})"
-                  text-anchor="start" class="tick-label">
-                {channel_name}
-            </text>
-            <text x="{bar_x + bar_width/2}" y="{bar_y-5}" 
-                  text-anchor="middle" class="tick-label">
-                {success_rate:.1f}%
-            </text>
-        </g>
+        <circle cx="{cx}" cy="{cy}" r="{gauge_size/2}" 
+                fill="none" stroke="#e5e7eb" stroke-width="15"/>
         '''
-        bar_x += bar_width
-
+        
+        svg += f'''
+        <path d="{get_gauge_path(cx, cy, gauge_size/2, score)}"
+              fill="url(#score-gradient)"
+              opacity="0.8"/>
+        '''
+        
+        svg += f'''
+        <text x="{cx}" y="{cy-15}" text-anchor="middle" class="gauge-title">
+            {channel_name}
+        </text>
+        <text x="{cx}" y="{cy+15}" text-anchor="middle" class="gauge-value">
+            {score:.1f}%
+        </text>
+        '''
+        
+        metrics_y = cy + 50
+        metrics = [
+            ('Success Rate', f"{(channel['metrics']['success_count']/(channel['metrics']['success_count']+channel['metrics']['fail_count'])*100):.1f}%"),
+            ('Valid Configs', str(channel['metrics']['valid_configs'])),
+            ('Unique Configs', str(channel['metrics']['unique_configs'])),
+            ('Avg Response', f"{channel['metrics']['avg_response_time']:.2f}s")
+        ]
+        
+        for idx, (label, value) in enumerate(metrics):
+            metric_x = cx - gauge_size/2 + (idx * gauge_size/2)
+            svg += f'''
+            <text x="{metric_x}" y="{metrics_y}" text-anchor="middle" class="metric-value">
+                {value}
+            </text>
+            <text x="{metric_x}" y="{metrics_y+15}" text-anchor="middle" class="metric-label">
+                {label}
+            </text>
+            '''
+    
     svg += f'''
-        <text x="{width-margin}" y="{height-10}" text-anchor="end" class="timestamp">
+        <text x="{width-margin}" y="{height-20}" text-anchor="end" class="timestamp">
             Last updated: {stats_data['timestamp']}
         </text>
     </svg>
     '''
-
+    
     return svg
 
 def main():
