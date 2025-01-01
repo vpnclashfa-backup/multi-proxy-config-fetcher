@@ -29,7 +29,7 @@
         <circle cx="220.0" cy="180.0" r="80.0" 
                 fill="none" stroke="#e5e7eb" stroke-width="15"/>
                 
-        <path d="M 220.0 180.0 L 140.0 180.0 A 80.0 80.0 0 0 1 212.416 187.584 Z"
+        <path d="M 220.0 180.0 L 140.0 180.0 A 80.0 80.0 0 0 1 212.52 187.48 Z"
               fill="url(#score-gradient)"
               opacity="0.8"/>
               
@@ -37,7 +37,7 @@
             v2ray_free_conf
         </text>
         <text x="220.0" y="195.0" text-anchor="middle" class="gauge-value">
-            90.5%
+            90.7%
         </text>
         
             <text x="140.0" y="230.0" text-anchor="middle" class="metric-value">
@@ -62,7 +62,7 @@
             </text>
             
             <text x="380.0" y="230.0" text-anchor="middle" class="metric-value">
-                0.5s
+                0.4s
             </text>
             <text x="380.0" y="245.0" text-anchor="middle" class="metric-label">
                 Response
@@ -323,7 +323,7 @@
         <circle cx="652.0" cy="420.0" r="80.0" 
                 fill="none" stroke="#e5e7eb" stroke-width="15"/>
                 
-        <path d="M 652.0 420.0 L 572.0 420.0 A 80.0 80.0 0 0 1 643.776 428.224 Z"
+        <path d="M 652.0 420.0 L 572.0 420.0 A 80.0 80.0 0 0 1 643.784 428.216 Z"
               fill="url(#score-gradient)"
               opacity="0.8"/>
               
@@ -407,7 +407,7 @@
         <circle cx="1084.0" cy="420.0" r="80.0" 
                 fill="none" stroke="#e5e7eb" stroke-width="15"/>
                 
-        <path d="M 1084.0 420.0 L 1004.0 420.0 A 80.0 80.0 0 0 1 1080.232 423.768 Z"
+        <path d="M 1084.0 420.0 L 1004.0 420.0 A 80.0 80.0 0 0 1 1080.24 423.76 Z"
               fill="url(#score-gradient)"
               opacity="0.8"/>
               
@@ -440,14 +440,14 @@
             </text>
             
             <text x="1244.0" y="470.0" text-anchor="middle" class="metric-value">
-                0.4s
+                0.3s
             </text>
             <text x="1244.0" y="485.0" text-anchor="middle" class="metric-label">
                 Response
             </text>
             
         <text x="1140" y="780" text-anchor="end" class="timestamp">
-            Last updated: 2025-01-01T20:21:16.643753
+            Last updated: 2025-01-01T20:42:21.585769
         </text>
     </svg>
     
