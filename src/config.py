@@ -10,7 +10,7 @@ class ChannelMetrics:
         self.last_success_time = None
         self.fail_count = 0
         self.success_count = 0
-        self.overall_score = 100.0
+        self.overall_score = 0.0
 
 class ChannelConfig:
     def __init__(self, url: str, enabled: bool = True):
@@ -19,10 +19,25 @@ class ChannelConfig:
         self.metrics = ChannelMetrics()
         
     def calculate_overall_score(self):
-        reliability_score = (self.metrics.success_count / max(1, self.metrics.success_count + self.metrics.fail_count)) * 40
-        quality_score = (self.metrics.valid_configs / max(1, self.metrics.total_configs)) * 30
-        uniqueness_score = (self.metrics.unique_configs / max(1, self.metrics.valid_configs)) * 20
-        response_score = max(0, (1 - (self.metrics.avg_response_time / 10))) * 10
+        if self.metrics.success_count + self.metrics.fail_count == 0:
+            reliability_score = 0
+        else:
+            reliability_score = (self.metrics.success_count / (self.metrics.success_count + self.metrics.fail_count)) * 35
+        
+        if self.metrics.total_configs == 0:
+            quality_score = 0
+        else:
+            quality_score = (self.metrics.valid_configs / self.metrics.total_configs) * 25
+        
+        if self.metrics.valid_configs == 0:
+            uniqueness_score = 0
+        else:
+            uniqueness_score = (self.metrics.unique_configs / self.metrics.valid_configs) * 25
+        
+        if self.metrics.avg_response_time == 0:
+            response_score = 15
+        else:
+            response_score = max(0, min(15, 15 * (1 - (self.metrics.avg_response_time / 10))))
         
         self.metrics.overall_score = reliability_score + quality_score + uniqueness_score + response_score
 
