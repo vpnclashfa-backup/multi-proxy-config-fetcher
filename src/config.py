@@ -19,7 +19,11 @@ class ProxyConfig:
             ChannelConfig("https://t.me/s/RadixVPN"),
             ChannelConfig("https://t.me/s/PrivateVPNs"),
             ChannelConfig("https://t.me/s/VlessConfig"),
-            ChannelConfig("https://t.me/s/freewireguard")
+            ChannelConfig("https://t.me/s/freewireguard"),
+            ChannelConfig("https://t.me/s/key_outline"),
+            ChannelConfig("https://t.me/s/keysOutline"),
+            ChannelConfig("https://t.me/s/outlinekeys_free"),
+            ChannelConfig("https://t.me/s/OutlineReleasedKey")
         ]
 
         self.PROTOCOL_CONFIG_LIMITS = {
