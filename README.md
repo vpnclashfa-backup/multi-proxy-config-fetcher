@@ -8,7 +8,15 @@ Below is the real-time performance statistics of the configured channels. This c
 
 ![Channel Statistics](assets/channel_stats_chart.svg?v=1)
 
-> **Note**: These channels are configured as examples. You can easily modify the channel list in `src/config.py` to use your preferred Telegram channels. The success rates shown above are based on real-time monitoring of each channel's reliability in providing valid configurations.
+Each channel is scored based on four key metrics:
+- Reliability Score (35%): Success rate in config fetching and updates
+- Config Quality (25%): Ratio of valid configs to total configs fetched
+- Config Uniqueness (25%): Percentage of unique configs contributed
+- Response Time (15%): Server response time and availability
+
+The overall score is calculated in real-time and updated hourly. Channels scoring below 30% are automatically disabled.
+
+> **Note**: These channels are configured as examples. You can easily modify the channel list in `src/config.py` to use your preferred Telegram channels. The performance metrics shown above are based on real-time monitoring of each channel's reliability in providing valid configurations.
 
 ## Features
 
@@ -24,10 +32,11 @@ Below is the real-time performance statistics of the configured channels. This c
 - Protocol-specific validation and verification
 - Fetches configs from multiple Telegram channels
 - Automatically updates configs every hour
-- Validates config age (excludes configs older than 2 days)
+- Validates config age (excludes configs older than 7 days)
 - Removes duplicates
-- Tracks channel reliability and success rates
-- Balances config distribution across protocols
+- Real-time channel performance monitoring
+- Automatic channel health management
+- Dynamic protocol distribution balancing
 
 ## Setup
 
@@ -78,10 +87,13 @@ Edit `src/config.py` to modify:
 
 ## Channel Statistics
 
-The project now tracks channel performance metrics in `configs/channel_stats.json`:
-- Success rate for config fetching
-- Channel reliability tracking
-- Retry counts and status
+The project tracks comprehensive channel performance metrics in `configs/channel_stats.json`:
+- Overall performance score (0-100%)
+- Success rate in config fetching
+- Valid vs total configs ratio
+- Unique config contribution
+- Response time and reliability
+- Channel health status
 
 ## License
 
