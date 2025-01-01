@@ -6,7 +6,7 @@ This project automatically fetches and updates various proxy configurations from
 
 Below is the real-time performance statistics of the configured channels. This chart is automatically updated every hour.
 
-![Channel Statistics](assets/channel_stats_chart.svg?v=1)
+![Channel Statistics](assets/channel_stats_chart.html?v=1)
 
 Each channel is scored based on four key metrics:
 - Reliability Score (35%): Success rate in config fetching and updates
