@@ -29,14 +29,16 @@ jobs:
     
     - name: Run config fetcher
       run: python src/fetch_configs.py
+      continue-on-error: true
     
     - name: Generate performance chart
       run: python src/generate_charts.py
     
     - name: Update README with latest stats
       run: |
-        # Create new README with updated timestamp
-        sed -i "s|channel-stats-chart.svg?v=.*|channel-stats-chart.svg?v=$(date +%s)|" README.md
+        timestamp=$(date +%s)
+        sed -i.bak "s/channel-stats-chart\.svg?v=[0-9]*/channel-stats-chart.svg?v=$timestamp/" README.md
+        rm README.md.bak
     
     - name: Commit and push if changed
       run: |
