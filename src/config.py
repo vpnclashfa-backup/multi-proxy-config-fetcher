@@ -1,11 +1,30 @@
 from typing import Dict, List
+from datetime import datetime
+
+class ChannelMetrics:
+    def __init__(self):
+        self.total_configs = 0
+        self.valid_configs = 0
+        self.unique_configs = 0
+        self.avg_response_time = 0
+        self.last_success_time = None
+        self.fail_count = 0
+        self.success_count = 0
+        self.overall_score = 100.0
 
 class ChannelConfig:
-    def __init__(self, url: str, enabled: bool = True, retry_count: int = 0):
+    def __init__(self, url: str, enabled: bool = True):
         self.url = url
         self.enabled = enabled
-        self.retry_count = retry_count
-        self.success_rate = 100.0
+        self.metrics = ChannelMetrics()
+        
+    def calculate_overall_score(self):
+        reliability_score = (self.metrics.success_count / max(1, self.metrics.success_count + self.metrics.fail_count)) * 40
+        quality_score = (self.metrics.valid_configs / max(1, self.metrics.total_configs)) * 30
+        uniqueness_score = (self.metrics.unique_configs / max(1, self.metrics.valid_configs)) * 20
+        response_score = max(0, (1 - (self.metrics.avg_response_time / 10))) * 10
+        
+        self.metrics.overall_score = reliability_score + quality_score + uniqueness_score + response_score
 
 class ProxyConfig:
     def __init__(self):
@@ -65,12 +84,20 @@ class ProxyConfig:
     def get_enabled_channels(self) -> List[ChannelConfig]:
         return [channel for channel in self.TELEGRAM_CHANNELS if channel.enabled]
 
-    def update_channel_stats(self, channel: ChannelConfig, success: bool):
-        channel.retry_count = 0 if success else channel.retry_count + 1
+    def update_channel_stats(self, channel: ChannelConfig, success: bool, response_time: float = 0):
+        if success:
+            channel.metrics.success_count += 1
+            channel.metrics.last_success_time = datetime.now()
+        else:
+            channel.metrics.fail_count += 1
         
-        weight = 0.5
-        new_rate = 100.0 if success else 0.0
-        channel.success_rate = (weight * new_rate) + ((1 - weight) * channel.success_rate)
+        if response_time > 0:
+            if channel.metrics.avg_response_time == 0:
+                channel.metrics.avg_response_time = response_time
+            else:
+                channel.metrics.avg_response_time = (channel.metrics.avg_response_time * 0.7) + (response_time * 0.3)
         
-        if channel.success_rate < self.CHANNEL_ERROR_THRESHOLD * 100:
+        channel.calculate_overall_score()
+        
+        if channel.metrics.overall_score < 30:
             channel.enabled = False
