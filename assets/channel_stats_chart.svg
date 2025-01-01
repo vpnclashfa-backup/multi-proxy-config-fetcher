@@ -29,7 +29,7 @@
         <circle cx="220.0" cy="180.0" r="80.0" 
                 fill="none" stroke="#e5e7eb" stroke-width="15"/>
                 
-        <path d="M 220.0 180.0 L 140.0 180.0 A 80.0 80.0 0 0 1 212.52 187.48 Z"
+        <path d="M 220.0 180.0 L 140.0 180.0 A 80.0 80.0 0 0 1 212.504 187.496 Z"
               fill="url(#score-gradient)"
               opacity="0.8"/>
               
@@ -37,7 +37,7 @@
             v2ray_free_conf
         </text>
         <text x="220.0" y="195.0" text-anchor="middle" class="gauge-value">
-            90.7%
+            90.6%
         </text>
         
             <text x="140.0" y="230.0" text-anchor="middle" class="metric-value">
@@ -155,7 +155,7 @@
         <circle cx="868.0" cy="180.0" r="80.0" 
                 fill="none" stroke="#e5e7eb" stroke-width="15"/>
                 
-        <path d="M 868.0 180.0 L 788.0 180.0 A 80.0 80.0 0 0 1 858.448 189.552 Z"
+        <path d="M 868.0 180.0 L 788.0 180.0 A 80.0 80.0 0 0 1 858.44 189.56 Z"
               fill="url(#score-gradient)"
               opacity="0.8"/>
               
@@ -163,7 +163,7 @@
             configV2rayForFree
         </text>
         <text x="868.0" y="195.0" text-anchor="middle" class="gauge-value">
-            88.1%
+            88.0%
         </text>
         
             <text x="788.0" y="230.0" text-anchor="middle" class="metric-value">
@@ -323,7 +323,7 @@
         <circle cx="652.0" cy="420.0" r="80.0" 
                 fill="none" stroke="#e5e7eb" stroke-width="15"/>
                 
-        <path d="M 652.0 420.0 L 572.0 420.0 A 80.0 80.0 0 0 1 643.784 428.216 Z"
+        <path d="M 652.0 420.0 L 572.0 420.0 A 80.0 80.0 0 0 1 643.808 428.192 Z"
               fill="url(#score-gradient)"
               opacity="0.8"/>
               
@@ -331,7 +331,7 @@
             PrivateVPNs
         </text>
         <text x="652.0" y="435.0" text-anchor="middle" class="gauge-value">
-            89.7%
+            89.8%
         </text>
         
             <text x="572.0" y="470.0" text-anchor="middle" class="metric-value">
@@ -356,7 +356,7 @@
             </text>
             
             <text x="812.0" y="470.0" text-anchor="middle" class="metric-value">
-                0.4s
+                0.3s
             </text>
             <text x="812.0" y="485.0" text-anchor="middle" class="metric-label">
                 Response
@@ -407,7 +407,7 @@
         <circle cx="1084.0" cy="420.0" r="80.0" 
                 fill="none" stroke="#e5e7eb" stroke-width="15"/>
                 
-        <path d="M 1084.0 420.0 L 1004.0 420.0 A 80.0 80.0 0 0 1 1080.24 423.76 Z"
+        <path d="M 1084.0 420.0 L 1004.0 420.0 A 80.0 80.0 0 0 1 1080.224 423.776 Z"
               fill="url(#score-gradient)"
               opacity="0.8"/>
               
@@ -440,14 +440,14 @@
             </text>
             
             <text x="1244.0" y="470.0" text-anchor="middle" class="metric-value">
-                0.3s
+                0.4s
             </text>
             <text x="1244.0" y="485.0" text-anchor="middle" class="metric-label">
                 Response
             </text>
             
         <text x="1140" y="780" text-anchor="end" class="timestamp">
-            Last updated: 2025-01-01T20:42:21.585769
+            Last updated: 2025-01-01T21:09:10.379663
         </text>
     </svg>
     
