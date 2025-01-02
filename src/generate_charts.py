@@ -42,7 +42,7 @@ def generate_html_report(stats_data):
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Channel Performance Report</title>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     </head>
     <body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
@@ -86,12 +86,16 @@ def generate_html_report(stats_data):
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
                 <div class="bg-white rounded-lg shadow-lg p-6">
                     <h3 class="text-xl font-semibold text-gray-800 mb-6">Channel Performance Scores</h3>
-                    <canvas id="performanceChart" height="300"></canvas>
+                    <div style="height: 300px; width: 100%; position: relative;">
+                        <canvas id="performanceChart"></canvas>
+                    </div>
                 </div>
 
                 <div class="bg-white rounded-lg shadow-lg p-6">
                     <h3 class="text-xl font-semibold text-gray-800 mb-6">Config Distribution</h3>
-                    <canvas id="configChart" height="300"></canvas>
+                    <div style="height: 300px; width: 100%; position: relative;">
+                        <canvas id="configChart"></canvas>
+                    </div>
                 </div>
             </div>
 
@@ -186,7 +190,6 @@ def generate_html_report(stats_data):
                     }]
                 },
                 options: {
-                    responsive: true,
                     maintainAspectRatio: false,
                     scales: {
                         y: {
@@ -221,7 +224,6 @@ def generate_html_report(stats_data):
                     }]
                 },
                 options: {
-                    responsive: true,
                     maintainAspectRatio: false,
                     scales: {
                         y: {
