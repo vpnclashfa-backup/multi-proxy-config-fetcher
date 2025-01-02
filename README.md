@@ -7,10 +7,14 @@ This project automatically fetches and updates various proxy configurations from
 Below is the real-time performance statistics of the configured channels. This chart is automatically updated every hour.
 
 ### Quick Overview
-![Channel Statistics](assets/channel_stats_chart.svg)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/channel_stats_chart.svg?v=1">
+  <source media="(prefers-color-scheme: light)" srcset="assets/channel_stats_chart.svg?v=1">
+  <img alt="Channel Performance Statistics" src="assets/channel_stats_chart.svg?v=1">
+</picture>
 
 ### Detailed Report
-For a detailed interactive report, please check [Performance Dashboard](assets/performance_report.html)
+For a detailed interactive report, view our [Performance Dashboard](https://htmlpreview.github.io/?https://github.com/YOUR_USERNAME/multi-proxy-config-fetcher/blob/main/assets/performance_report.html?v=1)
 
 Each channel is scored based on four key metrics:
 - Reliability Score (35%): Success rate in config fetching and updates
