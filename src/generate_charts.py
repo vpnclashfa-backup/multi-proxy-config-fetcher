@@ -9,10 +9,10 @@ def generate_basic_svg(stats_data):
     svg = f'''<?xml version="1.0" encoding="UTF-8"?>
     <svg width="{width}" height="{height}" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <style>
-        .row {{ font: 14px Arial; }}
-        .score {{ font: bold 14px Arial; }}
+        .row {{ font: 14px Arial; fill: #64748b; }}
+        .score {{ font: bold 14px Arial; fill: #64748b; }}
     </style>
-    <text x="400" y="40" text-anchor="middle" font-size="20px" font-weight="bold">Channel Performance Overview</text>'''
+    <text x="400" y="40" text-anchor="middle" font-size="20px" font-weight="bold" fill="#64748b">Channel Performance Overview</text>'''
     
     for idx, channel in enumerate(stats_data['channels']):
         y = 80 + (idx * 50)
@@ -21,15 +21,12 @@ def generate_basic_svg(stats_data):
         success = (channel['metrics']['success_count'] / 
                   max(1, channel['metrics']['success_count'] + channel['metrics']['fail_count'])) * 100
         
-        # Background bar
         svg += f'<rect x="150" y="{y}" width="500" height="30" fill="#eee" rx="5"/>'
         
-        # Score bar
         width = min(500, 5 * score)
         color = '#22c55e' if score >= 70 else '#eab308' if score >= 50 else '#ef4444'
         svg += f'<rect x="150" y="{y}" width="{width}" height="30" fill="{color}" rx="5"/>'
         
-        # Text
         svg += f'''
         <text x="140" y="{y+20}" text-anchor="end" class="row">{name}</text>
         <text x="660" y="{y+20}" text-anchor="start" class="score">{score:.1f}% (S:{success:.0f}%)</text>'''
@@ -100,12 +97,10 @@ def main():
         
         os.makedirs('assets', exist_ok=True)
         
-        # Generate and save SVG
         svg_content = generate_basic_svg(stats_data)
         with open('assets/channel_stats_chart.svg', 'w', encoding='utf-8') as f:
             f.write(svg_content)
         
-        # Generate and save HTML
         html_content = generate_html_report(stats_data)
         with open('assets/performance_report.html', 'w', encoding='utf-8') as f:
             f.write(html_content)
