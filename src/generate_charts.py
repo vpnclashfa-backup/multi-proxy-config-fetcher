@@ -60,11 +60,23 @@ def generate_html_report(stats_data):
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Channel Performance Report</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ApexCharts/3.41.0/apexcharts.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com/3.3.0"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.41.0/apexcharts.min.js" integrity="sha512-bp/xZXR0Wn5q5TgPtz7EbgZlRrIU3tsqoROPe9sLwdY6Z+0p6XRzr7/JzqQUfTSD3rWanL6WUVW7peD4zSY/vQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .chart-container {
+            position: relative;
+            height: 300px;
+            width: 100%;
+        }
+        #responseTimeChart, #successRateChart, #scoreDistributionChart {
+            width: 100%;
+            min-height: 250px;
+        }
+    </style>
 </head>
+'''
 <body class="bg-gray-50">
     <div class="min-h-screen">
         <nav class="bg-white shadow-lg">
@@ -142,162 +154,138 @@ def generate_html_report(stats_data):
         </div>
     </div>
 
+    html += '''
     <script>
-        const historicalData = {json.dumps(historical_data)};
-        
-        new Chart(document.getElementById('performanceChart'), {{
-            type: 'bar',
-            data: {{
-                labels: historicalData.map(d => d.name),
-                datasets: [{{
-                    label: 'Performance Score',
-                    data: historicalData.map(d => d.score),
-                    backgroundColor: historicalData.map(d => 
-                        d.score >= 70 ? '#22c55e' : 
-                        d.score >= 50 ? '#eab308' : '#ef4444'
-                    ),
-                    borderWidth: 1
-                }}]
-            }},
-            options: {{
-                responsive: true,
-                scales: {{
-                    y: {{
-                        beginAtZero: true,
-                        max: 100
-                    }}
-                }}
-            }}
-        }});
+        // اطمینان از لود شدن کامل صفحه قبل از رندر نمودارها
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                try {
+                    // کد نمودارها
+                    const historicalData = ''' + json.dumps(historical_data) + ''';
+                    
+                    // Chart.js نمودار
+                    const perfCtx = document.getElementById('performanceChart').getContext('2d');
+                    new Chart(perfCtx, {
+                        type: 'bar',
+                        data: {
+                            labels: historicalData.map(d => d.name),
+                            datasets: [{
+                                label: 'Performance Score',
+                                data: historicalData.map(d => d.score),
+                                backgroundColor: historicalData.map(d => 
+                                    d.score >= 70 ? '#22c55e' : 
+                                    d.score >= 50 ? '#eab308' : '#ef4444'
+                                ),
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    max: 100
+                                }
+                            }
+                        }
+                    });
 
-        new Chart(document.getElementById('configDistributionChart'), {{
-            type: 'doughnut',
-            data: {{
-                labels: historicalData.map(d => d.name),
-                datasets: [{{
-                    data: historicalData.map(d => d.validConfigs),
-                    backgroundColor: [
-                        '#60a5fa', '#34d399', '#fbbf24', '#f87171',
-                        '#818cf8', '#fb923c', '#a78bfa', '#f472b6'
-                    ]
-                }}]
-            }},
-            options: {{
-                responsive: true,
-                plugins: {{
-                    legend: {{
-                        position: 'right',
-                        labels: {{
-                            boxWidth: 12
-                        }}
-                    }}
-                }}
-            }}
-        }});
+                    // کانفیگ ApexCharts
+                    const responseTimeConfig = {
+                        series: [{
+                            name: 'Response Time',
+                            data: historicalData.map(d => parseFloat(d.responseTime.toFixed(2)))
+                        }],
+                        chart: {
+                            type: 'area',
+                            height: 250,
+                            width: '100%',
+                            animations: {
+                                enabled: true
+                            },
+                            toolbar: {
+                                show: false
+                            }
+                        },
+                        dataLabels: {
+                            enabled: false
+                        },
+                        stroke: {
+                            curve: 'smooth',
+                            width: 2
+                        },
+                        xaxis: {
+                            categories: historicalData.map(d => d.name)
+                        },
+                        tooltip: {
+                            y: {
+                                formatter: function (val) {
+                                    return val.toFixed(2) + "s";
+                                }
+                            }
+                        },
+                        fill: {
+                            type: 'gradient',
+                            gradient: {
+                                shadeIntensity: 1,
+                                opacityFrom: 0.7,
+                                opacityTo: 0.3
+                            }
+                        }
+                    };
 
-        const responseTimeOptions = {{
-            series: [{{
-                name: 'Response Time',
-                data: historicalData.map(d => d.responseTime)
-            }}],
-            chart: {{
-                type: 'area',
-                height: 250,
-                toolbar: {{
-                    show: false
-                }}
-            }},
-            dataLabels: {{
-                enabled: false
-            }},
-            stroke: {{
-                curve: 'smooth'
-            }},
-            xaxis: {{
-                categories: historicalData.map(d => d.name)
-            }},
-            tooltip: {{
-                y: {{
-                    formatter: function (val) {{
-                        return val + "s"
-                    }}
-                }}
-            }},
-            fill: {{
-                type: 'gradient',
-                gradient: {{
-                    shadeIntensity: 1,
-                    opacityFrom: 0.7,
-                    opacityTo: 0.9,
-                    stops: [0, 100]
-                }}
-            }}
-        }};
+                    const successRateConfig = {
+                        series: [{
+                            name: 'Success Rate',
+                            data: historicalData.map(d => parseFloat(d.successRate.toFixed(1)))
+                        }],
+                        chart: {
+                            height: 250,
+                            width: '100%',
+                            type: 'radar',
+                            toolbar: {
+                                show: false
+                            }
+                        },
+                        xaxis: {
+                            categories: historicalData.map(d => d.name)
+                        },
+                        fill: {
+                            opacity: 0.5
+                        }
+                    };
 
-        const successRateOptions = {{
-            series: [{{
-                name: 'Success Rate',
-                data: historicalData.map(d => d.successRate)
-            }}],
-            chart: {{
-                type: 'radar',
-                height: 250,
-                toolbar: {{
-                    show: false
-                }}
-            }},
-            xaxis: {{
-                categories: historicalData.map(d => d.name)
-            }},
-            fill: {{
-                opacity: 0.5
-            }},
-            markers: {{
-                size: 4
-            }}
-        }};
+                    const scoreDistributionConfig = {
+                        series: historicalData.map(d => parseFloat(d.score.toFixed(1))),
+                        chart: {
+                            height: 250,
+                            width: '100%',
+                            type: 'polarArea',
+                            toolbar: {
+                                show: false
+                            }
+                        },
+                        labels: historicalData.map(d => d.name),
+                        fill: {
+                            opacity: 0.8
+                        }
+                    };
 
-        const scoreDistributionOptions = {{
-            series: [{{
-                name: 'Channels',
-                data: historicalData.map(d => d.score)
-            }}],
-            chart: {{
-                type: 'polarArea',
-                height: 250,
-                toolbar: {{
-                    show: false
-                }}
-            }},
-            labels: historicalData.map(d => d.name),
-            fill: {{
-                opacity: 0.8
-            }},
-            stroke: {{
-                width: 1,
-                colors: undefined
-            }},
-            yaxis: {{
-                show: false
-            }},
-            legend: {{
-                show: false
-            }},
-            plotOptions: {{
-                polarArea: {{
-                    rings: {{
-                        strokeWidth: 0
-                    }}
-                }}
-            }}
-        }};
+                    // رندر نمودارهای ApexCharts
+                    new ApexCharts(document.getElementById('responseTimeChart'), responseTimeConfig).render();
+                    new ApexCharts(document.getElementById('successRateChart'), successRateConfig).render();
+                    new ApexCharts(document.getElementById('scoreDistributionChart'), scoreDistributionConfig).render();
 
-        new ApexCharts(document.getElementById('responseTimeChart'), responseTimeOptions).render();
-        new ApexCharts(document.getElementById('successRateChart'), successRateOptions).render();
-        new ApexCharts(document.getElementById('scoreDistributionChart'), scoreDistributionOptions).render();
+                } catch (error) {
+                    console.error('Error rendering charts:', error);
+                }
+            }, 500); // تاخیر کوتاه برای اطمینان از آماده بودن DOM
+        });
     </script>
 </body>
 </html>'''
+
     return html
 
 def generate_table_rows(historical_data):
