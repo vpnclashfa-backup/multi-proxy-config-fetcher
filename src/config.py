@@ -45,14 +45,9 @@ class ProxyConfig:
     def __init__(self):
         self.TELEGRAM_CHANNELS = [
             ChannelConfig("https://t.me/s/v2ray_free_conf"),
-            ChannelConfig("https://t.me/s/v2rayvpno"),
             ChannelConfig("https://t.me/s/ZibaNabz"),
             ChannelConfig("https://t.me/s/configV2rayForFree"),
-            ChannelConfig("https://t.me/s/v2rayngvpn"),
-            ChannelConfig("https://t.me/s/SvnV2ray"), 
-            ChannelConfig("https://t.me/s/RadixVPN"),
             ChannelConfig("https://t.me/s/PrivateVPNs"),
-            ChannelConfig("https://t.me/s/VlessConfig"),
             ChannelConfig("https://t.me/s/freewireguard")
         ]
 
