@@ -27,22 +27,35 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     
+    - name: Create directories
+      run: |
+        mkdir -p assets
+        mkdir -p configs
+    
     - name: Run config fetcher
       run: python src/fetch_configs.py
       continue-on-error: true
     
-    - name: Generate performance chart
+    - name: Generate charts and reports
       run: python src/generate_charts.py
     
-    - name: Update README with latest stats
+    - name: Update README timestamps
       run: |
         timestamp=$(date +%s)
-        sed -i.bak "s/channel-stats-chart\.svg?v=[0-9]*/channel-stats-chart.svg?v=$timestamp/" README.md
-        rm README.md.bak
+        sed -i "s/channel_stats_chart\.svg?v=[0-9]*/channel_stats_chart.svg?v=$timestamp/" README.md
+        sed -i "s/performance_report\.html?v=[0-9]*/performance_report.html?v=$timestamp/" README.md
     
-    - name: Commit and push if changed
+    - name: Setup Git
       run: |
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git add configs/proxy_configs.txt configs/channel_stats.json assets/channel_stats_chart.svg README.md
-        git diff --quiet && git diff --staged --quiet || (git commit -m "Update proxy configs, stats and charts" && git push)
+    
+    - name: Commit and push changes
+      run: |
+        git add configs/proxy_configs.txt
+        git add configs/channel_stats.json
+        git add assets/channel_stats_chart.svg
+        git add assets/performance_report.html
+        git add README.md
+        git commit -m "Update proxy configs, stats and reports" || echo "No changes to commit"
+        git push
