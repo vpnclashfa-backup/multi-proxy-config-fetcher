@@ -42,7 +42,6 @@ def generate_html_report(stats_data):
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Channel Performance Report</title>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     </head>
     <body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
         <div class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
@@ -101,22 +100,6 @@ def generate_html_report(stats_data):
                     <h3 class="text-lg font-semibold text-gray-700 mb-4">Average Response Time</h3>
                     <div class="text-3xl font-bold text-purple-600">
                         {sum(c['metrics']['avg_response_time'] for c in stats_data['channels'])/len(stats_data['channels']):.2f}s
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-                <div class="bg-white rounded-lg shadow-lg p-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-6">Channel Performance Scores</h3>
-                    <div style="height: 300px; width: 100%; position: relative;">
-                        <canvas id="performanceChart"></canvas>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-lg shadow-lg p-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-6">Config Distribution</h3>
-                    <div style="height: 300px; width: 100%; position: relative;">
-                        <canvas id="configChart"></canvas>
                     </div>
                 </div>
             </div>
@@ -180,86 +163,6 @@ def generate_html_report(stats_data):
                 </div>
             </div>
         </div>
-
-        <script>
-            const channels = ''' + json.dumps([c['url'].split('/')[-1] for c in stats_data['channels']]) + ''';
-            const scores = ''' + json.dumps([c['metrics']['overall_score'] for c in stats_data['channels']]) + ''';
-            const validConfigs = ''' + json.dumps([c['metrics']['valid_configs'] for c in stats_data['channels']]) + ''';
-            const totalConfigs = ''' + json.dumps([c['metrics']['total_configs'] for c in stats_data['channels']]) + ''';
-
-            const performanceCtx = document.getElementById('performanceChart').getContext('2d');
-            const configCtx = document.getElementById('configChart').getContext('2d');
-
-            new Chart(performanceCtx, {
-                type: 'bar',
-                data: {
-                    labels: channels,
-                    datasets: [{
-                        label: 'Performance Score',
-                        data: scores,
-                        backgroundColor: scores.map(score => 
-                            score >= 70 ? 'rgba(34, 197, 94, 0.6)' :
-                            score >= 50 ? 'rgba(234, 179, 8, 0.6)' :
-                            'rgba(239, 68, 68, 0.6)'
-                        ),
-                        borderColor: scores.map(score => 
-                            score >= 70 ? 'rgb(34, 197, 94)' :
-                            score >= 50 ? 'rgb(234, 179, 8)' :
-                            'rgb(239, 68, 68)'
-                        ),
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            max: 100
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            display: false
-                        }
-                    }
-                }
-            });
-
-            new Chart(configCtx, {
-                type: 'bar',
-                data: {
-                    labels: channels,
-                    datasets: [{
-                        label: 'Valid Configs',
-                        data: validConfigs,
-                        backgroundColor: 'rgba(34, 197, 94, 0.6)',
-                        borderColor: 'rgb(34, 197, 94)',
-                        borderWidth: 1
-                    }, {
-                        label: 'Invalid Configs',
-                        data: totalConfigs.map((total, i) => total - validConfigs[i]),
-                        backgroundColor: 'rgba(239, 68, 68, 0.6)',
-                        borderColor: 'rgb(239, 68, 68)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            stacked: true
-                        },
-                        x: {
-                            stacked: true
-                        }
-                    }
-                }
-            });
-        </script>
     </body>
     </html>'''
     
