@@ -40,51 +40,195 @@ def generate_html_report(stats_data):
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://cdn.tailwindcss.com"></script>
         <title>Channel Performance Report</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     </head>
-    <body class="bg-gray-50 p-8">
-        <div class="max-w-6xl mx-auto">
-            <h1 class="text-3xl font-bold text-gray-900 mb-8 text-center">Channel Performance Dashboard</h1>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">'''
-    
-    for channel in stats_data['channels']:
-        score = channel['metrics']['overall_score']
-        name = channel['url'].split('/')[-1]
+    <body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+        <div class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+            <header class="bg-white rounded-lg shadow-lg p-6 mb-8">
+                <h1 class="text-3xl font-bold text-gray-900 text-center">Proxy Channel Performance Dashboard</h1>
+                <p class="text-center text-gray-600 mt-2">Last Updated: {stats_data['timestamp']}</p>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-lg font-semibold text-gray-700 mb-4">Active Channels</h3>
+                    <div class="text-3xl font-bold text-blue-600">
+                        {sum(1 for c in stats_data['channels'] if c['enabled'])}
+                        <span class="text-sm font-normal text-gray-500">/ {len(stats_data['channels'])}</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-lg font-semibold text-gray-700 mb-4">Total Valid Configs</h3>
+                    <div class="text-3xl font-bold text-green-600">
+                        {sum(c['metrics']['valid_configs'] for c in stats_data['channels'])}
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-lg font-semibold text-gray-700 mb-4">Average Success Rate</h3>
+                    <div class="text-3xl font-bold text-yellow-600">
+                        {sum((c['metrics']['success_count']/(max(1, c['metrics']['success_count'] + c['metrics']['fail_count'])))*100 for c in stats_data['channels'])/len(stats_data['channels']):.1f}%
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-lg font-semibold text-gray-700 mb-4">Average Response Time</h3>
+                    <div class="text-3xl font-bold text-purple-600">
+                        {sum(c['metrics']['avg_response_time'] for c in stats_data['channels'])/len(stats_data['channels']):.2f}s
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-6">Channel Performance Scores</h3>
+                    <canvas id="performanceChart"></canvas>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-6">Config Distribution</h3>
+                    <canvas id="configChart"></canvas>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-6">Detailed Channel Statistics</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Channel</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Score</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Success Rate</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Response Time</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Valid/Total</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Last Success</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">'''
+
+    for channel in sorted(stats_data['channels'], key=lambda x: x['metrics']['overall_score'], reverse=True):
         success_rate = (channel['metrics']['success_count'] / 
                        max(1, channel['metrics']['success_count'] + channel['metrics']['fail_count'])) * 100
         
-        color = 'green' if score >= 70 else 'yellow' if score >= 50 else 'red'
+        status_color = 'green' if channel['enabled'] else 'red'
+        score_color = 'green' if channel['metrics']['overall_score'] >= 70 else 'yellow' if channel['metrics']['overall_score'] >= 50 else 'red'
         
         html += f'''
-            <div class="bg-white rounded-lg shadow p-6">
-                <h2 class="text-xl font-semibold mb-4">{name}</h2>
-                <div class="space-y-3">
-                    <div class="flex justify-between">
-                        <span>Overall Score:</span>
-                        <span class="font-bold text-{color}-600">{score:.1f}%</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span>Success Rate:</span>
-                        <span>{success_rate:.1f}%</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span>Valid/Total:</span>
-                        <span>{channel['metrics']['valid_configs']}/{channel['metrics']['total_configs']}</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span>Response Time:</span>
-                        <span>{channel['metrics']['avg_response_time']:.1f}s</span>
-                    </div>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                    {channel['url'].split('/')[-1]}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-{status_color}-100 text-{status_color}-800">
+                                        {'Active' if channel['enabled'] else 'Inactive'}
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-{score_color}-100 text-{score_color}-800">
+                                        {channel['metrics']['overall_score']:.1f}%
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    {success_rate:.1f}%
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    {channel['metrics']['avg_response_time']:.2f}s
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    {channel['metrics']['valid_configs']}/{channel['metrics']['total_configs']}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    {channel['metrics']['last_success']}
+                                </td>
+                            </tr>'''
+
+    html += '''
+                        </tbody>
+                    </table>
                 </div>
-            </div>'''
-    
-    html += f'''
-            </div>
-            <div class="text-center text-gray-500 text-sm mt-8">
-                Last updated: {stats_data['timestamp']}
             </div>
         </div>
+
+        <script>
+            const channels = ''' + json.dumps([c['url'].split('/')[-1] for c in stats_data['channels']]) + ''';
+            const scores = ''' + json.dumps([c['metrics']['overall_score'] for c in stats_data['channels']]) + ''';
+            const validConfigs = ''' + json.dumps([c['metrics']['valid_configs'] for c in stats_data['channels']]) + ''';
+            const totalConfigs = ''' + json.dumps([c['metrics']['total_configs'] for c in stats_data['channels']]) + ''';
+
+            new Chart(document.getElementById('performanceChart'), {
+                type: 'bar',
+                data: {
+                    labels: channels,
+                    datasets: [{
+                        label: 'Performance Score',
+                        data: scores,
+                        backgroundColor: scores.map(score => 
+                            score >= 70 ? 'rgba(34, 197, 94, 0.6)' :
+                            score >= 50 ? 'rgba(234, 179, 8, 0.6)' :
+                            'rgba(239, 68, 68, 0.6)'
+                        ),
+                        borderColor: scores.map(score => 
+                            score >= 70 ? 'rgb(34, 197, 94)' :
+                            score >= 50 ? 'rgb(234, 179, 8)' :
+                            'rgb(239, 68, 68)'
+                        ),
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+
+            new Chart(document.getElementById('configChart'), {
+                type: 'bar',
+                data: {
+                    labels: channels,
+                    datasets: [{
+                        label: 'Valid Configs',
+                        data: validConfigs,
+                        backgroundColor: 'rgba(34, 197, 94, 0.6)',
+                        borderColor: 'rgb(34, 197, 94)',
+                        borderWidth: 1
+                    }, {
+                        label: 'Invalid Configs',
+                        data: totalConfigs.map((total, i) => total - validConfigs[i]),
+                        backgroundColor: 'rgba(239, 68, 68, 0.6)',
+                        borderColor: 'rgb(239, 68, 68)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            stacked: true
+                        },
+                        x: {
+                            stacked: true
+                        }
+                    }
+                }
+            });
+        </script>
     </body>
     </html>'''
     
