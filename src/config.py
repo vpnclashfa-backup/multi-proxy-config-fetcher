@@ -1,5 +1,6 @@
 from typing import Dict, List
 from datetime import datetime
+import re
 
 class ChannelMetrics:
     def __init__(self):
@@ -17,6 +18,7 @@ class ChannelConfig:
         self.url = url
         self.enabled = enabled
         self.metrics = ChannelMetrics()
+        self.is_telegram = bool(re.match(r'^https://t\.me/s/', url))
         
     def calculate_overall_score(self):
         if self.metrics.success_count + self.metrics.fail_count == 0:
@@ -47,7 +49,8 @@ class ProxyConfig:
             ChannelConfig("https://t.me/s/v2ray_free_conf"),
             ChannelConfig("https://t.me/s/configV2rayForFree"),
             ChannelConfig("https://t.me/s/PrivateVPNs"),
-            ChannelConfig("https://t.me/s/freewireguard")
+            ChannelConfig("https://t.me/s/freewireguard"),
+            ChannelConfig("https://raw.githubusercontent.com/4n0nymou3/ss-config-updater/refs/heads/main/configs.txt")
         ]
 
         self.PROTOCOL_CONFIG_LIMITS = {
