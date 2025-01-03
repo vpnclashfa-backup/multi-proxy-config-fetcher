@@ -183,7 +183,7 @@ def save_channel_stats(config: ProxyConfig):
             'channels': []
         }
         
-        for channel in config.TELEGRAM_CHANNELS:
+        for channel in config.SOURCE_URLS:
             channel_stats = {
                 'url': channel.url,
                 'enabled': channel.enabled,
