@@ -45,7 +45,7 @@ class ChannelConfig:
 
 class ProxyConfig:
     def __init__(self):
-        self.TELEGRAM_CHANNELS = [
+        self.SOURCE_URLS = [
             ChannelConfig("https://t.me/s/v2ray_free_conf"),
             ChannelConfig("https://t.me/s/configV2rayForFree"),
             ChannelConfig("https://t.me/s/PrivateVPNs"),
@@ -95,7 +95,7 @@ class ProxyConfig:
         return protocol in self.SUPPORTED_PROTOCOLS
 
     def get_enabled_channels(self) -> List[ChannelConfig]:
-        return [channel for channel in self.TELEGRAM_CHANNELS if channel.enabled]
+        return [channel for channel in self.SOURCE_URLS if channel.enabled]
 
     def update_channel_stats(self, channel: ChannelConfig, success: bool, response_time: float = 0):
         if success:
