@@ -1,30 +1,30 @@
 # Multi Proxy Config Fetcher
 
-This project automatically fetches and updates various proxy configurations from public Telegram channels. It supports multiple proxy protocols including WireGuard, Hysteria2, VLESS, VMess, Shadowsocks, and Trojan.
+This project automatically fetches and updates various proxy configurations from public Telegram channels and other URLs containing configuration data. It supports multiple proxy protocols including WireGuard, Hysteria2, VLESS, VMess, Shadowsocks, and Trojan.
 
-## Channel Performance
+## Channel and URL Performance
 
-Below is the real-time performance statistics of the configured channels. This chart is automatically updated every hour.
+Below is the real-time performance statistics of the configured sources (Telegram channels and other URLs). This chart is automatically updated every hour.
 
 ### Quick Overview
 <div align="center">
   <a href="assets/channel_stats_chart.svg">
-    <img src="assets/channel_stats_chart.svg" alt="Channel Performance Statistics" width="800">
+    <img src="assets/channel_stats_chart.svg" alt="Source Performance Statistics" width="800">
   </a>
 </div>
 
 ### Detailed Report
-📊 [View Full Interactive Dashboard](https://htmlpreview.github.io/?https://github.com/4n0nymou3/multi-proxy-config-fetcher/blob/main/assets/performance_report.html)
+ðŸ“Š [View Full Interactive Dashboard](https://htmlpreview.github.io/?https://github.com/4n0nymou3/multi-proxy-config-fetcher/blob/main/assets/performance_report.html)
 
-Each channel is scored based on four key metrics:
-- Reliability Score (35%): Success rate in config fetching and updates
-- Config Quality (25%): Ratio of valid configs to total configs fetched
-- Config Uniqueness (25%): Percentage of unique configs contributed
-- Response Time (15%): Server response time and availability
+Each source is scored based on four key metrics:
+- **Reliability Score (35%)**: Success rate in fetching and updating configurations.
+- **Config Quality (25%)**: Ratio of valid configs to total fetched configurations.
+- **Config Uniqueness (25%)**: Percentage of unique configs contributed.
+- **Response Time (15%)**: Server response time and availability.
 
-The overall score is calculated in real-time and updated hourly. Channels scoring below 30% are automatically disabled.
+The overall score is calculated in real-time and updated hourly. Sources scoring below 30% are automatically disabled.
 
-> **Note**: These channels are configured as examples. You can easily modify the channel list in `src/config.py` to use your preferred Telegram channels. The performance metrics shown above are based on real-time monitoring of each channel's reliability in providing valid configurations.
+> **Note**: The sources listed are examples. You can easily modify the source list in `src/config.py` to use your preferred Telegram channels or other URLs. The performance metrics shown above are based on real-time monitoring of each source's reliability in providing valid configurations.
 
 ## Features
 
@@ -35,23 +35,25 @@ The overall score is calculated in real-time and updated hourly. Channels scorin
   - VMess
   - Shadowsocks (SS)
   - Trojan
+- Fetches configs from:
+  - Public Telegram channels
+  - URLs hosting configuration files
 - Smart handling of base64-encoded configs (preserves original format)
 - Intelligent config naming (adds #AnonX only to non-base64 configs)
 - Protocol-specific validation and verification
-- Fetches configs from multiple Telegram channels
 - Automatically updates configs every hour
 - Validates config age (excludes configs older than 7 days)
 - Removes duplicates
-- Real-time channel performance monitoring
-- Automatic channel health management
+- Real-time source performance monitoring
+- Automatic source health management
 - Dynamic protocol distribution balancing
 
 ## Setup
 
-1. Fork this repository
-2. Edit `src/config.py` and add your Telegram channels to `TELEGRAM_CHANNELS` list
-3. Enable GitHub Actions in your forked repository
-4. The configs will be automatically updated every hour in `configs/proxy_configs.txt`
+1. Fork this repository.
+2. Edit `src/config.py` and add your Telegram channels or other URLs to the `SOURCE_URLS` list.
+3. Enable GitHub Actions in your forked repository.
+4. The configs will be automatically updated every hour in `configs/proxy_configs.txt`.
 
 ## Manual Setup
 
@@ -70,7 +72,7 @@ python src/fetch_configs.py
 ## Configuration
 
 Edit `src/config.py` to modify:
-- Telegram channel list
+- Source list (Telegram channels or URLs)
 - Minimum/maximum configs per protocol
 - Protocol ratios and balancing
 - Maximum config age
@@ -81,27 +83,27 @@ Edit `src/config.py` to modify:
 ## Project Structure
 
 ```
-├── src/
-│   ├── config.py              # Project configuration
-│   ├── config_validator.py    # Config validation and verification
-│   └── fetch_configs.py       # Main fetcher implementation
-├── configs/
-│   ├── proxy_configs.txt      # Output configs
-│   └── channel_stats.json     # Channel performance stats
-└── .github/
-    └── workflows/
-        └── update-configs.yml # GitHub Actions workflow
+â”œâ”€â”€ src/
+â”‚   â”œâ”€â”€ config.py              # Project configuration
+â”‚   â”œâ”€â”€ config_validator.py    # Config validation and verification
+â”‚   â””â”€â”€ fetch_configs.py       # Main fetcher implementation
+â”œâ”€â”€ configs/
+â”‚   â”œâ”€â”€ proxy_configs.txt      # Output configs
+â”‚   â””â”€â”€ channel_stats.json     # Source performance stats
+â””â”€â”€ .github/
+    â””â”€â”€ workflows/
+        â””â”€â”€ update-configs.yml # GitHub Actions workflow
 ```
 
-## Channel Statistics
+## Source Statistics
 
-The project tracks comprehensive channel performance metrics in `configs/channel_stats.json`:
+The project tracks comprehensive performance metrics of each source in `configs/channel_stats.json`:
 - Overall performance score (0-100%)
-- Success rate in config fetching
+- Success rate in fetching configurations
 - Valid vs total configs ratio
 - Unique config contribution
 - Response time and reliability
-- Channel health status
+- Source health status
 
 ## License
 
