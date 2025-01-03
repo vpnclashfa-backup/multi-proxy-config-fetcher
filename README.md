@@ -109,6 +109,10 @@ The project tracks comprehensive performance metrics of each source in `configs/
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## Disclaimer
+
+This project is provided for educational and informational purposes only. The developer is not responsible for any misuse of this project or its outcomes. Please ensure compliance with all relevant laws and regulations when using this software.
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
