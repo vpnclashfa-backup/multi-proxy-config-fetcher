@@ -97,15 +97,6 @@ class ConfigValidator:
         config = re.sub(r'[\x00-\x08\x0B-\x1F\x7F-\x9F]', '', config)
         config = re.sub(r'[^\S\r\n]+', ' ', config)
         config = config.strip()
-        
-        if '#' in config:
-            parts = config.split('#')
-            config = parts[0].strip()
-            if len(parts) > 1:
-                name = parts[-1].strip()
-                if name:
-                    config = f"{config}#{name}"
-        
         return config
 
     @staticmethod
