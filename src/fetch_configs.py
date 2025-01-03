@@ -42,7 +42,7 @@ class ConfigFetcher:
             logger.error(f"Error in extract_config: {str(e)}")
             return None
 
-    def fetch_configs_from_channel(self, channel: ChannelConfig) -> List[str]:
+    def fetch_configs_from_source(self, channel: ChannelConfig) -> List[str]:
         configs: List[str] = []
         channel.metrics.total_configs = 0
         channel.metrics.valid_configs = 0
@@ -61,36 +61,31 @@ class ConfigFetcher:
                 
                 response_time = time.time() - start_time
                 
-                soup = BeautifulSoup(response.text, 'html.parser')
-                messages = soup.find_all('div', class_='tgme_widget_message_text')
-                
-                for message in messages:
-                    if not message or not message.text:
-                        continue
+                if channel.is_telegram:
+                    soup = BeautifulSoup(response.text, 'html.parser')
+                    messages = soup.find_all('div', class_='tgme_widget_message_text')
                     
-                    message_date = self.extract_date_from_message(message)
-                    if not self.is_config_valid(message.text, message_date):
-                        continue
-                    
-                    text = message.text
+                    for message in messages:
+                        if not message or not message.text:
+                            continue
+                        
+                        message_date = self.extract_date_from_message(message)
+                        if not self.is_config_valid(message.text, message_date):
+                            continue
+                        
+                        text = message.text
+                        found_configs = self.validator.split_configs(text)
+                        channel.metrics.total_configs += len(found_configs)
+                        
+                        for config in found_configs:
+                            configs.extend(self.process_config(config, channel))
+                else:
+                    text = response.text
                     found_configs = self.validator.split_configs(text)
                     channel.metrics.total_configs += len(found_configs)
                     
                     for config in found_configs:
-                        for protocol in self.config.SUPPORTED_PROTOCOLS:
-                            if config.startswith(protocol):
-                                if self.protocol_counts[protocol] >= self.config.SUPPORTED_PROTOCOLS[protocol]["max_configs"]:
-                                    continue
-                                    
-                                clean_config = self.validator.clean_config(config)
-                                if self.validator.validate_protocol_config(clean_config, protocol):
-                                    channel.metrics.valid_configs += 1
-                                    if clean_config not in self.seen_configs:
-                                        channel.metrics.unique_configs += 1
-                                        self.seen_configs.add(clean_config)
-                                        configs.append(clean_config)
-                                        self.protocol_counts[protocol] += 1
-                                break
+                        configs.extend(self.process_config(config, channel))
                 
                 if len(configs) >= self.config.MIN_CONFIGS_PER_CHANNEL:
                     self.config.update_channel_stats(channel, True, response_time)
@@ -109,6 +104,24 @@ class ConfigFetcher:
             self.config.update_channel_stats(channel, False)
         
         return configs
+
+    def process_config(self, config: str, channel: ChannelConfig) -> List[str]:
+        processed_configs = []
+        for protocol in self.config.SUPPORTED_PROTOCOLS:
+            if config.startswith(protocol):
+                if self.protocol_counts[protocol] >= self.config.SUPPORTED_PROTOCOLS[protocol]["max_configs"]:
+                    continue
+                    
+                clean_config = self.validator.clean_config(config)
+                if self.validator.validate_protocol_config(clean_config, protocol):
+                    channel.metrics.valid_configs += 1
+                    if clean_config not in self.seen_configs:
+                        channel.metrics.unique_configs += 1
+                        self.seen_configs.add(clean_config)
+                        processed_configs.append(clean_config)
+                        self.protocol_counts[protocol] += 1
+                break
+        return processed_configs
 
     def extract_date_from_message(self, message) -> Optional[datetime]:
         try:
@@ -145,7 +158,7 @@ class ConfigFetcher:
         
         for channel in enabled_channels:
             logger.info(f"Fetching configs from {channel.url}")
-            channel_configs = self.fetch_configs_from_channel(channel)
+            channel_configs = self.fetch_configs_from_source(channel)
             all_configs.extend(channel_configs)
         
         if all_configs:
