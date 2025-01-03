@@ -20,11 +20,6 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-def add_config_name(config: str, index: int) -> str:
-    if '#' not in config:
-        return f"{config}#Anon{index+1}"
-    return config
-
 class ConfigFetcher:
     def __init__(self, config: ProxyConfig):
         self.config = config
@@ -155,10 +150,7 @@ class ConfigFetcher:
         
         if all_configs:
             all_configs = self.balance_protocols(sorted(set(all_configs)))
-            final_configs = []
-            for i, config in enumerate(all_configs):
-                final_configs.append(add_config_name(config, i))
-            return final_configs
+            return all_configs
         return []
 
 def save_configs(configs: List[str], config: ProxyConfig):
