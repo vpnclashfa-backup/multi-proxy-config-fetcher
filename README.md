@@ -14,7 +14,7 @@ Below is the real-time performance statistics of the configured sources (Telegra
 </div>
 
 ### Detailed Report
-ðŸ“Š [View Full Interactive Dashboard](https://htmlpreview.github.io/?https://github.com/4n0nymou3/multi-proxy-config-fetcher/blob/main/assets/performance_report.html)
+📊 [View Full Interactive Dashboard](https://htmlpreview.github.io/?https://github.com/4n0nymou3/multi-proxy-config-fetcher/blob/main/assets/performance_report.html)
 
 Each source is scored based on four key metrics:
 - **Reliability Score (35%)**: Success rate in fetching and updating configurations.
@@ -83,16 +83,16 @@ Edit `src/config.py` to modify:
 ## Project Structure
 
 ```
-â”œâ”€â”€ src/
-â”‚   â”œâ”€â”€ config.py              # Project configuration
-â”‚   â”œâ”€â”€ config_validator.py    # Config validation and verification
-â”‚   â””â”€â”€ fetch_configs.py       # Main fetcher implementation
-â”œâ”€â”€ configs/
-â”‚   â”œâ”€â”€ proxy_configs.txt      # Output configs
-â”‚   â””â”€â”€ channel_stats.json     # Source performance stats
-â””â”€â”€ .github/
-    â””â”€â”€ workflows/
-        â””â”€â”€ update-configs.yml # GitHub Actions workflow
+├── src/
+│   ├── config.py              # Project configuration
+│   ├── config_validator.py    # Config validation and verification
+│   └── fetch_configs.py       # Main fetcher implementation
+├── configs/
+│   ├── proxy_configs.txt      # Output configs
+│   └── channel_stats.json     # Source performance stats
+└── .github/
+    └── workflows/
+        └── update-configs.yml # GitHub Actions workflow
 ```
 
 ## Source Statistics
