@@ -39,7 +39,6 @@ The overall score is calculated in real-time and updated hourly. Sources scoring
   - Public Telegram channels
   - URLs hosting configuration files
 - Smart handling of base64-encoded configs (preserves original format)
-- Intelligent config naming (adds #AnonX only to non-base64 configs)
 - Protocol-specific validation and verification
 - Automatically updates configs every hour
 - Validates config age (excludes configs older than 7 days)
