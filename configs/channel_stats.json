@@ -1,18 +1,18 @@
 {
-  "timestamp": "2025-01-04T00:41:41.865160",
+  "timestamp": "2025-01-04T02:08:32.499648",
   "channels": [
     {
       "url": "https://t.me/s/v2ray_free_conf",
       "enabled": true,
       "metrics": {
         "total_configs": 52,
-        "valid_configs": 42,
-        "unique_configs": 40,
-        "avg_response_time": 0.52,
+        "valid_configs": 43,
+        "unique_configs": 41,
+        "avg_response_time": 0.64,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 93.22,
-        "last_success": "2025-01-04T00:41:09.410508"
+        "overall_score": 93.55,
+        "last_success": "2025-01-04T02:08:09.325143"
       }
     },
     {
@@ -34,13 +34,13 @@
       "enabled": true,
       "metrics": {
         "total_configs": 18,
-        "valid_configs": 11,
-        "unique_configs": 11,
-        "avg_response_time": 0.35,
+        "valid_configs": 9,
+        "unique_configs": 9,
+        "avg_response_time": 0.56,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 89.75,
-        "last_success": "2025-01-04T00:41:21.093436"
+        "overall_score": 86.66,
+        "last_success": "2025-01-04T02:08:21.673011"
       }
     },
     {
@@ -50,25 +50,11 @@
         "total_configs": 19,
         "valid_configs": 15,
         "unique_configs": 15,
-        "avg_response_time": 0.37,
+        "avg_response_time": 0.56,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 94.18,
-        "last_success": "2025-01-04T00:41:21.492539"
-      }
-    },
-    {
-      "url": "https://raw.githubusercontent.com/4n0nymou3/ss-config-updater/refs/heads/main/configs.txt",
-      "enabled": false,
-      "metrics": {
-        "total_configs": 12,
-        "valid_configs": 0,
-        "unique_configs": 0,
-        "avg_response_time": 0,
-        "success_count": 0,
-        "fail_count": 1,
-        "overall_score": 15.0,
-        "last_success": null
+        "overall_score": 93.89,
+        "last_success": "2025-01-04T02:08:22.262576"
       }
     },
     {
