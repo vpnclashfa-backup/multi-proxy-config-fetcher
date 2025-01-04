@@ -80,6 +80,15 @@ Edit `src/config.py` to modify:
 - Supported protocols
 - Request headers and timeouts
 
+
+## Note for Forked Repositories
+
+If you fork this repository, you need to manually enable GitHub Actions:
+1. Go to `Settings > Actions` in your forked repository.
+2. Select **Allow all actions and reusable workflows**.
+3. Save the settings.
+
+
 ## Project Structure
 
 ```
