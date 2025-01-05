@@ -45,6 +45,7 @@ class ChannelConfig:
 
 class ProxyConfig:
     def __init__(self):
+        # List of channels or URLs to fetch proxy configurations from
         self.SOURCE_URLS = [
             ChannelConfig("https://t.me/s/v2ray_free_conf"),
             ChannelConfig("https://t.me/s/configV2rayForFree"),
@@ -53,11 +54,13 @@ class ProxyConfig:
             ChannelConfig("https://raw.githubusercontent.com/valid7996/Gozargah/refs/heads/main/Gozargah_Sub")
         ]
 
+        # Minimum and maximum number of configurations per protocol
         self.PROTOCOL_CONFIG_LIMITS = {
-            "min": 5,
-            "max": 15
+            "min": 5,  # Minimum number of configurations per protocol
+            "max": 15  # Maximum number of configurations per protocol
         }
 
+        # Supported proxy protocols and their limits
         self.SUPPORTED_PROTOCOLS: Dict[str, Dict] = {
             "wireguard://": {"min_configs": self.PROTOCOL_CONFIG_LIMITS["min"], "max_configs": self.PROTOCOL_CONFIG_LIMITS["max"]},
             "hysteria2://": {"min_configs": self.PROTOCOL_CONFIG_LIMITS["min"], "max_configs": self.PROTOCOL_CONFIG_LIMITS["max"]},
@@ -67,20 +70,25 @@ class ProxyConfig:
             "trojan://": {"min_configs": self.PROTOCOL_CONFIG_LIMITS["min"], "max_configs": self.PROTOCOL_CONFIG_LIMITS["max"]}
         }
 
-        self.MIN_CONFIGS_PER_CHANNEL = 5
-        self.MAX_CONFIGS_PER_CHANNEL = 30
-        self.MAX_CONFIG_AGE_DAYS = 7
-        self.CHANNEL_RETRY_LIMIT = 3
-        self.CHANNEL_ERROR_THRESHOLD = 0.5
+        # Minimum and maximum number of configurations fetched from each channel
+        self.MIN_CONFIGS_PER_CHANNEL = 5  # Minimum number of proxy configs required per channel
+        self.MAX_CONFIGS_PER_CHANNEL = 30  # Maximum number of proxy configs allowed per channel
+        # Maximum age of configurations (in days)
+        self.MAX_CONFIG_AGE_DAYS = 7  # Discard configurations older than this many days
+        # Retry settings for fetching configurations
+        self.CHANNEL_RETRY_LIMIT = 3  # Maximum number of retries if a channel fetch fails
+        self.CHANNEL_ERROR_THRESHOLD = 0.5  # Error threshold (e.g., 50%) to disable a channel
 
-        self.MIN_PROTOCOL_RATIO = 0.15
+        # Minimum ratio of configs required for a protocol to be considered valid
+        self.MIN_PROTOCOL_RATIO = 0.15  # Protocol must have at least 15% of all fetched configs
 
         self.OUTPUT_FILE = 'configs/proxy_configs.txt'
         self.STATS_FILE = 'configs/channel_stats.json'
 
-        self.MAX_RETRIES = 3
-        self.RETRY_DELAY = 5
-        self.REQUEST_TIMEOUT = 30
+        # HTTP request settings
+        self.MAX_RETRIES = 3  # Maximum retries for a failed HTTP request
+        self.RETRY_DELAY = 5  # Delay (in seconds) between retries
+        self.REQUEST_TIMEOUT = 30  # Timeout (in seconds) for HTTP requests
 
         self.HEADERS = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
