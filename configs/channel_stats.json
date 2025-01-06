@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-06T20:08:13.278351",
+  "timestamp": "2025-01-06T20:39:16.537402",
   "channels": [
     {
       "url": "https://t.me/s/v2ray_free_conf",
@@ -8,11 +8,11 @@
         "total_configs": 31,
         "valid_configs": 25,
         "unique_configs": 25,
-        "avg_response_time": 0.54,
+        "avg_response_time": 0.55,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 94.36,
-        "last_success": "2025-01-06T20:08:12.224273"
+        "overall_score": 94.33,
+        "last_success": "2025-01-06T20:38:55.720655"
       }
     },
     {
@@ -22,39 +22,53 @@
         "total_configs": 18,
         "valid_configs": 9,
         "unique_configs": 9,
-        "avg_response_time": 0.42,
+        "avg_response_time": 0.46,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 86.87,
-        "last_success": "2025-01-06T20:08:12.687586"
+        "overall_score": 86.81,
+        "last_success": "2025-01-06T20:38:56.221766"
       }
     },
     {
-      "url": "https://t.me/s/freewireguard",
+      "url": "https://raw.githubusercontent.com/4n0nymou3/wg-config-fetcher/refs/heads/main/configs/wireguard_configs.txt",
       "enabled": true,
       "metrics": {
-        "total_configs": 17,
-        "valid_configs": 15,
-        "unique_configs": 15,
-        "avg_response_time": 0.45,
+        "total_configs": 10,
+        "valid_configs": 10,
+        "unique_configs": 10,
+        "avg_response_time": 0.1,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 96.38,
-        "last_success": "2025-01-06T20:08:13.169205"
+        "overall_score": 99.85,
+        "last_success": "2025-01-06T20:38:56.326632"
       }
     },
     {
-      "url": "https://raw.githubusercontent.com/valid7996/Gozargah/refs/heads/main/Gozargah_Sub",
+      "url": "https://raw.githubusercontent.com/4n0nymou3/ss-config-updater/refs/heads/main/configs.txt",
       "enabled": true,
       "metrics": {
-        "total_configs": 20,
-        "valid_configs": 7,
-        "unique_configs": 7,
-        "avg_response_time": 0.11,
-        "success_count": 1,
+        "total_configs": 12,
+        "valid_configs": 12,
+        "unique_configs": 4,
+        "avg_response_time": 0,
+        "success_count": 0,
         "fail_count": 0,
-        "overall_score": 83.59,
-        "last_success": "2025-01-06T20:08:13.276393"
+        "overall_score": 0.0,
+        "last_success": null
+      }
+    },
+    {
+      "url": "https://raw.githubusercontent.com/4n0nymou3/auto-warp-config/refs/heads/main/config.txt",
+      "enabled": false,
+      "metrics": {
+        "total_configs": 0,
+        "valid_configs": 0,
+        "unique_configs": 0,
+        "avg_response_time": 0,
+        "success_count": 0,
+        "fail_count": 1,
+        "overall_score": 15.0,
+        "last_success": null
       }
     }
   ]
