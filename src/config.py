@@ -48,7 +48,6 @@ class ProxyConfig:
         # List of channels or URLs to fetch proxy configurations from
         self.SOURCE_URLS = [
             ChannelConfig("https://t.me/s/v2ray_free_conf"),
-            ChannelConfig("https://t.me/s/configV2rayForFree"),
             ChannelConfig("https://t.me/s/PrivateVPNs"),
             ChannelConfig("https://t.me/s/freewireguard"),
             ChannelConfig("https://raw.githubusercontent.com/valid7996/Gozargah/refs/heads/main/Gozargah_Sub")
