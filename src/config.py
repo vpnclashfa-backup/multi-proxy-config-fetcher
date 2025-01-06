@@ -49,8 +49,9 @@ class ProxyConfig:
         self.SOURCE_URLS = [
             ChannelConfig("https://t.me/s/v2ray_free_conf"),
             ChannelConfig("https://t.me/s/PrivateVPNs"),
-            ChannelConfig("https://t.me/s/freewireguard"),
-            ChannelConfig("https://raw.githubusercontent.com/valid7996/Gozargah/refs/heads/main/Gozargah_Sub")
+            ChannelConfig("https://raw.githubusercontent.com/4n0nymou3/wg-config-fetcher/refs/heads/main/configs/wireguard_configs.txt"),
+            ChannelConfig("https://raw.githubusercontent.com/4n0nymou3/ss-config-updater/refs/heads/main/configs.txt"),
+            ChannelConfig("https://raw.githubusercontent.com/4n0nymou3/auto-warp-config/refs/heads/main/config.txt")
         ]
 
         # Minimum and maximum number of configurations per protocol
