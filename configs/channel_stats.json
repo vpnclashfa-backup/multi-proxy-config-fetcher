@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-06T20:39:16.537402",
+  "timestamp": "2025-01-06T20:42:33.952747",
   "channels": [
     {
       "url": "https://t.me/s/v2ray_free_conf",
@@ -8,11 +8,11 @@
         "total_configs": 31,
         "valid_configs": 25,
         "unique_configs": 25,
-        "avg_response_time": 0.55,
+        "avg_response_time": 0.39,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 94.33,
-        "last_success": "2025-01-06T20:38:55.720655"
+        "overall_score": 94.58,
+        "last_success": "2025-01-06T20:42:23.343357"
       }
     },
     {
@@ -22,11 +22,11 @@
         "total_configs": 18,
         "valid_configs": 9,
         "unique_configs": 9,
-        "avg_response_time": 0.46,
+        "avg_response_time": 0.37,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 86.81,
-        "last_success": "2025-01-06T20:38:56.221766"
+        "overall_score": 86.95,
+        "last_success": "2025-01-06T20:42:23.750912"
       }
     },
     {
@@ -36,11 +36,11 @@
         "total_configs": 10,
         "valid_configs": 10,
         "unique_configs": 10,
-        "avg_response_time": 0.1,
+        "avg_response_time": 0.05,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 99.85,
-        "last_success": "2025-01-06T20:38:56.326632"
+        "overall_score": 99.92,
+        "last_success": "2025-01-06T20:42:23.805542"
       }
     },
     {
@@ -54,20 +54,6 @@
         "success_count": 0,
         "fail_count": 0,
         "overall_score": 0.0,
-        "last_success": null
-      }
-    },
-    {
-      "url": "https://raw.githubusercontent.com/4n0nymou3/auto-warp-config/refs/heads/main/config.txt",
-      "enabled": false,
-      "metrics": {
-        "total_configs": 0,
-        "valid_configs": 0,
-        "unique_configs": 0,
-        "avg_response_time": 0,
-        "success_count": 0,
-        "fail_count": 1,
-        "overall_score": 15.0,
         "last_success": null
       }
     }
