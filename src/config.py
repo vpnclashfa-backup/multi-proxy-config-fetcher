@@ -51,8 +51,7 @@ class ProxyConfig:
             ChannelConfig("https://t.me/s/configV2rayForFree"),
             ChannelConfig("https://t.me/s/PrivateVPNs"),
             ChannelConfig("https://t.me/s/freewireguard"),
-            ChannelConfig("https://raw.githubusercontent.com/valid7996/Gozargah/refs/heads/main/Gozargah_Sub"),
-            ChannelConfig("ssconf://ainita.s3.eu-north-1.amazonaws.com/AinitaServer-1.csv")
+            ChannelConfig("https://raw.githubusercontent.com/valid7996/Gozargah/refs/heads/main/Gozargah_Sub")
         ]
 
         # Minimum and maximum number of configurations per protocol
