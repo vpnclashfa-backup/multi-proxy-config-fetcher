@@ -29,7 +29,13 @@ class ConfigValidator:
         try:
             if not config.startswith('vmess://'):
                 return False
+            
             base64_part = config[8:]
+            if '=' in base64_part:
+                base64_part = base64_part.split('=')[0] + '='
+            elif '==' in base64_part:
+                base64_part = base64_part.split('==')[0] + '=='
+                
             decoded = ConfigValidator.decode_base64_url(base64_part)
             if decoded:
                 json.loads(decoded)
@@ -71,6 +77,11 @@ class ConfigValidator:
                 if current_pos < next_config_start and configs:
                     current_config = text[current_pos:next_config_start].strip()
                     if ConfigValidator.is_valid_config(current_config):
+                        if current_config.startswith('vmess://'):
+                            if '=' in current_config:
+                                current_config = current_config.split('=')[0] + '='
+                            elif '==' in current_config:
+                                current_config = current_config.split('==')[0] + '=='
                         configs.append(current_config)
                 
                 current_pos = next_config_start
@@ -83,6 +94,11 @@ class ConfigValidator:
                 
                 current_config = text[next_config_start:next_protocol_pos].strip()
                 if ConfigValidator.is_valid_config(current_config):
+                    if current_config.startswith('vmess://'):
+                        if '=' in current_config:
+                            current_config = current_config.split('=')[0] + '='
+                        elif '==' in current_config:
+                            current_config = current_config.split('==')[0] + '=='
                     configs.append(current_config)
                 
                 current_pos = next_protocol_pos
@@ -96,6 +112,11 @@ class ConfigValidator:
         config = re.sub(r'[\U0001F300-\U0001F9FF]', '', config)
         config = re.sub(r'[\x00-\x08\x0B-\x1F\x7F-\x9F]', '', config)
         config = re.sub(r'[^\S\r\n]+', ' ', config)
+        if config.startswith('vmess://'):
+            if '=' in config:
+                config = config.split('=')[0] + '='
+            elif '==' in config:
+                config = config.split('==')[0] + '=='
         config = config.strip()
         return config
 
