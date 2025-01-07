@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-07T21:29:49.917731",
+  "timestamp": "2025-01-07T21:35:08.754633",
   "channels": [
     {
       "url": "https://t.me/s/v2ray_free_conf",
@@ -8,11 +8,11 @@
         "total_configs": 20,
         "valid_configs": 17,
         "unique_configs": 17,
-        "avg_response_time": 0.41,
+        "avg_response_time": 0.49,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 95.63,
-        "last_success": "2025-01-07T21:29:39.275265"
+        "overall_score": 95.51,
+        "last_success": "2025-01-07T21:34:47.722992"
       }
     },
     {
@@ -22,11 +22,11 @@
         "total_configs": 18,
         "valid_configs": 11,
         "unique_configs": 11,
-        "avg_response_time": 0.4,
+        "avg_response_time": 0.44,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 89.68,
-        "last_success": "2025-01-07T21:29:39.716282"
+        "overall_score": 89.62,
+        "last_success": "2025-01-07T21:34:48.201974"
       }
     },
     {
@@ -36,11 +36,11 @@
         "total_configs": 10,
         "valid_configs": 10,
         "unique_configs": 10,
-        "avg_response_time": 0.09,
+        "avg_response_time": 0.1,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 99.86,
-        "last_success": "2025-01-07T21:29:39.808463"
+        "overall_score": 99.85,
+        "last_success": "2025-01-07T21:34:48.303697"
       }
     },
     {
@@ -54,6 +54,20 @@
         "success_count": 0,
         "fail_count": 0,
         "overall_score": 0.0,
+        "last_success": null
+      }
+    },
+    {
+      "url": "ssconf://ainita.s3.eu-north-1.amazonaws.com/AinitaServer-1.csv",
+      "enabled": false,
+      "metrics": {
+        "total_configs": 0,
+        "valid_configs": 0,
+        "unique_configs": 0,
+        "avg_response_time": 0,
+        "success_count": 0,
+        "fail_count": 1,
+        "overall_score": 15.0,
         "last_success": null
       }
     }
