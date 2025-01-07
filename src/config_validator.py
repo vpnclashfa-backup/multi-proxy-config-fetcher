@@ -47,18 +47,25 @@ class ConfigValidator:
             return False
 
     @staticmethod
-    def is_tuic_config(config: str) -> bool:
+    def is_ssconf_url(config: str) -> bool:
+        return config.startswith('ssconf://')
+
+    @staticmethod
+    def fetch_ss_from_ssconf(ssconf_url: str) -> Optional[str]:
+        https_url = ssconf_url.replace("ssconf://", "https://")
         try:
-            if config.startswith('tuic://'):
-                parsed = urlparse(config)
-                return bool(parsed.netloc and ':' in parsed.netloc)
-            return False
-        except:
-            return False
+            response = requests.get(https_url, timeout=10)
+            response.raise_for_status()
+            content = response.text.strip()
+            if content.startswith('ss://'):
+                return content
+            return None
+        except Exception as e:
+            return None
 
     @staticmethod
     def is_base64_config(config: str) -> Tuple[bool, str]:
-        protocols = ['vmess://', 'vless://', 'ss://', 'tuic://']
+        protocols = ['vmess://', 'vless://', 'ss://', 'ssconf://']
         for protocol in protocols:
             if config.startswith(protocol):
                 base64_part = config[len(protocol):]
@@ -70,7 +77,7 @@ class ConfigValidator:
 
     @staticmethod
     def split_configs(text: str) -> List[str]:
-        protocols = ['vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'wireguard://', 'tuic://']
+        protocols = ['vmess://', 'vless://', 'ss://', 'ssconf://', 'trojan://', 'hysteria2://', 'wireguard://']
         configs = []
         current_pos = 0
         text_length = len(text)
@@ -102,7 +109,11 @@ class ConfigValidator:
                 current_config = text[next_config_start:next_protocol_pos].strip()
                 if matching_protocol == "vmess://":
                     current_config = ConfigValidator.clean_vmess_config(current_config)
-                if ConfigValidator.is_valid_config(current_config):
+                if matching_protocol == "ssconf://":
+                    fetched_ss = ConfigValidator.fetch_ss_from_ssconf(current_config)
+                    if fetched_ss:
+                        configs.append(fetched_ss)
+                elif ConfigValidator.is_valid_config(current_config):
                     configs.append(current_config)
                 
                 current_pos = next_protocol_pos
@@ -124,17 +135,17 @@ class ConfigValidator:
         if not config:
             return False
             
-        protocols = ['vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'wireguard://', 'tuic://']
+        protocols = ['vmess://', 'vless://', 'ss://', 'ssconf://', 'trojan://', 'hysteria2://', 'wireguard://']
         return any(config.startswith(p) for p in protocols)
 
     @classmethod
     def validate_protocol_config(cls, config: str, protocol: str) -> bool:
         try:
-            if protocol in ['vmess://', 'vless://', 'ss://', 'tuic://']:
+            if protocol in ['vmess://', 'vless://', 'ss://', 'ssconf://']:
                 if protocol == 'vmess://':
                     return cls.is_vmess_config(config)
-                if protocol == 'tuic://':
-                    return cls.is_tuic_config(config)
+                if protocol == 'ssconf://':
+                    return cls.fetch_ss_from_ssconf(config) is not None
                 base64_part = config[len(protocol):]
                 decoded_url = unquote(base64_part)
                 if cls.is_base64(decoded_url) or cls.is_base64(base64_part):
