@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-07T23:45:36.742669",
+  "timestamp": "2025-01-07T23:48:58.376764",
   "channels": [
     {
       "url": "https://t.me/s/v2ray_free_conf",
@@ -8,11 +8,11 @@
         "total_configs": 20,
         "valid_configs": 17,
         "unique_configs": 17,
-        "avg_response_time": 0.59,
+        "avg_response_time": 0.7,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 95.37,
-        "last_success": "2025-01-07T23:45:25.561416"
+        "overall_score": 95.2,
+        "last_success": "2025-01-07T23:48:57.003927"
       }
     },
     {
@@ -22,11 +22,11 @@
         "total_configs": 18,
         "valid_configs": 11,
         "unique_configs": 11,
-        "avg_response_time": 0.67,
+        "avg_response_time": 0.56,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 89.27,
-        "last_success": "2025-01-07T23:45:26.272921"
+        "overall_score": 89.43,
+        "last_success": "2025-01-07T23:48:57.608222"
       }
     },
     {
@@ -36,25 +36,25 @@
         "total_configs": 10,
         "valid_configs": 10,
         "unique_configs": 10,
-        "avg_response_time": 0.2,
+        "avg_response_time": 0.16,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 99.69,
-        "last_success": "2025-01-07T23:45:26.478296"
+        "overall_score": 99.76,
+        "last_success": "2025-01-07T23:48:57.768261"
       }
     },
     {
-      "url": "https://raw.githubusercontent.com/4n0nymou3/ss-config-updater/refs/heads/main/configs.txt",
+      "url": "ssconf://ainita.s3.eu-north-1.amazonaws.com/AinitaServer-1.csv",
       "enabled": true,
       "metrics": {
-        "total_configs": 12,
-        "valid_configs": 12,
-        "unique_configs": 4,
-        "avg_response_time": 0,
-        "success_count": 0,
+        "total_configs": 0,
+        "valid_configs": 0,
+        "unique_configs": 0,
+        "avg_response_time": 0.61,
+        "success_count": 1,
         "fail_count": 0,
-        "overall_score": 0.0,
-        "last_success": null
+        "overall_score": 49.09,
+        "last_success": "2025-01-07T23:48:58.375685"
       }
     }
   ]
