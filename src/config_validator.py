@@ -47,18 +47,18 @@ class ConfigValidator:
             return False
 
     @staticmethod
-    def is_ssconf_config(config: str) -> bool:
-        return config.startswith('ssconf://')
-
-    @staticmethod
-    def convert_ssconf_to_https(config: str) -> Optional[str]:
-        if config.startswith('ssconf://'):
-            return config.replace('ssconf://', 'https://')
-        return None
+    def is_tuic_config(config: str) -> bool:
+        try:
+            if config.startswith('tuic://'):
+                parsed = urlparse(config)
+                return bool(parsed.netloc and ':' in parsed.netloc)
+            return False
+        except:
+            return False
 
     @staticmethod
     def is_base64_config(config: str) -> Tuple[bool, str]:
-        protocols = ['vmess://', 'vless://', 'ss://']
+        protocols = ['vmess://', 'vless://', 'ss://', 'tuic://']
         for protocol in protocols:
             if config.startswith(protocol):
                 base64_part = config[len(protocol):]
@@ -70,7 +70,7 @@ class ConfigValidator:
 
     @staticmethod
     def split_configs(text: str) -> List[str]:
-        protocols = ['vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'wireguard://', 'ssconf://']
+        protocols = ['vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'wireguard://', 'tuic://']
         configs = []
         current_pos = 0
         text_length = len(text)
@@ -124,17 +124,17 @@ class ConfigValidator:
         if not config:
             return False
             
-        protocols = ['vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'wireguard://', 'ssconf://']
+        protocols = ['vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'wireguard://', 'tuic://']
         return any(config.startswith(p) for p in protocols)
 
     @classmethod
     def validate_protocol_config(cls, config: str, protocol: str) -> bool:
         try:
-            if protocol in ['vmess://', 'vless://', 'ss://', 'ssconf://']:
+            if protocol in ['vmess://', 'vless://', 'ss://', 'tuic://']:
                 if protocol == 'vmess://':
                     return cls.is_vmess_config(config)
-                if protocol == 'ssconf://':
-                    return cls.is_ssconf_config(config)
+                if protocol == 'tuic://':
+                    return cls.is_tuic_config(config)
                 base64_part = config[len(protocol):]
                 decoded_url = unquote(base64_part)
                 if cls.is_base64(decoded_url) or cls.is_base64(base64_part):
