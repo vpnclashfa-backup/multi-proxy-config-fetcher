@@ -64,7 +64,6 @@ class ConfigValidator:
     def is_valid_config(config: str) -> bool:
         if not config:
             return False
-            
         protocols = ['vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'wireguard://', 'tuic://', 'ssconf://']
         return any(config.startswith(p) for p in protocols)
 
