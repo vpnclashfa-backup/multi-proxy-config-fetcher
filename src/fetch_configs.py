@@ -42,6 +42,27 @@ class ConfigFetcher:
             logger.error(f"Error in extract_config: {str(e)}")
             return None
 
+    def fetch_ssconf_configs(self, url: str) -> List[str]:
+        https_url = self.validator.convert_ssconf_to_https(url)
+        configs = []
+        
+        try:
+            response = requests.get(
+                https_url,
+                headers=self.config.HEADERS,
+                timeout=self.config.REQUEST_TIMEOUT
+            )
+            response.raise_for_status()
+            content = response.text.strip()
+            
+            if content.startswith('ss://'):
+                configs.append(content)
+            
+        except Exception as e:
+            logger.error(f"Error fetching ssconf: {str(e)}")
+            
+        return configs
+
     def fetch_configs_from_source(self, channel: ChannelConfig) -> List[str]:
         configs: List[str] = []
         channel.metrics.total_configs = 0
@@ -52,47 +73,60 @@ class ConfigFetcher:
         
         for attempt in range(self.config.MAX_RETRIES):
             try:
-                response = requests.get(
-                    channel.url,
-                    headers=self.config.HEADERS,
-                    timeout=self.config.REQUEST_TIMEOUT
-                )
-                response.raise_for_status()
-                
-                response_time = time.time() - start_time
-                
-                if channel.is_telegram:
-                    soup = BeautifulSoup(response.text, 'html.parser')
-                    messages = soup.find_all('div', class_='tgme_widget_message_text')
+                if channel.url.startswith('ssconf://'):
+                    configs.extend(self.fetch_ssconf_configs(channel.url))
+                    if configs:
+                        response_time = time.time() - start_time
+                        self.config.update_channel_stats(channel, True, response_time)
+                        break
+                else:
+                    response = requests.get(
+                        channel.url,
+                        headers=self.config.HEADERS,
+                        timeout=self.config.REQUEST_TIMEOUT
+                    )
+                    response.raise_for_status()
                     
-                    for message in messages:
-                        if not message or not message.text:
-                            continue
+                    response_time = time.time() - start_time
+                    
+                    if channel.is_telegram:
+                        soup = BeautifulSoup(response.text, 'html.parser')
+                        messages = soup.find_all('div', class_='tgme_widget_message_text')
                         
-                        message_date = self.extract_date_from_message(message)
-                        if not self.is_config_valid(message.text, message_date):
-                            continue
-                        
-                        text = message.text
+                        for message in messages:
+                            if not message or not message.text:
+                                continue
+                            
+                            message_date = self.extract_date_from_message(message)
+                            if not self.is_config_valid(message.text, message_date):
+                                continue
+                            
+                            text = message.text
+                            for config in text.split():
+                                if config.startswith('ssconf://'):
+                                    ssconf_configs = self.fetch_ssconf_configs(config)
+                                    configs.extend(ssconf_configs)
+                                    channel.metrics.total_configs += len(ssconf_configs)
+                            
+                            found_configs = self.validator.split_configs(text)
+                            channel.metrics.total_configs += len(found_configs)
+                            
+                            for config in found_configs:
+                                configs.extend(self.process_config(config, channel))
+                    else:
+                        text = response.text
                         found_configs = self.validator.split_configs(text)
                         channel.metrics.total_configs += len(found_configs)
                         
                         for config in found_configs:
                             configs.extend(self.process_config(config, channel))
-                else:
-                    text = response.text
-                    found_configs = self.validator.split_configs(text)
-                    channel.metrics.total_configs += len(found_configs)
                     
-                    for config in found_configs:
-                        configs.extend(self.process_config(config, channel))
-                
-                if len(configs) >= self.config.MIN_CONFIGS_PER_CHANNEL:
-                    self.config.update_channel_stats(channel, True, response_time)
-                    break
-                elif attempt < self.config.MAX_RETRIES - 1:
-                    logger.warning(f"Not enough configs found in {channel.url}, retrying...")
-                    time.sleep(self.config.RETRY_DELAY)
+                    if len(configs) >= self.config.MIN_CONFIGS_PER_CHANNEL:
+                        self.config.update_channel_stats(channel, True, response_time)
+                        break
+                    elif attempt < self.config.MAX_RETRIES - 1:
+                        logger.warning(f"Not enough configs found in {channel.url}, retrying...")
+                        time.sleep(self.config.RETRY_DELAY)
                 
             except Exception as e:
                 logger.error(f"Attempt {attempt + 1}/{self.config.MAX_RETRIES} failed for {channel.url}: {str(e)}")
