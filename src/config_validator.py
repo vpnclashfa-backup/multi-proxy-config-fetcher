@@ -57,6 +57,12 @@ class ConfigValidator:
             return False
 
     @staticmethod
+    def convert_ssconf_to_https(url: str) -> str:
+        if url.startswith('ssconf://'):
+            return url.replace('ssconf://', 'https://', 1)
+        return url
+
+    @staticmethod
     def is_base64_config(config: str) -> Tuple[bool, str]:
         protocols = ['vmess://', 'vless://', 'ss://', 'tuic://']
         for protocol in protocols:
@@ -70,7 +76,7 @@ class ConfigValidator:
 
     @staticmethod
     def split_configs(text: str) -> List[str]:
-        protocols = ['vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'wireguard://', 'tuic://']
+        protocols = ['vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'wireguard://', 'tuic://', 'ssconf://']
         configs = []
         current_pos = 0
         text_length = len(text)
@@ -124,7 +130,7 @@ class ConfigValidator:
         if not config:
             return False
             
-        protocols = ['vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'wireguard://', 'tuic://']
+        protocols = ['vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'wireguard://', 'tuic://', 'ssconf://']
         return any(config.startswith(p) for p in protocols)
 
     @classmethod
@@ -144,6 +150,8 @@ class ConfigValidator:
             elif protocol in ['trojan://', 'hysteria2://', 'wireguard://']:
                 parsed = urlparse(config)
                 return bool(parsed.netloc and '@' in parsed.netloc)
+            elif protocol == 'ssconf://':
+                return True
             return False
         except:
             return False
