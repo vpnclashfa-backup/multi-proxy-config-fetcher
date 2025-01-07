@@ -26,10 +26,10 @@ class ConfigValidator:
 
     @staticmethod
     def clean_vmess_config(config: str) -> str:
-        if '==' in config:
-            return config.split('==')[0] + '=='
-        elif '=' in config:
-            return config.split('=')[0] + '='
+        if "vmess://" in config:
+            base64_part = config[8:]
+            base64_clean = re.split(r'[^A-Za-z0-9+/=_-]', base64_part)[0]
+            return f"vmess://{base64_clean}"
         return config
 
     @staticmethod
@@ -37,10 +37,7 @@ class ConfigValidator:
         try:
             if not config.startswith('vmess://'):
                 return False
-            
             base64_part = config[8:]
-            base64_part = ConfigValidator.clean_vmess_config(base64_part)[8:]
-                
             decoded = ConfigValidator.decode_base64_url(base64_part)
             if decoded:
                 json.loads(decoded)
@@ -82,8 +79,6 @@ class ConfigValidator:
                 if current_pos < next_config_start and configs:
                     current_config = text[current_pos:next_config_start].strip()
                     if ConfigValidator.is_valid_config(current_config):
-                        if current_config.startswith('vmess://'):
-                            current_config = ConfigValidator.clean_vmess_config(current_config)
                         configs.append(current_config)
                 
                 current_pos = next_config_start
@@ -95,9 +90,9 @@ class ConfigValidator:
                         next_protocol_pos = pos
                 
                 current_config = text[next_config_start:next_protocol_pos].strip()
+                if matching_protocol == "vmess://":
+                    current_config = ConfigValidator.clean_vmess_config(current_config)
                 if ConfigValidator.is_valid_config(current_config):
-                    if current_config.startswith('vmess://'):
-                        current_config = ConfigValidator.clean_vmess_config(current_config)
                     configs.append(current_config)
                 
                 current_pos = next_protocol_pos
@@ -111,8 +106,6 @@ class ConfigValidator:
         config = re.sub(r'[\U0001F300-\U0001F9FF]', '', config)
         config = re.sub(r'[\x00-\x08\x0B-\x1F\x7F-\x9F]', '', config)
         config = re.sub(r'[^\S\r\n]+', ' ', config)
-        if config.startswith('vmess://'):
-            config = ConfigValidator.clean_vmess_config(config)
         config = config.strip()
         return config
 
