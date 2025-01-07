@@ -111,6 +111,11 @@ class ConfigFetcher:
             if config.startswith(protocol):
                 if protocol == "vmess://":
                     config = self.validator.clean_vmess_config(config)
+                if protocol == "ssconf://":
+                    config = self.validator.fetch_ss_from_ssconf(config)
+                    if not config:
+                        continue
+                
                 if self.protocol_counts[protocol] >= self.config.SUPPORTED_PROTOCOLS[protocol]["max_configs"]:
                     continue
                     
