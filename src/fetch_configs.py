@@ -109,6 +109,8 @@ class ConfigFetcher:
         processed_configs = []
         for protocol in self.config.SUPPORTED_PROTOCOLS:
             if config.startswith(protocol):
+                if protocol == "vmess://":
+                    config = self.validator.clean_vmess_config(config)
                 if self.protocol_counts[protocol] >= self.config.SUPPORTED_PROTOCOLS[protocol]["max_configs"]:
                     continue
                     
