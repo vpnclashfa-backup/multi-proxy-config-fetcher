@@ -1,6 +1,6 @@
 # Multi Proxy Config Fetcher
 
-This project automatically fetches and updates various proxy configurations from public Telegram channels and other URLs containing configuration data. It supports multiple proxy protocols including WireGuard, Hysteria2, VLESS, VMess, Shadowsocks, and Trojan.
+This project automatically fetches and updates various proxy configurations from public Telegram channels, SSCONF links and other URLs containing configuration data. It supports multiple proxy protocols including WireGuard, Hysteria2, VLESS, VMess, Shadowsocks, TUIC, and Trojan.
 
 ## Channel and URL Performance
 
@@ -24,7 +24,7 @@ Each source is scored based on four key metrics:
 
 The overall score is calculated in real-time and updated hourly. Sources scoring below 30% are automatically disabled.
 
-> **Note**: The sources listed are examples. You can easily modify the source list in `src/config.py` to use your preferred Telegram channels or other URLs. The performance metrics shown above are based on real-time monitoring of each source's reliability in providing valid configurations.
+> **Note**: The sources listed are examples. You can easily modify the source list in `src/config.py` to use your preferred Telegram channels, SSCONF links or other URLs. The performance metrics shown above are based on real-time monitoring of each source's reliability in providing valid configurations.
 
 ## Features
 
@@ -35,8 +35,10 @@ The overall score is calculated in real-time and updated hourly. Sources scoring
   - VMess
   - Shadowsocks (SS)
   - Trojan
+  - TUIC
 - Fetches configs from:
   - Public Telegram channels
+  - SSCONF format links
   - URLs hosting configuration files
 - Smart handling of base64-encoded configs (preserves original format)
 - Protocol-specific validation and verification
@@ -50,7 +52,7 @@ The overall score is calculated in real-time and updated hourly. Sources scoring
 ## Setup
 
 1. Fork this repository.
-2. Edit `src/config.py` and add your Telegram channels or other URLs to the `SOURCE_URLS` list.
+2. Edit `src/config.py` and add your Telegram channels, SSCONF links or other URLs to the `SOURCE_URLS` list.
 3. Enable GitHub Actions in your forked repository.
 4. The configs will be automatically updated every hour in `configs/proxy_configs.txt`.
 
@@ -71,7 +73,7 @@ python src/fetch_configs.py
 ## Configuration
 
 Edit `src/config.py` to modify:
-- Source list (Telegram channels or URLs)
+- Source list (Telegram channels, SSCONF links or URLs)
 - Minimum/maximum configs per protocol
 - Protocol ratios and balancing
 - Maximum config age
@@ -79,14 +81,12 @@ Edit `src/config.py` to modify:
 - Supported protocols
 - Request headers and timeouts
 
-
 ## Note for Forked Repositories
 
 If you fork this repository, you need to manually enable GitHub Actions:
 1. Go to `Settings > Actions` in your forked repository.
 2. Select **Allow all actions and reusable workflows**.
 3. Save the settings.
-
 
 ## Project Structure
 
