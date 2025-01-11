@@ -60,7 +60,6 @@ class ProxyConfig:
             ChannelConfig("https://t.me/s/oneclickvpnkeys"),
             ChannelConfig("https://t.me/s/ShadowProxy66"),
             ChannelConfig("https://t.me/s/OutlineReleasedKey"),
-            ChannelConfig("https://t.me/s/DailyV2RY"),
             ChannelConfig("https://t.me/s/GetConfigIR"),
             ChannelConfig("https://t.me/s/prrofile_purple"),
             ChannelConfig("https://t.me/s/proxy_shadosocks")
