@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-11T21:08:23.313839",
+  "timestamp": "2025-01-11T21:20:13.730047",
   "channels": [
     {
       "url": "https://t.me/s/v2ray_free_conf",
@@ -8,11 +8,11 @@
         "total_configs": 20,
         "valid_configs": 15,
         "unique_configs": 15,
-        "avg_response_time": 0.52,
+        "avg_response_time": 0.42,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 92.97,
-        "last_success": "2025-01-11T21:07:01.471556"
+        "overall_score": 93.12,
+        "last_success": "2025-01-11T21:19:04.512634"
       }
     },
     {
@@ -22,11 +22,11 @@
         "total_configs": 18,
         "valid_configs": 11,
         "unique_configs": 11,
-        "avg_response_time": 0.38,
+        "avg_response_time": 0.37,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 89.71,
-        "last_success": "2025-01-11T21:07:01.885335"
+        "overall_score": 89.73,
+        "last_success": "2025-01-11T21:19:04.919519"
       }
     },
     {
@@ -36,11 +36,11 @@
         "total_configs": 10,
         "valid_configs": 10,
         "unique_configs": 10,
-        "avg_response_time": 0.06,
+        "avg_response_time": 0.09,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 99.91,
-        "last_success": "2025-01-11T21:07:01.945147"
+        "overall_score": 99.86,
+        "last_success": "2025-01-11T21:19:05.014162"
       }
     },
     {
@@ -76,13 +76,13 @@
       "enabled": true,
       "metrics": {
         "total_configs": 20,
-        "valid_configs": 11,
-        "unique_configs": 7,
-        "avg_response_time": 0.38,
+        "valid_configs": 10,
+        "unique_configs": 6,
+        "avg_response_time": 0.47,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 79.08,
-        "last_success": "2025-01-11T21:07:23.801179"
+        "overall_score": 76.79,
+        "last_success": "2025-01-11T21:19:26.792212"
       }
     },
     {
@@ -106,11 +106,11 @@
         "total_configs": 67,
         "valid_configs": 5,
         "unique_configs": 5,
-        "avg_response_time": 0.54,
+        "avg_response_time": 0.68,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 76.06,
-        "last_success": "2025-01-11T21:07:35.925448"
+        "overall_score": 75.85,
+        "last_success": "2025-01-11T21:19:38.972449"
       }
     },
     {
@@ -125,20 +125,6 @@
         "fail_count": 0,
         "overall_score": 0.0,
         "last_success": null
-      }
-    },
-    {
-      "url": "https://t.me/s/DailyV2RY",
-      "enabled": true,
-      "metrics": {
-        "total_configs": 308,
-        "valid_configs": 19,
-        "unique_configs": 19,
-        "avg_response_time": 0.76,
-        "success_count": 1,
-        "fail_count": 0,
-        "overall_score": 75.41,
-        "last_success": "2025-01-11T21:07:48.099502"
       }
     },
     {
@@ -157,29 +143,29 @@
     },
     {
       "url": "https://t.me/s/prrofile_purple",
-      "enabled": false,
+      "enabled": true,
       "metrics": {
-        "total_configs": 360,
-        "valid_configs": 0,
-        "unique_configs": 0,
-        "avg_response_time": 0,
-        "success_count": 0,
-        "fail_count": 1,
-        "overall_score": 15.0,
-        "last_success": null
+        "total_configs": 120,
+        "valid_configs": 21,
+        "unique_configs": 19,
+        "avg_response_time": 0.68,
+        "success_count": 1,
+        "fail_count": 0,
+        "overall_score": 75.98,
+        "last_success": "2025-01-11T21:20:02.360668"
       }
     },
     {
       "url": "https://t.me/s/proxy_shadosocks",
-      "enabled": false,
+      "enabled": true,
       "metrics": {
         "total_configs": 30,
-        "valid_configs": 0,
-        "unique_configs": 0,
+        "valid_configs": 1,
+        "unique_configs": 1,
         "avg_response_time": 0,
         "success_count": 0,
-        "fail_count": 1,
-        "overall_score": 15.0,
+        "fail_count": 0,
+        "overall_score": 0.0,
         "last_success": null
       }
     }
