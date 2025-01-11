@@ -206,6 +206,14 @@ def save_configs(configs: List[str], config: ProxyConfig):
     try:
         os.makedirs(os.path.dirname(config.OUTPUT_FILE), exist_ok=True)
         with open(config.OUTPUT_FILE, 'w', encoding='utf-8') as f:
+            header = """//profile-title: base64:8J+RvUFub255bW91cyhNLlAuQy5GKQ==
+//profile-update-interval: 1
+//subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
+//support-url: https://t.me/BXAMbot
+//profile-web-page-url: https://github.com/4n0nymou3
+
+"""
+            f.write(header)
             for config in configs:
                 f.write(config + '\n\n')
         logger.info(f"Successfully saved {len(configs)} configs to {config.OUTPUT_FILE}")
