@@ -54,7 +54,7 @@ class ProxyConfig:
             ChannelConfig("https://t.me/s/v2ray_free_conf"),
             ChannelConfig("https://t.me/s/PrivateVPNs"),
             ChannelConfig("https://raw.githubusercontent.com/4n0nymou3/wg-config-fetcher/refs/heads/main/configs/wireguard_configs.txt"),
-            ChannelConfig("https://raw.githubusercontent.com/4n0nymou3/ss-config-updater/refs/heads/main/configs.txt")
+            ChannelConfig("https://raw.githubusercontent.com/4n0nymou3/ss-config-updater/refs/heads/main/configs.txt"),
             ChannelConfig("https://t.me/s/v2Source"),
             ChannelConfig("https://t.me/s/IP_CF_Config"),
             ChannelConfig("https://t.me/s/oneclickvpnkeys"),
