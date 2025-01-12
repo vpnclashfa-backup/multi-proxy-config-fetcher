@@ -69,7 +69,8 @@ class ProxyConfig:
             ChannelConfig("https://t.me/s/DirectVPN"),
             ChannelConfig("https://t.me/s/Parsashonam"),
             ChannelConfig("https://t.me/s/ArV2ray"),
-            ChannelConfig("https://t.me/s/VmessProtocol")
+            ChannelConfig("https://t.me/s/VmessProtocol"),
+            ChannelConfig("https://t.me/s/V2ray_Alpha"),
         ]
 
         # Minimum and maximum number of configurations per protocol
