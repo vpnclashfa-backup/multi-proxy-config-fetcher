@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-12T06:14:30.792667",
+  "timestamp": "2025-01-12T07:11:02.621066",
   "channels": [
     {
       "url": "https://raw.githubusercontent.com/4n0nymou3/wg-config-fetcher/refs/heads/main/configs/wireguard_configs.txt",
@@ -8,11 +8,11 @@
         "total_configs": 10,
         "valid_configs": 10,
         "unique_configs": 10,
-        "avg_response_time": 0.11,
+        "avg_response_time": 0.13,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 99.84,
-        "last_success": "2025-01-12T06:11:27.851401"
+        "overall_score": 99.81,
+        "last_success": "2025-01-12T07:07:52.236431"
       }
     },
     {
@@ -36,25 +36,25 @@
         "total_configs": 69,
         "valid_configs": 6,
         "unique_configs": 5,
-        "avg_response_time": 0.07,
+        "avg_response_time": 0.05,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 72.9,
-        "last_success": "2025-01-12T06:11:38.089313"
+        "overall_score": 72.94,
+        "last_success": "2025-01-12T07:08:02.440441"
       }
     },
     {
       "url": "https://raw.githubusercontent.com/MhdiTaheri/V2rayCollector_Py/refs/heads/main/sub/Mix/mix.txt",
       "enabled": true,
       "metrics": {
-        "total_configs": 1697,
-        "valid_configs": 67,
+        "total_configs": 1712,
+        "valid_configs": 66,
         "unique_configs": 52,
-        "avg_response_time": 0.05,
+        "avg_response_time": 0.11,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 70.32,
-        "last_success": "2025-01-12T06:11:39.096049"
+        "overall_score": 70.5,
+        "last_success": "2025-01-12T07:08:03.526412"
       }
     },
     {
@@ -104,7 +104,7 @@
       "enabled": true,
       "metrics": {
         "total_configs": 60,
-        "valid_configs": 5,
+        "valid_configs": 4,
         "unique_configs": 4,
         "avg_response_time": 0,
         "success_count": 0,
