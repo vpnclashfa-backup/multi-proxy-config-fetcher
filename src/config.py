@@ -51,10 +51,10 @@ class ProxyConfig:
     def __init__(self):
         # List of channels or URLs to fetch proxy configurations from
         self.SOURCE_URLS = [
-            ChannelConfig("https://t.me/s/v2ray_free_conf"),
-            ChannelConfig("https://t.me/s/PrivateVPNs"),
             ChannelConfig("https://raw.githubusercontent.com/4n0nymou3/wg-config-fetcher/refs/heads/main/configs/wireguard_configs.txt"),
             ChannelConfig("https://raw.githubusercontent.com/4n0nymou3/ss-config-updater/refs/heads/main/configs.txt"),
+            ChannelConfig("https://t.me/s/v2ray_free_conf"),
+            ChannelConfig("https://t.me/s/PrivateVPNs"),
             ChannelConfig("https://t.me/s/v2Source"),
             ChannelConfig("https://t.me/s/IP_CF_Config"),
             ChannelConfig("https://t.me/s/oneclickvpnkeys"),
@@ -62,7 +62,12 @@ class ProxyConfig:
             ChannelConfig("https://t.me/s/OutlineReleasedKey"),
             ChannelConfig("https://t.me/s/GetConfigIR"),
             ChannelConfig("https://t.me/s/prrofile_purple"),
-            ChannelConfig("https://t.me/s/proxy_shadosocks")
+            ChannelConfig("https://t.me/s/proxy_shadosocks"),
+            ChannelConfig("https://t.me/s/meli_proxyy"),
+            ChannelConfig("https://t.me/s/DirectVPN"),
+            ChannelConfig("https://t.me/s/Parsashonam"),
+            ChannelConfig("https://t.me/s/ArV2ray"),
+            ChannelConfig("https://t.me/s/VmessProtocol")
         ]
 
         # Minimum and maximum number of configurations per protocol
