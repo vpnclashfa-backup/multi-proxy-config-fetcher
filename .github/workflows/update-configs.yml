@@ -42,8 +42,8 @@ jobs:
     - name: Update README timestamps
       run: |
         timestamp=$(date +%s)
-        REPO_NAME=${GITHUB_REPOSITORY##*/}
-        sed -i "s|https://htmlpreview.github.io/.*|https://htmlpreview.github.io/?https://github.com/${{ github.repository }}/blob/main/assets/performance_report.html|" README.md
+        REPO_NAME=${GITHUB_REPOSITORY}
+        sed -i "s|https://htmlpreview.github.io/.*|https://htmlpreview.github.io/?https://github.com/$REPO_NAME/blob/main/assets/performance_report.html|" README.md
         sed -i "s/channel_stats_chart\.svg?v=[0-9]*/channel_stats_chart.svg?v=$timestamp/" README.md
         sed -i "s/performance_report\.html?v=[0-9]*/performance_report.html?v=$timestamp/" README.md
 
