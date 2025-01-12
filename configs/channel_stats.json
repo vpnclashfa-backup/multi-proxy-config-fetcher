@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-12T17:48:03.026678",
+  "timestamp": "2025-01-12T18:13:48.288877",
   "channels": [
     {
       "url": "https://raw.githubusercontent.com/4n0nymou3/wg-config-fetcher/refs/heads/main/configs/wireguard_configs.txt",
@@ -8,11 +8,11 @@
         "total_configs": 10,
         "valid_configs": 10,
         "unique_configs": 10,
-        "avg_response_time": 0.09,
+        "avg_response_time": 0.06,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 99.87,
-        "last_success": "2025-01-12T17:44:47.061925"
+        "overall_score": 99.91,
+        "last_success": "2025-01-12T18:10:32.776833"
       }
     },
     {
@@ -36,11 +36,11 @@
         "total_configs": 69,
         "valid_configs": 6,
         "unique_configs": 5,
-        "avg_response_time": 0.03,
+        "avg_response_time": 0.09,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 72.96,
-        "last_success": "2025-01-12T17:44:57.206904"
+        "overall_score": 72.88,
+        "last_success": "2025-01-12T18:10:42.969554"
       }
     },
     {
@@ -50,18 +50,18 @@
         "total_configs": 1701,
         "valid_configs": 65,
         "unique_configs": 52,
-        "avg_response_time": 0.04,
+        "avg_response_time": 0.08,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 70.9,
-        "last_success": "2025-01-12T17:44:58.224743"
+        "overall_score": 70.83,
+        "last_success": "2025-01-12T18:10:44.030732"
       }
     },
     {
       "url": "https://t.me/s/v2ray_free_conf",
       "enabled": false,
       "metrics": {
-        "total_configs": 120,
+        "total_configs": 177,
         "valid_configs": 0,
         "unique_configs": 0,
         "avg_response_time": 0,
@@ -103,8 +103,8 @@
       "url": "https://t.me/s/IP_CF_Config",
       "enabled": true,
       "metrics": {
-        "total_configs": 60,
-        "valid_configs": 9,
+        "total_configs": 57,
+        "valid_configs": 6,
         "unique_configs": 2,
         "avg_response_time": 0,
         "success_count": 0,
@@ -201,7 +201,7 @@
       "url": "https://t.me/s/meli_proxyy",
       "enabled": true,
       "metrics": {
-        "total_configs": 261,
+        "total_configs": 264,
         "valid_configs": 6,
         "unique_configs": 2,
         "avg_response_time": 0,
