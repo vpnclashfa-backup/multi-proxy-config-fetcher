@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-12T22:42:40.439140",
+  "timestamp": "2025-01-12T23:11:05.207037",
   "channels": [
     {
       "url": "https://raw.githubusercontent.com/4n0nymou3/wg-config-fetcher/refs/heads/main/configs/wireguard_configs.txt",
@@ -8,11 +8,11 @@
         "total_configs": 10,
         "valid_configs": 10,
         "unique_configs": 10,
-        "avg_response_time": 0.12,
+        "avg_response_time": 0.09,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 99.82,
-        "last_success": "2025-01-12T22:39:13.544999"
+        "overall_score": 99.87,
+        "last_success": "2025-01-12T23:07:47.250445"
       }
     },
     {
@@ -40,7 +40,7 @@
         "success_count": 1,
         "fail_count": 0,
         "overall_score": 72.88,
-        "last_success": "2025-01-12T22:39:23.740561"
+        "last_success": "2025-01-12T23:07:57.452620"
       }
     },
     {
@@ -50,25 +50,11 @@
         "total_configs": 1613,
         "valid_configs": 65,
         "unique_configs": 52,
-        "avg_response_time": 0.13,
+        "avg_response_time": 0.09,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 70.81,
-        "last_success": "2025-01-12T22:39:24.762629"
-      }
-    },
-    {
-      "url": "https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/app/sub.txt",
-      "enabled": false,
-      "metrics": {
-        "total_configs": 0,
-        "valid_configs": 0,
-        "unique_configs": 0,
-        "avg_response_time": 0,
-        "success_count": 0,
-        "fail_count": 1,
-        "overall_score": 15.0,
-        "last_success": null
+        "overall_score": 70.87,
+        "last_success": "2025-01-12T23:07:58.437737"
       }
     },
     {
@@ -118,7 +104,7 @@
       "enabled": true,
       "metrics": {
         "total_configs": 60,
-        "valid_configs": 12,
+        "valid_configs": 9,
         "unique_configs": 3,
         "avg_response_time": 0,
         "success_count": 0,
