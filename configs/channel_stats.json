@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-12T22:11:02.494730",
+  "timestamp": "2025-01-12T22:42:40.439140",
   "channels": [
     {
       "url": "https://raw.githubusercontent.com/4n0nymou3/wg-config-fetcher/refs/heads/main/configs/wireguard_configs.txt",
@@ -12,7 +12,7 @@
         "success_count": 1,
         "fail_count": 0,
         "overall_score": 99.82,
-        "last_success": "2025-01-12T22:07:45.884634"
+        "last_success": "2025-01-12T22:39:13.544999"
       }
     },
     {
@@ -40,21 +40,35 @@
         "success_count": 1,
         "fail_count": 0,
         "overall_score": 72.88,
-        "last_success": "2025-01-12T22:07:56.110546"
+        "last_success": "2025-01-12T22:39:23.740561"
       }
     },
     {
       "url": "https://raw.githubusercontent.com/MhdiTaheri/V2rayCollector_Py/refs/heads/main/sub/Mix/mix.txt",
       "enabled": true,
       "metrics": {
-        "total_configs": 1617,
+        "total_configs": 1613,
         "valid_configs": 65,
         "unique_configs": 52,
         "avg_response_time": 0.13,
         "success_count": 1,
         "fail_count": 0,
         "overall_score": 70.81,
-        "last_success": "2025-01-12T22:07:57.137617"
+        "last_success": "2025-01-12T22:39:24.762629"
+      }
+    },
+    {
+      "url": "https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/app/sub.txt",
+      "enabled": false,
+      "metrics": {
+        "total_configs": 0,
+        "valid_configs": 0,
+        "unique_configs": 0,
+        "avg_response_time": 0,
+        "success_count": 0,
+        "fail_count": 1,
+        "overall_score": 15.0,
+        "last_success": null
       }
     },
     {
@@ -103,9 +117,9 @@
       "url": "https://t.me/s/IP_CF_Config",
       "enabled": true,
       "metrics": {
-        "total_configs": 57,
-        "valid_configs": 6,
-        "unique_configs": 2,
+        "total_configs": 60,
+        "valid_configs": 12,
+        "unique_configs": 3,
         "avg_response_time": 0,
         "success_count": 0,
         "fail_count": 0,
@@ -132,8 +146,8 @@
       "enabled": true,
       "metrics": {
         "total_configs": 144,
-        "valid_configs": 2,
-        "unique_configs": 2,
+        "valid_configs": 1,
+        "unique_configs": 1,
         "avg_response_time": 0,
         "success_count": 0,
         "fail_count": 0,
@@ -215,7 +229,7 @@
       "url": "https://t.me/s/DirectVPN",
       "enabled": false,
       "metrics": {
-        "total_configs": 51,
+        "total_configs": 54,
         "valid_configs": 0,
         "unique_configs": 0,
         "avg_response_time": 0,
