@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-12T11:09:30.456739",
+  "timestamp": "2025-01-12T12:17:58.084946",
   "channels": [
     {
       "url": "https://raw.githubusercontent.com/4n0nymou3/wg-config-fetcher/refs/heads/main/configs/wireguard_configs.txt",
@@ -8,11 +8,11 @@
         "total_configs": 10,
         "valid_configs": 10,
         "unique_configs": 10,
-        "avg_response_time": 0.14,
+        "avg_response_time": 0.15,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 99.79,
-        "last_success": "2025-01-12T11:06:13.090232"
+        "overall_score": 99.78,
+        "last_success": "2025-01-12T12:14:38.702694"
       }
     },
     {
@@ -36,25 +36,25 @@
         "total_configs": 69,
         "valid_configs": 6,
         "unique_configs": 5,
-        "avg_response_time": 0.1,
+        "avg_response_time": 0.15,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 72.86,
-        "last_success": "2025-01-12T11:06:23.326864"
+        "overall_score": 72.79,
+        "last_success": "2025-01-12T12:14:48.975299"
       }
     },
     {
       "url": "https://raw.githubusercontent.com/MhdiTaheri/V2rayCollector_Py/refs/heads/main/sub/Mix/mix.txt",
       "enabled": true,
       "metrics": {
-        "total_configs": 1709,
-        "valid_configs": 64,
+        "total_configs": 1705,
+        "valid_configs": 65,
         "unique_configs": 52,
-        "avg_response_time": 0.1,
+        "avg_response_time": 0.15,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 71.09,
-        "last_success": "2025-01-12T11:06:24.417994"
+        "overall_score": 70.73,
+        "last_success": "2025-01-12T12:14:50.109251"
       }
     },
     {
@@ -75,7 +75,7 @@
       "url": "https://t.me/s/PrivateVPNs",
       "enabled": false,
       "metrics": {
-        "total_configs": 51,
+        "total_configs": 57,
         "valid_configs": 0,
         "unique_configs": 0,
         "avg_response_time": 0,
@@ -104,8 +104,8 @@
       "enabled": true,
       "metrics": {
         "total_configs": 60,
-        "valid_configs": 6,
-        "unique_configs": 2,
+        "valid_configs": 4,
+        "unique_configs": 4,
         "avg_response_time": 0,
         "success_count": 0,
         "fail_count": 0,
@@ -131,7 +131,7 @@
       "url": "https://t.me/s/ShadowProxy66",
       "enabled": false,
       "metrics": {
-        "total_configs": 237,
+        "total_configs": 144,
         "valid_configs": 0,
         "unique_configs": 0,
         "avg_response_time": 0,
@@ -185,15 +185,15 @@
     },
     {
       "url": "https://t.me/s/proxy_shadosocks",
-      "enabled": true,
+      "enabled": false,
       "metrics": {
         "total_configs": 30,
-        "valid_configs": 3,
-        "unique_configs": 1,
+        "valid_configs": 0,
+        "unique_configs": 0,
         "avg_response_time": 0,
         "success_count": 0,
-        "fail_count": 0,
-        "overall_score": 0.0,
+        "fail_count": 1,
+        "overall_score": 15.0,
         "last_success": null
       }
     },
@@ -201,7 +201,7 @@
       "url": "https://t.me/s/meli_proxyy",
       "enabled": true,
       "metrics": {
-        "total_configs": 456,
+        "total_configs": 423,
         "valid_configs": 3,
         "unique_configs": 1,
         "avg_response_time": 0,
@@ -215,7 +215,7 @@
       "url": "https://t.me/s/DirectVPN",
       "enabled": false,
       "metrics": {
-        "total_configs": 51,
+        "total_configs": 57,
         "valid_configs": 0,
         "unique_configs": 0,
         "avg_response_time": 0,
@@ -269,15 +269,15 @@
     },
     {
       "url": "https://t.me/s/V2ray_Alpha",
-      "enabled": true,
+      "enabled": false,
       "metrics": {
         "total_configs": 141,
-        "valid_configs": 1,
-        "unique_configs": 1,
+        "valid_configs": 0,
+        "unique_configs": 0,
         "avg_response_time": 0,
         "success_count": 0,
-        "fail_count": 0,
-        "overall_score": 0.0,
+        "fail_count": 1,
+        "overall_score": 15.0,
         "last_success": null
       }
     }
