@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-12T03:34:44.934975",
+  "timestamp": "2025-01-12T04:13:50.016496",
   "channels": [
     {
       "url": "https://raw.githubusercontent.com/4n0nymou3/wg-config-fetcher/refs/heads/main/configs/wireguard_configs.txt",
@@ -8,11 +8,11 @@
         "total_configs": 10,
         "valid_configs": 10,
         "unique_configs": 10,
-        "avg_response_time": 0.15,
+        "avg_response_time": 0.11,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 99.78,
-        "last_success": "2025-01-12T03:31:42.155773"
+        "overall_score": 99.84,
+        "last_success": "2025-01-12T04:10:46.221010"
       }
     },
     {
@@ -36,25 +36,25 @@
         "total_configs": 69,
         "valid_configs": 6,
         "unique_configs": 5,
-        "avg_response_time": 0.08,
+        "avg_response_time": 0.09,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 72.89,
-        "last_success": "2025-01-12T03:31:52.347586"
+        "overall_score": 72.87,
+        "last_success": "2025-01-12T04:10:56.458912"
       }
     },
     {
       "url": "https://raw.githubusercontent.com/MhdiTaheri/V2rayCollector_Py/refs/heads/main/sub/Mix/mix.txt",
       "enabled": true,
       "metrics": {
-        "total_configs": 1651,
+        "total_configs": 1709,
         "valid_configs": 67,
         "unique_configs": 52,
-        "avg_response_time": 0.08,
+        "avg_response_time": 0.12,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 70.3,
-        "last_success": "2025-01-12T03:31:53.420251"
+        "overall_score": 70.2,
+        "last_success": "2025-01-12T04:10:57.554524"
       }
     },
     {
@@ -104,8 +104,8 @@
       "enabled": true,
       "metrics": {
         "total_configs": 60,
-        "valid_configs": 6,
-        "unique_configs": 2,
+        "valid_configs": 4,
+        "unique_configs": 4,
         "avg_response_time": 0,
         "success_count": 0,
         "fail_count": 0,
@@ -185,15 +185,15 @@
     },
     {
       "url": "https://t.me/s/proxy_shadosocks",
-      "enabled": true,
+      "enabled": false,
       "metrics": {
         "total_configs": 30,
-        "valid_configs": 3,
-        "unique_configs": 1,
+        "valid_configs": 0,
+        "unique_configs": 0,
         "avg_response_time": 0,
         "success_count": 0,
-        "fail_count": 0,
-        "overall_score": 0.0,
+        "fail_count": 1,
+        "overall_score": 15.0,
         "last_success": null
       }
     },
