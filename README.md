@@ -14,7 +14,8 @@ Below is the real-time performance statistics of the configured sources (Telegra
 </div>
 
 ### Detailed Report
-📊 [View Full Interactive Dashboard](https://htmlpreview.github.io/?https://github.com/4n0nymou3/multi-proxy-config-fetcher/blob/main/assets/performance_report.html
+📊 View Full Interactive Dashboard:
+https://htmlpreview.github.io/?https://github.com/${{ github.repository }}/blob/main/assets/performance_report.html
 
 Each source is scored based on four key metrics:
 - **Reliability Score (35%)**: Success rate in fetching and updating configurations.
