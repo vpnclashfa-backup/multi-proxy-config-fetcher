@@ -15,14 +15,14 @@ Below is the real-time performance statistics of the configured sources (Telegra
 </div>
 
 ### Detailed Report
-ðŸ“Š [View Full Interactive Dashboard](https://htmlpreview.github.io/?https://github.com/USERNAME/multi-proxy-config-fetcher/blob/main/assets/performance_report.html)
+📊 [View Full Interactive Dashboard](https://htmlpreview.github.io/?https://github.com/USERNAME/multi-proxy-config-fetcher/blob/main/assets/performance_report.html)
 
 > **Important for Forked Repositories**:  
 If you fork this repository, make sure to replace `USERNAME` in the above link with your GitHub username. This ensures that the link directs to your own interactive dashboard instead of the original project's dashboard. To do this:
 1. Edit the `README.md` file in your forked repository.
 2. Locate the following line:
    ```markdown
-   ðŸ“Š [View Full Interactive Dashboard](https://htmlpreview.github.io/?https://github.com/USERNAME/multi-proxy-config-fetcher/blob/main/assets/performance_report.html)
+   📊 [View Full Interactive Dashboard](https://htmlpreview.github.io/?https://github.com/USERNAME/multi-proxy-config-fetcher/blob/main/assets/performance_report.html)
    ```
 3. Replace `USERNAME` with your GitHub username.
 4. Commit the changes.
@@ -102,16 +102,16 @@ If you fork this repository, you need to manually enable GitHub Actions:
 ## Project Structure
 
 ```
-â”œâ”€â”€ src/
-â”‚   â”œâ”€â”€ config.py              # Project configuration
-â”‚   â”œâ”€â”€ config_validator.py    # Config validation and verification
-â”‚   â””â”€â”€ fetch_configs.py       # Main fetcher implementation
-â”œâ”€â”€ configs/
-â”‚   â”œâ”€â”€ proxy_configs.txt      # Output configs
-â”‚   â””â”€â”€ channel_stats.json     # Source performance stats
-â””â”€â”€ .github/
-    â””â”€â”€ workflows/
-        â””â”€â”€ update-configs.yml # GitHub Actions workflow
+├── src/
+│   ├── config.py              # Project configuration
+│   ├── config_validator.py    # Config validation and verification
+│   └── fetch_configs.py       # Main fetcher implementation
+├── configs/
+│   ├── proxy_configs.txt      # Output configs
+│   └── channel_stats.json     # Source performance stats
+└── .github/
+    └── workflows/
+        └── update-configs.yml # GitHub Actions workflow
 ```
 
 ## Source Statistics
