@@ -22,7 +22,7 @@ If you fork this repository, make sure to replace `USERNAME` in the above link w
 1. Edit the `README.md` file in your forked repository.
 2. Locate the following line:
    ```markdown
-   📊 [View Full Interactive Dashboard](https://htmlpreview.github.io/?https://github.com/USERNAME/multi-proxy-config-fetcher/blob/main/assets/performance_report.html)
+   📊 [View Full Interactive Dashboard](https://htmlpreview.github.io/?https://github.com/4n0nymou3/multi-proxy-config-fetcher/blob/main/assets/performance_report.html)
    ```
 3. Replace `USERNAME` with your GitHub username.
 4. Commit the changes.
