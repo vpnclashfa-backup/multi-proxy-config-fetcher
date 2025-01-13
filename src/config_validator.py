@@ -40,10 +40,8 @@ class ConfigValidator:
             base64_part = config[8:]
             decoded = ConfigValidator.decode_base64_url(base64_part)
             if decoded:
-                if isinstance(decoded, bytes):
-                    decoded = decoded.decode('utf-8')
-                json_data = json.loads(decoded)
-                return all(key in json_data for key in ['add', 'port', 'id'])
+                json.loads(decoded)
+                return True
             return False
         except:
             return False
@@ -53,7 +51,7 @@ class ConfigValidator:
         try:
             if config.startswith('tuic://'):
                 parsed = urlparse(config)
-                return bool(parsed.netloc and ':' in parsed.netloc and parsed.query)
+                return bool(parsed.netloc and ':' in parsed.netloc)
             return False
         except:
             return False
@@ -133,56 +131,27 @@ class ConfigValidator:
             return False
             
         protocols = ['vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'wireguard://', 'tuic://', 'ssconf://']
-        valid = any(config.startswith(p) for p in protocols)
-        
-        if valid:
-            clean_config = ConfigValidator.clean_config(config)
-            if clean_config != config:
-                return False
-                
-            if config.startswith('vmess://'):
-                return ConfigValidator.is_vmess_config(config)
-            elif config.startswith('tuic://'):
-                return ConfigValidator.is_tuic_config(config)
-                
-        return valid
+        return any(config.startswith(p) for p in protocols)
 
-    @staticmethod
-    def validate_protocol_config(config: str, protocol: str) -> bool:
+    @classmethod
+    def validate_protocol_config(cls, config: str, protocol: str) -> bool:
         try:
             if protocol in ['vmess://', 'vless://', 'ss://', 'tuic://']:
                 if protocol == 'vmess://':
-                    return ConfigValidator.is_vmess_config(config)
+                    return cls.is_vmess_config(config)
                 if protocol == 'tuic://':
-                    return ConfigValidator.is_tuic_config(config)
-                    
+                    return cls.is_tuic_config(config)
                 base64_part = config[len(protocol):]
                 decoded_url = unquote(base64_part)
-                
-                if ConfigValidator.is_base64(decoded_url) or ConfigValidator.is_base64(base64_part):
+                if cls.is_base64(decoded_url) or cls.is_base64(base64_part):
                     return True
-                    
-                decoded = ConfigValidator.decode_base64_url(base64_part)
-                if decoded:
-                    try:
-                        if isinstance(decoded, bytes):
-                            decoded = decoded.decode('utf-8')
-                        if '"' in decoded or '{' in decoded:
-                            json.loads(decoded)
-                        return True
-                    except:
-                        pass
-                        
-                return False
-                
+                if cls.decode_base64_url(base64_part) or cls.decode_base64_url(decoded_url):
+                    return True
             elif protocol in ['trojan://', 'hysteria2://', 'wireguard://']:
                 parsed = urlparse(config)
-                return bool(parsed.netloc and ('@' in parsed.netloc or ':' in parsed.netloc))
-                
+                return bool(parsed.netloc and '@' in parsed.netloc)
             elif protocol == 'ssconf://':
                 return True
-                
             return False
-            
         except:
             return False
