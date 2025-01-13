@@ -138,7 +138,7 @@ class ProxyConfig:
         self.OUTPUT_FILE = 'configs/proxy_configs.txt'
         self.STATS_FILE = 'configs/channel_stats.json'
         self.MAX_RETRIES = 5  # Maximum retry attempts for fetching configurations.
-        self.RETRY_DELAY = 3  # Delay (in seconds) between retries.
+        self.RETRY_DELAY = 7  # Delay (in seconds) between retries.
         self.REQUEST_TIMEOUT = 45  # Timeout (in seconds) for HTTP requests.
         
         # HTTP headers for requests.
