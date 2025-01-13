@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-13T05:14:03.641628",
+  "timestamp": "2025-01-13T06:17:56.844408",
   "channels": [
     {
       "url": "https://raw.githubusercontent.com/4n0nymou3/wg-config-fetcher/refs/heads/main/configs/wireguard_configs.txt",
@@ -8,11 +8,11 @@
         "total_configs": 10,
         "valid_configs": 10,
         "unique_configs": 10,
-        "avg_response_time": 0.1,
+        "avg_response_time": 0.11,
         "success_count": 1,
         "fail_count": 0,
         "overall_score": 99.84,
-        "last_success": "2025-01-13T05:09:45.377346"
+        "last_success": "2025-01-13T06:13:39.568856"
       }
     },
     {
@@ -40,7 +40,7 @@
         "success_count": 1,
         "fail_count": 0,
         "overall_score": 72.86,
-        "last_success": "2025-01-13T05:09:55.613865"
+        "last_success": "2025-01-13T06:13:49.845281"
       }
     },
     {
@@ -54,7 +54,7 @@
         "success_count": 1,
         "fail_count": 0,
         "overall_score": 71.41,
-        "last_success": "2025-01-13T05:09:56.706867"
+        "last_success": "2025-01-13T06:13:50.933474"
       }
     },
     {
@@ -117,7 +117,7 @@
       "url": "https://t.me/s/IP_CF_Config",
       "enabled": true,
       "metrics": {
-        "total_configs": 57,
+        "total_configs": 60,
         "valid_configs": 4,
         "unique_configs": 4,
         "avg_response_time": 0,
@@ -159,7 +159,7 @@
       "url": "https://t.me/s/OutlineReleasedKey",
       "enabled": false,
       "metrics": {
-        "total_configs": 63,
+        "total_configs": 66,
         "valid_configs": 0,
         "unique_configs": 0,
         "avg_response_time": 0,
@@ -288,11 +288,11 @@
         "total_configs": 128,
         "valid_configs": 7,
         "unique_configs": 7,
-        "avg_response_time": 0.59,
+        "avg_response_time": 0.57,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 75.48,
-        "last_success": "2025-01-13T05:14:03.639717"
+        "overall_score": 75.51,
+        "last_success": "2025-01-13T06:17:56.842340"
       }
     }
   ]
