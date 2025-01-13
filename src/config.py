@@ -59,7 +59,7 @@ class ProxyConfig:
             "max": 25
         }
 
-        self.SUPPORTED_PROTOCOLS = {
+        self.SUPPORTED_PROTOCOLS: Dict[str, Dict] = {
             "wireguard://": {
                 "min_configs": self.PROTOCOL_CONFIG_LIMITS["min"],
                 "max_configs": self.PROTOCOL_CONFIG_LIMITS["max"],
@@ -104,15 +104,15 @@ class ProxyConfig:
             }
         }
 
-        self.MIN_CONFIGS_PER_CHANNEL = 1
-        self.MAX_CONFIGS_PER_CHANNEL = 100
+        self.MIN_CONFIGS_PER_CHANNEL = 3
+        self.MAX_CONFIGS_PER_CHANNEL = 50
         self.MAX_CONFIG_AGE_DAYS = 90
         self.CHANNEL_RETRY_LIMIT = 10
-        self.CHANNEL_ERROR_THRESHOLD = 0.8
+        self.CHANNEL_ERROR_THRESHOLD = 0.7
         self.MIN_PROTOCOL_RATIO = 0.1
         
         self.DYNAMIC_PROTOCOL_ADJUSTMENT = True
-        self.PROTOCOL_BALANCE_FACTOR = 2.0
+        self.PROTOCOL_BALANCE_FACTOR = 1.5
         
         self.OUTPUT_FILE = 'configs/proxy_configs.txt'
         self.STATS_FILE = 'configs/channel_stats.json'
@@ -149,7 +149,7 @@ class ProxyConfig:
         
         channel.calculate_overall_score()
         
-        if channel.metrics.overall_score < 20:
+        if channel.metrics.overall_score < 25:
             channel.enabled = False
             
     def adjust_protocol_limits(self, channel: ChannelConfig):
