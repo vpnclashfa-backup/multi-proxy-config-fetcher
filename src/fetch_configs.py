@@ -206,16 +206,7 @@ def save_configs(configs: List[str], config: ProxyConfig):
     try:
         os.makedirs(os.path.dirname(config.OUTPUT_FILE), exist_ok=True)
         with open(config.OUTPUT_FILE, 'w', encoding='utf-8') as f:
-            header = """//profile-title: base64:8J+RvUFub255bW91cyhNLlAuQy5GKQ==
-//profile-update-interval: 1
-//subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
-//support-url: https://t.me/BXAMbot
-//profile-web-page-url: https://github.com/4n0nymou3
-
-"""
-            f.write(header)
-            for config in configs:
-                f.write(config + '\n\n')
+            f.writelines(config + '\n' for config in configs)
         logger.info(f"Successfully saved {len(configs)} configs to {config.OUTPUT_FILE}")
     except Exception as e:
         logger.error(f"Error saving configs: {str(e)}")
@@ -261,14 +252,10 @@ def main():
         if configs:
             save_configs(configs, config)
             logger.info(f"Successfully processed {len(configs)} configs at {datetime.now()}")
-            
-            for protocol, count in fetcher.protocol_counts.items():
-                logger.info(f"{protocol}: {count} configs")
         else:
             logger.error("No valid configs found!")
             
         save_channel_stats(config)
-            
     except Exception as e:
         logger.error(f"Error in main execution: {str(e)}")
 
