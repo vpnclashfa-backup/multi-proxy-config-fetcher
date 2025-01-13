@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-13T01:07:25.061133",
+  "timestamp": "2025-01-13T02:20:14.618181",
   "channels": [
     {
       "url": "https://raw.githubusercontent.com/4n0nymou3/wg-config-fetcher/refs/heads/main/configs/wireguard_configs.txt",
@@ -8,11 +8,11 @@
         "total_configs": 10,
         "valid_configs": 10,
         "unique_configs": 10,
-        "avg_response_time": 0.18,
+        "avg_response_time": 0.21,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 99.73,
-        "last_success": "2025-01-13T01:03:03.963758"
+        "overall_score": 99.68,
+        "last_success": "2025-01-13T02:15:48.000539"
       }
     },
     {
@@ -36,25 +36,25 @@
         "total_configs": 69,
         "valid_configs": 6,
         "unique_configs": 5,
-        "avg_response_time": 0.1,
+        "avg_response_time": 0.19,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 72.86,
-        "last_success": "2025-01-13T01:03:14.295271"
+        "overall_score": 72.73,
+        "last_success": "2025-01-13T02:15:58.540526"
       }
     },
     {
       "url": "https://raw.githubusercontent.com/MhdiTaheri/V2rayCollector_Py/refs/heads/main/sub/Mix/mix.txt",
       "enabled": true,
       "metrics": {
-        "total_configs": 1614,
+        "total_configs": 1612,
         "valid_configs": 65,
         "unique_configs": 52,
-        "avg_response_time": 0.11,
+        "avg_response_time": 0.13,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 70.84,
-        "last_success": "2025-01-13T01:03:15.296592"
+        "overall_score": 70.81,
+        "last_success": "2025-01-13T02:15:59.561781"
       }
     },
     {
@@ -118,7 +118,7 @@
       "enabled": true,
       "metrics": {
         "total_configs": 60,
-        "valid_configs": 7,
+        "valid_configs": 4,
         "unique_configs": 4,
         "avg_response_time": 0,
         "success_count": 0,
@@ -288,11 +288,11 @@
         "total_configs": 128,
         "valid_configs": 7,
         "unique_configs": 7,
-        "avg_response_time": 0.6,
+        "avg_response_time": 0.62,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 75.47,
-        "last_success": "2025-01-13T01:07:25.059551"
+        "overall_score": 75.44,
+        "last_success": "2025-01-13T02:20:14.616266"
       }
     }
   ]
