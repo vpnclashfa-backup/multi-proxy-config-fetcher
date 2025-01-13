@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-13T13:12:03.388776",
+  "timestamp": "2025-01-13T13:20:46.657327",
   "channels": [
     {
       "url": "https://raw.githubusercontent.com/4n0nymou3/wg-config-fetcher/refs/heads/main/configs/wireguard_configs.txt",
@@ -8,11 +8,11 @@
         "total_configs": 10,
         "valid_configs": 10,
         "unique_configs": 10,
-        "avg_response_time": 0.13,
+        "avg_response_time": 0.17,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 99.8,
-        "last_success": "2025-01-13T13:07:32.322260"
+        "overall_score": 99.75,
+        "last_success": "2025-01-13T13:16:17.166940"
       }
     },
     {
@@ -40,7 +40,7 @@
         "success_count": 1,
         "fail_count": 0,
         "overall_score": 72.95,
-        "last_success": "2025-01-13T13:07:42.556781"
+        "last_success": "2025-01-13T13:16:27.340060"
       }
     },
     {
@@ -50,11 +50,11 @@
         "total_configs": 1705,
         "valid_configs": 61,
         "unique_configs": 52,
-        "avg_response_time": 0.24,
+        "avg_response_time": 0.04,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 71.84,
-        "last_success": "2025-01-13T13:07:43.838559"
+        "overall_score": 72.14,
+        "last_success": "2025-01-13T13:16:28.419676"
       }
     },
     {
@@ -145,7 +145,7 @@
       "url": "https://t.me/s/ShadowProxy66",
       "enabled": false,
       "metrics": {
-        "total_configs": 170,
+        "total_configs": 183,
         "valid_configs": 0,
         "unique_configs": 0,
         "avg_response_time": 0,
