@@ -26,6 +26,7 @@ class ConfigFetcher:
         self.validator = ConfigValidator()
         self.protocol_counts: Dict[str, int] = {p: 0 for p in config.SUPPORTED_PROTOCOLS}
         self.seen_configs: Set[str] = set()
+        self.channel_protocol_counts: Dict[str, Dict[str, int]] = {}
 
     def extract_config(self, text: str, start_index: int, protocol: str) -> Optional[str]:
         try:
@@ -47,17 +48,24 @@ class ConfigFetcher:
         configs = []
         
         try:
-            response = requests.get(
-                https_url,
-                headers=self.config.HEADERS,
-                timeout=self.config.REQUEST_TIMEOUT
-            )
-            response.raise_for_status()
-            content = response.text.strip()
-            
-            if content.startswith('ss://'):
-                configs.append(content)
-            
+            for attempt in range(self.config.MAX_RETRIES):
+                try:
+                    response = requests.get(
+                        https_url,
+                        headers=self.config.HEADERS,
+                        timeout=self.config.REQUEST_TIMEOUT
+                    )
+                    response.raise_for_status()
+                    content = response.text.strip()
+                    
+                    if content.startswith('ss://'):
+                        configs.append(content)
+                    break
+                except Exception as e:
+                    if attempt == self.config.MAX_RETRIES - 1:
+                        raise
+                    time.sleep(self.config.RETRY_DELAY)
+                    
         except Exception as e:
             logger.error(f"Error fetching ssconf: {str(e)}")
             
@@ -68,6 +76,7 @@ class ConfigFetcher:
         channel.metrics.total_configs = 0
         channel.metrics.valid_configs = 0
         channel.metrics.unique_configs = 0
+        channel.metrics.protocol_counts = {p: 0 for p in self.config.SUPPORTED_PROTOCOLS}
         
         start_time = time.time()
         
@@ -123,6 +132,7 @@ class ConfigFetcher:
                     
                     if len(configs) >= self.config.MIN_CONFIGS_PER_CHANNEL:
                         self.config.update_channel_stats(channel, True, response_time)
+                        self.config.adjust_protocol_limits(channel)
                         break
                     elif attempt < self.config.MAX_RETRIES - 1:
                         logger.warning(f"Not enough configs found in {channel.url}, retrying...")
@@ -145,12 +155,12 @@ class ConfigFetcher:
             if config.startswith(protocol):
                 if protocol == "vmess://":
                     config = self.validator.clean_vmess_config(config)
-                if self.protocol_counts[protocol] >= self.config.SUPPORTED_PROTOCOLS[protocol]["max_configs"]:
-                    continue
-                    
+                
                 clean_config = self.validator.clean_config(config)
                 if self.validator.validate_protocol_config(clean_config, protocol):
                     channel.metrics.valid_configs += 1
+                    channel.metrics.protocol_counts[protocol] = channel.metrics.protocol_counts.get(protocol, 0) + 1
+                    
                     if clean_config not in self.seen_configs:
                         channel.metrics.unique_configs += 1
                         self.seen_configs.add(clean_config)
@@ -182,9 +192,30 @@ class ConfigFetcher:
                     protocol_configs[protocol].append(config)
                     break
         
+        total_configs = sum(len(configs) for configs in protocol_configs.values())
+        if total_configs == 0:
+            return []
+            
         balanced_configs: List[str] = []
-        for protocol, protocol_config_list in sorted(protocol_configs.items()):
-            balanced_configs.extend(protocol_config_list[:self.config.SUPPORTED_PROTOCOLS[protocol]["max_configs"]])
+        sorted_protocols = sorted(
+            protocol_configs.items(),
+            key=lambda x: (
+                self.config.SUPPORTED_PROTOCOLS[x[0]]["priority"],
+                len(x[1])
+            ),
+            reverse=True
+        )
+        
+        for protocol, protocol_config_list in sorted_protocols:
+            protocol_info = self.config.SUPPORTED_PROTOCOLS[protocol]
+            if len(protocol_config_list) >= protocol_info["min_configs"]:
+                max_configs = min(
+                    protocol_info["max_configs"],
+                    len(protocol_config_list)
+                )
+                balanced_configs.extend(protocol_config_list[:max_configs])
+            elif protocol_info["flexible_max"] and len(protocol_config_list) > 0:
+                balanced_configs.extend(protocol_config_list)
         
         return balanced_configs
 
@@ -239,7 +270,8 @@ def save_channel_stats(config: ProxyConfig):
                     'success_count': channel.metrics.success_count,
                     'fail_count': channel.metrics.fail_count,
                     'overall_score': round(channel.metrics.overall_score, 2),
-                    'last_success': channel.metrics.last_success_time.isoformat() if channel.metrics.last_success_time else None
+                    'last_success': channel.metrics.last_success_time.isoformat() if channel.metrics.last_success_time else None,
+                    'protocol_counts': channel.metrics.protocol_counts
                 }
             }
             stats['channels'].append(channel_stats)
