@@ -2,6 +2,7 @@ from typing import Dict, List
 from datetime import datetime
 import re
 
+# Class to track metrics for each channel
 class ChannelMetrics:
     def __init__(self):
         self.total_configs = 0  # Total number of configurations fetched
@@ -13,6 +14,7 @@ class ChannelMetrics:
         self.success_count = 0  # Total number of successful fetches
         self.overall_score = 0.0  # Overall performance score of the channel
 
+# Class representing a single channel configuration
 class ChannelConfig:
     def __init__(self, url: str, enabled: bool = True):
         self.url = url  # URL of the channel
@@ -20,6 +22,7 @@ class ChannelConfig:
         self.metrics = ChannelMetrics()  # Metrics object for the channel
         self.is_telegram = bool(re.match(r'^https://t\.me/s/', url))  # Check if the channel is a Telegram channel
         
+    # Calculate the overall score for the channel based on its metrics
     def calculate_overall_score(self):
         if self.metrics.success_count + self.metrics.fail_count == 0:
             reliability_score = 0
@@ -43,6 +46,7 @@ class ChannelConfig:
         
         self.metrics.overall_score = reliability_score + quality_score + uniqueness_score + response_score
 
+# Main configuration class for the proxy fetcher
 class ProxyConfig:
     def __init__(self):
         # List of channels or URLs to fetch proxy configurations from
@@ -67,7 +71,7 @@ class ProxyConfig:
             ChannelConfig("https://t.me/s/Parsashonam"),
             ChannelConfig("https://t.me/s/ArV2ray"),
             ChannelConfig("https://t.me/s/VmessProtocol"),
-            ChannelConfig("https://t.me/s/V2ray_Alpha"),
+            ChannelConfig("https://t.me/s/V2ray_Alpha")
         ]
 
         # Minimum and maximum number of configurations per protocol
@@ -92,7 +96,7 @@ class ProxyConfig:
         self.MAX_CONFIGS_PER_CHANNEL = 30  # Maximum number of proxy configs allowed per channel
 
         # Maximum age of configurations (in days)
-        self.MAX_CONFIG_AGE_DAYS = 30  # Discard configurations older than this many days
+        self.MAX_CONFIG_AGE_DAYS = 7  # Discard configurations older than this many days
 
         # Retry settings for fetching configurations
         self.CHANNEL_RETRY_LIMIT = 3  # Maximum number of retries if a channel fetch fails
@@ -119,12 +123,15 @@ class ProxyConfig:
             'Upgrade-Insecure-Requests': '1'
         }
 
+    # Check if a protocol is enabled in the supported protocols
     def is_protocol_enabled(self, protocol: str) -> bool:
         return protocol in self.SUPPORTED_PROTOCOLS
 
+    # Get the list of enabled channels
     def get_enabled_channels(self) -> List[ChannelConfig]:
         return [channel for channel in self.SOURCE_URLS if channel.enabled]
 
+    # Update channel statistics after a fetch attempt
     def update_channel_stats(self, channel: ChannelConfig, success: bool, response_time: float = 0):
         if success:
             channel.metrics.success_count += 1
