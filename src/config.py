@@ -76,7 +76,7 @@ class ProxyConfig:
 
         # Minimum and maximum number of configurations per protocol
         self.PROTOCOL_CONFIG_LIMITS = {
-            "min": 5,  # Minimum number of configurations per protocol
+            "min": 10,  # Minimum number of configurations per protocol
             "max": 15  # Maximum number of configurations per protocol
         }
 
@@ -92,7 +92,7 @@ class ProxyConfig:
         }
 
         # Minimum and maximum number of configurations fetched from each channel
-        self.MIN_CONFIGS_PER_CHANNEL = 5  # Minimum number of proxy configs required per channel
+        self.MIN_CONFIGS_PER_CHANNEL = 10  # Minimum number of proxy configs required per channel
         self.MAX_CONFIGS_PER_CHANNEL = 30  # Maximum number of proxy configs allowed per channel
 
         # Maximum age of configurations (in days)
