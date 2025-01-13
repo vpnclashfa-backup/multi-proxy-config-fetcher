@@ -101,8 +101,14 @@ class ConfigFetcher:
                     if channel.is_telegram:
                         soup = BeautifulSoup(response.text, 'html.parser')
                         messages = soup.find_all('div', class_='tgme_widget_message_text')
+
+                        sorted_messages = sorted(
+                            messages,
+                            key=lambda message: self.extract_date_from_message(message) or datetime.min,
+                            reverse=True
+                        )
                         
-                        for message in messages:
+                        for message in sorted_messages:
                             if not message or not message.text:
                                 continue
                             
