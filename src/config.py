@@ -106,7 +106,7 @@ class ProxyConfig:
 
         self.MIN_CONFIGS_PER_CHANNEL = 3  # کاهش به 3 برای انعطاف‌پذیری بیشتر
         self.MAX_CONFIGS_PER_CHANNEL = 50  # افزایش به 50 برای جمع‌آوری بیشتر
-        self.MAX_CONFIG_AGE_DAYS = 90  # افزایش به 90 روز
+        self.MAX_CONFIG_AGE_DAYS = 7  #
         self.CHANNEL_RETRY_LIMIT = 5  # افزایش تعداد تلاش‌ها
         self.CHANNEL_ERROR_THRESHOLD = 0.7  # افزایش آستانه خطا
         self.MIN_PROTOCOL_RATIO = 0.1  # کاهش نسبت حداقل برای انعطاف‌پذیری بیشتر
