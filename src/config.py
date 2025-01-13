@@ -1,5 +1,3 @@
-# Refactored config.py with English comments replacing Persian ones.
-
 from typing import Dict, List
 from datetime import datetime
 import re
@@ -47,27 +45,26 @@ class ProxyConfig:
     def __init__(self):
         # List of source URLs to fetch proxy configurations.
         self.SOURCE_URLS = [
-            # ChannelConfig("https://raw.githubusercontent.com/4n0nymou3/wg-config-fetcher/refs/heads/main/configs/wireguard_configs.txt"),
-            # ChannelConfig("https://raw.githubusercontent.com/Kwinshadow/TelegramV2rayCollector/main/sublinks/mix.txt"),
-            # ChannelConfig("https://raw.githubusercontent.com/MhdiTaheri/V2rayCollector_Py/refs/heads/main/sub/Mix/mix.txt"),
-            # ChannelConfig("https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge.txt"),
-            ChannelConfig("https://raw.githubusercontent.com/valid7996/Gozargah/refs/heads/main/Gozargah_Sub")
-            # ChannelConfig("https://t.me/s/v2ray_free_conf"),
-            # ChannelConfig("https://t.me/s/PrivateVPNs"),
-            # ChannelConfig("https://t.me/s/v2Source"),
-            # ChannelConfig("https://t.me/s/IP_CF_Config"),
-            # ChannelConfig("https://t.me/s/oneclickvpnkeys"),
-            # ChannelConfig("https://t.me/s/ShadowProxy66"),
-            # ChannelConfig("https://t.me/s/OutlineReleasedKey"),
-            # ChannelConfig("https://t.me/s/GetConfigIR"),
-            # ChannelConfig("https://t.me/s/prrofile_purple"),
-            # ChannelConfig("https://t.me/s/proxy_shadosocks"),
-            # ChannelConfig("https://t.me/s/meli_proxyy"),
-            # ChannelConfig("https://t.me/s/DirectVPN"),
-            # ChannelConfig("https://t.me/s/Parsashonam"),
-            # ChannelConfig("https://t.me/s/ArV2ray"),
-            # ChannelConfig("https://t.me/s/VmessProtocol"),
-            # ChannelConfig("https://t.me/s/V2ray_Alpha")
+            ChannelConfig("https://raw.githubusercontent.com/valid7996/Gozargah/refs/heads/main/Gozargah_Sub"),
+            ChannelConfig("https://raw.githubusercontent.com/Kwinshadow/TelegramV2rayCollector/main/sublinks/mix.txt"),
+            ChannelConfig("https://raw.githubusercontent.com/MhdiTaheri/V2rayCollector_Py/refs/heads/main/sub/Mix/mix.txt"),
+            ChannelConfig("https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge.txt"),
+            ChannelConfig("https://t.me/s/v2ray_free_conf"),
+            ChannelConfig("https://t.me/s/PrivateVPNs"),
+            ChannelConfig("https://t.me/s/v2Source"),
+            ChannelConfig("https://t.me/s/IP_CF_Config"),
+            ChannelConfig("https://t.me/s/oneclickvpnkeys"),
+            ChannelConfig("https://t.me/s/ShadowProxy66"),
+            ChannelConfig("https://t.me/s/OutlineReleasedKey"),
+            ChannelConfig("https://t.me/s/GetConfigIR"),
+            ChannelConfig("https://t.me/s/prrofile_purple"),
+            ChannelConfig("https://t.me/s/proxy_shadosocks"),
+            ChannelConfig("https://t.me/s/meli_proxyy"),
+            ChannelConfig("https://t.me/s/DirectVPN"),
+            ChannelConfig("https://t.me/s/Parsashonam"),
+            ChannelConfig("https://t.me/s/ArV2ray"),
+            ChannelConfig("https://t.me/s/VmessProtocol"),
+            ChannelConfig("https://t.me/s/V2ray_Alpha")
         ]
 
         # Protocol configuration limits to control minimum and maximum fetch limits.
