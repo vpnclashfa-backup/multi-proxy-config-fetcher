@@ -76,7 +76,7 @@ class ProxyConfig:
 
         # Minimum and maximum number of configurations per protocol
         self.PROTOCOL_CONFIG_LIMITS = {
-            "min": 5,  # Minimum number of configurations per protocol
+            "min": 10,  # Minimum number of configurations per protocol
             "max": 15  # Maximum number of configurations per protocol
         }
 
