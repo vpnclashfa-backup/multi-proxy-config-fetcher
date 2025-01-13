@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-13T13:31:26.547858",
+  "timestamp": "2025-01-13T14:13:30.318893",
   "channels": [
     {
       "url": "https://raw.githubusercontent.com/4n0nymou3/wg-config-fetcher/refs/heads/main/configs/wireguard_configs.txt",
@@ -8,11 +8,11 @@
         "total_configs": 10,
         "valid_configs": 10,
         "unique_configs": 10,
-        "avg_response_time": 0.09,
+        "avg_response_time": 0.19,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 99.86,
-        "last_success": "2025-01-13T13:27:12.059697"
+        "overall_score": 99.72,
+        "last_success": "2025-01-13T14:09:06.235268"
       }
     },
     {
@@ -36,32 +36,32 @@
         "total_configs": 69,
         "valid_configs": 6,
         "unique_configs": 5,
-        "avg_response_time": 0.08,
+        "avg_response_time": 0.16,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 72.89,
-        "last_success": "2025-01-13T13:27:22.245433"
+        "overall_score": 72.77,
+        "last_success": "2025-01-13T14:09:16.711366"
       }
     },
     {
       "url": "https://raw.githubusercontent.com/MhdiTaheri/V2rayCollector_Py/refs/heads/main/sub/Mix/mix.txt",
       "enabled": true,
       "metrics": {
-        "total_configs": 1705,
+        "total_configs": 1715,
         "valid_configs": 61,
         "unique_configs": 52,
-        "avg_response_time": 0.1,
+        "avg_response_time": 0.2,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 72.06,
-        "last_success": "2025-01-13T13:27:23.379532"
+        "overall_score": 71.91,
+        "last_success": "2025-01-13T14:09:17.979406"
       }
     },
     {
       "url": "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge.txt",
       "enabled": false,
       "metrics": {
-        "total_configs": 17274,
+        "total_configs": 17163,
         "valid_configs": 0,
         "unique_configs": 0,
         "avg_response_time": 0,
@@ -119,7 +119,7 @@
       "metrics": {
         "total_configs": 60,
         "valid_configs": 9,
-        "unique_configs": 3,
+        "unique_configs": 2,
         "avg_response_time": 0,
         "success_count": 0,
         "fail_count": 0,
@@ -146,8 +146,8 @@
       "enabled": true,
       "metrics": {
         "total_configs": 183,
-        "valid_configs": 1,
-        "unique_configs": 1,
+        "valid_configs": 2,
+        "unique_configs": 2,
         "avg_response_time": 0,
         "success_count": 0,
         "fail_count": 0,
@@ -215,7 +215,7 @@
       "url": "https://t.me/s/meli_proxyy",
       "enabled": false,
       "metrics": {
-        "total_configs": 168,
+        "total_configs": 204,
         "valid_configs": 0,
         "unique_configs": 0,
         "avg_response_time": 0,
@@ -288,11 +288,11 @@
         "total_configs": 142,
         "valid_configs": 7,
         "unique_configs": 7,
-        "avg_response_time": 0.91,
+        "avg_response_time": 0.9,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 74.86,
-        "last_success": "2025-01-13T13:31:26.545766"
+        "overall_score": 74.88,
+        "last_success": "2025-01-13T14:13:30.316963"
       }
     }
   ]
