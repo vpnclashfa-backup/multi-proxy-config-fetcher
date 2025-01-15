@@ -223,7 +223,7 @@ class ConfigFetcher:
             all_configs.extend(channel_configs)
             
             if idx < total_channels:
-                time.sleep(2)  # Add delay between channels to prevent rate limiting
+                time.sleep(2)
         
         if all_configs:
             all_configs = self.balance_protocols(sorted(set(all_configs)))
