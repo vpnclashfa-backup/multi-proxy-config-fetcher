@@ -33,6 +33,12 @@ class ConfigValidator:
         return config
 
     @staticmethod
+    def normalize_hysteria2_protocol(config: str) -> str:
+        if config.startswith('hy2://'):
+            return config.replace('hy2://', 'hysteria2://', 1)
+        return config
+
+    @staticmethod
     def is_vmess_config(config: str) -> bool:
         try:
             if not config.startswith('vmess://'):
@@ -76,7 +82,7 @@ class ConfigValidator:
 
     @staticmethod
     def split_configs(text: str) -> List[str]:
-        protocols = ['vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'wireguard://', 'tuic://', 'ssconf://']
+        protocols = ['vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'hy2://', 'wireguard://', 'tuic://', 'ssconf://']
         configs = []
         current_pos = 0
         text_length = len(text)
@@ -108,6 +114,8 @@ class ConfigValidator:
                 current_config = text[next_config_start:next_protocol_pos].strip()
                 if matching_protocol == "vmess://":
                     current_config = ConfigValidator.clean_vmess_config(current_config)
+                elif matching_protocol == "hy2://":
+                    current_config = ConfigValidator.normalize_hysteria2_protocol(current_config)
                 if ConfigValidator.is_valid_config(current_config):
                     configs.append(current_config)
                 
@@ -130,7 +138,7 @@ class ConfigValidator:
         if not config:
             return False
             
-        protocols = ['vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'wireguard://', 'tuic://', 'ssconf://']
+        protocols = ['vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'hy2://', 'wireguard://', 'tuic://', 'ssconf://']
         return any(config.startswith(p) for p in protocols)
 
     @classmethod
@@ -147,7 +155,7 @@ class ConfigValidator:
                     return True
                 if cls.decode_base64_url(base64_part) or cls.decode_base64_url(decoded_url):
                     return True
-            elif protocol in ['trojan://', 'hysteria2://', 'wireguard://']:
+            elif protocol in ['trojan://', 'hysteria2://', 'hy2://', 'wireguard://']:
                 parsed = urlparse(config)
                 return bool(parsed.netloc and '@' in parsed.netloc)
             elif protocol == 'ssconf://':
