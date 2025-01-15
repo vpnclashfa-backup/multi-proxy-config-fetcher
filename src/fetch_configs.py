@@ -144,8 +144,24 @@ class ConfigFetcher:
 
     def process_config(self, config: str, channel: ChannelConfig) -> List[str]:
         processed_configs = []
+        
+        if config.startswith('hy2://'):
+            config = self.validator.normalize_hysteria2_protocol(config)
+            
         for protocol in self.config.SUPPORTED_PROTOCOLS:
+            aliases = self.config.SUPPORTED_PROTOCOLS[protocol].get('aliases', [])
+            protocol_match = False
+            
             if config.startswith(protocol):
+                protocol_match = True
+            else:
+                for alias in aliases:
+                    if config.startswith(alias):
+                        protocol_match = True
+                        config = config.replace(alias, protocol, 1)
+                        break
+                        
+            if protocol_match:
                 if protocol == "vmess://":
                     config = self.validator.clean_vmess_config(config)
                 
@@ -160,6 +176,7 @@ class ConfigFetcher:
                         processed_configs.append(clean_config)
                         self.protocol_counts[protocol] += 1
                 break
+                
         return processed_configs
 
     def extract_date_from_message(self, message) -> Optional[datetime]:
@@ -180,6 +197,9 @@ class ConfigFetcher:
     def balance_protocols(self, configs: List[str]) -> List[str]:
         protocol_configs: Dict[str, List[str]] = {p: [] for p in self.config.SUPPORTED_PROTOCOLS}
         for config in configs:
+            if config.startswith('hy2://'):
+                config = self.validator.normalize_hysteria2_protocol(config)
+                
             for protocol in self.config.SUPPORTED_PROTOCOLS:
                 if config.startswith(protocol):
                     protocol_configs[protocol].append(config)
