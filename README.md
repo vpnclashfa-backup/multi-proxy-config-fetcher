@@ -6,7 +6,7 @@
 
 # Multi Proxy Config Fetcher
 
-[English](README.md) | [فارسی](README_FA.md) | [中文](README_CN.md) | [Русский](README_RU.md)
+[**🇺🇸English**](README.md) | [**فارسی**](README_FA.md) | [**🇨🇳中文**](README_CN.md) | [**🇷🇺Русский**](README_RU.md)
 
 This project automatically fetches and updates various proxy configurations from public Telegram channels, SSCONF links and other URLs containing configuration data. It supports multiple proxy protocols including WireGuard, Hysteria2, VLESS, VMess, Shadowsocks, TUIC, and Trojan.
 
