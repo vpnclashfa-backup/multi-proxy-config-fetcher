@@ -14,13 +14,14 @@ class ConfigValidator:
             return False
 
     @staticmethod
-    def decode_base64_url(s: str) -> Optional[bytes]:
+    def decode_base64_url(s: str) -> Optional[str]:
         try:
             s = s.replace('-', '+').replace('_', '/')
             padding = 4 - (len(s) % 4)
             if padding != 4:
                 s += '=' * padding
-            return base64.b64decode(s)
+            decoded = base64.b64decode(s)
+            return decoded.decode('utf-8')
         except:
             return None
 
@@ -81,6 +82,16 @@ class ConfigValidator:
         return False, ''
 
     @staticmethod
+    def extract_configs_from_base64(text: str) -> List[str]:
+        try:
+            decoded = ConfigValidator.decode_base64_url(text)
+            if decoded:
+                return ConfigValidator.split_configs(decoded)
+        except:
+            pass
+        return []
+
+    @staticmethod
     def split_configs(text: str) -> List[str]:
         protocols = ['vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'hy2://', 'wireguard://', 'tuic://', 'ssconf://']
         configs = []
@@ -88,6 +99,13 @@ class ConfigValidator:
         text_length = len(text)
         
         while current_pos < text_length:
+            if ConfigValidator.is_base64(text[current_pos:]):
+                base64_configs = ConfigValidator.extract_configs_from_base64(text[current_pos:])
+                if base64_configs:
+                    configs.extend(base64_configs)
+                    current_pos = text_length
+                    continue
+            
             next_config_start = text_length
             matching_protocol = None
             
