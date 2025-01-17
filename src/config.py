@@ -87,44 +87,44 @@ class ProxyConfig:
             "wireguard://": {
                 "min_configs": self.PROTOCOL_CONFIG_LIMITS["min"],
                 "max_configs": self.PROTOCOL_CONFIG_LIMITS["max"],
-                "priority": 2,
+                "priority": 1,
                 "flexible_max": True
             },
             "hysteria2://": {
                 "min_configs": self.PROTOCOL_CONFIG_LIMITS["min"],
                 "max_configs": self.PROTOCOL_CONFIG_LIMITS["max"],
-                "priority": 1,
+                "priority": 2,
                 "flexible_max": True,
                 "aliases": ["hy2://"]
             },
             "vless://": {
                 "min_configs": self.PROTOCOL_CONFIG_LIMITS["min"],
                 "max_configs": self.PROTOCOL_CONFIG_LIMITS["max"],
-                "priority": 2,
+                "priority": 1,
                 "flexible_max": True
             },
             "vmess://": {
                 "min_configs": self.PROTOCOL_CONFIG_LIMITS["min"],
                 "max_configs": self.PROTOCOL_CONFIG_LIMITS["max"],
-                "priority": 1,
+                "priority": 2,
                 "flexible_max": True
             },
             "ss://": {
                 "min_configs": self.PROTOCOL_CONFIG_LIMITS["min"],
                 "max_configs": self.PROTOCOL_CONFIG_LIMITS["max"],
-                "priority": 1,
+                "priority": 2,
                 "flexible_max": True
             },
             "trojan://": {
                 "min_configs": self.PROTOCOL_CONFIG_LIMITS["min"],
                 "max_configs": self.PROTOCOL_CONFIG_LIMITS["max"],
-                "priority": 2,
+                "priority": 1,
                 "flexible_max": True
             },
             "tuic://": {
                 "min_configs": self.PROTOCOL_CONFIG_LIMITS["min"],
                 "max_configs": self.PROTOCOL_CONFIG_LIMITS["max"],
-                "priority": 1,
+                "priority": 2,
                 "flexible_max": True
             }
         }
