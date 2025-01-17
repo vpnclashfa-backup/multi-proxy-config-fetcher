@@ -67,10 +67,26 @@ class ConfigFetcher:
         configs = []
         
         response = self.fetch_with_retry(https_url)
-        if response and response.text.strip().startswith('ss://'):
-            configs.append(response.text.strip())
+        if response and response.text.strip():
+            text = response.text.strip()
+            if self.validator.is_base64(text):
+                decoded = self.validator.decode_base64_text(text)
+                if decoded:
+                    text = decoded
+            
+            if text.startswith('ss://'):
+                configs.append(text)
+            else:
+                configs.extend(self.validator.split_configs(text))
             
         return configs
+
+    def check_and_decode_base64(self, text: str) -> str:
+        if self.validator.is_base64(text):
+            decoded = self.validator.decode_base64_text(text)
+            if decoded:
+                return decoded
+        return text
 
     def fetch_configs_from_source(self, channel: ChannelConfig) -> List[str]:
         configs: List[str] = []
@@ -114,46 +130,55 @@ class ConfigFetcher:
                     continue
                 
                 text = message.text
-                if self.validator.is_base64(text):
-                    base64_configs = self.validator.extract_configs_from_base64(text)
-                    if base64_configs:
-                        channel.metrics.total_configs += len(base64_configs)
-                        for config in base64_configs:
-                            configs.extend(self.process_config(config, channel))
+                text_parts = text.split()
+                
+                for part in text_parts:
+                    part = part.strip()
+                    if not part:
                         continue
                         
-                for word in text.split():
-                    if self.validator.is_base64(word):
-                        base64_configs = self.validator.extract_configs_from_base64(word)
-                        if base64_configs:
-                            channel.metrics.total_configs += len(base64_configs)
-                            for config in base64_configs:
-                                configs.extend(self.process_config(config, channel))
-                                
-                    if word.startswith('ssconf://'):
-                        ssconf_configs = self.fetch_ssconf_configs(word)
+                    if part.startswith('ssconf://'):
+                        ssconf_configs = self.fetch_ssconf_configs(part)
                         configs.extend(ssconf_configs)
                         channel.metrics.total_configs += len(ssconf_configs)
+                    else:
+                        decoded_part = self.check_and_decode_base64(part)
+                        if decoded_part != part:
+                            found_configs = self.validator.split_configs(decoded_part)
+                            channel.metrics.total_configs += len(found_configs)
+                            configs.extend(found_configs)
                 
                 found_configs = self.validator.split_configs(text)
                 channel.metrics.total_configs += len(found_configs)
-                
-                for config in found_configs:
-                    configs.extend(self.process_config(config, channel))
+                configs.extend(found_configs)
         else:
             text = response.text
-            if self.validator.is_base64(text):
-                base64_configs = self.validator.extract_configs_from_base64(text)
-                if base64_configs:
-                    channel.metrics.total_configs += len(base64_configs)
-                    for config in base64_configs:
-                        configs.extend(self.process_config(config, channel))
-                
+            text_parts = text.split()
+            
+            for part in text_parts:
+                part = part.strip()
+                if not part:
+                    continue
+                    
+                decoded_part = self.check_and_decode_base64(part)
+                if decoded_part != part:
+                    found_configs = self.validator.split_configs(decoded_part)
+                    channel.metrics.total_configs += len(found_configs)
+                    configs.extend(found_configs)
+            
             found_configs = self.validator.split_configs(text)
             channel.metrics.total_configs += len(found_configs)
-            
-            for config in found_configs:
-                configs.extend(self.process_config(config, channel))
+            configs.extend(found_configs)
+        
+        configs = list(set(configs))
+        
+        for config in configs[:]:
+            for protocol in self.config.SUPPORTED_PROTOCOLS:
+                if config.startswith(protocol):
+                    processed_configs = self.process_config(config, channel)
+                    if not processed_configs:
+                        configs.remove(config)
+                    break
         
         if len(configs) >= self.config.MIN_CONFIGS_PER_CHANNEL:
             self.config.update_channel_stats(channel, True, response_time)
