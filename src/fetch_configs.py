@@ -114,9 +114,24 @@ class ConfigFetcher:
                     continue
                 
                 text = message.text
-                for config in text.split():
-                    if config.startswith('ssconf://'):
-                        ssconf_configs = self.fetch_ssconf_configs(config)
+                if self.validator.is_base64(text):
+                    base64_configs = self.validator.extract_configs_from_base64(text)
+                    if base64_configs:
+                        channel.metrics.total_configs += len(base64_configs)
+                        for config in base64_configs:
+                            configs.extend(self.process_config(config, channel))
+                        continue
+                        
+                for word in text.split():
+                    if self.validator.is_base64(word):
+                        base64_configs = self.validator.extract_configs_from_base64(word)
+                        if base64_configs:
+                            channel.metrics.total_configs += len(base64_configs)
+                            for config in base64_configs:
+                                configs.extend(self.process_config(config, channel))
+                                
+                    if word.startswith('ssconf://'):
+                        ssconf_configs = self.fetch_ssconf_configs(word)
                         configs.extend(ssconf_configs)
                         channel.metrics.total_configs += len(ssconf_configs)
                 
@@ -127,6 +142,13 @@ class ConfigFetcher:
                     configs.extend(self.process_config(config, channel))
         else:
             text = response.text
+            if self.validator.is_base64(text):
+                base64_configs = self.validator.extract_configs_from_base64(text)
+                if base64_configs:
+                    channel.metrics.total_configs += len(base64_configs)
+                    for config in base64_configs:
+                        configs.extend(self.process_config(config, channel))
+                
             found_configs = self.validator.split_configs(text)
             channel.metrics.total_configs += len(found_configs)
             
