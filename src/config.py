@@ -65,7 +65,7 @@ class ProxyConfig:
             ChannelConfig("https://t.me/s/meli_proxyy"),
             ChannelConfig("https://t.me/s/DirectVPN"),
             ChannelConfig("https://t.me/s/VmessProtocol"),
-            ChannelConfig("https://t.me/s/V2ray_Alpha"),
+            ChannelConfig("https://t.me/s/V2ray_Alpha")
             # ChannelConfig("https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/channels/protocols/hysteria")
         ]
 
