@@ -6,7 +6,7 @@
 
 # 多协议代理配置获取器
 
-[English](README.md) | [فارسی](README_FA.md) | [中文](README_CN.md) | [Русский](README_RU.md)
+[**🇺🇸English**](README.md) | [**![Lang_farsi](https://user-images.githubusercontent.com/125398461/234186932-52f1fa82-52c6-417f-8b37-08fe9250a55f.png)فارسی**](README_FA.md) | [**🇨🇳中文**](README_CN.md) | [**🇷🇺Русский**](README_RU.md)
 
 该项目可以自动从公共 Telegram 频道、SSCONF 链接和其他包含配置数据的 URL 获取并更新各种代理配置。它支持多种代理协议，包括 WireGuard、Hysteria2、VLESS、VMess、Shadowsocks、TUIC 和 Trojan。
 
