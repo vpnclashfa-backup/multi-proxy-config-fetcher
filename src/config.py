@@ -93,7 +93,7 @@ class ProxyConfig:
             "hysteria2://": {
                 "min_configs": self.PROTOCOL_CONFIG_LIMITS["min"],
                 "max_configs": self.PROTOCOL_CONFIG_LIMITS["max"],
-                "priority": 2,
+                "priority": 1,
                 "flexible_max": True,
                 "aliases": ["hy2://"]
             },
@@ -106,13 +106,13 @@ class ProxyConfig:
             "vmess://": {
                 "min_configs": self.PROTOCOL_CONFIG_LIMITS["min"],
                 "max_configs": self.PROTOCOL_CONFIG_LIMITS["max"],
-                "priority": 2,
+                "priority": 1,
                 "flexible_max": True
             },
             "ss://": {
                 "min_configs": self.PROTOCOL_CONFIG_LIMITS["min"],
                 "max_configs": self.PROTOCOL_CONFIG_LIMITS["max"],
-                "priority": 2,
+                "priority": 1,
                 "flexible_max": True
             },
             "trojan://": {
@@ -124,7 +124,7 @@ class ProxyConfig:
             "tuic://": {
                 "min_configs": self.PROTOCOL_CONFIG_LIMITS["min"],
                 "max_configs": self.PROTOCOL_CONFIG_LIMITS["max"],
-                "priority": 2,
+                "priority": 1,
                 "flexible_max": True
             }
         }
