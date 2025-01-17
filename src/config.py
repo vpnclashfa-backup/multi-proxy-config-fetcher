@@ -58,7 +58,6 @@ class ProxyConfig:
             ChannelConfig("https://t.me/s/v2ray_free_conf"),
             ChannelConfig("https://t.me/s/PrivateVPNs"),
             ChannelConfig("https://t.me/s/IP_CF_Config"),
-            ChannelConfig("https://t.me/s/ShadowProxy66"),
             ChannelConfig("https://t.me/s/OutlineReleasedKey"),
             ChannelConfig("https://t.me/s/prrofile_purple"),
             ChannelConfig("https://t.me/s/proxy_shadosocks"),
