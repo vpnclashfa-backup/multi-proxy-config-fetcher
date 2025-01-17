@@ -55,6 +55,7 @@ class ProxyConfig:
             ChannelConfig("https://raw.githubusercontent.com/4n0nymou3/wg-config-fetcher/refs/heads/main/configs/wireguard_configs.txt"),
             ChannelConfig("https://raw.githubusercontent.com/4n0nymou3/ss-config-updater/refs/heads/main/configs.txt"),
             ChannelConfig("https://raw.githubusercontent.com/valid7996/Gozargah/refs/heads/main/Gozargah_Sub"),
+            ChannelConfig("https://t.me/s/FreeV2rays"),
             ChannelConfig("https://t.me/s/v2ray_free_conf"),
             ChannelConfig("https://t.me/s/PrivateVPNs"),
             ChannelConfig("https://t.me/s/IP_CF_Config"),
@@ -65,7 +66,11 @@ class ProxyConfig:
             ChannelConfig("https://t.me/s/meli_proxyy"),
             ChannelConfig("https://t.me/s/DirectVPN"),
             ChannelConfig("https://t.me/s/VmessProtocol"),
-            ChannelConfig("https://t.me/s/V2ray_Alpha")
+            ChannelConfig("https://t.me/s/V2ray_Alpha"),
+            ChannelConfig("https://t.me/s/VlessConfig"),
+            ChannelConfig("https://t.me/s/DailyV2RY"),
+            ChannelConfig("https://t.me/s/ShadowsocksM"),
+            ChannelConfig("https://t.me/s/v2rayngvpn")
             # ChannelConfig("https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/channels/protocols/hysteria")
         ]
 
