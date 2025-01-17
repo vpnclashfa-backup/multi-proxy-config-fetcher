@@ -8,7 +8,7 @@
 
 # دریافت‌کننده پیکربندی‌های پراکسی
 
-[**🇺🇸English**](README.md) | [**![Lang_farsi](https://user-images.githubusercontent.com/125398461/234186932-52f1fa82-52c6-417f-8b37-08fe9250a55f.png)فارسی**](README_FA.md) | [**🇨🇳中文**](README_CN.md) | [**🇷🇺Русский**](README_RU.md)
+[**🇺🇸English**](README.md) | [**فارسی![Lang_farsi](https://user-images.githubusercontent.com/125398461/234186932-52f1fa82-52c6-417f-8b37-08fe9250a55f.png)**](README_FA.md) | [**🇨🇳中文**](README_CN.md) | [**🇷🇺Русский**](README_RU.md)
 
 این پروژه به‌طور خودکار پیکربندی‌های مختلف پراکسی را از کانال‌های عمومی تلگرام، لینک‌های SSCONF و سایر URL‌های حاوی داده‌های پیکربندی دریافت و به‌روزرسانی می‌کند. این پروژه از پروتکل‌های متعدد پراکسی از جمله WireGuard، Hysteria2، VLESS، VMess، Shadowsocks، TUIC و Trojan پشتیبانی می‌کند.
 
