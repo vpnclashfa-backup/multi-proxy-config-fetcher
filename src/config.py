@@ -65,7 +65,7 @@ class ProxyConfig:
             ChannelConfig("https://t.me/s/DirectVPN"),
             ChannelConfig("https://t.me/s/VmessProtocol"),
             ChannelConfig("https://t.me/s/V2ray_Alpha"),
-            ChannelConfig("https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/channels/protocols/hysteria")
+            # ChannelConfig("https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/channels/protocols/hysteria")
         ]
 
         # Global limits for number of configs per protocol
@@ -87,7 +87,7 @@ class ProxyConfig:
             "wireguard://": {
                 "min_configs": self.PROTOCOL_CONFIG_LIMITS["min"],
                 "max_configs": self.PROTOCOL_CONFIG_LIMITS["max"],
-                "priority": 1,
+                "priority": 2,
                 "flexible_max": True
             },
             "hysteria2://": {
@@ -100,7 +100,7 @@ class ProxyConfig:
             "vless://": {
                 "min_configs": self.PROTOCOL_CONFIG_LIMITS["min"],
                 "max_configs": self.PROTOCOL_CONFIG_LIMITS["max"],
-                "priority": 1,
+                "priority": 2,
                 "flexible_max": True
             },
             "vmess://": {
@@ -118,7 +118,7 @@ class ProxyConfig:
             "trojan://": {
                 "min_configs": self.PROTOCOL_CONFIG_LIMITS["min"],
                 "max_configs": self.PROTOCOL_CONFIG_LIMITS["max"],
-                "priority": 1,
+                "priority": 2,
                 "flexible_max": True
             },
             "tuic://": {
