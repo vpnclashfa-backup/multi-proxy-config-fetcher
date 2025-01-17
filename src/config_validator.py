@@ -14,14 +14,24 @@ class ConfigValidator:
             return False
 
     @staticmethod
-    def decode_base64_url(s: str) -> Optional[str]:
+    def decode_base64_url(s: str) -> Optional[bytes]:
         try:
             s = s.replace('-', '+').replace('_', '/')
             padding = 4 - (len(s) % 4)
             if padding != 4:
                 s += '=' * padding
-            decoded = base64.b64decode(s)
-            return decoded.decode('utf-8')
+            return base64.b64decode(s)
+        except:
+            return None
+
+    @staticmethod
+    def decode_base64_text(text: str) -> Optional[str]:
+        try:
+            if ConfigValidator.is_base64(text):
+                decoded = ConfigValidator.decode_base64_url(text)
+                if decoded:
+                    return decoded.decode('utf-8')
+            return None
         except:
             return None
 
@@ -82,65 +92,73 @@ class ConfigValidator:
         return False, ''
 
     @staticmethod
-    def extract_configs_from_base64(text: str) -> List[str]:
+    def check_base64_content(text: str) -> Optional[str]:
         try:
-            decoded = ConfigValidator.decode_base64_url(text)
-            if decoded:
-                return ConfigValidator.split_configs(decoded)
+            decoded_text = ConfigValidator.decode_base64_text(text)
+            if decoded_text:
+                protocols = ['vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'hy2://', 'wireguard://', 'tuic://', 'ssconf://']
+                for protocol in protocols:
+                    if protocol in decoded_text:
+                        return decoded_text
+            return None
         except:
-            pass
-        return []
+            return None
 
     @staticmethod
     def split_configs(text: str) -> List[str]:
-        protocols = ['vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'hy2://', 'wireguard://', 'tuic://', 'ssconf://']
         configs = []
-        current_pos = 0
-        text_length = len(text)
+        lines = text.split('\n')
         
-        while current_pos < text_length:
-            if ConfigValidator.is_base64(text[current_pos:]):
-                base64_configs = ConfigValidator.extract_configs_from_base64(text[current_pos:])
-                if base64_configs:
-                    configs.extend(base64_configs)
-                    current_pos = text_length
-                    continue
-            
-            next_config_start = text_length
-            matching_protocol = None
-            
-            for protocol in protocols:
-                protocol_pos = text.find(protocol, current_pos)
-                if protocol_pos != -1 and protocol_pos < next_config_start:
-                    next_config_start = protocol_pos
-                    matching_protocol = protocol
-            
-            if matching_protocol:
-                if current_pos < next_config_start and configs:
-                    current_config = text[current_pos:next_config_start].strip()
-                    if ConfigValidator.is_valid_config(current_config):
-                        configs.append(current_config)
+        for line in lines:
+            line = line.strip()
+            if not line:
+                continue
                 
-                current_pos = next_config_start
-                next_protocol_pos = text_length
+            if ConfigValidator.is_base64(line):
+                decoded_content = ConfigValidator.check_base64_content(line)
+                if decoded_content:
+                    text = decoded_content
+                    
+            protocols = ['vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'hy2://', 'wireguard://', 'tuic://', 'ssconf://']
+            current_pos = 0
+            text_length = len(text)
+            
+            while current_pos < text_length:
+                next_config_start = text_length
+                matching_protocol = None
                 
                 for protocol in protocols:
-                    pos = text.find(protocol, next_config_start + len(matching_protocol))
-                    if pos != -1 and pos < next_protocol_pos:
-                        next_protocol_pos = pos
+                    protocol_pos = text.find(protocol, current_pos)
+                    if protocol_pos != -1 and protocol_pos < next_config_start:
+                        next_config_start = protocol_pos
+                        matching_protocol = protocol
                 
-                current_config = text[next_config_start:next_protocol_pos].strip()
-                if matching_protocol == "vmess://":
-                    current_config = ConfigValidator.clean_vmess_config(current_config)
-                elif matching_protocol == "hy2://":
-                    current_config = ConfigValidator.normalize_hysteria2_protocol(current_config)
-                if ConfigValidator.is_valid_config(current_config):
-                    configs.append(current_config)
-                
-                current_pos = next_protocol_pos
-            else:
-                break
-                
+                if matching_protocol:
+                    if current_pos < next_config_start and configs:
+                        current_config = text[current_pos:next_config_start].strip()
+                        if ConfigValidator.is_valid_config(current_config):
+                            configs.append(current_config)
+                    
+                    current_pos = next_config_start
+                    next_protocol_pos = text_length
+                    
+                    for protocol in protocols:
+                        pos = text.find(protocol, next_config_start + len(matching_protocol))
+                        if pos != -1 and pos < next_protocol_pos:
+                            next_protocol_pos = pos
+                    
+                    current_config = text[next_config_start:next_protocol_pos].strip()
+                    if matching_protocol == "vmess://":
+                        current_config = ConfigValidator.clean_vmess_config(current_config)
+                    elif matching_protocol == "hy2://":
+                        current_config = ConfigValidator.normalize_hysteria2_protocol(current_config)
+                    if ConfigValidator.is_valid_config(current_config):
+                        configs.append(current_config)
+                    
+                    current_pos = next_protocol_pos
+                else:
+                    break
+                    
         return configs
 
     @staticmethod
