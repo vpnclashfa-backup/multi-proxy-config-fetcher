@@ -3,7 +3,7 @@ import os
 import time
 import json
 import logging
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from typing import List, Dict, Optional, Set
 import requests
 from bs4 import BeautifulSoup
@@ -117,7 +117,7 @@ class ConfigFetcher:
             
             sorted_messages = sorted(
                 messages,
-                key=lambda message: self.extract_date_from_message(message) or datetime.min,
+                key=lambda message: self.extract_date_from_message(message) or datetime.min.replace(tzinfo=timezone.utc),
                 reverse=True
             )
             
@@ -238,7 +238,7 @@ class ConfigFetcher:
     def is_config_valid(self, config_text: str, date: Optional[datetime]) -> bool:
         if not date:
             return True
-        cutoff_date = datetime.now(date.tzinfo) - timedelta(days=self.config.MAX_CONFIG_AGE_DAYS)
+        cutoff_date = datetime.now(timezone.utc) - timedelta(days=self.config.MAX_CONFIG_AGE_DAYS)
         return date >= cutoff_date
 
     def balance_protocols(self, configs: List[str]) -> List[str]:
@@ -318,7 +318,7 @@ def save_configs(configs: List[str], config: ProxyConfig):
 def save_channel_stats(config: ProxyConfig):
     try:
         stats = {
-            'timestamp': datetime.now().isoformat(),
+            'timestamp': datetime.now(timezone.utc).isoformat(),
             'channels': []
         }
         
@@ -334,7 +334,7 @@ def save_channel_stats(config: ProxyConfig):
                     'success_count': channel.metrics.success_count,
                     'fail_count': channel.metrics.fail_count,
                     'overall_score': round(channel.metrics.overall_score, 2),
-                    'last_success': channel.metrics.last_success_time.isoformat() if channel.metrics.last_success_time else None,
+                    'last_success': channel.metrics.last_success_time.replace(tzinfo=timezone.utc).isoformat() if channel.metrics.last_success_time else None,
                     'protocol_counts': channel.metrics.protocol_counts
                 }
             }
@@ -356,7 +356,7 @@ def main():
         
         if configs:
             save_configs(configs, config)
-            logger.info(f"Successfully processed {len(configs)} configs at {datetime.now()}")
+            logger.info(f"Successfully processed {len(configs)} configs at {datetime.now(timezone.utc)}")
             
             for protocol, count in fetcher.protocol_counts.items():
                 logger.info(f"{protocol}: {count} configs")
