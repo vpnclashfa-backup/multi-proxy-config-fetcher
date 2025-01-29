@@ -1,6 +1,7 @@
 from typing import Dict, List
 from datetime import datetime
 import re
+from urllib.parse import urlparse
 
 class ChannelMetrics:
     """
@@ -51,7 +52,7 @@ class ProxyConfig:
     def __init__(self):
         # List of source URLs to fetch proxy configs from
         # Add or remove channels here. Each ChannelConfig takes a URL and enabled status (default: True)
-        self.SOURCE_URLS = [
+        initial_urls = [
             ChannelConfig("https://raw.githubusercontent.com/4n0nymou3/wg-config-fetcher/refs/heads/main/configs/wireguard_configs.txt"),
             ChannelConfig("https://raw.githubusercontent.com/4n0nymou3/ss-config-updater/refs/heads/main/configs.txt"),
             ChannelConfig("https://raw.githubusercontent.com/valid7996/Gozargah/refs/heads/main/Gozargah_Sub"),
@@ -77,6 +78,9 @@ class ProxyConfig:
             # ChannelConfig("https://t.me/s/v2rayngvpn")
             # ChannelConfig("https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/channels/protocols/hysteria")
         ]
+
+        # Remove duplicate URLs before assigning to SOURCE_URLS
+        self.SOURCE_URLS = self._remove_duplicate_urls(initial_urls)
 
         # Global limits for number of configs per protocol
         # Default values: min=3, max=25
@@ -168,6 +172,51 @@ class ProxyConfig:
             'Connection': 'keep-alive',
             'Upgrade-Insecure-Requests': '1'
         }
+
+    def _normalize_url(self, url: str) -> str:
+        """
+        Normalize URLs to ensure consistent comparison.
+        Handles Telegram channels, ssconf:// URLs, and regular URLs.
+        
+        Args:
+            url: The URL to normalize
+            
+        Returns:
+            Normalized version of the URL for comparison
+        """
+        if url.startswith('ssconf://'):
+            url = url.replace('ssconf://', 'https://', 1)
+            
+        parsed = urlparse(url)
+        path = parsed.path.rstrip('/')
+        
+        if parsed.netloc.startswith('t.me/s/'):
+            channel_name = parsed.path.strip('/').lower()
+            return f"telegram:{channel_name}"
+            
+        return f"{parsed.scheme}://{parsed.netloc}{path}"
+
+    def _remove_duplicate_urls(self, channel_configs: List[ChannelConfig]) -> List[ChannelConfig]:
+        """
+        Remove duplicate URLs from the channel config list.
+        Keeps the first occurrence of each URL and removes subsequent duplicates.
+        
+        Args:
+            channel_configs: List of ChannelConfig objects
+            
+        Returns:
+            List of ChannelConfig objects with duplicates removed
+        """
+        seen_urls = {}
+        unique_configs = []
+        
+        for config in channel_configs:
+            normalized_url = self._normalize_url(config.url)
+            if normalized_url not in seen_urls:
+                seen_urls[normalized_url] = True
+                unique_configs.append(config)
+                
+        return unique_configs
 
     def is_protocol_enabled(self, protocol: str) -> bool:
         """
