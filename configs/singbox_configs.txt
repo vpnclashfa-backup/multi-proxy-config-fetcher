@@ -2,18 +2,6 @@
   "outbounds": [
     {
       "type": "vless",
-      "tag": "vless-5bce00ad",
-      "server": "fastly.net",
-      "server_port": 80,
-      "uuid": "0060fb3a-06d1-5962-85cb-5f22ac528d68",
-      "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": ""
-      }
-    },
-    {
-      "type": "vless",
       "tag": "vless-8b8a7b7d",
       "server": "150.241.102.95",
       "server_port": 10799,
