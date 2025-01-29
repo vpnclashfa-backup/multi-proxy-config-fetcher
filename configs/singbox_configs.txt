@@ -1,0 +1,564 @@
+{
+  "outbounds": [
+    {
+      "type": "vless",
+      "tag": "vless-5bce00ad",
+      "server": "fastly.net",
+      "server_port": 80,
+      "uuid": "0060fb3a-06d1-5962-85cb-5f22ac528d68",
+      "flow": "",
+      "tls": {
+        "enabled": true,
+        "server_name": ""
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "vless-8b8a7b7d",
+      "server": "150.241.102.95",
+      "server_port": 10799,
+      "uuid": "0183c3a4-7fb9-41c9-a8f2-3c032a6ad721",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "google.com"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "trojan-bb43b557",
+      "server": "sensible-ocelot.boa152.lol",
+      "server_port": 443,
+      "password": "3723507166611775488",
+      "tls": {
+        "enabled": true,
+        "server_name": "sensible-ocelot.boa152.lol"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "trojan-6060b6d0",
+      "server": "crunch.floorshoping22.com",
+      "server_port": 2053,
+      "password": "FuUaWS3YWG",
+      "tls": {
+        "enabled": true,
+        "server_name": "Crunch.floorshoping22.com"
+      }
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "ss-5065b457",
+      "server": "68.183.190.16",
+      "server_port": 26925,
+      "method": "chacha20-ietf-poly1305",
+      "password": "41EpKGSJg75zE790RJxEBJ"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "ss-c349f21a",
+      "server": "45.158.171.136",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "4a2rfixophdjffa8KVA4Aa"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "ss-47162a6d",
+      "server": "45.158.171.136",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "4a2rfixophdjffa8KVA4Aa"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "ss-067628c5",
+      "server": "45.151.62.54",
+      "server_port": 28825,
+      "method": "chacha20-ietf-poly1305",
+      "password": "0zyDRZ1XmNXaaCAN7KEA8a"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "ss-a69d479f",
+      "server": "45.151.62.54",
+      "server_port": 28825,
+      "method": "chacha20-ietf-poly1305",
+      "password": "0zyDRZ1XmNXaaCAN7KEA8a"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "ss-2f165883",
+      "server": "45.87.175.164",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "1RWwXhwfAB5gAEozU4G2Pg"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "ss-bdc57097",
+      "server": "45.87.175.181",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "1RWwXhwfAB5gAEozU4G2Pg"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "ss-0f3967e9",
+      "server": "api.namasha.co",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "u17T3BvpYaaiuW2c"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "ss-eaffc31b",
+      "server": "series-a2-mec.varzesh360.co",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "u17T3BvpYaaiuW2c"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "ss-4d9e36fe",
+      "server": "213.176.66.228",
+      "server_port": 24495,
+      "method": "chacha20-ietf-poly1305",
+      "password": "ueZF61RweqT1i3IcR5tGRh"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "ss-e7fd4f5a",
+      "server": "194.87.216.218",
+      "server_port": 52571,
+      "method": "chacha20-ietf-poly1305",
+      "password": "uh5gPXDDjRPQP5K7vrGdiR"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "ss-06979126",
+      "server": "194.87.216.218",
+      "server_port": 52571,
+      "method": "chacha20-ietf-poly1305",
+      "password": "uh5gPXDDjRPQP5K7vrGdiR"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "ss-39184274",
+      "server": "103.106.1.92",
+      "server_port": 23492,
+      "method": "chacha20-ietf-poly1305",
+      "password": "yMX9WGPgUEcRZmlaa0YHHC"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "ss-b582c98c",
+      "server": "77.83.246.74",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "yWsjKK2DJZgWRpHZlzw7Mw"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "ss-7c0d433b",
+      "server": "81.19.141.45",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "B8zwQhZFyP90OLaRxBmxEq"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "ss-a8ac9c60",
+      "server": "81.19.141.45",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "B8zwQhZFyP90OLaRxBmxEq"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "ss-a782195f",
+      "server": "series-a2-me.varzesh360.co",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "Bog0ELmMM9DSxDdQ"
+    },
+    {
+      "type": "vmess",
+      "tag": "vmess-3d2c9677",
+      "server": "buffalo.899994.xyz",
+      "server_port": 8443,
+      "uuid": "a0605527-28e4-449c-80ee-5642cc16a8af",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": ""
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "vmess-aa9a096c",
+      "server": "ovhwuxian.pai50288.uk",
+      "server_port": 8443,
+      "uuid": "86455bfc-dd02-4a3b-9f03-7668f39375d6",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": ""
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "vmess-ee1f3ff1",
+      "server": "s2.cn-db.top",
+      "server_port": 2086,
+      "uuid": "4b36625c-b9d9-3ea6-aed5-86d62c70e16d",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": false,
+        "server_name": ""
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "vmess-e0a005e1",
+      "server": "188.245.100.168",
+      "server_port": 18926,
+      "uuid": "7ff9d116-95a9-4272-acc8-0db83168f4d0",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": false,
+        "server_name": ""
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "vmess-0fd0d57d",
+      "server": "79.127.229.54",
+      "server_port": 18000,
+      "uuid": "fa1897db-1925-4c86-a495-939a959af900",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": false,
+        "server_name": ""
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "vmess-bbe5ce10",
+      "server": "57.128.184.127",
+      "server_port": 443,
+      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "vmess-e94ae0a0",
+      "server": "79.127.229.54",
+      "server_port": 18000,
+      "uuid": "fa1897db-1925-4c86-a495-939a959af900",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": false,
+        "server_name": ""
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "vmess-fb53b660",
+      "server": "49.12.188.222",
+      "server_port": 43343,
+      "uuid": "2d53f249-1ac9-42e4-a33f-28410fc4693a",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": false,
+        "server_name": ""
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "vmess-faaa0b70",
+      "server": "79.127.229.54",
+      "server_port": 18000,
+      "uuid": "fa1897db-1925-4c86-a495-939a959af900",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": false,
+        "server_name": ""
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "vmess-879b3604",
+      "server": "79.127.229.54",
+      "server_port": 18000,
+      "uuid": "fa1897db-1925-4c86-a495-939a959af900",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": false,
+        "server_name": ""
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "vmess-4bdafd8e",
+      "server": "79.127.229.54",
+      "server_port": 18000,
+      "uuid": "fa1897db-1925-4c86-a495-939a959af900",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": false,
+        "server_name": ""
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "vmess-1bb1cd42",
+      "server": "Reza.ns.cloudflare.com",
+      "server_port": 2087,
+      "uuid": "db5afae4-ac23-41a6-8378-f307a9a47436",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "dd21146ygfdSNA9191281280kdm22kas2123Aawdsd1234bb155138203223.jogi-jgit9-nogi.fun"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "vmess-1308e212",
+      "server": "45.61.186.99",
+      "server_port": 8080,
+      "uuid": "41bf26d7-8734-5ac2-8bba-76a724aaacbd",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": false,
+        "server_name": ""
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "vmess-a626dc17",
+      "server": "45.8.159.241",
+      "server_port": 31495,
+      "uuid": "398ce84e-4849-4e5f-9b1a-a56fbe233b81",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": false,
+        "server_name": ""
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "vmess-0f43fb32",
+      "server": "45.8.159.241",
+      "server_port": 31495,
+      "uuid": "398ce84e-4849-4e5f-9b1a-a56fbe233b81",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": false,
+        "server_name": ""
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "vmess-c6f69edb",
+      "server": "5.39.254.196",
+      "server_port": 23985,
+      "uuid": "398ce84e-4849-4e5f-9b1a-a56fbe233b81",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": false,
+        "server_name": ""
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "vmess-a4215a09",
+      "server": "5.39.254.196",
+      "server_port": 23985,
+      "uuid": "398ce84e-4849-4e5f-9b1a-a56fbe233b81",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": false,
+        "server_name": ""
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "vmess-d5b9e9b5",
+      "server": "5.39.254.196",
+      "server_port": 23985,
+      "uuid": "398ce84e-4849-4e5f-9b1a-a56fbe233b81",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": false,
+        "server_name": ""
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "vmess-4ad6e9b6",
+      "server": "5.75.201.39",
+      "server_port": 59521,
+      "uuid": "53e6dd39-27d4-4063-817a-9c00b077a2b7",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": false,
+        "server_name": ""
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "vmess-d33e7608",
+      "server": "50.114.243.61",
+      "server_port": 43834,
+      "uuid": "b246e34d-bbd1-4016-8f74-ea461c37e411",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": false,
+        "server_name": ""
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "vmess-130de701",
+      "server": "79.127.229.54",
+      "server_port": 18000,
+      "uuid": "fa1897db-1925-4c86-a495-939a959af900",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": false,
+        "server_name": ""
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "vmess-3c9babb4",
+      "server": "87.107.163.4",
+      "server_port": 37198,
+      "uuid": "6f338926-e323-43bd-8dc8-b41f29c49798",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": false,
+        "server_name": ""
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "vmess-249c7968",
+      "server": "87.107.163.4",
+      "server_port": 37198,
+      "uuid": "6f338926-e323-43bd-8dc8-b41f29c49798",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": false,
+        "server_name": ""
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "vmess-9c0bd72d",
+      "server": "87.107.163.4",
+      "server_port": 37198,
+      "uuid": "6f338926-e323-43bd-8dc8-b41f29c49798",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": false,
+        "server_name": ""
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "hysteria2-56fa306e",
+      "server": null,
+      "server_port": null,
+      "password": "",
+      "tls": {
+        "enabled": true,
+        "server_name": "rb1.xiaofeixia.cyou"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "hysteria2-37ce0f46",
+      "server": null,
+      "server_port": null,
+      "password": "",
+      "tls": {
+        "enabled": true,
+        "server_name": "rb2.xiaofeixia.cyou"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "hysteria2-79704a3a",
+      "server": null,
+      "server_port": null,
+      "password": "",
+      "tls": {
+        "enabled": true,
+        "server_name": ""
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "hysteria2-dd1dc7c4",
+      "server": null,
+      "server_port": null,
+      "password": "",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.bing.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "hysteria2-5f49f443",
+      "server": null,
+      "server_port": null,
+      "password": "",
+      "tls": {
+        "enabled": true,
+        "server_name": ""
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "hysteria2-cf4daff7",
+      "server": null,
+      "server_port": null,
+      "password": "",
+      "tls": {
+        "enabled": true,
+        "server_name": "ns.cloudflare.com"
+      }
+    }
+  ]
+}
