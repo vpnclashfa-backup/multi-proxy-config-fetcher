@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
     
@@ -38,6 +38,9 @@ jobs:
     
     - name: Generate charts and reports
       run: python src/generate_charts.py
+      
+    - name: Convert configs to sing-box format
+      run: python src/config_to_singbox.py
     
     - name: Update README timestamps and stats
       run: |
@@ -63,6 +66,7 @@ jobs:
     - name: Commit and push changes
       run: |
         git add configs/proxy_configs.txt
+        git add configs/singbox_configs.txt
         git add configs/channel_stats.json
         git add assets/channel_stats_chart.svg
         git add assets/performance_report.html
