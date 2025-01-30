@@ -223,66 +223,170 @@ class ConfigToSingbox:
 
             singbox_config = {
                 "dns": {
-                    "servers": [
+                    "final": "local-dns",
+                    "rules": [
                         {
-                            "tag": "dns-direct",
-                            "address": "1.1.1.1",
-                            "detour": "direct"
+                            "clash_mode": "Global",
+                            "server": "proxy-dns",
+                            "source_ip_cidr": ["172.19.0.0/30"]
+                        },
+                        {
+                            "server": "proxy-dns",
+                            "source_ip_cidr": ["172.19.0.0/30"]
+                        },
+                        {
+                            "clash_mode": "Direct",
+                            "server": "direct-dns"
+                        },
+                        {
+                            "rule_set": ["geosite-ir"],
+                            "server": "direct-dns"
                         }
                     ],
-                    "rules": [],
-                    "strategy": "prefer_ipv4",
-                    "disable_cache": True
+                    "servers": [
+                        {
+                            "address": "tls://208.67.222.123",
+                            "address_resolver": "local-dns",
+                            "detour": "proxy",
+                            "tag": "proxy-dns"
+                        },
+                        {
+                            "address": "local",
+                            "detour": "direct",
+                            "tag": "local-dns"
+                        },
+                        {
+                            "address": "rcode://success",
+                            "tag": "block"
+                        },
+                        {
+                            "address": "local",
+                            "detour": "direct",
+                            "tag": "direct-dns"
+                        }
+                    ],
+                    "strategy": "prefer_ipv4"
                 },
                 "inbounds": [
                     {
-                        "type": "mixed",
-                        "tag": "mixed-in",
+                        "address": ["172.19.0.1/30", "fdfe:dcba:9876::1/126"],
+                        "auto_route": True,
+                        "endpoint_independent_nat": False,
+                        "mtu": 9000,
+                        "platform": {
+                            "http_proxy": {
+                                "enabled": True,
+                                "server": "127.0.0.1",
+                                "server_port": 2080
+                            }
+                        },
+                        "sniff": True,
+                        "stack": "system",
+                        "strict_route": False,
+                        "type": "tun"
+                    },
+                    {
                         "listen": "127.0.0.1",
                         "listen_port": 2080,
-                        "sniff": True
+                        "sniff": True,
+                        "type": "mixed",
+                        "users": []
                     }
                 ],
                 "outbounds": [
                     {
-                        "type": "selector",
                         "tag": "proxy",
+                        "type": "selector",
                         "outbounds": ["auto"] + valid_tags + ["direct"]
                     },
                     {
-                        "type": "urltest",
                         "tag": "auto",
+                        "type": "urltest",
                         "outbounds": valid_tags,
                         "url": "http://www.gstatic.com/generate_204",
                         "interval": "10m",
                         "tolerance": 50
                     },
                     {
-                        "type": "direct",
-                        "tag": "direct"
+                        "tag": "direct",
+                        "type": "direct"
                     },
                     {
-                        "type": "block",
-                        "tag": "block"
+                        "tag": "dns-out",
+                        "type": "dns"
                     },
                     {
-                        "type": "dns",
-                        "tag": "dns-out"
+                        "tag": "block",
+                        "type": "block"
                     }
                 ] + outbounds,
                 "route": {
-                    "rules": [
+                    "auto_detect_interface": True,
+                    "final": "proxy",
+                    "rule_set": [
                         {
-                            "protocol": ["dns"],
-                            "outbound": "dns-out"
+                            "download_detour": "direct",
+                            "format": "binary",
+                            "tag": "geosite-ads",
+                            "type": "remote",
+                            "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ads-all.srs"
                         },
                         {
-                            "protocol": ["quic"],
-                            "outbound": "block"
+                            "download_detour": "direct",
+                            "format": "binary",
+                            "tag": "geosite-private",
+                            "type": "remote",
+                            "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/private.srs"
+                        },
+                        {
+                            "download_detour": "direct",
+                            "format": "binary",
+                            "tag": "geosite-ir",
+                            "type": "remote",
+                            "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ir.srs"
+                        },
+                        {
+                            "download_detour": "direct",
+                            "format": "binary",
+                            "tag": "geoip-private",
+                            "type": "remote",
+                            "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/private.srs"
+                        },
+                        {
+                            "download_detour": "direct",
+                            "format": "binary",
+                            "tag": "geoip-ir",
+                            "type": "remote",
+                            "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/ir.srs"
                         }
                     ],
-                    "auto_detect_interface": True,
-                    "final": "proxy"
+                    "rules": [
+                        {
+                            "clash_mode": "Direct",
+                            "outbound": "direct"
+                        },
+                        {
+                            "clash_mode": "Global",
+                            "outbound": "proxy"
+                        },
+                        {
+                            "outbound": "dns-out",
+                            "protocol": "dns"
+                        },
+                        {
+                            "outbound": "direct",
+                            "rule_set": [
+                                "geoip-private",
+                                "geosite-private",
+                                "geosite-ir",
+                                "geoip-ir"
+                            ]
+                        },
+                        {
+                            "outbound": "block",
+                            "rule_set": ["geosite-ads"]
+                        }
+                    ]
                 }
             }
 
