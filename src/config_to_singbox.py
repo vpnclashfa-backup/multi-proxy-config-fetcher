@@ -34,9 +34,7 @@ class ConfigToSingbox:
                 'address': address,
                 'port': int(port),
                 'flow': params.get('flow', [''])[0],
-                'security': params.get('security', ['tls'])[0],
                 'sni': params.get('sni', [address])[0],
-                'fp': params.get('fp', [''])[0],
                 'type': params.get('type', ['tcp'])[0],
                 'path': params.get('path', [''])[0],
                 'host': params.get('host', [''])[0]
@@ -59,31 +57,8 @@ class ConfigToSingbox:
                 'port': port,
                 'sni': params.get('sni', [url.hostname])[0],
                 'alpn': params.get('alpn', [''])[0],
-                'fp': params.get('fp', [''])[0],
                 'type': params.get('type', ['tcp'])[0],
                 'path': params.get('path', [''])[0]
-            }
-        except:
-            return None
-
-    def parse_hysteria2(self, config: str) -> Optional[Dict]:
-        try:
-            config = config.replace('hysteria2://', 'hy2://')
-            url = urlparse(config)
-            if url.scheme != 'hy2' or not url.hostname:
-                return None
-            
-            port = url.port or 443
-            params = parse_qs(url.query)
-            
-            return {
-                'password': url.username,
-                'address': url.hostname,
-                'port': port,
-                'sni': params.get('sni', [url.hostname])[0],
-                'obfs': params.get('obfs', [''])[0],
-                'obfs-password': params.get('obfs-password', [''])[0],
-                'insecure': params.get('insecure', ['0'])[0] == '1'
             }
         except:
             return None
@@ -100,15 +75,14 @@ class ConfigToSingbox:
                 method_pass, server = decoded.split('@')
                 method, password = method_pass.split(':', 1)
                 host, port = server.split(':')
-            else:
+                return {
+                    'method': method,
+                    'password': password,
+                    'address': host,
+                    'port': int(port)
+                }
+            else:  # SIP002 format
                 raise ValueError
-            
-            return {
-                'method': method,
-                'password': password,
-                'address': host,
-                'port': int(port)
-            }
         except:
             return None
 
@@ -130,7 +104,7 @@ class ConfigToSingbox:
                         "type": vmess.get('net', 'tcp'),
                         "path": vmess.get('path', ''),
                         "headers": {"Host": vmess.get('host', '')}
-                    },
+                    } if vmess.get('net') in ['ws', 'h2'] else {},
                     "tls": {
                         "enabled": vmess.get('tls') == 'tls',
                         "server_name": vmess.get('sni', vmess.get('add')),
@@ -150,10 +124,9 @@ class ConfigToSingbox:
                     "uuid": vless['uuid'],
                     "flow": vless['flow'],
                     "tls": {
-                        "enabled": vless['security'] == 'tls',
+                        "enabled": True,
                         "server_name": vless['sni'],
-                        "insecure": False,
-                        "alpn": ["h2", "http/1.1"]
+                        "insecure": False
                     },
                     "transport": {}
                 }
@@ -186,27 +159,6 @@ class ConfigToSingbox:
                         "type": trojan['type'],
                         "path": trojan['path']
                     } if trojan['type'] != 'tcp' else {}
-                }
-
-            elif config.startswith(('hysteria2://', 'hy2://')):
-                hy2 = self.parse_hysteria2(config)
-                if not hy2: return None
-                
-                return {
-                    "type": "hysteria2",
-                    "tag": f"hy2-{uuid.uuid4().hex[:6]}",
-                    "server": hy2['address'],
-                    "server_port": hy2['port'],
-                    "password": hy2['password'],
-                    "obfs": {
-                        "type": "salamander",
-                        "password": hy2['obfs-password']
-                    } if hy2['obfs'] else None,
-                    "tls": {
-                        "enabled": True,
-                        "server_name": hy2['sni'],
-                        "insecure": hy2['insecure']
-                    }
                 }
 
             elif config.startswith('ss://'):
@@ -245,10 +197,49 @@ class ConfigToSingbox:
 
             singbox_config = {
                 "dns": {
+                    "final": "local-dns",
+                    "rules": [
+                        {
+                            "clash_mode": "Global",
+                            "server": "proxy-dns",
+                            "source_ip_cidr": ["172.19.0.0/30"]
+                        },
+                        {
+                            "server": "proxy-dns",
+                            "source_ip_cidr": ["172.19.0.0/30"]
+                        },
+                        {
+                            "clash_mode": "Direct",
+                            "server": "direct-dns"
+                        },
+                        {
+                            "rule_set": ["geosite-ir"],
+                            "server": "direct-dns"
+                        }
+                    ],
                     "servers": [
-                        {"address": "tls://8.8.8.8", "tag": "dns-foreign"},
-                        {"address": "local", "tag": "dns-direct"}
-                    ]
+                        {
+                            "address": "tls://208.67.222.123",
+                            "address_resolver": "local-dns",
+                            "detour": "proxy",
+                            "tag": "proxy-dns"
+                        },
+                        {
+                            "address": "local",
+                            "detour": "direct",
+                            "tag": "local-dns"
+                        },
+                        {
+                            "address": "rcode://success",
+                            "tag": "block"
+                        },
+                        {
+                            "address": "local",
+                            "detour": "direct",
+                            "tag": "direct-dns"
+                        }
+                    ],
+                    "strategy": "prefer_ipv4"
                 },
                 "inbounds": [
                     {
@@ -264,12 +255,13 @@ class ConfigToSingbox:
                     {
                         "type": "selector",
                         "tag": "proxy",
-                        "outbounds": ["auto"] + valid_tags
+                        "outbounds": ["auto"] + valid_tags + ["direct"]
                     },
                     {
                         "type": "urltest",
                         "tag": "auto",
                         "outbounds": valid_tags,
+                        "url": "http://www.gstatic.com/generate_204",
                         "interval": "10m",
                         "tolerance": 50
                     },
@@ -279,18 +271,46 @@ class ConfigToSingbox:
                 ],
                 "route": {
                     "auto_detect_interface": True,
-                    "rules": [
+                    "final": "proxy",
+                    "rule_set": [
                         {
-                            "protocol": "dns",
-                            "outbound": "dns-foreign"
+                            "download_detour": "direct",
+                            "format": "binary",
+                            "tag": "geosite-ads",
+                            "type": "remote",
+                            "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ads-all.srs"
                         },
                         {
-                            "geoip": ["ir"],
+                            "download_detour": "direct",
+                            "format": "binary",
+                            "tag": "geosite-ir",
+                            "type": "remote",
+                            "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ir.srs"
+                        },
+                        {
+                            "download_detour": "direct",
+                            "format": "binary",
+                            "tag": "geoip-ir",
+                            "type": "remote",
+                            "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/ir.srs"
+                        }
+                    ],
+                    "rules": [
+                        {
+                            "clash_mode": "Direct",
                             "outbound": "direct"
                         },
                         {
-                            "geosite": ["category-ads"],
-                            "outbound": "block"
+                            "clash_mode": "Global",
+                            "outbound": "proxy"
+                        },
+                        {
+                            "outbound": "direct",
+                            "rule_set": ["geoip-ir", "geosite-ir"]
+                        },
+                        {
+                            "outbound": "block",
+                            "rule_set": ["geosite-ads"]
                         }
                     ]
                 }
