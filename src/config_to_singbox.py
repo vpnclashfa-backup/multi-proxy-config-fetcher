@@ -109,8 +109,7 @@ class ConfigToSingbox:
                     "server_port": int(vmess_data['port']),
                     "uuid": vmess_data['id'],
                     "security": vmess_data.get('scy', 'auto'),
-                    "alter_id": int(vmess_data.get('aid', 0)),
-                    "network": vmess_data.get('net', 'tcp'),
+                    "alter_id": int(vmess_data.get('aid', 0))
                 }
 
                 if vmess_data.get('tls') == 'tls':
@@ -120,7 +119,8 @@ class ConfigToSingbox:
                         "server_name": vmess_data.get('sni', '') or vmess_data['add']
                     }
 
-                if vmess_data.get('net') == 'ws':
+                transport_type = vmess_data.get('net', '')
+                if transport_type == 'ws':
                     outbound["transport"] = {
                         "type": "ws",
                         "path": vmess_data.get('path', '/'),
@@ -155,7 +155,8 @@ class ConfigToSingbox:
                     }
                 }
 
-                if 'type' in params and params['type'][0] == 'ws':
+                transport_type = params.get('type', [''])[0]
+                if transport_type == 'ws':
                     outbound["transport"] = {
                         "type": "ws",
                         "path": vless_data['path'],
@@ -189,7 +190,8 @@ class ConfigToSingbox:
                     }
                 }
 
-                if 'type' in params and params['type'][0] == 'ws':
+                transport_type = params.get('type', [''])[0]
+                if transport_type == 'ws':
                     outbound["transport"] = {
                         "type": "ws",
                         "path": params.get('path', ['/'])[0],
@@ -306,10 +308,16 @@ class ConfigToSingbox:
                 },
                 "inbounds": [
                     {
-                        "address": ["172.19.0.1/30", "fdfe:dcba:9876::1/126"],
-                        "auto_route": True,
-                        "endpoint_independent_nat": False,
+                        "type": "tun",
+                        "tag": "tun-in",
+                        "interface_name": "tun0",
+                        "inet4_address": "172.19.0.1/30",
+                        "inet6_address": "fdfe:dcba:9876::1/126",
                         "mtu": 9000,
+                        "auto_route": True,
+                        "strict_route": False,
+                        "endpoint_independent_nat": False,
+                        "stack": "system",
                         "platform": {
                             "http_proxy": {
                                 "enabled": True,
@@ -317,16 +325,14 @@ class ConfigToSingbox:
                                 "server_port": 2080
                             }
                         },
-                        "sniff": True,
-                        "stack": "system",
-                        "strict_route": False,
-                        "type": "tun"
+                        "sniff": True
                     },
                     {
+                        "type": "mixed",
+                        "tag": "mixed-in",
                         "listen": "127.0.0.1",
                         "listen_port": 2080,
                         "sniff": True,
-                        "type": "mixed",
                         "users": []
                     }
                 ],
@@ -362,39 +368,39 @@ class ConfigToSingbox:
                     "final": "proxy",
                     "rule_set": [
                         {
-                            "download_detour": "direct",
-                            "format": "binary",
                             "tag": "geosite-ads",
                             "type": "remote",
-                            "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ads-all.srs"
+                            "format": "binary",
+                            "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ads-all.srs",
+                            "download_detour": "direct"
                         },
                         {
-                            "download_detour": "direct",
-                            "format": "binary",
                             "tag": "geosite-private",
                             "type": "remote",
-                            "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/private.srs"
+                            "format": "binary",
+                            "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/private.srs",
+                            "download_detour": "direct"
                         },
                         {
-                            "download_detour": "direct",
-                            "format": "binary",
                             "tag": "geosite-ir",
                             "type": "remote",
-                            "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ir.srs"
+                            "format": "binary",
+                            "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ir.srs",
+                            "download_detour": "direct"
                         },
                         {
-                            "download_detour": "direct",
-                            "format": "binary",
                             "tag": "geoip-private",
                             "type": "remote",
-                            "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/private.srs"
+                            "format": "binary",
+                            "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/private.srs",
+                            "download_detour": "direct"
                         },
                         {
-                            "download_detour": "direct",
-                            "format": "binary",
                             "tag": "geoip-ir",
                             "type": "remote",
-                            "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/ir.srs"
+                            "format": "binary",
+                            "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/ir.srs",
+                            "download_detour": "direct"
                         }
                     ],
                     "rules": [
@@ -407,21 +413,21 @@ class ConfigToSingbox:
                             "outbound": "proxy"
                         },
                         {
-                            "outbound": "dns-out",
-                            "protocol": "dns"
+                            "protocol": "dns",
+                            "outbound": "dns-out"
                         },
                         {
-                            "outbound": "direct",
                             "rule_set": [
                                 "geoip-private",
                                 "geosite-private",
                                 "geosite-ir",
                                 "geoip-ir"
-                            ]
+                            ],
+                            "outbound": "direct"
                         },
                         {
-                            "outbound": "block",
-                            "rule_set": ["geosite-ads"]
+                            "rule_set": ["geosite-ads"],
+                            "outbound": "block"
                         }
                     ]
                 }
