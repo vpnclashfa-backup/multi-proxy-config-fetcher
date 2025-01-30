@@ -3,7 +3,7 @@ import base64
 import uuid
 import re
 from typing import Dict, List, Optional
-from urllib.parse import urlparse, parse_qs
+from urllib.parse import urlparse, parse_qs, unquote
 
 class ConfigToSingbox:
     def __init__(self):
@@ -107,43 +107,6 @@ class ConfigToSingbox:
         except:
             return None
 
-    def parse_wireguard(self, config: str) -> Optional[Dict]:
-        try:
-            parts = config.split('?')
-            base = parts[0]
-            query = parse_qs(parts[1]) if len(parts) > 1 else {}
-            
-            server, _ = base.split('//', 1)[1].split('/')
-            host, port = server.split(':')
-            
-            return {
-                'address': host,
-                'port': int(port),
-                'public_key': query.get('public_key', [''])[0],
-                'private_key': query.get('private_key', [''])[0],
-                'allowed_ips': [query.get('allowed_ips', ['0.0.0.0/0'])[0]]
-            }
-        except:
-            return None
-
-    def parse_tuic(self, config: str) -> Optional[Dict]:
-        try:
-            parts = config.split('?')
-            base = parts[0]
-            query = parse_qs(parts[1]) if len(parts) > 1 else {}
-            
-            server, _ = base.split('//', 1)[1].split('/')
-            host, port = server.split(':')
-            
-            return {
-                'address': host,
-                'port': int(port),
-                'uuid': query.get('uuid', [''])[0],
-                'password': query.get('password', [''])[0]
-            }
-        except:
-            return None
-
     def convert_to_singbox(self, config: str) -> Optional[Dict]:
         try:
             if config.startswith('vmess://'):
@@ -229,36 +192,8 @@ class ConfigToSingbox:
                     "password": ss_data['password']
                 }
 
-            elif config.startswith('wg://'):
-                wg_data = self.parse_wireguard(config)
-                if not wg_data or not wg_data['address'] or not wg_data['port']:
-                    return None
-                return {
-                    "type": "wireguard",
-                    "tag": f"wg-{str(uuid.uuid4())[:8]}",
-                    "server": wg_data['address'],
-                    "server_port": wg_data['port'],
-                    "private_key": wg_data['private_key'],
-                    "peer_public_key": wg_data['public_key'],
-                    "allowed_ips": wg_data['allowed_ips']
-                }
-
-            elif config.startswith('tuic://'):
-                tuic_data = self.parse_tuic(config)
-                if not tuic_data or not tuic_data['address'] or not tuic_data['port']:
-                    return None
-                return {
-                    "type": "tuic",
-                    "tag": f"tuic-{str(uuid.uuid4())[:8]}",
-                    "server": tuic_data['address'],
-                    "server_port": tuic_data['port'],
-                    "uuid": tuic_data['uuid'],
-                    "password": tuic_data['password']
-                }
-
             return None
-        except Exception as e:
-            print(f"Error converting config: {e}")
+        except:
             return None
 
     def process_configs(self):
@@ -271,18 +206,18 @@ class ConfigToSingbox:
 
             for config in configs:
                 config = config.strip()
-                if not config or config.startswith('#'):
+                if not config or config.startswith('//'):
                     continue
                     
                 converted = self.convert_to_singbox(config)
                 if converted:
+                    # Here we apply migration rules as per the documentation
+                    if converted['type'] == 'vmess':
+                        converted['alterId'] = 0  # As per migration, alterId is deprecated and should be 0
                     outbounds.append(converted)
                     valid_tags.append(converted['tag'])
-                else:
-                    print(f"Failed to convert: {config}")
 
             if not outbounds:
-                print("No valid configurations found to convert.")
                 return
 
             singbox_config = {
