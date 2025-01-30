@@ -79,7 +79,9 @@ class ConfigToSingbox:
                 'address': url.hostname,
                 'port': url.port,
                 'password': url.username or query.get('password', ''),
-                'sni': query.get('sni', url.hostname)
+                'sni': query.get('sni', url.hostname),
+                'obfs': query.get('obfs'),
+                'alpn': query.get('alpn', 'h3')
             }
         except:
             return None
@@ -105,13 +107,49 @@ class ConfigToSingbox:
         except:
             return None
 
+    def parse_wireguard(self, config: str) -> Optional[Dict]:
+        try:
+            parts = config.split('?')
+            base = parts[0]
+            query = parse_qs(parts[1]) if len(parts) > 1 else {}
+            
+            server, _ = base.split('//', 1)[1].split('/')
+            host, port = server.split(':')
+            
+            return {
+                'address': host,
+                'port': int(port),
+                'public_key': query.get('public_key', [''])[0],
+                'private_key': query.get('private_key', [''])[0],
+                'allowed_ips': query.get('allowed_ips', ['0.0.0.0/0'])[0]
+            }
+        except:
+            return None
+
+    def parse_tuic(self, config: str) -> Optional[Dict]:
+        try:
+            parts = config.split('?')
+            base = parts[0]
+            query = parse_qs(parts[1]) if len(parts) > 1 else {}
+            
+            server, _ = base.split('//', 1)[1].split('/')
+            host, port = server.split(':')
+            
+            return {
+                'address': host,
+                'port': int(port),
+                'uuid': query.get('uuid', [''])[0],
+                'password': query.get('password', [''])[0]
+            }
+        except:
+            return None
+
     def convert_to_singbox(self, config: str) -> Optional[Dict]:
         try:
             if config.startswith('vmess://'):
                 vmess_data = self.decode_vmess(config)
                 if not vmess_data or not vmess_data.get('add') or not vmess_data.get('port') or not vmess_data.get('id'):
                     return None
-                
                 return {
                     "type": "vmess",
                     "tag": f"vmess-{str(uuid.uuid4())[:8]}",
@@ -131,7 +169,6 @@ class ConfigToSingbox:
                 vless_data = self.parse_vless(config)
                 if not vless_data or not vless_data['address'] or not vless_data['port']:
                     return None
-                
                 return {
                     "type": "vless",
                     "tag": f"vless-{str(uuid.uuid4())[:8]}",
@@ -150,7 +187,6 @@ class ConfigToSingbox:
                 trojan_data = self.parse_trojan(config)
                 if not trojan_data or not trojan_data['address'] or not trojan_data['port']:
                     return None
-                
                 return {
                     "type": "trojan",
                     "tag": f"trojan-{str(uuid.uuid4())[:8]}",
@@ -168,13 +204,14 @@ class ConfigToSingbox:
                 hy2_data = self.parse_hysteria2(config)
                 if not hy2_data or not hy2_data['address'] or not hy2_data['port'] or not hy2_data['password']:
                     return None
-                
                 return {
                     "type": "hysteria2",
                     "tag": f"hysteria2-{str(uuid.uuid4())[:8]}",
                     "server": hy2_data['address'],
                     "server_port": hy2_data['port'],
                     "password": hy2_data['password'],
+                    "obfs": hy2_data.get('obfs'),
+                    "alpn": hy2_data.get('alpn', 'h3'),
                     "tls": {
                         "enabled": True,
                         "insecure": True,
@@ -186,7 +223,6 @@ class ConfigToSingbox:
                 ss_data = self.parse_shadowsocks(config)
                 if not ss_data or not ss_data['address'] or not ss_data['port']:
                     return None
-                
                 return {
                     "type": "shadowsocks",
                     "tag": f"ss-{str(uuid.uuid4())[:8]}",
@@ -194,6 +230,33 @@ class ConfigToSingbox:
                     "server_port": ss_data['port'],
                     "method": ss_data['method'],
                     "password": ss_data['password']
+                }
+
+            elif config.startswith('wg://'):
+                wg_data = self.parse_wireguard(config)
+                if not wg_data or not wg_data['address'] or not wg_data['port']:
+                    return None
+                return {
+                    "type": "wireguard",
+                    "tag": f"wg-{str(uuid.uuid4())[:8]}",
+                    "server": wg_data['address'],
+                    "server_port": wg_data['port'],
+                    "private_key": wg_data['private_key'],
+                    "peer_public_key": wg_data['public_key'],
+                    "allowed_ips": [wg_data['allowed_ips']]
+                }
+
+            elif config.startswith('tuic://'):
+                tuic_data = self.parse_tuic(config)
+                if not tuic_data or not tuic_data['address'] or not tuic_data['port']:
+                    return None
+                return {
+                    "type": "tuic",
+                    "tag": f"tuic-{str(uuid.uuid4())[:8]}",
+                    "server": tuic_data['address'],
+                    "server_port": tuic_data['port'],
+                    "uuid": tuic_data['uuid'],
+                    "password": tuic_data['password']
                 }
 
             return None
