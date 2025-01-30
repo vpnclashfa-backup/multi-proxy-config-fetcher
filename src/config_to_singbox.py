@@ -12,85 +12,95 @@ class ConfigToSingbox:
     def decode_vmess(self, config: str) -> Optional[Dict]:
         try:
             encoded = config.replace('vmess://', '')
-            decoded = base64.b64decode(encoded + '=' * (-len(encoded) % 4)).decode('utf-8')
-            data = json.loads(decoded)
-            return data if all(k in data for k in ['add', 'port', 'id']) else None
+            decoded = base64.b64decode(encoded).decode('utf-8')
+            return json.loads(decoded)
         except:
             return None
 
     def parse_vless(self, config: str) -> Optional[Dict]:
         try:
-            url = urlparse(config)
-            if url.scheme != 'vless':
+            parts = config.replace('vless://', '').split('@')
+            if len(parts) != 2:
                 return None
             
-            userinfo = url.username
-            if not userinfo:
-                return None
+            user_info, server_info = parts
+            host, path_part = server_info.split('/', 1) if '/' in server_info else (server_info, '')
+            host, port = host.split(':')
+            
+            if '?' in path_part:
+                path, params = path_part.split('?', 1)
+                params = parse_qs(params)
+            else:
+                path, params = path_part, {}
                 
-            params = dict(pair.split('=') for pair in url.query.split('&')) if url.query else {}
             return {
-                'uuid': userinfo,
-                'address': url.hostname,
-                'port': url.port,
-                'params': params,
-                'path': url.path or '/'
+                'uuid': user_info,
+                'address': host,
+                'port': int(port),
+                'path': f'/{path}' if path else '/',
+                'params': params
             }
         except:
             return None
 
     def parse_trojan(self, config: str) -> Optional[Dict]:
         try:
-            url = urlparse(config)
-            if url.scheme != 'trojan':
+            parts = config.replace('trojan://', '').split('@')
+            if len(parts) != 2:
                 return None
+                
+            password, server_info = parts
+            host, path_part = server_info.split('/', 1) if '/' in server_info else (server_info, '')
+            host, port = host.split(':')
             
-            params = dict(pair.split('=') for pair in url.query.split('&')) if url.query else {}
+            sni = None
+            if '?' in path_part:
+                params = dict(pair.split('=') for pair in path_part.split('?')[1].split('&'))
+                sni = params.get('sni')
+            
             return {
-                'password': url.username,
-                'address': url.hostname,
-                'port': url.port,
-                'params': params
+                'password': password,
+                'address': host,
+                'port': int(port),
+                'sni': sni
             }
         except:
             return None
 
     def parse_hysteria2(self, config: str) -> Optional[Dict]:
         try:
-            url = urlparse(config)
-            if url.scheme not in ['hysteria2', 'hy2']:
+            url = urlparse(config.replace('hysteria2://', '').replace('hy2://', ''))
+            if not url.hostname or not url.port:
                 return None
                 
-            params = dict(pair.split('=') for pair in url.query.split('&')) if url.query else {}
-            password = url.username or params.get('password')
-            auth = password or params.get('auth')
+            query = dict(pair.split('=') for pair in url.query.split('&')) if url.query else {}
             
             return {
                 'address': url.hostname,
                 'port': url.port,
-                'auth': auth,
-                'params': params
+                'password': url.username or query.get('password', ''),
+                'sni': query.get('sni', url.hostname)
             }
         except:
             return None
 
     def parse_shadowsocks(self, config: str) -> Optional[Dict]:
         try:
-            if '#' in config:
-                config = config.split('#')[0]
-            
-            url = urlparse(config)
-            if url.scheme != 'ss':
+            parts = config.replace('ss://', '').split('@')
+            if len(parts) != 2:
                 return None
                 
-            user_info = base64.b64decode(url.username + '=' * (-len(url.username) % 4)).decode('utf-8')
-            method, password = user_info.split(':', 1)
+            method_pass = base64.b64decode(parts[0]).decode('utf-8')
+            method, password = method_pass.split(':')
+            
+            server_parts = parts[1].split('#')[0]
+            host, port = server_parts.split(':')
             
             return {
                 'method': method,
                 'password': password,
-                'address': url.hostname,
-                'port': url.port
+                'address': host,
+                'port': int(port)
             }
         except:
             return None
@@ -99,81 +109,49 @@ class ConfigToSingbox:
         try:
             if config.startswith('vmess://'):
                 vmess_data = self.decode_vmess(config)
-                if not vmess_data:
+                if not vmess_data or not vmess_data.get('add') or not vmess_data.get('port') or not vmess_data.get('id'):
                     return None
                 
-                outbound = {
+                return {
                     "type": "vmess",
                     "tag": f"vmess-{str(uuid.uuid4())[:8]}",
                     "server": vmess_data['add'],
                     "server_port": int(vmess_data['port']),
                     "uuid": vmess_data['id'],
                     "security": vmess_data.get('scy', 'auto'),
-                    "alter_id": int(vmess_data.get('aid', 0))
-                }
-
-                if vmess_data.get('tls') == 'tls':
-                    outbound["tls"] = {
-                        "enabled": True,
+                    "alter_id": int(vmess_data.get('aid', 0)),
+                    "tls": {
+                        "enabled": vmess_data.get('tls') == 'tls',
                         "insecure": True,
-                        "server_name": vmess_data.get('sni', '') or vmess_data['add']
+                        "server_name": vmess_data.get('sni', vmess_data['add'])
                     }
-
-                transport_type = vmess_data.get('net', '')
-                if transport_type == 'ws':
-                    outbound["transport"] = {
-                        "type": "ws",
-                        "path": vmess_data.get('path', '/'),
-                        "headers": {
-                            "Host": vmess_data.get('host', '') or vmess_data.get('sni', '') or vmess_data['add']
-                        }
-                    }
-
-                return outbound
+                }
 
             elif config.startswith('vless://'):
                 vless_data = self.parse_vless(config)
-                if not vless_data:
+                if not vless_data or not vless_data['address'] or not vless_data['port']:
                     return None
                 
-                params = vless_data['params']
-                outbound = {
+                return {
                     "type": "vless",
                     "tag": f"vless-{str(uuid.uuid4())[:8]}",
                     "server": vless_data['address'],
                     "server_port": vless_data['port'],
                     "uuid": vless_data['uuid'],
-                    "flow": params.get('flow', [''])[0],
+                    "flow": vless_data['params'].get('flow', [''])[0],
                     "tls": {
                         "enabled": True,
                         "insecure": True,
-                        "server_name": params.get('sni', [''])[0] or vless_data['address'],
-                        "utls": {
-                            "enabled": True,
-                            "fingerprint": params.get('fp', ['chrome'])[0]
-                        }
+                        "server_name": vless_data['params'].get('sni', [vless_data['address']])[0]
                     }
                 }
 
-                transport_type = params.get('type', [''])[0]
-                if transport_type == 'ws':
-                    outbound["transport"] = {
-                        "type": "ws",
-                        "path": vless_data['path'],
-                        "headers": {
-                            "Host": params.get('host', [vless_data['address']])[0]
-                        }
-                    }
-
-                return outbound
-
             elif config.startswith('trojan://'):
                 trojan_data = self.parse_trojan(config)
-                if not trojan_data:
+                if not trojan_data or not trojan_data['address'] or not trojan_data['port']:
                     return None
                 
-                params = trojan_data['params']
-                outbound = {
+                return {
                     "type": "trojan",
                     "tag": f"trojan-{str(uuid.uuid4())[:8]}",
                     "server": trojan_data['address'],
@@ -182,48 +160,31 @@ class ConfigToSingbox:
                     "tls": {
                         "enabled": True,
                         "insecure": True,
-                        "server_name": params.get('sni', [''])[0] or trojan_data['address'],
-                        "utls": {
-                            "enabled": True,
-                            "fingerprint": params.get('fp', ['chrome'])[0]
-                        }
+                        "server_name": trojan_data['sni'] or trojan_data['address']
                     }
                 }
 
-                transport_type = params.get('type', [''])[0]
-                if transport_type == 'ws':
-                    outbound["transport"] = {
-                        "type": "ws",
-                        "path": params.get('path', ['/'])[0],
-                        "headers": {
-                            "Host": params.get('host', [trojan_data['address']])[0]
-                        }
-                    }
-
-                return outbound
-
             elif config.startswith(('hysteria2://', 'hy2://')):
                 hy2_data = self.parse_hysteria2(config)
-                if not hy2_data:
+                if not hy2_data or not hy2_data['address'] or not hy2_data['port'] or not hy2_data['password']:
                     return None
                 
-                params = hy2_data['params']
                 return {
                     "type": "hysteria2",
                     "tag": f"hysteria2-{str(uuid.uuid4())[:8]}",
                     "server": hy2_data['address'],
                     "server_port": hy2_data['port'],
-                    "password": hy2_data['auth'],
+                    "password": hy2_data['password'],
                     "tls": {
                         "enabled": True,
                         "insecure": True,
-                        "server_name": params.get('sni', [''])[0] or hy2_data['address']
+                        "server_name": hy2_data['sni']
                     }
                 }
 
             elif config.startswith('ss://'):
                 ss_data = self.parse_shadowsocks(config)
-                if not ss_data:
+                if not ss_data or not ss_data['address'] or not ss_data['port']:
                     return None
                 
                 return {
@@ -308,16 +269,10 @@ class ConfigToSingbox:
                 },
                 "inbounds": [
                     {
-                        "type": "tun",
-                        "tag": "tun-in",
-                        "interface_name": "tun0",
-                        "inet4_address": "172.19.0.1/30",
-                        "inet6_address": "fdfe:dcba:9876::1/126",
-                        "mtu": 9000,
+                        "address": ["172.19.0.1/30", "fdfe:dcba:9876::1/126"],
                         "auto_route": True,
-                        "strict_route": False,
                         "endpoint_independent_nat": False,
-                        "stack": "system",
+                        "mtu": 9000,
                         "platform": {
                             "http_proxy": {
                                 "enabled": True,
@@ -325,14 +280,16 @@ class ConfigToSingbox:
                                 "server_port": 2080
                             }
                         },
-                        "sniff": True
+                        "sniff": True,
+                        "stack": "system",
+                        "strict_route": False,
+                        "type": "tun"
                     },
                     {
-                        "type": "mixed",
-                        "tag": "mixed-in",
                         "listen": "127.0.0.1",
                         "listen_port": 2080,
                         "sniff": True,
+                        "type": "mixed",
                         "users": []
                     }
                 ],
@@ -368,39 +325,39 @@ class ConfigToSingbox:
                     "final": "proxy",
                     "rule_set": [
                         {
+                            "download_detour": "direct",
+                            "format": "binary",
                             "tag": "geosite-ads",
                             "type": "remote",
-                            "format": "binary",
-                            "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ads-all.srs",
-                            "download_detour": "direct"
+                            "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ads-all.srs"
                         },
                         {
+                            "download_detour": "direct",
+                            "format": "binary",
                             "tag": "geosite-private",
                             "type": "remote",
-                            "format": "binary",
-                            "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/private.srs",
-                            "download_detour": "direct"
+                            "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/private.srs"
                         },
                         {
+                            "download_detour": "direct",
+                            "format": "binary",
                             "tag": "geosite-ir",
                             "type": "remote",
-                            "format": "binary",
-                            "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ir.srs",
-                            "download_detour": "direct"
+                            "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ir.srs"
                         },
                         {
+                            "download_detour": "direct",
+                            "format": "binary",
                             "tag": "geoip-private",
                             "type": "remote",
-                            "format": "binary",
-                            "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/private.srs",
-                            "download_detour": "direct"
+                            "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/private.srs"
                         },
                         {
+                            "download_detour": "direct",
+                            "format": "binary",
                             "tag": "geoip-ir",
                             "type": "remote",
-                            "format": "binary",
-                            "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/ir.srs",
-                            "download_detour": "direct"
+                            "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/ir.srs"
                         }
                     ],
                     "rules": [
@@ -413,21 +370,21 @@ class ConfigToSingbox:
                             "outbound": "proxy"
                         },
                         {
-                            "protocol": "dns",
-                            "outbound": "dns-out"
+                            "outbound": "dns-out",
+                            "protocol": "dns"
                         },
                         {
+                            "outbound": "direct",
                             "rule_set": [
                                 "geoip-private",
                                 "geosite-private",
                                 "geosite-ir",
                                 "geoip-ir"
-                            ],
-                            "outbound": "direct"
+                            ]
                         },
                         {
-                            "rule_set": ["geosite-ads"],
-                            "outbound": "block"
+                            "outbound": "block",
+                            "rule_set": ["geosite-ads"]
                         }
                     ]
                 }
