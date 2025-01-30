@@ -120,7 +120,7 @@ class ConfigToSingbox:
                     "server_port": int(vmess_data['port']),
                     "uuid": vmess_data['id'],
                     "security": vmess_data.get('scy', 'auto'),
-                    "alterId": int(vmess_data.get('aid', 0)),
+                    "alterId": 0,  # Correct spelling here
                     "network": vmess_data.get('net', 'tcp'),
                     "tls": {
                         "enabled": vmess_data.get('tls', 'none') != 'none',
@@ -211,9 +211,6 @@ class ConfigToSingbox:
                     
                 converted = self.convert_to_singbox(config)
                 if converted:
-                    # Here we apply migration rules as per the documentation
-                    if converted['type'] == 'vmess':
-                        converted['alterId'] = 0  # As per migration, alterId is deprecated and should be 0
                     outbounds.append(converted)
                     valid_tags.append(converted['tag'])
 
