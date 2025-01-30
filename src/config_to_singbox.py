@@ -34,7 +34,6 @@ class ConfigToSingbox:
                 'address': server,
                 'port': int(port),
                 'flow': params.get('flow', [''])[0],
-                'encryption': params.get('encryption', ['none'])[0],
                 'security': params.get('security', ['tls'])[0],
                 'sni': params.get('sni', [''])[0],
                 'fp': params.get('fp', [''])[0],
@@ -157,9 +156,8 @@ class ConfigToSingbox:
                     "server_port": vless_data['port'],
                     "uuid": vless_data['uuid'],
                     "flow": vless_data['flow'],
-                    "encryption": vless_data['encryption'],
-                    "transport": {"type": "tcp"},
-                    "tls": tls
+                    "tls": tls,
+                    "transport": {"type": "tcp"}
                 }
             
             # Trojan
@@ -246,8 +244,11 @@ class ConfigToSingbox:
             for config in configs:
                 converted = self.convert_to_singbox(config)
                 if converted:
-                    # حذف فیلدهای خالی
-                    converted = {k: v for k, v in converted.items() if v not in (None, '', [])}
+                    # حذف فیلدهای خالی و نامعتبر
+                    converted = {
+                        k: v for k, v in converted.items() 
+                        if v not in (None, '', [], {}) and not (isinstance(v, dict) and not v)
+                    }
                     singbox_configs.append(converted)
 
             # ساختار اصلی Sing-box
