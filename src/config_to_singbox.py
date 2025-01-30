@@ -3,7 +3,7 @@ import base64
 import uuid
 import re
 from typing import Dict, List, Optional
-from urllib.parse import urlparse, parse_qs, unquote
+from urllib.parse import urlparse, parse_qs
 
 class ConfigToSingbox:
     def __init__(self):
@@ -121,7 +121,7 @@ class ConfigToSingbox:
                 'port': int(port),
                 'public_key': query.get('public_key', [''])[0],
                 'private_key': query.get('private_key', [''])[0],
-                'allowed_ips': query.get('allowed_ips', ['0.0.0.0/0'])[0]
+                'allowed_ips': [query.get('allowed_ips', ['0.0.0.0/0'])[0]]
             }
         except:
             return None
@@ -157,10 +157,10 @@ class ConfigToSingbox:
                     "server_port": int(vmess_data['port']),
                     "uuid": vmess_data['id'],
                     "security": vmess_data.get('scy', 'auto'),
-                    "alter_id": int(vmess_data.get('aid', 0)),
+                    "alterId": int(vmess_data.get('aid', 0)),
+                    "network": vmess_data.get('net', 'tcp'),
                     "tls": {
-                        "enabled": vmess_data.get('tls') == 'tls',
-                        "insecure": True,
+                        "enabled": vmess_data.get('tls', 'none') != 'none',
                         "server_name": vmess_data.get('sni', vmess_data['add'])
                     }
                 }
@@ -178,7 +178,6 @@ class ConfigToSingbox:
                     "flow": vless_data['params'].get('flow', [''])[0],
                     "tls": {
                         "enabled": True,
-                        "insecure": True,
                         "server_name": vless_data['params'].get('sni', [vless_data['address']])[0]
                     }
                 }
@@ -195,7 +194,6 @@ class ConfigToSingbox:
                     "password": trojan_data['password'],
                     "tls": {
                         "enabled": True,
-                        "insecure": True,
                         "server_name": trojan_data['sni'] or trojan_data['address']
                     }
                 }
@@ -214,7 +212,6 @@ class ConfigToSingbox:
                     "alpn": hy2_data.get('alpn', 'h3'),
                     "tls": {
                         "enabled": True,
-                        "insecure": True,
                         "server_name": hy2_data['sni']
                     }
                 }
@@ -243,7 +240,7 @@ class ConfigToSingbox:
                     "server_port": wg_data['port'],
                     "private_key": wg_data['private_key'],
                     "peer_public_key": wg_data['public_key'],
-                    "allowed_ips": [wg_data['allowed_ips']]
+                    "allowed_ips": wg_data['allowed_ips']
                 }
 
             elif config.startswith('tuic://'):
@@ -260,7 +257,8 @@ class ConfigToSingbox:
                 }
 
             return None
-        except:
+        except Exception as e:
+            print(f"Error converting config: {e}")
             return None
 
     def process_configs(self):
@@ -273,15 +271,18 @@ class ConfigToSingbox:
 
             for config in configs:
                 config = config.strip()
-                if not config or config.startswith('//'):
+                if not config or config.startswith('#'):
                     continue
                     
                 converted = self.convert_to_singbox(config)
                 if converted:
                     outbounds.append(converted)
                     valid_tags.append(converted['tag'])
+                else:
+                    print(f"Failed to convert: {config}")
 
             if not outbounds:
+                print("No valid configurations found to convert.")
                 return
 
             singbox_config = {
