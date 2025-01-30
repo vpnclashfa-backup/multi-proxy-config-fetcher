@@ -1,157 +1,187 @@
 {
   "dns": {
-    "servers": [
+    "final": "local-dns",
+    "rules": [
       {
-        "tag": "dns-direct",
-        "address": "1.1.1.1",
-        "detour": "direct"
+        "clash_mode": "Global",
+        "server": "proxy-dns",
+        "source_ip_cidr": [
+          "172.19.0.0/30"
+        ]
+      },
+      {
+        "server": "proxy-dns",
+        "source_ip_cidr": [
+          "172.19.0.0/30"
+        ]
+      },
+      {
+        "clash_mode": "Direct",
+        "server": "direct-dns"
+      },
+      {
+        "rule_set": [
+          "geosite-ir"
+        ],
+        "server": "direct-dns"
       }
     ],
-    "rules": [],
-    "strategy": "prefer_ipv4",
-    "disable_cache": true
+    "servers": [
+      {
+        "address": "tls://208.67.222.123",
+        "address_resolver": "local-dns",
+        "detour": "proxy",
+        "tag": "proxy-dns"
+      },
+      {
+        "address": "local",
+        "detour": "direct",
+        "tag": "local-dns"
+      },
+      {
+        "address": "rcode://success",
+        "tag": "block"
+      },
+      {
+        "address": "local",
+        "detour": "direct",
+        "tag": "direct-dns"
+      }
+    ],
+    "strategy": "prefer_ipv4"
   },
   "inbounds": [
     {
-      "type": "mixed",
-      "tag": "mixed-in",
+      "address": [
+        "172.19.0.1/30",
+        "fdfe:dcba:9876::1/126"
+      ],
+      "auto_route": true,
+      "endpoint_independent_nat": false,
+      "mtu": 9000,
+      "platform": {
+        "http_proxy": {
+          "enabled": true,
+          "server": "127.0.0.1",
+          "server_port": 2080
+        }
+      },
+      "sniff": true,
+      "stack": "system",
+      "strict_route": false,
+      "type": "tun"
+    },
+    {
       "listen": "127.0.0.1",
       "listen_port": 2080,
-      "sniff": true
+      "sniff": true,
+      "type": "mixed",
+      "users": []
     }
   ],
   "outbounds": [
     {
-      "type": "selector",
       "tag": "proxy",
+      "type": "selector",
       "outbounds": [
         "auto",
-        "vless-bfc05d5b",
-        "trojan-8140a105",
-        "ss-0d4efe51",
-        "ss-0252550f",
-        "ss-73f0e6cc",
-        "ss-3afad143",
-        "ss-befd5d29",
-        "ss-a0ab7b8d",
-        "ss-d4eb492e",
-        "ss-4d3f6e3b",
-        "ss-963add00",
-        "ss-b5727513",
-        "ss-0861a2ea",
-        "vmess-bbf8c91f",
-        "vmess-e3e5cbdc",
-        "vmess-4f2f5f67",
-        "vmess-01eaf743",
-        "vmess-cf507b0f",
-        "vmess-4257b730",
-        "vmess-eca81d03",
-        "vmess-ceab281f",
-        "vmess-1f466983",
-        "vmess-6aba0545",
-        "vmess-462f5267",
-        "vmess-22fae0d5",
-        "vmess-bbb5f9fd",
-        "vmess-2fc9dc84",
-        "vmess-a5fa2c71",
-        "vmess-b998c492",
-        "vmess-14ef33f1",
-        "vmess-dfb645d7",
-        "vmess-ce48606b",
-        "vmess-a5c926cf",
-        "vmess-e0345e8d",
-        "vmess-5f417eac",
-        "vmess-db86ec8e",
-        "vmess-810a4741",
+        "ss-d12feceb",
+        "ss-f8028884",
+        "ss-3bcbb670",
+        "ss-be82dc05",
+        "ss-b9be76fa",
+        "ss-3dbb2f6c",
+        "ss-9e4d5708",
+        "ss-022173e5",
+        "ss-a9479bb7",
+        "ss-1c226814",
+        "ss-e654ea51",
+        "vmess-273abc92",
+        "vmess-61fc38e5",
+        "vmess-2e1975e5",
+        "vmess-50af8a81",
+        "vmess-78951f3d",
+        "vmess-4256f3d5",
+        "vmess-d1ab1df3",
+        "vmess-59951c29",
+        "vmess-0ef074e9",
+        "vmess-66eb50f5",
+        "vmess-fc681bce",
+        "vmess-c1a10517",
+        "vmess-c359726d",
+        "vmess-41fe82b1",
+        "vmess-f4f50896",
+        "vmess-2bff2f87",
+        "vmess-065cdb1c",
+        "vmess-87e6c515",
+        "vmess-c6ec75d9",
+        "vmess-58b653b2",
+        "vmess-1c602184",
+        "vmess-8f4395bc",
+        "vmess-4666deba",
+        "vmess-779cd8c1",
         "direct"
       ]
     },
     {
-      "type": "urltest",
       "tag": "auto",
+      "type": "urltest",
       "outbounds": [
-        "vless-bfc05d5b",
-        "trojan-8140a105",
-        "ss-0d4efe51",
-        "ss-0252550f",
-        "ss-73f0e6cc",
-        "ss-3afad143",
-        "ss-befd5d29",
-        "ss-a0ab7b8d",
-        "ss-d4eb492e",
-        "ss-4d3f6e3b",
-        "ss-963add00",
-        "ss-b5727513",
-        "ss-0861a2ea",
-        "vmess-bbf8c91f",
-        "vmess-e3e5cbdc",
-        "vmess-4f2f5f67",
-        "vmess-01eaf743",
-        "vmess-cf507b0f",
-        "vmess-4257b730",
-        "vmess-eca81d03",
-        "vmess-ceab281f",
-        "vmess-1f466983",
-        "vmess-6aba0545",
-        "vmess-462f5267",
-        "vmess-22fae0d5",
-        "vmess-bbb5f9fd",
-        "vmess-2fc9dc84",
-        "vmess-a5fa2c71",
-        "vmess-b998c492",
-        "vmess-14ef33f1",
-        "vmess-dfb645d7",
-        "vmess-ce48606b",
-        "vmess-a5c926cf",
-        "vmess-e0345e8d",
-        "vmess-5f417eac",
-        "vmess-db86ec8e",
-        "vmess-810a4741"
+        "ss-d12feceb",
+        "ss-f8028884",
+        "ss-3bcbb670",
+        "ss-be82dc05",
+        "ss-b9be76fa",
+        "ss-3dbb2f6c",
+        "ss-9e4d5708",
+        "ss-022173e5",
+        "ss-a9479bb7",
+        "ss-1c226814",
+        "ss-e654ea51",
+        "vmess-273abc92",
+        "vmess-61fc38e5",
+        "vmess-2e1975e5",
+        "vmess-50af8a81",
+        "vmess-78951f3d",
+        "vmess-4256f3d5",
+        "vmess-d1ab1df3",
+        "vmess-59951c29",
+        "vmess-0ef074e9",
+        "vmess-66eb50f5",
+        "vmess-fc681bce",
+        "vmess-c1a10517",
+        "vmess-c359726d",
+        "vmess-41fe82b1",
+        "vmess-f4f50896",
+        "vmess-2bff2f87",
+        "vmess-065cdb1c",
+        "vmess-87e6c515",
+        "vmess-c6ec75d9",
+        "vmess-58b653b2",
+        "vmess-1c602184",
+        "vmess-8f4395bc",
+        "vmess-4666deba",
+        "vmess-779cd8c1"
       ],
       "url": "http://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50
     },
     {
-      "type": "direct",
-      "tag": "direct"
+      "tag": "direct",
+      "type": "direct"
     },
     {
-      "type": "block",
-      "tag": "block"
+      "tag": "dns-out",
+      "type": "dns"
     },
     {
-      "type": "dns",
-      "tag": "dns-out"
-    },
-    {
-      "type": "vless",
-      "tag": "vless-bfc05d5b",
-      "server": "150.241.102.95",
-      "server_port": 10799,
-      "uuid": "0183c3a4-7fb9-41c9-a8f2-3c032a6ad721",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "insecure": true,
-        "server_name": "google.com"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "trojan-8140a105",
-      "server": "sensible-ocelot.boa152.lol",
-      "server_port": 443,
-      "password": "3723507166611775488",
-      "tls": {
-        "enabled": true,
-        "insecure": true,
-        "server_name": "sensible-ocelot.boa152.lol"
-      }
+      "tag": "block",
+      "type": "block"
     },
     {
       "type": "shadowsocks",
-      "tag": "ss-0d4efe51",
+      "tag": "ss-d12feceb",
       "server": "45.158.171.136",
       "server_port": 8080,
       "method": "chacha20-ietf-poly1305",
@@ -159,7 +189,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "ss-0252550f",
+      "tag": "ss-f8028884",
       "server": "45.158.171.146",
       "server_port": 8080,
       "method": "chacha20-ietf-poly1305",
@@ -167,7 +197,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "ss-73f0e6cc",
+      "tag": "ss-3bcbb670",
       "server": "45.87.175.154",
       "server_port": 8080,
       "method": "chacha20-ietf-poly1305",
@@ -175,7 +205,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "ss-3afad143",
+      "tag": "ss-be82dc05",
       "server": "45.87.175.157",
       "server_port": 8080,
       "method": "chacha20-ietf-poly1305",
@@ -183,7 +213,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "ss-befd5d29",
+      "tag": "ss-b9be76fa",
       "server": "45.87.175.157",
       "server_port": 8080,
       "method": "chacha20-ietf-poly1305",
@@ -191,7 +221,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "ss-a0ab7b8d",
+      "tag": "ss-3dbb2f6c",
       "server": "213.108.23.243",
       "server_port": 15584,
       "method": "chacha20-ietf-poly1305",
@@ -199,7 +229,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "ss-d4eb492e",
+      "tag": "ss-9e4d5708",
       "server": "51.13.183.76",
       "server_port": 6454,
       "method": "chacha20-ietf-poly1305",
@@ -207,7 +237,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "ss-4d3f6e3b",
+      "tag": "ss-022173e5",
       "server": "45.151.62.54",
       "server_port": 28825,
       "method": "chacha20-ietf-poly1305",
@@ -215,7 +245,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "ss-963add00",
+      "tag": "ss-a9479bb7",
       "server": "68.183.190.16",
       "server_port": 26925,
       "method": "chacha20-ietf-poly1305",
@@ -223,7 +253,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "ss-b5727513",
+      "tag": "ss-1c226814",
       "server": "188.253.5.199",
       "server_port": 40005,
       "method": "chacha20-ietf-poly1305",
@@ -231,7 +261,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "ss-0861a2ea",
+      "tag": "ss-e654ea51",
       "server": "3.29.116.109",
       "server_port": 443,
       "method": "chacha20-ietf-poly1305",
@@ -239,7 +269,7 @@
     },
     {
       "type": "vmess",
-      "tag": "vmess-bbf8c91f",
+      "tag": "vmess-273abc92",
       "server": "104.17.147.22",
       "server_port": 80,
       "uuid": "368bf030-db51-11ef-b336-205c6d5f5d78",
@@ -253,7 +283,7 @@
     },
     {
       "type": "vmess",
-      "tag": "vmess-e3e5cbdc",
+      "tag": "vmess-61fc38e5",
       "server": "104.19.48.236",
       "server_port": 80,
       "uuid": "4b36625c-b9d9-3ea6-aed5-86d62c70e16d",
@@ -267,7 +297,7 @@
     },
     {
       "type": "vmess",
-      "tag": "vmess-4f2f5f67",
+      "tag": "vmess-2e1975e5",
       "server": "azarbayjab1.1p1.pages.dev",
       "server_port": 443,
       "uuid": "e537f2f5-2a0c-4f59-92c9-832ca6433bf3",
@@ -281,7 +311,7 @@
     },
     {
       "type": "vmess",
-      "tag": "vmess-01eaf743",
+      "tag": "vmess-50af8a81",
       "server": "s1.db-link02.top",
       "server_port": 2095,
       "uuid": "4b36625c-b9d9-3ea6-aed5-86d62c70e16d",
@@ -295,7 +325,7 @@
     },
     {
       "type": "vmess",
-      "tag": "vmess-cf507b0f",
+      "tag": "vmess-78951f3d",
       "server": "shsus.256709394.xyz",
       "server_port": 443,
       "uuid": "7a8ec047-662b-4a9f-b89f-fd7d97eca90f",
@@ -309,7 +339,7 @@
     },
     {
       "type": "vmess",
-      "tag": "vmess-4257b730",
+      "tag": "vmess-4256f3d5",
       "server": "holo.web.e1osux.adress.eyb30.com",
       "server_port": 8880,
       "uuid": "c5287fe3-918e-4dd8-bb9a-ea7188401e04",
@@ -323,7 +353,7 @@
     },
     {
       "type": "vmess",
-      "tag": "vmess-eca81d03",
+      "tag": "vmess-d1ab1df3",
       "server": "79.127.229.54",
       "server_port": 18000,
       "uuid": "fa1897db-1925-4c86-a495-939a959af900",
@@ -337,7 +367,7 @@
     },
     {
       "type": "vmess",
-      "tag": "vmess-ceab281f",
+      "tag": "vmess-59951c29",
       "server": "79.127.229.54",
       "server_port": 18000,
       "uuid": "fa1897db-1925-4c86-a495-939a959af900",
@@ -351,7 +381,7 @@
     },
     {
       "type": "vmess",
-      "tag": "vmess-1f466983",
+      "tag": "vmess-0ef074e9",
       "server": "79.127.229.54",
       "server_port": 18000,
       "uuid": "fa1897db-1925-4c86-a495-939a959af900",
@@ -365,7 +395,7 @@
     },
     {
       "type": "vmess",
-      "tag": "vmess-6aba0545",
+      "tag": "vmess-66eb50f5",
       "server": "118.193.33.237",
       "server_port": 40908,
       "uuid": "43740b3d-16b7-4d31-cf20-f1eab5e35bc9",
@@ -379,7 +409,7 @@
     },
     {
       "type": "vmess",
-      "tag": "vmess-462f5267",
+      "tag": "vmess-fc681bce",
       "server": "118.193.34.158",
       "server_port": 52825,
       "uuid": "67ff500a-8484-4ed8-cf8f-b8d341534140",
@@ -393,7 +423,7 @@
     },
     {
       "type": "vmess",
-      "tag": "vmess-22fae0d5",
+      "tag": "vmess-c1a10517",
       "server": "118.193.39.104",
       "server_port": 15366,
       "uuid": "30d50840-88b1-474b-a17f-9fca177918d2",
@@ -407,7 +437,7 @@
     },
     {
       "type": "vmess",
-      "tag": "vmess-bbb5f9fd",
+      "tag": "vmess-c359726d",
       "server": "142.0.134.243",
       "server_port": 45017,
       "uuid": "418048af-a293-4b99-9b0c-98ca3580dd24",
@@ -421,7 +451,7 @@
     },
     {
       "type": "vmess",
-      "tag": "vmess-2fc9dc84",
+      "tag": "vmess-41fe82b1",
       "server": "188.245.100.168",
       "server_port": 18926,
       "uuid": "7ff9d116-95a9-4272-acc8-0db83168f4d0",
@@ -435,7 +465,7 @@
     },
     {
       "type": "vmess",
-      "tag": "vmess-a5fa2c71",
+      "tag": "vmess-f4f50896",
       "server": "Reza.ns.cloudflare.com",
       "server_port": 2087,
       "uuid": "db5afae4-ac23-41a6-8378-f307a9a47436",
@@ -449,7 +479,7 @@
     },
     {
       "type": "vmess",
-      "tag": "vmess-b998c492",
+      "tag": "vmess-2bff2f87",
       "server": "45.8.159.241",
       "server_port": 31495,
       "uuid": "398ce84e-4849-4e5f-9b1a-a56fbe233b81",
@@ -463,21 +493,7 @@
     },
     {
       "type": "vmess",
-      "tag": "vmess-14ef33f1",
-      "server": "45.8.159.241",
-      "server_port": 31495,
-      "uuid": "398ce84e-4849-4e5f-9b1a-a56fbe233b81",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": false,
-        "insecure": true,
-        "server_name": ""
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "vmess-dfb645d7",
+      "tag": "vmess-065cdb1c",
       "server": "5.39.254.196",
       "server_port": 23985,
       "uuid": "398ce84e-4849-4e5f-9b1a-a56fbe233b81",
@@ -491,7 +507,7 @@
     },
     {
       "type": "vmess",
-      "tag": "vmess-ce48606b",
+      "tag": "vmess-87e6c515",
       "server": "5.39.254.196",
       "server_port": 23985,
       "uuid": "398ce84e-4849-4e5f-9b1a-a56fbe233b81",
@@ -505,21 +521,7 @@
     },
     {
       "type": "vmess",
-      "tag": "vmess-a5c926cf",
-      "server": "5.39.254.196",
-      "server_port": 23985,
-      "uuid": "398ce84e-4849-4e5f-9b1a-a56fbe233b81",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": false,
-        "insecure": true,
-        "server_name": ""
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "vmess-e0345e8d",
+      "tag": "vmess-c6ec75d9",
       "server": "5.75.201.39",
       "server_port": 59521,
       "uuid": "53e6dd39-27d4-4063-817a-9c00b077a2b7",
@@ -533,7 +535,7 @@
     },
     {
       "type": "vmess",
-      "tag": "vmess-5f417eac",
+      "tag": "vmess-58b653b2",
       "server": "87.107.163.4",
       "server_port": 37198,
       "uuid": "6f338926-e323-43bd-8dc8-b41f29c49798",
@@ -547,7 +549,7 @@
     },
     {
       "type": "vmess",
-      "tag": "vmess-db86ec8e",
+      "tag": "vmess-1c602184",
       "server": "87.107.163.4",
       "server_port": 37198,
       "uuid": "6f338926-e323-43bd-8dc8-b41f29c49798",
@@ -561,10 +563,38 @@
     },
     {
       "type": "vmess",
-      "tag": "vmess-810a4741",
+      "tag": "vmess-8f4395bc",
       "server": "87.107.163.4",
       "server_port": 37198,
       "uuid": "6f338926-e323-43bd-8dc8-b41f29c49798",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": false,
+        "insecure": true,
+        "server_name": ""
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "vmess-4666deba",
+      "server": "95.38.134.201",
+      "server_port": 3911,
+      "uuid": "19a67be4-60f7-4ad2-a31b-9df46a9be822",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": false,
+        "insecure": true,
+        "server_name": ""
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "vmess-779cd8c1",
+      "server": "104.19.150.10",
+      "server_port": 2095,
+      "uuid": "94f332b0-c5d3-4531-a1d6-6e6358cc6c72",
       "security": "auto",
       "alter_id": 0,
       "tls": {
@@ -575,21 +605,73 @@
     }
   ],
   "route": {
-    "rules": [
+    "auto_detect_interface": true,
+    "final": "proxy",
+    "rule_set": [
       {
-        "protocol": [
-          "dns"
-        ],
-        "outbound": "dns-out"
+        "download_detour": "direct",
+        "format": "binary",
+        "tag": "geosite-ads",
+        "type": "remote",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ads-all.srs"
       },
       {
-        "protocol": [
-          "quic"
-        ],
-        "outbound": "block"
+        "download_detour": "direct",
+        "format": "binary",
+        "tag": "geosite-private",
+        "type": "remote",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/private.srs"
+      },
+      {
+        "download_detour": "direct",
+        "format": "binary",
+        "tag": "geosite-ir",
+        "type": "remote",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ir.srs"
+      },
+      {
+        "download_detour": "direct",
+        "format": "binary",
+        "tag": "geoip-private",
+        "type": "remote",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/private.srs"
+      },
+      {
+        "download_detour": "direct",
+        "format": "binary",
+        "tag": "geoip-ir",
+        "type": "remote",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/ir.srs"
       }
     ],
-    "auto_detect_interface": true,
-    "final": "proxy"
+    "rules": [
+      {
+        "clash_mode": "Direct",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "Global",
+        "outbound": "proxy"
+      },
+      {
+        "outbound": "dns-out",
+        "protocol": "dns"
+      },
+      {
+        "outbound": "direct",
+        "rule_set": [
+          "geoip-private",
+          "geosite-private",
+          "geosite-ir",
+          "geoip-ir"
+        ]
+      },
+      {
+        "outbound": "block",
+        "rule_set": [
+          "geosite-ads"
+        ]
+      }
+    ]
   }
 }
