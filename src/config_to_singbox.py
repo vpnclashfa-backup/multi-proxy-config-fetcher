@@ -2,7 +2,7 @@ import json
 import base64
 import uuid
 from typing import Dict, Optional
-from urllib.parse import urlparse, parse_qs
+from urllib.parse import urlparse, parse_qs, unquote
 
 class ConfigToSingbox:
     def __init__(self):
@@ -81,6 +81,50 @@ class ConfigToSingbox:
                 'address': host,
                 'port': int(port)
             }
+        except Exception:
+            return None
+    def convert_wireguard(self, config: str) -> Optional[Dict]:
+        try:
+            url = urlparse(config)
+            if url.scheme.lower() not in ['wireguard', 'wg']:
+                return None
+            private_key = unquote(url.username) if url.username else ""
+            server = url.hostname
+            port = url.port if url.port else 0
+            params = parse_qs(url.query)
+            local_address = unquote(params.get("address", [""])[0])
+            reserved = unquote(params.get("reserved", [""])[0])
+            public_key = unquote(params.get("publickey", [""])[0])
+            mtu = int(params.get("mtu", [1408])[0])
+            keepalive = int(params.get("keepalive", [0])[0])
+            noise_type = params.get("wnoise", [""])[0]
+            noise_count = params.get("wnoisecount", [""])[0]
+            noise_delay = params.get("wnoisedelay", [""])[0]
+            payload_size = params.get("wpayloadsize", [""])[0]
+            tag = unquote(url.fragment) if url.fragment else f"wireguard-{str(uuid.uuid4())[:8]}"
+            config_dict = {
+                "type": "wireguard",
+                "tag": tag,
+                "server": server,
+                "server_port": port,
+                "local_address": [local_address] if local_address else [],
+                "private_key": private_key,
+                "peer_public_key": public_key,
+                "reserved": reserved,
+                "mtu": mtu
+            }
+            if keepalive:
+                config_dict["persistent_keepalive"] = keepalive
+            if noise_type:
+                noise = {"type": noise_type}
+                if noise_count:
+                    noise["count"] = int(noise_count)
+                if noise_delay:
+                    noise["delay"] = int(noise_delay)
+                if payload_size:
+                    noise["payload_size"] = payload_size
+                config_dict["wnoise"] = noise
+            return config_dict
         except Exception:
             return None
     def convert_to_singbox(self, config: str) -> Optional[Dict]:
@@ -187,6 +231,10 @@ class ConfigToSingbox:
                     "method": ss_data['method'],
                     "password": ss_data['password']
                 }
+            elif config_lower.startswith('wireguard://') or config_lower.startswith('wg://'):
+                wg_data = self.convert_wireguard(config)
+                if wg_data:
+                    return wg_data
             return None
         except Exception:
             return None
@@ -241,9 +289,9 @@ class ConfigToSingbox:
                     {"protocol": "dns", "action": "hijack-dns"}
                 ]
             }
-            singbox_config = {**dns_config, "inbounds": inbounds_config, "outbounds": outbounds_config, "route": route_config}
+            config_dict = {**dns_config, "inbounds": inbounds_config, "outbounds": outbounds_config, "route": route_config}
             with open(self.output_file, 'w') as f:
-                json.dump(singbox_config, f, indent=2, ensure_ascii=False)
+                json.dump(config_dict, f, indent=2, ensure_ascii=False)
         except Exception as e:
             print(f"Error processing configs: {str(e)}")
 def main():
