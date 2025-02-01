@@ -128,7 +128,7 @@ class ConfigToSingbox:
                     if vless_data.get('host', ''):
                         transport["headers"] = {"Host": vless_data.get('host')}
                     transport["type"] = "ws"
-                out = {
+                return {
                     "type": "vless",
                     "tag": f"vless-{str(uuid.uuid4())[:8]}",
                     "server": vless_data['address'],
@@ -142,7 +142,6 @@ class ConfigToSingbox:
                     },
                     "transport": transport
                 }
-                return out
             elif config.startswith('trojan://'):
                 trojan_data = self.parse_trojan(config)
                 if not trojan_data:
@@ -219,8 +218,7 @@ class ConfigToSingbox:
                     "rules": [
                         {"clash_mode": "Global", "server": "proxy-dns", "source_ip_cidr": ["172.19.0.0/30"]},
                         {"server": "proxy-dns", "source_ip_cidr": ["172.19.0.0/30"]},
-                        {"clash_mode": "Direct", "server": "direct-dns"},
-                        {"rule_set": ["geosite-ir"], "server": "direct-dns"}
+                        {"clash_mode": "Direct", "server": "direct-dns"}
                     ],
                     "servers": [
                         {"address": "tls://208.67.222.123", "address_resolver": "local-dns", "detour": "proxy", "tag": "proxy-dns"},
@@ -247,7 +245,7 @@ class ConfigToSingbox:
                     {"clash_mode": "Direct", "outbound": "direct"},
                     {"clash_mode": "Global", "outbound": "proxy"},
                     {"protocol": "dns", "action": "hijack-dns"},
-                    {"outbound": "direct", "rule_set": ["geoip-private", "geosite-private", "geosite-ir", "geoip-ir"]},
+                    {"outbound": "direct", "rule_set": ["geoip-private", "geosite-private", "geoip-ir"]},
                     {"rule_set": ["geosite-ads"], "action": "reject"}
                 ]
             }
