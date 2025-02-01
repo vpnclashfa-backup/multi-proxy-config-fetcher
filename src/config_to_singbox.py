@@ -7,7 +7,6 @@ from urllib.parse import urlparse, parse_qs
 class ConfigToSingbox:
     def __init__(self):
         self.output_file = 'configs/singbox_configs.json'
-
     def decode_vmess(self, config: str) -> Optional[Dict]:
         try:
             encoded = config.replace('vmess://', '')
@@ -15,11 +14,10 @@ class ConfigToSingbox:
             return json.loads(decoded)
         except Exception:
             return None
-
     def parse_vless(self, config: str) -> Optional[Dict]:
         try:
             url = urlparse(config)
-            if url.scheme != 'vless' or not url.hostname:
+            if url.scheme.lower() != 'vless' or not url.hostname:
                 return None
             netloc = url.netloc.split('@')[-1]
             address, port = netloc.split(':') if ':' in netloc else (netloc, '443')
@@ -36,11 +34,10 @@ class ConfigToSingbox:
             }
         except Exception:
             return None
-
     def parse_trojan(self, config: str) -> Optional[Dict]:
         try:
             url = urlparse(config)
-            if url.scheme != 'trojan' or not url.hostname:
+            if url.scheme.lower() != 'trojan' or not url.hostname:
                 return None
             port = url.port or 443
             params = parse_qs(url.query)
@@ -55,11 +52,10 @@ class ConfigToSingbox:
             }
         except Exception:
             return None
-
     def parse_hysteria2(self, config: str) -> Optional[Dict]:
         try:
-            url = urlparse(config.replace('hysteria2://', '').replace('hy2://', ''))
-            if not url.hostname or not url.port:
+            url = urlparse(config)
+            if url.scheme.lower() not in ['hysteria2', 'hy2'] or not url.hostname or not url.port:
                 return None
             query = dict(pair.split('=') for pair in url.query.split('&')) if url.query else {}
             return {
@@ -70,7 +66,6 @@ class ConfigToSingbox:
             }
         except Exception:
             return None
-
     def parse_shadowsocks(self, config: str) -> Optional[Dict]:
         try:
             parts = config.replace('ss://', '').split('@')
@@ -88,11 +83,10 @@ class ConfigToSingbox:
             }
         except Exception:
             return None
-
     def convert_wireguard(self, config: str) -> Optional[Dict]:
         try:
             url = urlparse(config)
-            if url.scheme != "wireguard" or not url.hostname:
+            if url.scheme.lower() not in ['wireguard', 'wg'] or not url.hostname:
                 return None
             if ":" in url.netloc:
                 server, port_str = url.netloc.split(":", 1)
@@ -105,11 +99,8 @@ class ConfigToSingbox:
             peer_public_key = params.get("peer_public_key", [""])[0]
             pre_shared_key = params.get("pre_shared_key", [""])[0]
             local_address = params.get("local_address", [""])[0]
-            if local_address:
-                local_address = local_address.split(",")
-            else:
-                local_address = []
-            mtu = int(params.get("mtu", [1408])[0])
+            allowed_ips = params.get("allowed_ips", [""])[0]
+            mtu = int(params.get("mtu", [1280])[0])
             network = params.get("network", ["tcp"])[0]
             interface_name = params.get("interface_name", [""])[0]
             workers = int(params.get("workers", [0])[0])
@@ -121,21 +112,22 @@ class ConfigToSingbox:
                 "server_port": server_port,
                 "system_interface": system_interface,
                 "interface_name": interface_name,
-                "local_address": local_address,
+                "local_address": [local_address] if local_address else [],
                 "private_key": private_key,
                 "peer_public_key": peer_public_key,
                 "pre_shared_key": pre_shared_key,
+                "allowed_ips": [allowed_ips] if allowed_ips else [],
                 "reserved": [0, 0, 0],
-                "workers": workers if workers > 0 else None,
                 "mtu": mtu,
-                "network": network
+                "network": network,
+                "workers": workers if workers > 0 else None
             }
         except Exception:
             return None
-
     def convert_to_singbox(self, config: str) -> Optional[Dict]:
         try:
-            if config.startswith('vmess://'):
+            config_lower = config.lower()
+            if config_lower.startswith('vmess://'):
                 vmess_data = self.decode_vmess(config)
                 if not vmess_data or not vmess_data.get('add') or not vmess_data.get('port') or not vmess_data.get('id'):
                     return None
@@ -161,7 +153,7 @@ class ConfigToSingbox:
                         "server_name": vmess_data.get('sni', vmess_data['add'])
                     }
                 }
-            elif config.startswith('vless://'):
+            elif config_lower.startswith('vless://'):
                 vless_data = self.parse_vless(config)
                 if not vless_data:
                     return None
@@ -186,7 +178,7 @@ class ConfigToSingbox:
                     },
                     "transport": transport
                 }
-            elif config.startswith('trojan://'):
+            elif config_lower.startswith('trojan://'):
                 trojan_data = self.parse_trojan(config)
                 if not trojan_data:
                     return None
@@ -208,9 +200,9 @@ class ConfigToSingbox:
                     },
                     "transport": transport
                 }
-            elif config.startswith(('hysteria2://', 'hy2://')):
+            elif config_lower.startswith('hysteria2://') or config_lower.startswith('hy2://'):
                 hy2_data = self.parse_hysteria2(config)
-                if not hy2_data or not hy2_data['address'] or not hy2_data['port']:
+                if not hy2_data or not hy2_data.get('address') or not hy2_data.get('port'):
                     return None
                 return {
                     "type": "hysteria2",
@@ -224,9 +216,9 @@ class ConfigToSingbox:
                         "server_name": hy2_data['sni']
                     }
                 }
-            elif config.startswith('ss://'):
+            elif config_lower.startswith('ss://'):
                 ss_data = self.parse_shadowsocks(config)
-                if not ss_data or not ss_data['address'] or not ss_data['port']:
+                if not ss_data or not ss_data.get('address') or not ss_data.get('port'):
                     return None
                 return {
                     "type": "shadowsocks",
@@ -236,14 +228,13 @@ class ConfigToSingbox:
                     "method": ss_data['method'],
                     "password": ss_data['password']
                 }
-            elif config.startswith("wireguard://"):
+            elif config_lower.startswith('wireguard://') or config_lower.startswith('wg://'):
                 wg_data = self.convert_wireguard(config)
                 if wg_data:
                     return wg_data
             return None
         except Exception:
             return None
-
     def process_configs(self):
         try:
             with open('configs/proxy_configs.txt', 'r') as f:
@@ -300,10 +291,8 @@ class ConfigToSingbox:
                 json.dump(singbox_config, f, indent=2, ensure_ascii=False)
         except Exception as e:
             print(f"Error processing configs: {str(e)}")
-
 def main():
     converter = ConfigToSingbox()
     converter.process_configs()
-
 if __name__ == '__main__':
     main()
