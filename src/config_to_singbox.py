@@ -244,9 +244,7 @@ class ConfigToSingbox:
                 "rules": [
                     {"clash_mode": "Direct", "outbound": "direct"},
                     {"clash_mode": "Global", "outbound": "proxy"},
-                    {"protocol": "dns", "action": "hijack-dns"},
-                    {"outbound": "direct", "rule_set": ["geoip-private", "geosite-private", "geoip-ir"]},
-                    {"rule_set": ["geosite-ads"], "action": "reject"}
+                    {"protocol": "dns", "action": "hijack-dns"}
                 ]
             }
             singbox_config = {**dns_config, "inbounds": inbounds_config, "outbounds": outbounds_config, "route": route_config}
