@@ -95,6 +95,13 @@ class ConfigToSingbox:
                 vmess_data = self.decode_vmess(config)
                 if not vmess_data or not vmess_data.get('add') or not vmess_data.get('port') or not vmess_data.get('id'):
                     return None
+                transport = {}
+                if vmess_data.get('net') in ['ws', 'h2']:
+                    if vmess_data.get('path', ''):
+                        transport["path"] = vmess_data.get('path')
+                    if vmess_data.get('host', ''):
+                        transport["headers"] = {"Host": vmess_data.get('host')}
+                    transport["type"] = vmess_data.get('net', 'tcp')
                 return {
                     "type": "vmess",
                     "tag": f"vmess-{str(uuid.uuid4())[:8]}",
@@ -103,11 +110,7 @@ class ConfigToSingbox:
                     "uuid": vmess_data['id'],
                     "security": vmess_data.get('scy', 'auto'),
                     "alter_id": int(vmess_data.get('aid', 0)),
-                    "transport": {
-                        "type": vmess_data.get('net', 'tcp'),
-                        "path": vmess_data.get('path', ''),
-                        "headers": {"Host": vmess_data.get('host', '')}
-                    } if vmess_data.get('net') in ['ws', 'h2'] else {},
+                    "transport": transport,
                     "tls": {
                         "enabled": vmess_data.get('tls') == 'tls',
                         "insecure": True,
@@ -118,6 +121,13 @@ class ConfigToSingbox:
                 vless_data = self.parse_vless(config)
                 if not vless_data:
                     return None
+                transport = {}
+                if vless_data['type'] == 'ws':
+                    if vless_data.get('path', ''):
+                        transport["path"] = vless_data.get('path')
+                    if vless_data.get('host', ''):
+                        transport["headers"] = {"Host": vless_data.get('host')}
+                    transport["type"] = "ws"
                 out = {
                     "type": "vless",
                     "tag": f"vless-{str(uuid.uuid4())[:8]}",
@@ -130,19 +140,17 @@ class ConfigToSingbox:
                         "server_name": vless_data['sni'],
                         "insecure": True
                     },
-                    "transport": {}
+                    "transport": transport
                 }
-                if vless_data['type'] == 'ws':
-                    out['transport'] = {
-                        "type": "ws",
-                        "path": vless_data['path'],
-                        "headers": {"Host": vless_data['host']}
-                    }
                 return out
             elif config.startswith('trojan://'):
                 trojan_data = self.parse_trojan(config)
                 if not trojan_data:
                     return None
+                transport = {}
+                if trojan_data['type'] != 'tcp' and trojan_data.get('path', ''):
+                    transport["path"] = trojan_data.get('path')
+                    transport["type"] = trojan_data['type']
                 return {
                     "type": "trojan",
                     "tag": f"trojan-{str(uuid.uuid4())[:8]}",
@@ -155,10 +163,7 @@ class ConfigToSingbox:
                         "alpn": trojan_data['alpn'].split(',') if trojan_data['alpn'] else [],
                         "insecure": True
                     },
-                    "transport": {
-                        "type": trojan_data['type'],
-                        "path": trojan_data['path']
-                    } if trojan_data['type'] != 'tcp' else {}
+                    "transport": transport
                 }
             elif config.startswith(('hysteria2://', 'hy2://')):
                 hy2_data = self.parse_hysteria2(config)
