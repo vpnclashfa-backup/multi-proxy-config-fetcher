@@ -89,6 +89,50 @@ class ConfigToSingbox:
         except Exception:
             return None
 
+    def convert_wireguard(self, config: str) -> Optional[Dict]:
+        try:
+            url = urlparse(config)
+            if url.scheme != "wireguard" or not url.hostname:
+                return None
+            if ":" in url.netloc:
+                server, port_str = url.netloc.split(":", 1)
+                server_port = int(port_str)
+            else:
+                server = url.netloc
+                server_port = 0
+            params = parse_qs(url.query)
+            private_key = params.get("private_key", [""])[0]
+            peer_public_key = params.get("peer_public_key", [""])[0]
+            pre_shared_key = params.get("pre_shared_key", [""])[0]
+            local_address = params.get("local_address", [""])[0]
+            if local_address:
+                local_address = local_address.split(",")
+            else:
+                local_address = []
+            mtu = int(params.get("mtu", [1408])[0])
+            network = params.get("network", ["tcp"])[0]
+            interface_name = params.get("interface_name", [""])[0]
+            workers = int(params.get("workers", [0])[0])
+            system_interface = params.get("system_interface", ["false"])[0].lower() == "true"
+            return {
+                "type": "wireguard",
+                "tag": f"wireguard-{str(uuid.uuid4())[:8]}",
+                "server": server,
+                "server_port": server_port,
+                "system_interface": system_interface,
+                "interface_name": interface_name,
+                "local_address": local_address,
+                "private_key": private_key,
+                "peer_public_key": peer_public_key,
+                "pre_shared_key": pre_shared_key,
+                "reserved": [0, 0, 0],
+                "workers": workers if workers > 0 else None,
+                "mtu": mtu,
+                "network": network
+            }
+        except Exception:
+            return None
+
     def convert_to_singbox(self, config: str) -> Optional[Dict]:
         try:
             if config.startswith('vmess://'):
@@ -166,7 +210,7 @@ class ConfigToSingbox:
                 }
             elif config.startswith(('hysteria2://', 'hy2://')):
                 hy2_data = self.parse_hysteria2(config)
-                if not hy2_data or not hy2_data['address'] or not hy2_data['port'] or not hy2_data['password']:
+                if not hy2_data or not hy2_data['address'] or not hy2_data['port']:
                     return None
                 return {
                     "type": "hysteria2",
@@ -192,6 +236,10 @@ class ConfigToSingbox:
                     "method": ss_data['method'],
                     "password": ss_data['password']
                 }
+            elif config.startswith("wireguard://"):
+                wg_data = self.convert_wireguard(config)
+                if wg_data:
+                    return wg_data
             return None
         except Exception:
             return None
