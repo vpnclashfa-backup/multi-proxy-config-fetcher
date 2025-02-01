@@ -86,7 +86,7 @@ class ConfigToSingbox:
     def convert_wireguard(self, config: str) -> Optional[Dict]:
         try:
             url = urlparse(config)
-            if url.scheme.lower() not in ['wireguard', 'wg'] or not url.hostname:
+            if url.scheme.lower() not in ['wireguard', 'wg']:
                 return None
             if ":" in url.netloc:
                 server, port_str = url.netloc.split(":", 1)
@@ -100,27 +100,32 @@ class ConfigToSingbox:
             pre_shared_key = params.get("pre_shared_key", [""])[0]
             local_address = params.get("local_address", [""])[0]
             allowed_ips = params.get("allowed_ips", [""])[0]
-            mtu = int(params.get("mtu", [1280])[0])
-            network = params.get("network", ["tcp"])[0]
+            mtu = int(params.get("mtu", [1408])[0])
             interface_name = params.get("interface_name", [""])[0]
-            workers = int(params.get("workers", [0])[0])
             system_interface = params.get("system_interface", ["false"])[0].lower() == "true"
+            listen_port = int(params.get("listen_port", [0])[0])
+            if not private_key:
+                return None
             return {
                 "type": "wireguard",
-                "tag": f"wireguard-{str(uuid.uuid4())[:8]}",
-                "server": server,
-                "server_port": server_port,
-                "system_interface": system_interface,
-                "interface_name": interface_name,
-                "local_address": [local_address] if local_address else [],
-                "private_key": private_key,
-                "peer_public_key": peer_public_key,
-                "pre_shared_key": pre_shared_key,
-                "allowed_ips": [allowed_ips] if allowed_ips else [],
-                "reserved": [0, 0, 0],
+                "tag": f"wg-ep-{str(uuid.uuid4())[:8]}",
+                "system": system_interface,
+                "name": interface_name if interface_name else "wg0",
                 "mtu": mtu,
-                "network": network,
-                "workers": workers if workers > 0 else None
+                "address": [local_address] if local_address else [],
+                "private_key": private_key,
+                "listen_port": listen_port if listen_port else 0,
+                "peers": [
+                    {
+                        "address": [server],
+                        "port": server_port,
+                        "public_key": peer_public_key,
+                        "pre_shared_key": pre_shared_key,
+                        "allowed_ips": [allowed_ips] if allowed_ips else ["0.0.0.0/0"],
+                        "persistent_keepalive_interval": 30,
+                        "reserved": [0, 0, 0]
+                    }
+                ]
             }
         except Exception:
             return None
@@ -240,6 +245,7 @@ class ConfigToSingbox:
             with open('configs/proxy_configs.txt', 'r') as f:
                 configs = f.read().strip().split('\n')
             outbounds = []
+            endpoints = []
             valid_tags = []
             for config in configs:
                 config = config.strip()
@@ -247,9 +253,12 @@ class ConfigToSingbox:
                     continue
                 converted = self.convert_to_singbox(config)
                 if converted:
-                    outbounds.append(converted)
-                    valid_tags.append(converted['tag'])
-            if not outbounds:
+                    if converted.get("type") == "wireguard":
+                        endpoints.append(converted)
+                    else:
+                        outbounds.append(converted)
+                        valid_tags.append(converted['tag'])
+            if not outbounds and not endpoints:
                 return
             dns_config = {
                 "dns": {
@@ -286,9 +295,11 @@ class ConfigToSingbox:
                     {"protocol": "dns", "action": "hijack-dns"}
                 ]
             }
-            singbox_config = {**dns_config, "inbounds": inbounds_config, "outbounds": outbounds_config, "route": route_config}
+            final_config = {**dns_config, "inbounds": inbounds_config, "outbounds": outbounds_config, "route": route_config}
+            if endpoints:
+                final_config["endpoints"] = endpoints
             with open(self.output_file, 'w') as f:
-                json.dump(singbox_config, f, indent=2, ensure_ascii=False)
+                json.dump(final_config, f, indent=2, ensure_ascii=False)
         except Exception as e:
             print(f"Error processing configs: {str(e)}")
 def main():
