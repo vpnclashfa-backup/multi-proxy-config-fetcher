@@ -93,7 +93,16 @@ class ConfigToSingbox:
             port = url.port if url.port else 0
             params = parse_qs(url.query)
             local_address = unquote(params.get("address", [""])[0])
-            reserved = unquote(params.get("reserved", [""])[0])
+            reserved_raw = unquote(params.get("reserved", [""])[0])
+            if reserved_raw:
+                try:
+                    numbers = [int(x) for x in reserved_raw.split(',')]
+                    reserved_bytes = bytes(numbers)
+                    reserved_b64 = base64.b64encode(reserved_bytes).decode('utf-8')
+                except Exception:
+                    reserved_b64 = ""
+            else:
+                reserved_b64 = ""
             public_key = unquote(params.get("publickey", [""])[0])
             mtu = int(params.get("mtu", [1408])[0])
             keepalive = int(params.get("keepalive", [0])[0])
@@ -101,7 +110,7 @@ class ConfigToSingbox:
             noise_count = params.get("wnoisecount", [""])[0]
             noise_delay = params.get("wnoisedelay", [""])[0]
             payload_size = params.get("wpayloadsize", [""])[0]
-            tag = unquote(url.fragment) if url.fragment else f"wireguard-{str(uuid.uuid4())[:8]}"
+            tag = f"wireguard-{str(uuid.uuid4())[:8]}"
             config_dict = {
                 "type": "wireguard",
                 "tag": tag,
@@ -110,7 +119,7 @@ class ConfigToSingbox:
                 "local_address": [local_address] if local_address else [],
                 "private_key": private_key,
                 "peer_public_key": public_key,
-                "reserved": reserved,
+                "reserved": reserved_b64,
                 "mtu": mtu
             }
             if keepalive:
@@ -234,6 +243,7 @@ class ConfigToSingbox:
             elif config_lower.startswith('wireguard://') or config_lower.startswith('wg://'):
                 wg_data = self.convert_wireguard(config)
                 if wg_data:
+                    wg_data["tag"] = f"wireguard-{str(uuid.uuid4())[:8]}"
                     return wg_data
             return None
         except Exception:
