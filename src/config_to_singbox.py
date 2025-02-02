@@ -215,16 +215,16 @@ class ConfigToSingbox:
                         {"clash_mode": "Direct", "server": "direct-dns"}
                     ],
                     "servers": [
-                        {"type": "tls", "server": "208.67.222.123", "detour": "proxy", "tag": "proxy-dns", "address_resolver": "local-dns"},
-                        {"type": "local", "detour": "direct", "tag": "local-dns"},
-                        {"type": "predefined", "responses": [{"rcode": "SUCCESS"}], "tag": "block"},
-                        {"type": "direct", "tag": "direct-dns"}
+                        {"address": "tls://208.67.222.123", "address_resolver": "local-dns", "detour": "proxy", "tag": "proxy-dns"},
+                        {"address": "local", "detour": "direct", "tag": "local-dns"},
+                        {"address": "rcode://success", "tag": "block"},
+                        {"address": "local", "detour": "direct", "tag": "direct-dns"}
                     ],
                     "strategy": "prefer_ipv4"
                 }
             }
             inbounds_config = [
-                {"type": "tun", "address": ["172.19.0.1/30", "fdfe:dcba:9876::1/126"], "route_address": ["0.0.0.0/1", "128.0.0.0/1", "::/1", "8000::/1"], "route_exclude_address": ["192.168.0.0/16", "fc00::/7"], "auto_route": True, "endpoint_independent_nat": False, "mtu": 9000, "platform": {"http_proxy": {"enabled": True, "server": "127.0.0.1", "server_port": 2080}}, "sniff": True, "stack": "system", "strict_route": False},
+                {"address": ["172.19.0.1/30", "fdfe:dcba:9876::1/126"], "auto_route": True, "endpoint_independent_nat": False, "mtu": 9000, "platform": {"http_proxy": {"enabled": True, "server": "127.0.0.1", "server_port": 2080}}, "sniff": True, "stack": "system", "strict_route": False, "type": "tun"},
                 {"listen": "127.0.0.1", "listen_port": 2080, "sniff": True, "type": "mixed", "users": []}
             ]
             outbounds_config = [
@@ -241,9 +241,9 @@ class ConfigToSingbox:
                     {"protocol": "dns", "action": "hijack-dns"}
                 ]
             }
-            config_dict = {**dns_config, "inbounds": inbounds_config, "outbounds": outbounds_config, "route": route_config}
+            singbox_config = {**dns_config, "inbounds": inbounds_config, "outbounds": outbounds_config, "route": route_config}
             with open(self.output_file, 'w') as f:
-                json.dump(config_dict, f, indent=2, ensure_ascii=False)
+                json.dump(singbox_config, f, indent=2, ensure_ascii=False)
         except Exception as e:
             print(f"Error processing configs: {str(e)}")
 def main():
