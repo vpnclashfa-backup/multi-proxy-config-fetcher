@@ -218,6 +218,8 @@ ss://4e642fc6-9f6d-45a2-97d0-1919dbf47e86@fishlab.ucdavis.edu:443/?security=tls&
 
 ss://51b83496-83a6-5ece-b66d-46aff4bf1d7e@94.131.14.177:2086?type=grpc&serviceName=vless-grpc#@VIProxys
 
+ss://5f913408-aa39-4927-8510-a067beeb337b@Wedbaz-Sweden.zpowerio.ir:443?security=reality&encryption=none&pbk=fYduc27KzmdrSI1S_LCBUxk3zDSe69dA5uKieS2oUEE&headerType=none&fp=chrome&type=tcp&sni=refersion.com#@VIProxys
+
 ss://68bf637d-f323-4d9e-b8dc-80cd799a250d@5.180.30.31:8880/?mode=gun&security=none&encryption=none&authority=&type=grpc&serviceName=#@VIProxys
 
 ss://68bf637d-f323-4d9e-b8dc-80cd799a250d@5.180.30.31:8880?mode=gun&security=none&encryption=none&authority=&type=grpc&serviceName=#@VIProxys
@@ -225,6 +227,8 @@ ss://68bf637d-f323-4d9e-b8dc-80cd799a250d@5.180.30.31:8880?mode=gun&security=non
 ss://7204ddc9-8076-493a-9b0b-d53afe7011e6@c2.vact.ir:2083?mode=gun&security=reality&encryption=none&authority=@V2rayNGcloud-Telegram-v2rayNGcloud-@V2rayNGcloud-Telegram-@V2rayNGcloud-Telegram-@V2rayNGcloud&pbk=IXXrQcqXgzopBeSGpCO_u53keeKZaN1AoOzdyLA-Mzo&fp=randomized&spx=%2F&type=grpc&sni=refersion.com&sid=11a4b6bca8#@VIProxys
 
 ss://79ba668f-14fc-4f0a-aae3-9b4bb0fd012c@173.245.59.81:443?encryption=none&security=tls&sni=wgw5iq.allgums.com&type=ws&host=wgw5iq.allgums.com&path=%2Fwss#@VIProxys
+
+ss://79ba668f-14fc-4f0a-aae3-9b4bb0fd012c@173.245.59.81:443?security=tls&sni=wgw5iq.allgums.com&type=ws&host=wgw5iq.allgums.com&path=%2Fwss#@VIProxys
 
 ss://8274a9f0-f7ed-4384-8c69-6bf8a98d19a6@192.0.54.102:443?security=tls&sni=us2\_tg\_fxnodes.sfacg.uk&type=ws&host=us2\_tg\_fxnodes.sfacg.uk#@VIProxys
 
@@ -294,10 +298,6 @@ ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpPVFZsTXpjeQ%3D%3D@185.231.205.179:8388#@meli
 
 ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpRQ1hEeHVEbFRUTUQ3anRnSFVqSW9q@193.29.139.233:8080#%F0%9F%87%B3%F0%9F%87%B1NL%20%7C%20@OutlineReleasedKey🔸Outline Keys🔸Vless|Trojan|Hysteria1/2|TUIC Keys💠Premium Outline|Vless-Reality Keys Bot💠#Outline #OutlineVPN #Shadowsocks #VPN #FreeVPN
 
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpXNzRYRkFMTEx1dzZtNUlB@admin.c1.webramz.co:443#%F0%9F%87%AC%F0%9F%87%A7GB%20%7C%20@OutlineReleasedKey🔸Outline Keys🔸Vless|Trojan|Hysteria1/2|TUIC Keys💠Premium Outline|Vless-Reality Keys Bot💠#Outline #OutlineVPN #Shadowsocks #VPN #FreeVPN
-
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpXNzRYRkFMTEx1dzZtNUlB@freakconfig99.usecharge.ir:443#%40Freakconfig%20%F0%9F%87%AC%F0%9F%87%A7
-
 vmess://ewogICAgImFkZCI6ICIyMy4xNjIuMjAwLjIyNyIsCiAgICAiYWlkIjogMCwKICAgICJob3N0IjogIiIsCiAgICAiaWQiOiAiMDNmY2M2MTgtYjkzZC02Nzk2LTZhZWQtOGEzOGM5NzVkNTgxIiwKICAgICJuZXQiOiAid3MiLAogICAgInBhdGgiOiAiL2xpbmt2d3MiLAogICAgInBvcnQiOiA0NDMsCiAgICAicHMiOiAi8J+HqPCfh6ZDQS0yMy4xNjIuMjAwLjIyNy04NDMxIiwKICAgICJ0bHMiOiAidGxzIiwKICAgICJ0eXBlIjogImF1dG8iLAogICAgInNlY3VyaXR5IjogImF1dG8iLAogICAgInNraXAtY2VydC12ZXJpZnkiOiB0cnVlLAogICAgInNuaSI6ICIiCn0=
 
 vmess://ewogICAgImFkZCI6ICJsYW11c2EuZGFvemhhbmcuc2l0ZSIsCiAgICAiYWlkIjogMCwKICAgICJob3N0IjogImxhbXVzYS5kYW96aGFuZy5zaXRlIiwKICAgICJpZCI6ICIxYzFjYjdmZS1hOTI5LTRlNDctYjI5Mi00MDczYjYzZDJkNGIiLAogICAgIm5ldCI6ICJ3cyIsCiAgICAicGF0aCI6ICIvIiwKICAgICJwb3J0IjogODg4MCwKICAgICJwcyI6ICLwn4+BUkVMQVktMTcyLjY3LjE0Ni4xNTQtMDUwMyIsCiAgICAidGxzIjogIiIsCiAgICAidHlwZSI6ICJhdXRvIiwKICAgICJzZWN1cml0eSI6ICJhdXRvIiwKICAgICJza2lwLWNlcnQtdmVyaWZ5IjogZmFsc2UsCiAgICAic25pIjogImxhbXVzYS5kYW96aGFuZy5zaXRlIgp9
@@ -308,7 +308,7 @@ vmess://ewogICJ2IjogIjIiLAogICJwcyI6ICJAdjJyeU5HMDHwn4ep8J+HqjrahtmG2YQg2YXYpyDZ
 
 vmess://eyJ2IjogIjIiLCAicHMiOiAiXHVkODNkXHVkZDEyIFZNLVdTLU5BIFx1ZDgzY1x1ZGRlZlx1ZDgzY1x1ZGRmNSBKUC0xNTAuMjMwLjYxLjExMDoyMzQ1MSIsICJhZGQiOiAiMTUwLjIzMC42MS4xMTAiLCAicG9ydCI6ICIyMzQ1MSIsICJ0eXBlIjogIm5vbmUiLCAiaWQiOiAiYmQzNGMwZjktNzcyZi00YzkyLWEzYmMtNDg4YjBmZTgyYmM4IiwgImFpZCI6ICIwIiwgIm5ldCI6ICJ3cyIsICJwYXRoIjogIi8iLCAiaG9zdCI6ICIxLW9zYWthLXAuYWJvdXRhbmltZS5ldS5vcmciLCAidGxzIjogIiIsICJza2lwLWNlcnQtdmVyaWZ5IjogdHJ1ZX0=
 
-vmess://eyJ2IjoiMiIsImFkZCI6IjE0MS4xMS43Ny4yMDAiLCJwb3J0IjoiNTE0OCIsImlkIjoiODI2Njc2NjgtNGJmZC00OTA2LWFiMzEtYzI3NDVkMGRlNzhlIiwiYWlkIjoiMCIsInNjeSI6ImF1dG8iLCJuZXQiOiJ3cyIsInR5cGUiOiJub25lIiwiaG9zdCI6InB1bGwuZnJlZS52aWRlby4xMDAxMC5jb20iLCJwYXRoIjoiXC8iLCJ0bHMiOiIiLCJzbmkiOiIiLCJhbHBuIjoiIiwicHMiOiJAVklQcm94eXMifQ==
+vmess://eyJ2IjoiMiIsImFkZCI6Inp1bGEuaXIiLCJwb3J0IjoiODAiLCJ0eXBlIjoibm9uZSIsImlkIjoiYzFmZDc4MGEtMzQwOC00ZjQ4LWE5MzItNTgzMmEyOGNlOWY2IiwiYWlkIjoiMCIsIm5ldCI6IndzIiwicGF0aCI6IlwvYXVzZ3QwMi5iZXN0Zm9yeHJheS5idXp6XC9saW5rd3MiLCJob3N0IjoiZHJ5LWRpc2stZGZjMC5ocTBzcjVlYnhwajYwdmJ6LndvcmtlcnMuZGV2IiwidGxzIjoiIiwicHMiOiJAVklQcm94eXMifQ==
 
 vmess://eyJ2IjoiMiIsInBzIjoiRC1GQUlUSC02MjI3IiwiYWRkIjoiMTY3LjcxLjI1MC4xMTUiLCJwb3J0IjoiODg4MSIsImlkIjoiZGI1YWZhZTQtYWMyMy00MWE2LTgzNzgtZjMwN2E5YTQ3NDM2IiwiYWlkIjoiMCIsInNjeSI6ImF1dG8iLCJuZXQiOiJ0Y3AiLCJ0eXBlIjoiaHR0cCIsImhvc3QiOiJtb2kuaXIiLCJwYXRoIjoiLyIsInRscyI6Im5vbmUiLCJzbmkiOiIiLCJhbHBuIjoiIn0=
 
