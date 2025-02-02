@@ -7,6 +7,7 @@ from urllib.parse import urlparse, parse_qs
 class ConfigToSingbox:
     def __init__(self):
         self.output_file = 'configs/singbox_configs.json'
+
     def decode_vmess(self, config: str) -> Optional[Dict]:
         try:
             encoded = config.replace('vmess://', '')
@@ -14,6 +15,7 @@ class ConfigToSingbox:
             return json.loads(decoded)
         except Exception:
             return None
+
     def parse_vless(self, config: str) -> Optional[Dict]:
         try:
             url = urlparse(config)
@@ -27,14 +29,17 @@ class ConfigToSingbox:
                 'address': address,
                 'port': int(port),
                 'flow': params.get('flow', [''])[0],
+                'encryption': params.get('encryption', ['none'])[0],
                 'sni': params.get('sni', [address])[0],
+                'fp': params.get('fp', [''])[0],
                 'type': params.get('type', ['tcp'])[0],
                 'path': params.get('path', [''])[0],
                 'host': params.get('host', [''])[0],
-                'frag': params.get('frag', [''])[0]
+                'fragment': params.get('fragment', [''])[0]
             }
         except Exception:
             return None
+
     def parse_trojan(self, config: str) -> Optional[Dict]:
         try:
             url = urlparse(config)
@@ -48,12 +53,14 @@ class ConfigToSingbox:
                 'port': port,
                 'sni': params.get('sni', [url.hostname])[0],
                 'alpn': params.get('alpn', [''])[0],
+                'fp': params.get('fp', [''])[0],
                 'type': params.get('type', ['tcp'])[0],
                 'path': params.get('path', [''])[0],
-                'frag': params.get('frag', [''])[0]
+                'fragment': params.get('fragment', [''])[0]
             }
         except Exception:
             return None
+
     def parse_hysteria2(self, config: str) -> Optional[Dict]:
         try:
             url = urlparse(config)
@@ -64,10 +71,13 @@ class ConfigToSingbox:
                 'address': url.hostname,
                 'port': url.port,
                 'password': url.username or query.get('password', ''),
-                'sni': query.get('sni', url.hostname)
+                'sni': query.get('sni', url.hostname),
+                'insecure': query.get('insecure', '0') == '1',
+                'hop_ports': query.get('hop', '').split(',') if query.get('hop') else []
             }
         except Exception:
             return None
+
     def parse_shadowsocks(self, config: str) -> Optional[Dict]:
         try:
             parts = config.replace('ss://', '').split('@')
@@ -85,50 +95,40 @@ class ConfigToSingbox:
             }
         except Exception:
             return None
+
     def parse_wireguard(self, config: str) -> Optional[Dict]:
         try:
-            url = urlparse(config)
-            if url.scheme.lower() != 'wireguard' or not url.hostname:
+            lines = config.strip().split('\n')
+            if not lines[0].strip() == '[Interface]':
                 return None
-            params = parse_qs(url.query)
-            private_key = url.username
-            server = url.hostname
-            port = url.port if url.port else 51820
-            public_key = params.get("public_key", [None])[0]
-            pre_shared_key = params.get("pre_shared_key", [None])[0]
-            address = params.get("address", [""])[0]
-            address_list = [addr.strip() for addr in address.split(',') if addr.strip()]
-            listen_port = int(params.get("listen_port", [0])[0]) if params.get("listen_port") else 0
-            system = params.get("system", ["false"])[0].lower() == "true"
-            mtu = int(params.get("mtu", [1400])[0])
-            name = params.get("name", [""])[0]
-            allowed_ips = params.get("allowed_ips", [""])[0]
-            allowed_ips_list = [ip.strip() for ip in allowed_ips.split(',') if ip.strip()]
-            keepalive = int(params.get("persistent_keepalive_interval", [30])[0])
-            tag = f"wg-{str(uuid.uuid4())[:8]}"
-            peer = {
-                "address": server,
-                "port": port,
-                "public_key": public_key,
-                "pre_shared_key": pre_shared_key,
-                "allowed_ips": allowed_ips_list if allowed_ips_list else ["0.0.0.0/0"],
-                "persistent_keepalive_interval": keepalive,
-                "reserved": [0, 0, 0]
-            }
-            endpoint = {
-                "type": "wireguard",
-                "tag": tag,
-                "system": system,
-                "name": name if name else tag,
-                "mtu": mtu,
-                "address": address_list,
-                "private_key": private_key,
-                "listen_port": listen_port,
-                "peers": [peer]
-            }
-            return endpoint
+            
+            wg_config = {'peers': []}
+            current_section = None
+            
+            for line in lines:
+                line = line.strip()
+                if not line:
+                    continue
+                    
+                if line.startswith('['):
+                    current_section = line[1:-1]
+                    if current_section == 'Peer':
+                        wg_config['peers'].append({})
+                    continue
+                    
+                key, value = line.split('=', 1)
+                key = key.strip()
+                value = value.strip()
+                
+                if current_section == 'Interface':
+                    wg_config[key.lower()] = value
+                elif current_section == 'Peer':
+                    wg_config['peers'][-1][key.lower()] = value
+                    
+            return wg_config
         except Exception:
             return None
+
     def convert_to_singbox(self, config: str) -> Optional[Dict]:
         try:
             config_lower = config.lower()
@@ -136,14 +136,16 @@ class ConfigToSingbox:
                 vmess_data = self.decode_vmess(config)
                 if not vmess_data or not vmess_data.get('add') or not vmess_data.get('port') or not vmess_data.get('id'):
                     return None
+                    
                 transport = {}
-                if vmess_data.get('net') in ['ws', 'h2']:
-                    if vmess_data.get('path', ''):
+                if vmess_data.get('net') in ['ws', 'h2', 'grpc']:
+                    transport["type"] = vmess_data.get('net')
+                    if vmess_data.get('path'):
                         transport["path"] = vmess_data.get('path')
-                    if vmess_data.get('host', ''):
+                    if vmess_data.get('host'):
                         transport["headers"] = {"Host": vmess_data.get('host')}
-                    transport["type"] = vmess_data.get('net', 'tcp')
-                out = {
+                    
+                return {
                     "type": "vmess",
                     "tag": f"vmess-{str(uuid.uuid4())[:8]}",
                     "server": vmess_data['add'],
@@ -155,72 +157,93 @@ class ConfigToSingbox:
                     "tls": {
                         "enabled": vmess_data.get('tls') == 'tls',
                         "insecure": True,
-                        "server_name": vmess_data.get('sni', vmess_data['add'])
+                        "server_name": vmess_data.get('sni', vmess_data['add']),
+                        "utls": {
+                            "enabled": True,
+                            "fingerprint": vmess_data.get('fp', 'chrome')
+                        }
                     }
                 }
-                if vmess_data.get('frag', '').lower() == 'true':
-                    out["tls"]["fragment"] = True
-                    out["tls"]["fragment_fallback_delay"] = "500ms"
-                return out
+                
             elif config_lower.startswith('vless://'):
                 vless_data = self.parse_vless(config)
                 if not vless_data:
                     return None
+                    
                 transport = {}
-                if vless_data['type'] == 'ws':
-                    if vless_data.get('path', ''):
-                        transport["path"] = vless_data.get('path')
-                    if vless_data.get('host', ''):
-                        transport["headers"] = {"Host": vless_data.get('host')}
-                    transport["type"] = "ws"
-                out = {
+                if vless_data['type'] != 'tcp':
+                    transport["type"] = vless_data['type']
+                    if vless_data.get('path'):
+                        transport["path"] = vless_data['path']
+                    if vless_data.get('host'):
+                        transport["headers"] = {"Host": vless_data['host']}
+                        
+                return {
                     "type": "vless",
                     "tag": f"vless-{str(uuid.uuid4())[:8]}",
                     "server": vless_data['address'],
                     "server_port": vless_data['port'],
                     "uuid": vless_data['uuid'],
                     "flow": vless_data['flow'],
+                    "encryption": vless_data['encryption'],
+                    "transport": transport,
                     "tls": {
                         "enabled": True,
                         "server_name": vless_data['sni'],
-                        "insecure": True
+                        "insecure": True,
+                        "utls": {
+                            "enabled": True,
+                            "fingerprint": vless_data['fp'] or "chrome"
+                        }
                     },
-                    "transport": transport
+                    "packet_encoding": "xudp",
+                    "multiplex": {
+                        "enabled": True,
+                        "protocol": "smux",
+                        "max_streams": 32
+                    }
                 }
-                if vless_data.get('frag', '').lower() == 'true':
-                    out["tls"]["fragment"] = True
-                    out["tls"]["fragment_fallback_delay"] = "500ms"
-                return out
+                
             elif config_lower.startswith('trojan://'):
                 trojan_data = self.parse_trojan(config)
                 if not trojan_data:
                     return None
+                    
                 transport = {}
-                if trojan_data['type'] != 'tcp' and trojan_data.get('path', ''):
-                    transport["path"] = trojan_data.get('path')
+                if trojan_data['type'] != 'tcp':
                     transport["type"] = trojan_data['type']
-                out = {
+                    if trojan_data.get('path'):
+                        transport["path"] = trojan_data['path']
+                        
+                return {
                     "type": "trojan",
                     "tag": f"trojan-{str(uuid.uuid4())[:8]}",
                     "server": trojan_data['address'],
                     "server_port": trojan_data['port'],
                     "password": trojan_data['password'],
+                    "transport": transport,
                     "tls": {
                         "enabled": True,
                         "server_name": trojan_data['sni'],
-                        "alpn": trojan_data['alpn'].split(',') if trojan_data['alpn'] else [],
-                        "insecure": True
+                        "alpn": trojan_data['alpn'].split(',') if trojan_data['alpn'] else ["h2", "http/1.1"],
+                        "insecure": True,
+                        "utls": {
+                            "enabled": True,
+                            "fingerprint": trojan_data['fp'] or "chrome"
+                        }
                     },
-                    "transport": transport
+                    "multiplex": {
+                        "enabled": True,
+                        "protocol": "smux",
+                        "max_streams": 32
+                    }
                 }
-                if trojan_data.get('frag', '').lower() == 'true':
-                    out["tls"]["fragment"] = True
-                    out["tls"]["fragment_fallback_delay"] = "500ms"
-                return out
+                
             elif config_lower.startswith('hysteria2://') or config_lower.startswith('hy2://'):
                 hy2_data = self.parse_hysteria2(config)
-                if not hy2_data or not hy2_data.get('address') or not hy2_data.get('port'):
+                if not hy2_data:
                     return None
+                    
                 return {
                     "type": "hysteria2",
                     "tag": f"hysteria2-{str(uuid.uuid4())[:8]}",
@@ -229,94 +252,230 @@ class ConfigToSingbox:
                     "password": hy2_data['password'],
                     "tls": {
                         "enabled": True,
-                        "insecure": True,
-                        "server_name": hy2_data['sni']
-                    }
+                        "server_name": hy2_data['sni'],
+                        "insecure": hy2_data['insecure']
+                    },
+                    "hop_ports": hy2_data['hop_ports']
                 }
+                
             elif config_lower.startswith('ss://'):
                 ss_data = self.parse_shadowsocks(config)
-                if not ss_data or not ss_data.get('address') or not ss_data.get('port'):
+                if not ss_data:
                     return None
+                    
                 return {
                     "type": "shadowsocks",
                     "tag": f"ss-{str(uuid.uuid4())[:8]}",
                     "server": ss_data['address'],
                     "server_port": ss_data['port'],
                     "method": ss_data['method'],
-                    "password": ss_data['password']
+                    "password": ss_data['password'],
+                    "multiplex": {
+                        "enabled": True,
+                        "protocol": "smux",
+                        "max_streams": 32
+                    }
                 }
-            elif config_lower.startswith('wireguard://'):
+                
+            elif config.startswith('[Interface]'):
                 wg_data = self.parse_wireguard(config)
-                if not wg_data:
+                if not wg_data or not wg_data.get('privatekey') or not wg_data.get('peers'):
                     return None
-                return wg_data
+                    
+                peer = wg_data['peers'][0]
+                endpoint = peer.get('endpoint', '').split(':')
+                if len(endpoint) != 2:
+                    return None
+                    
+                return {
+                    "type": "wireguard",
+                    "tag": f"wireguard-{str(uuid.uuid4())[:8]}",
+                    "server": endpoint[0],
+                    "server_port": int(endpoint[1]),
+                    "private_key": wg_data['privatekey'],
+                    "peer_public_key": peer.get('publickey', ''),
+                    "pre_shared_key": peer.get('presharedkey', ''),
+                    "reserved": peer.get('reserved', '').split(',') if peer.get('reserved') else [],
+                    "mtu": int(wg_data.get('mtu', 1420))
+                }
+                
             return None
         except Exception:
             return None
+
     def process_configs(self):
         try:
             with open('configs/proxy_configs.txt', 'r') as f:
                 configs = f.read().strip().split('\n')
+                
             outbounds = []
-            endpoints = []
             valid_tags = []
+            
             for config in configs:
                 config = config.strip()
                 if not config or config.startswith('//'):
                     continue
+                    
                 converted = self.convert_to_singbox(config)
                 if converted:
-                    if converted.get("type") == "wireguard":
-                        endpoints.append(converted)
-                    else:
-                        outbounds.append(converted)
-                        valid_tags.append(converted['tag'])
-            if not outbounds and not endpoints:
+                    outbounds.append(converted)
+                    valid_tags.append(converted['tag'])
+                    
+            if not outbounds:
                 return
+                
             dns_config = {
                 "dns": {
-                    "final": "local-dns",
-                    "rules": [
-                        {"clash_mode": "Global", "server": "proxy-dns", "source_ip_cidr": ["172.19.0.0/30"]},
-                        {"server": "proxy-dns", "source_ip_cidr": ["172.19.0.0/30"]},
-                        {"clash_mode": "Direct", "server": "direct-dns"}
-                    ],
                     "servers": [
-                        {"address": "tls://208.67.222.123", "address_resolver": "local-dns", "detour": "proxy", "tag": "proxy-dns"},
-                        {"address": "local", "detour": "direct", "tag": "local-dns"},
-                        {"address": "rcode://success", "tag": "block"},
-                        {"address": "local", "detour": "direct", "tag": "direct-dns"}
+                        {
+                            "tag": "google",
+                            "address": "tls://8.8.8.8",
+                            "address_resolver": "local",
+                            "strategy": "prefer_ipv4"
+                        },
+                        {
+                            "tag": "local",
+                            "address": "local",
+                            "detour": "direct"
+                        }
                     ],
-                    "strategy": "prefer_ipv4"
+                    "rules": [
+                        {
+                            "domain_suffix": [".ir"],
+                            "server": "local"
+                        }
+                    ],
+                    "final": "google",
+                    "strategy": "prefer_ipv4",
+                    "independent_cache": true
                 }
             }
+
             inbounds_config = [
-                {"address": ["172.19.0.1/30", "fdfe:dcba:9876::1/126"], "auto_route": True, "endpoint_independent_nat": False, "mtu": 9000, "platform": {"http_proxy": {"enabled": True, "server": "127.0.0.1", "server_port": 2080}}, "sniff": True, "stack": "system", "strict_route": False, "type": "tun"},
-                {"listen": "127.0.0.1", "listen_port": 2080, "sniff": True, "type": "mixed", "users": []}
+                {
+                    "type": "mixed",
+                    "tag": "mixed-in",
+                    "listen": "127.0.0.1",
+                    "listen_port": 2080,
+                    "sniff": True,
+                    "sniff_override_destination": True,
+                    "domain_strategy": "prefer_ipv4"
+                },
+                {
+                    "type": "tun",
+                    "tag": "tun-in",
+                    "interface_name": "tun0",
+                    "stack": "system",
+                    "auto_route": True,
+                    "strict_route": True,
+                    "sniff": True,
+                    "sniff_override_destination": True,
+                    "domain_strategy": "prefer_ipv4",
+                    "mtu": 9000,
+                    "inet4_address": "172.19.0.1/30",
+                    "inet6_address": "fdfe:dcba:9876::1/126",
+                    "auto_route": True,
+                    "strict_route": True
+                }
             ]
+
             outbounds_config = [
-                {"tag": "proxy", "type": "selector", "outbounds": ["auto"] + valid_tags + ["direct"]},
-                {"tag": "auto", "type": "urltest", "outbounds": valid_tags, "url": "http://www.gstatic.com/generate_204", "interval": "10m", "tolerance": 50},
-                {"tag": "direct", "type": "direct"}
+                {
+                    "type": "selector",
+                    "tag": "proxy",
+                    "outbounds": ["auto"] + valid_tags,
+                    "default": "auto"
+                },
+                {
+                    "type": "urltest",
+                    "tag": "auto",
+                    "outbounds": valid_tags,
+                    "url": "http://www.gstatic.com/generate_204",
+                    "interval": "10m",
+                    "tolerance": 50,
+                    "interrupt_exist_connections": False
+                },
+                {
+                    "type": "direct",
+                    "tag": "direct"
+                },
+                {
+                    "type": "block",
+                    "tag": "block"
+                },
+                {
+                    "type": "dns",
+                    "tag": "dns-out"
+                }
             ] + outbounds
+
             route_config = {
-                "auto_detect_interface": True,
-                "final": "proxy",
                 "rules": [
-                    {"clash_mode": "Direct", "outbound": "direct"},
-                    {"clash_mode": "Global", "outbound": "proxy"},
-                    {"protocol": "dns", "action": "hijack-dns"}
-                ]
+                    {
+                        "protocol": "dns",
+                        "outbound": "dns-out"
+                    },
+                    {
+                        "geosite": "category-ads-all",
+                        "outbound": "block"
+                    },
+                    {
+                        "geosite": "ir",
+                        "geoip": "ir",
+                        "outbound": "direct"
+                    }
+                ],
+                "auto_detect_interface": True,
+                "override_android_vpn": True,
+                "default_interface": "en0",
+                "final": "proxy"
             }
-            singbox_config = {**dns_config, "inbounds": inbounds_config, "outbounds": outbounds_config, "route": route_config}
-            if endpoints:
-                singbox_config["endpoints"] = endpoints
+
+            experimental_config = {
+                "cache_file": {
+                    "enabled": True,
+                    "path": "cache.db"
+                },
+                "clash_api": {
+                    "external_controller": "127.0.0.1:9090",
+                    "external_ui": "ui",
+                    "external_ui_download_url": "",
+                    "external_ui_download_detour": "direct",
+                    "secret": "",
+                    "default_mode": "rule"
+                }
+            }
+
+            ntp_config = {
+                "enabled": True,
+                "server": "time.apple.com",
+                "server_port": 123,
+                "interval": "30m",
+                "detour": "direct"
+            }
+
+            singbox_config = {
+                "log": {
+                    "level": "info",
+                    "timestamp": True
+                },
+                **dns_config,
+                "inbounds": inbounds_config,
+                "outbounds": outbounds_config,
+                "route": route_config,
+                "experimental": experimental_config,
+                "ntp": ntp_config
+            }
+
             with open(self.output_file, 'w') as f:
                 json.dump(singbox_config, f, indent=2, ensure_ascii=False)
+
         except Exception as e:
             print(f"Error processing configs: {str(e)}")
+
 def main():
     converter = ConfigToSingbox()
     converter.process_configs()
+
 if __name__ == '__main__':
     main()
