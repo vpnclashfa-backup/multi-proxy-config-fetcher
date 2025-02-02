@@ -117,8 +117,7 @@ class ConfigToSingbox:
                 "reserved": reserved_b64,
                 "mtu": mtu
             }
-            if keepalive:
-                config_dict["persistent_keepalive"] = keepalive
+            # حذف persistent_keepalive برای سازگاری با کلاینت Sing-box
             return config_dict
         except Exception:
             return None
