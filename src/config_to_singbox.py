@@ -105,10 +105,6 @@ class ConfigToSingbox:
             public_key = unquote(params.get("publickey", [""])[0])
             mtu = int(params.get("mtu", [1408])[0])
             keepalive = int(params.get("keepalive", [0])[0])
-            noise_type = params.get("wnoise", [""])[0]
-            noise_count = params.get("wnoisecount", [""])[0]
-            noise_delay = params.get("wnoisedelay", [""])[0]
-            payload_size = params.get("wpayloadsize", [""])[0]
             tag = f"wireguard-{str(uuid.uuid4())[:8]}"
             config_dict = {
                 "type": "wireguard",
@@ -121,15 +117,8 @@ class ConfigToSingbox:
                 "reserved": reserved_b64,
                 "mtu": mtu
             }
-            if noise_type:
-                noise = {"type": noise_type}
-                if noise_count:
-                    noise["count"] = int(noise_count)
-                if noise_delay:
-                    noise["delay"] = int(noise_delay)
-                if payload_size:
-                    noise["payload_size"] = payload_size
-                config_dict["wnoise"] = noise
+            if keepalive:
+                config_dict["persistent_keepalive"] = keepalive
             return config_dict
         except Exception:
             return None
