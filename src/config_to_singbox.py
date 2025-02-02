@@ -90,35 +90,47 @@ class ConfigToSingbox:
                 return None
             private_key = unquote(url.username) if url.username else ""
             server = url.hostname
-            port = url.port if url.port else 0
+            remote_port = url.port if url.port else 0
             params = parse_qs(url.query)
             local_address = unquote(params.get("address", [""])[0])
             reserved_raw = unquote(params.get("reserved", [""])[0])
             if reserved_raw:
                 try:
-                    numbers = [int(x) for x in reserved_raw.split(',')]
-                    reserved_b64 = base64.b64encode(bytes(numbers)).decode('utf-8')
+                    reserved_list = [int(x) for x in reserved_raw.split(',')]
                 except Exception:
-                    reserved_b64 = ""
+                    reserved_list = [0, 0, 0]
             else:
-                reserved_b64 = ""
+                reserved_list = [0, 0, 0]
             public_key = unquote(params.get("publickey", [""])[0])
+            pre_shared_key = unquote(params.get("pre_shared_key", [""])[0])
             mtu = int(params.get("mtu", [1408])[0])
             keepalive = int(params.get("keepalive", [0])[0])
+            listen_port = 10000
+            interface_name = params.get("interface_name", ["wg0"])[0]
+            allowed_ips = params.get("allowed_ips", ["0.0.0.0/0"])[0]
             tag = f"wireguard-{str(uuid.uuid4())[:8]}"
-            config_dict = {
+            endpoint = {
                 "type": "wireguard",
                 "tag": tag,
-                "server": server,
-                "server_port": port,
-                "local_address": [local_address] if local_address else [],
+                "system": True,
+                "name": interface_name,
+                "mtu": mtu,
+                "address": [local_address] if local_address else [],
                 "private_key": private_key,
-                "peer_public_key": public_key,
-                "reserved": reserved_b64,
-                "mtu": mtu
+                "listen_port": listen_port,
+                "peers": [
+                    {
+                        "address": server,
+                        "port": remote_port,
+                        "public_key": public_key,
+                        "pre_shared_key": pre_shared_key,
+                        "allowed_ips": [allowed_ips],
+                        "persistent_keepalive_interval": keepalive if keepalive else 0,
+                        "reserved": reserved_list
+                    }
+                ]
             }
-            # حذف persistent_keepalive برای سازگاری با کلاینت Sing-box
-            return config_dict
+            return endpoint
         except Exception:
             return None
     def convert_to_singbox(self, config: str) -> Optional[Dict]:
@@ -238,6 +250,7 @@ class ConfigToSingbox:
             with open('configs/proxy_configs.txt', 'r') as f:
                 configs = f.read().strip().split('\n')
             outbounds = []
+            endpoints = []
             valid_tags = []
             for config in configs:
                 config = config.strip()
@@ -245,10 +258,11 @@ class ConfigToSingbox:
                     continue
                 converted = self.convert_to_singbox(config)
                 if converted:
-                    outbounds.append(converted)
-                    valid_tags.append(converted['tag'])
-            if not outbounds:
-                return
+                    if converted.get("type") == "wireguard":
+                        endpoints.append(converted)
+                    else:
+                        outbounds.append(converted)
+                        valid_tags.append(converted['tag'])
             dns_config = {
                 "dns": {
                     "final": "local-dns",
@@ -285,6 +299,8 @@ class ConfigToSingbox:
                 ]
             }
             config_dict = {**dns_config, "inbounds": inbounds_config, "outbounds": outbounds_config, "route": route_config}
+            if endpoints:
+                config_dict["endpoints"] = endpoints
             with open(self.output_file, 'w') as f:
                 json.dump(config_dict, f, indent=2, ensure_ascii=False)
         except Exception as e:
