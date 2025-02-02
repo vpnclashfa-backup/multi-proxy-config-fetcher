@@ -97,8 +97,7 @@ class ConfigToSingbox:
             if reserved_raw:
                 try:
                     numbers = [int(x) for x in reserved_raw.split(',')]
-                    reserved_bytes = bytes(numbers)
-                    reserved_b64 = base64.b64encode(reserved_bytes).decode('utf-8')
+                    reserved_b64 = base64.b64encode(bytes(numbers)).decode('utf-8')
                 except Exception:
                     reserved_b64 = ""
             else:
