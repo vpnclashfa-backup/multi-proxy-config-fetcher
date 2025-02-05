@@ -24,6 +24,47 @@ class ConfigToSingbox:
     def clean_url(self, url: str) -> str:
         return re.sub(r'[\x00-\x1F\x7F-\x9F]', '', url)
 
+    def parse_wireguard(self, config: str) -> Optional[Dict]:
+        try:
+            if not config.startswith('wireguard://'):
+                return None
+
+            config = config.replace('wireguard://', '')
+            decoded = self.safe_base64_decode(config)
+            if not decoded:
+                return None
+
+            try:
+                wg_data = json.loads(decoded)
+                if isinstance(wg_data, dict):
+                    return {
+                        'private_key': wg_data.get('private_key', ''),
+                        'peer_public_key': wg_data.get('public_key', ''),
+                        'server': wg_data.get('server', ''),
+                        'server_port': int(wg_data.get('port', 0)),
+                        'address': wg_data.get('ip', '')
+                    }
+            except:
+                parts = decoded.split(',')
+                wg_data = {}
+                for part in parts:
+                    if '=' in part:
+                        key, value = part.split('=', 1)
+                        wg_data[key.strip()] = value.strip()
+                
+                endpoint = wg_data.get('endpoint', ':0')
+                server, port = endpoint.split(':') if ':' in endpoint else (endpoint, '0')
+                
+                return {
+                    'private_key': wg_data.get('private_key', ''),
+                    'peer_public_key': wg_data.get('public_key', ''),
+                    'server': server,
+                    'server_port': int(port),
+                    'address': wg_data.get('ip', '')
+                }
+        except:
+            return None
+
     def decode_vmess(self, config: str) -> Optional[Dict]:
         try:
             encoded = config.replace('vmess://', '').strip()
@@ -156,7 +197,24 @@ class ConfigToSingbox:
             config = config.strip()
             config_lower = config.lower()
 
-            if config_lower.startswith('vmess://'):
+            if config_lower.startswith('wireguard://'):
+                wg_data = self.parse_wireguard(config)
+                if not wg_data or not wg_data.get('server') or not wg_data.get('private_key'):
+                    return None
+
+                return {
+                    "type": "wireguard",
+                    "tag": f"wireguard-{str(uuid.uuid4())[:8]}",
+                    "server": wg_data['server'],
+                    "server_port": wg_data['server_port'],
+                    "local_address": [addr.strip() for addr in wg_data['address'].split(',')] if ',' in wg_data['address'] else [wg_data['address']],
+                    "private_key": wg_data['private_key'],
+                    "peer_public_key": wg_data['peer_public_key'],
+                    "mtu": 1420,
+                    "reserved": [0, 0, 0]
+                }
+
+            elif config_lower.startswith('vmess://'):
                 vmess_data = self.decode_vmess(config)
                 if not vmess_data:
                     return None
