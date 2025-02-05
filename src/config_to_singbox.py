@@ -30,37 +30,33 @@ class ConfigToSingbox:
                 return None
 
             config = config.replace('wireguard://', '')
-            decoded = self.safe_base64_decode(config)
-            if not decoded:
-                return None
-
-            try:
-                wg_data = json.loads(decoded)
-                if isinstance(wg_data, dict):
-                    return {
-                        'private_key': wg_data.get('private_key', ''),
-                        'peer_public_key': wg_data.get('public_key', ''),
-                        'server': wg_data.get('server', ''),
-                        'server_port': int(wg_data.get('port', 0)),
-                        'address': wg_data.get('ip', '')
-                    }
-            except:
-                parts = decoded.split(',')
+            if '[' in config:
+                wg_data = json.loads(config)
+                return {
+                    'private_key': wg_data.get('private_key', ''),
+                    'peer_public_key': wg_data.get('public_key', ''),
+                    'server': wg_data.get('server', ''),
+                    'server_port': int(wg_data.get('port', 0)),
+                    'address': wg_data.get('address', '')
+                }
+            else:
+                decoded = self.safe_base64_decode(config)
+                if not decoded:
+                    return None
+                parts = decoded.split('\n')
                 wg_data = {}
                 for part in parts:
                     if '=' in part:
                         key, value = part.split('=', 1)
                         wg_data[key.strip()] = value.strip()
-                
-                endpoint = wg_data.get('endpoint', ':0')
-                server, port = endpoint.split(':') if ':' in endpoint else (endpoint, '0')
-                
+                server = wg_data.get('Endpoint', '').split(':')[0]
+                port = int(wg_data.get('Endpoint', ':0').split(':')[1])
                 return {
-                    'private_key': wg_data.get('private_key', ''),
-                    'peer_public_key': wg_data.get('public_key', ''),
+                    'private_key': wg_data.get('PrivateKey', ''),
+                    'peer_public_key': wg_data.get('PublicKey', ''),
                     'server': server,
-                    'server_port': int(port),
-                    'address': wg_data.get('ip', '')
+                    'server_port': port,
+                    'address': wg_data.get('Address', '')
                 }
         except:
             return None
