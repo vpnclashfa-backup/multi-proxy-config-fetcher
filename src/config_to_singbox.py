@@ -7,6 +7,8 @@ from urllib.parse import urlparse, parse_qs
 class ConfigToSingbox:
     def __init__(self):
         self.output_file = 'configs/singbox_configs.json'
+        self.profile_header = "//profile-title: base64:8J+RvUFub255bW91cy3wnZWPKHNpbmctYm94KQ==\n//profile-update-interval: 1\n//subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531\n//support-url: https://t.me/BXAMbot\n//profile-web-page-url: https://github.com/4n0nymou3"
+
     def decode_vmess(self, config: str) -> Optional[Dict]:
         try:
             encoded = config.replace('vmess://', '')
@@ -14,6 +16,7 @@ class ConfigToSingbox:
             return json.loads(decoded)
         except Exception:
             return None
+
     def parse_vless(self, config: str) -> Optional[Dict]:
         try:
             url = urlparse(config)
@@ -34,6 +37,7 @@ class ConfigToSingbox:
             }
         except Exception:
             return None
+
     def parse_trojan(self, config: str) -> Optional[Dict]:
         try:
             url = urlparse(config)
@@ -52,6 +56,7 @@ class ConfigToSingbox:
             }
         except Exception:
             return None
+
     def parse_hysteria2(self, config: str) -> Optional[Dict]:
         try:
             url = urlparse(config)
@@ -66,6 +71,7 @@ class ConfigToSingbox:
             }
         except Exception:
             return None
+
     def parse_shadowsocks(self, config: str) -> Optional[Dict]:
         try:
             parts = config.replace('ss://', '').split('@')
@@ -83,6 +89,7 @@ class ConfigToSingbox:
             }
         except Exception:
             return None
+
     def convert_to_singbox(self, config: str) -> Optional[Dict]:
         try:
             config_lower = config.lower()
@@ -190,6 +197,7 @@ class ConfigToSingbox:
             return None
         except Exception:
             return None
+
     def process_configs(self):
         try:
             with open('configs/proxy_configs.txt', 'r') as f:
@@ -243,11 +251,14 @@ class ConfigToSingbox:
             }
             singbox_config = {**dns_config, "inbounds": inbounds_config, "outbounds": outbounds_config, "route": route_config}
             with open(self.output_file, 'w') as f:
+                f.write(self.profile_header + "\n\n")
                 json.dump(singbox_config, f, indent=2, ensure_ascii=False)
         except Exception as e:
             print(f"Error processing configs: {str(e)}")
+
 def main():
     converter = ConfigToSingbox()
     converter.process_configs()
+
 if __name__ == '__main__':
     main()
