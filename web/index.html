@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sing-box Config Converter</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.7/ace.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #editor {
+            height: 300px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .error {
+            color: red;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sing-box Config Converter</h1>
+        <p>Enter your proxy link (Trojan/Vmess/Vless/Hysteria2/Shadowsocks):</p>
+        <textarea id="input" rows="3" placeholder="Enter your proxy link here..."></textarea>
+        <button onclick="convertConfig()">Convert to Sing-box</button>
+        <button onclick="clearAll()">Clear</button>
+        <div id="error" class="error"></div>
+        <h3>Sing-box Configuration:</h3>
+        <div id="editor"></div>
+        <button onclick="copyToClipboard()">Copy to Clipboard</button>
+    </div>
+
+    <script>
+        // Initialize ACE editor
+        var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/monokai");
+        editor.session.setMode("ace/mode/json");
+        editor.setReadOnly(true);
+
+        function convertConfig() {
+            const input = document.getElementById('input').value.trim();
+            const errorDiv = document.getElementById('error');
+            
+            if (!input) {
+                errorDiv.textContent = 'Please enter a proxy link';
+                return;
+            }
+
+            try {
+                let config;
+                if (input.startsWith('vmess://')) {
+                    config = convertVmess(input);
+                } else if (input.startsWith('vless://')) {
+                    config = convertVless(input);
+                } else if (input.startsWith('trojan://')) {
+                    config = convertTrojan(input);
+                } else if (input.startsWith('hysteria2://') || input.startsWith('hy2://')) {
+                    config = convertHysteria2(input);
+                } else if (input.startsWith('ss://')) {
+                    config = convertShadowsocks(input);
+                } else {
+                    throw new Error('Unsupported protocol');
+                }
+
+                const singboxConfig = createSingboxConfig(config);
+                editor.setValue(JSON.stringify(singboxConfig, null, 2));
+                errorDiv.textContent = '';
+            } catch (error) {
+                errorDiv.textContent = error.message;
+                editor.setValue('');
+            }
+        }
+
+        function createSingboxConfig(outbound) {
+            return {
+                dns: {
+                    servers: [
+                        {
+                            address: "tls://208.67.222.123",
+                            address_resolver: "local-dns",
+                            detour: "proxy",
+                            tag: "proxy-dns"
+                        },
+                        {
+                            address: "local",
+                            detour: "direct",
+                            tag: "local-dns"
+                        }
+                    ]
+                },
+                inbounds: [
+                    {
+                        type: "mixed",
+                        listen: "127.0.0.1",
+                        listen_port: 2080
+                    }
+                ],
+                outbounds: [outbound, {
+                    type: "direct",
+                    tag: "direct"
+                }],
+                route: {
+                    rules: [
+                        {
+                            protocol: "dns",
+                            outbound: "dns-out"
+                        }
+                    ]
+                }
+            };
+        }
+
+        function convertVmess(input) {
+            try {
+                const data = JSON.parse(atob(input.replace('vmess://', '')));
+                return {
+                    type: "vmess",
+                    tag: `vmess-${generateUUID().slice(0, 8)}`,
+                    server: data.add,
+                    server_port: parseInt(data.port),
+                    uuid: data.id,
+                    security: data.scy || "auto",
+                    alter_id: parseInt(data.aid || 0),
+                    transport: createTransport(data),
+                    tls: {
+                        enabled: data.tls === 'tls',
+                        insecure: true,
+                        server_name: data.sni || data.add
+                    }
+                };
+            } catch (error) {
+                throw new Error('Invalid VMess configuration');
+            }
+        }
+
+        function convertVless(input) {
+            try {
+                const url = new URL(input);
+                const address = url.hostname;
+                const port = url.port || 443;
+                const params = new URLSearchParams(url.search);
+
+                return {
+                    type: "vless",
+                    tag: `vless-${generateUUID().slice(0, 8)}`,
+                    server: address,
+                    server_port: parseInt(port),
+                    uuid: url.username,
+                    flow: params.get('flow') || '',
+                    transport: createTransportFromParams(params),
+                    tls: {
+                        enabled: true,
+                        server_name: params.get('sni') || address,
+                        insecure: true
+                    }
+                };
+            } catch (error) {
+                throw new Error('Invalid VLESS configuration');
+            }
+        }
+
+        function convertTrojan(input) {
+            try {
+                const url = new URL(input);
+                const params = new URLSearchParams(url.search);
+
+                return {
+                    type: "trojan",
+                    tag: `trojan-${generateUUID().slice(0, 8)}`,
+                    server: url.hostname,
+                    server_port: parseInt(url.port || 443),
+                    password: url.username,
+                    transport: createTransportFromParams(params),
+                    tls: {
+                        enabled: true,
+                        server_name: params.get('sni') || url.hostname,
+                        insecure: true,
+                        alpn: (params.get('alpn') || '').split(',').filter(Boolean)
+                    }
+                };
+            } catch (error) {
+                throw new Error('Invalid Trojan configuration');
+            }
+        }
+
+        function convertHysteria2(input) {
+            try {
+                const url = new URL(input);
+                const params = new URLSearchParams(url.search);
+
+                return {
+                    type: "hysteria2",
+                    tag: `hysteria2-${generateUUID().slice(0, 8)}`,
+                    server: url.hostname,
+                    server_port: parseInt(url.port),
+                    password: url.username || params.get('password') || '',
+                    tls: {
+                        enabled: true,
+                        server_name: params.get('sni') || url.hostname,
+                        insecure: true
+                    }
+                };
+            } catch (error) {
+                throw new Error('Invalid Hysteria2 configuration');
+            }
+        }
+
+        function convertShadowsocks(input) {
+            try {
+                const ss = input.replace('ss://', '');
+                const [serverPart, _] = ss.split('#');
+                const [methodAndPass, serverAndPort] = serverPart.split('@');
+                const [method, password] = atob(methodAndPass).split(':');
+                const [server, port] = serverAndPort.split(':');
+
+                return {
+                    type: "shadowsocks",
+                    tag: `ss-${generateUUID().slice(0, 8)}`,
+                    server: server,
+                    server_port: parseInt(port),
+                    method: method,
+                    password: password
+                };
+            } catch (error) {
+                throw new Error('Invalid Shadowsocks configuration');
+            }
+        }
+
+        function createTransport(data) {
+            const transport = {};
+            if (data.net && data.net !== 'tcp') {
+                transport.type = data.net;
+                if (data.path) transport.path = data.path;
+                if (data.host) transport.headers = { Host: data.host };
+            }
+            return transport;
+        }
+
+        function createTransportFromParams(params) {
+            const transport = {};
+            const type = params.get('type');
+            if (type && type !== 'tcp') {
+                transport.type = type;
+                if (params.get('path')) transport.path = params.get('path');
+                if (params.get('host')) transport.headers = { Host: params.get('host') };
+            }
+            return transport;
+        }
+
+        function generateUUID() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+
+        function copyToClipboard() {
+            const content = editor.getValue();
+            if (!content) return;
+
+            navigator.clipboard.writeText(content)
+                .then(() => alert('Configuration copied to clipboard!'))
+                .catch(err => console.error('Failed to copy:', err));
+        }
+
+        function clearAll() {
+            document.getElementById('input').value = '';
+            editor.setValue('');
+            document.getElementById('error').textContent = '';
+        }
+    </script>
+</body>
+</html>
