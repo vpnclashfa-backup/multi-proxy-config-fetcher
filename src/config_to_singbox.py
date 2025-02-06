@@ -94,7 +94,12 @@ class ConfigToSingbox:
             params = parse_qs(url.query)
             public_key = unquote(params.get('publickey', [''])[0])
             preshared_key = unquote(params.get('presharedkey', [''])[0])
-            allowed_ips = unquote(params.get('address', ['0.0.0.0/0'])[0])
+            local_address = unquote(params.get('address', ['0.0.0.0/0'])[0])
+            reserved_str = unquote(params.get('reserved', [''])[0])
+            if reserved_str:
+                reserved = [int(x) for x in reserved_str.split(',') if x.strip().isdigit()]
+            else:
+                reserved = [0, 0, 0]
             mtu = int(params.get('mtu', [1280])[0])
             return {
                 'private_key': private_key,
@@ -102,7 +107,8 @@ class ConfigToSingbox:
                 'server': server,
                 'port': port,
                 'preshared_key': preshared_key,
-                'allowed_ips': allowed_ips,
+                'local_address': local_address,
+                'reserved': reserved,
                 'mtu': mtu
             }
         except Exception:
@@ -220,11 +226,20 @@ class ConfigToSingbox:
                     "tag": f"wireguard-{str(uuid.uuid4())[:8]}",
                     "server": wg_data['server'],
                     "server_port": wg_data['port'],
-                    "secret": wg_data['private_key'],
-                    "public": wg_data['public_key'],
-                    "psk": wg_data['preshared_key'],
-                    "ips": wg_data['allowed_ips'],
-                    "mtu": wg_data['mtu']
+                    "interface": {
+                        "name": "wg0",
+                        "local_address": [wg_data['local_address']],
+                        "private_key": wg_data['private_key']
+                    },
+                    "peer": {
+                        "public_key": wg_data['public_key'],
+                        "pre_shared_key": wg_data['preshared_key'],
+                        "allowed_ips": ["0.0.0.0/0"],
+                        "reserved": wg_data['reserved']
+                    },
+                    "workers": 4,
+                    "mtu": wg_data['mtu'],
+                    "network": "tcp"
                 }
             return None
         except Exception:
