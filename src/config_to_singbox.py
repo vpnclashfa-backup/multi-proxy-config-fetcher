@@ -226,17 +226,18 @@ class ConfigToSingbox:
                     "tag": f"wireguard-{str(uuid.uuid4())[:8]}",
                     "server": wg_data['server'],
                     "server_port": wg_data['port'],
-                    "interface": {
-                        "name": "wg0",
-                        "local_address": [wg_data['local_address']],
-                        "private_key": wg_data['private_key']
-                    },
-                    "peer": {
-                        "public_key": wg_data['public_key'],
-                        "pre_shared_key": wg_data['preshared_key'],
-                        "allowed_ips": ["0.0.0.0/0"],
-                        "reserved": wg_data['reserved']
-                    },
+                    "local_address": [wg_data['local_address']],
+                    "private_key": wg_data['private_key'],
+                    "peers": [
+                        {
+                            "public_key": wg_data['public_key'],
+                            "pre_shared_key": wg_data['preshared_key'],
+                            "allowed_ips": [wg_data['allowed_ips']],
+                            "reserved": wg_data['reserved'],
+                            "server": wg_data['server'],
+                            "server_port": wg_data['port']
+                        }
+                    ],
                     "workers": 4,
                     "mtu": wg_data['mtu'],
                     "network": "tcp"
