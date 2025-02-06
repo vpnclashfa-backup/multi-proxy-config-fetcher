@@ -83,6 +83,28 @@ class ConfigToSingbox:
             }
         except Exception:
             return None
+    def parse_wireguard(self, config: str) -> Optional[Dict]:
+        try:
+            url = urlparse(config)
+            if url.scheme.lower() != 'wireguard' or not url.hostname:
+                return None
+            public_key = url.username
+            server = url.hostname
+            port = url.port if url.port else 51820
+            params = parse_qs(url.query)
+            private_key = params.get('private_key', [''])[0]
+            preshared_key = params.get('preshared_key', [''])[0]
+            allowed_ips = params.get('allowed_ips', ['0.0.0.0/0'])[0]
+            return {
+                'public_key': public_key,
+                'server': server,
+                'port': port,
+                'private_key': private_key,
+                'preshared_key': preshared_key,
+                'allowed_ips': allowed_ips
+            }
+        except Exception:
+            return None
     def convert_to_singbox(self, config: str) -> Optional[Dict]:
         try:
             config_lower = config.lower()
@@ -186,6 +208,20 @@ class ConfigToSingbox:
                     "server_port": ss_data['port'],
                     "method": ss_data['method'],
                     "password": ss_data['password']
+                }
+            elif config_lower.startswith('wireguard://'):
+                wg_data = self.parse_wireguard(config)
+                if not wg_data or not wg_data.get('server') or not wg_data.get('public_key'):
+                    return None
+                return {
+                    "type": "wireguard",
+                    "tag": f"wireguard-{str(uuid.uuid4())[:8]}",
+                    "server": wg_data['server'],
+                    "server_port": wg_data['port'],
+                    "public_key": wg_data['public_key'],
+                    "private_key": wg_data['private_key'],
+                    "preshared_key": wg_data['preshared_key'],
+                    "allowed_ips": wg_data['allowed_ips']
                 }
             return None
         except Exception:
