@@ -92,16 +92,15 @@ class ConfigToSingbox:
             server = url.hostname
             port = url.port if url.port else 51820
             params = parse_qs(url.query)
-            private_key = params.get('private_key', [''])[0]
-            preshared_key = params.get('preshared_key', [''])[0]
-            allowed_ips = params.get('allowed_ips', ['0.0.0.0/0'])[0]
             return {
                 'public_key': public_key,
                 'server': server,
                 'port': port,
-                'private_key': private_key,
-                'preshared_key': preshared_key,
-                'allowed_ips': allowed_ips
+                'private_key': params.get('private_key', [''])[0],
+                'preshared_key': params.get('preshared_key', [''])[0],
+                'allowed_ips': params.get('allowed_ips', ['0.0.0.0/0'])[0],
+                'endpoint': params.get('endpoint', [f"{server}:{port}"])[0],
+                'mtu': int(params.get('mtu', [1280])[0])
             }
         except Exception:
             return None
@@ -211,17 +210,23 @@ class ConfigToSingbox:
                 }
             elif config_lower.startswith('wireguard://'):
                 wg_data = self.parse_wireguard(config)
-                if not wg_data or not wg_data.get('server') or not wg_data.get('public_key'):
+                if not wg_data or not wg_data.get('server') or not wg_data.get('public_key') or not wg_data.get('private_key'):
                     return None
                 return {
                     "type": "wireguard",
                     "tag": f"wireguard-{str(uuid.uuid4())[:8]}",
-                    "server": wg_data['server'],
-                    "server_port": wg_data['port'],
-                    "public_key": wg_data['public_key'],
-                    "private_key": wg_data['private_key'],
-                    "preshared_key": wg_data['preshared_key'],
-                    "allowed_ips": wg_data['allowed_ips']
+                    "settings": {
+                        "secretKey": wg_data['private_key'],
+                        "address": f"{wg_data['server']}:{wg_data['port']}",
+                        "peers": [
+                            {
+                                "publicKey": wg_data['public_key'],
+                                "allowedIPs": [wg_data.get('allowed_ips', "0.0.0.0/0")],
+                                "endpoint": wg_data.get('endpoint', f"{wg_data['server']}:{wg_data['port']}")
+                            }
+                        ],
+                        "mtu": wg_data.get('mtu', 1280)
+                    }
                 }
             return None
         except Exception:
@@ -239,7 +244,7 @@ class ConfigToSingbox:
                 converted = self.convert_to_singbox(config)
                 if converted:
                     outbounds.append(converted)
-                    valid_tags.append(converted['tag'])
+                    valid_tags.append(converted.get('tag', ''))
             if not outbounds:
                 return
             dns_config = {
@@ -282,8 +287,10 @@ class ConfigToSingbox:
                 json.dump(singbox_config, f, indent=2, ensure_ascii=False)
         except Exception as e:
             print(f"Error processing configs: {str(e)}")
+
 def main():
     converter = ConfigToSingbox()
     converter.process_configs()
+
 if __name__ == '__main__':
     main()
