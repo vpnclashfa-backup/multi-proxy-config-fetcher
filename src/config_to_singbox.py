@@ -220,10 +220,10 @@ class ConfigToSingbox:
                     "tag": f"wireguard-{str(uuid.uuid4())[:8]}",
                     "server": wg_data['server'],
                     "server_port": wg_data['port'],
-                    "secretKey": wg_data['private_key'],
+                    "privateKey": wg_data['private_key'],
                     "publicKey": wg_data['public_key'],
-                    "preshared_key": wg_data['preshared_key'],
-                    "allowed_ips": wg_data['allowed_ips'],
+                    "presharedKey": wg_data['preshared_key'],
+                    "allowedIPs": wg_data['allowed_ips'],
                     "mtu": wg_data['mtu']
                 }
             return None
