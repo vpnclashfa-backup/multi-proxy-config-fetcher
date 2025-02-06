@@ -2,7 +2,7 @@ import json
 import base64
 import uuid
 from typing import Dict, Optional
-from urllib.parse import urlparse, parse_qs
+from urllib.parse import urlparse, parse_qs, unquote
 
 class ConfigToSingbox:
     def __init__(self):
@@ -88,19 +88,23 @@ class ConfigToSingbox:
             url = urlparse(config)
             if url.scheme.lower() != 'wireguard' or not url.hostname:
                 return None
-            public_key = url.username
+            private_key = unquote(url.username) if url.username else ""
             server = url.hostname
             port = url.port if url.port else 51820
             params = parse_qs(url.query)
+            public_key = unquote(params.get('publickey', [''])[0])
+            preshared_key = unquote(params.get('presharedkey', [''])[0])
+            allowed_ips = unquote(params.get('address', ['0.0.0.0/0'])[0])
+            mtu = int(params.get('mtu', [1280])[0])
             return {
+                'private_key': private_key,
                 'public_key': public_key,
                 'server': server,
                 'port': port,
-                'private_key': params.get('private_key', [''])[0],
-                'preshared_key': params.get('preshared_key', [''])[0],
-                'allowed_ips': params.get('allowed_ips', ['0.0.0.0/0'])[0],
-                'endpoint': params.get('endpoint', [f"{server}:{port}"])[0],
-                'mtu': int(params.get('mtu', [1280])[0])
+                'preshared_key': preshared_key,
+                'allowed_ips': allowed_ips,
+                'endpoint': f"{server}:{port}",
+                'mtu': mtu
             }
         except Exception:
             return None
@@ -221,11 +225,11 @@ class ConfigToSingbox:
                         "peers": [
                             {
                                 "publicKey": wg_data['public_key'],
-                                "allowedIPs": [wg_data.get('allowed_ips', "0.0.0.0/0")],
-                                "endpoint": wg_data.get('endpoint', f"{wg_data['server']}:{wg_data['port']}")
+                                "allowedIPs": [wg_data['allowed_ips']],
+                                "endpoint": wg_data['endpoint']
                             }
                         ],
-                        "mtu": wg_data.get('mtu', 1280)
+                        "mtu": wg_data['mtu']
                     }
                 }
             return None
