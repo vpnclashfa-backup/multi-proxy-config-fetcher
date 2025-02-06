@@ -2,7 +2,7 @@ import json
 import base64
 import uuid
 from typing import Dict, Optional
-from urllib.parse import urlparse, parse_qs, unquote
+from urllib.parse import urlparse, parse_qs
 
 class ConfigToSingbox:
     def __init__(self):
@@ -80,36 +80,6 @@ class ConfigToSingbox:
                 'password': password,
                 'address': host,
                 'port': int(port)
-            }
-        except Exception:
-            return None
-    def parse_wireguard(self, config: str) -> Optional[Dict]:
-        try:
-            url = urlparse(config)
-            if url.scheme.lower() != 'wireguard' or not url.hostname:
-                return None
-            private_key = unquote(url.username) if url.username else ""
-            server = url.hostname
-            port = url.port if url.port else 51820
-            params = parse_qs(url.query)
-            public_key = unquote(params.get('publickey', [''])[0])
-            preshared_key = unquote(params.get('presharedkey', [''])[0])
-            local_address = unquote(params.get('address', ['0.0.0.0/0'])[0])
-            reserved_str = unquote(params.get('reserved', [''])[0])
-            if reserved_str:
-                reserved = [int(x) for x in reserved_str.split(',') if x.strip().isdigit()]
-            else:
-                reserved = [0, 0, 0]
-            mtu = int(params.get('mtu', [1280])[0])
-            return {
-                'private_key': private_key,
-                'public_key': public_key,
-                'server': server,
-                'port': port,
-                'preshared_key': preshared_key,
-                'local_address': local_address,
-                'reserved': reserved,
-                'mtu': mtu
             }
         except Exception:
             return None
@@ -217,31 +187,6 @@ class ConfigToSingbox:
                     "method": ss_data['method'],
                     "password": ss_data['password']
                 }
-            elif config_lower.startswith('wireguard://'):
-                wg_data = self.parse_wireguard(config)
-                if not wg_data or not wg_data.get('server') or not wg_data.get('public_key') or not wg_data.get('private_key'):
-                    return None
-                return {
-                    "type": "wireguard",
-                    "tag": f"wireguard-{str(uuid.uuid4())[:8]}",
-                    "server": wg_data['server'],
-                    "server_port": wg_data['port'],
-                    "local_address": [wg_data['local_address']],
-                    "private_key": wg_data['private_key'],
-                    "peers": [
-                        {
-                            "public_key": wg_data['public_key'],
-                            "pre_shared_key": wg_data['preshared_key'],
-                            "allowed_ips": [wg_data['allowed_ips']],
-                            "reserved": wg_data['reserved'],
-                            "server": wg_data['server'],
-                            "server_port": wg_data['port']
-                        }
-                    ],
-                    "workers": 4,
-                    "mtu": wg_data['mtu'],
-                    "network": "tcp"
-                }
             return None
         except Exception:
             return None
@@ -258,7 +203,7 @@ class ConfigToSingbox:
                 converted = self.convert_to_singbox(config)
                 if converted:
                     outbounds.append(converted)
-                    valid_tags.append(converted.get('tag', ''))
+                    valid_tags.append(converted['tag'])
             if not outbounds:
                 return
             dns_config = {
@@ -301,10 +246,8 @@ class ConfigToSingbox:
                 json.dump(singbox_config, f, indent=2, ensure_ascii=False)
         except Exception as e:
             print(f"Error processing configs: {str(e)}")
-
 def main():
     converter = ConfigToSingbox()
     converter.process_configs()
-
 if __name__ == '__main__':
     main()
