@@ -103,7 +103,6 @@ class ConfigToSingbox:
                 'port': port,
                 'preshared_key': preshared_key,
                 'allowed_ips': allowed_ips,
-                'endpoint': f"{server}:{port}",
                 'mtu': mtu
             }
         except Exception:
@@ -219,18 +218,13 @@ class ConfigToSingbox:
                 return {
                     "type": "wireguard",
                     "tag": f"wireguard-{str(uuid.uuid4())[:8]}",
-                    "settings": {
-                        "secretKey": wg_data['private_key'],
-                        "address": f"{wg_data['server']}:{wg_data['port']}",
-                        "peers": [
-                            {
-                                "publicKey": wg_data['public_key'],
-                                "allowedIPs": [wg_data['allowed_ips']],
-                                "endpoint": wg_data['endpoint']
-                            }
-                        ],
-                        "mtu": wg_data['mtu']
-                    }
+                    "server": wg_data['server'],
+                    "server_port": wg_data['port'],
+                    "secretKey": wg_data['private_key'],
+                    "publicKey": wg_data['public_key'],
+                    "preshared_key": wg_data['preshared_key'],
+                    "allowed_ips": wg_data['allowed_ips'],
+                    "mtu": wg_data['mtu']
                 }
             return None
         except Exception:
