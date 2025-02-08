@@ -1,21 +1,20 @@
 import json
 import base64
 import uuid
+from typing import Dict, Optional
 from urllib.parse import urlparse, parse_qs
 
 class ConfigToSingbox:
     def __init__(self):
         self.output_file = 'configs/singbox_configs.json'
-    
-    def decode_vmess(self, config: str):
+    def decode_vmess(self, config: str) -> Optional[Dict]:
         try:
             encoded = config.replace('vmess://', '')
             decoded = base64.b64decode(encoded).decode('utf-8')
             return json.loads(decoded)
         except Exception:
             return None
-
-    def parse_vless(self, config: str):
+    def parse_vless(self, config: str) -> Optional[Dict]:
         try:
             url = urlparse(config)
             if url.scheme.lower() != 'vless' or not url.hostname:
@@ -35,8 +34,7 @@ class ConfigToSingbox:
             }
         except Exception:
             return None
-
-    def parse_trojan(self, config: str):
+    def parse_trojan(self, config: str) -> Optional[Dict]:
         try:
             url = urlparse(config)
             if url.scheme.lower() != 'trojan' or not url.hostname:
@@ -48,14 +46,13 @@ class ConfigToSingbox:
                 'address': url.hostname,
                 'port': port,
                 'sni': params.get('sni', [url.hostname])[0],
-                'alpn': params.get('alpn', [''])[0].split(','),
+                'alpn': params.get('alpn', [''])[0],
                 'type': params.get('type', ['tcp'])[0],
                 'path': params.get('path', [''])[0]
             }
         except Exception:
             return None
-
-    def parse_hysteria2(self, config: str):
+    def parse_hysteria2(self, config: str) -> Optional[Dict]:
         try:
             url = urlparse(config)
             if url.scheme.lower() not in ['hysteria2', 'hy2'] or not url.hostname or not url.port:
@@ -65,19 +62,17 @@ class ConfigToSingbox:
                 'address': url.hostname,
                 'port': url.port,
                 'password': url.username or query.get('password', ''),
-                'sni': query.get('sni', url.hostname),
-                'obfs': query.get('obfs', '')
+                'sni': query.get('sni', url.hostname)
             }
         except Exception:
             return None
-
-    def parse_shadowsocks(self, config: str):
+    def parse_shadowsocks(self, config: str) -> Optional[Dict]:
         try:
             parts = config.replace('ss://', '').split('@')
             if len(parts) != 2:
                 return None
-            method_pass = base64.b64decode(parts[0] + '==').decode('utf-8')
-            method, password = method_pass.split(':', 1)
+            method_pass = base64.b64decode(parts[0]).decode('utf-8')
+            method, password = method_pass.split(':')
             server_parts = parts[1].split('#')[0]
             host, port = server_parts.split(':')
             return {
@@ -88,8 +83,7 @@ class ConfigToSingbox:
             }
         except Exception:
             return None
-
-    def convert_to_singbox(self, config: str):
+    def convert_to_singbox(self, config: str) -> Optional[Dict]:
         try:
             config_lower = config.lower()
             if config_lower.startswith('vmess://'):
@@ -97,37 +91,38 @@ class ConfigToSingbox:
                 if not vmess_data or not vmess_data.get('add') or not vmess_data.get('port') or not vmess_data.get('id'):
                     return None
                 transport = {}
-                if vmess_data.get('net') in ['ws', 'http']:
-                    transport.update({
-                        "type": vmess_data['net'],
-                        "path": vmess_data.get('path', ''),
-                        "headers": {"Host": vmess_data.get('host', '')} if vmess_data.get('host') else {}
-                    })
+                if vmess_data.get('net') in ['ws', 'h2']:
+                    if vmess_data.get('path', ''):
+                        transport["path"] = vmess_data.get('path')
+                    if vmess_data.get('host', ''):
+                        transport["headers"] = {"Host": vmess_data.get('host')}
+                    transport["type"] = vmess_data.get('net', 'tcp')
                 return {
                     "type": "vmess",
                     "tag": f"vmess-{str(uuid.uuid4())[:8]}",
                     "server": vmess_data['add'],
-                    "server_port": vmess_data['port'],
+                    "server_port": int(vmess_data['port']),
                     "uuid": vmess_data['id'],
                     "security": vmess_data.get('scy', 'auto'),
+                    "alter_id": int(vmess_data.get('aid', 0)),
                     "transport": transport,
                     "tls": {
                         "enabled": vmess_data.get('tls') == 'tls',
+                        "insecure": True,
                         "server_name": vmess_data.get('sni', vmess_data['add'])
                     }
                 }
-
             elif config_lower.startswith('vless://'):
                 vless_data = self.parse_vless(config)
                 if not vless_data:
                     return None
                 transport = {}
                 if vless_data['type'] == 'ws':
-                    transport = {
-                        "type": "ws",
-                        "path": vless_data.get('path', ''),
-                        "headers": {"Host": vless_data.get('host', '')} if vless_data.get('host') else {}
-                    }
+                    if vless_data.get('path', ''):
+                        transport["path"] = vless_data.get('path')
+                    if vless_data.get('host', ''):
+                        transport["headers"] = {"Host": vless_data.get('host')}
+                    transport["type"] = "ws"
                 return {
                     "type": "vless",
                     "tag": f"vless-{str(uuid.uuid4())[:8]}",
@@ -137,22 +132,19 @@ class ConfigToSingbox:
                     "flow": vless_data['flow'],
                     "tls": {
                         "enabled": True,
-                        "server_name": vless_data['sni']
+                        "server_name": vless_data['sni'],
+                        "insecure": True
                     },
                     "transport": transport
                 }
-
             elif config_lower.startswith('trojan://'):
                 trojan_data = self.parse_trojan(config)
                 if not trojan_data:
                     return None
                 transport = {}
-                if trojan_data['type'] != 'tcp':
-                    transport = {
-                        "type": trojan_data['type'],
-                        "path": trojan_data.get('path', ''),
-                        "headers": {"Host": trojan_data.get('host', '')} if trojan_data.get('host') else {}
-                    }
+                if trojan_data['type'] != 'tcp' and trojan_data.get('path', ''):
+                    transport["path"] = trojan_data.get('path')
+                    transport["type"] = trojan_data['type']
                 return {
                     "type": "trojan",
                     "tag": f"trojan-{str(uuid.uuid4())[:8]}",
@@ -162,34 +154,30 @@ class ConfigToSingbox:
                     "tls": {
                         "enabled": True,
                         "server_name": trojan_data['sni'],
-                        "alpn": trojan_data['alpn']
+                        "alpn": trojan_data['alpn'].split(',') if trojan_data['alpn'] else [],
+                        "insecure": True
                     },
                     "transport": transport
                 }
-
-            elif config_lower.startswith(('hysteria2://', 'hy2://')):
+            elif config_lower.startswith('hysteria2://') or config_lower.startswith('hy2://'):
                 hy2_data = self.parse_hysteria2(config)
-                if not hy2_data:
+                if not hy2_data or not hy2_data.get('address') or not hy2_data.get('port'):
                     return None
                 return {
                     "type": "hysteria2",
-                    "tag": f"hy2-{str(uuid.uuid4())[:8]}",
+                    "tag": f"hysteria2-{str(uuid.uuid4())[:8]}",
                     "server": hy2_data['address'],
                     "server_port": hy2_data['port'],
                     "password": hy2_data['password'],
-                    "obfs": {
-                        "type": "salamander",
-                        "password": hy2_data['obfs']
-                    } if hy2_data['obfs'] else None,
                     "tls": {
                         "enabled": True,
+                        "insecure": True,
                         "server_name": hy2_data['sni']
                     }
                 }
-
             elif config_lower.startswith('ss://'):
                 ss_data = self.parse_shadowsocks(config)
-                if not ss_data:
+                if not ss_data or not ss_data.get('address') or not ss_data.get('port'):
                     return None
                 return {
                     "type": "shadowsocks",
@@ -199,19 +187,15 @@ class ConfigToSingbox:
                     "method": ss_data['method'],
                     "password": ss_data['password']
                 }
-
             return None
         except Exception:
             return None
-
     def process_configs(self):
         try:
             with open('configs/proxy_configs.txt', 'r') as f:
                 configs = f.read().strip().split('\n')
-            
             outbounds = []
             valid_tags = []
-            
             for config in configs:
                 config = config.strip()
                 if not config or config.startswith('//'):
@@ -220,57 +204,50 @@ class ConfigToSingbox:
                 if converted:
                     outbounds.append(converted)
                     valid_tags.append(converted['tag'])
-
             if not outbounds:
                 return
-
-            rule_set_config = {
-                "route": {
-                    "rules": [
-                        {
-                            "geosite": ["category-ads-all"],
-                            "outbound": "block"
-                        }
-                    ],
-                    "auto_detect_interface": True,
-                    "final": "proxy"
-                },
-                "outbounds": [
-                    {
-                        "type": "selector",
-                        "tag": "proxy",
-                        "outbounds": ["auto"] + valid_tags + ["direct"]
-                    },
-                    {
-                        "type": "urltest",
-                        "tag": "auto",
-                        "outbounds": valid_tags,
-                        "url": "https://www.gstatic.com/generate_204",
-                        "interval": "10m"
-                    },
-                    {"type": "direct", "tag": "direct"},
-                    {"type": "block", "tag": "block"}
-                ] + outbounds,
+            dns_config = {
                 "dns": {
-                    "servers": [
-                        {"tag": "remote", "address": "tls://8.8.8.8", "detour": "proxy"},
-                        {"tag": "local", "address": "local", "detour": "direct"}
-                    ],
+                    "final": "local-dns",
                     "rules": [
-                        {"outbound": "direct", "server": "local"},
-                        {"geosite": ["category-ads-all"], "server": "block"}
-                    ]
+                        {"clash_mode": "Global", "server": "proxy-dns", "source_ip_cidr": ["172.19.0.0/30"]},
+                        {"server": "proxy-dns", "source_ip_cidr": ["172.19.0.0/30"]},
+                        {"clash_mode": "Direct", "server": "direct-dns"}
+                    ],
+                    "servers": [
+                        {"address": "tls://208.67.222.123", "address_resolver": "local-dns", "detour": "proxy", "tag": "proxy-dns"},
+                        {"address": "local", "detour": "direct", "tag": "local-dns"},
+                        {"address": "rcode://success", "tag": "block"},
+                        {"address": "local", "detour": "direct", "tag": "direct-dns"}
+                    ],
+                    "strategy": "prefer_ipv4"
                 }
             }
-
+            inbounds_config = [
+                {"address": ["172.19.0.1/30", "fdfe:dcba:9876::1/126"], "auto_route": True, "endpoint_independent_nat": False, "mtu": 9000, "platform": {"http_proxy": {"enabled": True, "server": "127.0.0.1", "server_port": 2080}}, "sniff": True, "stack": "system", "strict_route": False, "type": "tun"},
+                {"listen": "127.0.0.1", "listen_port": 2080, "sniff": True, "type": "mixed", "users": []}
+            ]
+            outbounds_config = [
+                {"tag": "proxy", "type": "selector", "outbounds": ["auto"] + valid_tags + ["direct"]},
+                {"tag": "auto", "type": "urltest", "outbounds": valid_tags, "url": "http://www.gstatic.com/generate_204", "interval": "10m", "tolerance": 50},
+                {"tag": "direct", "type": "direct"}
+            ] + outbounds
+            route_config = {
+                "auto_detect_interface": True,
+                "final": "proxy",
+                "rules": [
+                    {"clash_mode": "Direct", "outbound": "direct"},
+                    {"clash_mode": "Global", "outbound": "proxy"},
+                    {"protocol": "dns", "action": "hijack-dns"}
+                ]
+            }
+            singbox_config = {**dns_config, "inbounds": inbounds_config, "outbounds": outbounds_config, "route": route_config}
             with open(self.output_file, 'w') as f:
-                json.dump(rule_set_config, f, indent=2, ensure_ascii=False)
-
+                json.dump(singbox_config, f, indent=2, ensure_ascii=False)
         except Exception as e:
-            print(f"Error: {str(e)}")
-
+            print(f"Error processing configs: {str(e)}")
 def main():
-    ConfigToSingbox().process_configs()
-
+    converter = ConfigToSingbox()
+    converter.process_configs()
 if __name__ == '__main__':
     main()
