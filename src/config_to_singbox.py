@@ -1,12 +1,33 @@
 import json
 import base64
 import uuid
+import time
+import socket
+import requests
 from typing import Dict, Optional
 from urllib.parse import urlparse, parse_qs
 
 class ConfigToSingbox:
     def __init__(self):
         self.output_file = 'configs/singbox_configs.json'
+        
+    def get_location(self, address: str) -> tuple:
+        try:
+            ip = socket.gethostbyname(address)
+            response = requests.get(f'http://ip-api.com/json/{ip}')
+            if response.status_code == 200:
+                data = response.json()
+                if data['status'] == 'success':
+                    country_code = data['countryCode'].lower()
+                    flag = f"🇦🇨"
+                    if len(country_code) == 2:
+                        flag = ''.join(chr(ord('🇦') + ord(c.upper()) - ord('A')) for c in country_code)
+                    return flag, data['country']
+            time.sleep(1.5)
+        except Exception:
+            pass
+        return "🏳️", "Unknown"
+
     def decode_vmess(self, config: str) -> Optional[Dict]:
         try:
             encoded = config.replace('vmess://', '')
@@ -14,6 +35,7 @@ class ConfigToSingbox:
             return json.loads(decoded)
         except Exception:
             return None
+
     def parse_vless(self, config: str) -> Optional[Dict]:
         try:
             url = urlparse(config)
@@ -34,6 +56,7 @@ class ConfigToSingbox:
             }
         except Exception:
             return None
+
     def parse_trojan(self, config: str) -> Optional[Dict]:
         try:
             url = urlparse(config)
@@ -52,6 +75,7 @@ class ConfigToSingbox:
             }
         except Exception:
             return None
+
     def parse_hysteria2(self, config: str) -> Optional[Dict]:
         try:
             url = urlparse(config)
@@ -66,6 +90,7 @@ class ConfigToSingbox:
             }
         except Exception:
             return None
+
     def parse_shadowsocks(self, config: str) -> Optional[Dict]:
         try:
             parts = config.replace('ss://', '').split('@')
@@ -83,6 +108,7 @@ class ConfigToSingbox:
             }
         except Exception:
             return None
+
     def convert_to_singbox(self, config: str) -> Optional[Dict]:
         try:
             config_lower = config.lower()
@@ -97,9 +123,10 @@ class ConfigToSingbox:
                     if vmess_data.get('host', ''):
                         transport["headers"] = {"Host": vmess_data.get('host')}
                     transport["type"] = vmess_data.get('net', 'tcp')
+                flag, country = self.get_location(vmess_data['add'])
                 return {
                     "type": "vmess",
-                    "tag": f"vmess-{str(uuid.uuid4())[:8]}",
+                    "tag": f"{flag} vmess-{str(uuid.uuid4())[:8]} ({country})",
                     "server": vmess_data['add'],
                     "server_port": int(vmess_data['port']),
                     "uuid": vmess_data['id'],
@@ -123,9 +150,10 @@ class ConfigToSingbox:
                     if vless_data.get('host', ''):
                         transport["headers"] = {"Host": vless_data.get('host')}
                     transport["type"] = "ws"
+                flag, country = self.get_location(vless_data['address'])
                 return {
                     "type": "vless",
-                    "tag": f"vless-{str(uuid.uuid4())[:8]}",
+                    "tag": f"{flag} vless-{str(uuid.uuid4())[:8]} ({country})",
                     "server": vless_data['address'],
                     "server_port": vless_data['port'],
                     "uuid": vless_data['uuid'],
@@ -145,9 +173,10 @@ class ConfigToSingbox:
                 if trojan_data['type'] != 'tcp' and trojan_data.get('path', ''):
                     transport["path"] = trojan_data.get('path')
                     transport["type"] = trojan_data['type']
+                flag, country = self.get_location(trojan_data['address'])
                 return {
                     "type": "trojan",
-                    "tag": f"trojan-{str(uuid.uuid4())[:8]}",
+                    "tag": f"{flag} trojan-{str(uuid.uuid4())[:8]} ({country})",
                     "server": trojan_data['address'],
                     "server_port": trojan_data['port'],
                     "password": trojan_data['password'],
@@ -163,9 +192,10 @@ class ConfigToSingbox:
                 hy2_data = self.parse_hysteria2(config)
                 if not hy2_data or not hy2_data.get('address') or not hy2_data.get('port'):
                     return None
+                flag, country = self.get_location(hy2_data['address'])
                 return {
                     "type": "hysteria2",
-                    "tag": f"hysteria2-{str(uuid.uuid4())[:8]}",
+                    "tag": f"{flag} hysteria2-{str(uuid.uuid4())[:8]} ({country})",
                     "server": hy2_data['address'],
                     "server_port": hy2_data['port'],
                     "password": hy2_data['password'],
@@ -179,9 +209,10 @@ class ConfigToSingbox:
                 ss_data = self.parse_shadowsocks(config)
                 if not ss_data or not ss_data.get('address') or not ss_data.get('port'):
                     return None
+                flag, country = self.get_location(ss_data['address'])
                 return {
                     "type": "shadowsocks",
-                    "tag": f"ss-{str(uuid.uuid4())[:8]}",
+                    "tag": f"{flag} ss-{str(uuid.uuid4())[:8]} ({country})",
                     "server": ss_data['address'],
                     "server_port": ss_data['port'],
                     "method": ss_data['method'],
@@ -190,6 +221,7 @@ class ConfigToSingbox:
             return None
         except Exception:
             return None
+
     def process_configs(self):
         try:
             with open('configs/proxy_configs.txt', 'r') as f:
@@ -246,8 +278,10 @@ class ConfigToSingbox:
                 json.dump(singbox_config, f, indent=2, ensure_ascii=False)
         except Exception as e:
             print(f"Error processing configs: {str(e)}")
+
 def main():
     converter = ConfigToSingbox()
     converter.process_configs()
+
 if __name__ == '__main__':
     main()
