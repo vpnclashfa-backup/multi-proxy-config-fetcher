@@ -56,7 +56,7 @@ class ProxyConfig:
             ChannelConfig("https://raw.githubusercontent.com/4n0nymou3/wg-config-fetcher/refs/heads/main/configs/wireguard_configs.txt"),
             ChannelConfig("https://raw.githubusercontent.com/4n0nymou3/ss-config-updater/refs/heads/main/configs.txt"),
             ChannelConfig("https://raw.githubusercontent.com/valid7996/Gozargah/refs/heads/main/Gozargah_Sub"),
-            ChannelConfig("https://api.xyurl.site/api/v1/client/subscribe?token=fed4ab7c582c2a41a08a858f91644430"),
+            # ChannelConfig("https://api.xyurl.site/api/v1/client/subscribe?token=fed4ab7c582c2a41a08a858f91644430"),
             ChannelConfig("https://t.me/s/FreeV2rays"),
             ChannelConfig("https://t.me/s/v2ray_free_conf"),
             ChannelConfig("https://t.me/s/PrivateVPNs"),
@@ -87,8 +87,8 @@ class ProxyConfig:
         # Default values: min=3, max=25
         # Adjust these values to control how many configs of each type are collected
         self.PROTOCOL_CONFIG_LIMITS = {
-            "min": 26,   # Minimum configs required per protocol (default: 3)
-            "max": 40    # Maximum configs allowed per protocol (default: 25)
+            "min": 20,   # Minimum configs required per protocol (default: 3)
+            "max": 25    # Maximum configs allowed per protocol (default: 25)
         }
 
         # Supported proxy protocols configuration
