@@ -16,6 +16,12 @@
 ```
 https://raw.githubusercontent.com/4n0nymou3/multi-proxy-config-fetcher/refs/heads/main/configs/proxy_configs.txt
 ```
+Этот проект обладает расширенными возможностями управления конфигурациями прокси. Полученные конфигурации автоматически конвертируются в формат Sing-box и сохраняются в отдельном JSON-файле. Для каждого сервера определяется его географическое положение с помощью метода get location, а соответствующий эмодзи флага и название страны автоматически добавляются к его тегу. Эти функции делают управление и использование прокси значительно более удобным и эффективным.
+
+Ссылка подписки Sing-box:
+```
+https://raw.githubusercontent.com/4n0nymou3/multi-proxy-config-fetcher/refs/heads/main/configs/singbox_configs.json
+```
 
 ## Производительность каналов и URL
 
