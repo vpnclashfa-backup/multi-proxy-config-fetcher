@@ -19,7 +19,8 @@
 https://raw.githubusercontent.com/4n0nymou3/multi-proxy-config-fetcher/refs/heads/main/configs/proxy_configs.txt
 ```
 این پروژه قابلیت تبدیل کانفیگ‌های استخراج شده به فرمت قابل شناسایی برای هسته و کلاینت Sing-box در یک ساب لینک json جداگانه، با متد get location برای دریافت موقعیت تمام سرورهای استخراج شده و اضافه کردن ایموجی پرچم و نام کشور به tag هر کانفیگ را داراست.
-‏لینک اشتراک Sing-box:
+‏
+لینک اشتراک Sing-box:
 ```
 https://raw.githubusercontent.com/4n0nymou3/multi-proxy-config-fetcher/refs/heads/main/configs/singbox_configs.json
 ```
