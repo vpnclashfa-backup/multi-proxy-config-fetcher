@@ -145,7 +145,7 @@ class ProxyConfig:
         }
 
         # Channel-specific configuration limits
-        self.MIN_CONFIGS_PER_CHANNEL = 1     # Minimum configs required from each channel (default: 3)
+        self.MIN_CONFIGS_PER_CHANNEL = 3     # Minimum configs required from each channel (default: 3)
         self.MAX_CONFIGS_PER_CHANNEL = 50    # Maximum configs allowed from each channel (default: 50)
         self.MAX_CONFIG_AGE_DAYS = 90        # Maximum age of configs in days (default: 90)
         self.CHANNEL_RETRY_LIMIT = 10        # Maximum retry attempts per channel (default: 10)
