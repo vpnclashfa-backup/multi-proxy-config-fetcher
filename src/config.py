@@ -36,8 +36,8 @@ class ProxyConfig:
         # Option 1: Set use_maximum_power = True for maximum possible configs (Highest Priority)
         # Option 2: Set specific_config_count > 0 for desired number of configs (Default: 50)
         # Note: If use_maximum_power is True, specific_config_count will be ignored
-        self.use_maximum_power = True
-        self.specific_config_count = 50
+        self.use_maximum_power = False
+        self.specific_config_count = 200
 
         initial_urls = [
             ChannelConfig("https://raw.githubusercontent.com/4n0nymou3/wg-config-fetcher/refs/heads/main/configs/wireguard_configs.txt"),
