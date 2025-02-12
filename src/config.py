@@ -78,7 +78,7 @@ class ProxyConfig:
         }
 
     def _initialize_settings(self):
-        self.MAX_CONFIG_AGE_DAYS = 90
+        self.MAX_CONFIG_AGE_DAYS = 7
         self.CHANNEL_RETRY_LIMIT = 5
         self.CHANNEL_ERROR_THRESHOLD = 0.7
         self.OUTPUT_FILE = 'configs/proxy_configs.txt'
