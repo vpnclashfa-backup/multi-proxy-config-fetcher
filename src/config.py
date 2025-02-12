@@ -53,13 +53,13 @@ class ProxyConfig:
         # - "minimal": Collects minimum viable number of configs (around 10-20 total)
         # - "balanced": Collects a moderate number of configs (around 50-100 total)
         # - "maximum": Collects maximum possible configs (200+ depending on sources)
-        self.COLLECTION_MODE = "balanced"  # Default: balanced mode
+        self.COLLECTION_MODE = "maximum"  # Default: balanced mode
         
         # Custom total config count (optional)
         # Set this to override the collection mode and get specific number of configs
         # Set to None to use collection mode instead
         # Example: 50 will try to collect exactly 50 configs across all protocols
-        self.DESIRED_TOTAL_CONFIGS = 250  # Default: None (use collection mode)
+        self.DESIRED_TOTAL_CONFIGS = None  # Default: None (use collection mode)
         
         # Automatically calculated limits based on collection mode
         self._calculate_limits()
@@ -206,10 +206,10 @@ class ProxyConfig:
             self.MAX_CONFIGS_PER_CHANNEL = settings["channel_max"]
 
         # Other settings that adapt to the mode
-        self.MAX_CONFIG_AGE_DAYS = 90        # Keep this fixed as it affects reliability
-        self.CHANNEL_RETRY_LIMIT = 3         # Keep retries minimal
+        self.MAX_CONFIG_AGE_DAYS = 90         # Keep this fixed as it affects reliability
+        self.CHANNEL_RETRY_LIMIT = 3          # Keep retries minimal
         self.CHANNEL_ERROR_THRESHOLD = 0.7    # Standard error threshold
-        self.MIN_PROTOCOL_RATIO = 0.1        # Minimum ratio of configs per protocol
+        self.MIN_PROTOCOL_RATIO = 0.1         # Minimum ratio of configs per protocol
         
         # Dynamic adjustment settings
         self.DYNAMIC_PROTOCOL_ADJUSTMENT = True
