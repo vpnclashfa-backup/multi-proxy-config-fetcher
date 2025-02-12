@@ -59,7 +59,7 @@ class ProxyConfig:
         # Set this to override the collection mode and get specific number of configs
         # Set to None to use collection mode instead
         # Example: 50 will try to collect exactly 50 configs across all protocols
-        self.DESIRED_TOTAL_CONFIGS = None  # Default: None (use collection mode)
+        self.DESIRED_TOTAL_CONFIGS = 250  # Default: None (use collection mode)
         
         # Automatically calculated limits based on collection mode
         self._calculate_limits()
