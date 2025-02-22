@@ -14,18 +14,40 @@ class ConfigToSingbox:
     def get_location(self, address: str) -> tuple:
         try:
             ip = socket.gethostbyname(address)
-            response = requests.get(f'http://ip-api.com/json/{ip}')
-            if response.status_code == 200:
-                data = response.json()
-                if data['status'] == 'success':
-                    country_code = data['countryCode'].lower()
-                    flag = f"🏳️"
-                    if len(country_code) == 2:
-                        flag = ''.join(chr(ord('🇦') + ord(c.upper()) - ord('A')) for c in country_code)
-                    return flag, data['country']
-            time.sleep(1.5)
+            
+            apis = [
+                f'http://ip-api.com/json/{ip}',
+                f'https://ipapi.co/{ip}/json/',
+                f'https://ipwhois.app/json/{ip}',
+                f'https://api.ipgeolocation.io/ipgeo?ip={ip}&apiKey=free'
+            ]
+            
+            for api_url in apis:
+                try:
+                    response = requests.get(api_url, timeout=5)
+                    if response.status_code == 200:
+                        data = response.json()
+                        
+                        if 'countryCode' in data:
+                            country_code = data['countryCode'].lower()
+                            country = data['country']
+                        elif 'country_code' in data:
+                            country_code = data['country_code'].lower()
+                            country = data['country_name']
+                        else:
+                            continue
+                            
+                        if len(country_code) == 2:
+                            flag = ''.join(chr(ord('🇦') + ord(c.upper()) - ord('A')) for c in country_code)
+                            return flag, country
+                            
+                    time.sleep(1)
+                except:
+                    continue
+                    
         except Exception:
             pass
+            
         return "🏳️", "Unknown"
 
     def decode_vmess(self, config: str) -> Optional[Dict]:
