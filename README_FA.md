@@ -93,7 +93,7 @@ https://raw.githubusercontent.com/4n0nymou3/multi-proxy-config-fetcher/refs/head
 
 ```bash
 # کلون کردن مخزن
-git clone https://github.com/yourusername/multi-proxy-config-fetcher.git
+git clone https://github.com/4n0nymou3/multi-proxy-config-fetcher.git
 cd multi-proxy-config-fetcher
 
 # نصب وابستگی‌ها
