@@ -91,7 +91,7 @@ https://raw.githubusercontent.com/4n0nymou3/multi-proxy-config-fetcher/refs/head
 
 ```bash
 # 克隆仓库
-git clone https://github.com/yourusername/multi-proxy-config-fetcher.git
+git clone https://github.com/4n0nymou3/multi-proxy-config-fetcher.git
 cd multi-proxy-config-fetcher
 
 # 安装依赖
