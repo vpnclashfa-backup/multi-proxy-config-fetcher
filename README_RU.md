@@ -91,7 +91,7 @@ https://raw.githubusercontent.com/4n0nymou3/multi-proxy-config-fetcher/refs/head
 
 ```bash
 # Клонировать репозиторий
-git clone https://github.com/yourusername/multi-proxy-config-fetcher.git
+git clone https://github.com/4n0nymou3/multi-proxy-config-fetcher.git
 cd multi-proxy-config-fetcher
 
 # Установить зависимости
