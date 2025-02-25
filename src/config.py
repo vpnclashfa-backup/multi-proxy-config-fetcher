@@ -83,7 +83,7 @@ class ProxyConfig:
             ChannelConfig("https://t.me/s/shadowproxy66"),
             ChannelConfig("https://t.me/s/OutlineReleasedKey"),
             ChannelConfig("https://t.me/s/prrofile_purple"),
-            # ChannelConfig("https://t.me/s/proxy_shadosocks"),
+            ChannelConfig("https://t.me/s/proxy_shadosocks"),
             ChannelConfig("https://t.me/s/meli_proxyy"),
             ChannelConfig("https://t.me/s/DirectVPN"),
             ChannelConfig("https://t.me/s/VmessProtocol"),
