@@ -101,7 +101,7 @@ class ProxyConfig:
 
     def _initialize_protocols(self) -> Dict:
         return {
-            "wireguard://": {"priority": 2, "aliases": [], "enabled": True},
+            "wireguard://": {"priority": 2, "aliases": [], "enabled": False},
             "hysteria2://": {"priority": 2, "aliases": ["hy2://"], "enabled": True},
             "vless://": {"priority": 2, "aliases": [], "enabled": True},
             "vmess://": {"priority": 1, "aliases": [], "enabled": True},
