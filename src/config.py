@@ -72,7 +72,7 @@ class ProxyConfig:
         self.specific_config_count = 100
 
         initial_urls = [
-            # ChannelConfig("https://raw.githubusercontent.com/4n0nymou3/wg-config-fetcher/refs/heads/main/configs/wireguard_configs.txt"),
+            ChannelConfig("https://raw.githubusercontent.com/4n0nymou3/wg-config-fetcher/refs/heads/main/configs/wireguard_configs.txt"),
             ChannelConfig("https://raw.githubusercontent.com/4n0nymou3/ss-config-updater/refs/heads/main/configs.txt"),
             ChannelConfig("https://raw.githubusercontent.com/valid7996/Gozargah/refs/heads/main/Gozargah_Sub"),
             ChannelConfig("https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mtn/sub_1.txt"),
@@ -101,7 +101,7 @@ class ProxyConfig:
 
     def _initialize_protocols(self) -> Dict:
         return {
-            # "wireguard://": {"priority": 1, "aliases": [], "enabled": True},
+            "wireguard://": {"priority": 1, "aliases": [], "enabled": False},
             "hysteria2://": {"priority": 2, "aliases": ["hy2://"], "enabled": True},
             "vless://": {"priority": 2, "aliases": [], "enabled": True},
             "vmess://": {"priority": 1, "aliases": [], "enabled": True},
