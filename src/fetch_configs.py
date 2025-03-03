@@ -209,8 +209,8 @@ class ConfigFetcher:
                         break
                         
             if protocol_match:
-                if not self.config.SUPPORTED_PROTOCOLS[protocol].get("enabled", True):
-                    return []
+                if not self.config.is_protocol_enabled(protocol):
+                    break
                 if protocol == "vmess://":
                     config = self.validator.clean_vmess_config(config)
                 
