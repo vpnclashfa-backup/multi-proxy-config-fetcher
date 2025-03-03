@@ -6,6 +6,8 @@ from dataclasses import dataclass
 import logging
 from math import inf
 
+from user_settings import SOURCE_URLS, USE_MAXIMUM_POWER, SPECIFIC_CONFIG_COUNT, ENABLED_PROTOCOLS, MAX_CONFIG_AGE_DAYS
+
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
@@ -26,9 +28,9 @@ class ChannelMetrics:
             self.protocol_counts = {}
 
 class ChannelConfig:
-    def __init__(self, url: str, enabled: bool = True):
+    def __init__(self, url: str):
         self.url = self._validate_url(url)
-        self.enabled = enabled
+        self.enabled = True
         self.metrics = ChannelMetrics()
         self.is_telegram = bool(re.match(r'^https://t\.me/s/', self.url))
         self.error_count = 0
@@ -64,36 +66,11 @@ class ChannelConfig:
 
 class ProxyConfig:
     def __init__(self):
-        # User Configuration Mode
-        # Option 1: Set use_maximum_power = True for maximum possible configs (Highest Priority)
-        # Option 2: Set specific_config_count > 0 for desired number of configs (Default: 50)
-        # Note: If use_maximum_power is True, specific_config_count will be ignored
-        self.use_maximum_power = False
-        self.specific_config_count = 100
+        self.use_maximum_power = USE_MAXIMUM_POWER
+        self.specific_config_count = SPECIFIC_CONFIG_COUNT
+        self.MAX_CONFIG_AGE_DAYS = MAX_CONFIG_AGE_DAYS
 
-        initial_urls = [
-            ChannelConfig("https://raw.githubusercontent.com/4n0nymou3/ss-config-updater/refs/heads/main/configs.txt"),
-            ChannelConfig("https://raw.githubusercontent.com/valid7996/Gozargah/refs/heads/main/Gozargah_Sub"),
-            ChannelConfig("https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mtn/sub_1.txt"),
-            ChannelConfig("https://raw.githubusercontent.com/yebekhe/vpn-fail/main/sub-link"),
-            ChannelConfig("https://t.me/s/FreeV2rays"),
-            ChannelConfig("https://t.me/s/v2ray_free_conf"),
-            ChannelConfig("https://t.me/s/PrivateVPNs"),
-            ChannelConfig("https://t.me/s/IP_CF_Config"),
-            ChannelConfig("https://t.me/s/shadowproxy66"),
-            ChannelConfig("https://t.me/s/OutlineReleasedKey"),
-            ChannelConfig("https://t.me/s/prrofile_purple"),
-            ChannelConfig("https://t.me/s/proxy_shadosocks"),
-            ChannelConfig("https://t.me/s/meli_proxyy"),
-            ChannelConfig("https://t.me/s/DirectVPN"),
-            ChannelConfig("https://t.me/s/VmessProtocol"),
-            ChannelConfig("https://t.me/s/ViProxys"),
-            ChannelConfig("https://t.me/s/heyatserver"),
-            ChannelConfig("https://t.me/s/vpnfail_vless"),
-            ChannelConfig("https://t.me/s/DailyV2RY"),
-            ChannelConfig("https://t.me/s/ShadowsocksM")
-        ]
-
+        initial_urls = [ChannelConfig(url=url) for url in SOURCE_URLS]
         self.SOURCE_URLS = self._remove_duplicate_urls(initial_urls)
         self.SUPPORTED_PROTOCOLS = self._initialize_protocols()
         self._initialize_settings()
@@ -101,17 +78,16 @@ class ProxyConfig:
 
     def _initialize_protocols(self) -> Dict:
         return {
-            "wireguard://": {"priority": 1, "aliases": [], "enabled": False},
-            "hysteria2://": {"priority": 2, "aliases": ["hy2://"], "enabled": True},
-            "vless://": {"priority": 2, "aliases": [], "enabled": True},
-            "vmess://": {"priority": 1, "aliases": [], "enabled": True},
-            "ss://": {"priority": 2, "aliases": [], "enabled": True},
-            "trojan://": {"priority": 2, "aliases": [], "enabled": True},
-            "tuic://": {"priority": 1, "aliases": [], "enabled": True}
+            "wireguard://": {"priority": 1, "aliases": [], "enabled": ENABLED_PROTOCOLS.get("wireguard://", False)},
+            "hysteria2://": {"priority": 2, "aliases": ["hy2://"], "enabled": ENABLED_PROTOCOLS.get("hysteria2://", False)},
+            "vless://": {"priority": 2, "aliases": [], "enabled": ENABLED_PROTOCOLS.get("vless://", False)},
+            "vmess://": {"priority": 1, "aliases": [], "enabled": ENABLED_PROTOCOLS.get("vmess://", False)},
+            "ss://": {"priority": 2, "aliases": [], "enabled": ENABLED_PROTOCOLS.get("ss://", False)},
+            "trojan://": {"priority": 2, "aliases": [], "enabled": ENABLED_PROTOCOLS.get("trojan://", False)},
+            "tuic://": {"priority": 1, "aliases": [], "enabled": ENABLED_PROTOCOLS.get("tuic://", False)}
         }
 
     def _initialize_settings(self):
-        self.MAX_CONFIG_AGE_DAYS = min(30, max(1, 7))
         self.CHANNEL_RETRY_LIMIT = min(10, max(1, 5))
         self.CHANNEL_ERROR_THRESHOLD = min(0.9, max(0.1, 0.7))
         self.OUTPUT_FILE = 'configs/proxy_configs.txt'
