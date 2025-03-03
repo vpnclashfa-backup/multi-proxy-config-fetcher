@@ -75,6 +75,7 @@ class ProxyConfig:
             ChannelConfig("https://raw.githubusercontent.com/4n0nymou3/ss-config-updater/refs/heads/main/configs.txt"),
             ChannelConfig("https://raw.githubusercontent.com/valid7996/Gozargah/refs/heads/main/Gozargah_Sub"),
             ChannelConfig("https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mtn/sub_1.txt"),
+            ChannelConfig("https://raw.githubusercontent.com/yebekhe/vpn-fail/main/sub-link"),
             ChannelConfig("https://t.me/s/FreeV2rays"),
             ChannelConfig("https://t.me/s/v2ray_free_conf"),
             ChannelConfig("https://t.me/s/PrivateVPNs"),
