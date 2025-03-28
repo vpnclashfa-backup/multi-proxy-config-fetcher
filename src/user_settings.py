@@ -3,11 +3,11 @@
 # List of source URLs to fetch proxy configurations from.
 # Add or remove URLs as needed. All URLs in this list are automatically enabled.
 SOURCE_URLS = [
-    # "https://raw.githubusercontent.com/4n0nymou3/ss-config-updater/refs/heads/main/configs.txt",
-    "ssconf://ainita.s3.eu-north-1.amazonaws.com/AinitaServer-1.csv",
-    "ssconf://ainita.s3.eu-north-1.amazonaws.com/AinitaServer-2.csv",
-    "ssconf://ainita.s3.eu-north-1.amazonaws.com/AinitaServer-3.csv",
-    "ssconf://ainita.s3.eu-north-1.amazonaws.com/AinitaServer-4.csv",
+    "https://raw.githubusercontent.com/4n0nymou3/ss-config-updater/refs/heads/main/configs.txt",
+    # "ssconf://ainita.s3.eu-north-1.amazonaws.com/AinitaServer-1.csv",
+    # "ssconf://ainita.s3.eu-north-1.amazonaws.com/AinitaServer-2.csv",
+    # "ssconf://ainita.s3.eu-north-1.amazonaws.com/AinitaServer-3.csv",
+    # "ssconf://ainita.s3.eu-north-1.amazonaws.com/AinitaServer-4.csv",
     "https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mtn/sub_1.txt",
     # "https://raw.githubusercontent.com/yebekhe/vpn-fail/main/sub-link",
     "https://t.me/s/FreeV2rays",
