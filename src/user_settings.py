@@ -3,19 +3,13 @@
 # List of source URLs to fetch proxy configurations from.
 # Add or remove URLs as needed. All URLs in this list are automatically enabled.
 SOURCE_URLS = [
-    "https://raw.githubusercontent.com/4n0nymou3/ss-config-updater/refs/heads/main/configs.txt",
-    # "ssconf://ainita.s3.eu-north-1.amazonaws.com/AinitaServer-1.csv",
-    # "ssconf://ainita.s3.eu-north-1.amazonaws.com/AinitaServer-2.csv",
-    # "ssconf://ainita.s3.eu-north-1.amazonaws.com/AinitaServer-3.csv",
-    # "ssconf://ainita.s3.eu-north-1.amazonaws.com/AinitaServer-4.csv",
     "https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mtn/sub_1.txt",
-    # "https://raw.githubusercontent.com/yebekhe/vpn-fail/main/sub-link",
     "https://t.me/s/FreeV2rays",
     "https://t.me/s/v2ray_free_conf",
     "https://t.me/s/PrivateVPNs",
     "https://t.me/s/IP_CF_Config",
     "https://t.me/s/shadowproxy66",
-    # "https://t.me/s/OutlineReleasedKey",
+    "https://t.me/s/OutlineReleasedKey",
     "https://t.me/s/prrofile_purple",
     "https://t.me/s/proxy_shadosocks",
     "https://t.me/s/meli_proxyy",
@@ -25,7 +19,6 @@ SOURCE_URLS = [
     "https://t.me/s/heyatserver",
     "https://t.me/s/vpnfail_vless",
     "https://t.me/s/DailyV2RY",
-    # "https://t.me/s/ShadowsocksM",
     # Add more URLs here if you want to include additional sources.
 ]
 
