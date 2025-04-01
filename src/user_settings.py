@@ -4,7 +4,7 @@
 # Add or remove URLs as needed. All URLs in this list are automatically enabled.
 SOURCE_URLS = [
     "https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mtn/sub_1.txt",
-    "https://t.me/s/v2rayfree"
+    "https://t.me/s/v2rayfree",
     "https://t.me/s/FreeV2rays",
     "https://t.me/s/v2ray_free_conf",
     "https://t.me/s/PrivateVPNs",
