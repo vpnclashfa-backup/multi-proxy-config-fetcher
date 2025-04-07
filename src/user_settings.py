@@ -16,7 +16,7 @@ SOURCE_URLS = [
     "https://t.me/s/meli_proxyy",
     "https://t.me/s/DirectVPN",
     "https://t.me/s/VmessProtocol",
-    "https://t.me/s/ViProxys",
+    # "https://t.me/s/ViProxys",
     "https://t.me/s/heyatserver",
     "https://t.me/s/vpnfail_vless",
     "https://t.me/s/DailyV2RY",
