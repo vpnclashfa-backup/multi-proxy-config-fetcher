@@ -1,8 +1,8 @@
-[![Stars](https://img.shields.io/github/stars/4n0nymou3/multi-proxy-config-fetcher?style=flat-square)](https://github.com/4n0nymou3/multi-proxy-config-fetcher/stargazers)
-[![Forks](https://img.shields.io/github/forks/4n0nymou3/multi-proxy-config-fetcher?style=flat-square)](https://github.com/4n0nymou3/multi-proxy-config-fetcher/network/members)
-[![Issues](https://img.shields.io/github/issues/4n0nymou3/multi-proxy-config-fetcher?style=flat-square)](https://github.com/4n0nymou3/multi-proxy-config-fetcher/issues)
-[![License](https://img.shields.io/github/license/4n0nymou3/multi-proxy-config-fetcher?style=flat-square)](https://github.com/4n0nymou3/multi-proxy-config-fetcher/blob/main/LICENSE)
-[![Activity](https://img.shields.io/github/last-commit/4n0nymou3/multi-proxy-config-fetcher?style=flat-square)](https://github.com/4n0nymou3/multi-proxy-config-fetcher/commits)
+[![Stars](https://img.shields.io/github/stars/10ium/multi-proxy-config-fetcher?style=flat-square)](https://github.com/10ium/multi-proxy-config-fetcher/stargazers)
+[![Forks](https://img.shields.io/github/forks/10ium/multi-proxy-config-fetcher?style=flat-square)](https://github.com/10ium/multi-proxy-config-fetcher/network/members)
+[![Issues](https://img.shields.io/github/issues/10ium/multi-proxy-config-fetcher?style=flat-square)](https://github.com/10ium/multi-proxy-config-fetcher/issues)
+[![License](https://img.shields.io/github/license/10ium/multi-proxy-config-fetcher?style=flat-square)](https://github.com/10ium/multi-proxy-config-fetcher/blob/main/LICENSE)
+[![Activity](https://img.shields.io/github/last-commit/10ium/multi-proxy-config-fetcher?style=flat-square)](https://github.com/10ium/multi-proxy-config-fetcher/commits)
 
 # 多协议代理配置获取器
 
@@ -14,13 +14,13 @@
 
 您可以通过以下 URL 直接访问最新配置：
 ```
-https://raw.githubusercontent.com/4n0nymou3/multi-proxy-config-fetcher/refs/heads/main/configs/proxy_configs.txt
+https://raw.githubusercontent.com/10ium/multi-proxy-config-fetcher/refs/heads/main/configs/proxy_configs.txt
 ```
 该项目具有高级代理配置管理功能。获取的配置会自动转换为 Sing-box 格式并存储在单独的 JSON 文件中。对于每个服务器，系统使用 get location 方法识别其地理位置，并自动将相应的国旗表情符号和国家名称添加到其标签中。这些功能使代理管理和使用变得更加用户友好和高效。
 
 Sing-box 订阅链接：
 ```
-https://raw.githubusercontent.com/4n0nymou3/multi-proxy-config-fetcher/refs/heads/main/configs/singbox_configs.json
+https://raw.githubusercontent.com/10ium/multi-proxy-config-fetcher/refs/heads/main/configs/singbox_configs.json
 ```
 
 ## 频道和 URL 性能
@@ -35,7 +35,7 @@ https://raw.githubusercontent.com/4n0nymou3/multi-proxy-config-fetcher/refs/head
 </div>
 
 ### 详细报告
-📊 [查看完整交互式仪表盘](https://htmlpreview.github.io/?https://github.com/4n0nymou3/multi-proxy-config-fetcher/blob/main/assets/performance_report.html)
+📊 [查看完整交互式仪表盘](https://htmlpreview.github.io/?https://github.com/10ium/multi-proxy-config-fetcher/blob/main/assets/performance_report.html)
 
 > **Fork 仓库的重要说明**：  
 如果您 fork 此仓库，请确保将上述链接中的 `USERNAME` 替换为您的 GitHub 用户名。这确保链接指向您自己的交互式仪表盘而不是原始项目的仪表盘。操作步骤：
@@ -91,7 +91,7 @@ https://raw.githubusercontent.com/4n0nymou3/multi-proxy-config-fetcher/refs/head
 
 ```bash
 # 克隆仓库
-git clone https://github.com/4n0nymou3/multi-proxy-config-fetcher.git
+git clone https://github.com/10ium/multi-proxy-config-fetcher.git
 cd multi-proxy-config-fetcher
 
 # 安装依赖
