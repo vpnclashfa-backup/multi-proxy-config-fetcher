@@ -1,8 +1,8 @@
-[![Stars](https://img.shields.io/github/stars/4n0nymou3/multi-proxy-config-fetcher?style=flat-square)](https://github.com/4n0nymou3/multi-proxy-config-fetcher/stargazers)
-[![Forks](https://img.shields.io/github/forks/4n0nymou3/multi-proxy-config-fetcher?style=flat-square)](https://github.com/4n0nymou3/multi-proxy-config-fetcher/network/members)
-[![Issues](https://img.shields.io/github/issues/4n0nymou3/multi-proxy-config-fetcher?style=flat-square)](https://github.com/4n0nymou3/multi-proxy-config-fetcher/issues)
-[![License](https://img.shields.io/github/license/4n0nymou3/multi-proxy-config-fetcher?style=flat-square)](https://github.com/4n0nymou3/multi-proxy-config-fetcher/blob/main/LICENSE)
-[![Activity](https://img.shields.io/github/last-commit/4n0nymou3/multi-proxy-config-fetcher?style=flat-square)](https://github.com/4n0nymou3/multi-proxy-config-fetcher/commits)
+[![Stars](https://img.shields.io/github/stars/10ium/multi-proxy-config-fetcher?style=flat-square)](https://github.com/10ium/multi-proxy-config-fetcher/stargazers)
+[![Forks](https://img.shields.io/github/forks/10ium/multi-proxy-config-fetcher?style=flat-square)](https://github.com/10ium/multi-proxy-config-fetcher/network/members)
+[![Issues](https://img.shields.io/github/issues/10ium/multi-proxy-config-fetcher?style=flat-square)](https://github.com/10ium/multi-proxy-config-fetcher/issues)
+[![License](https://img.shields.io/github/license/10ium/multi-proxy-config-fetcher?style=flat-square)](https://github.com/10ium/multi-proxy-config-fetcher/blob/main/LICENSE)
+[![Activity](https://img.shields.io/github/last-commit/10ium/multi-proxy-config-fetcher?style=flat-square)](https://github.com/10ium/multi-proxy-config-fetcher/commits)
 
 # Сборщик Конфигураций Прокси
 
@@ -14,13 +14,13 @@
 
 Вы можете получить прямой доступ к последним конфигурациям через этот URL:
 ```
-https://raw.githubusercontent.com/4n0nymou3/multi-proxy-config-fetcher/refs/heads/main/configs/proxy_configs.txt
+https://raw.githubusercontent.com/10ium/multi-proxy-config-fetcher/refs/heads/main/configs/proxy_configs.txt
 ```
 Этот проект обладает расширенными возможностями управления конфигурациями прокси. Полученные конфигурации автоматически конвертируются в формат Sing-box и сохраняются в отдельном JSON-файле. Для каждого сервера определяется его географическое положение с помощью метода get location, а соответствующий эмодзи флага и название страны автоматически добавляются к его тегу. Эти функции делают управление и использование прокси значительно более удобным и эффективным.
 
 Ссылка подписки Sing-box:
 ```
-https://raw.githubusercontent.com/4n0nymou3/multi-proxy-config-fetcher/refs/heads/main/configs/singbox_configs.json
+https://raw.githubusercontent.com/10ium/multi-proxy-config-fetcher/refs/heads/main/configs/singbox_configs.json
 ```
 
 ## Производительность каналов и URL
@@ -35,7 +35,7 @@ https://raw.githubusercontent.com/4n0nymou3/multi-proxy-config-fetcher/refs/head
 </div>
 
 ### Подробный отчет
-📊 [Просмотр полной интерактивной панели](https://htmlpreview.github.io/?https://github.com/4n0nymou3/multi-proxy-config-fetcher/blob/main/assets/performance_report.html)
+📊 [Просмотр полной интерактивной панели](https://htmlpreview.github.io/?https://github.com/10ium/multi-proxy-config-fetcher/blob/main/assets/performance_report.html)
 
 > **Важно для форкнутых репозиториев**:  
 Если вы форкаете этот репозиторий, обязательно замените `USERNAME` в приведенной выше ссылке на ваше имя пользователя GitHub. Это обеспечит перенаправление ссылки на вашу собственную интерактивную панель вместо панели исходного проекта. Для этого:
@@ -91,7 +91,7 @@ https://raw.githubusercontent.com/4n0nymou3/multi-proxy-config-fetcher/refs/head
 
 ```bash
 # Клонировать репозиторий
-git clone https://github.com/4n0nymou3/multi-proxy-config-fetcher.git
+git clone https://github.com/10ium/multi-proxy-config-fetcher.git
 cd multi-proxy-config-fetcher
 
 # Установить зависимости
