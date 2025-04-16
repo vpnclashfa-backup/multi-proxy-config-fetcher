@@ -118,6 +118,7 @@ SOURCE_URLS = [
     "https://t.me/s/freedom_guard_net",
     "https://t.me/s/Ln2Ray",
     "https://t.me/s/ZeusVPN_Net",
+    "https://t.me/s/v2nodes",
     # Add more URLs here if you want to include additional sources.
 ]
 
