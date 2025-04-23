@@ -119,6 +119,9 @@ SOURCE_URLS = [
     "https://t.me/s/Ln2Ray",
     "https://t.me/s/ZeusVPN_Net",
     "https://t.me/s/v2nodes",
+    "https://t.me/s/v2box_free",
+    "https://t.me/s/vpnaloo",
+    "https://t.me/s/v2ray_hidify",
     # Add more URLs here if you want to include additional sources.
 ]
 
@@ -128,7 +131,7 @@ USE_MAXIMUM_POWER = False
 
 # Desired number of configurations to fetch.
 # This is used only if USE_MAXIMUM_POWER is False.
-SPECIFIC_CONFIG_COUNT = 200
+SPECIFIC_CONFIG_COUNT = 300
 
 # Dictionary of protocols to enable or disable.
 # Set each protocol to True to enable, False to disable.
