@@ -16,7 +16,13 @@ SOURCE_URLS = [
     "https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mtn/sub_3.txt",
     "https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mtn/sub_4.txt",
     "https://raw.githubusercontent.com/kayhgng/v2raykayh/refs/heads/main/kayhgngcollectorv3v2ray_ss",
-    "https://shadowmere.xyz/api/b64sub/",
+
+"https://shadowmere.xyz/api/b64sub/",
+    "https://raw.githubusercontent.com/Aristaproject/AristaSub/refs/heads/main/Arista4.txt",
+    "https://github.com/Aristaproject/AristaSub/raw/refs/heads/main/Arista5.txt",
+    "https://github.com/Aristaproject/AristaSub/raw/refs/heads/main/Arista6.txt",
+    "https://github.com/Aristaproject/AristaSub/raw/refs/heads/main/Arista7.txt",
+
     "https://t.me/s/ShadowsocksM",
     "https://t.me/s/V2ray_Alpha",
     "https://t.me/s/VlessConfig",
