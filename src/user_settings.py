@@ -22,6 +22,7 @@ SOURCE_URLS = [
     "https://raw.githubusercontent.com/Aristaproject/AristaSub/refs/heads/main/Arista5.txt",
     "https://raw.githubusercontent.com/Aristaproject/AristaSub/refs/heads/main/Arista6.txt",
     "https://raw.githubusercontent.com/Aristaproject/AristaSub/refs/heads/main/Arista7.txt",
+
 "https://raw.githubusercontent.com/Aristaproject/AristaSub/refs/heads/main/Arista8.txt",
 
     "https://t.me/s/shadowsocksm",
