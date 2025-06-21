@@ -144,6 +144,24 @@ SOURCE_URLS = [
     "https://t.me/s/aristaproject",
     "https://t.me/s/kevinzakarian",
     "https://t.me/s/marambashi",
+    "https://t.me/s/vpn_solve",
+    "https://t.me/s/vpn4everyone",
+    "https://t.me/s/ahwazigamingshop",
+    "https://t.me/s/prooofsor",
+    "https://t.me/s/mrsoulb",
+    "https://t.me/s/surfboardv2ray",
+    "https://t.me/s/v2ray_vpn_ir",
+    "https://t.me/s/vpnbaz",
+    "https://t.me/s/asrnovin_ir",
+    "https://t.me/s/capoit",
+    "https://t.me/s/conectvpn10",
+    "https://t.me/s/spotify_porteghali",
+    "https://t.me/s/ar14n24b",
+    "https://t.me/s/xixv2ray",
+    "https://t.me/s/movie10_oficial",
+    "https://t.me/s/beau_vpn",
+    "https://t.me/s/mitivpn",
+    "https://t.me/s/mbtiuniverse"
     # Add more URLs here if you want to include additional sources.
 ]
 
