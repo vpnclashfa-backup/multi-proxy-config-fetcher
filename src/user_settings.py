@@ -19,9 +19,11 @@ SOURCE_URLS = [
 
 "https://shadowmere.xyz/api/b64sub/",
     "https://raw.githubusercontent.com/Aristaproject/AristaSub/refs/heads/main/Arista4.txt",
-    "https://github.com/Aristaproject/AristaSub/raw/refs/heads/main/Arista5.txt",
-    "https://github.com/Aristaproject/AristaSub/raw/refs/heads/main/Arista6.txt",
-    "https://github.com/Aristaproject/AristaSub/raw/refs/heads/main/Arista7.txt",
+    "https://raw.githubusercontent.com/Aristaproject/AristaSub/refs/heads/main/Arista5.txt",
+    "https://raw.githubusercontent.com/Aristaproject/AristaSub/refs/heads/main/Arista6.txt",
+    "https://raw.githubusercontent.com/Aristaproject/AristaSub/refs/heads/main/Arista7.txt",
+
+"https://raw.githubusercontent.com/Aristaproject/AristaSub/refs/heads/main/Arista8.txt",
 
     "https://t.me/s/shadowsocksm",
     "https://t.me/s/v2ray_alpha",
