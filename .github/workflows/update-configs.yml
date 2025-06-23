@@ -1,11 +1,8 @@
 name: Update Proxy Configs
 
-on:  
-  workflow_dispatch:  
-  push:  
-    branches:  
-      - main  
-  schedule:  
+on:
+  workflow_dispatch:
+  schedule:
     - cron: "0 */6 * * *"
 
 permissions:
@@ -29,13 +26,13 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    
+
     - name: Create directories
       run: |
         mkdir -p assets
         mkdir -p configs
         mkdir -p templates
-    
+
     - name: Run config fetcher
       run: python src/fetch_configs.py
       continue-on-error: true
@@ -58,24 +55,24 @@ jobs:
     - name: Update README timestamps and stats
       run: |
         timestamp=$(date +%s)
-        
+
         sed -i "s/channel_stats_chart\.svg?v=[0-9]*/channel_stats_chart.svg?v=$timestamp/" README.md
         sed -i "s/performance_report\.html?v=[0-9]*/performance_report.html?v=$timestamp/" README.md
-        
+
         sed -i "s/channel_stats_chart\.svg?v=[0-9]*/channel_stats_chart.svg?v=$timestamp/" README_FA.md
         sed -i "s/performance_report\.html?v=[0-9]*/performance_report.html?v=$timestamp/" README_FA.md
-        
+
         sed -i "s/channel_stats_chart\.svg?v=[0-9]*/channel_stats_chart.svg?v=$timestamp/" README_CN.md
         sed -i "s/performance_report\.html?v=[0-9]*/performance_report.html?v=$timestamp/" README_CN.md
-        
+
         sed -i "s/channel_stats_chart\.svg?v=[0-9]*/channel_stats_chart.svg?v=$timestamp/" README_RU.md
         sed -i "s/performance_report\.html?v=[0-9]*/performance_report.html?v=$timestamp/" README_RU.md
-    
+
     - name: Setup Git
       run: |
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-    
+
     - name: Commit and push changes
       run: |
         # Add all new and modified files automatically
@@ -83,9 +80,9 @@ jobs:
 
         # Commit changes only if there are any to commit
         git diff-index --quiet HEAD || git commit -m "Update proxy configs, stats and reports"
-        
+
         # Pull remote changes and rebase before pushing to avoid conflicts
         git pull --rebase
-        
+
         # Push the changes
         git push
