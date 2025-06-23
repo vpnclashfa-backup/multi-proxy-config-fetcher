@@ -4,6 +4,7 @@ import yaml
 import base64
 import json
 from urllib.parse import urlparse, parse_qs, unquote
+from typing import Optional, Dict, List # <-- خط import اصلاح شد
 
 class UriToClashConverter:
     """
@@ -11,7 +12,7 @@ class UriToClashConverter:
     into Clash-compatible dictionaries, including advanced options and plugins.
     """
     @staticmethod
-    def parse(uri: str) -> Optional[dict]:
+    def parse(uri: str) -> Optional[Dict]:
         """Dispatches URI to the appropriate parser based on its scheme."""
         try:
             scheme = uri.split("://")[0]
@@ -35,12 +36,12 @@ class UriToClashConverter:
         return None
 
     @staticmethod
-    def _get_params(uri: str) -> dict:
+    def _get_params(uri: str) -> Dict:
         """Helper to parse query parameters from a URL."""
         return parse_qs(urlparse(uri).query)
 
     @staticmethod
-    def parse_vless_trojan(uri: str) -> dict:
+    def parse_vless_trojan(uri: str) -> Dict:
         parsed_uri = urlparse(uri)
         params = UriToClashConverter._get_params(uri)
         
@@ -93,11 +94,12 @@ class UriToClashConverter:
         return proxy
 
     @staticmethod
-    def parse_ss(uri: str) -> dict:
+    def parse_ss(uri: str) -> Dict:
         parsed_uri = urlparse(uri)
         params = UriToClashConverter._get_params(uri)
         
         if '@' in parsed_uri.netloc:
+             # ss://method:pass@host:port
             user_info, host_info = parsed_uri.netloc.split('@', 1)
             try:
                 # URL-decoded user info
@@ -135,32 +137,37 @@ class UriToClashConverter:
                  proxy['plugin-opts']['tls'] = True
         
         return proxy
-
+        
     @staticmethod
-    def parse_ssr(uri: str) -> dict:
-        decoded_str = base64.b64decode(uri[6:].rstrip('=') + '===').decode('utf-8')
-        parts = decoded_str.split(':')
-        server, port, protocol, method, obfs, password_b64 = parts
-        password = base64.b64decode(password_b64.split('/?')[0] + '===').decode('utf-8')
-        params = parse_qs(urlparse(decoded_str).query)
+    def parse_ssr(uri: str) -> Dict:
+        try:
+            decoded_str = base64.b64decode(uri[6:].rstrip('=') + '===').decode('utf-8')
+            parts = decoded_str.split(':')
+            if len(parts) < 6: return None
+            server, port, protocol, method, obfs, password_b64_and_params = parts[0:6]
+            password_b64 = password_b64_and_params.split('/?')[0]
+            password = base64.b64decode(password_b64 + '===').decode('utf-8')
+            params = parse_qs(urlparse(decoded_str).query)
 
-        proxy = {
-            "name": unquote(params.get('remarks', [''])[0]) or f"ssr-{server}",
-            "type": "ssr",
-            "server": server,
-            "port": int(port),
-            "cipher": method,
-            "password": password,
-            "obfs": obfs,
-            "protocol": protocol,
-            "obfs-param": unquote(params.get('obfsparam', [''])[0]),
-            "protocol-param": unquote(params.get('protoparam', [''])[0]),
-            "udp": True
-        }
-        return proxy
-
+            proxy = {
+                "name": base64.b64decode(params.get('remarks', [''])[0] + '===').decode('utf-8') or f"ssr-{server}",
+                "type": "ssr",
+                "server": server,
+                "port": int(port),
+                "cipher": method,
+                "password": password,
+                "obfs": obfs,
+                "protocol": protocol,
+                "obfs-param": base64.b64decode(params.get('obfsparam', [''])[0] + '===').decode('utf-8'),
+                "protocol-param": base64.b64decode(params.get('protoparam', [''])[0] + '===').decode('utf-8'),
+                "udp": True
+            }
+            return proxy
+        except:
+            return None
+            
     @staticmethod
-    def parse_vmess(uri: str) -> dict:
+    def parse_vmess(uri: str) -> Dict:
         decoded_str = base64.b64decode(uri[8:]).decode('utf-8')
         vmess_data = json.loads(decoded_str)
 
@@ -186,10 +193,11 @@ class UriToClashConverter:
                 'path': vmess_data.get('path', '/'),
                 'headers': {'Host': vmess_data.get('host', vmess_data.get('add'))}
             }
+
         return proxy
 
     @staticmethod
-    def parse_hysteria(uri: str) -> dict:
+    def parse_hysteria(uri: str) -> Dict:
         parsed_uri = urlparse(uri)
         params = UriToClashConverter._get_params(uri)
         proxy = {
@@ -198,16 +206,16 @@ class UriToClashConverter:
             "server": parsed_uri.hostname,
             "port": parsed_uri.port,
             "auth-str": parsed_uri.username,
-            "up": params.get('up', '50'),
-            "down": params.get('down', '100'),
-            "protocol": params.get('protocol'),
+            "up": params.get('up', ['50'])[0],
+            "down": params.get('down', ['100'])[0],
+            "protocol": params.get('protocol', [None])[0],
             "sni": params.get('sni', [parsed_uri.hostname])[0],
             "skip-cert-verify": True
         }
         return {k: v for k, v in proxy.items() if v is not None}
 
     @staticmethod
-    def parse_hysteria2(uri: str) -> dict:
+    def parse_hysteria2(uri: str) -> Dict:
         parsed_uri = urlparse(uri)
         params = UriToClashConverter._get_params(uri)
         proxy = {
@@ -222,7 +230,7 @@ class UriToClashConverter:
         return proxy
 
     @staticmethod
-    def parse_tuic(uri: str) -> dict:
+    def parse_tuic(uri: str) -> Dict:
         parsed_uri = urlparse(uri)
         params = UriToClashConverter._get_params(uri)
         uuid, password = parsed_uri.username.split(':', 1)
@@ -237,12 +245,12 @@ class UriToClashConverter:
             "sni": params.get('sni', [parsed_uri.hostname])[0],
             "alpn": [params.get('alpn', ['h3'])[0]],
             "skip-cert-verify": True,
-            "udp-relay-mode": params.get('udp-relay-mode', 'native')
+            "udp-relay-mode": params.get('udp-relay-mode', ['native'])[0]
         }
         return proxy
 
     @staticmethod
-    def parse_snell(uri: str) -> dict:
+    def parse_snell(uri: str) -> Dict:
         parsed_uri = urlparse(uri)
         params = UriToClashConverter._get_params(uri)
         proxy = {
@@ -251,14 +259,14 @@ class UriToClashConverter:
             "server": parsed_uri.hostname,
             "port": parsed_uri.port,
             "psk": parsed_uri.username,
-            "version": params.get('version', '3'),
+            "version": params.get('version', ['3'])[0],
         }
         if params.get('obfs'):
-            proxy['obfs-opts'] = {'mode': params['obfs']}
+            proxy['obfs-opts'] = {'mode': params['obfs'][0]}
         return proxy
 
     @staticmethod
-    def parse_ssh(uri: str) -> dict:
+    def parse_ssh(uri: str) -> Dict:
         parsed_uri = urlparse(uri)
         proxy = {
             "name": unquote(parsed_uri.fragment) or f"ssh-{parsed_uri.hostname}",
@@ -271,7 +279,7 @@ class UriToClashConverter:
         return {k: v for k, v in proxy.items() if v is not None}
         
     @staticmethod
-    def parse_wireguard(uri: str) -> dict:
+    def parse_wireguard(uri: str) -> Dict:
         parsed_uri = urlparse(uri)
         params = UriToClashConverter._get_params(uri)
         proxy = {
@@ -284,6 +292,8 @@ class UriToClashConverter:
             "ip": params.get('address', ['172.16.0.2/32'])[0],
             "udp": True
         }
+        if params.get('presharedKey'):
+            proxy['pre-shared-key'] = params['presharedKey'][0]
         return proxy
 
 def replace_placeholders(data, proxy_names):
