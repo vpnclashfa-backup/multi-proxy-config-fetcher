@@ -4,18 +4,21 @@ import uuid
 import time
 import socket
 import requests
+import os
+import re
 from typing import Dict, Optional, Tuple, List
 from urllib.parse import urlparse, parse_qs, unquote
 
 class ConfigToSingbox:
     def __init__(self):
-        self.output_file = 'configs/singbox_configs.json'
+        self.output_dir = 'configs'
+        self.output_file = os.path.join(self.output_dir, 'singbox_configs.json')
         self.headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
         }
-        # Cache for IP locations to avoid repeated API calls
         self.ip_location_cache: Dict[str, Tuple[str, str]] = {}
 
+    # ... (All helper methods like get_location, _decode_base64_safe, parsers, etc. from the previous step remain unchanged) ...
     def get_location_from_ip_api(self, ip: str) -> Tuple[str, str]:
         try:
             response = requests.get(f'http://ip-api.com/json/{ip}', headers=self.headers, timeout=5)
@@ -26,8 +29,6 @@ class ConfigToSingbox:
         except Exception:
             pass
         return '', ''
-
-    # Other get_location helpers can be placed here...
 
     def get_location(self, address: str) -> tuple:
         if not address or address.lower() == "auto":
@@ -241,10 +242,9 @@ class ConfigToSingbox:
                     "private_key": params.get('pk').replace(" ", "\n") if params.get('pk') else None
                 }
             
-            else: # Protocol is not supported or recognized
+            else: 
                 return None
 
-            # Finalize outbound object
             if outbound.get("server"):
                 flag, country = self.get_location(outbound["server"])
                 protocol_name = outbound["type"]
@@ -257,13 +257,16 @@ class ConfigToSingbox:
             return None
 
     def process_configs(self):
+        """
+        MODIFIED: Now categorizes outbounds and saves separate JSON files for each protocol.
+        """
         try:
-            with open('configs/proxy_configs.txt', 'r', encoding='utf-8') as f:
+            input_file = os.path.join(self.output_dir, 'proxy_configs.txt')
+            with open(input_file, 'r', encoding='utf-8') as f:
+                # Read all configs from the main text file
                 configs = f.read().strip().split('\n')
             
-            outbounds = []
-            valid_tags = []
-
+            all_outbounds = []
             for config in configs:
                 config = config.strip()
                 if not config or config.startswith(('#', '//')):
@@ -271,29 +274,52 @@ class ConfigToSingbox:
                 
                 converted = self.convert_to_singbox(config)
                 if converted:
-                    outbounds.append(converted)
-                    if 'tag' in converted and converted['tag']:
-                        valid_tags.append(converted['tag'])
+                    all_outbounds.append(converted)
 
-            if not outbounds:
-                print("No valid outbounds generated.")
+            if not all_outbounds:
+                print("No valid outbounds were generated.")
                 return
 
-            dns_config = {"dns": {"servers": [{"tag": "local", "address": "local"}], "final": "local"}}
-            inbounds_config = [{"listen": "127.0.0.1", "listen_port": 2080, "sniff": True, "type": "mixed"}]
-            route_config = {"final": "proxy", "rules": []}
-            
-            selector_outbounds = ["auto-urltest"] + valid_tags + ["direct"]
-            final_outbounds = [
-                {"tag": "proxy", "type": "selector", "outbounds": selector_outbounds},
-                {"tag": "auto-urltest", "type": "urltest", "outbounds": valid_tags, "url": "http://www.gstatic.com/generate_204"},
-                {"tag": "direct", "type": "direct"},
-            ] + outbounds
+            # --- Categorize outbounds by protocol type ---
+            categorized_outbounds: Dict[str, List[Dict]] = {}
+            for outbound in all_outbounds:
+                proto_type = outbound.get('type')
+                if proto_type:
+                    if proto_type not in categorized_outbounds:
+                        categorized_outbounds[proto_type] = []
+                    categorized_outbounds[proto_type].append(outbound)
 
-            singbox_config = {**dns_config, "inbounds": inbounds_config, "outbounds": final_outbounds, "route": route_config}
+            # --- Define boilerplate for sing-box configs ---
+            def create_singbox_structure(outbounds: List[Dict]) -> Dict:
+                tags = [o['tag'] for o in outbounds if 'tag' in o]
+                selector_outbounds = ["auto-urltest"] + tags + ["direct"]
+                final_outbounds = [
+                    {"tag": "proxy", "type": "selector", "outbounds": selector_outbounds},
+                    {"tag": "auto-urltest", "type": "urltest", "outbounds": tags, "url": "http://www.gstatic.com/generate_204"},
+                    {"tag": "direct", "type": "direct"},
+                ] + outbounds
+                
+                return {
+                    "dns": {"servers": [{"tag": "local", "address": "local"}], "final": "local"},
+                    "inbounds": [{"listen": "127.0.0.1", "listen_port": 2080, "sniff": True, "type": "mixed"}],
+                    "outbounds": final_outbounds,
+                    "route": {"final": "proxy", "rules": []}
+                }
 
+            # --- Save the main combined JSON file ---
+            main_config_structure = create_singbox_structure(all_outbounds)
             with open(self.output_file, 'w', encoding='utf-8') as f:
-                json.dump(singbox_config, f, indent=2, ensure_ascii=False)
+                json.dump(main_config_structure, f, indent=2, ensure_ascii=False)
+            print(f"Successfully saved combined sing-box config to {self.output_file}")
+
+            # --- Save per-protocol JSON files ---
+            for proto_type, outbounds_list in categorized_outbounds.items():
+                protocol_config_structure = create_singbox_structure(outbounds_list)
+                protocol_filename = os.path.join(self.output_dir, f"singbox_{proto_type}.json")
+                with open(protocol_filename, 'w', encoding='utf-8') as f:
+                    json.dump(protocol_config_structure, f, indent=2, ensure_ascii=False)
+                print(f"Successfully saved {proto_type}-only sing-box config to {protocol_filename}")
+
 
         except Exception as e:
             print(f"Error processing configs: {str(e)}")
