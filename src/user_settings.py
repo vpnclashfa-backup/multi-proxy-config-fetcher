@@ -197,7 +197,7 @@ SPECIFIC_CONFIG_COUNT = 300
 ENABLED_PROTOCOLS = {
     # --- Original Protocols ---
     "wireguard://": True,
-    "hysteria2://": True,
+    "hysteria2://": False,
     "vless://": False,
     "vmess://": False,
     "ss://": False,
