@@ -48,8 +48,7 @@ jobs:
 
     - name: Convert configs to sing-box format
       run: python src/config_to_singbox.py
-      
-    # --- Step جدید برای ساخت کانفیگ کلش اضافه شد ---
+
     - name: Convert configs to Clash format
       run: python src/config_to_clash.py
 
