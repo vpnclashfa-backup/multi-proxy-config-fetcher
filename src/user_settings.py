@@ -214,3 +214,10 @@ ENABLED_PROTOCOLS = {
 # Maximum age of configurations in days.
 # Configurations older than this will be considered invalid.
 MAX_CONFIG_AGE_DAYS = 7
+
+
+
+# --- New Setting Added ---
+# URL of your GitHub repository. This is used to generate correct raw links.
+# Example: "https://github.com/your_username/your_repo_name"
+GITHUB_REPO_URL = "https://github.com/vpnclashfa-backup/multi-proxy-config-fetcher"
