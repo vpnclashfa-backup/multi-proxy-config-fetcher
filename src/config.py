@@ -96,6 +96,7 @@ class ProxyConfig:
             "mieru://": {"priority": 2, "aliases": [], "enabled": ENABLED_PROTOCOLS.get("mieru://", False)},
             "anytls://": {"priority": 2, "aliases": [], "enabled": ENABLED_PROTOCOLS.get("anytls://", False)},
             "warp://": {"priority": 1, "aliases": [], "enabled": ENABLED_PROTOCOLS.get("warp://", False)},
+            "juicity://": {"priority": 2, "aliases": [], "enabled": ENABLED_PROTOCOLS.get("juicity://", False)}, # <-- پروتکل جدید اضافه شد
         }
 
     def _initialize_settings(self):
