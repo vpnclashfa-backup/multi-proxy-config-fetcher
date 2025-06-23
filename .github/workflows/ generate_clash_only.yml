@@ -1,0 +1,53 @@
+name: Manual Clash Config Generator
+
+# این گردش کار فقط به صورت دستی قابل اجراست
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-clash:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      
+      - name: Ensure output directory exists
+        run: mkdir -p configs
+
+      # در این گردش کار، فقط اسکریپت مربوط به کلش اجرا می‌شود
+      - name: Convert configs to Clash format
+        run: python src/config_to_clash.py
+
+      - name: Setup Git
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+      
+      - name: Commit and push Clash changes
+        run: |
+          # فقط فایل‌های YAML تولید شده در پوشه configs را اضافه می‌کند
+          git add configs/*.yaml
+
+          # فقط در صورتی که تغییری در فایل‌های کلش ایجاد شده باشد، کامیت می‌کند
+          if ! git diff-index --quiet HEAD; then
+            git commit -m "Re-generate Clash configs"
+            git pull --rebase
+            git push
+          else
+            echo "No new Clash configs to commit."
+          fi
