@@ -1,5 +1,5 @@
 import os
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 # We need the repo URL to build correct links
 try:
@@ -51,17 +51,17 @@ def generate_output_readme():
 
     # Main README content
     now_utc = datetime.now(timezone.utc)
-    # Assuming location is Germany (CEST is UTC+2)
-    # In summer, Germany uses CEST (UTC+2)
-    local_tz = timezone(timedelta(hours=2))
-    now_local = now_utc.astimezone(local_tz)
+    
+    # --- Timezone logic changed to Iran Standard Time (UTC+03:30) ---
+    iran_tz = timezone(timedelta(hours=3, minutes=30))
+    now_iran = now_utc.astimezone(iran_tz)
 
     readme_content = f"""
 # subscription links
 
 اشتراک‌های زیر به صورت خودکار توسط این پروژه تولید و به‌روزرسانی شده‌اند.
 
-**آخرین به‌روزرسانی (به وقت آلمان):** `{now_local.strftime('%Y-%m-%d %H:%M:%S %Z')} `
+**آخرین به‌روزرسانی (به وقت ایران):** `{now_iran.strftime('%Y-%m-%d %H:%M:%S %Z')} `
 
 ---
 
