@@ -32,7 +32,7 @@ class ClashConverter:
     def to_uri(proxy: Dict) -> Optional[str]:
         """Master converter that dispatches to the correct method based on proxy type."""
         proxy_type = proxy.get("type")
-
+        
         converters = {
             "vless": ClashConverter.to_vless,
             "vmess": ClashConverter.to_vmess,
@@ -57,7 +57,7 @@ class ClashConverter:
         port = proxy.get("port", "")
         uuid = proxy.get("uuid", "")
         name = quote(proxy.get("name", ""))
-
+        
         params = {
             "type": proxy.get("network"),
             "security": "tls" if proxy.get("tls") else "reality" if proxy.get("reality-opts") else "none",
@@ -69,11 +69,11 @@ class ClashConverter:
             "pbk": proxy.get("reality-opts", {}).get("public-key"),
             "sid": proxy.get("reality-opts", {}).get("short-id"),
         }
-
+        
         # Filter out None values
         params = {k: v for k, v in params.items() if v}
         query_string = urlencode(params)
-
+        
         return f"vless://{uuid}@{server}:{port}?{query_string}#{name}"
 
     @staticmethod
@@ -96,7 +96,7 @@ class ClashConverter:
         }
         # Filter out None/empty values
         vmess_json = {k: v for k, v in vmess_json.items() if v}
-
+        
         encoded_json = base64.b64encode(json.dumps(vmess_json, separators=(',', ':')).encode("utf-8")).decode("utf-8")
         return f"vmess://{encoded_json}"
 
@@ -107,10 +107,10 @@ class ClashConverter:
         password = proxy.get("password", "")
         cipher = proxy.get("cipher", "")
         name = quote(proxy.get("name", ""))
-
+        
         # Base64 encode 'cipher:password'
         user_info = base64.b64encode(f"{cipher}:{password}".encode("utf-8")).decode("utf-8").rstrip("=")
-
+        
         plugin_opts = ""
         if "plugin" in proxy:
             plugin_params = {
@@ -130,7 +130,7 @@ class ClashConverter:
         port = proxy.get("port", "")
         password = quote(proxy.get("password", ""))
         name = quote(proxy.get("name", ""))
-
+        
         params = {
             "sni": proxy.get("sni"),
             "type": proxy.get("network"),
@@ -138,12 +138,12 @@ class ClashConverter:
             "host": proxy.get("ws-opts", {}).get("headers", {}).get("Host"),
             "serviceName": proxy.get("grpc-opts", {}).get("grpc-service-name"),
         }
-
+        
         params = {k: v for k, v in params.items() if v}
         query_string = urlencode(params)
-
+        
         return f"trojan://{password}@{server}:{port}?{query_string}#{name}"
-
+    
     @staticmethod
     def to_hysteria2(proxy: dict) -> str:
         server = proxy.get("server", "")
@@ -165,7 +165,7 @@ class ClashConverter:
         alpn = (proxy.get("alpn") or [""])[0]
 
         return f"tuic://{uuid}:{password}@{server}:{port}?sni={sni}&alpn={alpn}#{name}"
-
+    
     @staticmethod
     def to_ssr(proxy: dict) -> str:
         return "" # Placeholder, SSR conversion from Clash YAML is complex and not fully implemented
@@ -209,7 +209,7 @@ class ConfigFetcher:
         if not response:
             self.config.update_channel_stats(channel, False)
             return configs
-
+        
         response_time = time.time() - start_time
         content = response.text
 
@@ -244,21 +244,21 @@ class ConfigFetcher:
                     if decoded_content:
                         content = decoded_content
                 configs.extend(self.validator.split_configs(content))
-
+        
         unique_configs = list(dict.fromkeys(configs))
         channel.metrics.total_configs = len(unique_configs)
-
+        
         valid_configs = []
         for config_str in unique_configs:
             processed = self.process_config(config_str, channel)
             if processed:
                 valid_configs.extend(processed)
-
+        
         if len(valid_configs) >= self.config.MIN_CONFIGS_PER_CHANNEL:
             self.config.update_channel_stats(channel, True, response_time)
         else:
             self.config.update_channel_stats(channel, False, response_time)
-
+        
         return valid_configs
 
     def process_config(self, config: str, channel: ChannelConfig) -> List[str]:
@@ -271,7 +271,7 @@ class ConfigFetcher:
                 if self.validator.validate_protocol_config(clean_config, protocol):
                     channel.metrics.valid_configs += 1
                     channel.metrics.protocol_counts[protocol] = channel.metrics.protocol_counts.get(protocol, 0) + 1
-
+                    
                     if clean_config not in self.seen_configs:
                         self.seen_configs.add(clean_config)
                         processed_configs.append(clean_config)
@@ -306,7 +306,7 @@ class ConfigFetcher:
     def fetch_all_configs(self) -> Dict[str, List[str]]:
         all_configs: List[str] = []
         enabled_channels = self.config.get_enabled_channels()
-
+        
         for idx, channel in enumerate(enabled_channels, 1):
             logger.info(f"Fetching from {channel.url} ({idx}/{len(enabled_channels)})")
             try:
@@ -316,7 +316,7 @@ class ConfigFetcher:
                 logger.error(f"Failed to fetch or process {channel.url}: {e}")
             if idx < len(enabled_channels):
                 time.sleep(2)
-
+        
         unique_configs = sorted(list(dict.fromkeys(all_configs)))
         return self.balance_protocols(unique_configs)
 
@@ -324,18 +324,18 @@ def save_configs(categorized_configs: Dict[str, List[str]], config: ProxyConfig)
     try:
         output_dir = os.path.dirname(config.OUTPUT_FILE)
         os.makedirs(output_dir, exist_ok=True)
-
+        
         all_configs_list = []
-
+        
         logger.info("--- Starting to save per-protocol text files ---")
         for protocol_scheme, configs_list in categorized_configs.items():
             if not configs_list:
                 continue
-
+            
             all_configs_list.extend(configs_list)
             protocol_name = protocol_scheme.replace("://", "")
             protocol_filename = os.path.join(output_dir, f"{protocol_name}_configs.txt")
-
+            
             try:
                 with open(protocol_filename, 'w', encoding='utf-8') as f:
                     f.write('\n\n'.join(configs_list))
