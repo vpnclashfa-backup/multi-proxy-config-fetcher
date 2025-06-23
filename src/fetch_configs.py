@@ -30,84 +30,41 @@ class ClashConverter:
             "anytls": ClashConverter.to_anytls,
         }
         if proxy_type in converters:
-            try:
-                return converters[proxy_type](proxy)
-            except Exception:
-                return None
+            try: return converters[proxy_type](proxy)
+            except Exception: return None
         else:
             logger.debug(f"[SKIPPED_CLASH] Unsupported Clash proxy type for URI conversion: '{proxy_type}'")
         return None
-
     @staticmethod
     def to_vless(proxy: Dict) -> str:
-        server, port, uuid = proxy.get("server", ""), proxy.get("port", ""), proxy.get("uuid", "")
-        name = quote(proxy.get("name", ""))
-        params = {"type": proxy.get("network"), "security": "tls" if proxy.get("tls") else "reality" if proxy.get("reality-opts") else "none", "sni": proxy.get("servername"), "flow": proxy.get("flow"), "path": proxy.get("ws-opts", {}).get("path"), "host": proxy.get("ws-opts", {}).get("headers", {}).get("Host"), "serviceName": proxy.get("grpc-opts", {}).get("grpc-service-name"), "pbk": proxy.get("reality-opts", {}).get("public-key"), "sid": proxy.get("reality-opts", {}).get("short-id"),}
-        params = {k: v for k, v in params.items() if v}
-        return f"vless://{uuid}@{server}:{port}?{urlencode(params)}#{name}"
-
+        server, port, uuid = proxy.get("server", ""), proxy.get("port", ""), proxy.get("uuid", ""); name = quote(proxy.get("name", "")); params = {"type": proxy.get("network"), "security": "tls" if proxy.get("tls") else "reality" if proxy.get("reality-opts") else "none", "sni": proxy.get("servername"), "flow": proxy.get("flow"), "path": proxy.get("ws-opts", {}).get("path"), "host": proxy.get("ws-opts", {}).get("headers", {}).get("Host"), "serviceName": proxy.get("grpc-opts", {}).get("grpc-service-name"), "pbk": proxy.get("reality-opts", {}).get("public-key"), "sid": proxy.get("reality-opts", {}).get("short-id"),}; params = {k: v for k, v in params.items() if v}; return f"vless://{uuid}@{server}:{port}?{urlencode(params)}#{name}"
     @staticmethod
     def to_vmess(proxy: Dict) -> str:
-        name = proxy.get("name", "")
-        vmess_json = {"v": "2", "ps": name, "add": proxy.get("server"), "port": proxy.get("port"), "id": proxy.get("uuid"), "aid": proxy.get("alterId", 0), "net": proxy.get("network"), "type": "none", "host": proxy.get("ws-opts", {}).get("headers", {}).get("Host"), "path": proxy.get("ws-opts", {}).get("path"), "tls": "tls" if proxy.get("tls") else "", "sni": proxy.get("servername"),}
-        vmess_json = {k: v for k, v in vmess_json.items() if v}
-        return f"vmess://{base64.b64encode(json.dumps(vmess_json, separators=(',', ':')).encode('utf-8')).decode('utf-8')}"
-
+        name = proxy.get("name", ""); vmess_json = {"v": "2", "ps": name, "add": proxy.get("server"), "port": proxy.get("port"), "id": proxy.get("uuid"), "aid": proxy.get("alterId", 0), "net": proxy.get("network"), "type": "none", "host": proxy.get("ws-opts", {}).get("headers", {}).get("Host"), "path": proxy.get("ws-opts", {}).get("path"), "tls": "tls" if proxy.get("tls") else "", "sni": proxy.get("servername"),}; vmess_json = {k: v for k, v in vmess_json.items() if v}; return f"vmess://{base64.b64encode(json.dumps(vmess_json, separators=(',', ':')).encode('utf-8')).decode('utf-8')}"
     @staticmethod
     def to_ss(proxy: Dict) -> str:
-        server, port, password, cipher = proxy.get("server", ""), proxy.get("port", ""), proxy.get("password", ""), proxy.get("cipher", "")
-        name = quote(proxy.get("name", ""))
-        user_info = f"{cipher}:{password}"
-        plugin_opts_str = ""
+        server, port, password, cipher = proxy.get("server", ""), proxy.get("port", ""), proxy.get("password", ""), proxy.get("cipher", ""); name = quote(proxy.get("name", "")); user_info = f"{cipher}:{password}"; plugin_opts_str = ""
         if "plugin" in proxy:
-            plugin_params = {"plugin": proxy["plugin"], "obfs": proxy.get("plugin-opts", {}).get("mode"), "obfs-host": proxy.get("plugin-opts", {}).get("host"),}
-            plugin_params = {k: v for k, v in plugin_params.items() if v}
-            plugin_opts_str = "?" + urlencode(plugin_params)
+            plugin_params = {"plugin": proxy["plugin"], "obfs": proxy.get("plugin-opts", {}).get("mode"), "obfs-host": proxy.get("plugin-opts", {}).get("host"),}; plugin_params = {k: v for k, v in plugin_params.items() if v}; plugin_opts_str = "?" + urlencode(plugin_params)
         return f"ss://{quote(user_info)}@{server}:{port}{plugin_opts_str}#{name}"
-
     @staticmethod
     def to_trojan(proxy: Dict) -> str:
-        server, port, password = proxy.get("server", ""), proxy.get("port", ""), quote(proxy.get("password", ""))
-        name = quote(proxy.get("name", ""))
-        params = {"sni": proxy.get("sni"), "type": proxy.get("network"), "path": proxy.get("ws-opts", {}).get("path"), "host": proxy.get("ws-opts", {}).get("headers", {}).get("Host"), "serviceName": proxy.get("grpc-opts", {}).get("grpc-service-name"),}
-        params = {k: v for k, v in params.items() if v}
-        return f"trojan://{password}@{server}:{port}?{urlencode(params)}#{name}"
-    
+        server, port, password = proxy.get("server", ""), proxy.get("port", ""), quote(proxy.get("password", "")); name = quote(proxy.get("name", "")); params = {"sni": proxy.get("sni"), "type": proxy.get("network"), "path": proxy.get("ws-opts", {}).get("path"), "host": proxy.get("ws-opts", {}).get("headers", {}).get("Host"), "serviceName": proxy.get("grpc-opts", {}).get("grpc-service-name"),}; params = {k: v for k, v in params.items() if v}; return f"trojan://{password}@{server}:{port}?{urlencode(params)}#{name}"
     @staticmethod
     def to_hysteria2(proxy: dict) -> str:
-        server, port, auth = proxy.get("server", ""), proxy.get("port", ""), proxy.get("password", "") or proxy.get("auth-str", "")
-        name, sni = quote(proxy.get("name", "")), proxy.get("sni", "")
-        return f"hysteria2://{auth}@{server}:{port}?sni={sni}#{name}"
-
+        server, port, auth = proxy.get("server", ""), proxy.get("port", ""), proxy.get("password", "") or proxy.get("auth-str", ""); name, sni = quote(proxy.get("name", "")), proxy.get("sni", ""); return f"hysteria2://{auth}@{server}:{port}?sni={sni}#{name}"
     @staticmethod
     def to_tuic(proxy: dict) -> str:
-        server, port, uuid, password = proxy.get("server", ""), proxy.get("port", ""), proxy.get("uuid", ""), quote(proxy.get("password", ""))
-        name, sni, alpn = quote(proxy.get("name", "")), proxy.get("sni", ""), (proxy.get("alpn") or [""])[0]
-        return f"tuic://{uuid}:{password}@{server}:{port}?sni={sni}&alpn={alpn}#{name}"
-    
+        server, port, uuid, password = proxy.get("server", ""), proxy.get("port", ""), proxy.get("uuid", ""), quote(proxy.get("password", "")); name, sni, alpn = quote(proxy.get("name", "")), proxy.get("sni", ""), (proxy.get("alpn") or [""])[0]; return f"tuic://{uuid}:{password}@{server}:{port}?sni={sni}&alpn={alpn}#{name}"
     @staticmethod
     def to_ssr(proxy: dict) -> str:
-        password_b64 = base64.b64encode(str(proxy.get('password', '')).encode('utf-8')).decode('utf-8').rstrip("=")
-        parts = [proxy.get('server'), str(proxy.get('port')), proxy.get('protocol'), proxy.get('cipher'), proxy.get('obfs'), password_b64]
-        main_part = ":".join(map(str, parts))
-        params = {"obfsparam": base64.b64encode(str(proxy.get('obfs-param', '')).encode('utf-8')).decode('utf-8'),"protoparam": base64.b64encode(str(proxy.get('protocol-param', '')).encode('utf-8')).decode('utf-8'),"remarks": base64.b64encode(str(proxy.get('name', '')).encode('utf-8')).decode('utf-8')}
-        query_string = urlencode({k: v for k, v in params.items() if v})
-        return f"ssr://{base64.b64encode(f'{main_part}/?{query_string}'.encode('utf-8')).decode('utf-8')}"
-    
+        password_b64 = base64.b64encode(str(proxy.get('password', '')).encode('utf-8')).decode('utf-8').rstrip("="); parts = [proxy.get('server'), str(proxy.get('port')), proxy.get('protocol'), proxy.get('cipher'), proxy.get('obfs'), password_b64]; main_part = ":".join(map(str, parts)); params = {"obfsparam": base64.b64encode(str(proxy.get('obfs-param', '')).encode('utf-8')).decode('utf-8'),"protoparam": base64.b64encode(str(proxy.get('protocol-param', '')).encode('utf-8')).decode('utf-8'),"remarks": base64.b64encode(str(proxy.get('name', '')).encode('utf-8')).decode('utf-8')}; query_string = urlencode({k: v for k, v in params.items() if v}); return f"ssr://{base64.b64encode(f'{main_part}/?{query_string}'.encode('utf-8')).decode('utf-8')}"
     @staticmethod
     def to_wireguard(proxy: dict) -> str:
-        private_key = quote(proxy.get('private-key', ''), safe=''); server, port = proxy.get('server', ''), proxy.get('port', ''); name = quote(proxy.get('name', ''))
-        params = {'publicKey': proxy.get('public-key', ''), 'address': proxy.get('ip', ''), 'presharedKey': proxy.get('pre-shared-key', '')}
-        params = {k: v for k, v in params.items() if v}
-        return f"wireguard://{private_key}@{server}:{port}?{urlencode(params)}#{name}"
-    
+        private_key = quote(proxy.get('private-key', ''), safe=''); server, port = proxy.get('server', ''), proxy.get('port', ''); name = quote(proxy.get('name', '')); params = {'publicKey': proxy.get('public-key', ''), 'address': proxy.get('ip', ''), 'presharedKey': proxy.get('pre-shared-key', '')}; params = {k: v for k, v in params.items() if v}; return f"wireguard://{private_key}@{server}:{port}?{urlencode(params)}#{name}"
     @staticmethod
     def to_anytls(proxy: dict) -> str:
-        password, server, port = quote(proxy.get('password', '')), proxy.get('server', ''), proxy.get('port', ''); name = quote(proxy.get('name', ''))
-        params = {'sni': proxy.get('sni'), 'fp': proxy.get('client-fingerprint'), 'insecure': 1 if proxy.get('skip-cert-verify') else 0}
-        params = {k: v for k, v in params.items() if v is not None}
-        return f"anytls://{password}@{server}:{port}?{urlencode(params)}#{name}"
-
+        password, server, port = quote(proxy.get('password', '')), proxy.get('server', ''), proxy.get('port', ''); name = quote(proxy.get('name', '')); params = {'sni': proxy.get('sni'), 'fp': proxy.get('client-fingerprint'), 'insecure': 1 if proxy.get('skip-cert-verify') else 0}; params = {k: v for k, v in params.items() if v is not None}; return f"anytls://{password}@{server}:{port}?{urlencode(params)}#{name}"
 
 class ConfigFetcher:
     def __init__(self, config: ProxyConfig):
@@ -134,12 +91,10 @@ class ConfigFetcher:
                     unique_ips.add(hostname)
             except socket.error:
                 self.ip_location_cache[hostname] = ("🏳️", "Unknown")
-        
         ips_to_query = list(unique_ips - set(self.ip_location_cache.keys()))
         if not ips_to_query:
             logger.info("All IP locations already resolved or cached.")
             return
-            
         logger.info(f"Querying locations for {len(ips_to_query)} new IPs in batches...")
         chunks = [ips_to_query[i:i + 100] for i in range(0, len(ips_to_query), 100)]
         for chunk in chunks:
@@ -156,7 +111,6 @@ class ConfigFetcher:
             except requests.RequestException:
                 for ip in chunk:
                     self.ip_location_cache[ip] = ("🏳️", "Unknown")
-
         for hostname, ip in hostname_to_ip_map.items():
             if ip in self.ip_location_cache:
                 self.ip_location_cache[hostname] = self.ip_location_cache[ip]
@@ -185,7 +139,24 @@ class ConfigFetcher:
             except Exception:
                 renamed_uris.append(uri)
         return renamed_uris
-
+    
+    def fetch_with_retry(self, url: str) -> Optional[requests.Response]:
+        backoff = 1
+        for attempt in range(self.config.MAX_RETRIES):
+            try:
+                response = self.session.get(url, timeout=self.config.REQUEST_TIMEOUT)
+                response.raise_for_status()
+                return response
+            except requests.RequestException as e:
+                if attempt == self.config.MAX_RETRIES - 1:
+                    logger.error(f"Failed to fetch {url} after {self.config.MAX_RETRIES} attempts: {str(e)}")
+                    return None
+                wait_time = min(self.config.RETRY_DELAY * backoff, 60)
+                logger.warning(f"Attempt {attempt + 1} for {url} failed, retrying in {wait_time}s: {str(e)}")
+                time.sleep(wait_time)
+                backoff *= 2
+        return None
+        
     def fetch_configs_from_source(self, channel: ChannelConfig) -> List[str]:
         configs: List[str] = []
         channel.metrics.total_configs = 0
@@ -306,6 +277,7 @@ class ConfigFetcher:
         self.batch_get_locations(list(all_hostnames))
         renamed_configs = self.rename_configs_with_flags(unique_configs)
         return self.balance_protocols(renamed_configs)
+
 
 def save_configs(categorized_configs: Dict[str, List[str]], config: ProxyConfig):
     try:
