@@ -46,7 +46,8 @@ class ClashConverter:
         if proxy_type in converters:
             try:
                 return converters[proxy_type](proxy)
-            except Exception:
+            except Exception as e:
+                # logger.warning(f"Could not convert Clash proxy '{proxy.get('name')}': {e}")
                 return None
         return None
 
@@ -69,6 +70,7 @@ class ClashConverter:
             "sid": proxy.get("reality-opts", {}).get("short-id"),
         }
         
+        # Filter out None values
         params = {k: v for k, v in params.items() if v}
         query_string = urlencode(params)
         
@@ -77,6 +79,7 @@ class ClashConverter:
     @staticmethod
     def to_vmess(proxy: Dict) -> str:
         name = proxy.get("name", "")
+        # Create the JSON part for VMess
         vmess_json = {
             "v": "2",
             "ps": name,
@@ -85,13 +88,15 @@ class ClashConverter:
             "id": proxy.get("uuid"),
             "aid": proxy.get("alterId", 0),
             "net": proxy.get("network"),
-            "type": "none",
+            "type": "none", # http header type
             "host": proxy.get("ws-opts", {}).get("headers", {}).get("Host"),
             "path": proxy.get("ws-opts", {}).get("path"),
             "tls": "tls" if proxy.get("tls") else "",
             "sni": proxy.get("servername"),
         }
+        # Filter out None/empty values
         vmess_json = {k: v for k, v in vmess_json.items() if v}
+        
         encoded_json = base64.b64encode(json.dumps(vmess_json, separators=(',', ':')).encode("utf-8")).decode("utf-8")
         return f"vmess://{encoded_json}"
 
@@ -103,6 +108,7 @@ class ClashConverter:
         cipher = proxy.get("cipher", "")
         name = quote(proxy.get("name", ""))
         
+        # Base64 encode 'cipher:password'
         user_info = base64.b64encode(f"{cipher}:{password}".encode("utf-8")).decode("utf-8").rstrip("=")
         
         plugin_opts = ""
@@ -112,6 +118,7 @@ class ClashConverter:
                 "obfs": proxy.get("plugin-opts", {}).get("mode"),
                 "obfs-host": proxy.get("plugin-opts", {}).get("host"),
             }
+            # Filter and encode plugin options
             plugin_params = {k: v for k, v in plugin_params.items() if v}
             plugin_opts = "&" + urlencode(plugin_params)
 
@@ -256,10 +263,8 @@ class ConfigFetcher:
 
     def process_config(self, config: str, channel: ChannelConfig) -> List[str]:
         processed_configs = []
-
         if config.startswith('hy2://'):
             config = self.validator.normalize_hysteria2_protocol(config)
-
         for protocol in self.config.SUPPORTED_PROTOCOLS:
             if config.startswith(protocol) and self.config.is_protocol_enabled(protocol):
                 clean_config = self.validator.clean_config(config)
@@ -322,16 +327,25 @@ def save_configs(categorized_configs: Dict[str, List[str]], config: ProxyConfig)
         
         all_configs_list = []
         
+        logger.info("--- Starting to save per-protocol text files ---")
         for protocol_scheme, configs_list in categorized_configs.items():
             if not configs_list:
                 continue
+            
             all_configs_list.extend(configs_list)
             protocol_name = protocol_scheme.replace("://", "")
             protocol_filename = os.path.join(output_dir, f"{protocol_name}_configs.txt")
             
-            with open(protocol_filename, 'w', encoding='utf-8') as f:
-                f.write('\n\n'.join(configs_list))
-            logger.info(f"Saved {len(configs_list)} configs to {protocol_filename}")
+            try:
+                with open(protocol_filename, 'w', encoding='utf-8') as f:
+                    f.write('\n\n'.join(configs_list))
+                logger.info(f"-> SUCCESS: Saved {len(configs_list)} configs to {protocol_filename}")
+            except Exception as e:
+                logger.error(f"-> FAILED: Could not save protocol file {protocol_filename}: {e}")
+
+        if not all_configs_list:
+            logger.warning("No total configs to save in the main file.")
+            return
 
         header = """//profile-title: base64:8J+RvUFub255bW91cy3wnZWP
 //profile-update-interval: 1
@@ -342,11 +356,11 @@ def save_configs(categorized_configs: Dict[str, List[str]], config: ProxyConfig)
 """
         with open(config.OUTPUT_FILE, 'w', encoding='utf-8') as f:
             f.write(header)
-            f.write('\n\n'.join(all_configs_list))
-        logger.info(f"Saved {len(all_configs_list)} total configs to {config.OUTPUT_FILE}")
+            f.write('\n\n'.join(sorted(all_configs_list)))
+        logger.info(f"-> SUCCESS: Saved {len(all_configs_list)} total configs to {config.OUTPUT_FILE}")
 
     except Exception as e:
-        logger.error(f"Error saving config files: {str(e)}")
+        logger.error(f"-> FAILED: A critical error occurred in save_configs function: {str(e)}")
 
 def save_channel_stats(config: ProxyConfig):
     try:
@@ -358,7 +372,7 @@ def save_channel_stats(config: ProxyConfig):
                 'metrics': {
                     'total_configs': channel.metrics.total_configs,
                     'valid_configs': channel.metrics.valid_configs,
-                    'unique_configs': len(set(c for p in channel.metrics.protocol_counts.values() for c in p)) if isinstance(next(iter(channel.metrics.protocol_counts.values()), None), list) else channel.metrics.unique_configs,
+                    'unique_configs': channel.metrics.unique_configs,
                     'avg_response_time': round(channel.metrics.avg_response_time, 2),
                     'success_count': channel.metrics.success_count,
                     'fail_count': channel.metrics.fail_count,
