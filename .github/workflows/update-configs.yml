@@ -42,7 +42,6 @@ jobs:
     - name: Generate charts and reports
       run: python src/generate_charts.py
 
-    # --- Step جدید اضافه شد ---
     - name: Generate Source Statistics Report
       run: python src/generate_source_report.py
 
@@ -73,26 +72,14 @@ jobs:
     # --- بخش Commit به‌روز شد ---
     - name: Commit and push changes
       run: |
-        # Add main files
-        git add configs/proxy_configs.txt
-        git add configs/singbox_configs.json
-        git add configs/channel_stats.json
-        
-        # Add all separated subscription files
-        git add configs/*_configs.txt
-        git add configs/singbox_*.json
+        # Add all generated files
+        git add -A
 
-        # Add all assets and reports
-        git add assets/channel_stats_chart.svg
-        git add assets/performance_report.html
-        git add assets/source_statistics_report.html
+        # Commit changes if there are any
+        git diff-index --quiet HEAD || git commit -m "Update proxy configs, stats and reports"
         
-        # Add README files
-        git add README.md
-        git add README_FA.md
-        git add README_CN.md
-        git add README_RU.md
+        # Pull remote changes and rebase before pushing
+        git pull --rebase
         
-        # Commit changes
-        git commit -m "Update proxy configs, stats and reports" || echo "No changes to commit"
+        # Push the changes
         git push
