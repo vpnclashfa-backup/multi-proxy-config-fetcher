@@ -1,10 +1,10 @@
 # File: src/utils.py
-# (Final version with realistic OS and browser weighting)
+# (Final version with weighted random choice and helper functions)
 
 import random
 import base64
 
-# لیست User-Agent ها (بدون تغییر)
+# [FINAL] لیست نهایی و گسترش‌یافته User-Agent ها
 AGENTS_POPULATION = [
     # --- Windows Browsers ---
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
@@ -29,7 +29,7 @@ AGENTS_POPULATION = [
     "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:127.0) Gecko/20100101 Firefox/127.0",
 ]
 
-# [IMPROVED] لیست وزن‌های نهایی که سهم بازار سیستم‌عامل‌ها را نیز منعکس می‌کند
+# [FINAL] لیست وزن‌های نهایی که سهم بازار سیستم‌عامل‌ها و مرورگرها را منعکس می‌کند
 AGENTS_WEIGHTS = [
     # Weights for Windows (High OS Share)
     12, # Chrome (Very High)
@@ -68,11 +68,6 @@ def generate_unique_name(existing_names: dict, name: str) -> str:
         return f"{name}-{count+1}"
     return name
 
-def safe_b64decode(s: str) -> bytes:
-    """
-    رشته Base64 را به صورت امن رمزگشایی می‌کند و مشکل padding را حل می‌کند.
-    """
-    padding = -len(s) % 4
-    if padding:
-        s += '=' * padding
-    return base64.b64decode(s)
+def clean_proxy_name(name: str) -> str:
+    """کاراکترهای مشکل‌ساز را از نام پراکسی حذف می‌کند."""
+    return name.replace('=', '-').replace(';', ',').replace('"', '')
