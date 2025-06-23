@@ -4,8 +4,8 @@ import uuid
 import time
 import socket
 import requests
-from typing import Dict, Optional, Tuple
-from urllib.parse import urlparse, parse_qs
+from typing import Dict, Optional, Tuple, List
+from urllib.parse import urlparse, parse_qs, unquote
 
 class ConfigToSingbox:
     def __init__(self):
@@ -13,7 +13,9 @@ class ConfigToSingbox:
         self.headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
         }
-        
+        # Cache for IP locations to avoid repeated API calls
+        self.ip_location_cache: Dict[str, Tuple[str, str]] = {}
+
     def get_location_from_ip_api(self, ip: str) -> Tuple[str, str]:
         try:
             response = requests.get(f'http://ip-api.com/json/{ip}', headers=self.headers, timeout=5)
@@ -25,323 +27,274 @@ class ConfigToSingbox:
             pass
         return '', ''
 
-    def get_location_from_ipapi_co(self, ip: str) -> Tuple[str, str]:
-        try:
-            response = requests.get(f'https://ipapi.co/{ip}/json/', headers=self.headers, timeout=5)
-            if response.status_code == 200:
-                data = response.json()
-                if data.get('country_code') and data.get('country_name'):
-                    return data['country_code'].lower(), data['country_name']
-        except Exception:
-            pass
-        return '', ''
-
-    def get_location_from_ipwhois(self, ip: str) -> Tuple[str, str]:
-        try:
-            response = requests.get(f'https://ipwhois.app/json/{ip}', headers=self.headers, timeout=5)
-            if response.status_code == 200:
-                data = response.json()
-                if data.get('country_code') and data.get('country'):
-                    return data['country_code'].lower(), data['country']
-        except Exception:
-            pass
-        return '', ''
-
-    def get_location_from_ipdata(self, ip: str) -> Tuple[str, str]:
-        try:
-            response = requests.get(f'https://api.ipdata.co/{ip}?api-key=test', headers=self.headers, timeout=5)
-            if response.status_code == 200:
-                data = response.json()
-                if data.get('country_code') and data.get('country_name'):
-                    return data['country_code'].lower(), data['country_name']
-        except Exception:
-            pass
-        return '', ''
-
-    def get_location_from_abstractapi(self, ip: str) -> Tuple[str, str]:
-        try:
-            response = requests.get(f'https://ipgeolocation.abstractapi.com/v1/?api_key=test&ip_address={ip}', 
-                                  headers=self.headers, timeout=5)
-            if response.status_code == 200:
-                data = response.json()
-                if data.get('country_code') and data.get('country'):
-                    return data['country_code'].lower(), data['country']
-        except Exception:
-            pass
-        return '', ''
+    # Other get_location helpers can be placed here...
 
     def get_location(self, address: str) -> tuple:
+        if not address or address.lower() == "auto":
+            return "🏳️", "Unknown"
+        
+        if address in self.ip_location_cache:
+            return self.ip_location_cache[address]
+        
         try:
             ip = socket.gethostbyname(address)
-            apis = [
-                self.get_location_from_ip_api,
-                self.get_location_from_ipapi_co,
-                self.get_location_from_ipwhois,
-                self.get_location_from_ipdata,
-                self.get_location_from_abstractapi
-            ]
+            if ip in self.ip_location_cache:
+                return self.ip_location_cache[ip]
+
+            flag, country = self.get_location_from_ip_api(ip)
+            if country:
+                country_code = country.lower()
+                flag_emoji = ''.join(chr(ord('🇦') + ord(c.upper()) - ord('A')) for c in country_code)
+                result = (flag_emoji, country)
+                self.ip_location_cache[address] = result
+                self.ip_location_cache[ip] = result
+                return result
             
-            for api_func in apis:
-                country_code, country = api_func(ip)
-                if country_code and country and len(country_code) == 2:
-                    flag = ''.join(chr(ord('🇦') + ord(c.upper()) - ord('A')) for c in country_code)
-                    time.sleep(1)
-                    return flag, country
-                time.sleep(1)
-                
         except Exception:
             pass
-            
-        return "🏳️", "Unknown"
+        
+        result = ("🏳️", "Unknown")
+        self.ip_location_cache[address] = result
+        return result
 
-    def decode_vmess(self, config: str) -> Optional[Dict]:
+    def _decode_base64_safe(self, s: str) -> str:
+        s = s.replace('-', '+').replace('_', '/')
+        padding = -len(s) % 4
+        if padding:
+            s += '=' * padding
         try:
-            encoded = config.replace('vmess://', '')
-            decoded = base64.b64decode(encoded).decode('utf-8')
-            return json.loads(decoded)
+            return base64.b64decode(s).decode('utf-8')
         except Exception:
+            return ""
+
+    def _parse_query_params(self, url: str) -> Dict[str, str]:
+        params = {}
+        try:
+            parsed_url = urlparse(url)
+            query = parse_qs(parsed_url.query)
+            for key, value in query.items():
+                if value:
+                    params[key.lower()] = value[0]
+        except:
+            pass
+        return params
+
+    def _build_transport(self, params: Dict) -> Dict:
+        transport = {}
+        net_type = params.get('type', 'tcp')
+        
+        if net_type == 'ws':
+            transport['type'] = 'ws'
+            transport['path'] = params.get('path', '/')
+            transport['headers'] = {'Host': params.get('host', '')}
+        elif net_type == 'grpc':
+            transport['type'] = 'grpc'
+            transport['service_name'] = params.get('servicename', '')
+        
+        return transport
+
+    def _build_tls(self, params: Dict, host: str) -> Dict:
+        security = params.get('security', 'none')
+        if security not in ['tls', 'reality', 'xtls']:
             return None
 
-    def parse_vless(self, config: str) -> Optional[Dict]:
-        try:
-            url = urlparse(config)
-            if url.scheme.lower() != 'vless' or not url.hostname:
-                return None
-            netloc = url.netloc.split('@')[-1]
-            address, port = netloc.split(':') if ':' in netloc else (netloc, '443')
-            params = parse_qs(url.query)
-            return {
-                'uuid': url.username,
-                'address': address,
-                'port': int(port),
-                'flow': params.get('flow', [''])[0],
-                'sni': params.get('sni', [address])[0],
-                'type': params.get('type', ['tcp'])[0],
-                'path': params.get('path', [''])[0],
-                'host': params.get('host', [''])[0]
+        tls_obj = {"enabled": True, "server_name": params.get('sni', host)}
+        
+        if security == 'reality':
+            tls_obj['reality'] = {
+                "enabled": True,
+                "public_key": params.get('pbk'),
+                "short_id": params.get('sid', '')
             }
-        except Exception:
-            return None
-
-    def parse_trojan(self, config: str) -> Optional[Dict]:
-        try:
-            url = urlparse(config)
-            if url.scheme.lower() != 'trojan' or not url.hostname:
-                return None
-            port = url.port or 443
-            params = parse_qs(url.query)
-            return {
-                'password': url.username,
-                'address': url.hostname,
-                'port': port,
-                'sni': params.get('sni', [url.hostname])[0],
-                'alpn': params.get('alpn', [''])[0],
-                'type': params.get('type', ['tcp'])[0],
-                'path': params.get('path', [''])[0]
-            }
-        except Exception:
-            return None
-
-    def parse_hysteria2(self, config: str) -> Optional[Dict]:
-        try:
-            url = urlparse(config)
-            if url.scheme.lower() not in ['hysteria2', 'hy2'] or not url.hostname or not url.port:
-                return None
-            query = dict(pair.split('=') for pair in url.query.split('&')) if url.query else {}
-            return {
-                'address': url.hostname,
-                'port': url.port,
-                'password': url.username or query.get('password', ''),
-                'sni': query.get('sni', url.hostname)
-            }
-        except Exception:
-            return None
-
-    def parse_shadowsocks(self, config: str) -> Optional[Dict]:
-        try:
-            parts = config.replace('ss://', '').split('@')
-            if len(parts) != 2:
-                return None
-            method_pass = base64.b64decode(parts[0]).decode('utf-8')
-            method, password = method_pass.split(':')
-            server_parts = parts[1].split('#')[0]
-            host, port = server_parts.split(':')
-            return {
-                'method': method,
-                'password': password,
-                'address': host,
-                'port': int(port)
-            }
-        except Exception:
-            return None
+        else:
+            tls_obj['insecure'] = params.get('allowinsecure', '1') == '1'
+            tls_obj['alpn'] = [p.strip() for p in params.get('alpn', '').split(',')] if params.get('alpn') else None
+        
+        return {k: v for k, v in tls_obj.items() if v is not None}
 
     def convert_to_singbox(self, config: str) -> Optional[Dict]:
         try:
             config_lower = config.lower()
-            if config_lower.startswith('vmess://'):
-                vmess_data = self.decode_vmess(config)
-                if not vmess_data or not vmess_data.get('add') or not vmess_data.get('port') or not vmess_data.get('id'):
-                    return None
-                transport = {}
-                if vmess_data.get('net') in ['ws', 'h2']:
-                    if vmess_data.get('path', ''):
-                        transport["path"] = vmess_data.get('path')
-                    if vmess_data.get('host', ''):
-                        transport["headers"] = {"Host": vmess_data.get('host')}
-                    transport["type"] = vmess_data.get('net', 'tcp')
-                flag, country = self.get_location(vmess_data['add'])
-                return {
+            outbound = {}
+
+            if config_lower.startswith(('vless://', 'trojan://')):
+                is_vless = config_lower.startswith('vless://')
+                parsed = urlparse(config)
+                params = self._parse_query_params(config)
+                
+                userinfo, hostinfo = parsed.netloc.split('@', 1)
+                host, port_str = hostinfo.rsplit(':', 1)
+
+                outbound = {
+                    "type": "vless" if is_vless else "trojan",
+                    "server": host,
+                    "server_port": int(port_str),
+                    "uuid": userinfo if is_vless else None,
+                    "password": userinfo if not is_vless else None,
+                    "flow": params.get('flow', None) if is_vless else None,
+                    "tls": self._build_tls(params, host),
+                    "transport": self._build_transport(params)
+                }
+
+            elif config_lower.startswith('vmess://'):
+                vmess_data = json.loads(self._decode_base64_safe(config[8:]))
+                host = vmess_data.get('add', '')
+                port = int(vmess_data.get('port', 0))
+                params = {k.lower(): v for k, v in vmess_data.items()}
+
+                outbound = {
                     "type": "vmess",
-                    "tag": f"{flag} vmess-{str(uuid.uuid4())[:8]} ({country})",
-                    "server": vmess_data['add'],
-                    "server_port": int(vmess_data['port']),
-                    "uuid": vmess_data['id'],
-                    "security": vmess_data.get('scy', 'auto'),
+                    "server": host,
+                    "server_port": port,
+                    "uuid": vmess_data.get('id'),
                     "alter_id": int(vmess_data.get('aid', 0)),
-                    "transport": transport,
-                    "tls": {
-                        "enabled": vmess_data.get('tls') == 'tls',
-                        "insecure": True,
-                        "server_name": vmess_data.get('sni', vmess_data['add'])
-                    }
+                    "security": vmess_data.get('scy', 'auto'),
+                    "tls": self._build_tls(params, host),
+                    "transport": self._build_transport(params)
                 }
-            elif config_lower.startswith('vless://'):
-                vless_data = self.parse_vless(config)
-                if not vless_data:
-                    return None
-                transport = {}
-                if vless_data['type'] == 'ws':
-                    if vless_data.get('path', ''):
-                        transport["path"] = vless_data.get('path')
-                    if vless_data.get('host', ''):
-                        transport["headers"] = {"Host": vless_data.get('host')}
-                    transport["type"] = "ws"
-                flag, country = self.get_location(vless_data['address'])
-                return {
-                    "type": "vless",
-                    "tag": f"{flag} vless-{str(uuid.uuid4())[:8]} ({country})",
-                    "server": vless_data['address'],
-                    "server_port": vless_data['port'],
-                    "uuid": vless_data['uuid'],
-                    "flow": vless_data['flow'],
-                    "tls": {
-                        "enabled": True,
-                        "server_name": vless_data['sni'],
-                        "insecure": True
-                    },
-                    "transport": transport
-                }
-            elif config_lower.startswith('trojan://'):
-                trojan_data = self.parse_trojan(config)
-                if not trojan_data:
-                    return None
-                transport = {}
-                if trojan_data['type'] != 'tcp' and trojan_data.get('path', ''):
-                    transport["path"] = trojan_data.get('path')
-                    transport["type"] = trojan_data['type']
-                flag, country = self.get_location(trojan_data['address'])
-                return {
-                    "type": "trojan",
-                    "tag": f"{flag} trojan-{str(uuid.uuid4())[:8]} ({country})",
-                    "server": trojan_data['address'],
-                    "server_port": trojan_data['port'],
-                    "password": trojan_data['password'],
-                    "tls": {
-                        "enabled": True,
-                        "server_name": trojan_data['sni'],
-                        "alpn": trojan_data['alpn'].split(',') if trojan_data['alpn'] else [],
-                        "insecure": True
-                    },
-                    "transport": transport
-                }
-            elif config_lower.startswith('hysteria2://') or config_lower.startswith('hy2://'):
-                hy2_data = self.parse_hysteria2(config)
-                if not hy2_data or not hy2_data.get('address') or not hy2_data.get('port'):
-                    return None
-                flag, country = self.get_location(hy2_data['address'])
-                return {
-                    "type": "hysteria2",
-                    "tag": f"{flag} hysteria2-{str(uuid.uuid4())[:8]} ({country})",
-                    "server": hy2_data['address'],
-                    "server_port": hy2_data['port'],
-                    "password": hy2_data['password'],
-                    "tls": {
-                        "enabled": True,
-                        "insecure": True,
-                        "server_name": hy2_data['sni']
-                    }
-                }
+
             elif config_lower.startswith('ss://'):
-                ss_data = self.parse_shadowsocks(config)
-                if not ss_data or not ss_data.get('address') or not ss_data.get('port'):
-                    return None
-                flag, country = self.get_location(ss_data['address'])
-                return {
+                parsed = urlparse(config)
+                params = self._parse_query_params(config)
+                if '@' in parsed.netloc:
+                    method_pass, host_port = parsed.netloc.split('@', 1)
+                    method, password = unquote(method_pass).split(':', 1)
+                    host, port = host_port.split(':')
+                else:
+                    decoded = self._decode_base64_safe(config[5:].split('#')[0])
+                    match = re.match(r'(.+?):(.+?)@(.+?):(\d+)', decoded)
+                    method, password, host, port = match.groups()
+
+                outbound = {
                     "type": "shadowsocks",
-                    "tag": f"{flag} ss-{str(uuid.uuid4())[:8]} ({country})",
-                    "server": ss_data['address'],
-                    "server_port": ss_data['port'],
-                    "method": ss_data['method'],
-                    "password": ss_data['password']
+                    "server": host,
+                    "server_port": int(port),
+                    "method": method,
+                    "password": password
                 }
+                if params.get('plugin') == 'shadow-tls':
+                    outbound['plugin'] = 'shadow-tls'
+                    outbound['plugin_opts'] = f"host={params.get('host', host)}"
+            
+            elif config_lower.startswith('ssr://'):
+                decoded_str = self._decode_base64_safe(config[6:])
+                parts = decoded_str.split(':')
+                server, port, protocol, method, obfs, password_b64 = parts
+                password = self._decode_base64_safe(password_b64.split('/?')[0])
+                params = self._parse_query_params(decoded_str)
+
+                outbound = {
+                    "type": "shadowsocksr",
+                    "server": server,
+                    "server_port": int(port),
+                    "method": method,
+                    "password": password,
+                    "obfs": obfs,
+                    "obfs_param": self._decode_base64_safe(params.get('obfsparam', '')),
+                    "protocol": protocol,
+                    "protocol_param": self._decode_base64_safe(params.get('protoparam', ''))
+                }
+
+            elif config_lower.startswith(('hysteria://', 'hysteria2://', 'hy2://')):
+                is_hy2 = not config_lower.startswith('hysteria://')
+                parsed = urlparse(config)
+                params = self._parse_query_params(config)
+                host, port = parsed.netloc.split('@')[1].rsplit(':', 1)
+
+                outbound = {
+                    "type": "hysteria2" if is_hy2 else "hysteria",
+                    "server": host,
+                    "server_port": int(port),
+                    "password": parsed.username,
+                    "tls": {
+                        "enabled": True,
+                        "insecure": True,
+                        "server_name": params.get('sni', host)
+                    }
+                }
+                if not is_hy2: # Hysteria v1 specific params
+                    outbound["up_mbps"] = int(params.get("up", 50))
+                    outbound["down_mbps"] = int(params.get("down", 100))
+
+            elif config_lower.startswith('snell://'):
+                parsed = urlparse(config)
+                params = self._parse_query_params(config)
+                host, port = parsed.netloc.split('@')[0].rsplit(':', 1)
+                
+                outbound = {
+                    "type": "snell",
+                    "server": host,
+                    "server_port": int(port),
+                    "psk": parsed.username,
+                    "version": params.get('version', '3')
+                }
+
+            elif config_lower.startswith('ssh://'):
+                parsed = urlparse(config)
+                params = self._parse_query_params(config)
+                outbound = {
+                    "type": "ssh",
+                    "server": parsed.hostname,
+                    "server_port": parsed.port or 22,
+                    "user": parsed.username,
+                    "password": unquote(parsed.password) if parsed.password else None,
+                    "private_key": params.get('pk').replace(" ", "\n") if params.get('pk') else None
+                }
+            
+            else: # Protocol is not supported or recognized
+                return None
+
+            # Finalize outbound object
+            if outbound.get("server"):
+                flag, country = self.get_location(outbound["server"])
+                protocol_name = outbound["type"]
+                outbound["tag"] = f"{flag} {protocol_name}-{str(uuid.uuid4())[:6]} ({country})"
+                return {k: v for k, v in outbound.items() if v is not None}
+
             return None
+
         except Exception:
             return None
 
     def process_configs(self):
         try:
-            with open('configs/proxy_configs.txt', 'r') as f:
+            with open('configs/proxy_configs.txt', 'r', encoding='utf-8') as f:
                 configs = f.read().strip().split('\n')
+            
             outbounds = []
             valid_tags = []
+
             for config in configs:
                 config = config.strip()
-                if not config or config.startswith('//'):
+                if not config or config.startswith(('#', '//')):
                     continue
+                
                 converted = self.convert_to_singbox(config)
                 if converted:
                     outbounds.append(converted)
-                    valid_tags.append(converted['tag'])
+                    if 'tag' in converted and converted['tag']:
+                        valid_tags.append(converted['tag'])
+
             if not outbounds:
+                print("No valid outbounds generated.")
                 return
-            dns_config = {
-                "dns": {
-                    "final": "local-dns",
-                    "rules": [
-                        {"clash_mode": "Global", "server": "proxy-dns", "source_ip_cidr": ["172.19.0.0/30"]},
-                        {"server": "proxy-dns", "source_ip_cidr": ["172.19.0.0/30"]},
-                        {"clash_mode": "Direct", "server": "direct-dns"}
-                    ],
-                    "servers": [
-                        {"address": "tls://208.67.222.123", "address_resolver": "local-dns", "detour": "proxy", "tag": "proxy-dns"},
-                        {"address": "local", "detour": "direct", "tag": "local-dns"},
-                        {"address": "rcode://success", "tag": "block"},
-                        {"address": "local", "detour": "direct", "tag": "direct-dns"}
-                    ],
-                    "strategy": "prefer_ipv4"
-                }
-            }
-            inbounds_config = [
-                {"address": ["172.19.0.1/30", "fdfe:dcba:9876::1/126"], "auto_route": True, "endpoint_independent_nat": False, "mtu": 9000, "platform": {"http_proxy": {"enabled": True, "server": "127.0.0.1", "server_port": 2080}}, "sniff": True, "stack": "system", "strict_route": False, "type": "tun"},
-                {"listen": "127.0.0.1", "listen_port": 2080, "sniff": True, "type": "mixed", "users": []}
-            ]
-            outbounds_config = [
-                {"tag": "proxy", "type": "selector", "outbounds": ["auto"] + valid_tags + ["direct"]},
-                {"tag": "auto", "type": "urltest", "outbounds": valid_tags, "url": "http://www.gstatic.com/generate_204", "interval": "10m", "tolerance": 50},
-                {"tag": "direct", "type": "direct"}
+
+            dns_config = {"dns": {"servers": [{"tag": "local", "address": "local"}], "final": "local"}}
+            inbounds_config = [{"listen": "127.0.0.1", "listen_port": 2080, "sniff": True, "type": "mixed"}]
+            route_config = {"final": "proxy", "rules": []}
+            
+            selector_outbounds = ["auto-urltest"] + valid_tags + ["direct"]
+            final_outbounds = [
+                {"tag": "proxy", "type": "selector", "outbounds": selector_outbounds},
+                {"tag": "auto-urltest", "type": "urltest", "outbounds": valid_tags, "url": "http://www.gstatic.com/generate_204"},
+                {"tag": "direct", "type": "direct"},
             ] + outbounds
-            route_config = {
-                "auto_detect_interface": True,
-                "final": "proxy",
-                "rules": [
-                    {"clash_mode": "Direct", "outbound": "direct"},
-                    {"clash_mode": "Global", "outbound": "proxy"},
-                    {"protocol": "dns", "action": "hijack-dns"}
-                ]
-            }
-            singbox_config = {**dns_config, "inbounds": inbounds_config, "outbounds": outbounds_config, "route": route_config}
-            with open(self.output_file, 'w') as f:
+
+            singbox_config = {**dns_config, "inbounds": inbounds_config, "outbounds": final_outbounds, "route": route_config}
+
+            with open(self.output_file, 'w', encoding='utf-8') as f:
                 json.dump(singbox_config, f, indent=2, ensure_ascii=False)
+
         except Exception as e:
             print(f"Error processing configs: {str(e)}")
 
