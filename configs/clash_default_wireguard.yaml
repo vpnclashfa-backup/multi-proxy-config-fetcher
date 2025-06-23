@@ -202,7 +202,7 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   mtu: 1280
-- name: Peyman_wire-g
+- name: Peyman_wire-g-2
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
@@ -211,7 +211,7 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   ipv6: 2606:4700:110:8333:6253:7e18:c968:a9b4/128
-- name: Peyman_wire-g
+- name: Peyman_wire-g-3
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
@@ -220,7 +220,7 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   ipv6: 2606:4700:110:8b17:39d0:f36f:ff51:ae39/128
-- name: Peyman_wire-g
+- name: Peyman_wire-g-4
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
@@ -245,7 +245,7 @@ proxies:
   public-key: ''
   udp: true
   ip: 172.16.0.2/32
-- name: Peyman_wire-g
+- name: Peyman_wire-g-5
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
@@ -254,7 +254,7 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   ipv6: 2606:4700:110:8403:bee5:cb32:242e:6bef/128
-- name: Peyman_wire-g
+- name: Peyman_wire-g-6
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
@@ -279,7 +279,7 @@ proxies:
   public-key: ''
   udp: true
   ip: 172.16.0.2/32
-- name: Peyman_wire-g
+- name: Peyman_wire-g-7
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
@@ -296,7 +296,7 @@ proxies:
   public-key: ''
   udp: true
   ip: 172.16.0.2/32
-- name: Peyman_wire-g
+- name: Peyman_wire-g-8
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
@@ -305,7 +305,7 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   ipv6: 2606:4700:110:8910:aac9:90ab:3612:51a6/128
-- name: Peyman_wire-g
+- name: Peyman_wire-g-9
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
@@ -330,7 +330,7 @@ proxies:
   public-key: ''
   udp: true
   ip: 172.16.0.2/32
-- name: Peyman_wire-g
+- name: Peyman_wire-g-10
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
@@ -363,22 +363,22 @@ proxy-groups:
   - '@freeiranianv2rey+💯💯💯تا+ابد+رایگان'
   - پرقدرت@freeiranianv2rey
   - wg-2606:4700:d0::d91:179:c651:ed70
-  - Peyman_wire-g
-  - Peyman_wire-g
-  - Peyman_wire-g
+  - Peyman_wire-g-2
+  - Peyman_wire-g-3
+  - Peyman_wire-g-4
   - Anon6
   - Anon8
-  - Peyman_wire-g
-  - Peyman_wire-g
+  - Peyman_wire-g-5
+  - Peyman_wire-g-6
   - Anon5
   - Anon4
-  - Peyman_wire-g
+  - Peyman_wire-g-7
   - Anon3
-  - Peyman_wire-g
-  - Peyman_wire-g
+  - Peyman_wire-g-8
+  - Peyman_wire-g-9
   - Anon9
   - Anon1
-  - Peyman_wire-g
+  - Peyman_wire-g-10
 - name: خودکار (بهترین پینگ) 🤖
   type: url-test
   icon: https://www.svgrepo.com/show/7876/speedometer.svg
@@ -399,22 +399,22 @@ proxy-groups:
   - '@freeiranianv2rey+💯💯💯تا+ابد+رایگان'
   - پرقدرت@freeiranianv2rey
   - wg-2606:4700:d0::d91:179:c651:ed70
-  - Peyman_wire-g
-  - Peyman_wire-g
-  - Peyman_wire-g
+  - Peyman_wire-g-2
+  - Peyman_wire-g-3
+  - Peyman_wire-g-4
   - Anon6
   - Anon8
-  - Peyman_wire-g
-  - Peyman_wire-g
+  - Peyman_wire-g-5
+  - Peyman_wire-g-6
   - Anon5
   - Anon4
-  - Peyman_wire-g
+  - Peyman_wire-g-7
   - Anon3
-  - Peyman_wire-g
-  - Peyman_wire-g
+  - Peyman_wire-g-8
+  - Peyman_wire-g-9
   - Anon9
   - Anon1
-  - Peyman_wire-g
+  - Peyman_wire-g-10
 - name: پشتیبان (در صورت قطعی) 🧯
   type: fallback
   icon: https://www.svgrepo.com/show/415208/backup-cloud-document.svg
@@ -435,22 +435,22 @@ proxy-groups:
   - '@freeiranianv2rey+💯💯💯تا+ابد+رایگان'
   - پرقدرت@freeiranianv2rey
   - wg-2606:4700:d0::d91:179:c651:ed70
-  - Peyman_wire-g
-  - Peyman_wire-g
-  - Peyman_wire-g
+  - Peyman_wire-g-2
+  - Peyman_wire-g-3
+  - Peyman_wire-g-4
   - Anon6
   - Anon8
-  - Peyman_wire-g
-  - Peyman_wire-g
+  - Peyman_wire-g-5
+  - Peyman_wire-g-6
   - Anon5
   - Anon4
-  - Peyman_wire-g
+  - Peyman_wire-g-7
   - Anon3
-  - Peyman_wire-g
-  - Peyman_wire-g
+  - Peyman_wire-g-8
+  - Peyman_wire-g-9
   - Anon9
   - Anon1
-  - Peyman_wire-g
+  - Peyman_wire-g-10
 - name: تلگرام 💬
   type: select
   icon: https://www.svgrepo.com/show/354443/telegram.svg
