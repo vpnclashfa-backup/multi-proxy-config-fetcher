@@ -173,27 +173,25 @@ SPECIFIC_CONFIG_COUNT = 300
 # Dictionary of protocols to enable or disable.
 # Set each protocol to True to enable, False to disable.
 ENABLED_PROTOCOLS = {
-    # --- Previously Supported ---
+    # --- Original Protocols ---
     "wireguard://": True,
     "hysteria2://": True,
     "vless://": False,
-    "vmess://": False,
+    "vmess://": False
     "ss://": False,
+    "trojan://": False,
     "tuic://": True,
 
-    # --- New Protocols Added ---
-    "ssr://": True,          # ShadowsocksR
-    "hysteria://": True,     # Original Hysteria
+    # --- All New Requested Protocols ---
+    "ssr://": True,
+    "hysteria://": True,
     "snell://": True,
     "ssh://": True,
-    
-    # NOTE: Mieru and AnyTLS do not have standard URL schemes.
-    # Their implementation will be based on formats found in sources.
-    # A generic approach will be taken for them.
     "mieru://": True,
     "anytls://": True,
+    "warp://": True,
 }
 
 # Maximum age of configurations in days.
 # Configurations older than this will be considered invalid.
-MAX_CONFIG_AGE_DAYS = 2
+MAX_CONFIG_AGE_DAYS = 7
