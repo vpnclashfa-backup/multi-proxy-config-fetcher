@@ -145,15 +145,6 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   ipv6: 2606:4700:110:830c:9cf:a820:97e4:eb58/128
-- name: Peyman_wire-g
-  type: wireguard
-  server: engage.cloudflareclient.com
-  port: 2408
-  private-key: 8yP7GczZO+rYweI/kfe3CPh5y/gZeJHOH1Y0/YdCNQE=
-  public-key: ''
-  udp: true
-  ip: 172.16.0.2/32
-  ipv6: 2606:4700:110:8732:b572:bd51:1319:701a/128
 - name: Anon7
   type: wireguard
   server: 188.114.98.68
@@ -263,6 +254,15 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   ipv6: 2606:4700:110:8403:bee5:cb32:242e:6bef/128
+- name: Peyman_wire-g
+  type: wireguard
+  server: engage.cloudflareclient.com
+  port: 2408
+  private-key: o/uIFoM79f4KCpvZqVyUapaQ3Xzdi3EfuFzIpveSTjw=
+  public-key: ''
+  udp: true
+  ip: 172.16.0.2/32
+  ipv6: 2606:4700:110:87f0:6a5:7f65:4cf2:f814/128
 - name: Anon5
   type: wireguard
   server: 188.114.99.13
@@ -356,7 +356,6 @@ proxy-groups:
   - $$$+jadid+💪💪💪@freeiranianv2rey
   - mci jadid 💪💪💪@freeiranianv2rey
   - Peyman_wire-g
-  - Peyman_wire-g
   - Anon7
   - Anon2
   - کانال+freeiranianv2rey
@@ -369,6 +368,7 @@ proxy-groups:
   - Peyman_wire-g
   - Anon6
   - Anon8
+  - Peyman_wire-g
   - Peyman_wire-g
   - Anon5
   - Anon4
@@ -392,7 +392,6 @@ proxy-groups:
   - $$$+jadid+💪💪💪@freeiranianv2rey
   - mci jadid 💪💪💪@freeiranianv2rey
   - Peyman_wire-g
-  - Peyman_wire-g
   - Anon7
   - Anon2
   - کانال+freeiranianv2rey
@@ -405,6 +404,7 @@ proxy-groups:
   - Peyman_wire-g
   - Anon6
   - Anon8
+  - Peyman_wire-g
   - Peyman_wire-g
   - Anon5
   - Anon4
@@ -428,7 +428,6 @@ proxy-groups:
   - $$$+jadid+💪💪💪@freeiranianv2rey
   - mci jadid 💪💪💪@freeiranianv2rey
   - Peyman_wire-g
-  - Peyman_wire-g
   - Anon7
   - Anon2
   - کانال+freeiranianv2rey
@@ -441,6 +440,7 @@ proxy-groups:
   - Peyman_wire-g
   - Anon6
   - Anon8
+  - Peyman_wire-g
   - Peyman_wire-g
   - Anon5
   - Anon4
