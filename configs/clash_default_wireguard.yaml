@@ -254,13 +254,6 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   mtu: 1280
-- name: '[WIREGUARD] 🏳️ 2606:4700:d0::d91:179:c651:ed70'
-  type: wireguard
-  server: 2606:4700:d0::d91:179:c651:ed70
-  port: 7281
-  private-key: QKRFk8I+jwBi4WlpjC1a75bb7oQGmHQnYfw0rThENEk=
-  public-key: p6+zdc6L4w2uG51zEq7/G79eR2s/2Dl0P3bh1TBIkA0=
-  udp: true
 - name: '[WIREGUARD] 🏳️ Peyman_wire-g-8'
   type: wireguard
   server: engage.cloudflareclient.com
@@ -367,7 +360,31 @@ proxy-groups:
   type: select
   icon: https://www.svgrepo.com/show/372331/cursor-hand-click.svg
   proxies:
-  - ALL_PROXIES_PLACEHOLDER
+  - '[WIREGUARD] 🏳️ Anon9'
+  - '[WIREGUARD] 🏳️ $$$+jadid+💪💪💪@freeiranianv2rey'
+  - '[WIREGUARD] 🇨🇦 mci jadid 💪💪💪@freeiranianv2rey'
+  - '[WIREGUARD] 🏳️ Peyman_wire-g'
+  - '[WIREGUARD] 🏳️ Peyman_wire-g-2'
+  - '[WIREGUARD] 🏳️ Peyman_wire-g-3'
+  - '[WIREGUARD] 🏳️ Peyman_wire-g-4'
+  - '[WIREGUARD] 🇨🇦 Anon6'
+  - '[WIREGUARD] 🇺🇸 Anon1'
+  - '[WIREGUARD] 🏳️ Peyman_wire-g-5'
+  - '[WIREGUARD] 🏳️ Peyman_wire-g-6'
+  - '[WIREGUARD] 🏳️ Peyman_wire-g-7'
+  - '[WIREGUARD] 🏳️ jadid+💪💪💪@freeiranianv2rey'
+  - '[WIREGUARD] 🇨🇦 @freeiranianv2rey+💯💯💯تا+ابد+رایگان'
+  - '[WIREGUARD] 🏳️ پرقدرت@freeiranianv2rey'
+  - '[WIREGUARD] 🏳️ Peyman_wire-g-8'
+  - '[WIREGUARD] 🏳️ Peyman_wire-g-9'
+  - '[WIREGUARD] 🇺🇸 Anon10'
+  - '[WIREGUARD] 🏳️ Anon5'
+  - '[WIREGUARD] 🏳️ Anon7'
+  - '[WIREGUARD] 🏳️ Peyman_wire-g-10'
+  - '[WIREGUARD] 🇺🇸 Anon4'
+  - '[WIREGUARD] 🏳️ Anon3'
+  - '[WIREGUARD] 🇨🇦 Anon2'
+  - '[WIREGUARD] 🇨🇦 Anon8'
 - name: خودکار (بهترین پینگ) 🤖
   type: url-test
   icon: https://www.svgrepo.com/show/7876/speedometer.svg
@@ -377,7 +394,31 @@ proxy-groups:
   tolerance: 10
   lazy: true
   proxies:
-  - ALL_PROXIES_PLACEHOLDER
+  - '[WIREGUARD] 🏳️ Anon9'
+  - '[WIREGUARD] 🏳️ $$$+jadid+💪💪💪@freeiranianv2rey'
+  - '[WIREGUARD] 🇨🇦 mci jadid 💪💪💪@freeiranianv2rey'
+  - '[WIREGUARD] 🏳️ Peyman_wire-g'
+  - '[WIREGUARD] 🏳️ Peyman_wire-g-2'
+  - '[WIREGUARD] 🏳️ Peyman_wire-g-3'
+  - '[WIREGUARD] 🏳️ Peyman_wire-g-4'
+  - '[WIREGUARD] 🇨🇦 Anon6'
+  - '[WIREGUARD] 🇺🇸 Anon1'
+  - '[WIREGUARD] 🏳️ Peyman_wire-g-5'
+  - '[WIREGUARD] 🏳️ Peyman_wire-g-6'
+  - '[WIREGUARD] 🏳️ Peyman_wire-g-7'
+  - '[WIREGUARD] 🏳️ jadid+💪💪💪@freeiranianv2rey'
+  - '[WIREGUARD] 🇨🇦 @freeiranianv2rey+💯💯💯تا+ابد+رایگان'
+  - '[WIREGUARD] 🏳️ پرقدرت@freeiranianv2rey'
+  - '[WIREGUARD] 🏳️ Peyman_wire-g-8'
+  - '[WIREGUARD] 🏳️ Peyman_wire-g-9'
+  - '[WIREGUARD] 🇺🇸 Anon10'
+  - '[WIREGUARD] 🏳️ Anon5'
+  - '[WIREGUARD] 🏳️ Anon7'
+  - '[WIREGUARD] 🏳️ Peyman_wire-g-10'
+  - '[WIREGUARD] 🇺🇸 Anon4'
+  - '[WIREGUARD] 🏳️ Anon3'
+  - '[WIREGUARD] 🇨🇦 Anon2'
+  - '[WIREGUARD] 🇨🇦 Anon8'
 - name: پشتیبان (در صورت قطعی) 🧯
   type: fallback
   icon: https://www.svgrepo.com/show/415208/backup-cloud-document.svg
@@ -387,7 +428,31 @@ proxy-groups:
   tolerance: 6
   lazy: true
   proxies:
-  - ALL_PROXIES_PLACEHOLDER
+  - '[WIREGUARD] 🏳️ Anon9'
+  - '[WIREGUARD] 🏳️ $$$+jadid+💪💪💪@freeiranianv2rey'
+  - '[WIREGUARD] 🇨🇦 mci jadid 💪💪💪@freeiranianv2rey'
+  - '[WIREGUARD] 🏳️ Peyman_wire-g'
+  - '[WIREGUARD] 🏳️ Peyman_wire-g-2'
+  - '[WIREGUARD] 🏳️ Peyman_wire-g-3'
+  - '[WIREGUARD] 🏳️ Peyman_wire-g-4'
+  - '[WIREGUARD] 🇨🇦 Anon6'
+  - '[WIREGUARD] 🇺🇸 Anon1'
+  - '[WIREGUARD] 🏳️ Peyman_wire-g-5'
+  - '[WIREGUARD] 🏳️ Peyman_wire-g-6'
+  - '[WIREGUARD] 🏳️ Peyman_wire-g-7'
+  - '[WIREGUARD] 🏳️ jadid+💪💪💪@freeiranianv2rey'
+  - '[WIREGUARD] 🇨🇦 @freeiranianv2rey+💯💯💯تا+ابد+رایگان'
+  - '[WIREGUARD] 🏳️ پرقدرت@freeiranianv2rey'
+  - '[WIREGUARD] 🏳️ Peyman_wire-g-8'
+  - '[WIREGUARD] 🏳️ Peyman_wire-g-9'
+  - '[WIREGUARD] 🇺🇸 Anon10'
+  - '[WIREGUARD] 🏳️ Anon5'
+  - '[WIREGUARD] 🏳️ Anon7'
+  - '[WIREGUARD] 🏳️ Peyman_wire-g-10'
+  - '[WIREGUARD] 🇺🇸 Anon4'
+  - '[WIREGUARD] 🏳️ Anon3'
+  - '[WIREGUARD] 🇨🇦 Anon2'
+  - '[WIREGUARD] 🇨🇦 Anon8'
 - name: تلگرام 💬
   type: select
   icon: https://www.svgrepo.com/show/354443/telegram.svg
