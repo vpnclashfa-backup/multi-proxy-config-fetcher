@@ -116,6 +116,7 @@ SOURCE_URLS = [
     "https://t.me/s/proxydaemi",
     "https://t.me/s/prrofile_purple",
     "https://t.me/s/purnet",
+    "https://t.me/s/rayan_config",
     "https://t.me/s/qv2rayconfig",
     "https://t.me/s/redfree8",
     "https://t.me/s/s0013_official",
@@ -186,18 +187,18 @@ USE_MAXIMUM_POWER = False
 
 # Desired number of configurations to fetch.
 # This is used only if USE_MAXIMUM_POWER is False.
-SPECIFIC_CONFIG_COUNT = 300
+SPECIFIC_CONFIG_COUNT = 500
 
 # Dictionary of protocols to enable or disable.
 # Set each protocol to True to enable, False to disable.
 ENABLED_PROTOCOLS = {
     # --- Original Protocols ---
     "wireguard://": True,
-    "hysteria2://": False,
-    "vless://": False,
-    "vmess://": False,
-    "ss://": False,
-    "trojan://": False,
+    "hysteria2://": True,
+    "vless://": True,
+    "vmess://": True,
+    "ss://": True,
+    "trojan://": True,
     "tuic://": True,
 
     # --- All New Requested Protocols ---
@@ -213,7 +214,7 @@ ENABLED_PROTOCOLS = {
 
 # Maximum age of configurations in days.
 # Configurations older than this will be considered invalid.
-MAX_CONFIG_AGE_DAYS = 7
+MAX_CONFIG_AGE_DAYS = 2
 
 
 
