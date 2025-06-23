@@ -18,7 +18,6 @@ class ConfigToSingbox:
         }
         self.ip_location_cache: Dict[str, Tuple[str, str]] = {}
 
-    # ... (All helper methods like get_location, _decode_base64_safe, parsers, etc. from the previous step remain unchanged) ...
     def get_location_from_ip_api(self, ip: str) -> Tuple[str, str]:
         try:
             response = requests.get(f'http://ip-api.com/json/{ip}', headers=self.headers, timeout=5)
@@ -257,16 +256,17 @@ class ConfigToSingbox:
             return None
 
     def process_configs(self):
-        """
-        MODIFIED: Now categorizes outbounds and saves separate JSON files for each protocol.
-        """
         try:
             input_file = os.path.join(self.output_dir, 'proxy_configs.txt')
+            if not os.path.exists(input_file):
+                print(f"ERROR: Input file not found: {input_file}. Aborting sing-box conversion.")
+                return
+
             with open(input_file, 'r', encoding='utf-8') as f:
-                # Read all configs from the main text file
                 configs = f.read().strip().split('\n')
             
             all_outbounds = []
+            print("Starting conversion of configs to sing-box format...")
             for config in configs:
                 config = config.strip()
                 if not config or config.startswith(('#', '//')):
@@ -277,10 +277,11 @@ class ConfigToSingbox:
                     all_outbounds.append(converted)
 
             if not all_outbounds:
-                print("No valid outbounds were generated.")
+                print("WARNING: No valid outbounds were generated for sing-box.")
                 return
+            
+            print(f"Successfully converted {len(all_outbounds)} configs.")
 
-            # --- Categorize outbounds by protocol type ---
             categorized_outbounds: Dict[str, List[Dict]] = {}
             for outbound in all_outbounds:
                 proto_type = outbound.get('type')
@@ -289,7 +290,6 @@ class ConfigToSingbox:
                         categorized_outbounds[proto_type] = []
                     categorized_outbounds[proto_type].append(outbound)
 
-            # --- Define boilerplate for sing-box configs ---
             def create_singbox_structure(outbounds: List[Dict]) -> Dict:
                 tags = [o['tag'] for o in outbounds if 'tag' in o]
                 selector_outbounds = ["auto-urltest"] + tags + ["direct"]
@@ -306,23 +306,25 @@ class ConfigToSingbox:
                     "route": {"final": "proxy", "rules": []}
                 }
 
-            # --- Save the main combined JSON file ---
             main_config_structure = create_singbox_structure(all_outbounds)
+            print("Saving main combined sing-box config...")
             with open(self.output_file, 'w', encoding='utf-8') as f:
                 json.dump(main_config_structure, f, indent=2, ensure_ascii=False)
-            print(f"Successfully saved combined sing-box config to {self.output_file}")
+            print(f"-> SUCCESS: Saved combined sing-box config to {self.output_file}")
 
-            # --- Save per-protocol JSON files ---
+            print("--- Starting to save per-protocol sing-box JSON files ---")
             for proto_type, outbounds_list in categorized_outbounds.items():
                 protocol_config_structure = create_singbox_structure(outbounds_list)
                 protocol_filename = os.path.join(self.output_dir, f"singbox_{proto_type}.json")
-                with open(protocol_filename, 'w', encoding='utf-8') as f:
-                    json.dump(protocol_config_structure, f, indent=2, ensure_ascii=False)
-                print(f"Successfully saved {proto_type}-only sing-box config to {protocol_filename}")
-
+                try:
+                    with open(protocol_filename, 'w', encoding='utf-8') as f:
+                        json.dump(protocol_config_structure, f, indent=2, ensure_ascii=False)
+                    print(f"-> SUCCESS: Saved {proto_type}-only sing-box config to {protocol_filename}")
+                except Exception as e:
+                    print(f"-> FAILED: Could not save sing-box file for {proto_type}: {e}")
 
         except Exception as e:
-            print(f"Error processing configs: {str(e)}")
+            print(f"ERROR: A critical error occurred in process_configs: {str(e)}")
 
 def main():
     converter = ConfigToSingbox()
