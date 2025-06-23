@@ -1,9 +1,12 @@
 name: Update Proxy Configs
 
 on:
-  #schedule:
-    #- cron: "0 */2 * * *"
   workflow_dispatch:
+  push:
+    branches:
+      - main
+  # schedule:
+  #   - cron: "0 */2 * * *"
 
 permissions:
   contents: write
@@ -11,17 +14,17 @@ permissions:
 jobs:
   update-configs:
     runs-on: ubuntu-latest
-    
+
     steps:
     - uses: actions/checkout@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-    
+
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.x'
-    
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
@@ -31,17 +34,27 @@ jobs:
       run: |
         mkdir -p assets
         mkdir -p configs
+        mkdir -p templates
     
     - name: Run config fetcher
       run: python src/fetch_configs.py
       continue-on-error: true
-    
+
     - name: Generate charts and reports
       run: python src/generate_charts.py
-      
+
+    - name: Generate Source Statistics Report
+      run: python src/generate_source_report.py
+
     - name: Convert configs to sing-box format
       run: python src/config_to_singbox.py
-    
+
+    - name: Convert configs to Clash format
+      run: python src/config_to_clash.py
+
+    - name: Generate Output Directory README
+      run: python src/generate_output_readme.py
+
     - name: Update README timestamps and stats
       run: |
         timestamp=$(date +%s)
@@ -65,14 +78,14 @@ jobs:
     
     - name: Commit and push changes
       run: |
-        git add configs/proxy_configs.txt
-        git add configs/singbox_configs.json
-        git add configs/channel_stats.json
-        git add assets/channel_stats_chart.svg
-        git add assets/performance_report.html
-        git add README.md
-        git add README_FA.md
-        git add README_CN.md
-        git add README_RU.md
-        git commit -m "Update proxy configs, stats and reports" || echo "No changes to commit"
+        # Add all new and modified files automatically
+        git add -A
+
+        # Commit changes only if there are any to commit
+        git diff-index --quiet HEAD || git commit -m "Update proxy configs, stats and reports"
+        
+        # Pull remote changes and rebase before pushing to avoid conflicts
+        git pull --rebase
+        
+        # Push the changes
         git push
