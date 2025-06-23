@@ -3,7 +3,7 @@
 
 اشتراک‌های زیر به صورت خودکار توسط این پروژه تولید و به‌روزرسانی شده‌اند.
 
-**آخرین به‌روزرسانی (به وقت ایران):** `2025-06-23 11:16:42 UTC+03:30 `
+**آخرین به‌روزرسانی (به وقت ایران):** `2025-06-23 11:43:52 UTC+03:30 `
 
 ---
 
@@ -27,6 +27,7 @@
 |:---|:---|
 | `anytls_configs.txt` | [دانلود](https://github.com/vpnclashfa-backup/multi-proxy-config-fetcher/raw/main/configs/anytls_configs.txt) |
 | `hysteria2_configs.txt` | [دانلود](https://github.com/vpnclashfa-backup/multi-proxy-config-fetcher/raw/main/configs/hysteria2_configs.txt) |
+| `hysteria_configs.txt` | [دانلود](https://github.com/vpnclashfa-backup/multi-proxy-config-fetcher/raw/main/configs/hysteria_configs.txt) |
 | `ss_configs.txt` | [دانلود](https://github.com/vpnclashfa-backup/multi-proxy-config-fetcher/raw/main/configs/ss_configs.txt) |
 | `ssr_configs.txt` | [دانلود](https://github.com/vpnclashfa-backup/multi-proxy-config-fetcher/raw/main/configs/ssr_configs.txt) |
 | `trojan_configs.txt` | [دانلود](https://github.com/vpnclashfa-backup/multi-proxy-config-fetcher/raw/main/configs/trojan_configs.txt) |
@@ -42,6 +43,7 @@
 |:---|:---|
 | `anytls_configs_base64.txt` | [دانلود](https://github.com/vpnclashfa-backup/multi-proxy-config-fetcher/raw/main/configs/anytls_configs_base64.txt) |
 | `hysteria2_configs_base64.txt` | [دانلود](https://github.com/vpnclashfa-backup/multi-proxy-config-fetcher/raw/main/configs/hysteria2_configs_base64.txt) |
+| `hysteria_configs_base64.txt` | [دانلود](https://github.com/vpnclashfa-backup/multi-proxy-config-fetcher/raw/main/configs/hysteria_configs_base64.txt) |
 | `ss_configs_base64.txt` | [دانلود](https://github.com/vpnclashfa-backup/multi-proxy-config-fetcher/raw/main/configs/ss_configs_base64.txt) |
 | `ssr_configs_base64.txt` | [دانلود](https://github.com/vpnclashfa-backup/multi-proxy-config-fetcher/raw/main/configs/ssr_configs_base64.txt) |
 | `trojan_configs_base64.txt` | [دانلود](https://github.com/vpnclashfa-backup/multi-proxy-config-fetcher/raw/main/configs/trojan_configs_base64.txt) |
@@ -56,8 +58,10 @@
 | نام فایل | لینک دانلود مستقیم |
 |:---|:---|
 | `singbox_hysteria2.json` | [دانلود](https://github.com/vpnclashfa-backup/multi-proxy-config-fetcher/raw/main/configs/singbox_hysteria2.json) |
+| `singbox_shadowsocks.json` | [دانلود](https://github.com/vpnclashfa-backup/multi-proxy-config-fetcher/raw/main/configs/singbox_shadowsocks.json) |
 | `singbox_shadowsocksr.json` | [دانلود](https://github.com/vpnclashfa-backup/multi-proxy-config-fetcher/raw/main/configs/singbox_shadowsocksr.json) |
 | `singbox_trojan.json` | [دانلود](https://github.com/vpnclashfa-backup/multi-proxy-config-fetcher/raw/main/configs/singbox_trojan.json) |
+| `singbox_vless.json` | [دانلود](https://github.com/vpnclashfa-backup/multi-proxy-config-fetcher/raw/main/configs/singbox_vless.json) |
 | `singbox_vmess.json` | [دانلود](https://github.com/vpnclashfa-backup/multi-proxy-config-fetcher/raw/main/configs/singbox_vmess.json) |
 
 ### فایل‌های YAML مخصوص Clash
@@ -65,6 +69,7 @@
 | نام فایل | لینک دانلود مستقیم |
 |:---|:---|
 | `clash_default_anytls.yaml` | [دانلود](https://github.com/vpnclashfa-backup/multi-proxy-config-fetcher/raw/main/configs/clash_default_anytls.yaml) |
+| `clash_default_hysteria.yaml` | [دانلود](https://github.com/vpnclashfa-backup/multi-proxy-config-fetcher/raw/main/configs/clash_default_hysteria.yaml) |
 | `clash_default_hysteria2.yaml` | [دانلود](https://github.com/vpnclashfa-backup/multi-proxy-config-fetcher/raw/main/configs/clash_default_hysteria2.yaml) |
 | `clash_default_ss.yaml` | [دانلود](https://github.com/vpnclashfa-backup/multi-proxy-config-fetcher/raw/main/configs/clash_default_ss.yaml) |
 | `clash_default_ssr.yaml` | [دانلود](https://github.com/vpnclashfa-backup/multi-proxy-config-fetcher/raw/main/configs/clash_default_ssr.yaml) |

@@ -882,6 +882,13 @@ proxies:
   password: 25a7be37-eca8-4d9e-a8ae-63722bf9ec2e
   sni: d1--cn-gotcha204-3.bilivideo.com
   skip-cert-verify: true
+- name: hysteria2-107.167.18.102
+  type: hysteria2
+  server: 107.167.18.102
+  port: 8443
+  password: 262e7386-f8a9-11ef-ba82-f23c913c8d2b
+  sni: 3b58370e-sv8cg0-tbhsus-1tgfe.hy2.gotochinatown.net
+  skip-cert-verify: true
 - name: 剩余流量：0-4
   type: hysteria2
   server: hk.xn--vpn-3f0h822m.com
@@ -1903,13 +1910,6 @@ proxies:
   port: 443
   password: 4e9ee29b39a28277
   sni: '[2001:19f0:1000:20d0:5400:5ff:fe19:3ba9]'
-  skip-cert-verify: true
-- name: hysteria2-107.167.18.102
-  type: hysteria2
-  server: 107.167.18.102
-  port: 8443
-  password: 4eedcde6-d16a-11ef-973a-f23c913c8d2b
-  sni: 57cda03f-sxc9s0-sxgw5w-1j0a4.hy2.gotochinatown.net
   skip-cert-verify: true
 - name: 🇷🇺 一元机场:ssrsub.de 俄罗斯 01
   type: hysteria2
@@ -4010,6 +4010,13 @@ proxies:
   port: 443
   password: Bia-SiNAVM-Telegram-SiNAVM-Bia-SiNAVM
   sni: sinavm.soft10.ir
+  skip-cert-verify: true
+- name: 2.🔥FREE HOMES VPN🔥
+  type: hysteria2
+  server: donate2.mahsa.homes
+  port: 16396
+  password: Cse3bpe0NZ
+  sni: www.google.com
   skip-cert-verify: true
 - name: hysteria2-77.239.112.132
   type: hysteria2
@@ -6129,6 +6136,7 @@ proxy-groups:
   - hysteria2-35.74.66.28
   - hysteria2-35.74.79.114
   - hysteria2-43.207.208.50
+  - hysteria2-107.167.18.102
   - 剩余流量：0-4
   - 套餐到期：2025-07-04
   - 距离下次重置剩余：8 天
@@ -6275,7 +6283,6 @@ proxy-groups:
   - hysteria2-1.170.228.14
   - hysteria2-66.135.11.68
   - hysteria2-2001:19f0:1000:20d0:5400:5ff:fe19:3ba9
-  - hysteria2-107.167.18.102
   - 🇷🇺 一元机场:ssrsub.de 俄罗斯 01
   - hysteria2-38.207.130.91
   - hysteria2-152.53.225.161
@@ -6576,6 +6583,7 @@ proxy-groups:
   - 🇬🇧@𝗦𝗶𝗡𝗔𝗩𝗠👈کانال تلگرام
   - 11|🇱@اال ترا
   - 11|@𝗦𝗶𝗡𝗔𝗩𝗠👈کانال تلگرام
+  - 2.🔥FREE HOMES VPN🔥
   - hysteria2-77.239.112.132
   - hysteria2-77.239.112.132-2
   - hysteria2-66.23.198.32
@@ -6980,6 +6988,7 @@ proxy-groups:
   - hysteria2-35.74.66.28
   - hysteria2-35.74.79.114
   - hysteria2-43.207.208.50
+  - hysteria2-107.167.18.102
   - 剩余流量：0-4
   - 套餐到期：2025-07-04
   - 距离下次重置剩余：8 天
@@ -7126,7 +7135,6 @@ proxy-groups:
   - hysteria2-1.170.228.14
   - hysteria2-66.135.11.68
   - hysteria2-2001:19f0:1000:20d0:5400:5ff:fe19:3ba9
-  - hysteria2-107.167.18.102
   - 🇷🇺 一元机场:ssrsub.de 俄罗斯 01
   - hysteria2-38.207.130.91
   - hysteria2-152.53.225.161
@@ -7427,6 +7435,7 @@ proxy-groups:
   - 🇬🇧@𝗦𝗶𝗡𝗔𝗩𝗠👈کانال تلگرام
   - 11|🇱@اال ترا
   - 11|@𝗦𝗶𝗡𝗔𝗩𝗠👈کانال تلگرام
+  - 2.🔥FREE HOMES VPN🔥
   - hysteria2-77.239.112.132
   - hysteria2-77.239.112.132-2
   - hysteria2-66.23.198.32
@@ -7831,6 +7840,7 @@ proxy-groups:
   - hysteria2-35.74.66.28
   - hysteria2-35.74.79.114
   - hysteria2-43.207.208.50
+  - hysteria2-107.167.18.102
   - 剩余流量：0-4
   - 套餐到期：2025-07-04
   - 距离下次重置剩余：8 天
@@ -7977,7 +7987,6 @@ proxy-groups:
   - hysteria2-1.170.228.14
   - hysteria2-66.135.11.68
   - hysteria2-2001:19f0:1000:20d0:5400:5ff:fe19:3ba9
-  - hysteria2-107.167.18.102
   - 🇷🇺 一元机场:ssrsub.de 俄罗斯 01
   - hysteria2-38.207.130.91
   - hysteria2-152.53.225.161
@@ -8278,6 +8287,7 @@ proxy-groups:
   - 🇬🇧@𝗦𝗶𝗡𝗔𝗩𝗠👈کانال تلگرام
   - 11|🇱@اال ترا
   - 11|@𝗦𝗶𝗡𝗔𝗩𝗠👈کانال تلگرام
+  - 2.🔥FREE HOMES VPN🔥
   - hysteria2-77.239.112.132
   - hysteria2-77.239.112.132-2
   - hysteria2-66.23.198.32

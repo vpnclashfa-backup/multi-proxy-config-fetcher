@@ -202,7 +202,7 @@ proxies:
   tls: true
   servername: www.lovelive-anime.jp
   skip-cert-verify: true
-- name: 剩余流量：0-19
+- name: 剩余流量：0-31
   type: trojan
   server: l0-cdn-02.dpp.pp.ua
   port: 443
@@ -235,7 +235,7 @@ proxies:
     path: /
     headers:
       Host: l0-cdn-02.dpp.pp.ua
-- name: 距离下次重置剩余：7 天-3
+- name: 距离下次重置剩余：7 天-4
   type: trojan
   server: l0-cdn-02.dpp.pp.ua
   port: 443
@@ -783,6 +783,16 @@ proxies:
   tls: true
   servername: getandroid.com
   skip-cert-verify: true
+- name: '@Hope_Net-join-us-on-Telegram-4'
+  type: trojan
+  server: 15.235.197.4
+  port: 80
+  udp: true
+  password: 16bcc187-a1a0-4b8a-8b69-627f38b7cc0d
+  network: tcp
+  tls: true
+  servername: getandroid.com
+  skip-cert-verify: true
 - name: trojan-104.21.94.69
   type: trojan
   server: 104.21.94.69
@@ -860,7 +870,7 @@ proxies:
   udp: true
   password: 1b4c16925f934c57b954a9f0f23dea33
   network: tcp
-- name: '@v2Source'
+- name: '@v2Source-5'
   type: trojan
   server: 13.248.169.48
   port: 443
@@ -1342,7 +1352,7 @@ proxies:
   udp: true
   password: 3c0a4b5f-4e49-4876-9b88-a5be67f73ba9
   network: tcp
-- name: 套餐到期：长期有效-11
+- name: 套餐到期：长期有效-22
   type: trojan
   server: this_is_notice.not_node
   port: 6666
@@ -1432,7 +1442,17 @@ proxies:
   tls: true
   servername: ua.mjt000.com
   skip-cert-verify: true
-- name: '@Hope_Net-join-us-on-Telegram-4'
+- name: '@Hope_Net-join-us-on-Telegram-5'
+  type: trojan
+  server: 20.2.25.250
+  port: 443
+  udp: true
+  password: 459d23f4-dcfd-4fef-9ba3-ef0ad10fc336
+  network: tcp
+  tls: true
+  servername: jp.mjt001.com
+  skip-cert-verify: true
+- name: '@v2Source-6'
   type: trojan
   server: 20.2.25.250
   port: 443
@@ -1507,7 +1527,7 @@ proxies:
   tls: true
   servername: catro51avxe7b8r2pw.jjjiedian6j4tblb.com
   skip-cert-verify: true
-- name: 剩余流量：0-20
+- name: 剩余流量：0-32
   type: trojan
   server: l0-cdn-02.dpp.pp.ua
   port: 443
@@ -1540,7 +1560,7 @@ proxies:
     path: /
     headers:
       Host: l0-cdn-02.dpp.pp.ua
-- name: 距离下次重置剩余：7 天-4
+- name: 距离下次重置剩余：7 天-5
   type: trojan
   server: l0-cdn-02.dpp.pp.ua
   port: 443
@@ -1649,7 +1669,7 @@ proxies:
   udp: true
   password: 5231f59f-c196-4094-aea5-4ecaa069ddc5
   network: tcp
-- name: 套餐到期：长期有效-12
+- name: 套餐到期：长期有效-23
   type: trojan
   server: byv89mrvakp2oc67koxfamr25ihojvsw.08.02.hk.6l6.site
   port: 24518
@@ -1873,7 +1893,7 @@ proxies:
   tls: true
   servername: 1cc.852224.ggff.net
   skip-cert-verify: true
-- name: '@Hope_Net-join-us-on-Telegram-5'
+- name: '@Hope_Net-join-us-on-Telegram-6'
   type: trojan
   server: 51.83.186.142
   port: 443
@@ -2071,7 +2091,7 @@ proxies:
   udp: true
   password: 6063748c-ca22-4407-8852-f077a90b39e9
   network: tcp
-- name: 套餐到期：长期有效-13
+- name: 套餐到期：长期有效-24
   type: trojan
   server: byv89mrvakp2oc67koxfamr25ihojvsw.08.02.hk.6l6.site
   port: 24518
@@ -2318,7 +2338,7 @@ proxies:
   tls: true
   servername: jp-h1.sshub.xyz
   skip-cert-verify: true
-- name: '@Hope_Net-join-us-on-Telegram-6'
+- name: '@Hope_Net-join-us-on-Telegram-7'
   type: trojan
   server: 95.164.114.43
   port: 443
@@ -2327,16 +2347,6 @@ proxies:
   network: tcp
   tls: true
   servername: kz-full.privateip.net
-  skip-cert-verify: true
-- name: '@Hope_Net-join-us-on-Telegram-7'
-  type: trojan
-  server: 13.248.169.48
-  port: 443
-  udp: true
-  password: 6593b778-e45e-4f94-b5ae-641d4b7b02ae
-  network: tcp
-  tls: true
-  servername: 42.earths.team
   skip-cert-verify: true
 - name: trojan-139.162.158.172
   type: trojan
@@ -2853,7 +2863,7 @@ proxies:
   udp: true
   password: 85f133142f04dbf6547da33895cfabb3
   network: tcp
-- name: 🇨🇳_CN_中国->🇰🇷_KR_韩国
+- name: 🇨🇳_CN_中国->🇰🇷_KR_韩国-2
   type: trojan
   server: 120.233.128.68
   port: 39001
@@ -3627,27 +3637,17 @@ proxies:
   skip-cert-verify: true
 - name: '@Hope_Net-join-us-on-Telegram-9'
   type: trojan
-  server: 154.211.8.90
+  server: 51.159.59.186
   port: 443
   udp: true
-  password: 95b
+  password: 9498f3a0-2992-11ee-a4c7-1239d0255272
   network: tcp
   tls: true
-  servername: 68123106-3e43-4958-b75a-b06e81eabf79.50d88e28-a870-497d-bf87-c20fb6802871.camdvr.org
+  servername: zula.ir
   skip-cert-verify: true
 - name: '@Hope_Net-join-us-on-Telegram-10'
   type: trojan
-  server: 43.129.171.137
-  port: 443
-  udp: true
-  password: 95b
-  network: tcp
-  tls: true
-  servername: 68123106-3e43-4958-b75a-b06e81eabf79.50d88e28-a870-497d-bf87-c20fb6802871.camdvr.org
-  skip-cert-verify: true
-- name: '['
-  type: trojan
-  server: 43.129.171.137
+  server: 154.211.8.90
   port: 443
   udp: true
   password: 95b
@@ -3657,6 +3657,16 @@ proxies:
   skip-cert-verify: true
 - name: '@Hope_Net-join-us-on-Telegram-11'
   type: trojan
+  server: 43.129.171.137
+  port: 443
+  udp: true
+  password: 95b
+  network: tcp
+  tls: true
+  servername: 68123106-3e43-4958-b75a-b06e81eabf79.50d88e28-a870-497d-bf87-c20fb6802871.camdvr.org
+  skip-cert-verify: true
+- name: '@Hope_Net-join-us-on-Telegram-12'
+  type: trojan
   server: 65.75.194.43
   port: 10511
   udp: true
@@ -3664,16 +3674,6 @@ proxies:
   network: tcp
   tls: true
   servername: 2022585a-86a7-4231-b3a0-eeda14f77f4d.8f18237c-8e5f-4ffb-a434-1b2948c87be3.ddnsfree.com
-  skip-cert-verify: true
-- name: '@Hope_Net-join-us-on-Telegram-12'
-  type: trojan
-  server: 183.240.139.235
-  port: 8443
-  udp: true
-  password: 96983eb4-c8f1-316e-ab00-500014ed3d8b
-  network: tcp
-  tls: true
-  servername: official.taipeicitygovernment.co.ua
   skip-cert-verify: true
 - name: '@Hope_Net-join-us-on-Telegram-13'
   type: trojan
@@ -6229,6 +6229,16 @@ proxies:
   tls: true
   servername: NOp-55q.pAgEs.dEv
   skip-cert-verify: true
+- name: '@Hope_Net-join-us-on-Telegram-14'
+  type: trojan
+  server: 108.162.193.110
+  port: 443
+  udp: true
+  password: Trevely
+  network: tcp
+  tls: true
+  servername: trojan.trevely.us.kg
+  skip-cert-verify: true
 - name: trojan-104.17.148.22
   type: trojan
   server: 104.17.148.22
@@ -6253,7 +6263,7 @@ proxies:
   tls: true
   servername: esna.farsonline24.ir
   skip-cert-verify: true
-- name: '@Hope_Net-join-us-on-Telegram-14'
+- name: '@Hope_Net-join-us-on-Telegram-15'
   type: trojan
   server: 43.154.83.213
   port: 443
@@ -6814,7 +6824,7 @@ proxies:
     path: /linkvkws
     headers:
       Host: uSa-vp-27.bLAzECLOUD.SITE
-- name: '@Hope_Net-join-us-on-Telegram-15'
+- name: '@Hope_Net-join-us-on-Telegram-16'
   type: trojan
   server: 127.0.0.1
   port: 1080
@@ -6854,7 +6864,7 @@ proxies:
   tls: true
   servername: 127.0.0.1
   skip-cert-verify: true
-- name: '@Hope_Net-join-us-on-Telegram-16'
+- name: '@Hope_Net-join-us-on-Telegram-17'
   type: trojan
   server: 127.0.0.1
   port: 2080
@@ -7305,7 +7315,7 @@ proxies:
   tls: true
   servername: esetsecuritylicense.bwnsmv.workers.dev
   skip-cert-verify: true
-- name: '@Hope_Net-join-us-on-Telegram-17'
+- name: '@Hope_Net-join-us-on-Telegram-18'
   type: trojan
   server: 13.114.30.150
   port: 20230
@@ -7315,7 +7325,7 @@ proxies:
   tls: true
   servername: jp007.421421.xyz
   skip-cert-verify: true
-- name: '@Hope_Net-join-us-on-Telegram-18'
+- name: '@Hope_Net-join-us-on-Telegram-19'
   type: trojan
   server: 5.83.221.31
   port: 20224
@@ -7444,7 +7454,7 @@ proxies:
   tls: true
   servername: gr1.grtj.sulindac.top
   skip-cert-verify: true
-- name: 'Channel id: @ShadowProxy66'
+- name: 'Channel id: @ShadowProxy66-2'
   type: trojan
   server: 109.230.91.202
   port: 443
@@ -7468,7 +7478,7 @@ proxies:
   tls: true
   servername: gr1.grtj.sulindac.top
   skip-cert-verify: true
-- name: '@Hope_Net-join-us-on-Telegram-19'
+- name: '@Hope_Net-join-us-on-Telegram-20'
   type: trojan
   server: 18.140.189.83
   port: 443
@@ -7778,20 +7788,6 @@ proxies:
     path: /
     headers:
       Host: skwygx.top
-- name: '[-2'
-  type: trojan
-  server: 104.26.4.60
-  port: 443
-  udp: true
-  password: bpb-trojan
-  network: ws
-  ws-opts:
-    path: /tr?ed=2560
-    headers:
-      Host: zamim340.ggff.net
-  tls: true
-  servername: zamim340.ggff.net
-  skip-cert-verify: true
 - name: trojan-104.26.4.60
   type: trojan
   server: 104.26.4.60
@@ -8104,17 +8100,7 @@ proxies:
   tls: true
   servername: azarandooz.azarina.workers.dev
   skip-cert-verify: true
-- name: '@Hope_Net-join-us-on-Telegram-20'
-  type: trojan
-  server: 5.83.221.31
-  port: 30056
-  udp: true
-  password: c1596d35-5f68-4cef-bf5f-ac0d2ab88b2f
-  network: tcp
-  tls: true
-  servername: v1kr01.fuqiangren.com
-  skip-cert-verify: true
-- name: '[-3'
+- name: '@Hope_Net-join-us-on-Telegram-21'
   type: trojan
   server: 5.83.221.31
   port: 30056
@@ -8340,7 +8326,7 @@ proxies:
   udp: true
   password: ca48571a-403f-44b9-b2a6-e17c36d7cacc
   network: tcp
-- name: '@Hope_Net-join-us-on-Telegram-21'
+- name: '@Hope_Net-join-us-on-Telegram-22'
   type: trojan
   server: 127.0.0.1
   port: 8080
@@ -8360,14 +8346,14 @@ proxies:
   tls: true
   servername: mailbox.CPIFOrpersiA.UK
   skip-cert-verify: true
-- name: 剩余流量：0-21
+- name: 剩余流量：0-33
   type: trojan
   server: ccone.fkknet.cn
   port: 10506
   udp: true
   password: d516b33d-86ee-49e8-9af7-4eb7405e5cfe
   network: tcp
-- name: 套餐到期：长期有效-14
+- name: 套餐到期：长期有效-25
   type: trojan
   server: ccone.fkknet.cn
   port: 10506
@@ -8480,7 +8466,7 @@ proxies:
   tls: true
   servername: vle.amclubsvip.dpdns.org
   skip-cert-verify: true
-- name: '@Hope_Net-join-us-on-Telegram-22'
+- name: '@Hope_Net-join-us-on-Telegram-23'
   type: trojan
   server: 5.253.41.160
   port: 443
@@ -8616,7 +8602,7 @@ proxies:
   udp: true
   password: da91214e-b022-4f61-a724-01c538170e62
   network: tcp
-- name: '@Hope_Net-join-us-on-Telegram-23'
+- name: '@Hope_Net-join-us-on-Telegram-24'
   type: trojan
   server: 5.83.221.31
   port: 30049
@@ -8727,7 +8713,7 @@ proxies:
   udp: true
   password: e8383f0e-31e7-427c-9df0-36d4dec4aa65
   network: tcp
-- name: 剩余流量：0-22
+- name: 剩余流量：0-34
   type: trojan
   server: mpkrykuslqfijsw-hk.fliggynode.com
   port: 50401
@@ -8755,7 +8741,7 @@ proxies:
   udp: true
   password: eb2ec34c-1d94-4ca5-bec0-356f75f9f4fa
   network: tcp
-- name: 香港 01
+- name: 香港 01-2
   type: trojan
   server: mpkrykuslqfijsw-hk.fliggynode.com
   port: 50401
@@ -8825,21 +8811,21 @@ proxies:
   udp: true
   password: eb2ec34c-1d94-4ca5-bec0-356f75f9f4fa
   network: tcp
-- name: 日本 01
+- name: 日本 01-2
   type: trojan
   server: mpkrykuslqfijsw-jp.fliggynode.com
   port: 50441
   udp: true
   password: eb2ec34c-1d94-4ca5-bec0-356f75f9f4fa
   network: tcp
-- name: 日本 02
+- name: 日本 02-2
   type: trojan
   server: mpkrykuslqfijsw-jp.fliggynode.com
   port: 50442
   udp: true
   password: eb2ec34c-1d94-4ca5-bec0-356f75f9f4fa
   network: tcp
-- name: 日本 03
+- name: 日本 03-2
   type: trojan
   server: mpkrykuslqfijsw-jp.fliggynode.com
   port: 50443
@@ -8895,14 +8881,14 @@ proxies:
   udp: true
   password: eb2ec34c-1d94-4ca5-bec0-356f75f9f4fa
   network: tcp
-- name: 新加坡 01
+- name: 新加坡 01-2
   type: trojan
   server: mpkrykuslqfijsw-sg.fliggynode.com
   port: 50431
   udp: true
   password: eb2ec34c-1d94-4ca5-bec0-356f75f9f4fa
   network: tcp
-- name: 新加坡 02
+- name: 新加坡 02-2
   type: trojan
   server: mpkrykuslqfijsw-sg.fliggynode.com
   port: 50432
@@ -8916,7 +8902,7 @@ proxies:
   udp: true
   password: eb2ec34c-1d94-4ca5-bec0-356f75f9f4fa
   network: tcp
-- name: 新加坡 04
+- name: 新加坡 04-2
   type: trojan
   server: mpkrykuslqfijsw-sg.fliggynode.com
   port: 50434
@@ -8930,7 +8916,7 @@ proxies:
   udp: true
   password: eb2ec34c-1d94-4ca5-bec0-356f75f9f4fa
   network: tcp
-- name: 新加坡 06
+- name: 新加坡 06-2
   type: trojan
   server: mpkrykuslqfijsw-sg.fliggynode.com
   port: 50436
@@ -8965,7 +8951,7 @@ proxies:
   udp: true
   password: eb2ec34c-1d94-4ca5-bec0-356f75f9f4fa
   network: tcp
-- name: 台湾 01
+- name: 台湾 01-2
   type: trojan
   server: mpkrykuslqfijsw-tw.fliggynode.com
   port: 50421
@@ -9035,49 +9021,49 @@ proxies:
   udp: true
   password: eb2ec34c-1d94-4ca5-bec0-356f75f9f4fa
   network: tcp
-- name: 美国 01
+- name: 美国 01-2
   type: trojan
   server: mpkrykuslqfijsw-us.fliggynode.com
   port: 50451
   udp: true
   password: eb2ec34c-1d94-4ca5-bec0-356f75f9f4fa
   network: tcp
-- name: 美国 02
+- name: 美国 02-2
   type: trojan
   server: mpkrykuslqfijsw-us.fliggynode.com
   port: 50452
   udp: true
   password: eb2ec34c-1d94-4ca5-bec0-356f75f9f4fa
   network: tcp
-- name: 美国 03
+- name: 美国 03-2
   type: trojan
   server: mpkrykuslqfijsw-us.fliggynode.com
   port: 50453
   udp: true
   password: eb2ec34c-1d94-4ca5-bec0-356f75f9f4fa
   network: tcp
-- name: 美国 04
+- name: 美国 04-2
   type: trojan
   server: mpkrykuslqfijsw-us.fliggynode.com
   port: 50454
   udp: true
   password: eb2ec34c-1d94-4ca5-bec0-356f75f9f4fa
   network: tcp
-- name: 美国 05
+- name: 美国 05-2
   type: trojan
   server: mpkrykuslqfijsw-us.fliggynode.com
   port: 50455
   udp: true
   password: eb2ec34c-1d94-4ca5-bec0-356f75f9f4fa
   network: tcp
-- name: 美国 06
+- name: 美国 06-2
   type: trojan
   server: mpkrykuslqfijsw-us.fliggynode.com
   port: 50456
   udp: true
   password: eb2ec34c-1d94-4ca5-bec0-356f75f9f4fa
   network: tcp
-- name: 美国 07
+- name: 美国 07-2
   type: trojan
   server: mpkrykuslqfijsw-us.fliggynode.com
   port: 50457
@@ -9572,18 +9558,6 @@ proxies:
   tls: true
   servername: DieGo.DIEgoMAraDOnA.iR.
   skip-cert-verify: true
-- name: trojan-13.36.101.183
-  type: trojan
-  server: 13.36.101.183
-  port: 22223
-  udp: true
-  password: telegram-id-directvpn
-  network: tcp
-  tls: true
-  servername: trojan.burgerip.co.uk
-  skip-cert-verify: true
-  alpn:
-  - http/1.1
 - name: trojan-13.36.106.226
   type: trojan
   server: 13.36.106.226
@@ -9838,7 +9812,7 @@ proxies:
   skip-cert-verify: true
   alpn:
   - http/1.1
-- name: '@Hope_Net-join-us-on-Telegram-24'
+- name: '@Hope_Net-join-us-on-Telegram-25'
   type: trojan
   server: 52.209.188.5
   port: 22222
@@ -10061,6 +10035,18 @@ proxies:
   skip-cert-verify: true
   alpn:
   - http/1.1
+- name: '@v2Source-7'
+  type: trojan
+  server: 18.194.77.188
+  port: 22222
+  udp: true
+  password: telegram-id-privatevpns
+  network: tcp
+  tls: true
+  servername: trojan.burgerip.co.uk
+  skip-cert-verify: true
+  alpn:
+  - http/1.1
 - name: (S101)-2
   type: trojan
   server: 18.197.223.180
@@ -10085,7 +10071,7 @@ proxies:
   skip-cert-verify: true
   alpn:
   - http/1.1
-- name: '@Hope_Net-join-us-on-Telegram-25'
+- name: '@Hope_Net-join-us-on-Telegram-26'
   type: trojan
   server: 3.11.161.141
   port: 22222
@@ -10232,7 +10218,7 @@ proxies:
   skip-cert-verify: true
   alpn:
   - http/1.1
-- name: '@Hope_Net-join-us-on-Telegram-26'
+- name: '@Hope_Net-join-us-on-Telegram-27'
   type: trojan
   server: 162.159.153.8
   port: 443
@@ -10539,7 +10525,7 @@ proxies:
   tls: true
   servername: id3tr.jagoan.vip
   skip-cert-verify: true
-- name: '@Hope_Net-join-us-on-Telegram-27'
+- name: '@Hope_Net-join-us-on-Telegram-28'
   type: trojan
   server: 38.9.140.66
   port: 443
@@ -10677,10 +10663,10 @@ proxy-groups:
   - trojan-172.67.204.84
   - 🔒+TR-GRPC-TLS+🇮🇷+IR-78.39.9.168:6161
   - trojan-18.238.109.41
-  - 剩余流量：0-19
+  - 剩余流量：0-31
   - 套餐到期：2025-12-31
   - 美国 01 CDN 免费
-  - 距离下次重置剩余：7 天-3
+  - 距离下次重置剩余：7 天-4
   - 官网:nex.re TG群:@NEX_GRP
   - 推荐机场：e53.site
   - trojan-104.21.71.83
@@ -10731,6 +10717,7 @@ proxy-groups:
   - trojan-104.21.15.232
   - trojan-104.21.34.159
   - trojan-15.235.197.4
+  - '@Hope_Net-join-us-on-Telegram-4'
   - trojan-104.21.94.69
   - trojan-172.67.149.202
   - trojan-172.67.220.140
@@ -10738,7 +10725,7 @@ proxy-groups:
   - 🇨🇳_CN_中国->🇺🇸_US_美国
   - 15|CN_speednode_0001
   - 🇺🇸 一元机场:ssrsub.de 美国 46
-  - '@v2Source'
+  - '@v2Source-5'
   - trojan-104.21.32.242
   - trojan-104.21.38.48
   - trojan-104.21.52.157
@@ -10782,7 +10769,7 @@ proxy-groups:
   - 永久官网：fast.sudatech.store
   - 防失联： 速达导航.com
   - 剩余流量：101 GB
-  - 套餐到期：长期有效-11
+  - 套餐到期：长期有效-22
   - 所有付费节点不限速与装置数
   - trojan-88.210.36.106
   - 🇺🇸 一元机场:ssrsub.de 美国 04
@@ -10791,16 +10778,17 @@ proxy-groups:
   - trojan-104.21.71.131
   - trojan-172.67.170.147
   - trojan-20.2.156.38
-  - '@Hope_Net-join-us-on-Telegram-4'
+  - '@Hope_Net-join-us-on-Telegram-5'
+  - '@v2Source-6'
   - trojan-165.22.74.230
   - trojan-104.21.44.185
   - trojan-104.21.83.113
   - trojan-104.21.32.242-2
   - trojan-141.193.213.163
-  - 剩余流量：0-20
+  - 剩余流量：0-32
   - 套餐到期：2025-12-31-2
   - 美国 01 CDN 免费-2
-  - 距离下次重置剩余：7 天-4
+  - 距离下次重置剩余：7 天-5
   - 官网:nex.re TG群:@NEX_GRP-2
   - trojan-172.67.131.27
   - 台湾|TW02|T
@@ -10813,7 +10801,7 @@ proxy-groups:
   - 新加坡|SG07|T
   - 新加坡|SG01|T
   - 剩余流量：-0.089999999999918 GB
-  - 套餐到期：长期有效-12
+  - 套餐到期：长期有效-23
   - 香港|HK02|T
   - https://web.coo.wiki
   - 日本|T01|T
@@ -10844,7 +10832,7 @@ proxy-groups:
   - 新加坡|SG09|T
   - 新加坡|SG08|T
   - trojan-172.67.210.210
-  - '@Hope_Net-join-us-on-Telegram-5'
+  - '@Hope_Net-join-us-on-Telegram-6'
   - Trojan-新加坡2 | 低倍率-2
   - Trojan-美国2 | 低倍率-2
   - Trojan-香港2 | 低倍率-2
@@ -10871,7 +10859,7 @@ proxy-groups:
   - 新加坡|SG07|T-2
   - 新加坡|SG01|T-2
   - 剩余流量：-0.6400000000001 GB
-  - 套餐到期：长期有效-13
+  - 套餐到期：长期有效-24
   - 香港|HK02|T-2
   - https://web.coo.wiki-2
   - 日本|T01|T-2
@@ -10905,7 +10893,6 @@ proxy-groups:
   - 🇭🇰HK-20.2.156.38-5574
   - 2|🇺🇸45 |  2.5MB/s|46%|Openai|Gem...
   - trojan-70.32.1.32
-  - '@Hope_Net-join-us-on-Telegram-6'
   - '@Hope_Net-join-us-on-Telegram-7'
   - trojan-139.162.158.172
   - trojan-151.101.66.219
@@ -10950,7 +10937,7 @@ proxy-groups:
   - 13,14|香港4|@ripaojiedian
   - 广东省广州市+电信
   - 🇭🇰 一元机场:ssrsub.de 香港 13
-  - 🇨🇳_CN_中国->🇰🇷_KR_韩国
+  - 🇨🇳_CN_中国->🇰🇷_KR_韩国-2
   - 🇰🇷 一元机场:ssrsub.de 韩国 05
   - 13,14|香港3|@ripaojiedian
   - 13,14|韩国|@ripaojiedian
@@ -11045,7 +11032,6 @@ proxy-groups:
   - trojan-51.159.59.186
   - '@Hope_Net-join-us-on-Telegram-9'
   - '@Hope_Net-join-us-on-Telegram-10'
-  - '['
   - '@Hope_Net-join-us-on-Telegram-11'
   - '@Hope_Net-join-us-on-Telegram-12'
   - '@Hope_Net-join-us-on-Telegram-13'
@@ -11366,9 +11352,10 @@ proxy-groups:
   - trojan-104.21.96.1-3
   - trojan-172.67.156.115
   - trojan-172.66.47.42
+  - '@Hope_Net-join-us-on-Telegram-14'
   - trojan-104.17.148.22
   - trojan-172.67.175.40-3
-  - '@Hope_Net-join-us-on-Telegram-14'
+  - '@Hope_Net-join-us-on-Telegram-15'
   - 🇨🇳_CN_中国->🇺🇸_US_美国-2
   - 🇺🇸 一元机场:ssrsub.de 美国 23
   - trojan-104.18.183.139
@@ -11423,11 +11410,11 @@ proxy-groups:
   - 🇺🇸 一元机场:ssrsub.de 美国 28
   - trojan-172.66.44.109
   - trojan-172.66.168.223
-  - '@Hope_Net-join-us-on-Telegram-15'
+  - '@Hope_Net-join-us-on-Telegram-16'
   - trojan-127.0.0.1
   - trojan-127.0.0.1-2
   - ‍
-  - '@Hope_Net-join-us-on-Telegram-16'
+  - '@Hope_Net-join-us-on-Telegram-17'
   - trojan-104.21.32.1-2
   - 香港01
   - 香港02
@@ -11485,8 +11472,8 @@ proxy-groups:
   - trojan-162.159.136.232
   - trojan-172.67.49.134
   - trojan-185.146.173.158
-  - '@Hope_Net-join-us-on-Telegram-17'
   - '@Hope_Net-join-us-on-Telegram-18'
+  - '@Hope_Net-join-us-on-Telegram-19'
   - 群组 https://t.me/freeyule
   - Trojan-香港2 | 低倍率-4
   - Trojan-日本2 | 低倍率-4
@@ -11502,9 +11489,9 @@ proxy-groups:
   - Trojan-台湾2 | 低倍率-4
   - trojan-109.230.91.202
   - '@xsfilternet-hamedp71-3'
-  - 'Channel id: @ShadowProxy66'
+  - 'Channel id: @ShadowProxy66-2'
   - trojan-109.230.91.202-2
-  - '@Hope_Net-join-us-on-Telegram-19'
+  - '@Hope_Net-join-us-on-Telegram-20'
   - 澳大利亚AU-T-2
   - 台湾WAP-T-GPT-2
   - 以色列IL-T-2
@@ -11537,7 +11524,6 @@ proxy-groups:
   - trojan-104.16.149.244
   - trojan-104.17.102.149
   - trojan-104.248.145.216
-  - '[-2'
   - trojan-104.26.4.60
   - trojan-123.111.169.70
   - trojan-13.250.131.37
@@ -11561,8 +11547,7 @@ proxy-groups:
   - FreeVPNHomes+10-11
   - FreeVPNHomes+10-7
   - trojan-104.18.14.19
-  - '@Hope_Net-join-us-on-Telegram-20'
-  - '[-3'
+  - '@Hope_Net-join-us-on-Telegram-21'
   - مرگ بر خامنه ای جلاد
   - trojan-141.101.120.13
   - trojan-141.101.120.15
@@ -11581,10 +11566,10 @@ proxy-groups:
   - trojan-104.21.48.1
   - trojan-172.67.175.149
   - trojan-104.21.64.1
-  - '@Hope_Net-join-us-on-Telegram-21'
+  - '@Hope_Net-join-us-on-Telegram-22'
   - trojan-104.26.15.85
-  - 剩余流量：0-21
-  - 套餐到期：长期有效-14
+  - 剩余流量：0-33
+  - 套餐到期：长期有效-25
   - 🇨🇳 使用前请点击更新订阅
   - 🇨🇳 倍率是流量消耗快慢不是速度！！！
   - 🇨🇳 流媒体专用节点解锁全球流媒体
@@ -11598,7 +11583,7 @@ proxy-groups:
   - 美国+CloudFlare节点-2
   - 🇺🇸 一元机场:ssrsub.de 美国 34
   - trojan-154.83.2.54
-  - '@Hope_Net-join-us-on-Telegram-22'
+  - '@Hope_Net-join-us-on-Telegram-23'
   - 澳大利亚AU-T-3
   - 台湾WAP-T-GPT-3
   - 以色列IL-T-3
@@ -11617,7 +11602,7 @@ proxy-groups:
   - 美国USLA-T-GPT-3
   - 越南VN-T-3
   - 香港wap-T-3
-  - '@Hope_Net-join-us-on-Telegram-23'
+  - '@Hope_Net-join-us-on-Telegram-24'
   - 2|🇺🇸64 |  1.3MB/s|46%|Openai|Gem...
   - trojan-209.209.48.19
   - trojan-104.21.22.133
@@ -11629,11 +11614,11 @@ proxy-groups:
   - US | 美国 Trojan 01
   - HK | 香港 Trojan 01
   - SG | 新加坡 Trojan 01
-  - 剩余流量：0-22
+  - 剩余流量：0-34
   - 套餐到期：2025-08-15
   - 最新网址：fliggycloud.cc
   - 距离下次重置剩余：22 天
-  - 香港 01
+  - 香港 01-2
   - 香港 02
   - 香港 03
   - 香港 04
@@ -11643,9 +11628,9 @@ proxy-groups:
   - 香港 08
   - 香港 09
   - 香港 10
-  - 日本 01
-  - 日本 02
-  - 日本 03
+  - 日本 01-2
+  - 日本 02-2
+  - 日本 03-2
   - 日本 04
   - 日本 05
   - 日本 06
@@ -11653,17 +11638,17 @@ proxy-groups:
   - 日本 08
   - 日本 09
   - 日本 10
-  - 新加坡 01
-  - 新加坡 02
+  - 新加坡 01-2
+  - 新加坡 02-2
   - 新加坡 03
-  - 新加坡 04
+  - 新加坡 04-2
   - 新加坡 05
-  - 新加坡 06
+  - 新加坡 06-2
   - 新加坡 07
   - 新加坡 08
   - 新加坡 09
   - 新加坡 10
-  - 台湾 01
+  - 台湾 01-2
   - 台湾 02
   - 台湾 03
   - 台湾 04
@@ -11673,13 +11658,13 @@ proxy-groups:
   - 台湾 08
   - 台湾 09
   - 台湾 10
-  - 美国 01
-  - 美国 02
-  - 美国 03
-  - 美国 04
-  - 美国 05
-  - 美国 06
-  - 美国 07
+  - 美国 01-2
+  - 美国 02-2
+  - 美国 03-2
+  - 美国 04-2
+  - 美国 05-2
+  - 美国 06-2
+  - 美国 07-2
   - 美国 08
   - 美国 09
   - 美国 10
@@ -11725,7 +11710,6 @@ proxy-groups:
   - trojan-104.21.88.9
   - trojan-172.67.149.227
   - trojan-172.67.163.123
-  - trojan-13.36.101.183
   - trojan-13.36.106.226
   - OurChannel
   - trojan-13.36.163.133
@@ -11748,7 +11732,7 @@ proxy-groups:
   - OurChannel-12
   - OurChannel-13
   - OurChannel-14
-  - '@Hope_Net-join-us-on-Telegram-24'
+  - '@Hope_Net-join-us-on-Telegram-25'
   - OurChannel-15
   - OurChannel-16
   - OurChannel-17
@@ -11767,9 +11751,10 @@ proxy-groups:
   - (S104)-2
   - trojan-18.194.77.188-2
   - (S101)
+  - '@v2Source-7'
   - (S101)-2
   - (S101)-3
-  - '@Hope_Net-join-us-on-Telegram-25'
+  - '@Hope_Net-join-us-on-Telegram-26'
   - (S101)-4
   - 🇫🇷FR-35.181.28.118-5791
   - (S104)-3
@@ -11782,7 +11767,7 @@ proxy-groups:
   - trojan-63.178.252.63
   - 🇩🇪 一元机场:ssrsub.de 德国 04
   - (S102)-4
-  - '@Hope_Net-join-us-on-Telegram-26'
+  - '@Hope_Net-join-us-on-Telegram-27'
   - trojan-104.18.13.229
   - trojan-104.21.22.11
   - trojan-172.67.130.66
@@ -11807,7 +11792,7 @@ proxy-groups:
   - trojan-172.66.47.179
   - trojan-172.67.68.204
   - trojan-38.9.140.66
-  - '@Hope_Net-join-us-on-Telegram-27'
+  - '@Hope_Net-join-us-on-Telegram-28'
   - trojan-95.38.210.47
   - D5 Vpn 210
   - trojan-172.66.47.170
@@ -11833,10 +11818,10 @@ proxy-groups:
   - trojan-172.67.204.84
   - 🔒+TR-GRPC-TLS+🇮🇷+IR-78.39.9.168:6161
   - trojan-18.238.109.41
-  - 剩余流量：0-19
+  - 剩余流量：0-31
   - 套餐到期：2025-12-31
   - 美国 01 CDN 免费
-  - 距离下次重置剩余：7 天-3
+  - 距离下次重置剩余：7 天-4
   - 官网:nex.re TG群:@NEX_GRP
   - 推荐机场：e53.site
   - trojan-104.21.71.83
@@ -11887,6 +11872,7 @@ proxy-groups:
   - trojan-104.21.15.232
   - trojan-104.21.34.159
   - trojan-15.235.197.4
+  - '@Hope_Net-join-us-on-Telegram-4'
   - trojan-104.21.94.69
   - trojan-172.67.149.202
   - trojan-172.67.220.140
@@ -11894,7 +11880,7 @@ proxy-groups:
   - 🇨🇳_CN_中国->🇺🇸_US_美国
   - 15|CN_speednode_0001
   - 🇺🇸 一元机场:ssrsub.de 美国 46
-  - '@v2Source'
+  - '@v2Source-5'
   - trojan-104.21.32.242
   - trojan-104.21.38.48
   - trojan-104.21.52.157
@@ -11938,7 +11924,7 @@ proxy-groups:
   - 永久官网：fast.sudatech.store
   - 防失联： 速达导航.com
   - 剩余流量：101 GB
-  - 套餐到期：长期有效-11
+  - 套餐到期：长期有效-22
   - 所有付费节点不限速与装置数
   - trojan-88.210.36.106
   - 🇺🇸 一元机场:ssrsub.de 美国 04
@@ -11947,16 +11933,17 @@ proxy-groups:
   - trojan-104.21.71.131
   - trojan-172.67.170.147
   - trojan-20.2.156.38
-  - '@Hope_Net-join-us-on-Telegram-4'
+  - '@Hope_Net-join-us-on-Telegram-5'
+  - '@v2Source-6'
   - trojan-165.22.74.230
   - trojan-104.21.44.185
   - trojan-104.21.83.113
   - trojan-104.21.32.242-2
   - trojan-141.193.213.163
-  - 剩余流量：0-20
+  - 剩余流量：0-32
   - 套餐到期：2025-12-31-2
   - 美国 01 CDN 免费-2
-  - 距离下次重置剩余：7 天-4
+  - 距离下次重置剩余：7 天-5
   - 官网:nex.re TG群:@NEX_GRP-2
   - trojan-172.67.131.27
   - 台湾|TW02|T
@@ -11969,7 +11956,7 @@ proxy-groups:
   - 新加坡|SG07|T
   - 新加坡|SG01|T
   - 剩余流量：-0.089999999999918 GB
-  - 套餐到期：长期有效-12
+  - 套餐到期：长期有效-23
   - 香港|HK02|T
   - https://web.coo.wiki
   - 日本|T01|T
@@ -12000,7 +11987,7 @@ proxy-groups:
   - 新加坡|SG09|T
   - 新加坡|SG08|T
   - trojan-172.67.210.210
-  - '@Hope_Net-join-us-on-Telegram-5'
+  - '@Hope_Net-join-us-on-Telegram-6'
   - Trojan-新加坡2 | 低倍率-2
   - Trojan-美国2 | 低倍率-2
   - Trojan-香港2 | 低倍率-2
@@ -12027,7 +12014,7 @@ proxy-groups:
   - 新加坡|SG07|T-2
   - 新加坡|SG01|T-2
   - 剩余流量：-0.6400000000001 GB
-  - 套餐到期：长期有效-13
+  - 套餐到期：长期有效-24
   - 香港|HK02|T-2
   - https://web.coo.wiki-2
   - 日本|T01|T-2
@@ -12061,7 +12048,6 @@ proxy-groups:
   - 🇭🇰HK-20.2.156.38-5574
   - 2|🇺🇸45 |  2.5MB/s|46%|Openai|Gem...
   - trojan-70.32.1.32
-  - '@Hope_Net-join-us-on-Telegram-6'
   - '@Hope_Net-join-us-on-Telegram-7'
   - trojan-139.162.158.172
   - trojan-151.101.66.219
@@ -12106,7 +12092,7 @@ proxy-groups:
   - 13,14|香港4|@ripaojiedian
   - 广东省广州市+电信
   - 🇭🇰 一元机场:ssrsub.de 香港 13
-  - 🇨🇳_CN_中国->🇰🇷_KR_韩国
+  - 🇨🇳_CN_中国->🇰🇷_KR_韩国-2
   - 🇰🇷 一元机场:ssrsub.de 韩国 05
   - 13,14|香港3|@ripaojiedian
   - 13,14|韩国|@ripaojiedian
@@ -12201,7 +12187,6 @@ proxy-groups:
   - trojan-51.159.59.186
   - '@Hope_Net-join-us-on-Telegram-9'
   - '@Hope_Net-join-us-on-Telegram-10'
-  - '['
   - '@Hope_Net-join-us-on-Telegram-11'
   - '@Hope_Net-join-us-on-Telegram-12'
   - '@Hope_Net-join-us-on-Telegram-13'
@@ -12522,9 +12507,10 @@ proxy-groups:
   - trojan-104.21.96.1-3
   - trojan-172.67.156.115
   - trojan-172.66.47.42
+  - '@Hope_Net-join-us-on-Telegram-14'
   - trojan-104.17.148.22
   - trojan-172.67.175.40-3
-  - '@Hope_Net-join-us-on-Telegram-14'
+  - '@Hope_Net-join-us-on-Telegram-15'
   - 🇨🇳_CN_中国->🇺🇸_US_美国-2
   - 🇺🇸 一元机场:ssrsub.de 美国 23
   - trojan-104.18.183.139
@@ -12579,11 +12565,11 @@ proxy-groups:
   - 🇺🇸 一元机场:ssrsub.de 美国 28
   - trojan-172.66.44.109
   - trojan-172.66.168.223
-  - '@Hope_Net-join-us-on-Telegram-15'
+  - '@Hope_Net-join-us-on-Telegram-16'
   - trojan-127.0.0.1
   - trojan-127.0.0.1-2
   - ‍
-  - '@Hope_Net-join-us-on-Telegram-16'
+  - '@Hope_Net-join-us-on-Telegram-17'
   - trojan-104.21.32.1-2
   - 香港01
   - 香港02
@@ -12641,8 +12627,8 @@ proxy-groups:
   - trojan-162.159.136.232
   - trojan-172.67.49.134
   - trojan-185.146.173.158
-  - '@Hope_Net-join-us-on-Telegram-17'
   - '@Hope_Net-join-us-on-Telegram-18'
+  - '@Hope_Net-join-us-on-Telegram-19'
   - 群组 https://t.me/freeyule
   - Trojan-香港2 | 低倍率-4
   - Trojan-日本2 | 低倍率-4
@@ -12658,9 +12644,9 @@ proxy-groups:
   - Trojan-台湾2 | 低倍率-4
   - trojan-109.230.91.202
   - '@xsfilternet-hamedp71-3'
-  - 'Channel id: @ShadowProxy66'
+  - 'Channel id: @ShadowProxy66-2'
   - trojan-109.230.91.202-2
-  - '@Hope_Net-join-us-on-Telegram-19'
+  - '@Hope_Net-join-us-on-Telegram-20'
   - 澳大利亚AU-T-2
   - 台湾WAP-T-GPT-2
   - 以色列IL-T-2
@@ -12693,7 +12679,6 @@ proxy-groups:
   - trojan-104.16.149.244
   - trojan-104.17.102.149
   - trojan-104.248.145.216
-  - '[-2'
   - trojan-104.26.4.60
   - trojan-123.111.169.70
   - trojan-13.250.131.37
@@ -12717,8 +12702,7 @@ proxy-groups:
   - FreeVPNHomes+10-11
   - FreeVPNHomes+10-7
   - trojan-104.18.14.19
-  - '@Hope_Net-join-us-on-Telegram-20'
-  - '[-3'
+  - '@Hope_Net-join-us-on-Telegram-21'
   - مرگ بر خامنه ای جلاد
   - trojan-141.101.120.13
   - trojan-141.101.120.15
@@ -12737,10 +12721,10 @@ proxy-groups:
   - trojan-104.21.48.1
   - trojan-172.67.175.149
   - trojan-104.21.64.1
-  - '@Hope_Net-join-us-on-Telegram-21'
+  - '@Hope_Net-join-us-on-Telegram-22'
   - trojan-104.26.15.85
-  - 剩余流量：0-21
-  - 套餐到期：长期有效-14
+  - 剩余流量：0-33
+  - 套餐到期：长期有效-25
   - 🇨🇳 使用前请点击更新订阅
   - 🇨🇳 倍率是流量消耗快慢不是速度！！！
   - 🇨🇳 流媒体专用节点解锁全球流媒体
@@ -12754,7 +12738,7 @@ proxy-groups:
   - 美国+CloudFlare节点-2
   - 🇺🇸 一元机场:ssrsub.de 美国 34
   - trojan-154.83.2.54
-  - '@Hope_Net-join-us-on-Telegram-22'
+  - '@Hope_Net-join-us-on-Telegram-23'
   - 澳大利亚AU-T-3
   - 台湾WAP-T-GPT-3
   - 以色列IL-T-3
@@ -12773,7 +12757,7 @@ proxy-groups:
   - 美国USLA-T-GPT-3
   - 越南VN-T-3
   - 香港wap-T-3
-  - '@Hope_Net-join-us-on-Telegram-23'
+  - '@Hope_Net-join-us-on-Telegram-24'
   - 2|🇺🇸64 |  1.3MB/s|46%|Openai|Gem...
   - trojan-209.209.48.19
   - trojan-104.21.22.133
@@ -12785,11 +12769,11 @@ proxy-groups:
   - US | 美国 Trojan 01
   - HK | 香港 Trojan 01
   - SG | 新加坡 Trojan 01
-  - 剩余流量：0-22
+  - 剩余流量：0-34
   - 套餐到期：2025-08-15
   - 最新网址：fliggycloud.cc
   - 距离下次重置剩余：22 天
-  - 香港 01
+  - 香港 01-2
   - 香港 02
   - 香港 03
   - 香港 04
@@ -12799,9 +12783,9 @@ proxy-groups:
   - 香港 08
   - 香港 09
   - 香港 10
-  - 日本 01
-  - 日本 02
-  - 日本 03
+  - 日本 01-2
+  - 日本 02-2
+  - 日本 03-2
   - 日本 04
   - 日本 05
   - 日本 06
@@ -12809,17 +12793,17 @@ proxy-groups:
   - 日本 08
   - 日本 09
   - 日本 10
-  - 新加坡 01
-  - 新加坡 02
+  - 新加坡 01-2
+  - 新加坡 02-2
   - 新加坡 03
-  - 新加坡 04
+  - 新加坡 04-2
   - 新加坡 05
-  - 新加坡 06
+  - 新加坡 06-2
   - 新加坡 07
   - 新加坡 08
   - 新加坡 09
   - 新加坡 10
-  - 台湾 01
+  - 台湾 01-2
   - 台湾 02
   - 台湾 03
   - 台湾 04
@@ -12829,13 +12813,13 @@ proxy-groups:
   - 台湾 08
   - 台湾 09
   - 台湾 10
-  - 美国 01
-  - 美国 02
-  - 美国 03
-  - 美国 04
-  - 美国 05
-  - 美国 06
-  - 美国 07
+  - 美国 01-2
+  - 美国 02-2
+  - 美国 03-2
+  - 美国 04-2
+  - 美国 05-2
+  - 美国 06-2
+  - 美国 07-2
   - 美国 08
   - 美国 09
   - 美国 10
@@ -12881,7 +12865,6 @@ proxy-groups:
   - trojan-104.21.88.9
   - trojan-172.67.149.227
   - trojan-172.67.163.123
-  - trojan-13.36.101.183
   - trojan-13.36.106.226
   - OurChannel
   - trojan-13.36.163.133
@@ -12904,7 +12887,7 @@ proxy-groups:
   - OurChannel-12
   - OurChannel-13
   - OurChannel-14
-  - '@Hope_Net-join-us-on-Telegram-24'
+  - '@Hope_Net-join-us-on-Telegram-25'
   - OurChannel-15
   - OurChannel-16
   - OurChannel-17
@@ -12923,9 +12906,10 @@ proxy-groups:
   - (S104)-2
   - trojan-18.194.77.188-2
   - (S101)
+  - '@v2Source-7'
   - (S101)-2
   - (S101)-3
-  - '@Hope_Net-join-us-on-Telegram-25'
+  - '@Hope_Net-join-us-on-Telegram-26'
   - (S101)-4
   - 🇫🇷FR-35.181.28.118-5791
   - (S104)-3
@@ -12938,7 +12922,7 @@ proxy-groups:
   - trojan-63.178.252.63
   - 🇩🇪 一元机场:ssrsub.de 德国 04
   - (S102)-4
-  - '@Hope_Net-join-us-on-Telegram-26'
+  - '@Hope_Net-join-us-on-Telegram-27'
   - trojan-104.18.13.229
   - trojan-104.21.22.11
   - trojan-172.67.130.66
@@ -12963,7 +12947,7 @@ proxy-groups:
   - trojan-172.66.47.179
   - trojan-172.67.68.204
   - trojan-38.9.140.66
-  - '@Hope_Net-join-us-on-Telegram-27'
+  - '@Hope_Net-join-us-on-Telegram-28'
   - trojan-95.38.210.47
   - D5 Vpn 210
   - trojan-172.66.47.170
@@ -12989,10 +12973,10 @@ proxy-groups:
   - trojan-172.67.204.84
   - 🔒+TR-GRPC-TLS+🇮🇷+IR-78.39.9.168:6161
   - trojan-18.238.109.41
-  - 剩余流量：0-19
+  - 剩余流量：0-31
   - 套餐到期：2025-12-31
   - 美国 01 CDN 免费
-  - 距离下次重置剩余：7 天-3
+  - 距离下次重置剩余：7 天-4
   - 官网:nex.re TG群:@NEX_GRP
   - 推荐机场：e53.site
   - trojan-104.21.71.83
@@ -13043,6 +13027,7 @@ proxy-groups:
   - trojan-104.21.15.232
   - trojan-104.21.34.159
   - trojan-15.235.197.4
+  - '@Hope_Net-join-us-on-Telegram-4'
   - trojan-104.21.94.69
   - trojan-172.67.149.202
   - trojan-172.67.220.140
@@ -13050,7 +13035,7 @@ proxy-groups:
   - 🇨🇳_CN_中国->🇺🇸_US_美国
   - 15|CN_speednode_0001
   - 🇺🇸 一元机场:ssrsub.de 美国 46
-  - '@v2Source'
+  - '@v2Source-5'
   - trojan-104.21.32.242
   - trojan-104.21.38.48
   - trojan-104.21.52.157
@@ -13094,7 +13079,7 @@ proxy-groups:
   - 永久官网：fast.sudatech.store
   - 防失联： 速达导航.com
   - 剩余流量：101 GB
-  - 套餐到期：长期有效-11
+  - 套餐到期：长期有效-22
   - 所有付费节点不限速与装置数
   - trojan-88.210.36.106
   - 🇺🇸 一元机场:ssrsub.de 美国 04
@@ -13103,16 +13088,17 @@ proxy-groups:
   - trojan-104.21.71.131
   - trojan-172.67.170.147
   - trojan-20.2.156.38
-  - '@Hope_Net-join-us-on-Telegram-4'
+  - '@Hope_Net-join-us-on-Telegram-5'
+  - '@v2Source-6'
   - trojan-165.22.74.230
   - trojan-104.21.44.185
   - trojan-104.21.83.113
   - trojan-104.21.32.242-2
   - trojan-141.193.213.163
-  - 剩余流量：0-20
+  - 剩余流量：0-32
   - 套餐到期：2025-12-31-2
   - 美国 01 CDN 免费-2
-  - 距离下次重置剩余：7 天-4
+  - 距离下次重置剩余：7 天-5
   - 官网:nex.re TG群:@NEX_GRP-2
   - trojan-172.67.131.27
   - 台湾|TW02|T
@@ -13125,7 +13111,7 @@ proxy-groups:
   - 新加坡|SG07|T
   - 新加坡|SG01|T
   - 剩余流量：-0.089999999999918 GB
-  - 套餐到期：长期有效-12
+  - 套餐到期：长期有效-23
   - 香港|HK02|T
   - https://web.coo.wiki
   - 日本|T01|T
@@ -13156,7 +13142,7 @@ proxy-groups:
   - 新加坡|SG09|T
   - 新加坡|SG08|T
   - trojan-172.67.210.210
-  - '@Hope_Net-join-us-on-Telegram-5'
+  - '@Hope_Net-join-us-on-Telegram-6'
   - Trojan-新加坡2 | 低倍率-2
   - Trojan-美国2 | 低倍率-2
   - Trojan-香港2 | 低倍率-2
@@ -13183,7 +13169,7 @@ proxy-groups:
   - 新加坡|SG07|T-2
   - 新加坡|SG01|T-2
   - 剩余流量：-0.6400000000001 GB
-  - 套餐到期：长期有效-13
+  - 套餐到期：长期有效-24
   - 香港|HK02|T-2
   - https://web.coo.wiki-2
   - 日本|T01|T-2
@@ -13217,7 +13203,6 @@ proxy-groups:
   - 🇭🇰HK-20.2.156.38-5574
   - 2|🇺🇸45 |  2.5MB/s|46%|Openai|Gem...
   - trojan-70.32.1.32
-  - '@Hope_Net-join-us-on-Telegram-6'
   - '@Hope_Net-join-us-on-Telegram-7'
   - trojan-139.162.158.172
   - trojan-151.101.66.219
@@ -13262,7 +13247,7 @@ proxy-groups:
   - 13,14|香港4|@ripaojiedian
   - 广东省广州市+电信
   - 🇭🇰 一元机场:ssrsub.de 香港 13
-  - 🇨🇳_CN_中国->🇰🇷_KR_韩国
+  - 🇨🇳_CN_中国->🇰🇷_KR_韩国-2
   - 🇰🇷 一元机场:ssrsub.de 韩国 05
   - 13,14|香港3|@ripaojiedian
   - 13,14|韩国|@ripaojiedian
@@ -13357,7 +13342,6 @@ proxy-groups:
   - trojan-51.159.59.186
   - '@Hope_Net-join-us-on-Telegram-9'
   - '@Hope_Net-join-us-on-Telegram-10'
-  - '['
   - '@Hope_Net-join-us-on-Telegram-11'
   - '@Hope_Net-join-us-on-Telegram-12'
   - '@Hope_Net-join-us-on-Telegram-13'
@@ -13678,9 +13662,10 @@ proxy-groups:
   - trojan-104.21.96.1-3
   - trojan-172.67.156.115
   - trojan-172.66.47.42
+  - '@Hope_Net-join-us-on-Telegram-14'
   - trojan-104.17.148.22
   - trojan-172.67.175.40-3
-  - '@Hope_Net-join-us-on-Telegram-14'
+  - '@Hope_Net-join-us-on-Telegram-15'
   - 🇨🇳_CN_中国->🇺🇸_US_美国-2
   - 🇺🇸 一元机场:ssrsub.de 美国 23
   - trojan-104.18.183.139
@@ -13735,11 +13720,11 @@ proxy-groups:
   - 🇺🇸 一元机场:ssrsub.de 美国 28
   - trojan-172.66.44.109
   - trojan-172.66.168.223
-  - '@Hope_Net-join-us-on-Telegram-15'
+  - '@Hope_Net-join-us-on-Telegram-16'
   - trojan-127.0.0.1
   - trojan-127.0.0.1-2
   - ‍
-  - '@Hope_Net-join-us-on-Telegram-16'
+  - '@Hope_Net-join-us-on-Telegram-17'
   - trojan-104.21.32.1-2
   - 香港01
   - 香港02
@@ -13797,8 +13782,8 @@ proxy-groups:
   - trojan-162.159.136.232
   - trojan-172.67.49.134
   - trojan-185.146.173.158
-  - '@Hope_Net-join-us-on-Telegram-17'
   - '@Hope_Net-join-us-on-Telegram-18'
+  - '@Hope_Net-join-us-on-Telegram-19'
   - 群组 https://t.me/freeyule
   - Trojan-香港2 | 低倍率-4
   - Trojan-日本2 | 低倍率-4
@@ -13814,9 +13799,9 @@ proxy-groups:
   - Trojan-台湾2 | 低倍率-4
   - trojan-109.230.91.202
   - '@xsfilternet-hamedp71-3'
-  - 'Channel id: @ShadowProxy66'
+  - 'Channel id: @ShadowProxy66-2'
   - trojan-109.230.91.202-2
-  - '@Hope_Net-join-us-on-Telegram-19'
+  - '@Hope_Net-join-us-on-Telegram-20'
   - 澳大利亚AU-T-2
   - 台湾WAP-T-GPT-2
   - 以色列IL-T-2
@@ -13849,7 +13834,6 @@ proxy-groups:
   - trojan-104.16.149.244
   - trojan-104.17.102.149
   - trojan-104.248.145.216
-  - '[-2'
   - trojan-104.26.4.60
   - trojan-123.111.169.70
   - trojan-13.250.131.37
@@ -13873,8 +13857,7 @@ proxy-groups:
   - FreeVPNHomes+10-11
   - FreeVPNHomes+10-7
   - trojan-104.18.14.19
-  - '@Hope_Net-join-us-on-Telegram-20'
-  - '[-3'
+  - '@Hope_Net-join-us-on-Telegram-21'
   - مرگ بر خامنه ای جلاد
   - trojan-141.101.120.13
   - trojan-141.101.120.15
@@ -13893,10 +13876,10 @@ proxy-groups:
   - trojan-104.21.48.1
   - trojan-172.67.175.149
   - trojan-104.21.64.1
-  - '@Hope_Net-join-us-on-Telegram-21'
+  - '@Hope_Net-join-us-on-Telegram-22'
   - trojan-104.26.15.85
-  - 剩余流量：0-21
-  - 套餐到期：长期有效-14
+  - 剩余流量：0-33
+  - 套餐到期：长期有效-25
   - 🇨🇳 使用前请点击更新订阅
   - 🇨🇳 倍率是流量消耗快慢不是速度！！！
   - 🇨🇳 流媒体专用节点解锁全球流媒体
@@ -13910,7 +13893,7 @@ proxy-groups:
   - 美国+CloudFlare节点-2
   - 🇺🇸 一元机场:ssrsub.de 美国 34
   - trojan-154.83.2.54
-  - '@Hope_Net-join-us-on-Telegram-22'
+  - '@Hope_Net-join-us-on-Telegram-23'
   - 澳大利亚AU-T-3
   - 台湾WAP-T-GPT-3
   - 以色列IL-T-3
@@ -13929,7 +13912,7 @@ proxy-groups:
   - 美国USLA-T-GPT-3
   - 越南VN-T-3
   - 香港wap-T-3
-  - '@Hope_Net-join-us-on-Telegram-23'
+  - '@Hope_Net-join-us-on-Telegram-24'
   - 2|🇺🇸64 |  1.3MB/s|46%|Openai|Gem...
   - trojan-209.209.48.19
   - trojan-104.21.22.133
@@ -13941,11 +13924,11 @@ proxy-groups:
   - US | 美国 Trojan 01
   - HK | 香港 Trojan 01
   - SG | 新加坡 Trojan 01
-  - 剩余流量：0-22
+  - 剩余流量：0-34
   - 套餐到期：2025-08-15
   - 最新网址：fliggycloud.cc
   - 距离下次重置剩余：22 天
-  - 香港 01
+  - 香港 01-2
   - 香港 02
   - 香港 03
   - 香港 04
@@ -13955,9 +13938,9 @@ proxy-groups:
   - 香港 08
   - 香港 09
   - 香港 10
-  - 日本 01
-  - 日本 02
-  - 日本 03
+  - 日本 01-2
+  - 日本 02-2
+  - 日本 03-2
   - 日本 04
   - 日本 05
   - 日本 06
@@ -13965,17 +13948,17 @@ proxy-groups:
   - 日本 08
   - 日本 09
   - 日本 10
-  - 新加坡 01
-  - 新加坡 02
+  - 新加坡 01-2
+  - 新加坡 02-2
   - 新加坡 03
-  - 新加坡 04
+  - 新加坡 04-2
   - 新加坡 05
-  - 新加坡 06
+  - 新加坡 06-2
   - 新加坡 07
   - 新加坡 08
   - 新加坡 09
   - 新加坡 10
-  - 台湾 01
+  - 台湾 01-2
   - 台湾 02
   - 台湾 03
   - 台湾 04
@@ -13985,13 +13968,13 @@ proxy-groups:
   - 台湾 08
   - 台湾 09
   - 台湾 10
-  - 美国 01
-  - 美国 02
-  - 美国 03
-  - 美国 04
-  - 美国 05
-  - 美国 06
-  - 美国 07
+  - 美国 01-2
+  - 美国 02-2
+  - 美国 03-2
+  - 美国 04-2
+  - 美国 05-2
+  - 美国 06-2
+  - 美国 07-2
   - 美国 08
   - 美国 09
   - 美国 10
@@ -14037,7 +14020,6 @@ proxy-groups:
   - trojan-104.21.88.9
   - trojan-172.67.149.227
   - trojan-172.67.163.123
-  - trojan-13.36.101.183
   - trojan-13.36.106.226
   - OurChannel
   - trojan-13.36.163.133
@@ -14060,7 +14042,7 @@ proxy-groups:
   - OurChannel-12
   - OurChannel-13
   - OurChannel-14
-  - '@Hope_Net-join-us-on-Telegram-24'
+  - '@Hope_Net-join-us-on-Telegram-25'
   - OurChannel-15
   - OurChannel-16
   - OurChannel-17
@@ -14079,9 +14061,10 @@ proxy-groups:
   - (S104)-2
   - trojan-18.194.77.188-2
   - (S101)
+  - '@v2Source-7'
   - (S101)-2
   - (S101)-3
-  - '@Hope_Net-join-us-on-Telegram-25'
+  - '@Hope_Net-join-us-on-Telegram-26'
   - (S101)-4
   - 🇫🇷FR-35.181.28.118-5791
   - (S104)-3
@@ -14094,7 +14077,7 @@ proxy-groups:
   - trojan-63.178.252.63
   - 🇩🇪 一元机场:ssrsub.de 德国 04
   - (S102)-4
-  - '@Hope_Net-join-us-on-Telegram-26'
+  - '@Hope_Net-join-us-on-Telegram-27'
   - trojan-104.18.13.229
   - trojan-104.21.22.11
   - trojan-172.67.130.66
@@ -14119,7 +14102,7 @@ proxy-groups:
   - trojan-172.66.47.179
   - trojan-172.67.68.204
   - trojan-38.9.140.66
-  - '@Hope_Net-join-us-on-Telegram-27'
+  - '@Hope_Net-join-us-on-Telegram-28'
   - trojan-95.38.210.47
   - D5 Vpn 210
   - trojan-172.66.47.170

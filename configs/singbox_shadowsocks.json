@@ -1,0 +1,94 @@
+{
+  "dns": {
+    "servers": [
+      {
+        "tag": "local",
+        "address": "local"
+      }
+    ],
+    "final": "local"
+  },
+  "inbounds": [
+    {
+      "listen": "127.0.0.1",
+      "listen_port": 2080,
+      "sniff": true,
+      "type": "mixed"
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "proxy",
+      "type": "selector",
+      "outbounds": [
+        "auto-urltest",
+        "🏳️ shadowsocks-94df94 (Unknown)",
+        "🏳️ shadowsocks-ba296a (Unknown)",
+        "🏳️ shadowsocks-d8b504 (Unknown)",
+        "🏳️ shadowsocks-ab4907 (Unknown)",
+        "🏳️ shadowsocks-868b2b (Unknown)",
+        "direct"
+      ]
+    },
+    {
+      "tag": "auto-urltest",
+      "type": "urltest",
+      "outbounds": [
+        "🏳️ shadowsocks-94df94 (Unknown)",
+        "🏳️ shadowsocks-ba296a (Unknown)",
+        "🏳️ shadowsocks-d8b504 (Unknown)",
+        "🏳️ shadowsocks-ab4907 (Unknown)",
+        "🏳️ shadowsocks-868b2b (Unknown)"
+      ],
+      "url": "http://www.gstatic.com/generate_204"
+    },
+    {
+      "tag": "direct",
+      "type": "direct"
+    },
+    {
+      "type": "shadowsocks",
+      "server": "tianmao-zz.legeth.xyz",
+      "server_port": 26111,
+      "method": "2022-blake3-aes-128-gcm",
+      "password": "YWY5MzI2Y2Q3NDM5OTM5Mw==:NTJiMjc5YjAtMjllMS00ZQ==",
+      "tag": "🏳️ shadowsocks-94df94 (Unknown)"
+    },
+    {
+      "type": "shadowsocks",
+      "server": "14.18.253.178",
+      "server_port": 8334,
+      "method": "chacha20",
+      "password": "DvPfKa8vsV9K",
+      "tag": "🏳️ shadowsocks-ba296a (Unknown)"
+    },
+    {
+      "type": "shadowsocks",
+      "server": "14.18.253.178",
+      "server_port": 9003,
+      "method": "chacha20",
+      "password": "v5aUUtme3jxs",
+      "tag": "🏳️ shadowsocks-d8b504 (Unknown)"
+    },
+    {
+      "type": "shadowsocks",
+      "server": "77.246.102.112",
+      "server_port": 60117,
+      "method": "chacha20-ietf-poly1305",
+      "password": "Y1hjiUmSgucgzYYJ0WtqwW",
+      "tag": "🏳️ shadowsocks-ab4907 (Unknown)"
+    },
+    {
+      "type": "shadowsocks",
+      "server": "172.233.128.126",
+      "server_port": 1866,
+      "method": "chacha20-ietf-poly1305",
+      "password": "oXGp1+ihlfKg826H",
+      "tag": "🏳️ shadowsocks-868b2b (Unknown)"
+    }
+  ],
+  "route": {
+    "final": "proxy",
+    "rules": []
+  }
+}
