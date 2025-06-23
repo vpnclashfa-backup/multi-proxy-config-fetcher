@@ -11,8 +11,7 @@ SOURCE_URLS = [
     "https://raw.githubusercontent.com/Aristaproject/AristaSub/refs/heads/main/Arista7.txt",
     "https://raw.githubusercontent.com/Aristaproject/AristaSub/refs/heads/main/Arista8.txt",
     "https://raw.githubusercontent.com/Huibq/TrojanLinks/refs/heads/master/links/ssr",
-    "https://raw.githubusercontent.com/NiREvil/vless/refs/heads/main/hiddify/auto-gen-warp",
-    "https://raw.githubusercontent.com/hiddify/hiddify-next/refs/heads/main/test.configs/warp",
+     "https://raw.githubusercontent.com/hiddify/hiddify-next/refs/heads/main/test.configs/warp",
     "https://raw.githubusercontent.com/ircfspace/warpsub/refs/heads/main/export/warp",
     "https://raw.githubusercontent.com/kayhgng/v2raykayh/refs/heads/main/kayhgngcollectorv3v2ray_ss",
     "https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mci/sub_1.txt",
@@ -24,13 +23,11 @@ SOURCE_URLS = [
     "https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mtn/sub_3.txt",
     "https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mtn/sub_4.txt",
     "https://raw.githubusercontent.com/maimengmeng/mysub/refs/heads/main/valid_content_all.txt",
-    "https://raw.githubusercontent.com/mansor427/Warp-Autosub/refs/heads/main/subwarp/warp",
-    "https://raw.githubusercontent.com/mansor427/Warpauto/refs/heads/main/warp.json",
-    "https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/refs/heads/main/protocols/hysteria",
+     "https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/refs/heads/main/protocols/hysteria",
     "https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/refs/heads/main/protocols/juicity",
     "https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/refs/heads/main/protocols/tuic",
     "https://raw.githubusercontent.com/valid7996/Gozargah/refs/heads/main/Gozargah_Sub",
-    "https://raw.githubusercontent.com/yebekhe/TVC/refs/heads/main/subscriptions/warp/config"
+    "https://raw.githubusercontent.com/yebekhe/TVC/refs/heads/main/subscriptions/warp/config",
 
 
     "https://t.me/s/ahmedhamoomi_servers",
