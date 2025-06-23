@@ -3,7 +3,7 @@
 
 اشتراک‌های زیر به صورت خودکار توسط این پروژه تولید و به‌روزرسانی شده‌اند.
 
-**آخرین به‌روزرسانی (به وقت ایران):** `2025-06-23 09:32:19 UTC+03:30 `
+**آخرین به‌روزرسانی (به وقت ایران):** `2025-06-23 10:04:31 UTC+03:30 `
 
 ---
 
@@ -30,6 +30,16 @@
 | `tuic_configs.txt` | [دانلود](https://github.com/vpnclashfa-backup/multi-proxy-config-fetcher/raw/main/configs/tuic_configs.txt) |
 | `warp_configs.txt` | [دانلود](https://github.com/vpnclashfa-backup/multi-proxy-config-fetcher/raw/main/configs/warp_configs.txt) |
 | `wireguard_configs.txt` | [دانلود](https://github.com/vpnclashfa-backup/multi-proxy-config-fetcher/raw/main/configs/wireguard_configs.txt) |
+
+### اشتراک‌های Base64
+
+| نام فایل | لینک دانلود مستقیم |
+|:---|:---|
+| `anytls_configs_base64.txt` | [دانلود](https://github.com/vpnclashfa-backup/multi-proxy-config-fetcher/raw/main/configs/anytls_configs_base64.txt) |
+| `ssr_configs_base64.txt` | [دانلود](https://github.com/vpnclashfa-backup/multi-proxy-config-fetcher/raw/main/configs/ssr_configs_base64.txt) |
+| `tuic_configs_base64.txt` | [دانلود](https://github.com/vpnclashfa-backup/multi-proxy-config-fetcher/raw/main/configs/tuic_configs_base64.txt) |
+| `warp_configs_base64.txt` | [دانلود](https://github.com/vpnclashfa-backup/multi-proxy-config-fetcher/raw/main/configs/warp_configs_base64.txt) |
+| `wireguard_configs_base64.txt` | [دانلود](https://github.com/vpnclashfa-backup/multi-proxy-config-fetcher/raw/main/configs/wireguard_configs_base64.txt) |
 
 ### فایل‌های JSON مخصوص Sing-Box
 
