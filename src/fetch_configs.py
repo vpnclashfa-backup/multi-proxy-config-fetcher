@@ -15,121 +15,50 @@ from urllib.parse import urlencode, quote, unquote, urlparse, urlunparse
 from config import ProxyConfig, ChannelConfig
 from config_validator import ConfigValidator
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler('proxy_fetcher.log'),
-        logging.StreamHandler()
-    ]
-)
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', handlers=[logging.FileHandler('proxy_fetcher.log'), logging.StreamHandler()])
 logger = logging.getLogger(__name__)
 
 class ClashConverter:
+    # This class remains unchanged
     @staticmethod
     def to_uri(proxy: Dict) -> Optional[str]:
         proxy_type = proxy.get("type")
-        converters = {
-            "vless": ClashConverter.to_vless, "vmess": ClashConverter.to_vmess,
-            "ss": ClashConverter.to_ss, "trojan": ClashConverter.to_trojan,
-            "ssr": ClashConverter.to_ssr, "hysteria2": ClashConverter.to_hysteria2,
-            "tuic": ClashConverter.to_tuic, "wireguard": ClashConverter.to_wireguard,
-            "anytls": ClashConverter.to_anytls,
-        }
+        converters = {"vless": ClashConverter.to_vless, "vmess": ClashConverter.to_vmess, "ss": ClashConverter.to_ss, "trojan": ClashConverter.to_trojan, "ssr": ClashConverter.to_ssr, "hysteria2": ClashConverter.to_hysteria2, "tuic": ClashConverter.to_tuic, "wireguard": ClashConverter.to_wireguard, "anytls": ClashConverter.to_anytls}
         if proxy_type in converters:
-            try:
-                return converters[proxy_type](proxy)
-            except Exception:
-                return None
-        else:
-            logger.debug(f"[SKIPPED_CLASH] Unsupported Clash proxy type for URI conversion: '{proxy_type}'")
+            try: return converters[proxy_type](proxy)
+            except Exception: return None
+        else: logger.debug(f"[SKIPPED_CLASH] Unsupported Clash proxy type for URI conversion: '{proxy_type}'")
         return None
-
     @staticmethod
     def to_vless(proxy: Dict) -> str:
-        server, port, uuid = proxy.get("server", ""), proxy.get("port", ""), proxy.get("uuid", "")
-        name = quote(proxy.get("name", ""))
-        params = {
-            "type": proxy.get("network"),
-            "security": "tls" if proxy.get("tls") else "reality" if proxy.get("reality-opts") else "none",
-            "sni": proxy.get("servername"), "flow": proxy.get("flow"),
-            "path": proxy.get("ws-opts", {}).get("path"), "host": proxy.get("ws-opts", {}).get("headers", {}).get("Host"),
-            "serviceName": proxy.get("grpc-opts", {}).get("grpc-service-name"),
-            "pbk": proxy.get("reality-opts", {}).get("public-key"), "sid": proxy.get("reality-opts", {}).get("short-id"),
-        }
-        params = {k: v for k, v in params.items() if v}
-        return f"vless://{uuid}@{server}:{port}?{urlencode(params)}#{name}"
-
+        server, port, uuid = proxy.get("server", ""), proxy.get("port", ""), proxy.get("uuid", ""); name = quote(proxy.get("name", "")); params = {"type": proxy.get("network"), "security": "tls" if proxy.get("tls") else "reality" if proxy.get("reality-opts") else "none", "sni": proxy.get("servername"), "flow": proxy.get("flow"), "path": proxy.get("ws-opts", {}).get("path"), "host": proxy.get("ws-opts", {}).get("headers", {}).get("Host"), "serviceName": proxy.get("grpc-opts", {}).get("grpc-service-name"), "pbk": proxy.get("reality-opts", {}).get("public-key"), "sid": proxy.get("reality-opts", {}).get("short-id"),}; params = {k: v for k, v in params.items() if v}; return f"vless://{uuid}@{server}:{port}?{urlencode(params)}#{name}"
     @staticmethod
     def to_vmess(proxy: Dict) -> str:
-        name = proxy.get("name", "")
-        vmess_json = {
-            "v": "2", "ps": name, "add": proxy.get("server"), "port": proxy.get("port"), "id": proxy.get("uuid"),
-            "aid": proxy.get("alterId", 0), "net": proxy.get("network"), "type": "none",
-            "host": proxy.get("ws-opts", {}).get("headers", {}).get("Host"),
-            "path": proxy.get("ws-opts", {}).get("path"), "tls": "tls" if proxy.get("tls") else "",
-            "sni": proxy.get("servername"),
-        }
-        vmess_json = {k: v for k, v in vmess_json.items() if v}
-        return f"vmess://{base64.b64encode(json.dumps(vmess_json, separators=(',', ':')).encode('utf-8')).decode('utf-8')}"
-
+        name = proxy.get("name", ""); vmess_json = {"v": "2", "ps": name, "add": proxy.get("server"), "port": proxy.get("port"), "id": proxy.get("uuid"), "aid": proxy.get("alterId", 0), "net": proxy.get("network"), "type": "none", "host": proxy.get("ws-opts", {}).get("headers", {}).get("Host"), "path": proxy.get("ws-opts", {}).get("path"), "tls": "tls" if proxy.get("tls") else "", "sni": proxy.get("servername"),}; vmess_json = {k: v for k, v in vmess_json.items() if v}; return f"vmess://{base64.b64encode(json.dumps(vmess_json, separators=(',', ':')).encode('utf-8')).decode('utf-8')}"
     @staticmethod
     def to_ss(proxy: Dict) -> str:
-        server, port, password, cipher = proxy.get("server", ""), proxy.get("port", ""), proxy.get("password", ""), proxy.get("cipher", "")
-        name = quote(proxy.get("name", ""))
-        user_info = f"{cipher}:{password}"
-        plugin_opts_str = ""
+        server, port, password, cipher = proxy.get("server", ""), proxy.get("port", ""), proxy.get("password", ""), proxy.get("cipher", ""); name = quote(proxy.get("name", "")); user_info = f"{cipher}:{password}"; plugin_opts_str = ""
         if "plugin" in proxy:
-            plugin_params = {"plugin": proxy["plugin"], "obfs": proxy.get("plugin-opts", {}).get("mode"), "obfs-host": proxy.get("plugin-opts", {}).get("host"),}
-            plugin_params = {k: v for k, v in plugin_params.items() if v}
-            plugin_opts_str = "?" + urlencode(plugin_params)
+            plugin_params = {"plugin": proxy["plugin"], "obfs": proxy.get("plugin-opts", {}).get("mode"), "obfs-host": proxy.get("plugin-opts", {}).get("host"),}; plugin_params = {k: v for k, v in plugin_params.items() if v}; plugin_opts_str = "?" + urlencode(plugin_params)
         return f"ss://{quote(user_info)}@{server}:{port}{plugin_opts_str}#{name}"
-
     @staticmethod
     def to_trojan(proxy: Dict) -> str:
-        server, port, password = proxy.get("server", ""), proxy.get("port", ""), quote(proxy.get("password", ""))
-        name = quote(proxy.get("name", ""))
-        params = {"sni": proxy.get("sni"), "type": proxy.get("network"), "path": proxy.get("ws-opts", {}).get("path"), "host": proxy.get("ws-opts", {}).get("headers", {}).get("Host"), "serviceName": proxy.get("grpc-opts", {}).get("grpc-service-name"),}
-        params = {k: v for k, v in params.items() if v}
-        return f"trojan://{password}@{server}:{port}?{urlencode(params)}#{name}"
-    
+        server, port, password = proxy.get("server", ""), proxy.get("port", ""), quote(proxy.get("password", "")); name = quote(proxy.get("name", "")); params = {"sni": proxy.get("sni"), "type": proxy.get("network"), "path": proxy.get("ws-opts", {}).get("path"), "host": proxy.get("ws-opts", {}).get("headers", {}).get("Host"), "serviceName": proxy.get("grpc-opts", {}).get("grpc-service-name"),}; params = {k: v for k, v in params.items() if v}; return f"trojan://{password}@{server}:{port}?{urlencode(params)}#{name}"
     @staticmethod
     def to_hysteria2(proxy: dict) -> str:
-        server, port, auth = proxy.get("server", ""), proxy.get("port", ""), proxy.get("password", "") or proxy.get("auth-str", "")
-        name, sni = quote(proxy.get("name", "")), proxy.get("sni", "")
-        return f"hysteria2://{auth}@{server}:{port}?sni={sni}#{name}"
-
+        server, port, auth = proxy.get("server", ""), proxy.get("port", ""), proxy.get("password", "") or proxy.get("auth-str", ""); name, sni = quote(proxy.get("name", "")), proxy.get("sni", ""); return f"hysteria2://{auth}@{server}:{port}?sni={sni}#{name}"
     @staticmethod
     def to_tuic(proxy: dict) -> str:
-        server, port, uuid, password = proxy.get("server", ""), proxy.get("port", ""), proxy.get("uuid", ""), quote(proxy.get("password", ""))
-        name, sni, alpn = quote(proxy.get("name", "")), proxy.get("sni", ""), (proxy.get("alpn") or [""])[0]
-        return f"tuic://{uuid}:{password}@{server}:{port}?sni={sni}&alpn={alpn}#{name}"
-    
+        server, port, uuid, password = proxy.get("server", ""), proxy.get("port", ""), proxy.get("uuid", ""), quote(proxy.get("password", "")); name, sni, alpn = quote(proxy.get("name", "")), proxy.get("sni", ""), (proxy.get("alpn") or [""])[0]; return f"tuic://{uuid}:{password}@{server}:{port}?sni={sni}&alpn={alpn}#{name}"
     @staticmethod
     def to_ssr(proxy: dict) -> str:
-        password_b64 = base64.b64encode(str(proxy.get('password', '')).encode('utf-8')).decode('utf-8').rstrip("=")
-        parts = [proxy.get('server'), str(proxy.get('port')), proxy.get('protocol'), proxy.get('cipher'), proxy.get('obfs'), password_b64]
-        main_part = ":".join(map(str, parts))
-        params = {"obfsparam": base64.b64encode(str(proxy.get('obfs-param', '')).encode('utf-8')).decode('utf-8'),"protoparam": base64.b64encode(str(proxy.get('protocol-param', '')).encode('utf-8')).decode('utf-8'),"remarks": base64.b64encode(str(proxy.get('name', '')).encode('utf-8')).decode('utf-8')}
-        query_string = urlencode({k: v for k, v in params.items() if v})
-        return f"ssr://{base64.b64encode(f'{main_part}/?{query_string}'.encode('utf-8')).decode('utf-8')}"
-    
+        password_b64 = base64.b64encode(str(proxy.get('password', '')).encode('utf-8')).decode('utf-8').rstrip("="); parts = [proxy.get('server'), str(proxy.get('port')), proxy.get('protocol'), proxy.get('cipher'), proxy.get('obfs'), password_b64]; main_part = ":".join(map(str, parts)); params = {"obfsparam": base64.b64encode(str(proxy.get('obfs-param', '')).encode('utf-8')).decode('utf-8'),"protoparam": base64.b64encode(str(proxy.get('protocol-param', '')).encode('utf-8')).decode('utf-8'),"remarks": base64.b64encode(str(proxy.get('name', '')).encode('utf-8')).decode('utf-8')}; query_string = urlencode({k: v for k, v in params.items() if v}); return f"ssr://{base64.b64encode(f'{main_part}/?{query_string}'.encode('utf-8')).decode('utf-8')}"
     @staticmethod
     def to_wireguard(proxy: dict) -> str:
-        private_key = quote(proxy.get('private-key', ''), safe='')
-        server, port = proxy.get('server', ''), proxy.get('port', '')
-        name = quote(proxy.get('name', ''))
-        params = {'publicKey': proxy.get('public-key', ''), 'address': proxy.get('ip', ''), 'presharedKey': proxy.get('pre-shared-key', '')}
-        params = {k: v for k, v in params.items() if v}
-        return f"wireguard://{private_key}@{server}:{port}?{urlencode(params)}#{name}"
-    
+        private_key = quote(proxy.get('private-key', ''), safe=''); server, port = proxy.get('server', ''), proxy.get('port', ''); name = quote(proxy.get('name', '')); params = {'publicKey': proxy.get('public-key', ''), 'address': proxy.get('ip', ''), 'presharedKey': proxy.get('pre-shared-key', '')}; params = {k: v for k, v in params.items() if v}; return f"wireguard://{private_key}@{server}:{port}?{urlencode(params)}#{name}"
     @staticmethod
     def to_anytls(proxy: dict) -> str:
-        password, server, port = quote(proxy.get('password', '')), proxy.get('server', ''), proxy.get('port', '')
-        name = quote(proxy.get('name', ''))
-        params = {'sni': proxy.get('sni'), 'fp': proxy.get('client-fingerprint'), 'insecure': 1 if proxy.get('skip-cert-verify') else 0}
-        params = {k: v for k, v in params.items() if v is not None}
-        return f"anytls://{password}@{server}:{port}?{urlencode(params)}#{name}"
+        password, server, port = quote(proxy.get('password', '')), proxy.get('server', ''), proxy.get('port', ''); name = quote(proxy.get('name', '')); params = {'sni': proxy.get('sni'), 'fp': proxy.get('client-fingerprint'), 'insecure': 1 if proxy.get('skip-cert-verify') else 0}; params = {k: v for k, v in params.items() if v is not None}; return f"anytls://{password}@{server}:{port}?{urlencode(params)}#{name}"
 
 class ConfigFetcher:
     def __init__(self, config: ProxyConfig):
@@ -142,25 +71,55 @@ class ConfigFetcher:
         self.session.headers.update(config.HEADERS)
         self.ip_location_cache: Dict[str, any] = {}
 
+    def get_hostname_from_uri(self, uri: str) -> Optional[str]:
+        """Intelligently extracts the hostname from various URI formats."""
+        try:
+            if uri.startswith("vmess://"):
+                decoded_str = self.validator.decode_base64_text(uri[8:])
+                if decoded_str:
+                    return json.loads(decoded_str).get('add')
+            elif uri.startswith("ssr://"):
+                decoded_str = self.validator.decode_base64_text(uri[6:])
+                if decoded_str:
+                    return decoded_str.split(':')[0]
+            else:
+                return urlparse(uri).hostname
+        except:
+            return None
+        return None
+
     def batch_get_locations(self, hostnames: List[str]):
         logger.info(f"Resolving {len(hostnames)} unique hostnames to IP addresses...")
         unique_ips = set()
         hostname_to_ip_map = {}
+        
         for hostname in hostnames:
             if not hostname or any(len(label) > 63 for label in hostname.split('.')):
-                logger.warning(f"Skipping invalid hostname (e.g., label too long): {hostname[:100]}...")
+                logger.warning(f"Skipping invalid hostname (e.g., label too long or empty): {hostname[:100]}...")
                 self.ip_location_cache[hostname] = ("🏳️", "Unknown")
                 continue
+            
+            is_ip = False
             try:
-                if not re.match(r"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$", hostname):
+                socket.inet_pton(socket.AF_INET6, hostname)
+                is_ip = True
+            except socket.error:
+                try:
+                    socket.inet_pton(socket.AF_INET, hostname)
+                    is_ip = True
+                except socket.error:
+                    is_ip = False
+            
+            if is_ip:
+                unique_ips.add(hostname)
+            else:
+                try:
                     ip = socket.gethostbyname(hostname)
                     unique_ips.add(ip)
                     hostname_to_ip_map[hostname] = ip
-                else:
-                    unique_ips.add(hostname)
-            except (socket.error, UnicodeEncodeError) as e:
-                logger.warning(f"Could not resolve hostname '{hostname}': {e}")
-                self.ip_location_cache[hostname] = ("🏳️", "Unknown")
+                except (socket.error, UnicodeEncodeError) as e:
+                    logger.warning(f"Could not resolve hostname '{hostname}': {e}")
+                    self.ip_location_cache[hostname] = ("🏳️", "Unknown")
         
         ips_to_query = list(unique_ips - set(self.ip_location_cache.keys()))
         if not ips_to_query:
@@ -183,7 +142,6 @@ class ConfigFetcher:
             except requests.RequestException:
                 for ip in chunk:
                     self.ip_location_cache[ip] = ("🏳️", "Unknown")
-
         for hostname, ip in hostname_to_ip_map.items():
             if ip in self.ip_location_cache:
                 self.ip_location_cache[hostname] = self.ip_location_cache[ip]
@@ -196,25 +154,24 @@ class ConfigFetcher:
         renamed_uris = []
         for uri in uris:
             try:
-                parsed = urlparse(uri)
-                hostname = parsed.hostname
+                hostname = self.get_hostname_from_uri(uri)
                 if not hostname:
                     renamed_uris.append(uri)
                     continue
                 flag, country = self.get_location_from_cache(hostname)
-                original_name = unquote(parsed.fragment) or hostname
+                original_name = unquote(urlparse(uri).fragment) or hostname
                 if not re.match(r'^[\U0001F1E6-\U0001F1FF]{2}', original_name):
                     new_name = f"{flag} {original_name}"
                 else:
                     new_name = original_name
-                new_uri = urlunparse(parsed._replace(fragment=quote(new_name)))
+                new_uri = urlunparse(urlparse(uri)._replace(fragment=quote(new_name)))
                 renamed_uris.append(new_uri)
             except Exception:
                 renamed_uris.append(uri)
         return renamed_uris
     
     def fetch_with_retry(self, url: str) -> Optional[requests.Response]:
-        backoff = 1
+        backoff = 1;
         for attempt in range(self.config.MAX_RETRIES):
             try:
                 response = self.session.get(url, timeout=self.config.REQUEST_TIMEOUT)
@@ -232,8 +189,7 @@ class ConfigFetcher:
         
     def fetch_configs_from_source(self, channel: ChannelConfig) -> List[str]:
         configs: List[str] = []
-        channel.metrics.total_configs = 0
-        channel.metrics.valid_configs = 0
+        channel.metrics.total_configs = 0; channel.metrics.valid_configs = 0
         channel.metrics.protocol_counts = {p: 0 for p in self.config.SUPPORTED_PROTOCOLS}
         start_time = time.time()
         response = self.fetch_with_retry(channel.url)
@@ -251,14 +207,10 @@ class ConfigFetcher:
                     clash_proxies = data.get('proxies', [])
                     for proxy in clash_proxies:
                         uri = ClashConverter.to_uri(proxy)
-                        if uri:
-                            configs.append(uri)
+                        if uri: configs.append(uri)
                     logger.info(f"Parsed {len(configs)} configs from Clash YAML: {channel.url}")
-        except yaml.YAMLError:
-            is_yaml = False
-        except Exception as e:
-            logger.error(f"Error parsing YAML from {channel.url}: {e}")
-            is_yaml = False
+        except yaml.YAMLError: is_yaml = False
+        except Exception as e: logger.error(f"Error parsing YAML from {channel.url}: {e}"); is_yaml = False
         if not is_yaml:
             if channel.is_telegram:
                 soup = BeautifulSoup(content, 'html.parser')
@@ -269,16 +221,14 @@ class ConfigFetcher:
             else:
                 if self.validator.is_base64(content.strip()):
                     decoded_content = self.validator.decode_base64_text(content.strip())
-                    if decoded_content:
-                        content = decoded_content
+                    if decoded_content: content = decoded_content
                 configs.extend(self.validator.split_configs(content))
         unique_configs = list(dict.fromkeys(configs))
         channel.metrics.total_configs = len(unique_configs)
         valid_configs = []
         for config_str in unique_configs:
             processed = self.process_config(config_str, channel)
-            if processed:
-                valid_configs.extend(processed)
+            if processed: valid_configs.extend(processed)
         if len(valid_configs) >= self.config.MIN_CONFIGS_PER_CHANNEL:
             self.config.update_channel_stats(channel, True, response_time)
         else:
@@ -287,8 +237,7 @@ class ConfigFetcher:
 
     def process_config(self, config: str, channel: ChannelConfig) -> List[str]:
         processed_configs = []
-        if config.startswith('hy2://'):
-            config = self.validator.normalize_hysteria2_protocol(config)
+        if config.startswith('hy2://'): config = self.validator.normalize_hysteria2_protocol(config)
         for protocol in self.config.SUPPORTED_PROTOCOLS:
             if config.startswith(protocol) and self.config.is_protocol_enabled(protocol):
                 if self.validator.validate_protocol_config(config, protocol):
@@ -307,12 +256,10 @@ class ConfigFetcher:
             time_element = message.find_parent('div', class_='tgme_widget_message').find('time')
             if time_element and 'datetime' in time_element.attrs:
                 return datetime.fromisoformat(time_element['datetime'].replace('Z', '+00:00'))
-        except:
-            return None
+        except: return None
 
     def is_config_valid(self, config_text: str, date: Optional[datetime]) -> bool:
-        if not date:
-            return True
+        if not date: return True
         cutoff_date = datetime.now(timezone.utc) - timedelta(days=self.config.MAX_CONFIG_AGE_DAYS)
         return date >= cutoff_date
 
@@ -336,50 +283,36 @@ class ConfigFetcher:
                 all_configs.extend(channel_configs)
             except Exception as e:
                 logger.error(f"Failed to fetch or process {channel.url}: {e}")
-            if idx < len(enabled_channels):
-                time.sleep(2)
+            if idx < len(enabled_channels): time.sleep(2)
         unique_configs = sorted(list(dict.fromkeys(all_configs)))
         all_hostnames = set()
         for uri in unique_configs:
-            try:
-                hostname = urlparse(uri).hostname
-                if hostname:
-                    all_hostnames.add(hostname)
-            except:
-                continue
+            hostname = self.get_hostname_from_uri(uri)
+            if hostname: all_hostnames.add(hostname)
         self.batch_get_locations(list(all_hostnames))
         renamed_configs = self.rename_configs_with_flags(unique_configs)
         return self.balance_protocols(renamed_configs)
 
 def save_configs(categorized_configs: Dict[str, List[str]], config: ProxyConfig):
     try:
-        output_dir = os.path.dirname(config.OUTPUT_FILE)
-        os.makedirs(output_dir, exist_ok=True)
-        all_configs_list = []
+        output_dir = os.path.dirname(config.OUTPUT_FILE); os.makedirs(output_dir, exist_ok=True); all_configs_list = []
         logger.info("--- Starting to save per-protocol files (text and base64) ---")
         for protocol_scheme, configs_list in categorized_configs.items():
-            if not configs_list:
-                continue
+            if not configs_list: continue
             all_configs_list.extend(configs_list)
             protocol_name = protocol_scheme.replace("://", "")
             protocol_filename = os.path.join(output_dir, f"{protocol_name}_configs.txt")
             try:
-                with open(protocol_filename, 'w', encoding='utf-8') as f:
-                    f.write('\n\n'.join(configs_list))
+                with open(protocol_filename, 'w', encoding='utf-8') as f: f.write('\n\n'.join(configs_list))
                 logger.info(f"-> SUCCESS: Saved {len(configs_list)} configs to {protocol_filename}")
-            except Exception as e:
-                logger.error(f"-> FAILED: Could not save protocol file {protocol_filename}: {e}")
+            except Exception as e: logger.error(f"-> FAILED: Could not save protocol file {protocol_filename}: {e}")
             base64_filename = os.path.join(output_dir, f"{protocol_name}_configs_base64.txt")
             try:
                 base64_content = base64.b64encode('\n'.join(configs_list).encode('utf-8')).decode('utf-8')
-                with open(base64_filename, 'w', encoding='utf-8') as f:
-                    f.write(base64_content)
+                with open(base64_filename, 'w', encoding='utf-8') as f: f.write(base64_content)
                 logger.info(f"-> SUCCESS: Saved Base64 version to {base64_filename}")
-            except Exception as e:
-                logger.error(f"-> FAILED: Could not save Base64 file {base64_filename}: {e}")
-        if not all_configs_list:
-            logger.warning("No total configs to save in the main file.")
-            return
+            except Exception as e: logger.error(f"-> FAILED: Could not save Base64 file {base64_filename}: {e}")
+        if not all_configs_list: logger.warning("No total configs to save in the main file."); return
         sorted_all_configs = sorted(all_configs_list)
         header = """//profile-title: base64:8J+RvUFub255bW91cy3wnZWP
 //profile-update-interval: 1
@@ -388,20 +321,15 @@ def save_configs(categorized_configs: Dict[str, List[str]], config: ProxyConfig)
 //profile-web-page-url: https://github.com/4n0nymou3
 
 """
-        with open(config.OUTPUT_FILE, 'w', encoding='utf-8') as f:
-            f.write(header)
-            f.write('\n\n'.join(sorted_all_configs))
+        with open(config.OUTPUT_FILE, 'w', encoding='utf-8') as f: f.write(header); f.write('\n\n'.join(sorted_all_configs))
         logger.info(f"-> SUCCESS: Saved {len(sorted_all_configs)} total configs to {config.OUTPUT_FILE}")
         main_base64_filename = os.path.join(output_dir, "proxy_configs_base64.txt")
         try:
             main_base64_content = base64.b64encode('\n'.join(sorted_all_configs).encode('utf-8')).decode('utf-8')
-            with open(main_base64_filename, 'w', encoding='utf-8') as f:
-                f.write(main_base64_content)
+            with open(main_base64_filename, 'w', encoding='utf-8') as f: f.write(main_base64_content)
             logger.info(f"-> SUCCESS: Saved Base64 version of main config to {main_base64_filename}")
-        except Exception as e:
-            logger.error(f"-> FAILED: Could not save main Base64 file {main_base64_filename}: {e}")
-    except Exception as e:
-        logger.error(f"-> FAILED: A critical error occurred in save_configs function: {str(e)}")
+        except Exception as e: logger.error(f"-> FAILED: Could not save main Base64 file {main_base64_filename}: {e}")
+    except Exception as e: logger.error(f"-> FAILED: A critical error occurred in save_configs function: {str(e)}")
 
 def save_channel_stats(config: ProxyConfig):
     try:
@@ -421,11 +349,9 @@ def save_channel_stats(config: ProxyConfig):
             stats['channels'].append(channel_stats)
         output_dir = os.path.dirname(config.STATS_FILE)
         os.makedirs(output_dir, exist_ok=True)
-        with open(config.STATS_FILE, 'w', encoding='utf-8') as f:
-            json.dump(stats, f, indent=2)
+        with open(config.STATS_FILE, 'w', encoding='utf-8') as f: json.dump(stats, f, indent=2)
         logger.info(f"Channel statistics saved to {config.STATS_FILE}")
-    except Exception as e:
-        logger.error(f"Error saving channel statistics: {str(e)}")
+    except Exception as e: logger.error(f"Error saving channel statistics: {str(e)}")
 
 def main():
     try:
