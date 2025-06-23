@@ -8,10 +8,9 @@ from datetime import datetime, timedelta, timezone
 from typing import List, Dict, Optional, Set
 import requests
 from bs4 import BeautifulSoup
-import yaml # <-- Import the new library
+import yaml
 from urllib.parse import urlencode, quote
 
-# These imports should already be correct from your existing setup
 from config import ProxyConfig, ChannelConfig
 from config_validator import ConfigValidator
 
@@ -47,8 +46,7 @@ class ClashConverter:
         if proxy_type in converters:
             try:
                 return converters[proxy_type](proxy)
-            except Exception as e:
-                # logger.warning(f"Could not convert Clash proxy '{proxy.get('name')}': {e}")
+            except Exception:
                 return None
         return None
 
@@ -71,7 +69,6 @@ class ClashConverter:
             "sid": proxy.get("reality-opts", {}).get("short-id"),
         }
         
-        # Filter out None values
         params = {k: v for k, v in params.items() if v}
         query_string = urlencode(params)
         
@@ -80,7 +77,6 @@ class ClashConverter:
     @staticmethod
     def to_vmess(proxy: Dict) -> str:
         name = proxy.get("name", "")
-        # Create the JSON part for VMess
         vmess_json = {
             "v": "2",
             "ps": name,
@@ -89,16 +85,14 @@ class ClashConverter:
             "id": proxy.get("uuid"),
             "aid": proxy.get("alterId", 0),
             "net": proxy.get("network"),
-            "type": "none", # http header type
+            "type": "none",
             "host": proxy.get("ws-opts", {}).get("headers", {}).get("Host"),
             "path": proxy.get("ws-opts", {}).get("path"),
             "tls": "tls" if proxy.get("tls") else "",
             "sni": proxy.get("servername"),
         }
-        # Filter out None/empty values
         vmess_json = {k: v for k, v in vmess_json.items() if v}
-        
-        encoded_json = base64.b64encode(json.dumps(vmess_json).encode("utf-8")).decode("utf-8")
+        encoded_json = base64.b64encode(json.dumps(vmess_json, separators=(',', ':')).encode("utf-8")).decode("utf-8")
         return f"vmess://{encoded_json}"
 
     @staticmethod
@@ -109,7 +103,6 @@ class ClashConverter:
         cipher = proxy.get("cipher", "")
         name = quote(proxy.get("name", ""))
         
-        # Base64 encode 'cipher:password'
         user_info = base64.b64encode(f"{cipher}:{password}".encode("utf-8")).decode("utf-8").rstrip("=")
         
         plugin_opts = ""
@@ -119,11 +112,10 @@ class ClashConverter:
                 "obfs": proxy.get("plugin-opts", {}).get("mode"),
                 "obfs-host": proxy.get("plugin-opts", {}).get("host"),
             }
-            # Filter and encode plugin options
             plugin_params = {k: v for k, v in plugin_params.items() if v}
             plugin_opts = "&" + urlencode(plugin_params)
 
-        return f"ss://{user_info}@{server}:{port}{plugin_opts}#{name}"
+        return f"ss://{user_info}@{server}:{port}?{plugin_opts}#{name}"
 
     @staticmethod
     def to_trojan(proxy: Dict) -> str:
@@ -145,12 +137,11 @@ class ClashConverter:
         
         return f"trojan://{password}@{server}:{port}?{query_string}#{name}"
     
-    # Add other converters for ssr, hysteria2, etc. following the same pattern
     @staticmethod
     def to_hysteria2(proxy: dict) -> str:
         server = proxy.get("server", "")
         port = proxy.get("port", "")
-        auth = proxy.get("password", "")
+        auth = proxy.get("password", "") or proxy.get("auth-str", "")
         name = quote(proxy.get("name", ""))
         sni = proxy.get("sni", "")
 
@@ -164,51 +155,48 @@ class ClashConverter:
         password = quote(proxy.get("password", ""))
         name = quote(proxy.get("name", ""))
         sni = proxy.get("sni", "")
-        alpn = proxy.get("alpn", [""])[0]
+        alpn = (proxy.get("alpn") or [""])[0]
 
         return f"tuic://{uuid}:{password}@{server}:{port}?sni={sni}&alpn={alpn}#{name}"
     
     @staticmethod
     def to_ssr(proxy: dict) -> str:
-        # ssr://server:port:proto:method:obfs:password_base64/?obfsparam=obfsparam_base64&protoparam=protoparam_base64&remarks=remarks_base64&group=group_base64
-        # This is a complex conversion and might need more specific examples
-        # For now, creating a placeholder
-        return "" # Placeholder, needs full implementation
+        return "" # Placeholder, SSR conversion from Clash YAML is complex and not fully implemented
 
 
 class ConfigFetcher:
     def __init__(self, config: ProxyConfig):
         self.config = config
         self.validator = ConfigValidator()
+        self.protocol_counts: Dict[str, int] = {p: 0 for p in config.SUPPORTED_PROTOCOLS}
+        self.seen_configs: Set[str] = set()
+        self.channel_protocol_counts: Dict[str, Dict[str, int]] = {}
         self.session = requests.Session()
         self.session.headers.update(config.HEADERS)
-        self.seen_configs: Set[str] = set()
 
-    # ... (fetch_with_retry, fetch_ssconf_configs etc. remain unchanged) ...
     def fetch_with_retry(self, url: str) -> Optional[requests.Response]:
-        # ... (code is unchanged) ...
-        pass
-    
-    def process_config(self, config: str, channel: ChannelConfig) -> List[str]:
-        # ... (code is unchanged) ...
-        pass
-        
-    def extract_date_from_message(self, message) -> Optional[datetime]:
-        # ... (code is unchanged) ...
-        pass
-
-    def is_config_valid(self, config_text: str, date: Optional[datetime]) -> bool:
-        # ... (code is unchanged) ...
-        pass
+        backoff = 1
+        for attempt in range(self.config.MAX_RETRIES):
+            try:
+                response = self.session.get(url, timeout=self.config.REQUEST_TIMEOUT)
+                response.raise_for_status()
+                return response
+            except requests.RequestException as e:
+                if attempt == self.config.MAX_RETRIES - 1:
+                    logger.error(f"Failed to fetch {url} after {self.config.MAX_RETRIES} attempts: {str(e)}")
+                    return None
+                wait_time = min(self.config.RETRY_DELAY * backoff, 60)
+                logger.warning(f"Attempt {attempt + 1} for {url} failed, retrying in {wait_time}s: {str(e)}")
+                time.sleep(wait_time)
+                backoff *= 2
+        return None
 
     def fetch_configs_from_source(self, channel: ChannelConfig) -> List[str]:
-        """
-        MODIFIED: This function now detects and parses Clash YAML subscriptions.
-        """
         configs: List[str] = []
         channel.metrics.total_configs = 0
         channel.metrics.valid_configs = 0
-        
+        channel.metrics.protocol_counts = {p: 0 for p in self.config.SUPPORTED_PROTOCOLS}
+
         start_time = time.time()
         response = self.fetch_with_retry(channel.url)
         if not response:
@@ -218,84 +206,195 @@ class ConfigFetcher:
         response_time = time.time() - start_time
         content = response.text
 
-        # --- YAML Detection and Parsing Logic ---
         is_yaml = False
         try:
-            # A simple heuristic: if it starts with common clash keys, treat as YAML
             if content.lstrip().startswith(('proxies:', 'proxy-groups:', 'rules:')):
                 data = yaml.safe_load(content)
                 if isinstance(data, dict) and 'proxies' in data:
                     is_yaml = True
                     clash_proxies = data.get('proxies', [])
-                    channel.metrics.total_configs = len(clash_proxies)
                     for proxy in clash_proxies:
                         uri = ClashConverter.to_uri(proxy)
                         if uri:
                             configs.append(uri)
-                    logger.info(f"Parsed {len(configs)} configs from Clash YAML source: {channel.url}")
+                    logger.info(f"Parsed {len(configs)} configs from Clash YAML: {channel.url}")
         except yaml.YAMLError:
-            is_yaml = False # It's not valid YAML, treat as plain text
+            is_yaml = False
         except Exception as e:
-            logger.error(f"Error parsing potential YAML from {channel.url}: {e}")
+            logger.error(f"Error parsing YAML from {channel.url}: {e}")
             is_yaml = False
 
-        # --- Plain Text / Fallback Logic ---
         if not is_yaml:
             if channel.is_telegram:
-                # ... (Telegram parsing logic remains unchanged) ...
-                soup = BeautifulSoup(response.text, 'html.parser')
+                soup = BeautifulSoup(content, 'html.parser')
                 messages = soup.find_all('div', class_='tgme_widget_message_text')
                 for message in messages:
-                     # Add configs from message.text using validator
-                    found_configs = self.validator.split_configs(message.get_text())
+                    found_configs = self.validator.split_configs(message.get_text(separator='\n'))
                     configs.extend(found_configs)
             else:
-                 # Standard text or base64 subscription
-                if self.validator.is_base64(content):
-                    decoded_content = self.validator.decode_base64_text(content)
+                if self.validator.is_base64(content.strip()):
+                    decoded_content = self.validator.decode_base64_text(content.strip())
                     if decoded_content:
                         content = decoded_content
-                
-                found_configs = self.validator.split_configs(content)
-                configs.extend(found_configs)
-
-            channel.metrics.total_configs = len(configs)
+                configs.extend(self.validator.split_configs(content))
         
-        # --- Final Processing ---
-        unique_configs = list(set(configs))
+        unique_configs = list(dict.fromkeys(configs))
+        channel.metrics.total_configs = len(unique_configs)
+        
         valid_configs = []
         for config_str in unique_configs:
-            # Use the existing process_config to validate and count
             processed = self.process_config(config_str, channel)
             if processed:
                 valid_configs.extend(processed)
-
+        
         if len(valid_configs) >= self.config.MIN_CONFIGS_PER_CHANNEL:
             self.config.update_channel_stats(channel, True, response_time)
         else:
-            self.config.update_channel_stats(channel, False)
-            logger.warning(f"Not enough valid configs found in {channel.url}: {len(valid_configs)} configs")
-
+            self.config.update_channel_stats(channel, False, response_time)
+        
         return valid_configs
-    
-    # ... The rest of the ConfigFetcher class (balance_protocols, fetch_all_configs) ...
-    # ... and module-level functions (save_configs, save_channel_stats, main) remain the same as the last step ...
+
+    def process_config(self, config: str, channel: ChannelConfig) -> List[str]:
+        processed_configs = []
+
+        if config.startswith('hy2://'):
+            config = self.validator.normalize_hysteria2_protocol(config)
+
+        for protocol in self.config.SUPPORTED_PROTOCOLS:
+            if config.startswith(protocol) and self.config.is_protocol_enabled(protocol):
+                clean_config = self.validator.clean_config(config)
+                if self.validator.validate_protocol_config(clean_config, protocol):
+                    channel.metrics.valid_configs += 1
+                    channel.metrics.protocol_counts[protocol] = channel.metrics.protocol_counts.get(protocol, 0) + 1
+                    
+                    if clean_config not in self.seen_configs:
+                        self.seen_configs.add(clean_config)
+                        processed_configs.append(clean_config)
+                        self.protocol_counts[protocol] = self.protocol_counts.get(protocol, 0) + 1
+                break
+        return processed_configs
+
+    def extract_date_from_message(self, message) -> Optional[datetime]:
+        try:
+            time_element = message.find_parent('div', class_='tgme_widget_message').find('time')
+            if time_element and 'datetime' in time_element.attrs:
+                return datetime.fromisoformat(time_element['datetime'].replace('Z', '+00:00'))
+        except:
+            return None
+
+    def is_config_valid(self, config_text: str, date: Optional[datetime]) -> bool:
+        if not date:
+            return True
+        cutoff_date = datetime.now(timezone.utc) - timedelta(days=self.config.MAX_CONFIG_AGE_DAYS)
+        return date >= cutoff_date
+
     def balance_protocols(self, configs: List[str]) -> Dict[str, List[str]]:
-        # ... (code is unchanged) ...
-        pass
+        protocol_configs: Dict[str, List[str]] = {p: [] for p in self.config.SUPPORTED_PROTOCOLS}
+        for config in configs:
+            normalized_config = self.validator.normalize_hysteria2_protocol(config)
+            for protocol in self.config.SUPPORTED_PROTOCOLS:
+                if normalized_config.startswith(protocol):
+                    protocol_configs[protocol].append(config)
+                    break
+        return protocol_configs
 
     def fetch_all_configs(self) -> Dict[str, List[str]]:
-        # ... (code is unchanged) ...
-        pass
+        all_configs: List[str] = []
+        enabled_channels = self.config.get_enabled_channels()
+        
+        for idx, channel in enumerate(enabled_channels, 1):
+            logger.info(f"Fetching from {channel.url} ({idx}/{len(enabled_channels)})")
+            try:
+                channel_configs = self.fetch_configs_from_source(channel)
+                all_configs.extend(channel_configs)
+            except Exception as e:
+                logger.error(f"Failed to fetch or process {channel.url}: {e}")
+            if idx < len(enabled_channels):
+                time.sleep(2)
+        
+        unique_configs = sorted(list(dict.fromkeys(all_configs)))
+        return self.balance_protocols(unique_configs)
 
 def save_configs(categorized_configs: Dict[str, List[str]], config: ProxyConfig):
-    # ... (code is unchanged) ...
-    pass
+    try:
+        output_dir = os.path.dirname(config.OUTPUT_FILE)
+        os.makedirs(output_dir, exist_ok=True)
+        
+        all_configs_list = []
+        
+        for protocol_scheme, configs_list in categorized_configs.items():
+            if not configs_list:
+                continue
+            all_configs_list.extend(configs_list)
+            protocol_name = protocol_scheme.replace("://", "")
+            protocol_filename = os.path.join(output_dir, f"{protocol_name}_configs.txt")
+            
+            with open(protocol_filename, 'w', encoding='utf-8') as f:
+                f.write('\n\n'.join(configs_list))
+            logger.info(f"Saved {len(configs_list)} configs to {protocol_filename}")
+
+        header = """//profile-title: base64:8J+RvUFub255bW91cy3wnZWP
+//profile-update-interval: 1
+//subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
+//support-url: https://t.me/BXAMbot
+//profile-web-page-url: https://github.com/4n0nymou3
+
+"""
+        with open(config.OUTPUT_FILE, 'w', encoding='utf-8') as f:
+            f.write(header)
+            f.write('\n\n'.join(all_configs_list))
+        logger.info(f"Saved {len(all_configs_list)} total configs to {config.OUTPUT_FILE}")
+
+    except Exception as e:
+        logger.error(f"Error saving config files: {str(e)}")
 
 def save_channel_stats(config: ProxyConfig):
-    # ... (code is unchanged) ...
-    pass
+    try:
+        stats = {'timestamp': datetime.now(timezone.utc).isoformat(), 'channels': []}
+        for channel in config.SOURCE_URLS:
+            channel_stats = {
+                'url': channel.url,
+                'enabled': channel.enabled,
+                'metrics': {
+                    'total_configs': channel.metrics.total_configs,
+                    'valid_configs': channel.metrics.valid_configs,
+                    'unique_configs': len(set(c for p in channel.metrics.protocol_counts.values() for c in p)) if isinstance(next(iter(channel.metrics.protocol_counts.values()), None), list) else channel.metrics.unique_configs,
+                    'avg_response_time': round(channel.metrics.avg_response_time, 2),
+                    'success_count': channel.metrics.success_count,
+                    'fail_count': channel.metrics.fail_count,
+                    'overall_score': round(channel.metrics.overall_score, 2),
+                    'last_success': channel.metrics.last_success_time.isoformat() if channel.metrics.last_success_time else None,
+                    'protocol_counts': channel.metrics.protocol_counts,
+                },
+            }
+            stats['channels'].append(channel_stats)
+        os.makedirs(os.path.dirname(config.STATS_FILE), exist_ok=True)
+        with open(config.STATS_FILE, 'w', encoding='utf-8') as f:
+            json.dump(stats, f, indent=2)
+        logger.info(f"Channel statistics saved to {config.STATS_FILE}")
+    except Exception as e:
+        logger.error(f"Error saving channel statistics: {str(e)}")
 
 def main():
-    # ... (code is unchanged) ...
-    pass
+    try:
+        config = ProxyConfig()
+        fetcher = ConfigFetcher(config)
+        logger.info("Starting config fetching process...")
+        categorized_configs = fetcher.fetch_all_configs()
+        total_config_count = sum(len(v) for v in categorized_configs.values())
+
+        if total_config_count > 0:
+            save_configs(categorized_configs, config)
+            logger.info(f"Successfully processed {total_config_count} configs.")
+            for protocol, configs in categorized_configs.items():
+                if len(configs) > 0:
+                    logger.info(f"-> Found {len(configs)} {protocol.replace('://','')} configs")
+        else:
+            logger.warning("No valid configs found!")
+        save_channel_stats(config)
+        logger.info("Process finished.")
+    except Exception as e:
+        logger.error(f"Error in main execution: {str(e)}", exc_info=True)
+
+if __name__ == '__main__':
+    main()
