@@ -212,6 +212,7 @@ ENABLED_PROTOCOLS = {
     "mieru://": True,
     "anytls://": True,
     "warp://": True,
+    "juicity://": True,
 }
 
 # Maximum age of configurations in days.
