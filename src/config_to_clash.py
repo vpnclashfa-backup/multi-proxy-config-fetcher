@@ -13,29 +13,27 @@ class UriToClashConverter:
     A comprehensive helper class to convert various proxy URI schemes 
     into Clash-compatible dictionaries, with per-protocol validation and normalization.
     """
-    # Whitelist of all supported ciphers for Clash.Meta based on user's provided list
     SUPPORTED_SS_CIPHERS = {
         "aes-128-gcm", "aes-192-gcm", "aes-256-gcm",
         "aes-128-cfb", "aes-192-cfb", "aes-256-cfb",
         "aes-128-ctr", "aes-192-ctr", "aes-256-ctr",
-        "aes-128-ccm", "aes-192-ccm", "aes-256-ccm",
-        "aes-128-gcm-siv", "aes-256-gcm-siv",
-        "chacha20-ietf", "chacha20", "xchacha20",
         "chacha20-ietf-poly1305", "xchacha20-ietf-poly1305",
         "2022-blake3-aes-128-gcm", "2022-blake3-aes-256-gcm",
-        "2022-blake3-chacha20-poly1305",
-        "rc4-md5", "none"
+        "2022-blake3-chacha20-poly1305", "rc4-md5", "none"
     }
-    
+
     @staticmethod
-    def _is_valid_server_port(server: str, port: int) -> bool:
-        if not server or not port:
+    def _is_valid_server_port(server: str, port: any) -> bool:
+        """Validates that server and port are present and have a valid format."""
+        if not server or port is None:
             return False
         try:
-            if not (1 <= int(port) <= 65535):
+            port_num = int(port)
+            if not (1 <= port_num <= 65535):
                 return False
         except (ValueError, TypeError):
             return False
+        
         try:
             socket.inet_pton(socket.AF_INET6, server)
             return True
@@ -50,6 +48,7 @@ class UriToClashConverter:
 
     @staticmethod
     def parse(uri: str) -> Optional[Dict]:
+        """Dispatches URI to the appropriate parser based on its scheme."""
         try:
             scheme = uri.split("://")[0]
             parsers = {
@@ -92,13 +91,13 @@ class UriToClashConverter:
         }
         if parsed_uri.scheme == 'vless':
             proxy['uuid'] = parsed_uri.username
-            if params.get('flow'):
-                proxy['flow'] = params['flow'][0]
+            if params.get('flow'): proxy['flow'] = params['flow'][0]
         else:
             proxy['password'] = parsed_uri.username
         proxy['network'] = params.get('type', ['tcp'])[0]
         if proxy['network'] == 'ws':
-            proxy['ws-opts'] = {'path': params.get('path', ['/'])[0], 'headers': {'Host': params.get('host', [proxy['server']])[0]}}
+            host = params.get('host', [proxy['server']])[0] or proxy['server']
+            proxy['ws-opts'] = {'path': params.get('path', ['/'])[0], 'headers': {'Host': host}}
         elif proxy['network'] == 'grpc':
             proxy['grpc-opts'] = {'grpc-service-name': params.get('serviceName', [''])[0]}
         security = params.get('security', ['none'])[0]
@@ -106,18 +105,13 @@ class UriToClashConverter:
             proxy['tls'] = True
             proxy['servername'] = params.get('sni', [proxy['server']])[0]
             proxy['skip-cert-verify'] = True
-            if params.get('alpn'):
-                proxy['alpn'] = params['alpn'][0].split(',')
-            if params.get('fp'):
-                proxy['client-fingerprint'] = params['fp'][0]
+            if params.get('alpn'): proxy['alpn'] = params['alpn'][0].split(',')
+            if params.get('fp'): proxy['client-fingerprint'] = params['fp'][0]
         elif security == 'reality':
             proxy['tls'] = True
             proxy['servername'] = params.get('sni', [proxy['server']])[0]
             proxy['client-fingerprint'] = params.get('fp', ['chrome'])[0]
-            proxy['reality-opts'] = {
-                'public-key': params.get('pbk', [''])[0],
-                'short-id': params.get('sid', [''])[0]
-            }
+            proxy['reality-opts'] = {'public-key': params.get('pbk', [''])[0], 'short-id': params.get('sid', [''])[0]}
         return proxy
 
     @staticmethod
@@ -126,25 +120,31 @@ class UriToClashConverter:
         if not UriToClashConverter._is_valid_server_port(parsed_uri.hostname, parsed_uri.port):
             return None
         params = UriToClashConverter._get_params(uri)
-        if '@' in parsed_uri.netloc:
-            user_info, host_info = parsed_uri.netloc.split('@', 1)
-            try:
+        cipher, password = None, None
+        try:
+            if '@' in parsed_uri.netloc:
+                user_info = parsed_uri.netloc.split('@', 1)[0]
                 decoded_user_info = unquote(user_info)
-                cipher, password = decoded_user_info.split(':', 1)
-            except (ValueError, TypeError):
-                decoded_user_info = base64.b64decode(unquote(user_info) + '===').decode('utf-8')
-                cipher, password = decoded_user_info.split(':', 1)
-        else:
-            decoded_full = base64.b64decode(unquote(parsed_uri.netloc) + '===').decode('utf-8')
-            match = re.match(r'(.+?):(.+)', decoded_full)
-            cipher, password = match.groups()
-            
-        cipher_lower = cipher.lower()
-        # Whitelist validation for cipher
-        if cipher_lower not in UriToClashConverter.SUPPORTED_SS_CIPHERS:
+                if ':' in decoded_user_info:
+                    parts = decoded_user_info.split(':', 1)
+                    if len(parts) == 2: cipher, password = parts
+                else:
+                    decoded_user_info = base64.b64decode(unquote(user_info) + '===').decode('utf-8')
+                    parts = decoded_user_info.split(':', 1)
+                    if len(parts) == 2: cipher, password = parts
+            else:
+                decoded_full = base64.b64decode(unquote(parsed_uri.path) + '===').decode('utf-8')
+                match = re.match(r'(.+?):(.+)', decoded_full)
+                if match: cipher, password = match.groups()
+        except:
             return None
         
-        # Normalization of legacy cipher names
+        if not cipher or not password: return None
+        
+        cipher_lower = cipher.lower()
+        if cipher_lower not in UriToClashConverter.SUPPORTED_SS_CIPHERS:
+            return None
+            
         cipher_map = {'chacha20-poly1305': 'chacha20-ietf-poly1305'}
         normalized_cipher = cipher_map.get(cipher_lower, cipher_lower)
         
@@ -199,18 +199,20 @@ class UriToClashConverter:
         decoded_str = base64.b64decode(uri[8:]).decode('utf-8')
         vmess_data = json.loads(decoded_str)
         if not UriToClashConverter._is_valid_server_port(vmess_data.get('add'), vmess_data.get('port')): return None
+        host = vmess_data.get('add')
         proxy = {
-            "name": vmess_data.get('ps', f"vmess-{vmess_data.get('add')}"),
-            "type": "vmess", "server": vmess_data.get('add'), "port": int(vmess_data.get('port')),
+            "name": vmess_data.get('ps', f"vmess-{host}"),
+            "type": "vmess", "server": host, "port": int(vmess_data.get('port')),
             "uuid": vmess_data.get('id'), "alterId": int(vmess_data.get('aid', 0)),
             "cipher": vmess_data.get('scy', 'auto'), "udp": True, "network": vmess_data.get('net', 'tcp'),
         }
         if vmess_data.get('tls') in ['tls', 'reality']:
             proxy['tls'] = True
-            proxy['servername'] = vmess_data.get('sni', vmess_data.get('add'))
+            proxy['servername'] = vmess_data.get('sni', host)
             proxy['skip-cert-verify'] = True
         if vmess_data.get('net') == 'ws':
-             proxy['ws-opts'] = {'path': vmess_data.get('path', '/'), 'headers': {'Host': vmess_data.get('host', vmess_data.get('add'))}}
+             ws_host = vmess_data.get('host', host) or host
+             proxy['ws-opts'] = {'path': vmess_data.get('path', '/'), 'headers': {'Host': ws_host}}
         return proxy
 
     @staticmethod
@@ -296,7 +298,8 @@ class UriToClashConverter:
             addr = addr.strip()
             if ':' in addr: proxy['ipv6'] = addr
             elif '.' in addr: proxy['ip'] = addr
-        if params.get('presharedKey'): proxy['pre-shared-key'] = params['presharedKey'][0]
+        if params.get('presharedKey'):
+            proxy['pre-shared-key'] = params['presharedKey'][0]
         proxy['mtu'] = int(params.get('mtu', [1280])[0])
         return proxy
 
