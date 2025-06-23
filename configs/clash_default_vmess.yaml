@@ -298,18 +298,18 @@ proxies:
       Host: th.lzj520hxw.dpdns.org
 - name: '@Hope_Net-join-us-on-Telegram'
   type: vmess
-  server: 45.159.51.189
-  port: 55128
-  uuid: 84f9bc0e-400f-4839-98b5-637d5e9c6606
+  server: 183.236.51.38
+  port: 42120
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
   alterId: 0
   cipher: auto
   udp: true
   network: tcp
 - name: '@Hope_Net-join-us-on-Telegram-2'
   type: vmess
-  server: 46.250.253.232
-  port: 46617
-  uuid: 55b88b14-0ff3-4f25-8983-e73d1f9f3a0a
+  server: 45.159.51.189
+  port: 55128
+  uuid: 84f9bc0e-400f-4839-98b5-637d5e9c6606
   alterId: 0
   cipher: auto
   udp: true
@@ -4536,22 +4536,6 @@ proxies:
     path: /video/GQ2qE5Us9g
     headers:
       Host: tw1bQiWSE4x.fzbqfrse.xyz
-- name: '@Hope_Net-join-us-on-Telegram-4'
-  type: vmess
-  server: 103.168.155.40
-  port: 888
-  uuid: 8d994cc0-a8a7-4f66-b1e4-771c7e7c6ecd
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: cdn.cjhh.lol
-  skip-cert-verify: true
-  ws-opts:
-    path: /
-    headers:
-      Host: cdn.cjhh.lol
 - name: ⚡️Telegram = @SOSkeyNET
   type: vmess
   server: 127.0.0.1
@@ -4561,22 +4545,6 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: '@Hope_Net-join-us-on-Telegram-5'
-  type: vmess
-  server: 120.241.29.104
-  port: 33202
-  uuid: 9204afcd-023e-781f-1abc-c12efccd1344
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: yd2.ainivp.com
-  skip-cert-verify: true
-  ws-opts:
-    path: /ray
-    headers:
-      Host: yd2.ainivp.com
 - name: ⚡️Telegram = @SOSkeyNET-2
   type: vmess
   server: 151.101.66.219
@@ -4599,7 +4567,7 @@ proxies:
     path: ws/?ed=2048
     headers:
       Host: freepanelll.com
-- name: '@Hope_Net-join-us-on-Telegram-6'
+- name: '@Hope_Net-join-us-on-Telegram-4'
   type: vmess
   server: 172.67.42.232
   port: 80
@@ -4621,7 +4589,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: '@Hope_Net-join-us-on-Telegram-7'
+- name: '@Hope_Net-join-us-on-Telegram-5'
   type: vmess
   server: 23.162.200.227
   port: 443
@@ -4646,7 +4614,23 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: '@Hope_Net-join-us-on-Telegram-8'
+- name: '@Hope_Net-join-us-on-Telegram-6'
+  type: vmess
+  server: 38.14.107.225
+  port: 38003
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 64
+  cipher: auto
+  udp: true
+  network: ws
+  tls: true
+  servername: ''
+  skip-cert-verify: true
+  ws-opts:
+    path: /path/181721272114
+    headers:
+      Host: www.23179753.xyz
+- name: '@Hope_Net-join-us-on-Telegram-7'
   type: vmess
   server: 5.196.29.123
   port: 2082
@@ -4659,7 +4643,7 @@ proxies:
     path: /
     headers:
       Host: ''
-- name: '@Hope_Net-join-us-on-Telegram-9'
+- name: '@Hope_Net-join-us-on-Telegram-8'
   type: vmess
   server: 57.129.24.125
   port: 443
@@ -4684,7 +4668,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: '@Hope_Net-join-us-on-Telegram-10'
+- name: '@Hope_Net-join-us-on-Telegram-9'
   type: vmess
   server: s1.db-link01.top
   port: 8880
@@ -5762,19 +5746,18 @@ proxy-groups:
   - 🇺🇸美国Las Vegas 02|防失联&下载专用|0.01x
   - 🇺🇸美国Las Vegas 03|防失联&下载专用|0.01x
   - '@Hope_Net-join-us-on-Telegram-3'
-  - '@Hope_Net-join-us-on-Telegram-4'
   - ⚡️Telegram = @SOSkeyNET
-  - '@Hope_Net-join-us-on-Telegram-5'
   - ⚡️Telegram = @SOSkeyNET-2
   - ⚡️Telegram = @SOSkeyNET-3
-  - '@Hope_Net-join-us-on-Telegram-6'
+  - '@Hope_Net-join-us-on-Telegram-4'
   - 🔒 VM-TCP-NA 🇮🇷 IR-2.144.7.202:45789
-  - '@Hope_Net-join-us-on-Telegram-7'
+  - '@Hope_Net-join-us-on-Telegram-5'
   - 🔒 VM-TCP-NA 🇳🇱 NL-24.144.77.93:898
+  - '@Hope_Net-join-us-on-Telegram-6'
+  - '@Hope_Net-join-us-on-Telegram-7'
   - '@Hope_Net-join-us-on-Telegram-8'
-  - '@Hope_Net-join-us-on-Telegram-9'
   - ⚡️Telegram = @SOSkeyNET-4
-  - '@Hope_Net-join-us-on-Telegram-10'
+  - '@Hope_Net-join-us-on-Telegram-9'
   - ⚜️Telegram:@IP_CF-2
   - ⚜️Telegram:@IP_CF-3
   - 'Channel id: @ShadowProxy66🇨🇦'
@@ -6196,19 +6179,18 @@ proxy-groups:
   - 🇺🇸美国Las Vegas 02|防失联&下载专用|0.01x
   - 🇺🇸美国Las Vegas 03|防失联&下载专用|0.01x
   - '@Hope_Net-join-us-on-Telegram-3'
-  - '@Hope_Net-join-us-on-Telegram-4'
   - ⚡️Telegram = @SOSkeyNET
-  - '@Hope_Net-join-us-on-Telegram-5'
   - ⚡️Telegram = @SOSkeyNET-2
   - ⚡️Telegram = @SOSkeyNET-3
-  - '@Hope_Net-join-us-on-Telegram-6'
+  - '@Hope_Net-join-us-on-Telegram-4'
   - 🔒 VM-TCP-NA 🇮🇷 IR-2.144.7.202:45789
-  - '@Hope_Net-join-us-on-Telegram-7'
+  - '@Hope_Net-join-us-on-Telegram-5'
   - 🔒 VM-TCP-NA 🇳🇱 NL-24.144.77.93:898
+  - '@Hope_Net-join-us-on-Telegram-6'
+  - '@Hope_Net-join-us-on-Telegram-7'
   - '@Hope_Net-join-us-on-Telegram-8'
-  - '@Hope_Net-join-us-on-Telegram-9'
   - ⚡️Telegram = @SOSkeyNET-4
-  - '@Hope_Net-join-us-on-Telegram-10'
+  - '@Hope_Net-join-us-on-Telegram-9'
   - ⚜️Telegram:@IP_CF-2
   - ⚜️Telegram:@IP_CF-3
   - 'Channel id: @ShadowProxy66🇨🇦'
@@ -6630,19 +6612,18 @@ proxy-groups:
   - 🇺🇸美国Las Vegas 02|防失联&下载专用|0.01x
   - 🇺🇸美国Las Vegas 03|防失联&下载专用|0.01x
   - '@Hope_Net-join-us-on-Telegram-3'
-  - '@Hope_Net-join-us-on-Telegram-4'
   - ⚡️Telegram = @SOSkeyNET
-  - '@Hope_Net-join-us-on-Telegram-5'
   - ⚡️Telegram = @SOSkeyNET-2
   - ⚡️Telegram = @SOSkeyNET-3
-  - '@Hope_Net-join-us-on-Telegram-6'
+  - '@Hope_Net-join-us-on-Telegram-4'
   - 🔒 VM-TCP-NA 🇮🇷 IR-2.144.7.202:45789
-  - '@Hope_Net-join-us-on-Telegram-7'
+  - '@Hope_Net-join-us-on-Telegram-5'
   - 🔒 VM-TCP-NA 🇳🇱 NL-24.144.77.93:898
+  - '@Hope_Net-join-us-on-Telegram-6'
+  - '@Hope_Net-join-us-on-Telegram-7'
   - '@Hope_Net-join-us-on-Telegram-8'
-  - '@Hope_Net-join-us-on-Telegram-9'
   - ⚡️Telegram = @SOSkeyNET-4
-  - '@Hope_Net-join-us-on-Telegram-10'
+  - '@Hope_Net-join-us-on-Telegram-9'
   - ⚜️Telegram:@IP_CF-2
   - ⚜️Telegram:@IP_CF-3
   - 'Channel id: @ShadowProxy66🇨🇦'
