@@ -24,6 +24,14 @@ SOURCE_URLS = [
 
 "https://raw.githubusercontent.com/maimengmeng/mysub/refs/heads/main/valid_content_all.txt",
 
+
+"https://raw.githubusercontent.com/ircfspace/warpsub/refs/heads/main/export/warp",
+"https://raw.githubusercontent.com/yebekhe/TVC/refs/heads/main/subscriptions/warp/config",
+"https://raw.githubusercontent.com/NiREvil/vless/refs/heads/main/hiddify/auto-gen-warp",
+"https://raw.githubusercontent.com/mansor427/Warp-Autosub/refs/heads/main/subwarp/warp",
+"https://raw.githubusercontent.com/mansor427/Warpauto/refs/heads/main/warp.json",
+"https://raw.githubusercontent.com/hiddify/hiddify-next/refs/heads/main/test.configs/warp"
+
     "https://t.me/s/shadowsocksm",
     "https://t.me/s/v2ray_alpha",
     "https://t.me/s/vlessconfig",
