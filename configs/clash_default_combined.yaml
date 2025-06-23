@@ -112,7 +112,7 @@ tun:
   - any:53
   - tcp://any:53
 proxies:
-- name: NASNET | 6 | Emergency
+- name: '[VMESS] NASNET | 6 | Emergency'
   type: vmess
   server: npmjs.com
   port: 8080
@@ -125,7 +125,9 @@ proxies:
     path: /nasnet/cdn
     headers:
       Host: xju96kntfj-4515017478.mashallahbet.com
-- name: Telegram@viturey  🇺🇸🇺🇸
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] Telegram@viturey  🇺🇸🇺🇸'
   type: vmess
   server: 151.101.66.219
   port: 80
@@ -134,7 +136,7 @@ proxies:
   cipher: auto
   udp: true
   network: xhttp
-- name: 只有爱懂的人才能用
+- name: '[VMESS] 只有爱懂的人才能用'
   type: vmess
   server: 43.199.24.247
   port: 3000
@@ -143,7 +145,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: vmess-BB8
+- name: '[VMESS] vmess-BB8'
   type: vmess
   server: 188.114.98.22
   port: 80
@@ -156,7 +158,9 @@ proxies:
     path: /
     headers:
       Host: h3.grAsSoRy.shop
-- name: 🇩🇪DE-57.129.24.125-7027
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 🇩🇪DE-57.129.24.125-7027'
   type: vmess
   server: 57.129.24.125
   port: 443
@@ -172,7 +176,9 @@ proxies:
     path: /linkvws
     headers:
       Host: wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc
-- name: 🏁RELAY-104.17.176.171-0220
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 🏁RELAY-104.17.176.171-0220'
   type: vmess
   server: 104.17.176.171
   port: 8080
@@ -185,7 +191,9 @@ proxies:
     path: /nasnet/cdn
     headers:
       Host: ke7hz36ewz-4515017473.mashallahbet.com
-- name: 🏁RELAY-172.67.209.79-0773
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] 🏁RELAY-172.67.209.79-0773'
   type: vmess
   server: 172.67.209.79
   port: 80
@@ -198,7 +206,9 @@ proxies:
     path: /uiAxvH6OkVk0VCfa7dX3JIrYk7zm
     headers:
       Host: xcccvvbnmj.999834.xyz
-- name: 🇨🇦CA-23.162.200.227-7026
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] 🇨🇦CA-23.162.200.227-7026'
   type: vmess
   server: 23.162.200.227
   port: 443
@@ -214,7 +224,9 @@ proxies:
     path: /linkvws
     headers:
       Host: 23.162.200.227
-- name: 🏁RELAY-104.21.89.221-0770
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+- name: '[VMESS] 🏁RELAY-104.21.89.221-0770'
   type: vmess
   server: 3EEEeE.999824.xyZ
   port: 443
@@ -230,7 +242,9 @@ proxies:
     path: /9dZlJLjHHrL0VwSolbqFpg
     headers:
       Host: 3eeeee.999824.xyz
-- name: 🏁RELAY-104.21.10.97-0226
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+- name: '[VMESS] 🏁RELAY-104.21.10.97-0226'
   type: vmess
   server: xxxcvfbghy7.222767.xyz
   port: 80
@@ -243,7 +257,9 @@ proxies:
     path: /TetDjP6oSiF3sGVHqPd73hl
     headers:
       Host: xxxcvfbghy7.222767.xyz
-- name: 🏁RELAY-172.67.191.140-0775
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 🏁RELAY-172.67.191.140-0775'
   type: vmess
   server: EeedcFvg.999824.xYZ
   port: 443
@@ -259,7 +275,9 @@ proxies:
     path: /9dZlJLjHHrL0VwSolbqFpg
     headers:
       Host: eeedcfvg.999824.xyz
-- name: 🏁RELAY-104.21.112.1-0405
+      User-Agent: Mozilla/5.0 (Linux; Android 14; Pixel 8 Pro) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 🏁RELAY-104.21.112.1-0405'
   type: vmess
   server: de01.sh-cloudflare.sbs
   port: 2096
@@ -275,7 +293,9 @@ proxies:
     path: /
     headers:
       Host: de01.sh-cloudflare.sbs
-- name: 🏁RELAY-104.26.12.31-0722
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Safari/605.1.15
+- name: '[VMESS] 🏁RELAY-104.26.12.31-0722'
   type: vmess
   server: ip.sb
   port: 443
@@ -291,7 +311,9 @@ proxies:
     path: /c9ddb489-7b5e-49ed-8b21-749f4a0ed56d-vmess
     headers:
       Host: usshs.atlen.dpdns.org
-- name: Telegram @viturey🇩🇪🇩🇪
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+- name: '[VMESS] Telegram @viturey🇩🇪🇩🇪'
   type: vmess
   server: 151.101.3.9
   port: 80
@@ -300,7 +322,7 @@ proxies:
   cipher: auto
   udp: true
   network: xhttp
-- name: Telegram @viturey🇩🇪🇩🇪-2
+- name: '[VMESS] Telegram @viturey🇩🇪🇩🇪-2'
   type: vmess
   server: 151.101.66.219
   port: 80
@@ -309,7 +331,7 @@ proxies:
   cipher: auto
   udp: true
   network: xhttp
-- name: ⚡️Telegram = @SOSkeyNET
+- name: '[VMESS] ⚡️Telegram - @SOSkeyNET'
   type: vmess
   server: c24.greengemservers.com
   port: 3600
@@ -318,7 +340,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 13,14|美国|@ripaojiedian
+- name: '[VMESS] 13,14|美国|@ripaojiedian'
   type: vmess
   server: v32.heduian.link
   port: 30832
@@ -331,7 +353,9 @@ proxies:
     path: /oooo
     headers:
       Host: baidu.com
-- name: 13,14|日本4|@ripaojiedian
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Safari/605.1.15
+- name: '[VMESS] 13,14|日本4|@ripaojiedian'
   type: vmess
   server: 112.29.213.228
   port: 46015
@@ -344,7 +368,9 @@ proxies:
     path: /zh-cn
     headers:
       Host: 112.29.213.228
-- name: 13,14|香港6|@ripaojiedian
+      User-Agent: Mozilla/5.0 (Linux; Android 14; SM-S928B) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 13,14|香港6|@ripaojiedian'
   type: vmess
   server: v9.heduian.link
   port: 30809
@@ -357,7 +383,9 @@ proxies:
     path: /oooo
     headers:
       Host: baidu.com
-- name: 13|🇭🇰 香港7|@ripaojiedian
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+- name: '[VMESS] 13|🇭🇰 香港7|@ripaojiedian'
   type: vmess
   server: 43.247.135.2
   port: 20332
@@ -366,7 +394,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 13|🇰🇷 韩国2|@ripaojiedian
+- name: '[VMESS] 13|🇰🇷 韩国2|@ripaojiedian'
   type: vmess
   server: 45.94.68.130
   port: 18740
@@ -375,7 +403,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 13|🇸🇬 新加坡3|@ripaojiedian
+- name: '[VMESS] 13|🇸🇬 新加坡3|@ripaojiedian'
   type: vmess
   server: 120.232.153.40
   port: 31209
@@ -384,7 +412,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 14|新加坡2|@ripaojiedian
+- name: '[VMESS] 14|新加坡2|@ripaojiedian'
   type: vmess
   server: 183.236.51.38
   port: 41024
@@ -393,7 +421,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 2|🇺🇸62 |  3.3MB/s|Openai|Gemini
+- name: '[VMESS] 2|🇺🇸62 |  3.3MB/s|Openai|Gemini'
   type: vmess
   server: v29.heduian.link
   port: 30829
@@ -406,7 +434,9 @@ proxies:
     path: /oooo
     headers:
       Host: ocbc.com
-- name: 2|🇭🇰1 |  1.8MB/s|15%|Disney|Yout...
+      User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] 2|🇭🇰1 |  1.8MB/s|15%|Disney|Yout...'
   type: vmess
   server: bc842b49-swexs0-t1rt5e-1s09x.hgc1.tcpbbr.net
   port: 8080
@@ -419,7 +449,9 @@ proxies:
     path: /
     headers:
       Host: broadcastlv.chat.bilibili.com
-- name: 2|🌀4-TH |  2.6MB/s|55%|Netflix|O...
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 2|🌀4-TH |  2.6MB/s|55%|Netflix|O...'
   type: vmess
   server: 38.47.96.30
   port: 443
@@ -435,7 +467,9 @@ proxies:
     path: /lzjjj
     headers:
       Host: th.lzj520hxw.dpdns.org
-- name: '@Hope_Net-join-us-on-Telegram'
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1
+- name: '[VMESS] @Hope_Net-join-us-on-Telegram'
   type: vmess
   server: 154.26.129.247
   port: 57143
@@ -444,7 +478,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: '@Hope_Net-join-us-on-Telegram-2'
+- name: '[VMESS] @Hope_Net-join-us-on-Telegram-2'
   type: vmess
   server: 112.132.212.19
   port: 50004
@@ -453,7 +487,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: '@Hope_Net-join-us-on-Telegram-3'
+- name: '[VMESS] @Hope_Net-join-us-on-Telegram-3'
   type: vmess
   server: 120.232.153.40
   port: 54012
@@ -462,7 +496,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🔒 VM-TCP-NA 🇨🇳 CN-120.198.71.214:41175
+- name: '[VMESS] 🔒 VM-TCP-NA 🇨🇳 CN-120.198.71.214:41175'
   type: vmess
   server: 120.198.71.214
   port: 41175
@@ -471,7 +505,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇨🇦 一元机场:ssrsub.de 加拿大 03
+- name: '[VMESS] 🇨🇦 一元机场:ssrsub.de 加拿大 03'
   type: vmess
   server: haa.dashuai.cyou
   port: 45064
@@ -480,7 +514,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇨🇦 一元机场:ssrsub.de 加拿大 08
+- name: '[VMESS] 🇨🇦 一元机场:ssrsub.de 加拿大 08'
   type: vmess
   server: v35.heduian.link
   port: 30835
@@ -493,7 +527,9 @@ proxies:
     path: /oooo
     headers:
       Host: v35.heduian.link
-- name: 🇨🇳 广东省广州市 移动
+      User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] 🇨🇳 广东省广州市 移动'
   type: vmess
   server: 120.232.153.40
   port: 31209
@@ -502,7 +538,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰 一元机场:ssrsub.de 香港 01
+- name: '[VMESS] 🇭🇰 一元机场:ssrsub.de 香港 01'
   type: vmess
   server: xdd.dashuai.cyou
   port: 45051
@@ -511,7 +547,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰 一元机场:ssrsub.de 香港 05
+- name: '[VMESS] 🇭🇰 一元机场:ssrsub.de 香港 05'
   type: vmess
   server: 2059a55a-syf5s0-szvfpn-laev.hgc1.tcpbbr.net
   port: 8080
@@ -524,7 +560,9 @@ proxies:
     path: /
     headers:
       Host: broadcastlv.chat.bilibili.com
-- name: 🇭🇰 一元机场:ssrsub.de 香港 10
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+- name: '[VMESS] 🇭🇰 一元机场:ssrsub.de 香港 10'
   type: vmess
   server: 183.236.51.38
   port: 51652
@@ -533,7 +571,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰 一元机场:ssrsub.de 香港 11
+- name: '[VMESS] 🇭🇰 一元机场:ssrsub.de 香港 11'
   type: vmess
   server: 183.236.51.38
   port: 49154
@@ -542,7 +580,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰 一元机场:ssrsub.de 香港 17
+- name: '[VMESS] 🇭🇰 一元机场:ssrsub.de 香港 17'
   type: vmess
   server: v9.heduian.link
   port: 30809
@@ -555,7 +593,9 @@ proxies:
     path: /oooo
     headers:
       Host: baidu.com
-- name: 🇭🇰 一元机场:ssrsub.de 香港 19
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] 🇭🇰 一元机场:ssrsub.de 香港 19'
   type: vmess
   server: 43.247.135.170
   port: 46210
@@ -564,7 +604,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇮🇩 一元机场:ssrsub.de 印尼 01
+- name: '[VMESS] 🇮🇩 一元机场:ssrsub.de 印尼 01'
   type: vmess
   server: 15002.vpdnss.top
   port: 15002
@@ -573,7 +613,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇰🇷 一元机场:ssrsub.de 韩国 04
+- name: '[VMESS] 🇰🇷 一元机场:ssrsub.de 韩国 04'
   type: vmess
   server: haa.dashuai.cyou
   port: 45076
@@ -582,7 +622,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇺🇸 一元机场:ssrsub.de 美国 79
+- name: '[VMESS] 🇺🇸 一元机场:ssrsub.de 美国 79'
   type: vmess
   server: 3EEEeE.999824.xyZ
   port: 443
@@ -598,7 +638,9 @@ proxies:
     path: /9dZlJLjHHrL0VwSolbqFpg
     headers:
       Host: 3eeeee.999824.xyz
-- name: 🇺🇸 一元机场:ssrsub.de 美国 81
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) CriOS/126.0.6478.54 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 🇺🇸 一元机场:ssrsub.de 美国 81'
   type: vmess
   server: 111.26.109.79
   port: 30828
@@ -611,7 +653,9 @@ proxies:
     path: /oooo
     headers:
       Host: ocbc.com
-- name: 🇺🇸美国11 | ⬇️ 2.8MB/s
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] 🇺🇸美国11 | ⬇️ 2.8MB/s'
   type: vmess
   server: u8.huvicloud.com
   port: 443
@@ -627,7 +671,9 @@ proxies:
     path: /6796611b-260e-4d63-9016-20c27b12e420
     headers:
       Host: u8.huvicloud.com
-- name: 🇺🇸美国12 | ⬇️ 3.4MB/s
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+- name: '[VMESS] 🇺🇸美国12 | ⬇️ 3.4MB/s'
   type: vmess
   server: xcf029.facai2024.com
   port: 443
@@ -643,7 +689,9 @@ proxies:
     path: /9ce4526a
     headers:
       Host: xcf029.facai2024.com
-- name: 🇺🇸美国13 | ⬇️ 1.8MB/s
+      User-Agent: Mozilla/5.0 (Linux; Android 14; Pixel 8 Pro) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 🇺🇸美国13 | ⬇️ 1.8MB/s'
   type: vmess
   server: xc125-1.meiziba5566.com
   port: 443
@@ -659,7 +707,9 @@ proxies:
     path: /6b95d340
     headers:
       Host: xc125-1.meiziba5566.com
-- name: 🇺🇸美国14 | ⬇️ 2.2MB/s
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Safari/605.1.15
+- name: '[VMESS] 🇺🇸美国14 | ⬇️ 2.2MB/s'
   type: vmess
   server: 3sdfgvcxxx.938.pp.ua
   port: 443
@@ -675,7 +725,9 @@ proxies:
     path: /P879mtCoHQqaWO67qEaMINZ1
     headers:
       Host: 3sdfgvcxxx.938.pp.ua
-- name: 🇺🇸美国17 | ⬇️ 4.4MB/s
+      User-Agent: Mozilla/5.0 (Linux; Android 14; Pixel 8 Pro) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 🇺🇸美国17 | ⬇️ 4.4MB/s'
   type: vmess
   server: xc011-2.meiziba5566.com
   port: 443
@@ -691,7 +743,9 @@ proxies:
     path: /xc1234
     headers:
       Host: xc011-2.meiziba5566.com
-- name: 🇺🇸美国18 | ⬇️ 2.3MB/s
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+- name: '[VMESS] 🇺🇸美国18 | ⬇️ 2.3MB/s'
   type: vmess
   server: xcmg19.dtkj0328.com
   port: 443
@@ -707,7 +761,9 @@ proxies:
     path: /xcmg1234
     headers:
       Host: xcmg19.dtkj0328.com
-- name: 🇺🇸美国19 | ⬇️ 2.1MB/s
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 🇺🇸美国19 | ⬇️ 2.1MB/s'
   type: vmess
   server: xcf036.facai2024.com
   port: 443
@@ -723,7 +779,9 @@ proxies:
     path: /96c585de
     headers:
       Host: xcf036.facai2024.com
-- name: 🇺🇸美国23 | ⬇️ 1.4MB/s
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 🇺🇸美国23 | ⬇️ 1.4MB/s'
   type: vmess
   server: tk.hzlt.tkddns.xyz
   port: 22643
@@ -739,7 +797,9 @@ proxies:
     path: /
     headers:
       Host: zxjp-c.tkong.cc
-- name: 🇺🇸美国24 | ⬇️ 3.4MB/s
+      User-Agent: Mozilla/5.0 (Linux; Android 14; Pixel 8 Pro) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 🇺🇸美国24 | ⬇️ 3.4MB/s'
   type: vmess
   server: xcf037.facai2024.com
   port: 443
@@ -755,7 +815,9 @@ proxies:
     path: /d9863037
     headers:
       Host: xcf037.facai2024.com
-- name: 🇺🇸美国26 | ⬇️ 3.2MB/s
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 🇺🇸美国26 | ⬇️ 3.2MB/s'
   type: vmess
   server: gs03-1.guoshi1520.com
   port: 443
@@ -771,7 +833,9 @@ proxies:
     path: /82ff6d30
     headers:
       Host: gs03-1.guoshi1520.com
-- name: ' ❗请到https://www.niao.icu❗续费'
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/125.0.0.0 Safari/537.36 OPR/111.0.0.0
+- name: '[VMESS]  ❗请到https://www.niao.icu❗续费'
   type: vmess
   server: yx1.niaoba.top
   port: 8880
@@ -784,7 +848,9 @@ proxies:
     path: /
     headers:
       Host: 1176547070273.vmus6.taobao.yyds.niaoba.top
-- name: (IEPL)英国1
+      User-Agent: Mozilla/5.0 (Linux; Android 14; Pixel 8 Pro) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] (IEPL)英国1'
   type: vmess
   server: haa.dashuai.cyou
   port: 45066
@@ -793,7 +859,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: (隧道)英国2
+- name: '[VMESS] (隧道)英国2'
   type: vmess
   server: xdd.dashuai.cyou
   port: 45067
@@ -802,7 +868,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 6 | Emergency⚜️Telegram:@IP_CF
+- name: '[VMESS] 6 | Emergency⚜️Telegram:@IP_CF'
   type: vmess
   server: npmjs.com
   port: 8080
@@ -815,7 +881,9 @@ proxies:
     path: /nasnet/cdn
     headers:
       Host: xju96kntfj-4515017478.mashallahbet.com
-- name: FRK.德国.A
+      User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] FRK.德国.A'
   type: vmess
   server: frg.cokecloud.top
   port: 13646
@@ -824,7 +892,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: HK | 香港 BGP
+- name: '[VMESS] HK | 香港 BGP'
   type: vmess
   server: r.runjustfast.com
   port: 21002
@@ -840,7 +908,9 @@ proxies:
     path: /31k64xkea01x
     headers:
       Host: hk3.runjustfast.com
-- name: HK.香港.B | 推荐
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+- name: '[VMESS] HK.香港.B | 推荐'
   type: vmess
   server: xctransfer1st.cokecloud.top
   port: 45449
@@ -849,7 +919,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: HK.香港.C | 高速.2x倍率
+- name: '[VMESS] HK.香港.C | 高速.2x倍率'
   type: vmess
   server: xctransfer1st.cokecloud.top
   port: 38630
@@ -858,7 +928,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: HK.香港.D
+- name: '[VMESS] HK.香港.D'
   type: vmess
   server: xctransfer1st.cokecloud.top
   port: 33575
@@ -867,7 +937,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: HK.香港.E
+- name: '[VMESS] HK.香港.E'
   type: vmess
   server: xctransfer1st.cokecloud.top
   port: 12672
@@ -876,7 +946,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: HK.香港.F
+- name: '[VMESS] HK.香港.F'
   type: vmess
   server: xctransfer1st.cokecloud.top
   port: 45861
@@ -885,7 +955,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: HK.香港.G | 多入口
+- name: '[VMESS] HK.香港.G | 多入口'
   type: vmess
   server: xctransfer1st.cokecloud.top
   port: 44489
@@ -894,7 +964,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: SG | 新加坡 01
+- name: '[VMESS] SG | 新加坡 01'
   type: vmess
   server: r.runjustfast.com
   port: 22004
@@ -910,7 +980,9 @@ proxies:
     path: /2sa6gxdea14c
     headers:
       Host: sg1.runjustfast.com
-- name: SGP.新加坡.D | 推荐
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] SGP.新加坡.D | 推荐'
   type: vmess
   server: xcsgp.cokecloud.top
   port: 25878
@@ -919,7 +991,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: TW | 台湾 01
+- name: '[VMESS] TW | 台湾 01'
   type: vmess
   server: r.runjustfast.com
   port: 21003
@@ -935,7 +1007,9 @@ proxies:
     path: /t1a64wdea01c
     headers:
       Host: tw1.runjustfast.com
-- name: TW.台湾.A
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Safari/605.1.15
+- name: '[VMESS] TW.台湾.A'
   type: vmess
   server: xdtw.cokecloud.top
   port: 13255
@@ -944,7 +1018,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: TW.台湾.B | 推荐
+- name: '[VMESS] TW.台湾.B | 推荐'
   type: vmess
   server: xdtw.cokecloud.top
   port: 29299
@@ -953,7 +1027,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: UK.英国.A
+- name: '[VMESS] UK.英国.A'
   type: vmess
   server: xcuk.cokecloud.top
   port: 18227
@@ -962,7 +1036,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: '[3X]泰国NO1'
+- name: '[VMESS] [3X]泰国NO1'
   type: vmess
   server: haa.dashuai.cyou
   port: 45060
@@ -971,7 +1045,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: '[3X]泰国NO2'
+- name: '[VMESS] [3X]泰国NO2'
   type: vmess
   server: xdd.dashuai.cyou
   port: 45061
@@ -980,7 +1054,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: '[3X]马来西亚专线NO2'
+- name: '[VMESS] [3X]马来西亚专线NO2'
   type: vmess
   server: xdd.dashuai.cyou
   port: 45059
@@ -989,7 +1063,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 台湾-优化
+- name: '[VMESS] 台湾-优化'
   type: vmess
   server: yes.mojcn.com
   port: 16616
@@ -1002,7 +1076,9 @@ proxies:
     path: /
     headers:
       Host: 51b0e42034dd75a815fa9eb16021fbda.mobgslb.tbcache.com
-- name: 台湾-优化-2
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 台湾-优化-2'
   type: vmess
   server: yes.mojcn.com
   port: 16616
@@ -1015,7 +1091,9 @@ proxies:
     path: /
     headers:
       Host: ba0f678896ea70308a3ea611bb985d7b.mobgslb.tbcache.com
-- name: 台湾-优化2-GPT
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+- name: '[VMESS] 台湾-优化2-GPT'
   type: vmess
   server: m.cnmjin.net
   port: 16616
@@ -1028,7 +1106,9 @@ proxies:
     path: /
     headers:
       Host: 51b0e42034dd75a815fa9eb16021fbda.mobgslb.tbcache.com
-- name: 台湾-优化2-GPT-2
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 台湾-优化2-GPT-2'
   type: vmess
   server: m.cnmjin.net
   port: 16616
@@ -1041,7 +1121,9 @@ proxies:
     path: /
     headers:
       Host: ba0f678896ea70308a3ea611bb985d7b.mobgslb.tbcache.com
-- name: 台湾-优化3
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Safari/605.1.15
+- name: '[VMESS] 台湾-优化3'
   type: vmess
   server: t.cnmjcn.cyou
   port: 16616
@@ -1054,7 +1136,9 @@ proxies:
     path: /
     headers:
       Host: 51b0e42034dd75a815fa9eb16021fbda.mobgslb.tbcache.com
-- name: 台湾-优化3-2
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+- name: '[VMESS] 台湾-优化3-2'
   type: vmess
   server: t.cnmjcn.cyou
   port: 16616
@@ -1067,7 +1151,9 @@ proxies:
     path: /
     headers:
       Host: ba0f678896ea70308a3ea611bb985d7b.mobgslb.tbcache.com
-- name: 台湾-优化3-3
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] 台湾-优化3-3'
   type: vmess
   server: t.cnmjcn.cyou
   port: 16616
@@ -1080,7 +1166,9 @@ proxies:
     path: /
     headers:
       Host: ae9c0de474c64c03db9edbf3fc4d8c68.mobgslb.tbcache.com
-- name: 免费JP节点01
+      User-Agent: Mozilla/5.0 (Linux; Android 14; SM-S928B) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 免费JP节点01'
   type: vmess
   server: free-relay.themars.top
   port: 39907
@@ -1093,7 +1181,9 @@ proxies:
     path: /cctv1.m3u8
     headers:
       Host: www.cctv.com
-- name: 免费JP节点01-2
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Safari/605.1.15
+- name: '[VMESS] 免费JP节点01-2'
   type: vmess
   server: free-relay.themars.top
   port: 39907
@@ -1106,7 +1196,9 @@ proxies:
     path: /cctv1.m3u8
     headers:
       Host: www.cctv.com
-- name: 免费SG节点02
+      User-Agent: Mozilla/5.0 (Linux; Android 14; SM-S928B) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 免费SG节点02'
   type: vmess
   server: free-relay.themars.top
   port: 49102
@@ -1119,7 +1211,9 @@ proxies:
     path: /cctv1.m3u8
     headers:
       Host: www.cctv.com
-- name: 免费SG节点02-2
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+- name: '[VMESS] 免费SG节点02-2'
   type: vmess
   server: free-relay.themars.top
   port: 49102
@@ -1132,7 +1226,9 @@ proxies:
     path: /cctv1.m3u8
     headers:
       Host: www.cctv.com
-- name: 免费SG节点03
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) CriOS/126.0.6478.54 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 免费SG节点03'
   type: vmess
   server: free-relay.themars.top
   port: 39903
@@ -1145,7 +1241,9 @@ proxies:
     path: /cctv1.m3u8
     headers:
       Host: www.cctv.com
-- name: 免费SG节点03-2
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/125.0.0.0 Safari/537.36 OPR/111.0.0.0
+- name: '[VMESS] 免费SG节点03-2'
   type: vmess
   server: free-relay.themars.top
   port: 39903
@@ -1158,7 +1256,9 @@ proxies:
     path: /cctv1.m3u8
     headers:
       Host: www.cctv.com
-- name: 免费US节点04
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Safari/605.1.15
+- name: '[VMESS] 免费US节点04'
   type: vmess
   server: free-relay.themars.top
   port: 38904
@@ -1171,7 +1271,9 @@ proxies:
     path: /cctv1.m3u8
     headers:
       Host: www.cctv.com
-- name: 免费US节点04-2
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+- name: '[VMESS] 免费US节点04-2'
   type: vmess
   server: free-relay.themars.top
   port: 38904
@@ -1184,7 +1286,9 @@ proxies:
     path: /cctv1.m3u8
     headers:
       Host: www.cctv.com
-- name: 免费US节点05
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+- name: '[VMESS] 免费US节点05'
   type: vmess
   server: free-relay.themars.top
   port: 37906
@@ -1197,7 +1301,9 @@ proxies:
     path: /cctv1.m3u8
     headers:
       Host: www.cctv.com
-- name: 免费US节点05-2
+      User-Agent: Mozilla/5.0 (Linux; Android 14; SM-S928B) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 免费US节点05-2'
   type: vmess
   server: free-relay.themars.top
   port: 37906
@@ -1210,7 +1316,9 @@ proxies:
     path: /cctv1.m3u8
     headers:
       Host: www.cctv.com
-- name: 剩余流量：-1.23 GB
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] 剩余流量：-1.23 GB'
   type: vmess
   server: yes.mojcn.com
   port: 16617
@@ -1223,7 +1331,9 @@ proxies:
     path: /
     headers:
       Host: ba0f678896ea70308a3ea611bb985d7b.mobgslb.tbcache.com
-- name: 剩余流量：-2.8 GB
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) CriOS/126.0.6478.54 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 剩余流量：-2.8 GB'
   type: vmess
   server: yes.mojcn.com
   port: 16617
@@ -1236,7 +1346,9 @@ proxies:
     path: /
     headers:
       Host: ae9c0de474c64c03db9edbf3fc4d8c68.mobgslb.tbcache.com
-- name: 剩余流量：0
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 剩余流量：0'
   type: vmess
   server: 123.com
   port: 12346
@@ -1245,7 +1357,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 剩余流量：0-2
+- name: '[VMESS] 剩余流量：0-2'
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -1258,7 +1370,9 @@ proxies:
     path: ''
     headers:
       Host: 45.147.201.231
-- name: 剩余流量：0-3
+      User-Agent: Mozilla/5.0 (Linux; Android 14; SM-S928B) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 剩余流量：0-3'
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -1271,7 +1385,9 @@ proxies:
     path: ''
     headers:
       Host: 45.147.201.231
-- name: 剩余流量：0-4
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] 剩余流量：0-4'
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -1284,7 +1400,9 @@ proxies:
     path: ''
     headers:
       Host: 45.147.201.231
-- name: 剩余流量：0-5
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 剩余流量：0-5'
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -1297,7 +1415,9 @@ proxies:
     path: ''
     headers:
       Host: 45.147.201.231
-- name: 剩余流量：0-6
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Safari/605.1.15
+- name: '[VMESS] 剩余流量：0-6'
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -1310,7 +1430,9 @@ proxies:
     path: ''
     headers:
       Host: 45.147.201.231
-- name: 剩余流量：0-7
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+- name: '[VMESS] 剩余流量：0-7'
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -1323,7 +1445,9 @@ proxies:
     path: ''
     headers:
       Host: 45.147.201.231
-- name: 剩余流量：0-8
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 剩余流量：0-8'
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -1336,7 +1460,9 @@ proxies:
     path: ''
     headers:
       Host: 45.147.201.231
-- name: 剩余流量：0-9
+      User-Agent: Mozilla/5.0 (Linux; Android 14; Pixel 8 Pro) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 剩余流量：0-9'
   type: vmess
   server: free-relay.themars.top
   port: 39907
@@ -1349,7 +1475,9 @@ proxies:
     path: /cctv1.m3u8
     headers:
       Host: www.cctv.com
-- name: 剩余流量：0-10
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] 剩余流量：0-10'
   type: vmess
   server: free-relay.themars.top
   port: 39907
@@ -1362,7 +1490,9 @@ proxies:
     path: /cctv1.m3u8
     headers:
       Host: www.cctv.com
-- name: 剩余流量：0-11
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 剩余流量：0-11'
   type: vmess
   server: hk.bethebest.eu.org
   port: 2052
@@ -1375,7 +1505,9 @@ proxies:
     path: /
     headers:
       Host: us7.123417.xyz
-- name: 剩余流量：2 GB
+      User-Agent: Mozilla/5.0 (Linux; Android 14; SM-S928B) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 剩余流量：2 GB'
   type: vmess
   server: haa.dashuai.cyou
   port: 45050
@@ -1384,7 +1516,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 剩余流量：6.79 GB
+- name: '[VMESS] 剩余流量：6.79 GB'
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -1397,7 +1529,9 @@ proxies:
     path: ''
     headers:
       Host: 45.147.201.231
-- name: 剩余流量：877.59 GB
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Safari/605.1.15
+- name: '[VMESS] 剩余流量：877.59 GB'
   type: vmess
   server: 1.example.com
   port: 443
@@ -1413,7 +1547,9 @@ proxies:
     path: ''
     headers:
       Host: 1.example.com
-- name: 加拿大-优化
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 加拿大-优化'
   type: vmess
   server: yes.mojcn.com
   port: 16641
@@ -1426,7 +1562,9 @@ proxies:
     path: /
     headers:
       Host: ba0f678896ea70308a3ea611bb985d7b.mobgslb.tbcache.com
-- name: 加拿大-优化-2
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/125.0.0.0 Safari/537.36 OPR/111.0.0.0
+- name: '[VMESS] 加拿大-优化-2'
   type: vmess
   server: yes.mojcn.com
   port: 16641
@@ -1439,7 +1577,9 @@ proxies:
     path: /
     headers:
       Host: ae9c0de474c64c03db9edbf3fc4d8c68.mobgslb.tbcache.com
-- name: 加拿大-优化2
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 加拿大-优化2'
   type: vmess
   server: m.cnmjcn.com
   port: 16641
@@ -1452,7 +1592,9 @@ proxies:
     path: /
     headers:
       Host: 51b0e42034dd75a815fa9eb16021fbda.mobgslb.tbcache.com
-- name: 加拿大-优化2-2
+      User-Agent: Mozilla/5.0 (Linux; Android 14; Pixel 8 Pro) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 加拿大-优化2-2'
   type: vmess
   server: m.cnmjcn.com
   port: 16641
@@ -1465,7 +1607,9 @@ proxies:
     path: /
     headers:
       Host: ba0f678896ea70308a3ea611bb985d7b.mobgslb.tbcache.com
-- name: 加拿大-优化3
+      User-Agent: Mozilla/5.0 (Linux; Android 14; Pixel 8 Pro) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 加拿大-优化3'
   type: vmess
   server: t.cnmjcn.cyou
   port: 16641
@@ -1478,7 +1622,9 @@ proxies:
     path: /
     headers:
       Host: ba0f678896ea70308a3ea611bb985d7b.mobgslb.tbcache.com
-- name: 加拿大1
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 加拿大1'
   type: vmess
   server: haa.dashuai.cyou
   port: 45064
@@ -1487,7 +1633,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 加拿大2
+- name: '[VMESS] 加拿大2'
   type: vmess
   server: xdd.dashuai.cyou
   port: 45065
@@ -1496,7 +1642,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 印度-优化
+- name: '[VMESS] 印度-优化'
   type: vmess
   server: yes.mojcn.com
   port: 16626
@@ -1509,7 +1655,9 @@ proxies:
     path: /
     headers:
       Host: 51b0e42034dd75a815fa9eb16021fbda.mobgslb.tbcache.com
-- name: 印度-优化-2
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] 印度-优化-2'
   type: vmess
   server: yes.mojcn.com
   port: 16626
@@ -1522,7 +1670,9 @@ proxies:
     path: /
     headers:
       Host: ba0f678896ea70308a3ea611bb985d7b.mobgslb.tbcache.com
-- name: 备用网址www.fzdvd.cc
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] 备用网址www.fzdvd.cc'
   type: vmess
   server: 123.com
   port: 12345
@@ -1531,7 +1681,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 套餐到期：2025-06-24
+- name: '[VMESS] 套餐到期：2025-06-24'
   type: vmess
   server: haa.dashuai.cyou
   port: 45050
@@ -1540,7 +1690,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 套餐到期：2025-08-24
+- name: '[VMESS] 套餐到期：2025-08-24'
   type: vmess
   server: free-relay.themars.top
   port: 39907
@@ -1553,7 +1703,9 @@ proxies:
     path: /cctv1.m3u8
     headers:
       Host: www.cctv.com
-- name: 套餐到期：2025-08-25
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 套餐到期：2025-08-25'
   type: vmess
   server: free-relay.themars.top
   port: 39907
@@ -1566,7 +1718,9 @@ proxies:
     path: /cctv1.m3u8
     headers:
       Host: www.cctv.com
-- name: 套餐到期：2025-10-07
+      User-Agent: Mozilla/5.0 (Linux; Android 14; SM-S928B) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 套餐到期：2025-10-07'
   type: vmess
   server: hk.bethebest.eu.org
   port: 2052
@@ -1579,7 +1733,9 @@ proxies:
     path: /
     headers:
       Host: us7.123417.xyz
-- name: 套餐到期：长期有效
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 套餐到期：长期有效'
   type: vmess
   server: 123.com
   port: 12346
@@ -1588,7 +1744,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 套餐到期：长期有效-2
+- name: '[VMESS] 套餐到期：长期有效-2'
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -1601,7 +1757,9 @@ proxies:
     path: ''
     headers:
       Host: 45.147.201.231
-- name: 套餐到期：长期有效-3
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 套餐到期：长期有效-3'
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -1614,7 +1772,9 @@ proxies:
     path: ''
     headers:
       Host: 45.147.201.231
-- name: 套餐到期：长期有效-4
+      User-Agent: Mozilla/5.0 (Linux; Android 14; Pixel 8 Pro) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 套餐到期：长期有效-4'
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -1627,7 +1787,9 @@ proxies:
     path: ''
     headers:
       Host: 45.147.201.231
-- name: 套餐到期：长期有效-5
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Safari/605.1.15
+- name: '[VMESS] 套餐到期：长期有效-5'
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -1640,7 +1802,9 @@ proxies:
     path: ''
     headers:
       Host: 45.147.201.231
-- name: 套餐到期：长期有效-6
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/125.0.0.0 Safari/537.36 OPR/111.0.0.0
+- name: '[VMESS] 套餐到期：长期有效-6'
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -1653,7 +1817,9 @@ proxies:
     path: ''
     headers:
       Host: 45.147.201.231
-- name: 套餐到期：长期有效-7
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 套餐到期：长期有效-7'
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -1666,7 +1832,9 @@ proxies:
     path: ''
     headers:
       Host: 45.147.201.231
-- name: 套餐到期：长期有效-8
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] 套餐到期：长期有效-8'
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -1679,7 +1847,9 @@ proxies:
     path: ''
     headers:
       Host: 45.147.201.231
-- name: 套餐到期：长期有效-9
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/125.0.0.0 Safari/537.36 OPR/111.0.0.0
+- name: '[VMESS] 套餐到期：长期有效-9'
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -1692,7 +1862,9 @@ proxies:
     path: ''
     headers:
       Host: 45.147.201.231
-- name: 套餐到期：长期有效-10
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 套餐到期：长期有效-10'
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -1705,7 +1877,9 @@ proxies:
     path: ''
     headers:
       Host: 45.147.201.231
-- name: 套餐到期：长期有效-11
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) CriOS/126.0.6478.54 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 套餐到期：长期有效-11'
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -1718,7 +1892,9 @@ proxies:
     path: ''
     headers:
       Host: 45.147.201.231
-- name: 官网：dash.henet.uk
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Safari/605.1.15
+- name: '[VMESS] 官网：dash.henet.uk'
   type: vmess
   server: free-relay.themars.top
   port: 39907
@@ -1731,7 +1907,9 @@ proxies:
     path: /cctv1.m3u8
     headers:
       Host: www.cctv.com
-- name: 官网：vvs.e54.site
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 官网：vvs.e54.site'
   type: vmess
   server: bestcf.mfwl.art
   port: 443
@@ -1747,7 +1925,9 @@ proxies:
     path: /
     headers:
       Host: xjpmo.xiaoqi555.xyz
-- name: 官网：vvs.e54.site-2
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) CriOS/126.0.6478.54 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 官网：vvs.e54.site-2'
   type: vmess
   server: bestcf.mfwl.art
   port: 443
@@ -1763,7 +1943,9 @@ proxies:
     path: /
     headers:
       Host: xjpmo.xiaoqi555.xyz
-- name: 导航页：www.可乐云.net
+      User-Agent: Mozilla/5.0 (Linux; Android 14; SM-S928B) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 导航页：www.可乐云.net'
   type: vmess
   server: frg.cokecloud.top
   port: 13646
@@ -1772,7 +1954,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 已到期或流量已用完
+- name: '[VMESS] 已到期或流量已用完'
   type: vmess
   server: 1.example.com
   port: 443
@@ -1788,7 +1970,9 @@ proxies:
     path: ''
     headers:
       Host: 1.example.com
-- name: 德国-优化
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 德国-优化'
   type: vmess
   server: yes.mojcn.com
   port: 16644
@@ -1801,7 +1985,9 @@ proxies:
     path: /
     headers:
       Host: 51b0e42034dd75a815fa9eb16021fbda.mobgslb.tbcache.com
-- name: 德国-优化-2
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 德国-优化-2'
   type: vmess
   server: yes.mojcn.com
   port: 16644
@@ -1814,7 +2000,9 @@ proxies:
     path: /
     headers:
       Host: ba0f678896ea70308a3ea611bb985d7b.mobgslb.tbcache.com
-- name: 德国-优化2
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] 德国-优化2'
   type: vmess
   server: m.cnmjcn.com
   port: 16644
@@ -1827,7 +2015,9 @@ proxies:
     path: /
     headers:
       Host: ba0f678896ea70308a3ea611bb985d7b.mobgslb.tbcache.com
-- name: 德国01_免费
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) CriOS/126.0.6478.54 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 德国01_免费'
   type: vmess
   server: de01.sh-cloudflare.sbs
   port: 2096
@@ -1843,7 +2033,9 @@ proxies:
     path: null
     headers:
       Host: de01.sh-cloudflare.sbs
-- name: 新加坡-优化
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 新加坡-优化'
   type: vmess
   server: yes.mojcn.com
   port: 16618
@@ -1856,7 +2048,9 @@ proxies:
     path: /
     headers:
       Host: 51b0e42034dd75a815fa9eb16021fbda.mobgslb.tbcache.com
-- name: 新加坡-优化-2
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+- name: '[VMESS] 新加坡-优化-2'
   type: vmess
   server: yes.mojcn.com
   port: 16618
@@ -1869,7 +2063,9 @@ proxies:
     path: /
     headers:
       Host: ba0f678896ea70308a3ea611bb985d7b.mobgslb.tbcache.com
-- name: 新加坡-优化-3
+      User-Agent: Mozilla/5.0 (Linux; Android 14; Pixel 8 Pro) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 新加坡-优化-3'
   type: vmess
   server: yes.mojcn.com
   port: 16618
@@ -1882,7 +2078,9 @@ proxies:
     path: /
     headers:
       Host: ae9c0de474c64c03db9edbf3fc4d8c68.mobgslb.tbcache.com
-- name: 新加坡-优化2
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] 新加坡-优化2'
   type: vmess
   server: m.cnmjin.net
   port: 16618
@@ -1895,7 +2093,9 @@ proxies:
     path: /
     headers:
       Host: 51b0e42034dd75a815fa9eb16021fbda.mobgslb.tbcache.com
-- name: 新加坡-优化2-2
+      User-Agent: Mozilla/5.0 (Linux; Android 14; Pixel 8 Pro) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 新加坡-优化2-2'
   type: vmess
   server: m.cnmjin.net
   port: 16618
@@ -1908,7 +2108,9 @@ proxies:
     path: /
     headers:
       Host: ba0f678896ea70308a3ea611bb985d7b.mobgslb.tbcache.com
-- name: 新加坡-优化2-3
+      User-Agent: Mozilla/5.0 (Linux; Android 14; Pixel 8 Pro) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 新加坡-优化2-3'
   type: vmess
   server: m.cnmjin.net
   port: 16618
@@ -1921,7 +2123,9 @@ proxies:
     path: /
     headers:
       Host: ae9c0de474c64c03db9edbf3fc4d8c68.mobgslb.tbcache.com
-- name: 新加坡-优化3
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Safari/605.1.15
+- name: '[VMESS] 新加坡-优化3'
   type: vmess
   server: t.cnmjcn.cyou
   port: 16618
@@ -1934,7 +2138,9 @@ proxies:
     path: /
     headers:
       Host: 51b0e42034dd75a815fa9eb16021fbda.mobgslb.tbcache.com
-- name: 新加坡-优化3-2
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] 新加坡-优化3-2'
   type: vmess
   server: t.cnmjcn.cyou
   port: 16618
@@ -1947,7 +2153,9 @@ proxies:
     path: /
     headers:
       Host: ba0f678896ea70308a3ea611bb985d7b.mobgslb.tbcache.com
-- name: 新加坡-优化3-3
+      User-Agent: Mozilla/5.0 (Linux; Android 14; Pixel 8 Pro) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 新加坡-优化3-3'
   type: vmess
   server: t.cnmjcn.cyou
   port: 16618
@@ -1960,7 +2168,9 @@ proxies:
     path: /
     headers:
       Host: ae9c0de474c64c03db9edbf3fc4d8c68.mobgslb.tbcache.com
-- name: 新加坡NO.1
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/125.0.0.0 Safari/537.36 OPR/111.0.0.0
+- name: '[VMESS] 新加坡NO.1'
   type: vmess
   server: haa.dashuai.cyou
   port: 45054
@@ -1969,7 +2179,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 新加坡NO.2
+- name: '[VMESS] 新加坡NO.2'
   type: vmess
   server: xdd.dashuai.cyou
   port: 45055
@@ -1978,7 +2188,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 日本-优化
+- name: '[VMESS] 日本-优化'
   type: vmess
   server: yes.mojcn.com
   port: 16617
@@ -1991,7 +2201,9 @@ proxies:
     path: /
     headers:
       Host: ae9c0de474c64c03db9edbf3fc4d8c68.mobgslb.tbcache.com
-- name: 日本-优化2
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 日本-优化2'
   type: vmess
   server: m.cnmjin.net
   port: 16617
@@ -2004,7 +2216,9 @@ proxies:
     path: /
     headers:
       Host: ba0f678896ea70308a3ea611bb985d7b.mobgslb.tbcache.com
-- name: 日本-优化2-2
+      User-Agent: Mozilla/5.0 (Linux; Android 14; Pixel 8 Pro) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 日本-优化2-2'
   type: vmess
   server: m.cnmjin.net
   port: 16617
@@ -2017,7 +2231,9 @@ proxies:
     path: /
     headers:
       Host: ae9c0de474c64c03db9edbf3fc4d8c68.mobgslb.tbcache.com
-- name: 日本-优化3
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] 日本-优化3'
   type: vmess
   server: t.cnmjcn.cyou
   port: 16617
@@ -2030,7 +2246,9 @@ proxies:
     path: /
     headers:
       Host: 51b0e42034dd75a815fa9eb16021fbda.mobgslb.tbcache.com
-- name: 日本-优化3-2
+      User-Agent: Mozilla/5.0 (Linux; Android 14; Pixel 8 Pro) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 日本-优化3-2'
   type: vmess
   server: t.cnmjcn.cyou
   port: 16617
@@ -2043,7 +2261,9 @@ proxies:
     path: /
     headers:
       Host: ba0f678896ea70308a3ea611bb985d7b.mobgslb.tbcache.com
-- name: 日本NO.1
+      User-Agent: Mozilla/5.0 (Linux; Android 14; Pixel 8 Pro) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 日本NO.1'
   type: vmess
   server: haa.dashuai.cyou
   port: 45056
@@ -2052,7 +2272,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 日本NO.2
+- name: '[VMESS] 日本NO.2'
   type: vmess
   server: xdd.dashuai.cyou
   port: 45057
@@ -2061,7 +2281,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 无墙地址 http://pcdn.giize.com:8011/
+- name: '[VMESS] 无墙地址 http://pcdn.giize.com:8011/'
   type: vmess
   server: free-relay.themars.top
   port: 39907
@@ -2074,7 +2294,9 @@ proxies:
     path: /cctv1.m3u8
     headers:
       Host: www.cctv.com
-- name: 无墙地址 http://pcdn.giize.com:8011/-2
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/125.0.0.0 Safari/537.36 OPR/111.0.0.0
+- name: '[VMESS] 无墙地址 http://pcdn.giize.com:8011/-2'
   type: vmess
   server: free-relay.themars.top
   port: 39907
@@ -2087,7 +2309,9 @@ proxies:
     path: /cctv1.m3u8
     headers:
       Host: www.cctv.com
-- name: 最新地址：gy888.xyz
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 最新地址：gy888.xyz'
   type: vmess
   server: 2.example.com
   port: 443
@@ -2103,7 +2327,9 @@ proxies:
     path: ''
     headers:
       Host: 2.example.com
-- name: 最新网址www.fzdxd.top
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 最新网址www.fzdxd.top'
   type: vmess
   server: 123.com
   port: 12346
@@ -2112,7 +2338,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 法国1
+- name: '[VMESS] 法国1'
   type: vmess
   server: haa.dashuai.cyou
   port: 45072
@@ -2121,7 +2347,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 法国2
+- name: '[VMESS] 法国2'
   type: vmess
   server: xdd.dashuai.cyou
   port: 45071
@@ -2130,7 +2356,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 澳大利亚 01
+- name: '[VMESS] 澳大利亚 01'
   type: vmess
   server: hbyd.dengtacloud.net
   port: 20155
@@ -2146,7 +2372,9 @@ proxies:
     path: /shha
     headers:
       Host: ao11.dengta.lat
-- name: 澳大利亚 02
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 澳大利亚 02'
   type: vmess
   server: hbyd.dengtacloud.net
   port: 20156
@@ -2162,7 +2390,9 @@ proxies:
     path: /shha
     headers:
       Host: ao21.dengta.lat
-- name: 澳大利亚原生1
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] 澳大利亚原生1'
   type: vmess
   server: haa.dashuai.cyou
   port: 45062
@@ -2171,7 +2401,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 澳大利亚原生2
+- name: '[VMESS] 澳大利亚原生2'
   type: vmess
   server: xdd.dashuai.cyou
   port: 45063
@@ -2180,7 +2410,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 用前请更新订阅！！！
+- name: '[VMESS] 用前请更新订阅！！！'
   type: vmess
   server: xxx
   port: 8888
@@ -2193,7 +2423,9 @@ proxies:
     path: /uis
     headers:
       Host: y.qq.com
-- name: '电报群: https://t.me/emovpn x5'
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] 电报群: https://t.me/emovpn x5'
   type: vmess
   server: v36.emoyes.top
   port: 443
@@ -2209,7 +2441,9 @@ proxies:
     path: /
     headers:
       Host: v36.emoyes.top
-- name: 登录https://cokecloud.me 续费
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 登录https://cokecloud.me 续费'
   type: vmess
   server: xctransfer1st.cokecloud.top
   port: 21552
@@ -2218,7 +2452,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 美国01_免费
+- name: '[VMESS] 美国01_免费'
   type: vmess
   server: us01.sh-cloudflare.sbs
   port: 8443
@@ -2234,7 +2468,9 @@ proxies:
     path: null
     headers:
       Host: us01.sh-cloudflare.sbs
-- name: 美国LA-优化-GPT
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 美国LA-优化-GPT'
   type: vmess
   server: yes.mojcn.com
   port: 16648
@@ -2247,7 +2483,9 @@ proxies:
     path: /
     headers:
       Host: ba0f678896ea70308a3ea611bb985d7b.mobgslb.tbcache.com
-- name: 美国LA-优化-GPT-2
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) CriOS/126.0.6478.54 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 美国LA-优化-GPT-2'
   type: vmess
   server: yes.mojcn.com
   port: 16648
@@ -2260,7 +2498,9 @@ proxies:
     path: /
     headers:
       Host: ae9c0de474c64c03db9edbf3fc4d8c68.mobgslb.tbcache.com
-- name: 美国LA-优化2-GPT
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] 美国LA-优化2-GPT'
   type: vmess
   server: m.cnmjin.net
   port: 16648
@@ -2273,7 +2513,9 @@ proxies:
     path: /
     headers:
       Host: ba0f678896ea70308a3ea611bb985d7b.mobgslb.tbcache.com
-- name: 美国LA-优化2-GPT-2
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 美国LA-优化2-GPT-2'
   type: vmess
   server: m.cnmjin.net
   port: 16648
@@ -2286,7 +2528,9 @@ proxies:
     path: /
     headers:
       Host: ae9c0de474c64c03db9edbf3fc4d8c68.mobgslb.tbcache.com
-- name: 美国LA-优化3-GPT
+      User-Agent: Mozilla/5.0 (Linux; Android 14; SM-S928B) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 美国LA-优化3-GPT'
   type: vmess
   server: t.cnmjcn.cyou
   port: 16648
@@ -2299,7 +2543,9 @@ proxies:
     path: /
     headers:
       Host: 51b0e42034dd75a815fa9eb16021fbda.mobgslb.tbcache.com
-- name: 美国LA-优化3-GPT-2
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 美国LA-优化3-GPT-2'
   type: vmess
   server: t.cnmjcn.cyou
   port: 16648
@@ -2312,7 +2558,9 @@ proxies:
     path: /
     headers:
       Host: ba0f678896ea70308a3ea611bb985d7b.mobgslb.tbcache.com
-- name: 美国LA-优化3-GPT-3
+      User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] 美国LA-优化3-GPT-3'
   type: vmess
   server: t.cnmjcn.cyou
   port: 16648
@@ -2325,7 +2573,9 @@ proxies:
     path: /
     headers:
       Host: ae9c0de474c64c03db9edbf3fc4d8c68.mobgslb.tbcache.com
-- name: 美国NO.2（GPT）
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 美国NO.2（GPT）'
   type: vmess
   server: xdd.dashuai.cyou
   port: 45053
@@ -2334,7 +2584,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 菲律宾 马尼拉-中转
+- name: '[VMESS] 菲律宾 马尼拉-中转'
   type: vmess
   server: hbyd.dengtacloud.net
   port: 18596
@@ -2350,7 +2600,9 @@ proxies:
     path: /shha
     headers:
       Host: flb1.718node.com
-- name: 英国-01
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 英国-01'
   type: vmess
   server: hbyd.dengtacloud.net
   port: 62501
@@ -2366,7 +2618,9 @@ proxies:
     path: /index
     headers:
       Host: yg01.718node.com
-- name: 英国-02
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] 英国-02'
   type: vmess
   server: hbyd.dengtacloud.net
   port: 36612
@@ -2382,7 +2636,9 @@ proxies:
     path: /index
     headers:
       Host: yg11.718node.com
-- name: 英国-优化-GPT
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Safari/605.1.15
+- name: '[VMESS] 英国-优化-GPT'
   type: vmess
   server: yes.mojcn.com
   port: 16645
@@ -2395,7 +2651,9 @@ proxies:
     path: /
     headers:
       Host: 51b0e42034dd75a815fa9eb16021fbda.mobgslb.tbcache.com
-- name: 英国-优化-GPT-2
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Safari/605.1.15
+- name: '[VMESS] 英国-优化-GPT-2'
   type: vmess
   server: yes.mojcn.com
   port: 16645
@@ -2408,7 +2666,9 @@ proxies:
     path: /
     headers:
       Host: ba0f678896ea70308a3ea611bb985d7b.mobgslb.tbcache.com
-- name: 英国-优化-GPT-3
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 英国-优化-GPT-3'
   type: vmess
   server: yes.mojcn.com
   port: 16645
@@ -2421,7 +2681,9 @@ proxies:
     path: /
     headers:
       Host: ae9c0de474c64c03db9edbf3fc4d8c68.mobgslb.tbcache.com
-- name: 英国-优化2
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 英国-优化2'
   type: vmess
   server: m.cnmjin.net
   port: 16645
@@ -2434,7 +2696,9 @@ proxies:
     path: /
     headers:
       Host: 51b0e42034dd75a815fa9eb16021fbda.mobgslb.tbcache.com
-- name: 英国-优化2-2
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] 英国-优化2-2'
   type: vmess
   server: m.cnmjin.net
   port: 16645
@@ -2447,7 +2711,9 @@ proxies:
     path: /
     headers:
       Host: ba0f678896ea70308a3ea611bb985d7b.mobgslb.tbcache.com
-- name: 英国-优化2-3
+      User-Agent: Mozilla/5.0 (Linux; Android 14; Pixel 8 Pro) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 英国-优化2-3'
   type: vmess
   server: m.cnmjin.net
   port: 16645
@@ -2460,7 +2726,9 @@ proxies:
     path: /
     headers:
       Host: ae9c0de474c64c03db9edbf3fc4d8c68.mobgslb.tbcache.com
-- name: 英国-优化3
+      User-Agent: Mozilla/5.0 (Linux; Android 14; SM-S928B) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 英国-优化3'
   type: vmess
   server: t.cnmjcn.cyou
   port: 16645
@@ -2473,7 +2741,9 @@ proxies:
     path: /
     headers:
       Host: 51b0e42034dd75a815fa9eb16021fbda.mobgslb.tbcache.com
-- name: 英国-优化3-2
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] 英国-优化3-2'
   type: vmess
   server: t.cnmjcn.cyou
   port: 16645
@@ -2486,7 +2756,9 @@ proxies:
     path: /
     headers:
       Host: ba0f678896ea70308a3ea611bb985d7b.mobgslb.tbcache.com
-- name: 英国-优化3-3
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+- name: '[VMESS] 英国-优化3-3'
   type: vmess
   server: t.cnmjcn.cyou
   port: 16645
@@ -2499,7 +2771,9 @@ proxies:
     path: /
     headers:
       Host: ae9c0de474c64c03db9edbf3fc4d8c68.mobgslb.tbcache.com
-- name: 距离下次重置剩余：7 天
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 距离下次重置剩余：7 天'
   type: vmess
   server: free-relay.themars.top
   port: 39907
@@ -2512,7 +2786,9 @@ proxies:
     path: /cctv1.m3u8
     headers:
       Host: www.cctv.com
-- name: 过滤掉3条线路
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Safari/605.1.15
+- name: '[VMESS] 过滤掉3条线路'
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2525,7 +2801,9 @@ proxies:
     path: ''
     headers:
       Host: 45.147.201.231
-- name: 过滤掉3条线路-2
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 过滤掉3条线路-2'
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2538,7 +2816,9 @@ proxies:
     path: ''
     headers:
       Host: 45.147.201.231
-- name: 过滤掉3条线路-3
+      User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] 过滤掉3条线路-3'
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2551,7 +2831,9 @@ proxies:
     path: ''
     headers:
       Host: 45.147.201.231
-- name: 过滤掉3条线路-4
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+- name: '[VMESS] 过滤掉3条线路-4'
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2564,7 +2846,9 @@ proxies:
     path: ''
     headers:
       Host: 45.147.201.231
-- name: 过滤掉3条线路-5
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 过滤掉3条线路-5'
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2577,7 +2861,9 @@ proxies:
     path: ''
     headers:
       Host: 45.147.201.231
-- name: 过滤掉3条线路-6
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 过滤掉3条线路-6'
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2590,7 +2876,9 @@ proxies:
     path: ''
     headers:
       Host: 45.147.201.231
-- name: 过滤掉3条线路-7
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 过滤掉3条线路-7'
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2603,7 +2891,9 @@ proxies:
     path: ''
     headers:
       Host: 45.147.201.231
-- name: 过滤掉3条线路-8
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 过滤掉3条线路-8'
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2616,7 +2906,9 @@ proxies:
     path: ''
     headers:
       Host: 45.147.201.231
-- name: 过滤掉3条线路-9
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+- name: '[VMESS] 过滤掉3条线路-9'
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2629,7 +2921,9 @@ proxies:
     path: ''
     headers:
       Host: 45.147.201.231
-- name: 过滤掉3条线路-10
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 过滤掉3条线路-10'
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2642,7 +2936,9 @@ proxies:
     path: ''
     headers:
       Host: 45.147.201.231
-- name: 过滤掉3条线路-11
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 过滤掉3条线路-11'
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2655,7 +2951,9 @@ proxies:
     path: ''
     headers:
       Host: 45.147.201.231
-- name: 过滤掉18条线路
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) CriOS/126.0.6478.54 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 过滤掉18条线路'
   type: vmess
   server: hk.bethebest.eu.org
   port: 2052
@@ -2668,7 +2966,9 @@ proxies:
     path: /
     headers:
       Host: us7.123417.xyz
-- name: 过滤掉2条线路
+      User-Agent: Mozilla/5.0 (Linux; Android 14; SM-S928B) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 过滤掉2条线路'
   type: vmess
   server: 18.167.172.112
   port: 443
@@ -2684,7 +2984,9 @@ proxies:
     path: /
     headers:
       Host: aws.ansh.top
-- name: 过滤掉2条线路-2
+      User-Agent: Mozilla/5.0 (Linux; Android 14; SM-S928B) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 过滤掉2条线路-2'
   type: vmess
   server: 18.167.172.112
   port: 443
@@ -2700,7 +3002,9 @@ proxies:
     path: /
     headers:
       Host: aws.ansh.top
-- name: 过滤掉6条线路
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 过滤掉6条线路'
   type: vmess
   server: yes.mojcn.com
   port: 16617
@@ -2713,7 +3017,9 @@ proxies:
     path: /
     headers:
       Host: 51b0e42034dd75a815fa9eb16021fbda.mobgslb.tbcache.com
-- name: 过滤掉6条线路-2
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+- name: '[VMESS] 过滤掉6条线路-2'
   type: vmess
   server: yes.mojcn.com
   port: 16617
@@ -2726,7 +3032,9 @@ proxies:
     path: /
     headers:
       Host: ba0f678896ea70308a3ea611bb985d7b.mobgslb.tbcache.com
-- name: 过滤掉6条线路-3
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 过滤掉6条线路-3'
   type: vmess
   server: yes.mojcn.com
   port: 16617
@@ -2739,7 +3047,9 @@ proxies:
     path: /
     headers:
       Host: ae9c0de474c64c03db9edbf3fc4d8c68.mobgslb.tbcache.com
-- name: 韩国-02
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 韩国-02'
   type: vmess
   server: hbyd.dengtacloud.net
   port: 45360
@@ -2755,7 +3065,9 @@ proxies:
     path: /shha
     headers:
       Host: h1.718node.com
-- name: 韩国-03-电信用户
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 韩国-03-电信用户'
   type: vmess
   server: yd.dengtacloud.net
   port: 45360
@@ -2771,7 +3083,9 @@ proxies:
     path: /shha
     headers:
       Host: h1.718node.com
-- name: 香港NO.1（GPT奈飞等）
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+- name: '[VMESS] 香港NO.1（GPT奈飞等）'
   type: vmess
   server: haa.dashuai.cyou
   port: 45050
@@ -2780,7 +3094,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 香港NO.2（GPT奈飞等）
+- name: '[VMESS] 香港NO.2（GPT奈飞等）'
   type: vmess
   server: xdd.dashuai.cyou
   port: 45051
@@ -2789,7 +3103,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 香港WAP-优化
+- name: '[VMESS] 香港WAP-优化'
   type: vmess
   server: yes.mojcn.com
   port: 16622
@@ -2802,7 +3116,9 @@ proxies:
     path: /
     headers:
       Host: 51b0e42034dd75a815fa9eb16021fbda.mobgslb.tbcache.com
-- name: 香港WAP-优化-2
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+- name: '[VMESS] 香港WAP-优化-2'
   type: vmess
   server: yes.mojcn.com
   port: 16622
@@ -2815,7 +3131,9 @@ proxies:
     path: /
     headers:
       Host: ba0f678896ea70308a3ea611bb985d7b.mobgslb.tbcache.com
-- name: 香港WAP-优化-3
+      User-Agent: Mozilla/5.0 (Linux; Android 14; Pixel 8 Pro) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 香港WAP-优化-3'
   type: vmess
   server: yes.mojcn.com
   port: 16622
@@ -2828,7 +3146,9 @@ proxies:
     path: /
     headers:
       Host: ae9c0de474c64c03db9edbf3fc4d8c68.mobgslb.tbcache.com
-- name: 香港WAP-优化2
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Safari/605.1.15
+- name: '[VMESS] 香港WAP-优化2'
   type: vmess
   server: m.cnmjin.net
   port: 16622
@@ -2841,7 +3161,9 @@ proxies:
     path: /
     headers:
       Host: 51b0e42034dd75a815fa9eb16021fbda.mobgslb.tbcache.com
-- name: 香港WAP-优化2-2
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 香港WAP-优化2-2'
   type: vmess
   server: m.cnmjin.net
   port: 16622
@@ -2854,7 +3176,9 @@ proxies:
     path: /
     headers:
       Host: ae9c0de474c64c03db9edbf3fc4d8c68.mobgslb.tbcache.com
-- name: ⚜️Telegram:@IP_CF
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/125.0.0.0 Safari/537.36 OPR/111.0.0.0
+- name: '[VMESS] ⚜️Telegram:@IP_CF'
   type: vmess
   server: 188.114.98.22
   port: 80
@@ -2867,7 +3191,9 @@ proxies:
     path: /
     headers:
       Host: h3.grAsSoRy.shop
-- name: ❗  您的订阅已过期 ❗
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) CriOS/126.0.6478.54 Mobile/15E148 Safari/604.1
+- name: '[VMESS] ❗  您的订阅已过期 ❗'
   type: vmess
   server: yx1.niaoba.top
   port: 8880
@@ -2880,7 +3206,9 @@ proxies:
     path: /
     headers:
       Host: 1176547070273.vmus6.taobao.yyds.niaoba.top
-- name: ❗ 您的订阅已过期 ❗
+      User-Agent: Mozilla/5.0 (Linux; Android 14; Pixel 8 Pro) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] ❗ 您的订阅已过期 ❗'
   type: vmess
   server: yx1.niaoba.top
   port: 8880
@@ -2893,7 +3221,9 @@ proxies:
     path: /
     headers:
       Host: 1176547070273.vmus6.taobao.yyds.niaoba.top
-- name: 「加入会员解锁流媒体」x5
+      User-Agent: Mozilla/5.0 (Linux; Android 14; Pixel 8 Pro) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 「加入会员解锁流媒体」x5'
   type: vmess
   server: v2.emoyes.top
   port: 2053
@@ -2909,7 +3239,9 @@ proxies:
     path: /
     headers:
       Host: v2.emoyes.top
-- name: 「加入会员解锁流媒体」x5-2
+      User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] 「加入会员解锁流媒体」x5-2'
   type: vmess
   server: v2.emoyes.top
   port: 2053
@@ -2925,7 +3257,9 @@ proxies:
     path: /
     headers:
       Host: v2.emoyes.top
-- name: 「🇫🇷」EMO | 冰糖心 x5
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+- name: '[VMESS] 「🇫🇷」EMO | 冰糖心 x5'
   type: vmess
   server: v35.emoyes.top
   port: 443
@@ -2941,7 +3275,9 @@ proxies:
     path: /
     headers:
       Host: v35.emoyes.top
-- name: 「🇫🇷」EMO | 冰糖心 x5-2
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 「🇫🇷」EMO | 冰糖心 x5-2'
   type: vmess
   server: v35.emoyes.top
   port: 443
@@ -2957,7 +3293,9 @@ proxies:
     path: /
     headers:
       Host: v35.emoyes.top
-- name: 「🇺🇸」EMO | 天元果 x5
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Safari/605.1.15
+- name: '[VMESS] 「🇺🇸」EMO | 天元果 x5'
   type: vmess
   server: v33.emoyes.top
   port: 443
@@ -2973,7 +3311,9 @@ proxies:
     path: /
     headers:
       Host: v33.emoyes.top
-- name: 「🇺🇸」EMO | 天元果 x5-2
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 「🇺🇸」EMO | 天元果 x5-2'
   type: vmess
   server: v33.emoyes.top
   port: 443
@@ -2989,7 +3329,9 @@ proxies:
     path: /
     headers:
       Host: v33.emoyes.top
-- name: 🇧🇷 巴西1|cf
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 🇧🇷 巴西1|cf'
   type: vmess
   server: hk.bethebest.eu.org
   port: 2052
@@ -3002,7 +3344,9 @@ proxies:
     path: /
     headers:
       Host: br.123417.xyz
-- name: 🇧🇷 巴西2|cf
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+- name: '[VMESS] 🇧🇷 巴西2|cf'
   type: vmess
   server: hk.bethebest.eu.org
   port: 2052
@@ -3015,7 +3359,9 @@ proxies:
     path: /
     headers:
       Host: br2.123417.xyz
-- name: 🇧🇷 巴西3|cf
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+- name: '[VMESS] 🇧🇷 巴西3|cf'
   type: vmess
   server: hk.bethebest.eu.org
   port: 2052
@@ -3028,7 +3374,9 @@ proxies:
     path: /
     headers:
       Host: br3.123417.xyz
-- name: 🇨🇳台湾01|1x
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 🇨🇳台湾01|1x'
   type: vmess
   server: gy.youaremygod.top
   port: 47760
@@ -3037,7 +3385,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇨🇳台湾02|1x
+- name: '[VMESS] 🇨🇳台湾02|1x'
   type: vmess
   server: gg.youaremygod.top
   port: 46781
@@ -3046,7 +3394,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇨🇳台湾03|1x
+- name: '[VMESS] 🇨🇳台湾03|1x'
   type: vmess
   server: gy.youaremygod.top
   port: 47761
@@ -3055,7 +3403,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇨🇳台湾04|1x
+- name: '[VMESS] 🇨🇳台湾04|1x'
   type: vmess
   server: gg.youaremygod.top
   port: 46782
@@ -3064,7 +3412,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰香港 亚马逊 0x
+- name: '[VMESS] 🇭🇰香港 亚马逊 0x'
   type: vmess
   server: 18.167.172.112
   port: 443
@@ -3080,7 +3428,9 @@ proxies:
     path: /
     headers:
       Host: aws.ansh.top
-- name: 🇭🇰香港 亚马逊 0x-2
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+- name: '[VMESS] 🇭🇰香港 亚马逊 0x-2'
   type: vmess
   server: 18.167.172.112
   port: 443
@@ -3096,7 +3446,9 @@ proxies:
     path: /
     headers:
       Host: aws.ansh.top
-- name: 🇭🇰香港01|1x
+      User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] 🇭🇰香港01|1x'
   type: vmess
   server: gy.youaremygod.top
   port: 48888
@@ -3105,7 +3457,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰香港03|1x
+- name: '[VMESS] 🇭🇰香港03|1x'
   type: vmess
   server: gy.youaremygod.top
   port: 48890
@@ -3114,7 +3466,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰香港04|1x
+- name: '[VMESS] 🇭🇰香港04|1x'
   type: vmess
   server: gy.youaremygod.top
   port: 48894
@@ -3123,7 +3475,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰香港05|1x
+- name: '[VMESS] 🇭🇰香港05|1x'
   type: vmess
   server: gg.youaremygod.top
   port: 48891
@@ -3132,7 +3484,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰香港06|1x
+- name: '[VMESS] 🇭🇰香港06|1x'
   type: vmess
   server: gg.youaremygod.top
   port: 48892
@@ -3141,7 +3493,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰香港07|1x
+- name: '[VMESS] 🇭🇰香港07|1x'
   type: vmess
   server: gg.youaremygod.top
   port: 48893
@@ -3150,7 +3502,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰香港08|1x
+- name: '[VMESS] 🇭🇰香港08|1x'
   type: vmess
   server: gg.youaremygod.top
   port: 48895
@@ -3159,7 +3511,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰香港家宽HKT 10x
+- name: '[VMESS] 🇭🇰香港家宽HKT 10x'
   type: vmess
   server: bevent.bilibili.tv
   port: 443
@@ -3175,7 +3527,9 @@ proxies:
     path: /
     headers:
       Host: hkt.xiaoqi555.xyz
-- name: 🇭🇰香港家宽HKT 10x-2
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/125.0.0.0 Safari/537.36 OPR/111.0.0.0
+- name: '[VMESS] 🇭🇰香港家宽HKT 10x-2'
   type: vmess
   server: bevent.bilibili.tv
   port: 443
@@ -3191,7 +3545,9 @@ proxies:
     path: /
     headers:
       Host: hkt.xiaoqi555.xyz
-- name: 🇭🇰香港家宽HKT 10x-3
+      User-Agent: Mozilla/5.0 (Linux; Android 14; Pixel 8 Pro) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 🇭🇰香港家宽HKT 10x-3'
   type: vmess
   server: bevent.bilibili.tv
   port: 443
@@ -3207,7 +3563,9 @@ proxies:
     path: /
     headers:
       Host: hkt.xiaoqi555.xyz
-- name: 🇭🇰香港家宽hkbn 10x
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] 🇭🇰香港家宽hkbn 10x'
   type: vmess
   server: time.is
   port: 443
@@ -3223,7 +3581,9 @@ proxies:
     path: /
     headers:
       Host: hkbn.xiaoqi555.xyz
-- name: 🇭🇰香港家宽hkbn 10x-2
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] 🇭🇰香港家宽hkbn 10x-2'
   type: vmess
   server: time.is
   port: 443
@@ -3239,7 +3599,9 @@ proxies:
     path: /
     headers:
       Host: hkbn.xiaoqi555.xyz
-- name: 🇯🇵日本01|1x
+      User-Agent: Mozilla/5.0 (Linux; Android 14; SM-S928B) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 🇯🇵日本01|1x'
   type: vmess
   server: gg.youaremygod.top
   port: 48897
@@ -3248,7 +3610,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇯🇵日本02|1x
+- name: '[VMESS] 🇯🇵日本02|1x'
   type: vmess
   server: gy.youaremygod.top
   port: 48898
@@ -3257,7 +3619,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇯🇵日本03|1x
+- name: '[VMESS] 🇯🇵日本03|1x'
   type: vmess
   server: gg.youaremygod.top
   port: 49101
@@ -3266,7 +3628,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇯🇵日本04|1x
+- name: '[VMESS] 🇯🇵日本04|1x'
   type: vmess
   server: gy.youaremygod.top
   port: 49102
@@ -3275,7 +3637,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇸🇬新加坡01|GPT|1.5x
+- name: '[VMESS] 🇸🇬新加坡01|GPT|1.5x'
   type: vmess
   server: gy.youaremygod.top
   port: 47762
@@ -3284,7 +3646,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇸🇬新加坡02|GPT|1.5x
+- name: '[VMESS] 🇸🇬新加坡02|GPT|1.5x'
   type: vmess
   server: gy.youaremygod.top
   port: 47763
@@ -3293,7 +3655,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇸🇬新加坡03|GPT|1.5x
+- name: '[VMESS] 🇸🇬新加坡03|GPT|1.5x'
   type: vmess
   server: gy.youaremygod.top
   port: 47764
@@ -3302,7 +3664,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇰🇷韩国01|1x
+- name: '[VMESS] 🇰🇷韩国01|1x'
   type: vmess
   server: gg.youaremygod.top
   port: 34241
@@ -3311,7 +3673,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇺🇸美国Las Vegas 01|防失联&下载专用|0.01x
+- name: '[VMESS] 🇺🇸美国Las Vegas 01|防失联&下载专用|0.01x'
   type: vmess
   server: uslv1.danidapigu.top
   port: 2052
@@ -3324,7 +3686,9 @@ proxies:
     path: /scloud?ed=2048
     headers:
       Host: buyvmus2.fastcloud.top
-- name: 🇺🇸美国Las Vegas 02|防失联&下载专用|0.01x
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Safari/605.1.15
+- name: '[VMESS] 🇺🇸美国Las Vegas 02|防失联&下载专用|0.01x'
   type: vmess
   server: uslv2.danidapigu.top
   port: 2052
@@ -3337,7 +3701,9 @@ proxies:
     path: /scloud?ed=2048
     headers:
       Host: buyvmus2.fastcloud.top
-- name: 🇺🇸美国Las Vegas 03|防失联&下载专用|0.01x
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 🇺🇸美国Las Vegas 03|防失联&下载专用|0.01x'
   type: vmess
   server: uslv3.danidapigu.top
   port: 2052
@@ -3350,7 +3716,9 @@ proxies:
     path: /scloud?ed=2048
     headers:
       Host: buyvmus2.fastcloud.top
-- name: 美国 CloudFlare节点
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Safari/605.1.15
+- name: '[VMESS] 美国 CloudFlare节点'
   type: vmess
   server: 3EEEeE.999824.xyZ
   port: 443
@@ -3366,7 +3734,9 @@ proxies:
     path: /9dZlJLjHHrL0VwSolbqFpg
     headers:
       Host: 3eeeee.999824.xyz
-- name: '@Hope_Net-join-us-on-Telegram-4'
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] @Hope_Net-join-us-on-Telegram-4'
   type: vmess
   server: 127.0.0.1
   port: 8080
@@ -3375,7 +3745,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🔒 VM-TCP-NA 🇺🇸 US-15.204.234.200:41100
+- name: '[VMESS] 🔒 VM-TCP-NA 🇺🇸 US-15.204.234.200:41100'
   type: vmess
   server: 15.204.234.200
   port: 41100
@@ -3384,7 +3754,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 江苏省宿迁市 电信/宿迁电信IDC机房
+- name: '[VMESS] 江苏省宿迁市 电信/宿迁电信IDC机房'
   type: vmess
   server: 15002.vpdnss.top
   port: 15002
@@ -3393,7 +3763,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: ⚡️Telegram = @SOSkeyNET-2
+- name: '[VMESS] ⚡️Telegram - @SOSkeyNET-2'
   type: vmess
   server: 151.101.3.8
   port: 80
@@ -3406,7 +3776,9 @@ proxies:
     path: /
     headers:
       Host: befreewithus.net
-- name: 🔒 VM-TCP-NA 🇲🇺 MU-45.196.219.174:47680
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 🔒 VM-TCP-NA 🇲🇺 MU-45.196.219.174:47680'
   type: vmess
   server: 45.196.219.174
   port: 47680
@@ -3415,7 +3787,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🔒 VM-WS-NA 🇸🇬 SG-47.129.253.27:40000
+- name: '[VMESS] 🔒 VM-WS-NA 🇸🇬 SG-47.129.253.27:40000'
   type: vmess
   server: 47.129.253.27
   port: 40000
@@ -3428,7 +3800,9 @@ proxies:
     path: /bby
     headers:
       Host: down.dingtalk.com
-- name: 🔒 VM-TCP-NA 🇸🇬 SG-62.146.233.66:15828
+      User-Agent: Mozilla/5.0 (Linux; Android 14; SM-S928B) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 🔒 VM-TCP-NA 🇸🇬 SG-62.146.233.66:15828'
   type: vmess
   server: 62.146.233.66
   port: 15828
@@ -3437,7 +3811,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: ⚡️Telegram = @SOSkeyNET-3
+- name: '[VMESS] ⚡️Telegram - @SOSkeyNET-3'
   type: vmess
   server: 81.12.33.196
   port: 6008
@@ -3446,7 +3820,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: ⚡️Telegram = @SOSkeyNET-4
+- name: '[VMESS] ⚡️Telegram - @SOSkeyNET-4'
   type: vmess
   server: 81.12.33.196
   port: 6013
@@ -3455,7 +3829,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: ⚡️Telegram = @SOSkeyNET-5
+- name: '[VMESS] ⚡️Telegram - @SOSkeyNET-5'
   type: vmess
   server: 87.236.215.157
   port: 9081
@@ -3464,7 +3838,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: ⚡️Telegram = @SOSkeyNET-6
+- name: '[VMESS] ⚡️Telegram - @SOSkeyNET-6'
   type: vmess
   server: CoRe.CeNtRaLnEt.iR
   port: 4951
@@ -3473,7 +3847,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: ⚡️Telegram = @SOSkeyNET-7
+- name: '[VMESS] ⚡️Telegram - @SOSkeyNET-7'
   type: vmess
   server: alien-ezterari.shoponetop.com
   port: 1001
@@ -3482,7 +3856,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: ⚡️Telegram = @SOSkeyNET-8
+- name: '[VMESS] ⚡️Telegram - @SOSkeyNET-8'
   type: vmess
   server: alien-ezterari.shoponetop.com
   port: 1001
@@ -3491,7 +3865,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: ⚡️Telegram = @SOSkeyNET-9
+- name: '[VMESS] ⚡️Telegram - @SOSkeyNET-9'
   type: vmess
   server: wlf.amir008.com
   port: 8880
@@ -3504,7 +3878,9 @@ proxies:
     path: /Cyberacss
     headers:
       Host: cyber.amir008.com
-- name: همه اپراتورها | V2ray_Hub1
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] همه اپراتورها | V2ray_Hub1'
   type: vmess
   server: 57.129.24.124
   port: 443
@@ -3520,7 +3896,9 @@ proxies:
     path: /linkvws
     headers:
       Host: aveiror.com
-- name: 🇩🇪DE-57.129.24.125-7603
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 🇩🇪DE-57.129.24.125-7603'
   type: vmess
   server: 57.129.24.125
   port: 443
@@ -3536,7 +3914,9 @@ proxies:
     path: /linkvws
     headers:
       Host: wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc
-- name: France
+      User-Agent: Mozilla/5.0 (Linux; Android 14; SM-S928B) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] France'
   type: vmess
   server: 57.129.25.25
   port: 443
@@ -3552,7 +3932,9 @@ proxies:
     path: /linkvws
     headers:
       Host: f.khilei.coM
-- name: ⚜️Telegram:@IP_CF-2
+      User-Agent: Mozilla/5.0 (Linux; Android 14; SM-S928B) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] ⚜️Telegram:@IP_CF-2'
   type: vmess
   server: 62.146.233.66
   port: 15828
@@ -3561,7 +3943,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰HK-42.2.113.136-0364
+- name: '[VMESS] 🇭🇰HK-42.2.113.136-0364'
   type: vmess
   server: 66500699-sv2sg0-sx8y86-uvgv.hk.p5pv.com
   port: 80
@@ -3574,7 +3956,9 @@ proxies:
     path: /
     headers:
       Host: 66500699-sv2sg0-sx8y86-uvgv.hk.p5pv.com
-- name: '[🇮🇷]t.me/ConfigsHub'
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] [🇮🇷]t.me/ConfigsHub'
   type: vmess
   server: 81.12.33.193
   port: 6005
@@ -3583,7 +3967,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: '@V2raynGn'
+- name: '[VMESS] @V2raynGn'
   type: vmess
   server: 81.12.33.193
   port: 6006
@@ -3592,7 +3976,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: https://t.me/VPN4EVERYONE
+- name: '[VMESS] https://t.me/VPN4EVERYONE'
   type: vmess
   server: 81.12.33.196
   port: 6013
@@ -3601,7 +3985,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: '@appsooner کانال تلگرام 🇸🇬'
+- name: '[VMESS] @appsooner کانال تلگرام 🇸🇬'
   type: vmess
   server: 84.247.146.161
   port: 39530
@@ -3610,7 +3994,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: '@appsooner کانال تلگرام 🇸🇬-2'
+- name: '[VMESS] @appsooner کانال تلگرام 🇸🇬-2'
   type: vmess
   server: 84.247.146.161
   port: 39530
@@ -3619,7 +4003,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: '@appsooner کانال تلگرام 🇸🇬-3'
+- name: '[VMESS] @appsooner کانال تلگرام 🇸🇬-3'
   type: vmess
   server: 84.247.146.189
   port: 33754
@@ -3628,7 +4012,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🔒 VM-TCP-NA 🇸🇬 SG-84.247.147.243:51566
+- name: '[VMESS] 🔒 VM-TCP-NA 🇸🇬 SG-84.247.147.243:51566'
   type: vmess
   server: 84.247.147.243
   port: 51566
@@ -3637,7 +4021,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: '@meli_proxyy'
+- name: '[VMESS] @meli_proxyy'
   type: vmess
   server: 84.247.147.67
   port: 54179
@@ -3646,7 +4030,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 'Channel id: @ShadowProxy66🇸🇬'
+- name: '[VMESS] Channel id: @ShadowProxy66🇸🇬'
   type: vmess
   server: 84.247.147.67
   port: 54179
@@ -3655,7 +4039,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: '@speeds_vpn'
+- name: '[VMESS] @speeds_vpn'
   type: vmess
   server: 87.236.215.157
   port: 9081
@@ -3664,7 +4048,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 'Channel id: @ShadowProxy66🇦🇲'
+- name: '[VMESS] Channel id: @ShadowProxy66🇦🇲'
   type: vmess
   server: 92.223.2.46
   port: 8081
@@ -3673,7 +4057,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 'Channel id: @ShadowProxy66🇨🇦'
+- name: '[VMESS] Channel id: @ShadowProxy66🇨🇦'
   type: vmess
   server: 99.199.83.48
   port: 33678
@@ -3682,7 +4066,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 9 🍓@xixv2ray
+- name: '[VMESS] 9 🍓@xixv2ray'
   type: vmess
   server: 102.132.188.2
   port: 443
@@ -3698,7 +4082,9 @@ proxies:
     path: /
     headers:
       Host: q7.19kAla.co
-- name: 'Channel id: @ShadowProxy66'
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] Channel id: @ShadowProxy66'
   type: vmess
   server: 102.132.188.220
   port: 80
@@ -3711,7 +4097,9 @@ proxies:
     path: /
     headers:
       Host: q7.19KAla.co
-- name: 'Channel id: @ShadowProxy66-2'
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] Channel id: @ShadowProxy66-2'
   type: vmess
   server: 102.177.189.30
   port: 80
@@ -3724,7 +4112,9 @@ proxies:
     path: /
     headers:
       Host: q2.19kAla.co
-- name: 3 🍓@xixv2ray
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+- name: '[VMESS] 3 🍓@xixv2ray'
   type: vmess
   server: 104.17.176.171
   port: 8080
@@ -3737,7 +4127,9 @@ proxies:
     path: /nasnet/cdn
     headers:
       Host: ke7hz36ewz-4515017473.mashallahbet.com
-- name: 🏁RELAY-104.21.64.1-0367
+      User-Agent: Mozilla/5.0 (Linux; Android 14; Pixel 8 Pro) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 🏁RELAY-104.21.64.1-0367'
   type: vmess
   server: 104.21.64.1
   port: 2087
@@ -3753,7 +4145,9 @@ proxies:
     path: /
     headers:
       Host: rak1d3.777269.xyz
-- name: 🏁RELAY-104.21.96.1-0370
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 🏁RELAY-104.21.96.1-0370'
   type: vmess
   server: 104.21.96.1
   port: 2087
@@ -3769,7 +4163,9 @@ proxies:
     path: /
     headers:
       Host: rak1d3.777269.xyz
-- name: 'Channel id: @ShadowProxy66-3'
+      User-Agent: Mozilla/5.0 (Linux; Android 14; Pixel 8 Pro) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] Channel id: @ShadowProxy66-3'
   type: vmess
   server: 104.26.13.9
   port: 80
@@ -3782,7 +4178,9 @@ proxies:
     path: /
     headers:
       Host: q4.19kAla.co
-- name: 🇨🇳_CN_中国->🇺🇸_US_美国
+      User-Agent: Mozilla/5.0 (Linux; Android 14; SM-S928B) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 🇨🇳_CN_中国->🇺🇸_US_美国'
   type: vmess
   server: 111.26.109.79
   port: 30825
@@ -3795,7 +4193,9 @@ proxies:
     path: /oooo
     headers:
       Host: 111.26.109.79
-- name: 🇨🇦CA-134.195.198.147-7604
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) CriOS/126.0.6478.54 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 🇨🇦CA-134.195.198.147-7604'
   type: vmess
   server: 134.195.198.147
   port: 443
@@ -3811,7 +4211,9 @@ proxies:
     path: /linkvws
     headers:
       Host: inna.cfd
-- name: ' ❤️@Kayh_GNG - Github.com/kayhgng'
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/125.0.0.0 Safari/537.36 OPR/111.0.0.0
+- name: '[VMESS]  ❤️@Kayh_GNG - Github.com/kayhgng'
   type: vmess
   server: 146.19.168.161
   port: 443
@@ -3827,7 +4229,9 @@ proxies:
     path: /link
     headers:
       Host: az05.beyondy.cfd
-- name: همه اپراتورها | V2ray_Hub1-2
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1
+- name: '[VMESS] همه اپراتورها | V2ray_Hub1-2'
   type: vmess
   server: 15.235.83.227
   port: 443
@@ -3843,7 +4247,9 @@ proxies:
     path: /linkvws
     headers:
       Host: mankadmu.com
-- name: '@kali_signal'
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) CriOS/126.0.6478.54 Mobile/15E148 Safari/604.1
+- name: '[VMESS] @kali_signal'
   type: vmess
   server: 151.101.66.219
   port: 80
@@ -3852,7 +4258,7 @@ proxies:
   cipher: auto
   udp: true
   network: xhttp
-- name: 'Channel id: @ShadowProxy66-4'
+- name: '[VMESS] Channel id: @ShadowProxy66-4'
   type: vmess
   server: 172.67.22.14
   port: 80
@@ -3865,7 +4271,9 @@ proxies:
     path: /
     headers:
       Host: q4.19kAla.co
-- name: 🔒 VM-TCP-NA 🇮🇷 IR-2.189.84.169:5050
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+- name: '[VMESS] 🔒 VM-TCP-NA 🇮🇷 IR-2.189.84.169:5050'
   type: vmess
   server: 2.189.84.169
   port: 5050
@@ -3874,7 +4282,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🔒 VM-TCP-NA 🇮🇷 IR-212.23.214.162:12115
+- name: '[VMESS] 🔒 VM-TCP-NA 🇮🇷 IR-212.23.214.162:12115'
   type: vmess
   server: 212.23.214.162
   port: 12115
@@ -3883,7 +4291,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🏁RELAY-104.21.16.1-5580
+- name: '[VMESS] 🏁RELAY-104.21.16.1-5580'
   type: vmess
   server: 2sdfre3.999820.xyz
   port: 80
@@ -3896,7 +4304,9 @@ proxies:
     path: /10W6SJaK0F0oVXeNU6S2RVRP
     headers:
       Host: 2sdfre3.999820.xyz
-- name: 🇭🇰HK-1.36.218.184-5692
+      User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] 🇭🇰HK-1.36.218.184-5692'
   type: vmess
   server: 338b2185-sw1z40-sw51rj-hkb8.hgc1.tcpbbr.net
   port: 8080
@@ -3909,7 +4319,9 @@ proxies:
     path: /
     headers:
       Host: 338b2185-sw1z40-sw51rj-hkb8.hgc1.tcpbbr.net
-- name: 13|🇸🇬
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) CriOS/126.0.6478.54 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 13|🇸🇬'
   type: vmess
   server: 38.47.176.251
   port: 56051
@@ -3918,7 +4330,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇨🇳_CN_中国->🇷🇺_RU_俄罗斯
+- name: '[VMESS] 🇨🇳_CN_中国->🇷🇺_RU_俄罗斯'
   type: vmess
   server: v25.heduian.link
   port: 30825
@@ -3931,7 +4343,9 @@ proxies:
     path: /oooo
     headers:
       Host: v25.heduian.link
-- name: 🇨🇳_CN_中国->🇨🇦_CA_加拿大
+      User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] 🇨🇳_CN_中国->🇨🇦_CA_加拿大'
   type: vmess
   server: v35.heduian.link
   port: 30835
@@ -3944,7 +4358,9 @@ proxies:
     path: /oooo
     headers:
       Host: v35.heduian.link
-- name: 🏁RELAY-104.18.41.190-0699
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] 🏁RELAY-104.18.41.190-0699'
   type: vmess
   server: www.hdmoli.com
   port: 80
@@ -3957,7 +4373,9 @@ proxies:
     path: /rongseven?ed=2048
     headers:
       Host: fr.freeyyds.dpdns.org
-- name: 🇭🇰HK-42.2.113.136-5686
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 🇭🇰HK-42.2.113.136-5686'
   type: vmess
   server: ac759499-sv2sg0-sw26q2-php4.hk.p5pv.com
   port: 80
@@ -3970,7 +4388,9 @@ proxies:
     path: /
     headers:
       Host: ac759499-sv2sg0-sw26q2-php4.hk.p5pv.com
-- name: دوسم داری ؟!
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] دوسم داری ؟!'
   type: vmess
   server: cloud.jahanserver.sbs
   port: 443
@@ -3979,7 +4399,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🏁RELAY-172.66.168.226-2490
+- name: '[VMESS] 🏁RELAY-172.66.168.226-2490'
   type: vmess
   server: cloudgetservice.mcloudservice.site
   port: 443
@@ -3995,7 +4415,9 @@ proxies:
     path: /linkws
     headers:
       Host: maXNEtVIP-usA-VP3.nETKH3.SiTE
-- name: 🏁RELAY-104.21.112.1-0359
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] 🏁RELAY-104.21.112.1-0359'
   type: vmess
   server: de01.sh-cloudflare.sbs
   port: 2096
@@ -4011,7 +4433,9 @@ proxies:
     path: /
     headers:
       Host: de01.sh-cloudflare.sbs
-- name: 🇯🇵日本
+      User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1
+- name: '[VMESS] 🇯🇵日本'
   type: vmess
   server: jp3.aeccssssss.xyz
   port: 56225
@@ -4024,7 +4448,9 @@ proxies:
     path: ''
     headers:
       Host: jp3.aeccssssss.xyz
-- name: 🟡 Telegram= @VPN_SOLVE
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] 🟡 Telegram- @VPN_SOLVE'
   type: vmess
   server: l1.apland.ir
   port: 45090
@@ -4033,7 +4459,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: آقای ایکسرو سرویس از ساعت ۱۷:۵۰ تا ۱۸:۵۰
+- name: '[VMESS] آقای ایکسرو سرویس از ساعت ۱۷:۵۰ تا ۱۸:۵۰'
   type: vmess
   server: mew2.textbooksanjesh.ir
   port: 2053
@@ -4042,7 +4468,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🟡 Telegram= @VPN_SOLVE-2
+- name: '[VMESS] 🟡 Telegram- @VPN_SOLVE-2'
   type: vmess
   server: sabzr81.greenbridge-conected.shop
   port: 2028
@@ -4051,7 +4477,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🏁RELAY-172.67.206.152-1078
+- name: '[VMESS] 🏁RELAY-172.67.206.152-1078'
   type: vmess
   server: ssscdfr5.freevpnatm2025.dpdns.org
   port: 80
@@ -4064,7 +4490,9 @@ proxies:
     path: /10W6SJaK0F0oVXeNU6S2RVRP
     headers:
       Host: ssscdfr5.freevpnatm2025.dpdns.org
-- name: A01b-华沙 倍率:0.1 waw
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36
+- name: '[VMESS] A01b-华沙 倍率:0.1 waw'
   type: vmess
   server: v2waw0355-v2bh3u.333789.xyz
   port: 443
@@ -4080,7 +4508,9 @@ proxies:
     path: /hls/cctv5phd.m3u8
     headers:
       Host: v2waw0355-v2bh3u.333789.xyz
-- name: A02-荷兰 倍率:0.1 ams
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+- name: '[VMESS] A02-荷兰 倍率:0.1 ams'
   type: vmess
   server: ams.cloudflare.182682.xyz
   port: 443
@@ -4096,7 +4526,9 @@ proxies:
     path: /hls/cctv5phd.m3u8
     headers:
       Host: v2ams0356-fffe1d.333789.xyz
-- name: A02b-荷兰 倍率:0.1 ams
+      User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:127.0) Gecko/20100101
+        Firefox/127.0
+- name: '[VMESS] A02b-荷兰 倍率:0.1 ams'
   type: vmess
   server: v2ams0356-v2bh3u.333789.xyz
   port: 443
@@ -4112,7 +4544,9 @@ proxies:
     path: /hls/cctv5phd.m3u8
     headers:
       Host: v2ams0356-v2bh3u.333789.xyz
-- name: AB01b-美国 倍率:0.01 hcc
+      User-Agent: Mozilla/5.0 (Linux; Android 14; Pixel 8 Pro) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] AB01b-美国 倍率:0.01 hcc'
   type: vmess
   server: ushcc1.cloudflare.182682.xyz
   port: 443
@@ -4128,7 +4562,9 @@ proxies:
     path: /hls/cctv5phd.m3u8
     headers:
       Host: v2hcc0415-6a7b8c.902222.xyz
-- name: '%F0%9F%87%BA%F0%9F%87%B8%20%E7%BE%8E%E5%9B%BD%20CloudFlare%E8%8A%82%E7%82%B9'
+      User-Agent: Mozilla/5.0 (Linux; Android 14; Pixel 8 Pro) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] %F0%9F%87%BA%F0%9F%87%B8%20%E7%BE%8E%E5%9B%BD%20CloudFlare%E8%8A%82%E7%82%B9'
   type: vmess
   server: 104.17.176.171
   port: 8080
@@ -4141,7 +4577,9 @@ proxies:
     path: /nasnet/cdn
     headers:
       Host: ke7hz36ewz-4515017473.mashallahbet.com
-- name: 剩余流量：0-12
+      User-Agent: Mozilla/5.0 (Linux; Android 14; SM-S928B) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36
+- name: '[VMESS] 剩余流量：0-12'
   type: vmess
   server: www.google.com
   port: 10086
@@ -4150,7 +4588,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 等级到期，可签到使用
+- name: '[VMESS] 等级到期，可签到使用'
   type: vmess
   server: www.google.com
   port: 10086
@@ -4159,7 +4597,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 过期时间：2025-06-03
+- name: '[VMESS] 过期时间：2025-06-03'
   type: vmess
   server: www.google.com
   port: 10086
@@ -4168,7 +4606,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🏳️ Anon9
+- name: '[WIREGUARD] 🏳️ Anon9'
   type: wireguard
   server: 188.114.96.172
   port: 1014
@@ -4177,7 +4615,7 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   mtu: 1280
-- name: 🏳️ $$$+jadid+💪💪💪@freeiranianv2rey
+- name: '[WIREGUARD] 🏳️ $$$+jadid+💪💪💪@freeiranianv2rey'
   type: wireguard
   server: 188.114.97.227
   port: 7156
@@ -4186,7 +4624,7 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   mtu: 1280
-- name: 🇨🇦 mci jadid 💪💪💪@freeiranianv2rey
+- name: '[WIREGUARD] 🇨🇦 mci jadid 💪💪💪@freeiranianv2rey'
   type: wireguard
   server: 188.114.98.12
   port: 1002
@@ -4195,7 +4633,7 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   mtu: 1280
-- name: 🏳️ Peyman_wire-g
+- name: '[WIREGUARD] 🏳️ Peyman_wire-g'
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
@@ -4205,7 +4643,7 @@ proxies:
   ip: 172.16.0.2/32
   ipv6: 2606:4700:110:8766:b13b:8da5:6784:b396/128
   mtu: 1420
-- name: 🏳️ Peyman_wire-g-2
+- name: '[WIREGUARD] 🏳️ Peyman_wire-g-2'
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
@@ -4215,7 +4653,7 @@ proxies:
   ip: 172.16.0.2/32
   ipv6: 2606:4700:110:8632:7c3:7451:b265:6f42/128
   mtu: 1420
-- name: 🏳️ Peyman_wire-g-3
+- name: '[WIREGUARD] 🏳️ Peyman_wire-g-3'
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
@@ -4225,7 +4663,7 @@ proxies:
   ip: 172.16.0.2/32
   ipv6: 2606:4700:110:8d7d:568f:5dc6:93b2:e7d9/128
   mtu: 1420
-- name: 🏳️ Peyman_wire-g-4
+- name: '[WIREGUARD] 🏳️ Peyman_wire-g-4'
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
@@ -4235,7 +4673,7 @@ proxies:
   ip: 172.16.0.2/32
   ipv6: 2606:4700:110:8c84:6c1a:79e8:a9a5:18d6/128
   mtu: 1420
-- name: 🇨🇦 Anon6
+- name: '[WIREGUARD] 🇨🇦 Anon6'
   type: wireguard
   server: 188.114.98.68
   port: 945
@@ -4244,7 +4682,7 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   mtu: 1280
-- name: 🇺🇸 Anon1
+- name: '[WIREGUARD] 🇺🇸 Anon1'
   type: wireguard
   server: 188.114.99.209
   port: 942
@@ -4253,7 +4691,7 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   mtu: 1280
-- name: 🏳️ Peyman_wire-g-5
+- name: '[WIREGUARD] 🏳️ Peyman_wire-g-5'
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
@@ -4263,7 +4701,7 @@ proxies:
   ip: 172.16.0.2/32
   ipv6: 2606:4700:110:852b:4fc8:50e0:ca12:feca/128
   mtu: 1420
-- name: 🏳️ Peyman_wire-g-6
+- name: '[WIREGUARD] 🏳️ Peyman_wire-g-6'
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
@@ -4273,7 +4711,7 @@ proxies:
   ip: 172.16.0.2/32
   ipv6: 2606:4700:110:8904:ddac:8420:98b5:8961/128
   mtu: 1420
-- name: 🏳️ Peyman_wire-g-7
+- name: '[WIREGUARD] 🏳️ Peyman_wire-g-7'
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
@@ -4283,7 +4721,7 @@ proxies:
   ip: 172.16.0.2/32
   ipv6: 2606:4700:110:8a0c:3c99:8a5e:4bf5:d1ac/128
   mtu: 1420
-- name: 🏳️ jadid+💪💪💪@freeiranianv2rey
+- name: '[WIREGUARD] 🏳️ jadid+💪💪💪@freeiranianv2rey'
   type: wireguard
   server: 188.114.96.16
   port: 4233
@@ -4292,7 +4730,7 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   mtu: 1280
-- name: 🇨🇦 @freeiranianv2rey+💯💯💯تا+ابد+رایگان
+- name: '[WIREGUARD] 🇨🇦 @freeiranianv2rey+💯💯💯تا+ابد+رایگان'
   type: wireguard
   server: 188.114.96.49
   port: 864
@@ -4301,7 +4739,7 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   mtu: 1280
-- name: 🏳️ پرقدرت@freeiranianv2rey
+- name: '[WIREGUARD] 🏳️ پرقدرت@freeiranianv2rey'
   type: wireguard
   server: 188.114.97.239
   port: 908
@@ -4310,16 +4748,14 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   mtu: 1280
-- name: 🏳️ 2606:4700:d0::d91:179:c651:ed70
+- name: '[WIREGUARD] 🏳️ 2606:4700:d0::d91:179:c651:ed70'
   type: wireguard
   server: 2606:4700:d0::d91:179:c651:ed70
   port: 7281
   private-key: QKRFk8I+jwBi4WlpjC1a75bb7oQGmHQnYfw0rThENEk=
   public-key: p6+zdc6L4w2uG51zEq7/G79eR2s/2Dl0P3bh1TBIkA0=
   udp: true
-  ip: 172.16.0.2/32
-  mtu: 1280
-- name: 🏳️ Peyman_wire-g-8
+- name: '[WIREGUARD] 🏳️ Peyman_wire-g-8'
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
@@ -4329,7 +4765,7 @@ proxies:
   ip: 172.16.0.2/32
   ipv6: 2606:4700:110:84c4:320c:a96:a1da:7d3a/128
   mtu: 1420
-- name: 🏳️ Peyman_wire-g-9
+- name: '[WIREGUARD] 🏳️ Peyman_wire-g-9'
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
@@ -4339,7 +4775,7 @@ proxies:
   ip: 172.16.0.2/32
   ipv6: 2606:4700:110:8f02:6e90:a84c:12b6:3d1e/128
   mtu: 1420
-- name: 🇺🇸 Anon10
+- name: '[WIREGUARD] 🇺🇸 Anon10'
   type: wireguard
   server: 188.114.99.20
   port: 988
@@ -4348,7 +4784,7 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   mtu: 1280
-- name: 🏳️ Anon5
+- name: '[WIREGUARD] 🏳️ Anon5'
   type: wireguard
   server: 188.114.99.77
   port: 1002
@@ -4357,7 +4793,7 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   mtu: 1280
-- name: 🏳️ Anon7
+- name: '[WIREGUARD] 🏳️ Anon7'
   type: wireguard
   server: 188.114.99.162
   port: 945
@@ -4366,7 +4802,7 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   mtu: 1280
-- name: 🏳️ Peyman_wire-g-10
+- name: '[WIREGUARD] 🏳️ Peyman_wire-g-10'
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
@@ -4376,7 +4812,7 @@ proxies:
   ip: 172.16.0.2/32
   ipv6: 2606:4700:110:8705:82be:68ba:df9f:4924/128
   mtu: 1420
-- name: 🇺🇸 Anon4
+- name: '[WIREGUARD] 🇺🇸 Anon4'
   type: wireguard
   server: 188.114.99.13
   port: 1014
@@ -4385,7 +4821,7 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   mtu: 1280
-- name: 🏳️ Anon3
+- name: '[WIREGUARD] 🏳️ Anon3'
   type: wireguard
   server: 188.114.96.13
   port: 880
@@ -4394,7 +4830,7 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   mtu: 1280
-- name: 🇨🇦 Anon2
+- name: '[WIREGUARD] 🇨🇦 Anon2'
   type: wireguard
   server: 188.114.97.240
   port: 908
@@ -4403,7 +4839,7 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   mtu: 1280
-- name: 🇨🇦 Anon8
+- name: '[WIREGUARD] 🇨🇦 Anon8'
   type: wireguard
   server: 188.114.96.23
   port: 945
@@ -4425,363 +4861,7 @@ proxy-groups:
   type: select
   icon: https://www.svgrepo.com/show/372331/cursor-hand-click.svg
   proxies:
-  - NASNET | 6 | Emergency
-  - Telegram@viturey  🇺🇸🇺🇸
-  - 只有爱懂的人才能用
-  - vmess-BB8
-  - 🇩🇪DE-57.129.24.125-7027
-  - 🏁RELAY-104.17.176.171-0220
-  - 🏁RELAY-172.67.209.79-0773
-  - 🇨🇦CA-23.162.200.227-7026
-  - 🏁RELAY-104.21.89.221-0770
-  - 🏁RELAY-104.21.10.97-0226
-  - 🏁RELAY-172.67.191.140-0775
-  - 🏁RELAY-104.21.112.1-0405
-  - 🏁RELAY-104.26.12.31-0722
-  - Telegram @viturey🇩🇪🇩🇪
-  - Telegram @viturey🇩🇪🇩🇪-2
-  - ⚡️Telegram = @SOSkeyNET
-  - 13,14|美国|@ripaojiedian
-  - 13,14|日本4|@ripaojiedian
-  - 13,14|香港6|@ripaojiedian
-  - 13|🇭🇰 香港7|@ripaojiedian
-  - 13|🇰🇷 韩国2|@ripaojiedian
-  - 13|🇸🇬 新加坡3|@ripaojiedian
-  - 14|新加坡2|@ripaojiedian
-  - 2|🇺🇸62 |  3.3MB/s|Openai|Gemini
-  - 2|🇭🇰1 |  1.8MB/s|15%|Disney|Yout...
-  - 2|🌀4-TH |  2.6MB/s|55%|Netflix|O...
-  - '@Hope_Net-join-us-on-Telegram'
-  - '@Hope_Net-join-us-on-Telegram-2'
-  - '@Hope_Net-join-us-on-Telegram-3'
-  - 🔒 VM-TCP-NA 🇨🇳 CN-120.198.71.214:41175
-  - 🇨🇦 一元机场:ssrsub.de 加拿大 03
-  - 🇨🇦 一元机场:ssrsub.de 加拿大 08
-  - 🇨🇳 广东省广州市 移动
-  - 🇭🇰 一元机场:ssrsub.de 香港 01
-  - 🇭🇰 一元机场:ssrsub.de 香港 05
-  - 🇭🇰 一元机场:ssrsub.de 香港 10
-  - 🇭🇰 一元机场:ssrsub.de 香港 11
-  - 🇭🇰 一元机场:ssrsub.de 香港 17
-  - 🇭🇰 一元机场:ssrsub.de 香港 19
-  - 🇮🇩 一元机场:ssrsub.de 印尼 01
-  - 🇰🇷 一元机场:ssrsub.de 韩国 04
-  - 🇺🇸 一元机场:ssrsub.de 美国 79
-  - 🇺🇸 一元机场:ssrsub.de 美国 81
-  - 🇺🇸美国11 | ⬇️ 2.8MB/s
-  - 🇺🇸美国12 | ⬇️ 3.4MB/s
-  - 🇺🇸美国13 | ⬇️ 1.8MB/s
-  - 🇺🇸美国14 | ⬇️ 2.2MB/s
-  - 🇺🇸美国17 | ⬇️ 4.4MB/s
-  - 🇺🇸美国18 | ⬇️ 2.3MB/s
-  - 🇺🇸美国19 | ⬇️ 2.1MB/s
-  - 🇺🇸美国23 | ⬇️ 1.4MB/s
-  - 🇺🇸美国24 | ⬇️ 3.4MB/s
-  - 🇺🇸美国26 | ⬇️ 3.2MB/s
-  - ' ❗请到https://www.niao.icu❗续费'
-  - (IEPL)英国1
-  - (隧道)英国2
-  - 6 | Emergency⚜️Telegram:@IP_CF
-  - FRK.德国.A
-  - HK | 香港 BGP
-  - HK.香港.B | 推荐
-  - HK.香港.C | 高速.2x倍率
-  - HK.香港.D
-  - HK.香港.E
-  - HK.香港.F
-  - HK.香港.G | 多入口
-  - SG | 新加坡 01
-  - SGP.新加坡.D | 推荐
-  - TW | 台湾 01
-  - TW.台湾.A
-  - TW.台湾.B | 推荐
-  - UK.英国.A
-  - '[3X]泰国NO1'
-  - '[3X]泰国NO2'
-  - '[3X]马来西亚专线NO2'
-  - 台湾-优化
-  - 台湾-优化-2
-  - 台湾-优化2-GPT
-  - 台湾-优化2-GPT-2
-  - 台湾-优化3
-  - 台湾-优化3-2
-  - 台湾-优化3-3
-  - 免费JP节点01
-  - 免费JP节点01-2
-  - 免费SG节点02
-  - 免费SG节点02-2
-  - 免费SG节点03
-  - 免费SG节点03-2
-  - 免费US节点04
-  - 免费US节点04-2
-  - 免费US节点05
-  - 免费US节点05-2
-  - 剩余流量：-1.23 GB
-  - 剩余流量：-2.8 GB
-  - 剩余流量：0
-  - 剩余流量：0-2
-  - 剩余流量：0-3
-  - 剩余流量：0-4
-  - 剩余流量：0-5
-  - 剩余流量：0-6
-  - 剩余流量：0-7
-  - 剩余流量：0-8
-  - 剩余流量：0-9
-  - 剩余流量：0-10
-  - 剩余流量：0-11
-  - 剩余流量：2 GB
-  - 剩余流量：6.79 GB
-  - 剩余流量：877.59 GB
-  - 加拿大-优化
-  - 加拿大-优化-2
-  - 加拿大-优化2
-  - 加拿大-优化2-2
-  - 加拿大-优化3
-  - 加拿大1
-  - 加拿大2
-  - 印度-优化
-  - 印度-优化-2
-  - 备用网址www.fzdvd.cc
-  - 套餐到期：2025-06-24
-  - 套餐到期：2025-08-24
-  - 套餐到期：2025-08-25
-  - 套餐到期：2025-10-07
-  - 套餐到期：长期有效
-  - 套餐到期：长期有效-2
-  - 套餐到期：长期有效-3
-  - 套餐到期：长期有效-4
-  - 套餐到期：长期有效-5
-  - 套餐到期：长期有效-6
-  - 套餐到期：长期有效-7
-  - 套餐到期：长期有效-8
-  - 套餐到期：长期有效-9
-  - 套餐到期：长期有效-10
-  - 套餐到期：长期有效-11
-  - 官网：dash.henet.uk
-  - 官网：vvs.e54.site
-  - 官网：vvs.e54.site-2
-  - 导航页：www.可乐云.net
-  - 已到期或流量已用完
-  - 德国-优化
-  - 德国-优化-2
-  - 德国-优化2
-  - 德国01_免费
-  - 新加坡-优化
-  - 新加坡-优化-2
-  - 新加坡-优化-3
-  - 新加坡-优化2
-  - 新加坡-优化2-2
-  - 新加坡-优化2-3
-  - 新加坡-优化3
-  - 新加坡-优化3-2
-  - 新加坡-优化3-3
-  - 新加坡NO.1
-  - 新加坡NO.2
-  - 日本-优化
-  - 日本-优化2
-  - 日本-优化2-2
-  - 日本-优化3
-  - 日本-优化3-2
-  - 日本NO.1
-  - 日本NO.2
-  - 无墙地址 http://pcdn.giize.com:8011/
-  - 无墙地址 http://pcdn.giize.com:8011/-2
-  - 最新地址：gy888.xyz
-  - 最新网址www.fzdxd.top
-  - 法国1
-  - 法国2
-  - 澳大利亚 01
-  - 澳大利亚 02
-  - 澳大利亚原生1
-  - 澳大利亚原生2
-  - 用前请更新订阅！！！
-  - '电报群: https://t.me/emovpn x5'
-  - 登录https://cokecloud.me 续费
-  - 美国01_免费
-  - 美国LA-优化-GPT
-  - 美国LA-优化-GPT-2
-  - 美国LA-优化2-GPT
-  - 美国LA-优化2-GPT-2
-  - 美国LA-优化3-GPT
-  - 美国LA-优化3-GPT-2
-  - 美国LA-优化3-GPT-3
-  - 美国NO.2（GPT）
-  - 菲律宾 马尼拉-中转
-  - 英国-01
-  - 英国-02
-  - 英国-优化-GPT
-  - 英国-优化-GPT-2
-  - 英国-优化-GPT-3
-  - 英国-优化2
-  - 英国-优化2-2
-  - 英国-优化2-3
-  - 英国-优化3
-  - 英国-优化3-2
-  - 英国-优化3-3
-  - 距离下次重置剩余：7 天
-  - 过滤掉3条线路
-  - 过滤掉3条线路-2
-  - 过滤掉3条线路-3
-  - 过滤掉3条线路-4
-  - 过滤掉3条线路-5
-  - 过滤掉3条线路-6
-  - 过滤掉3条线路-7
-  - 过滤掉3条线路-8
-  - 过滤掉3条线路-9
-  - 过滤掉3条线路-10
-  - 过滤掉3条线路-11
-  - 过滤掉18条线路
-  - 过滤掉2条线路
-  - 过滤掉2条线路-2
-  - 过滤掉6条线路
-  - 过滤掉6条线路-2
-  - 过滤掉6条线路-3
-  - 韩国-02
-  - 韩国-03-电信用户
-  - 香港NO.1（GPT奈飞等）
-  - 香港NO.2（GPT奈飞等）
-  - 香港WAP-优化
-  - 香港WAP-优化-2
-  - 香港WAP-优化-3
-  - 香港WAP-优化2
-  - 香港WAP-优化2-2
-  - ⚜️Telegram:@IP_CF
-  - ❗  您的订阅已过期 ❗
-  - ❗ 您的订阅已过期 ❗
-  - 「加入会员解锁流媒体」x5
-  - 「加入会员解锁流媒体」x5-2
-  - 「🇫🇷」EMO | 冰糖心 x5
-  - 「🇫🇷」EMO | 冰糖心 x5-2
-  - 「🇺🇸」EMO | 天元果 x5
-  - 「🇺🇸」EMO | 天元果 x5-2
-  - 🇧🇷 巴西1|cf
-  - 🇧🇷 巴西2|cf
-  - 🇧🇷 巴西3|cf
-  - 🇨🇳台湾01|1x
-  - 🇨🇳台湾02|1x
-  - 🇨🇳台湾03|1x
-  - 🇨🇳台湾04|1x
-  - 🇭🇰香港 亚马逊 0x
-  - 🇭🇰香港 亚马逊 0x-2
-  - 🇭🇰香港01|1x
-  - 🇭🇰香港03|1x
-  - 🇭🇰香港04|1x
-  - 🇭🇰香港05|1x
-  - 🇭🇰香港06|1x
-  - 🇭🇰香港07|1x
-  - 🇭🇰香港08|1x
-  - 🇭🇰香港家宽HKT 10x
-  - 🇭🇰香港家宽HKT 10x-2
-  - 🇭🇰香港家宽HKT 10x-3
-  - 🇭🇰香港家宽hkbn 10x
-  - 🇭🇰香港家宽hkbn 10x-2
-  - 🇯🇵日本01|1x
-  - 🇯🇵日本02|1x
-  - 🇯🇵日本03|1x
-  - 🇯🇵日本04|1x
-  - 🇸🇬新加坡01|GPT|1.5x
-  - 🇸🇬新加坡02|GPT|1.5x
-  - 🇸🇬新加坡03|GPT|1.5x
-  - 🇰🇷韩国01|1x
-  - 🇺🇸美国Las Vegas 01|防失联&下载专用|0.01x
-  - 🇺🇸美国Las Vegas 02|防失联&下载专用|0.01x
-  - 🇺🇸美国Las Vegas 03|防失联&下载专用|0.01x
-  - 美国 CloudFlare节点
-  - '@Hope_Net-join-us-on-Telegram-4'
-  - 🔒 VM-TCP-NA 🇺🇸 US-15.204.234.200:41100
-  - 江苏省宿迁市 电信/宿迁电信IDC机房
-  - ⚡️Telegram = @SOSkeyNET-2
-  - 🔒 VM-TCP-NA 🇲🇺 MU-45.196.219.174:47680
-  - 🔒 VM-WS-NA 🇸🇬 SG-47.129.253.27:40000
-  - 🔒 VM-TCP-NA 🇸🇬 SG-62.146.233.66:15828
-  - ⚡️Telegram = @SOSkeyNET-3
-  - ⚡️Telegram = @SOSkeyNET-4
-  - ⚡️Telegram = @SOSkeyNET-5
-  - ⚡️Telegram = @SOSkeyNET-6
-  - ⚡️Telegram = @SOSkeyNET-7
-  - ⚡️Telegram = @SOSkeyNET-8
-  - ⚡️Telegram = @SOSkeyNET-9
-  - همه اپراتورها | V2ray_Hub1
-  - 🇩🇪DE-57.129.24.125-7603
-  - France
-  - ⚜️Telegram:@IP_CF-2
-  - 🇭🇰HK-42.2.113.136-0364
-  - '[🇮🇷]t.me/ConfigsHub'
-  - '@V2raynGn'
-  - https://t.me/VPN4EVERYONE
-  - '@appsooner کانال تلگرام 🇸🇬'
-  - '@appsooner کانال تلگرام 🇸🇬-2'
-  - '@appsooner کانال تلگرام 🇸🇬-3'
-  - 🔒 VM-TCP-NA 🇸🇬 SG-84.247.147.243:51566
-  - '@meli_proxyy'
-  - 'Channel id: @ShadowProxy66🇸🇬'
-  - '@speeds_vpn'
-  - 'Channel id: @ShadowProxy66🇦🇲'
-  - 'Channel id: @ShadowProxy66🇨🇦'
-  - 9 🍓@xixv2ray
-  - 'Channel id: @ShadowProxy66'
-  - 'Channel id: @ShadowProxy66-2'
-  - 3 🍓@xixv2ray
-  - 🏁RELAY-104.21.64.1-0367
-  - 🏁RELAY-104.21.96.1-0370
-  - 'Channel id: @ShadowProxy66-3'
-  - 🇨🇳_CN_中国->🇺🇸_US_美国
-  - 🇨🇦CA-134.195.198.147-7604
-  - ' ❤️@Kayh_GNG - Github.com/kayhgng'
-  - همه اپراتورها | V2ray_Hub1-2
-  - '@kali_signal'
-  - 'Channel id: @ShadowProxy66-4'
-  - 🔒 VM-TCP-NA 🇮🇷 IR-2.189.84.169:5050
-  - 🔒 VM-TCP-NA 🇮🇷 IR-212.23.214.162:12115
-  - 🏁RELAY-104.21.16.1-5580
-  - 🇭🇰HK-1.36.218.184-5692
-  - 13|🇸🇬
-  - 🇨🇳_CN_中国->🇷🇺_RU_俄罗斯
-  - 🇨🇳_CN_中国->🇨🇦_CA_加拿大
-  - 🏁RELAY-104.18.41.190-0699
-  - 🇭🇰HK-42.2.113.136-5686
-  - دوسم داری ؟!
-  - 🏁RELAY-172.66.168.226-2490
-  - 🏁RELAY-104.21.112.1-0359
-  - 🇯🇵日本
-  - 🟡 Telegram= @VPN_SOLVE
-  - آقای ایکسرو سرویس از ساعت ۱۷:۵۰ تا ۱۸:۵۰
-  - 🟡 Telegram= @VPN_SOLVE-2
-  - 🏁RELAY-172.67.206.152-1078
-  - A01b-华沙 倍率:0.1 waw
-  - A02-荷兰 倍率:0.1 ams
-  - A02b-荷兰 倍率:0.1 ams
-  - AB01b-美国 倍率:0.01 hcc
-  - '%F0%9F%87%BA%F0%9F%87%B8%20%E7%BE%8E%E5%9B%BD%20CloudFlare%E8%8A%82%E7%82%B9'
-  - 剩余流量：0-12
-  - 等级到期，可签到使用
-  - 过期时间：2025-06-03
-  - 🏳️ Anon9
-  - 🏳️ $$$+jadid+💪💪💪@freeiranianv2rey
-  - 🇨🇦 mci jadid 💪💪💪@freeiranianv2rey
-  - 🏳️ Peyman_wire-g
-  - 🏳️ Peyman_wire-g-2
-  - 🏳️ Peyman_wire-g-3
-  - 🏳️ Peyman_wire-g-4
-  - 🇨🇦 Anon6
-  - 🇺🇸 Anon1
-  - 🏳️ Peyman_wire-g-5
-  - 🏳️ Peyman_wire-g-6
-  - 🏳️ Peyman_wire-g-7
-  - 🏳️ jadid+💪💪💪@freeiranianv2rey
-  - 🇨🇦 @freeiranianv2rey+💯💯💯تا+ابد+رایگان
-  - 🏳️ پرقدرت@freeiranianv2rey
-  - 🏳️ 2606:4700:d0::d91:179:c651:ed70
-  - 🏳️ Peyman_wire-g-8
-  - 🏳️ Peyman_wire-g-9
-  - 🇺🇸 Anon10
-  - 🏳️ Anon5
-  - 🏳️ Anon7
-  - 🏳️ Peyman_wire-g-10
-  - 🇺🇸 Anon4
-  - 🏳️ Anon3
-  - 🇨🇦 Anon2
-  - 🇨🇦 Anon8
+  - ALL_PROXIES_PLACEHOLDER
 - name: خودکار (بهترین پینگ) 🤖
   type: url-test
   icon: https://www.svgrepo.com/show/7876/speedometer.svg
@@ -4791,363 +4871,7 @@ proxy-groups:
   tolerance: 10
   lazy: true
   proxies:
-  - NASNET | 6 | Emergency
-  - Telegram@viturey  🇺🇸🇺🇸
-  - 只有爱懂的人才能用
-  - vmess-BB8
-  - 🇩🇪DE-57.129.24.125-7027
-  - 🏁RELAY-104.17.176.171-0220
-  - 🏁RELAY-172.67.209.79-0773
-  - 🇨🇦CA-23.162.200.227-7026
-  - 🏁RELAY-104.21.89.221-0770
-  - 🏁RELAY-104.21.10.97-0226
-  - 🏁RELAY-172.67.191.140-0775
-  - 🏁RELAY-104.21.112.1-0405
-  - 🏁RELAY-104.26.12.31-0722
-  - Telegram @viturey🇩🇪🇩🇪
-  - Telegram @viturey🇩🇪🇩🇪-2
-  - ⚡️Telegram = @SOSkeyNET
-  - 13,14|美国|@ripaojiedian
-  - 13,14|日本4|@ripaojiedian
-  - 13,14|香港6|@ripaojiedian
-  - 13|🇭🇰 香港7|@ripaojiedian
-  - 13|🇰🇷 韩国2|@ripaojiedian
-  - 13|🇸🇬 新加坡3|@ripaojiedian
-  - 14|新加坡2|@ripaojiedian
-  - 2|🇺🇸62 |  3.3MB/s|Openai|Gemini
-  - 2|🇭🇰1 |  1.8MB/s|15%|Disney|Yout...
-  - 2|🌀4-TH |  2.6MB/s|55%|Netflix|O...
-  - '@Hope_Net-join-us-on-Telegram'
-  - '@Hope_Net-join-us-on-Telegram-2'
-  - '@Hope_Net-join-us-on-Telegram-3'
-  - 🔒 VM-TCP-NA 🇨🇳 CN-120.198.71.214:41175
-  - 🇨🇦 一元机场:ssrsub.de 加拿大 03
-  - 🇨🇦 一元机场:ssrsub.de 加拿大 08
-  - 🇨🇳 广东省广州市 移动
-  - 🇭🇰 一元机场:ssrsub.de 香港 01
-  - 🇭🇰 一元机场:ssrsub.de 香港 05
-  - 🇭🇰 一元机场:ssrsub.de 香港 10
-  - 🇭🇰 一元机场:ssrsub.de 香港 11
-  - 🇭🇰 一元机场:ssrsub.de 香港 17
-  - 🇭🇰 一元机场:ssrsub.de 香港 19
-  - 🇮🇩 一元机场:ssrsub.de 印尼 01
-  - 🇰🇷 一元机场:ssrsub.de 韩国 04
-  - 🇺🇸 一元机场:ssrsub.de 美国 79
-  - 🇺🇸 一元机场:ssrsub.de 美国 81
-  - 🇺🇸美国11 | ⬇️ 2.8MB/s
-  - 🇺🇸美国12 | ⬇️ 3.4MB/s
-  - 🇺🇸美国13 | ⬇️ 1.8MB/s
-  - 🇺🇸美国14 | ⬇️ 2.2MB/s
-  - 🇺🇸美国17 | ⬇️ 4.4MB/s
-  - 🇺🇸美国18 | ⬇️ 2.3MB/s
-  - 🇺🇸美国19 | ⬇️ 2.1MB/s
-  - 🇺🇸美国23 | ⬇️ 1.4MB/s
-  - 🇺🇸美国24 | ⬇️ 3.4MB/s
-  - 🇺🇸美国26 | ⬇️ 3.2MB/s
-  - ' ❗请到https://www.niao.icu❗续费'
-  - (IEPL)英国1
-  - (隧道)英国2
-  - 6 | Emergency⚜️Telegram:@IP_CF
-  - FRK.德国.A
-  - HK | 香港 BGP
-  - HK.香港.B | 推荐
-  - HK.香港.C | 高速.2x倍率
-  - HK.香港.D
-  - HK.香港.E
-  - HK.香港.F
-  - HK.香港.G | 多入口
-  - SG | 新加坡 01
-  - SGP.新加坡.D | 推荐
-  - TW | 台湾 01
-  - TW.台湾.A
-  - TW.台湾.B | 推荐
-  - UK.英国.A
-  - '[3X]泰国NO1'
-  - '[3X]泰国NO2'
-  - '[3X]马来西亚专线NO2'
-  - 台湾-优化
-  - 台湾-优化-2
-  - 台湾-优化2-GPT
-  - 台湾-优化2-GPT-2
-  - 台湾-优化3
-  - 台湾-优化3-2
-  - 台湾-优化3-3
-  - 免费JP节点01
-  - 免费JP节点01-2
-  - 免费SG节点02
-  - 免费SG节点02-2
-  - 免费SG节点03
-  - 免费SG节点03-2
-  - 免费US节点04
-  - 免费US节点04-2
-  - 免费US节点05
-  - 免费US节点05-2
-  - 剩余流量：-1.23 GB
-  - 剩余流量：-2.8 GB
-  - 剩余流量：0
-  - 剩余流量：0-2
-  - 剩余流量：0-3
-  - 剩余流量：0-4
-  - 剩余流量：0-5
-  - 剩余流量：0-6
-  - 剩余流量：0-7
-  - 剩余流量：0-8
-  - 剩余流量：0-9
-  - 剩余流量：0-10
-  - 剩余流量：0-11
-  - 剩余流量：2 GB
-  - 剩余流量：6.79 GB
-  - 剩余流量：877.59 GB
-  - 加拿大-优化
-  - 加拿大-优化-2
-  - 加拿大-优化2
-  - 加拿大-优化2-2
-  - 加拿大-优化3
-  - 加拿大1
-  - 加拿大2
-  - 印度-优化
-  - 印度-优化-2
-  - 备用网址www.fzdvd.cc
-  - 套餐到期：2025-06-24
-  - 套餐到期：2025-08-24
-  - 套餐到期：2025-08-25
-  - 套餐到期：2025-10-07
-  - 套餐到期：长期有效
-  - 套餐到期：长期有效-2
-  - 套餐到期：长期有效-3
-  - 套餐到期：长期有效-4
-  - 套餐到期：长期有效-5
-  - 套餐到期：长期有效-6
-  - 套餐到期：长期有效-7
-  - 套餐到期：长期有效-8
-  - 套餐到期：长期有效-9
-  - 套餐到期：长期有效-10
-  - 套餐到期：长期有效-11
-  - 官网：dash.henet.uk
-  - 官网：vvs.e54.site
-  - 官网：vvs.e54.site-2
-  - 导航页：www.可乐云.net
-  - 已到期或流量已用完
-  - 德国-优化
-  - 德国-优化-2
-  - 德国-优化2
-  - 德国01_免费
-  - 新加坡-优化
-  - 新加坡-优化-2
-  - 新加坡-优化-3
-  - 新加坡-优化2
-  - 新加坡-优化2-2
-  - 新加坡-优化2-3
-  - 新加坡-优化3
-  - 新加坡-优化3-2
-  - 新加坡-优化3-3
-  - 新加坡NO.1
-  - 新加坡NO.2
-  - 日本-优化
-  - 日本-优化2
-  - 日本-优化2-2
-  - 日本-优化3
-  - 日本-优化3-2
-  - 日本NO.1
-  - 日本NO.2
-  - 无墙地址 http://pcdn.giize.com:8011/
-  - 无墙地址 http://pcdn.giize.com:8011/-2
-  - 最新地址：gy888.xyz
-  - 最新网址www.fzdxd.top
-  - 法国1
-  - 法国2
-  - 澳大利亚 01
-  - 澳大利亚 02
-  - 澳大利亚原生1
-  - 澳大利亚原生2
-  - 用前请更新订阅！！！
-  - '电报群: https://t.me/emovpn x5'
-  - 登录https://cokecloud.me 续费
-  - 美国01_免费
-  - 美国LA-优化-GPT
-  - 美国LA-优化-GPT-2
-  - 美国LA-优化2-GPT
-  - 美国LA-优化2-GPT-2
-  - 美国LA-优化3-GPT
-  - 美国LA-优化3-GPT-2
-  - 美国LA-优化3-GPT-3
-  - 美国NO.2（GPT）
-  - 菲律宾 马尼拉-中转
-  - 英国-01
-  - 英国-02
-  - 英国-优化-GPT
-  - 英国-优化-GPT-2
-  - 英国-优化-GPT-3
-  - 英国-优化2
-  - 英国-优化2-2
-  - 英国-优化2-3
-  - 英国-优化3
-  - 英国-优化3-2
-  - 英国-优化3-3
-  - 距离下次重置剩余：7 天
-  - 过滤掉3条线路
-  - 过滤掉3条线路-2
-  - 过滤掉3条线路-3
-  - 过滤掉3条线路-4
-  - 过滤掉3条线路-5
-  - 过滤掉3条线路-6
-  - 过滤掉3条线路-7
-  - 过滤掉3条线路-8
-  - 过滤掉3条线路-9
-  - 过滤掉3条线路-10
-  - 过滤掉3条线路-11
-  - 过滤掉18条线路
-  - 过滤掉2条线路
-  - 过滤掉2条线路-2
-  - 过滤掉6条线路
-  - 过滤掉6条线路-2
-  - 过滤掉6条线路-3
-  - 韩国-02
-  - 韩国-03-电信用户
-  - 香港NO.1（GPT奈飞等）
-  - 香港NO.2（GPT奈飞等）
-  - 香港WAP-优化
-  - 香港WAP-优化-2
-  - 香港WAP-优化-3
-  - 香港WAP-优化2
-  - 香港WAP-优化2-2
-  - ⚜️Telegram:@IP_CF
-  - ❗  您的订阅已过期 ❗
-  - ❗ 您的订阅已过期 ❗
-  - 「加入会员解锁流媒体」x5
-  - 「加入会员解锁流媒体」x5-2
-  - 「🇫🇷」EMO | 冰糖心 x5
-  - 「🇫🇷」EMO | 冰糖心 x5-2
-  - 「🇺🇸」EMO | 天元果 x5
-  - 「🇺🇸」EMO | 天元果 x5-2
-  - 🇧🇷 巴西1|cf
-  - 🇧🇷 巴西2|cf
-  - 🇧🇷 巴西3|cf
-  - 🇨🇳台湾01|1x
-  - 🇨🇳台湾02|1x
-  - 🇨🇳台湾03|1x
-  - 🇨🇳台湾04|1x
-  - 🇭🇰香港 亚马逊 0x
-  - 🇭🇰香港 亚马逊 0x-2
-  - 🇭🇰香港01|1x
-  - 🇭🇰香港03|1x
-  - 🇭🇰香港04|1x
-  - 🇭🇰香港05|1x
-  - 🇭🇰香港06|1x
-  - 🇭🇰香港07|1x
-  - 🇭🇰香港08|1x
-  - 🇭🇰香港家宽HKT 10x
-  - 🇭🇰香港家宽HKT 10x-2
-  - 🇭🇰香港家宽HKT 10x-3
-  - 🇭🇰香港家宽hkbn 10x
-  - 🇭🇰香港家宽hkbn 10x-2
-  - 🇯🇵日本01|1x
-  - 🇯🇵日本02|1x
-  - 🇯🇵日本03|1x
-  - 🇯🇵日本04|1x
-  - 🇸🇬新加坡01|GPT|1.5x
-  - 🇸🇬新加坡02|GPT|1.5x
-  - 🇸🇬新加坡03|GPT|1.5x
-  - 🇰🇷韩国01|1x
-  - 🇺🇸美国Las Vegas 01|防失联&下载专用|0.01x
-  - 🇺🇸美国Las Vegas 02|防失联&下载专用|0.01x
-  - 🇺🇸美国Las Vegas 03|防失联&下载专用|0.01x
-  - 美国 CloudFlare节点
-  - '@Hope_Net-join-us-on-Telegram-4'
-  - 🔒 VM-TCP-NA 🇺🇸 US-15.204.234.200:41100
-  - 江苏省宿迁市 电信/宿迁电信IDC机房
-  - ⚡️Telegram = @SOSkeyNET-2
-  - 🔒 VM-TCP-NA 🇲🇺 MU-45.196.219.174:47680
-  - 🔒 VM-WS-NA 🇸🇬 SG-47.129.253.27:40000
-  - 🔒 VM-TCP-NA 🇸🇬 SG-62.146.233.66:15828
-  - ⚡️Telegram = @SOSkeyNET-3
-  - ⚡️Telegram = @SOSkeyNET-4
-  - ⚡️Telegram = @SOSkeyNET-5
-  - ⚡️Telegram = @SOSkeyNET-6
-  - ⚡️Telegram = @SOSkeyNET-7
-  - ⚡️Telegram = @SOSkeyNET-8
-  - ⚡️Telegram = @SOSkeyNET-9
-  - همه اپراتورها | V2ray_Hub1
-  - 🇩🇪DE-57.129.24.125-7603
-  - France
-  - ⚜️Telegram:@IP_CF-2
-  - 🇭🇰HK-42.2.113.136-0364
-  - '[🇮🇷]t.me/ConfigsHub'
-  - '@V2raynGn'
-  - https://t.me/VPN4EVERYONE
-  - '@appsooner کانال تلگرام 🇸🇬'
-  - '@appsooner کانال تلگرام 🇸🇬-2'
-  - '@appsooner کانال تلگرام 🇸🇬-3'
-  - 🔒 VM-TCP-NA 🇸🇬 SG-84.247.147.243:51566
-  - '@meli_proxyy'
-  - 'Channel id: @ShadowProxy66🇸🇬'
-  - '@speeds_vpn'
-  - 'Channel id: @ShadowProxy66🇦🇲'
-  - 'Channel id: @ShadowProxy66🇨🇦'
-  - 9 🍓@xixv2ray
-  - 'Channel id: @ShadowProxy66'
-  - 'Channel id: @ShadowProxy66-2'
-  - 3 🍓@xixv2ray
-  - 🏁RELAY-104.21.64.1-0367
-  - 🏁RELAY-104.21.96.1-0370
-  - 'Channel id: @ShadowProxy66-3'
-  - 🇨🇳_CN_中国->🇺🇸_US_美国
-  - 🇨🇦CA-134.195.198.147-7604
-  - ' ❤️@Kayh_GNG - Github.com/kayhgng'
-  - همه اپراتورها | V2ray_Hub1-2
-  - '@kali_signal'
-  - 'Channel id: @ShadowProxy66-4'
-  - 🔒 VM-TCP-NA 🇮🇷 IR-2.189.84.169:5050
-  - 🔒 VM-TCP-NA 🇮🇷 IR-212.23.214.162:12115
-  - 🏁RELAY-104.21.16.1-5580
-  - 🇭🇰HK-1.36.218.184-5692
-  - 13|🇸🇬
-  - 🇨🇳_CN_中国->🇷🇺_RU_俄罗斯
-  - 🇨🇳_CN_中国->🇨🇦_CA_加拿大
-  - 🏁RELAY-104.18.41.190-0699
-  - 🇭🇰HK-42.2.113.136-5686
-  - دوسم داری ؟!
-  - 🏁RELAY-172.66.168.226-2490
-  - 🏁RELAY-104.21.112.1-0359
-  - 🇯🇵日本
-  - 🟡 Telegram= @VPN_SOLVE
-  - آقای ایکسرو سرویس از ساعت ۱۷:۵۰ تا ۱۸:۵۰
-  - 🟡 Telegram= @VPN_SOLVE-2
-  - 🏁RELAY-172.67.206.152-1078
-  - A01b-华沙 倍率:0.1 waw
-  - A02-荷兰 倍率:0.1 ams
-  - A02b-荷兰 倍率:0.1 ams
-  - AB01b-美国 倍率:0.01 hcc
-  - '%F0%9F%87%BA%F0%9F%87%B8%20%E7%BE%8E%E5%9B%BD%20CloudFlare%E8%8A%82%E7%82%B9'
-  - 剩余流量：0-12
-  - 等级到期，可签到使用
-  - 过期时间：2025-06-03
-  - 🏳️ Anon9
-  - 🏳️ $$$+jadid+💪💪💪@freeiranianv2rey
-  - 🇨🇦 mci jadid 💪💪💪@freeiranianv2rey
-  - 🏳️ Peyman_wire-g
-  - 🏳️ Peyman_wire-g-2
-  - 🏳️ Peyman_wire-g-3
-  - 🏳️ Peyman_wire-g-4
-  - 🇨🇦 Anon6
-  - 🇺🇸 Anon1
-  - 🏳️ Peyman_wire-g-5
-  - 🏳️ Peyman_wire-g-6
-  - 🏳️ Peyman_wire-g-7
-  - 🏳️ jadid+💪💪💪@freeiranianv2rey
-  - 🇨🇦 @freeiranianv2rey+💯💯💯تا+ابد+رایگان
-  - 🏳️ پرقدرت@freeiranianv2rey
-  - 🏳️ 2606:4700:d0::d91:179:c651:ed70
-  - 🏳️ Peyman_wire-g-8
-  - 🏳️ Peyman_wire-g-9
-  - 🇺🇸 Anon10
-  - 🏳️ Anon5
-  - 🏳️ Anon7
-  - 🏳️ Peyman_wire-g-10
-  - 🇺🇸 Anon4
-  - 🏳️ Anon3
-  - 🇨🇦 Anon2
-  - 🇨🇦 Anon8
+  - ALL_PROXIES_PLACEHOLDER
 - name: پشتیبان (در صورت قطعی) 🧯
   type: fallback
   icon: https://www.svgrepo.com/show/415208/backup-cloud-document.svg
@@ -5157,363 +4881,7 @@ proxy-groups:
   tolerance: 6
   lazy: true
   proxies:
-  - NASNET | 6 | Emergency
-  - Telegram@viturey  🇺🇸🇺🇸
-  - 只有爱懂的人才能用
-  - vmess-BB8
-  - 🇩🇪DE-57.129.24.125-7027
-  - 🏁RELAY-104.17.176.171-0220
-  - 🏁RELAY-172.67.209.79-0773
-  - 🇨🇦CA-23.162.200.227-7026
-  - 🏁RELAY-104.21.89.221-0770
-  - 🏁RELAY-104.21.10.97-0226
-  - 🏁RELAY-172.67.191.140-0775
-  - 🏁RELAY-104.21.112.1-0405
-  - 🏁RELAY-104.26.12.31-0722
-  - Telegram @viturey🇩🇪🇩🇪
-  - Telegram @viturey🇩🇪🇩🇪-2
-  - ⚡️Telegram = @SOSkeyNET
-  - 13,14|美国|@ripaojiedian
-  - 13,14|日本4|@ripaojiedian
-  - 13,14|香港6|@ripaojiedian
-  - 13|🇭🇰 香港7|@ripaojiedian
-  - 13|🇰🇷 韩国2|@ripaojiedian
-  - 13|🇸🇬 新加坡3|@ripaojiedian
-  - 14|新加坡2|@ripaojiedian
-  - 2|🇺🇸62 |  3.3MB/s|Openai|Gemini
-  - 2|🇭🇰1 |  1.8MB/s|15%|Disney|Yout...
-  - 2|🌀4-TH |  2.6MB/s|55%|Netflix|O...
-  - '@Hope_Net-join-us-on-Telegram'
-  - '@Hope_Net-join-us-on-Telegram-2'
-  - '@Hope_Net-join-us-on-Telegram-3'
-  - 🔒 VM-TCP-NA 🇨🇳 CN-120.198.71.214:41175
-  - 🇨🇦 一元机场:ssrsub.de 加拿大 03
-  - 🇨🇦 一元机场:ssrsub.de 加拿大 08
-  - 🇨🇳 广东省广州市 移动
-  - 🇭🇰 一元机场:ssrsub.de 香港 01
-  - 🇭🇰 一元机场:ssrsub.de 香港 05
-  - 🇭🇰 一元机场:ssrsub.de 香港 10
-  - 🇭🇰 一元机场:ssrsub.de 香港 11
-  - 🇭🇰 一元机场:ssrsub.de 香港 17
-  - 🇭🇰 一元机场:ssrsub.de 香港 19
-  - 🇮🇩 一元机场:ssrsub.de 印尼 01
-  - 🇰🇷 一元机场:ssrsub.de 韩国 04
-  - 🇺🇸 一元机场:ssrsub.de 美国 79
-  - 🇺🇸 一元机场:ssrsub.de 美国 81
-  - 🇺🇸美国11 | ⬇️ 2.8MB/s
-  - 🇺🇸美国12 | ⬇️ 3.4MB/s
-  - 🇺🇸美国13 | ⬇️ 1.8MB/s
-  - 🇺🇸美国14 | ⬇️ 2.2MB/s
-  - 🇺🇸美国17 | ⬇️ 4.4MB/s
-  - 🇺🇸美国18 | ⬇️ 2.3MB/s
-  - 🇺🇸美国19 | ⬇️ 2.1MB/s
-  - 🇺🇸美国23 | ⬇️ 1.4MB/s
-  - 🇺🇸美国24 | ⬇️ 3.4MB/s
-  - 🇺🇸美国26 | ⬇️ 3.2MB/s
-  - ' ❗请到https://www.niao.icu❗续费'
-  - (IEPL)英国1
-  - (隧道)英国2
-  - 6 | Emergency⚜️Telegram:@IP_CF
-  - FRK.德国.A
-  - HK | 香港 BGP
-  - HK.香港.B | 推荐
-  - HK.香港.C | 高速.2x倍率
-  - HK.香港.D
-  - HK.香港.E
-  - HK.香港.F
-  - HK.香港.G | 多入口
-  - SG | 新加坡 01
-  - SGP.新加坡.D | 推荐
-  - TW | 台湾 01
-  - TW.台湾.A
-  - TW.台湾.B | 推荐
-  - UK.英国.A
-  - '[3X]泰国NO1'
-  - '[3X]泰国NO2'
-  - '[3X]马来西亚专线NO2'
-  - 台湾-优化
-  - 台湾-优化-2
-  - 台湾-优化2-GPT
-  - 台湾-优化2-GPT-2
-  - 台湾-优化3
-  - 台湾-优化3-2
-  - 台湾-优化3-3
-  - 免费JP节点01
-  - 免费JP节点01-2
-  - 免费SG节点02
-  - 免费SG节点02-2
-  - 免费SG节点03
-  - 免费SG节点03-2
-  - 免费US节点04
-  - 免费US节点04-2
-  - 免费US节点05
-  - 免费US节点05-2
-  - 剩余流量：-1.23 GB
-  - 剩余流量：-2.8 GB
-  - 剩余流量：0
-  - 剩余流量：0-2
-  - 剩余流量：0-3
-  - 剩余流量：0-4
-  - 剩余流量：0-5
-  - 剩余流量：0-6
-  - 剩余流量：0-7
-  - 剩余流量：0-8
-  - 剩余流量：0-9
-  - 剩余流量：0-10
-  - 剩余流量：0-11
-  - 剩余流量：2 GB
-  - 剩余流量：6.79 GB
-  - 剩余流量：877.59 GB
-  - 加拿大-优化
-  - 加拿大-优化-2
-  - 加拿大-优化2
-  - 加拿大-优化2-2
-  - 加拿大-优化3
-  - 加拿大1
-  - 加拿大2
-  - 印度-优化
-  - 印度-优化-2
-  - 备用网址www.fzdvd.cc
-  - 套餐到期：2025-06-24
-  - 套餐到期：2025-08-24
-  - 套餐到期：2025-08-25
-  - 套餐到期：2025-10-07
-  - 套餐到期：长期有效
-  - 套餐到期：长期有效-2
-  - 套餐到期：长期有效-3
-  - 套餐到期：长期有效-4
-  - 套餐到期：长期有效-5
-  - 套餐到期：长期有效-6
-  - 套餐到期：长期有效-7
-  - 套餐到期：长期有效-8
-  - 套餐到期：长期有效-9
-  - 套餐到期：长期有效-10
-  - 套餐到期：长期有效-11
-  - 官网：dash.henet.uk
-  - 官网：vvs.e54.site
-  - 官网：vvs.e54.site-2
-  - 导航页：www.可乐云.net
-  - 已到期或流量已用完
-  - 德国-优化
-  - 德国-优化-2
-  - 德国-优化2
-  - 德国01_免费
-  - 新加坡-优化
-  - 新加坡-优化-2
-  - 新加坡-优化-3
-  - 新加坡-优化2
-  - 新加坡-优化2-2
-  - 新加坡-优化2-3
-  - 新加坡-优化3
-  - 新加坡-优化3-2
-  - 新加坡-优化3-3
-  - 新加坡NO.1
-  - 新加坡NO.2
-  - 日本-优化
-  - 日本-优化2
-  - 日本-优化2-2
-  - 日本-优化3
-  - 日本-优化3-2
-  - 日本NO.1
-  - 日本NO.2
-  - 无墙地址 http://pcdn.giize.com:8011/
-  - 无墙地址 http://pcdn.giize.com:8011/-2
-  - 最新地址：gy888.xyz
-  - 最新网址www.fzdxd.top
-  - 法国1
-  - 法国2
-  - 澳大利亚 01
-  - 澳大利亚 02
-  - 澳大利亚原生1
-  - 澳大利亚原生2
-  - 用前请更新订阅！！！
-  - '电报群: https://t.me/emovpn x5'
-  - 登录https://cokecloud.me 续费
-  - 美国01_免费
-  - 美国LA-优化-GPT
-  - 美国LA-优化-GPT-2
-  - 美国LA-优化2-GPT
-  - 美国LA-优化2-GPT-2
-  - 美国LA-优化3-GPT
-  - 美国LA-优化3-GPT-2
-  - 美国LA-优化3-GPT-3
-  - 美国NO.2（GPT）
-  - 菲律宾 马尼拉-中转
-  - 英国-01
-  - 英国-02
-  - 英国-优化-GPT
-  - 英国-优化-GPT-2
-  - 英国-优化-GPT-3
-  - 英国-优化2
-  - 英国-优化2-2
-  - 英国-优化2-3
-  - 英国-优化3
-  - 英国-优化3-2
-  - 英国-优化3-3
-  - 距离下次重置剩余：7 天
-  - 过滤掉3条线路
-  - 过滤掉3条线路-2
-  - 过滤掉3条线路-3
-  - 过滤掉3条线路-4
-  - 过滤掉3条线路-5
-  - 过滤掉3条线路-6
-  - 过滤掉3条线路-7
-  - 过滤掉3条线路-8
-  - 过滤掉3条线路-9
-  - 过滤掉3条线路-10
-  - 过滤掉3条线路-11
-  - 过滤掉18条线路
-  - 过滤掉2条线路
-  - 过滤掉2条线路-2
-  - 过滤掉6条线路
-  - 过滤掉6条线路-2
-  - 过滤掉6条线路-3
-  - 韩国-02
-  - 韩国-03-电信用户
-  - 香港NO.1（GPT奈飞等）
-  - 香港NO.2（GPT奈飞等）
-  - 香港WAP-优化
-  - 香港WAP-优化-2
-  - 香港WAP-优化-3
-  - 香港WAP-优化2
-  - 香港WAP-优化2-2
-  - ⚜️Telegram:@IP_CF
-  - ❗  您的订阅已过期 ❗
-  - ❗ 您的订阅已过期 ❗
-  - 「加入会员解锁流媒体」x5
-  - 「加入会员解锁流媒体」x5-2
-  - 「🇫🇷」EMO | 冰糖心 x5
-  - 「🇫🇷」EMO | 冰糖心 x5-2
-  - 「🇺🇸」EMO | 天元果 x5
-  - 「🇺🇸」EMO | 天元果 x5-2
-  - 🇧🇷 巴西1|cf
-  - 🇧🇷 巴西2|cf
-  - 🇧🇷 巴西3|cf
-  - 🇨🇳台湾01|1x
-  - 🇨🇳台湾02|1x
-  - 🇨🇳台湾03|1x
-  - 🇨🇳台湾04|1x
-  - 🇭🇰香港 亚马逊 0x
-  - 🇭🇰香港 亚马逊 0x-2
-  - 🇭🇰香港01|1x
-  - 🇭🇰香港03|1x
-  - 🇭🇰香港04|1x
-  - 🇭🇰香港05|1x
-  - 🇭🇰香港06|1x
-  - 🇭🇰香港07|1x
-  - 🇭🇰香港08|1x
-  - 🇭🇰香港家宽HKT 10x
-  - 🇭🇰香港家宽HKT 10x-2
-  - 🇭🇰香港家宽HKT 10x-3
-  - 🇭🇰香港家宽hkbn 10x
-  - 🇭🇰香港家宽hkbn 10x-2
-  - 🇯🇵日本01|1x
-  - 🇯🇵日本02|1x
-  - 🇯🇵日本03|1x
-  - 🇯🇵日本04|1x
-  - 🇸🇬新加坡01|GPT|1.5x
-  - 🇸🇬新加坡02|GPT|1.5x
-  - 🇸🇬新加坡03|GPT|1.5x
-  - 🇰🇷韩国01|1x
-  - 🇺🇸美国Las Vegas 01|防失联&下载专用|0.01x
-  - 🇺🇸美国Las Vegas 02|防失联&下载专用|0.01x
-  - 🇺🇸美国Las Vegas 03|防失联&下载专用|0.01x
-  - 美国 CloudFlare节点
-  - '@Hope_Net-join-us-on-Telegram-4'
-  - 🔒 VM-TCP-NA 🇺🇸 US-15.204.234.200:41100
-  - 江苏省宿迁市 电信/宿迁电信IDC机房
-  - ⚡️Telegram = @SOSkeyNET-2
-  - 🔒 VM-TCP-NA 🇲🇺 MU-45.196.219.174:47680
-  - 🔒 VM-WS-NA 🇸🇬 SG-47.129.253.27:40000
-  - 🔒 VM-TCP-NA 🇸🇬 SG-62.146.233.66:15828
-  - ⚡️Telegram = @SOSkeyNET-3
-  - ⚡️Telegram = @SOSkeyNET-4
-  - ⚡️Telegram = @SOSkeyNET-5
-  - ⚡️Telegram = @SOSkeyNET-6
-  - ⚡️Telegram = @SOSkeyNET-7
-  - ⚡️Telegram = @SOSkeyNET-8
-  - ⚡️Telegram = @SOSkeyNET-9
-  - همه اپراتورها | V2ray_Hub1
-  - 🇩🇪DE-57.129.24.125-7603
-  - France
-  - ⚜️Telegram:@IP_CF-2
-  - 🇭🇰HK-42.2.113.136-0364
-  - '[🇮🇷]t.me/ConfigsHub'
-  - '@V2raynGn'
-  - https://t.me/VPN4EVERYONE
-  - '@appsooner کانال تلگرام 🇸🇬'
-  - '@appsooner کانال تلگرام 🇸🇬-2'
-  - '@appsooner کانال تلگرام 🇸🇬-3'
-  - 🔒 VM-TCP-NA 🇸🇬 SG-84.247.147.243:51566
-  - '@meli_proxyy'
-  - 'Channel id: @ShadowProxy66🇸🇬'
-  - '@speeds_vpn'
-  - 'Channel id: @ShadowProxy66🇦🇲'
-  - 'Channel id: @ShadowProxy66🇨🇦'
-  - 9 🍓@xixv2ray
-  - 'Channel id: @ShadowProxy66'
-  - 'Channel id: @ShadowProxy66-2'
-  - 3 🍓@xixv2ray
-  - 🏁RELAY-104.21.64.1-0367
-  - 🏁RELAY-104.21.96.1-0370
-  - 'Channel id: @ShadowProxy66-3'
-  - 🇨🇳_CN_中国->🇺🇸_US_美国
-  - 🇨🇦CA-134.195.198.147-7604
-  - ' ❤️@Kayh_GNG - Github.com/kayhgng'
-  - همه اپراتورها | V2ray_Hub1-2
-  - '@kali_signal'
-  - 'Channel id: @ShadowProxy66-4'
-  - 🔒 VM-TCP-NA 🇮🇷 IR-2.189.84.169:5050
-  - 🔒 VM-TCP-NA 🇮🇷 IR-212.23.214.162:12115
-  - 🏁RELAY-104.21.16.1-5580
-  - 🇭🇰HK-1.36.218.184-5692
-  - 13|🇸🇬
-  - 🇨🇳_CN_中国->🇷🇺_RU_俄罗斯
-  - 🇨🇳_CN_中国->🇨🇦_CA_加拿大
-  - 🏁RELAY-104.18.41.190-0699
-  - 🇭🇰HK-42.2.113.136-5686
-  - دوسم داری ؟!
-  - 🏁RELAY-172.66.168.226-2490
-  - 🏁RELAY-104.21.112.1-0359
-  - 🇯🇵日本
-  - 🟡 Telegram= @VPN_SOLVE
-  - آقای ایکسرو سرویس از ساعت ۱۷:۵۰ تا ۱۸:۵۰
-  - 🟡 Telegram= @VPN_SOLVE-2
-  - 🏁RELAY-172.67.206.152-1078
-  - A01b-华沙 倍率:0.1 waw
-  - A02-荷兰 倍率:0.1 ams
-  - A02b-荷兰 倍率:0.1 ams
-  - AB01b-美国 倍率:0.01 hcc
-  - '%F0%9F%87%BA%F0%9F%87%B8%20%E7%BE%8E%E5%9B%BD%20CloudFlare%E8%8A%82%E7%82%B9'
-  - 剩余流量：0-12
-  - 等级到期，可签到使用
-  - 过期时间：2025-06-03
-  - 🏳️ Anon9
-  - 🏳️ $$$+jadid+💪💪💪@freeiranianv2rey
-  - 🇨🇦 mci jadid 💪💪💪@freeiranianv2rey
-  - 🏳️ Peyman_wire-g
-  - 🏳️ Peyman_wire-g-2
-  - 🏳️ Peyman_wire-g-3
-  - 🏳️ Peyman_wire-g-4
-  - 🇨🇦 Anon6
-  - 🇺🇸 Anon1
-  - 🏳️ Peyman_wire-g-5
-  - 🏳️ Peyman_wire-g-6
-  - 🏳️ Peyman_wire-g-7
-  - 🏳️ jadid+💪💪💪@freeiranianv2rey
-  - 🇨🇦 @freeiranianv2rey+💯💯💯تا+ابد+رایگان
-  - 🏳️ پرقدرت@freeiranianv2rey
-  - 🏳️ 2606:4700:d0::d91:179:c651:ed70
-  - 🏳️ Peyman_wire-g-8
-  - 🏳️ Peyman_wire-g-9
-  - 🇺🇸 Anon10
-  - 🏳️ Anon5
-  - 🏳️ Anon7
-  - 🏳️ Peyman_wire-g-10
-  - 🇺🇸 Anon4
-  - 🏳️ Anon3
-  - 🇨🇦 Anon2
-  - 🇨🇦 Anon8
+  - ALL_PROXIES_PLACEHOLDER
 - name: تلگرام 💬
   type: select
   icon: https://www.svgrepo.com/show/354443/telegram.svg
