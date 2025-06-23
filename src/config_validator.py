@@ -1,14 +1,16 @@
 import re
 import base64
 import json
+import logging
 from typing import Optional, Tuple, List
 from urllib.parse import unquote, urlparse
+
+logger = logging.getLogger(__name__)
 
 class ConfigValidator:
     @staticmethod
     def is_base64(s: str) -> bool:
         try:
-            # Allow for URL-safe Base64 characters as well
             s = s.rstrip('=')
             return bool(re.match(r'^[A-Za-z0-9+/_-]*$', s))
         except:
@@ -51,55 +53,15 @@ class ConfigValidator:
         return config
 
     @staticmethod
-    def is_vmess_config(config: str) -> bool:
-        try:
-            if not config.startswith('vmess://'):
-                return False
-            base64_part = config[8:]
-            decoded = ConfigValidator.decode_base64_url(base64_part)
-            if decoded:
-                json.loads(decoded)
-                return True
-            return False
-        except:
-            return False
-
-    @staticmethod
-    def is_tuic_config(config: str) -> bool:
-        try:
-            if config.startswith('tuic://'):
-                parsed = urlparse(config)
-                return bool(parsed.netloc and ':' in parsed.netloc)
-            return False
-        except:
-            return False
-
-    @staticmethod
-    def convert_ssconf_to_https(url: str) -> str:
-        if url.startswith('ssconf://'):
-            return url.replace('ssconf://', 'https://', 1)
-        return url
-
-    @staticmethod
-    def is_base64_config(config: str) -> Tuple[bool, str]:
-        protocols = ['vmess://', 'vless://', 'ss://', 'tuic://', 'ssr://']
-        for protocol in protocols:
-            if config.startswith(protocol):
-                base64_part = config[len(protocol):]
-                decoded_url = unquote(base64_part)
-                if (ConfigValidator.is_base64(decoded_url) or 
-                    ConfigValidator.is_base64(base64_part)):
-                    return True, protocol[:-3]
-        return False, ''
-
-    @staticmethod
     def check_base64_content(text: str) -> Optional[str]:
         try:
             decoded_text = ConfigValidator.decode_base64_text(text)
             if decoded_text:
-                protocols = ['vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'hy2://', 
-                             'wireguard://', 'tuic://', 'ssconf://', 'ssr://', 'hysteria://', 'snell://',
-                             'ssh://', 'mieru://', 'anytls://', 'warp://', 'juicity://'] # <-- Added juicity
+                protocols = [
+                    'vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'hy2://',
+                    'wireguard://', 'tuic://', 'ssconf://', 'ssr://', 'hysteria://', 'snell://',
+                    'ssh://', 'mieru://', 'anytls://', 'warp://', 'juicity://'
+                ]
                 for protocol in protocols:
                     if protocol in decoded_text:
                         return decoded_text
@@ -110,91 +72,68 @@ class ConfigValidator:
     @staticmethod
     def split_configs(text: str) -> List[str]:
         all_protocols = [
-            'vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'hy2://', 
+            'vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'hy2://',
             'wireguard://', 'tuic://', 'ssconf://', 'ssr://', 'hysteria://', 'snell://',
-            'ssh://', 'mieru://', 'anytls://', 'warp://', 'juicity://' # <-- Added juicity
+            'ssh://', 'mieru://', 'anytls://', 'warp://', 'juicity://'
         ]
-        
         configs = []
         potential_configs = re.split(r'[\s\n]+', text)
-
         for p_config in potential_configs:
             p_config = p_config.strip()
             if not p_config:
                 continue
-
             decoded_content = ConfigValidator.check_base64_content(p_config)
             if decoded_content:
                 configs.extend(ConfigValidator.split_configs(decoded_content))
                 continue
-
+            
+            is_valid_protocol_start = False
             for protocol in all_protocols:
                 if p_config.lower().startswith(protocol):
-                    if ConfigValidator.is_valid_config(p_config):
-                        clean_conf = ConfigValidator.clean_config(p_config)
-                        if clean_conf.startswith("vmess://"):
-                            clean_conf = ConfigValidator.clean_vmess_config(clean_conf)
-                        elif clean_conf.startswith("hy2://"):
-                            clean_conf = ConfigValidator.normalize_hysteria2_protocol(clean_conf)
-                        configs.append(clean_conf)
+                    is_valid_protocol_start = True
                     break
-        
+            
+            if is_valid_protocol_start:
+                clean_conf = ConfigValidator.clean_config(p_config)
+                configs.append(clean_conf)
+
         seen = set()
         return [x for x in configs if not (x in seen or seen.add(x))]
-
 
     @staticmethod
     def clean_config(config: str) -> str:
         config = re.sub(r'[\U0001F300-\U0001F9FF]', '', config)
         config = re.sub(r'[\x00-\x08\x0B-\x1F\x7F-\x9F]', '', config)
         config = re.sub(r'[^\S\r\n]+', ' ', config)
-        config = config.strip()
-        return config
-
-    @staticmethod
-    def is_valid_config(config: str) -> bool:
-        if not config:
-            return False
-
-        protocols = [
-            'vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'hy2://', 
-            'wireguard://', 'tuic://', 'ssconf://', 'ssr://', 'hysteria://', 'snell://',
-            'ssh://', 'mieru://', 'anytls://', 'warp://', 'juicity://' # <-- Added juicity
-        ]
-        return any(config.startswith(p) for p in protocols)
+        return config.strip()
 
     @classmethod
     def validate_protocol_config(cls, config: str, protocol: str) -> bool:
+        """
+        REWRITTEN: A more flexible and robust validation logic.
+        """
+        is_valid = False
         try:
-            if protocol in ['vmess://', 'vless://', 'ss://', 'tuic://', 'ssr://']:
-                if protocol == 'vmess://':
-                    return cls.is_vmess_config(config)
-                if protocol == 'tuic://':
-                    return cls.is_tuic_config(config)
-                
-                base64_part = config[len(protocol):]
-                if not base64_part: return False
-                
-                decoded_url = unquote(base64_part)
-                return cls.is_base64(decoded_url) or cls.is_base64(base64_part)
+            parsed_uri = urlparse(config)
+            
+            # Rule 1: Protocols that are almost always Base64
+            if protocol in ['vmess://', 'ssr://']:
+                return cls.is_base64(config[len(protocol):])
 
-            elif protocol in ['trojan://', 'hysteria2://', 'hy2://', 'wireguard://', 
-                              'hysteria://', 'snell://', 'ssh://', 'anytls://', 'mieru://', 'warp://',
-                              'juicity://']: # <-- Added juicity
-                if protocol == 'warp://':
-                    return True
+            # Rule 2: Protocols that can be URL-based or Base64-based
+            # A valid URL structure is the primary check.
+            if not parsed_uri.scheme or not (parsed_uri.hostname or '@' in parsed_uri.netloc):
+                 # If it doesn't look like a URL, maybe it's Base64? (for ss://)
+                 if protocol == 'ss://' and cls.is_base64(config[len(protocol):]):
+                     return True
+                 is_valid = False
+            else:
+                is_valid = True
 
-                parsed = urlparse(config)
-                if not parsed.netloc:
-                    return False
-                # These protocols require user info (e.g., password@host)
-                if protocol in ['trojan://', 'hysteria://', 'ssh://', 'snell://', 'anytls://', 'juicity://']:
-                    return '@' in parsed.netloc
-                return True
+        except Exception:
+            is_valid = False
 
-            elif protocol == 'ssconf://':
-                return True
-
-            return False
-        except:
-            return False
+        if not is_valid:
+            logger.debug(f"[REJECTED] Config failed validation for protocol {protocol}: {config[:80]}...")
+        
+        return is_valid
