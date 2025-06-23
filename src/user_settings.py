@@ -22,6 +22,9 @@ SOURCE_URLS = [
     "https://raw.githubusercontent.com/Aristaproject/AristaSub/refs/heads/main/Arista6.txt",
     "https://raw.githubusercontent.com/Aristaproject/AristaSub/refs/heads/main/Arista7.txt",
     "https://raw.githubusercontent.com/Aristaproject/AristaSub/refs/heads/main/Arista8.txt",
+
+"https://raw.githubusercontent.com/maimengmeng/mysub/refs/heads/main/valid_content_all.txt",
+
     "https://t.me/s/shadowsocksm",
     "https://t.me/s/v2ray_alpha",
     "https://t.me/s/vlessconfig",
@@ -158,8 +161,7 @@ SOURCE_URLS = [
     "https://t.me/s/movie10_oficial",
     "https://t.me/s/beau_vpn",
     "https://t.me/s/mitivpn",
-    "https://t.me/s/mbtiuniverse"
-    # Add more URLs here if you want to include additional sources.
+    "https://t.me/s/mbtiuniverse",
 ]
 
 # Set to True to fetch the maximum possible number of configurations.
@@ -177,7 +179,7 @@ ENABLED_PROTOCOLS = {
     "wireguard://": True,
     "hysteria2://": True,
     "vless://": False,
-    "vmess://": False
+    "vmess://": False,
     "ss://": False,
     "trojan://": False,
     "tuic://": True,
