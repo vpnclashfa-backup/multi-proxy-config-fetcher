@@ -1,0 +1,559 @@
+Global-client-fingerprint: chrome
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7894
+allow-lan: true
+tcp-concurrent: true
+enable-process: true
+find-process-mode: strict
+ipv6: false
+log-level: debug
+geo-auto-update: true
+geo-update-interval: 168
+secret: ''
+bind-address: '*'
+unified-delay: false
+disable-keep-alive: false
+keep-alive-idle: 30
+keep-alive-interval: 30
+profile:
+  store-selected: true
+  store-fake-ip: true
+dns:
+  enable: true
+  ipv6: false
+  respect-rules: false
+  prefer-h3: false
+  cache-algorithm: arc
+  use-system-hosts: true
+  use-host: true
+  listen: 0.0.0.0:53
+  enhanced-mode: fake-ip
+  fake-ip-filter-mode: blacklist
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+  - '*.lan'
+  - '*.localdomain'
+  - '*.invalid'
+  - '*.localhost'
+  - '*.test'
+  - '*.local'
+  - '*.home.arpa'
+  - time.*.com
+  - ntp.*.com
+  - '*.ir'
+  default-nameserver:
+  - 8.8.8.8
+  - 8.8.4.4
+  - 1.0.0.1
+  - 1.1.1.1
+  - 9.9.9.9
+  - 9.9.9.11
+  - 9.9.9.10
+  - 94.140.14.15
+  - 94.140.15.15
+  - 223.5.5.5
+  - 77.88.8.8
+  - 208.67.222.222
+  - 208.67.220.220
+  - 209.244.0.3
+  - 209.224.0.4
+  - 74.82.42.42
+  nameserver:
+  - https://dns.nextdns.io/15441b
+  - tls://15441b.dns.nextdns.io
+  direct-nameserver:
+  - 78.157.42.100
+  - 78.157.42.101
+  proxy-server-nameserver:
+  - 1.1.1.1
+  - 8.8.8.8
+  - 8.8.4.4
+  - 9.9.9.9
+  - 223.5.5.5
+  - 77.88.8.8
+  - 208.67.222.222
+  - 208.67.220.220
+  - 209.244.0.3
+  - 209.224.0.4
+  - 74.82.42.42
+sniffer:
+  enable: true
+  force-dns-mapping: true
+  parse-pure-ip: true
+  override-destination: false
+  sniff:
+    HTTP:
+      ports:
+      - 80
+      - 8080
+      - 8880
+      - 2052
+      - 2082
+      - 2086
+      - 2095
+    TLS:
+      ports:
+      - 443
+      - 8443
+      - 2053
+      - 2083
+      - 2087
+      - 2096
+tun:
+  enable: true
+  stack: mixed
+  auto-route: true
+  auto-detect-interface: true
+  auto-redir: true
+  dns-hijack:
+  - any:53
+  - tcp://any:53
+proxies:
+- name: Anon10
+  type: wireguard
+  server: 188.114.96.172
+  port: 1014
+  private-key: '%2BPKqyWtT0G14ecvjTFt%2B9UZqmrK0F%2Fo3EiLh%2BsW%2B%2F2c%3D'
+  public-key: ''
+  ip: 172.16.0.2/32
+  udp: true
+- name: $$$+jadid+💪💪💪@freeiranianv2rey
+  type: wireguard
+  server: 188.114.97.227
+  port: 7156
+  private-key: 0M%2BHdI1UAxACTEm5%2FKJ%2BHTAuro4BZkyAvHsQC3l2pn0%3D
+  public-key: ''
+  ip: 172.16.0.2/32
+  udp: true
+- name: mci jadid 💪💪💪@freeiranianv2rey
+  type: wireguard
+  server: 188.114.98.12
+  port: 1002
+  private-key: 0M%2BHdI1UAxACTEm5%2FKJ%2BHTAuro4BZkyAvHsQC3l2pn0%3D
+  public-key: ''
+  ip: 172.16.0.2/32
+  udp: true
+- name: Peyman_wire-g
+  type: wireguard
+  server: engage.cloudflareclient.com
+  port: 2408
+  private-key: 2a7X8sypU59BI%2FfBgFz96pEOz2fuoLhyC%2BWo%2For7AG0%3D
+  public-key: ''
+  ip: 172.16.0.2/32,2606:4700:110:830c:9cf:a820:97e4:eb58/128
+  udp: true
+- name: Peyman_wire-g
+  type: wireguard
+  server: engage.cloudflareclient.com
+  port: 2408
+  private-key: 4WuSJEDE5iRRIBw59gEn3GRJkx5tY8PtayJmOHujEUs%3D
+  public-key: ''
+  ip: 172.16.0.2/32,2606:4700:110:8fcc:f076:4fd7:eb70:d37c/128
+  udp: true
+- name: Peyman_wire-g
+  type: wireguard
+  server: engage.cloudflareclient.com
+  port: 2408
+  private-key: 8yP7GczZO%2BrYweI%2Fkfe3CPh5y%2FgZeJHOH1Y0%2FYdCNQE%3D
+  public-key: ''
+  ip: 172.16.0.2/32,2606:4700:110:8732:b572:bd51:1319:701a/128
+  udp: true
+- name: Peyman_wire-g
+  type: wireguard
+  server: engage.cloudflareclient.com
+  port: 2408
+  private-key: CkZqMqcFHCKTCf6Mj9%2BJjn%2BeOr9X97V3dzBjprn3HyU%3D
+  public-key: ''
+  ip: 172.16.0.2/32,2606:4700:110:8fb5:2fa0:18d2:201a:c8ca/128
+  udp: true
+- name: Anon7
+  type: wireguard
+  server: 188.114.98.68
+  port: 945
+  private-key: GAQOBNPwbXpuMZP0tEZtjeWz9gW6YwCYiZp95Yb%2BgVQ%3D
+  public-key: ''
+  ip: 172.16.0.2/32
+  udp: true
+- name: Anon2
+  type: wireguard
+  server: 188.114.99.209
+  port: 942
+  private-key: IBMHSrdMjVoo%2F25L%2Bk7aSLLuF%2FvZG46jA5I%2Bnti0404%3D
+  public-key: ''
+  ip: 172.16.0.2/32
+  udp: true
+- name: کانال+freeiranianv2rey
+  type: wireguard
+  server: 162.159.195.178
+  port: 942
+  private-key: QKRFk8I%2BjwBi4WlpjC1a75bb7oQGmHQnYfw0rThENEk%3D
+  public-key: ''
+  ip: 172.16.0.2/32
+  udp: true
+- name: jadid+💪💪💪@freeiranianv2rey
+  type: wireguard
+  server: 188.114.96.16
+  port: 4233
+  private-key: QKRFk8I%2BjwBi4WlpjC1a75bb7oQGmHQnYfw0rThENEk%3D
+  public-key: ''
+  ip: 172.16.0.2/32
+  udp: true
+- name: '@freeiranianv2rey+💯💯💯تا+ابد+رایگان'
+  type: wireguard
+  server: 188.114.96.49
+  port: 864
+  private-key: QKRFk8I%2BjwBi4WlpjC1a75bb7oQGmHQnYfw0rThENEk%3D
+  public-key: ''
+  ip: 172.16.0.2/32
+  udp: true
+- name: پرقدرت@freeiranianv2rey
+  type: wireguard
+  server: 188.114.97.239
+  port: 908
+  private-key: QKRFk8I%2BjwBi4WlpjC1a75bb7oQGmHQnYfw0rThENEk%3D
+  public-key: ''
+  ip: 172.16.0.2/32
+  udp: true
+- name: wg-2606:4700:d0::d91:179:c651:ed70
+  type: wireguard
+  server: 2606:4700:d0::d91:179:c651:ed70
+  port: 7281
+  private-key: QKRFk8I%2BjwBi4WlpjC1a75bb7oQGmHQnYfw0rThENEk%3D
+  public-key: ''
+  ip: 172.16.0.2/32
+  udp: true
+- name: Peyman_wire-g
+  type: wireguard
+  server: engage.cloudflareclient.com
+  port: 2408
+  private-key: TZ9KX5f4LS6yXXrrvGPDaXE4cSnREOXmSlvGX0HFDUk%3D
+  public-key: ''
+  ip: 172.16.0.2/32,2606:4700:110:8333:6253:7e18:c968:a9b4/128
+  udp: true
+- name: Peyman_wire-g
+  type: wireguard
+  server: engage.cloudflareclient.com
+  port: 2408
+  private-key: dr7toN%2FqjMdAgC5e1ak6UUrIKqXkAOVxNA0zOlxONWo%3D
+  public-key: ''
+  ip: 172.16.0.2/32,2606:4700:110:82db:e273:b86c:afce:682a/128
+  udp: true
+- name: Anon6
+  type: wireguard
+  server: 188.114.99.77
+  port: 1002
+  private-key: gIauKnNzXKMWEKvB%2BsHgqsuvuRgH8znnV7zGOBwrG1c%3D
+  public-key: ''
+  ip: 172.16.0.2/32
+  udp: true
+- name: Anon8
+  type: wireguard
+  server: 188.114.99.162
+  port: 945
+  private-key: gO8yVa81i3qwTA3jF5SGaJvsUmB%2FVNpGoLUMKfMsW3Y%3D
+  public-key: ''
+  ip: 172.16.0.2/32
+  udp: true
+- name: Peyman_wire-g
+  type: wireguard
+  server: engage.cloudflareclient.com
+  port: 2408
+  private-key: jqgQPISKRcThYc3zrJ9QlalbJqF1V1wvhZ2ZB%2FCHQcI%3D
+  public-key: ''
+  ip: 172.16.0.2/32,2606:4700:110:8403:bee5:cb32:242e:6bef/128
+  udp: true
+- name: Peyman_wire-g
+  type: wireguard
+  server: engage.cloudflareclient.com
+  port: 2408
+  private-key: m5QF8J31srTDUHbZhjyCHPM%2FUUj%2FRxyl0iNc3A4F43k%3D
+  public-key: ''
+  ip: 172.16.0.2/32,2606:4700:110:8669:626a:42e7:e1ed:dbbe/128
+  udp: true
+- name: Anon5
+  type: wireguard
+  server: 188.114.99.13
+  port: 1014
+  private-key: oHuAPQ%2BZp27PIW9rCfVhC67cRF4hmQslv02RsvRKJFA%3D
+  public-key: ''
+  ip: 172.16.0.2/32
+  udp: true
+- name: Anon4
+  type: wireguard
+  server: 188.114.96.13
+  port: 880
+  private-key: oO1w9zWoj855k41EX5KeM1jCidPjSJtgMLSxnMKLW1M%3D
+  public-key: ''
+  ip: 172.16.0.2/32
+  udp: true
+- name: Peyman_wire-g
+  type: wireguard
+  server: engage.cloudflareclient.com
+  port: 2408
+  private-key: p6mukTdYR%2Bl6bZpcn9rV%2FCo%2B4xLuaq%2FY94IGKbPKwrc%3D
+  public-key: ''
+  ip: 172.16.0.2/32,2606:4700:110:88d8:302b:95a5:5c87:3f24/128
+  udp: true
+- name: Anon3
+  type: wireguard
+  server: 188.114.97.240
+  port: 908
+  private-key: qPvJ0%2BmwPeeY0I5APw6FSf4I1EOiMkRw36RdLiInpVY%3D
+  public-key: ''
+  ip: 172.16.0.2/32
+  udp: true
+- name: Peyman_wire-g
+  type: wireguard
+  server: engage.cloudflareclient.com
+  port: 2408
+  private-key: sLonSHqEbXcTbHuYTPtk4YknU6TdMLu%2FBikQCp86O2s%3D
+  public-key: ''
+  ip: 172.16.0.2/32,2606:4700:110:8910:aac9:90ab:3612:51a6/128
+  udp: true
+- name: Anon9
+  type: wireguard
+  server: 188.114.96.23
+  port: 945
+  private-key: wDgEhNfjrpuiuGDgfQWpYvq27Rjyjj3eqTTx5n%2FgL28%3D
+  public-key: ''
+  ip: 172.16.0.2/32
+  udp: true
+- name: Anon1
+  type: wireguard
+  server: 188.114.97.164
+  port: 968
+  private-key: yINGSvsLXkPXD9Sp91UUNCVuyGgngJJRc8mPZkd5A10%3D
+  public-key: ''
+  ip: 172.16.0.2/32
+  udp: true
+proxy-groups:
+- name: نوع انتخاب پروکسی 🔀
+  icon: https://www.svgrepo.com/show/412721/choose.svg
+  type: select
+  proxies:
+  - خودکار (بهترین پینگ) 🤖
+  - دستی 🤏🏻
+  - پشتیبان (در صورت قطعی) 🧯
+  - بدون فیلترشکن 🛡️
+- name: دستی 🤏🏻
+  type: select
+  icon: https://www.svgrepo.com/show/372331/cursor-hand-click.svg
+  proxies:
+  - 🇭🇰香港 大B哥赞助
+  - 🇯🇵日本 01
+  - 🇯🇵日本 02
+  - 🇯🇵日本 03
+  - 🇸🇬新加坡 01
+  - 🇸🇬新加坡 02
+  - 🇸🇬新加坡 03
+  - 🇺🇸美国 01
+  - 🇺🇸美国 02
+  - 🇺🇸美国 03
+  - 'Channel id: @ShadowProxy66🇭🇰'
+  - 'Channel id: @ShadowProxy66🇺🇸'
+  - 剩余流量：0
+  - 套餐到期：2036-07-12
+  - 新加坡
+  - 距离下次重置剩余：7 天
+  - 美国02
+  - 美国03
+  - 美国01
+  - 🇯🇵JP-13.231.108.161-0382
+  - 🇨🇦CA-45.154.204.13-5132
+  - Anon10
+  - $$$+jadid+💪💪💪@freeiranianv2rey
+  - mci jadid 💪💪💪@freeiranianv2rey
+  - Peyman_wire-g
+  - Peyman_wire-g
+  - Peyman_wire-g
+  - Peyman_wire-g
+  - Anon7
+  - Anon2
+  - کانال+freeiranianv2rey
+  - jadid+💪💪💪@freeiranianv2rey
+  - '@freeiranianv2rey+💯💯💯تا+ابد+رایگان'
+  - پرقدرت@freeiranianv2rey
+  - wg-2606:4700:d0::d91:179:c651:ed70
+  - Peyman_wire-g
+  - Peyman_wire-g
+  - Anon6
+  - Anon8
+  - Peyman_wire-g
+  - Peyman_wire-g
+  - Anon5
+  - Anon4
+  - Peyman_wire-g
+  - Anon3
+  - Peyman_wire-g
+  - Anon9
+  - Anon1
+- name: خودکار (بهترین پینگ) 🤖
+  type: url-test
+  icon: https://www.svgrepo.com/show/7876/speedometer.svg
+  url: https://api.v2fly.org/checkConnection.svgz
+  interval: 360000
+  timeout: 120000
+  tolerance: 10
+  lazy: true
+  proxies:
+  - 🇭🇰香港 大B哥赞助
+  - 🇯🇵日本 01
+  - 🇯🇵日本 02
+  - 🇯🇵日本 03
+  - 🇸🇬新加坡 01
+  - 🇸🇬新加坡 02
+  - 🇸🇬新加坡 03
+  - 🇺🇸美国 01
+  - 🇺🇸美国 02
+  - 🇺🇸美国 03
+  - 'Channel id: @ShadowProxy66🇭🇰'
+  - 'Channel id: @ShadowProxy66🇺🇸'
+  - 剩余流量：0
+  - 套餐到期：2036-07-12
+  - 新加坡
+  - 距离下次重置剩余：7 天
+  - 美国02
+  - 美国03
+  - 美国01
+  - 🇯🇵JP-13.231.108.161-0382
+  - 🇨🇦CA-45.154.204.13-5132
+  - Anon10
+  - $$$+jadid+💪💪💪@freeiranianv2rey
+  - mci jadid 💪💪💪@freeiranianv2rey
+  - Peyman_wire-g
+  - Peyman_wire-g
+  - Peyman_wire-g
+  - Peyman_wire-g
+  - Anon7
+  - Anon2
+  - کانال+freeiranianv2rey
+  - jadid+💪💪💪@freeiranianv2rey
+  - '@freeiranianv2rey+💯💯💯تا+ابد+رایگان'
+  - پرقدرت@freeiranianv2rey
+  - wg-2606:4700:d0::d91:179:c651:ed70
+  - Peyman_wire-g
+  - Peyman_wire-g
+  - Anon6
+  - Anon8
+  - Peyman_wire-g
+  - Peyman_wire-g
+  - Anon5
+  - Anon4
+  - Peyman_wire-g
+  - Anon3
+  - Peyman_wire-g
+  - Anon9
+  - Anon1
+- name: پشتیبان (در صورت قطعی) 🧯
+  type: fallback
+  icon: https://www.svgrepo.com/show/415208/backup-cloud-document.svg
+  url: https://www.gstatic.com/generate_204
+  interval: 360000
+  timeout: 120000
+  tolerance: 6
+  lazy: true
+  proxies:
+  - 🇭🇰香港 大B哥赞助
+  - 🇯🇵日本 01
+  - 🇯🇵日本 02
+  - 🇯🇵日本 03
+  - 🇸🇬新加坡 01
+  - 🇸🇬新加坡 02
+  - 🇸🇬新加坡 03
+  - 🇺🇸美国 01
+  - 🇺🇸美国 02
+  - 🇺🇸美国 03
+  - 'Channel id: @ShadowProxy66🇭🇰'
+  - 'Channel id: @ShadowProxy66🇺🇸'
+  - 剩余流量：0
+  - 套餐到期：2036-07-12
+  - 新加坡
+  - 距离下次重置剩余：7 天
+  - 美国02
+  - 美国03
+  - 美国01
+  - 🇯🇵JP-13.231.108.161-0382
+  - 🇨🇦CA-45.154.204.13-5132
+  - Anon10
+  - $$$+jadid+💪💪💪@freeiranianv2rey
+  - mci jadid 💪💪💪@freeiranianv2rey
+  - Peyman_wire-g
+  - Peyman_wire-g
+  - Peyman_wire-g
+  - Peyman_wire-g
+  - Anon7
+  - Anon2
+  - کانال+freeiranianv2rey
+  - jadid+💪💪💪@freeiranianv2rey
+  - '@freeiranianv2rey+💯💯💯تا+ابد+رایگان'
+  - پرقدرت@freeiranianv2rey
+  - wg-2606:4700:d0::d91:179:c651:ed70
+  - Peyman_wire-g
+  - Peyman_wire-g
+  - Anon6
+  - Anon8
+  - Peyman_wire-g
+  - Peyman_wire-g
+  - Anon5
+  - Anon4
+  - Peyman_wire-g
+  - Anon3
+  - Peyman_wire-g
+  - Anon9
+  - Anon1
+- name: تلگرام 💬
+  type: select
+  icon: https://www.svgrepo.com/show/354443/telegram.svg
+  proxies:
+  - نوع انتخاب پروکسی 🔀
+  - بدون فیلترشکن 🛡️
+  - خودکار (بهترین پینگ) 🤖
+  - دستی 🤏🏻
+  - پشتیبان (در صورت قطعی) 🧯
+  - اجازه ندادن 🚫
+- name: سایتای ایرانی 🇮🇷
+  type: select
+  icon: https://upload.wikimedia.org/wikipedia/commons/3/36/Flag_of_Iran_%28civil%29.svg
+  proxies:
+  - بدون فیلترشکن 🛡️
+  - اجازه ندادن 🚫
+  - نوع انتخاب پروکسی 🔀
+  - خودکار (بهترین پینگ) 🤖
+  - دستی 🤏🏻
+  - پشتیبان (در صورت قطعی) 🧯
+- name: بدون فیلترشکن 🛡️
+  type: select
+  icon: https://www.svgrepo.com/show/6318/connection.svg
+  proxies:
+  - DIRECT
+  hidden: true
+- name: اجازه ندادن 🚫
+  type: select
+  icon: https://www.svgrepo.com/show/444307/gui-ban.svg
+  proxies:
+  - REJECT
+  hidden: true
+rule-providers:
+  apps:
+    type: http
+    format: yaml
+    behavior: classical
+    url: https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/apps.yaml
+    path: ./ruleset/apps.yaml
+    interval: 86400
+rules:
+- PROCESS-NAME,Telegram.exe,تلگرام 💬
+- PROCESS-NAME,org.telegram.messenger,تلگرام 💬
+- PROCESS-NAME,org.telegram.messenger.web,تلگرام 💬
+- DOMAIN-SUFFIX,ir,سایتای ایرانی 🇮🇷
+- GEOIP,ir,سایتای ایرانی 🇮🇷
+- IP-CIDR,10.10.34.0/24,نوع انتخاب پروکسی 🔀
+- RULE-SET,apps,سایتای ایرانی 🇮🇷
+- MATCH,نوع انتخاب پروکسی 🔀
+ntp:
+  enable: true
+  server: time.apple.com
+  port: 123
+  interval: 30
