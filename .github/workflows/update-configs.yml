@@ -1,12 +1,12 @@
 name: Update Proxy Configs
 
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - main
-   schedule:
-     - cron: "0 */6 * * *"
+on:  
+  workflow_dispatch:  
+  push:  
+    branches:  
+      - main  
+  schedule:  
+    - cron: "0 */6 * * *"
 
 permissions:
   contents: write
