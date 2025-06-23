@@ -112,7 +112,7 @@ tun:
   - any:53
   - tcp://any:53
 proxies:
-- name: Anon10
+- name: 🏳️ Anon9
   type: wireguard
   server: 188.114.96.172
   port: 1014
@@ -121,7 +121,7 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   mtu: 1280
-- name: $$$+jadid+💪💪💪@freeiranianv2rey
+- name: 🏳️ $$$+jadid+💪💪💪@freeiranianv2rey
   type: wireguard
   server: 188.114.97.227
   port: 7156
@@ -130,7 +130,7 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   mtu: 1280
-- name: mci jadid 💪💪💪@freeiranianv2rey
+- name: 🇨🇦 mci jadid 💪💪💪@freeiranianv2rey
   type: wireguard
   server: 188.114.98.12
   port: 1002
@@ -139,7 +139,7 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   mtu: 1280
-- name: Peyman_wire-g
+- name: 🇨🇦 Peyman_wire-g
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
@@ -149,7 +149,7 @@ proxies:
   ip: 172.16.0.2/32
   ipv6: 2606:4700:110:8024:db9d:d4b2:d3c9:b76a/128
   mtu: 1420
-- name: Peyman_wire-g-2
+- name: 🇨🇦 Peyman_wire-g-2
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
@@ -159,7 +159,7 @@ proxies:
   ip: 172.16.0.2/32
   ipv6: 2606:4700:110:8b3f:e6dd:6a63:b2f8:915e/128
   mtu: 1420
-- name: Anon7
+- name: 🇨🇦 Anon6
   type: wireguard
   server: 188.114.98.68
   port: 945
@@ -168,7 +168,7 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   mtu: 1280
-- name: Anon2
+- name: 🇺🇸 Anon1
   type: wireguard
   server: 188.114.99.209
   port: 942
@@ -177,7 +177,27 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   mtu: 1280
-- name: کانال+freeiranianv2rey
+- name: 🇨🇦 Peyman_wire-g-3
+  type: wireguard
+  server: engage.cloudflareclient.com
+  port: 2408
+  private-key: NlWexXSwCluYmJcQI3OvFqWyNQSJ7wkzLJG94DOKOk8=
+  public-key: ''
+  udp: true
+  ip: 172.16.0.2/32
+  ipv6: 2606:4700:110:8a02:5480:1362:4037:4438/128
+  mtu: 1420
+- name: 🇨🇦 Peyman_wire-g-4
+  type: wireguard
+  server: engage.cloudflareclient.com
+  port: 2408
+  private-key: OHhkF0WNWfE8iZNekJXcwj+37ILtemwsMA/c6fynSrE=
+  public-key: ''
+  udp: true
+  ip: 172.16.0.2/32
+  ipv6: 2606:4700:110:8e95:bf23:8a72:cc44:9790/128
+  mtu: 1420
+- name: 🇨🇦 کانال+freeiranianv2rey
   type: wireguard
   server: 162.159.195.178
   port: 942
@@ -186,7 +206,7 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   mtu: 1280
-- name: jadid+💪💪💪@freeiranianv2rey
+- name: 🇨🇦 jadid+💪💪💪@freeiranianv2rey
   type: wireguard
   server: 188.114.96.16
   port: 4233
@@ -195,7 +215,7 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   mtu: 1280
-- name: '@freeiranianv2rey+💯💯💯تا+ابد+رایگان'
+- name: 🏳️ @freeiranianv2rey+💯💯💯تا+ابد+رایگان
   type: wireguard
   server: 188.114.96.49
   port: 864
@@ -204,7 +224,7 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   mtu: 1280
-- name: پرقدرت@freeiranianv2rey
+- name: 🏳️ پرقدرت@freeiranianv2rey
   type: wireguard
   server: 188.114.97.239
   port: 908
@@ -213,7 +233,7 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   mtu: 1280
-- name: wg-2606:4700:d0::d91:179:c651:ed70
+- name: 🏳️ 2606:4700:d0::d91:179:c651:ed70
   type: wireguard
   server: 2606:4700:d0::d91:179:c651:ed70
   port: 7281
@@ -222,17 +242,7 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   mtu: 1280
-- name: Peyman_wire-g-3
-  type: wireguard
-  server: engage.cloudflareclient.com
-  port: 2408
-  private-key: TZ9KX5f4LS6yXXrrvGPDaXE4cSnREOXmSlvGX0HFDUk=
-  public-key: ''
-  udp: true
-  ip: 172.16.0.2/32
-  ipv6: 2606:4700:110:8333:6253:7e18:c968:a9b4/128
-  mtu: 1420
-- name: Peyman_wire-g-4
+- name: 🇨🇦 Peyman_wire-g-5
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
@@ -242,7 +252,16 @@ proxies:
   ip: 172.16.0.2/32
   ipv6: 2606:4700:110:8b17:39d0:f36f:ff51:ae39/128
   mtu: 1420
-- name: Anon6
+- name: 🇺🇸 Anon10
+  type: wireguard
+  server: 188.114.99.20
+  port: 988
+  private-key: gGGQ9BSc43wn9N3RLVDJc9+uN5Au0Me0kGt5NBsRvmg=
+  public-key: ''
+  udp: true
+  ip: 172.16.0.2/32
+  mtu: 1280
+- name: 🇺🇸 Anon5
   type: wireguard
   server: 188.114.99.77
   port: 1002
@@ -251,7 +270,7 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   mtu: 1280
-- name: Anon8
+- name: 🇺🇸 Anon7
   type: wireguard
   server: 188.114.99.162
   port: 945
@@ -260,7 +279,7 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   mtu: 1280
-- name: Peyman_wire-g-5
+- name: 🇨🇦 Peyman_wire-g-6
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
@@ -270,7 +289,7 @@ proxies:
   ip: 172.16.0.2/32
   ipv6: 2606:4700:110:89fe:cfb5:f5a3:574d:3576/128
   mtu: 1420
-- name: Peyman_wire-g-6
+- name: 🇨🇦 Peyman_wire-g-7
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
@@ -280,7 +299,7 @@ proxies:
   ip: 172.16.0.2/32
   ipv6: 2606:4700:110:87f0:6a5:7f65:4cf2:f814/128
   mtu: 1420
-- name: Anon5
+- name: 🏳️ Anon4
   type: wireguard
   server: 188.114.99.13
   port: 1014
@@ -289,7 +308,7 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   mtu: 1280
-- name: Anon4
+- name: 🇨🇦 Anon3
   type: wireguard
   server: 188.114.96.13
   port: 880
@@ -298,17 +317,7 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   mtu: 1280
-- name: Peyman_wire-g-7
-  type: wireguard
-  server: engage.cloudflareclient.com
-  port: 2408
-  private-key: p6mukTdYR+l6bZpcn9rV/Co+4xLuaq/Y94IGKbPKwrc=
-  public-key: ''
-  udp: true
-  ip: 172.16.0.2/32
-  ipv6: 2606:4700:110:88d8:302b:95a5:5c87:3f24/128
-  mtu: 1420
-- name: Anon3
+- name: 🏳️ Anon2
   type: wireguard
   server: 188.114.97.240
   port: 908
@@ -317,17 +326,7 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   mtu: 1280
-- name: Peyman_wire-g-8
-  type: wireguard
-  server: engage.cloudflareclient.com
-  port: 2408
-  private-key: sLonSHqEbXcTbHuYTPtk4YknU6TdMLu/BikQCp86O2s=
-  public-key: ''
-  udp: true
-  ip: 172.16.0.2/32
-  ipv6: 2606:4700:110:8910:aac9:90ab:3612:51a6/128
-  mtu: 1420
-- name: Peyman_wire-g-9
+- name: 🇨🇦 Peyman_wire-g-8
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
@@ -337,7 +336,7 @@ proxies:
   ip: 172.16.0.2/32
   ipv6: 2606:4700:110:8e4c:5487:8225:221d:b857/128
   mtu: 1420
-- name: Anon9
+- name: 🏳️ Anon8
   type: wireguard
   server: 188.114.96.23
   port: 945
@@ -346,16 +345,7 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   mtu: 1280
-- name: Anon1
-  type: wireguard
-  server: 188.114.97.164
-  port: 968
-  private-key: yINGSvsLXkPXD9Sp91UUNCVuyGgngJJRc8mPZkd5A10=
-  public-key: ''
-  udp: true
-  ip: 172.16.0.2/32
-  mtu: 1280
-- name: Peyman_wire-g-10
+- name: 🇨🇦 Peyman_wire-g-9
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
@@ -364,6 +354,16 @@ proxies:
   udp: true
   ip: 172.16.0.2/32
   ipv6: 2606:4700:110:8c54:d0ff:6a5d:94a1:4303/128
+  mtu: 1420
+- name: 🇨🇦 Peyman_wire-g-10
+  type: wireguard
+  server: engage.cloudflareclient.com
+  port: 2408
+  private-key: yfOWelc4oEGPKN2n+Y1pqa2Xul2c7oK5/p8coDif4tE=
+  public-key: ''
+  udp: true
+  ip: 172.16.0.2/32
+  ipv6: 2606:4700:110:8784:c8fb:b51d:43bf:92bd/128
   mtu: 1420
 proxy-groups:
 - name: نوع انتخاب پروکسی 🔀
@@ -378,33 +378,33 @@ proxy-groups:
   type: select
   icon: https://www.svgrepo.com/show/372331/cursor-hand-click.svg
   proxies:
-  - Anon10
-  - $$$+jadid+💪💪💪@freeiranianv2rey
-  - mci jadid 💪💪💪@freeiranianv2rey
-  - Peyman_wire-g
-  - Peyman_wire-g-2
-  - Anon7
-  - Anon2
-  - کانال+freeiranianv2rey
-  - jadid+💪💪💪@freeiranianv2rey
-  - '@freeiranianv2rey+💯💯💯تا+ابد+رایگان'
-  - پرقدرت@freeiranianv2rey
-  - wg-2606:4700:d0::d91:179:c651:ed70
-  - Peyman_wire-g-3
-  - Peyman_wire-g-4
-  - Anon6
-  - Anon8
-  - Peyman_wire-g-5
-  - Peyman_wire-g-6
-  - Anon5
-  - Anon4
-  - Peyman_wire-g-7
-  - Anon3
-  - Peyman_wire-g-8
-  - Peyman_wire-g-9
-  - Anon9
-  - Anon1
-  - Peyman_wire-g-10
+  - 🏳️ Anon9
+  - 🏳️ $$$+jadid+💪💪💪@freeiranianv2rey
+  - 🇨🇦 mci jadid 💪💪💪@freeiranianv2rey
+  - 🇨🇦 Peyman_wire-g
+  - 🇨🇦 Peyman_wire-g-2
+  - 🇨🇦 Anon6
+  - 🇺🇸 Anon1
+  - 🇨🇦 Peyman_wire-g-3
+  - 🇨🇦 Peyman_wire-g-4
+  - 🇨🇦 کانال+freeiranianv2rey
+  - 🇨🇦 jadid+💪💪💪@freeiranianv2rey
+  - 🏳️ @freeiranianv2rey+💯💯💯تا+ابد+رایگان
+  - 🏳️ پرقدرت@freeiranianv2rey
+  - 🏳️ 2606:4700:d0::d91:179:c651:ed70
+  - 🇨🇦 Peyman_wire-g-5
+  - 🇺🇸 Anon10
+  - 🇺🇸 Anon5
+  - 🇺🇸 Anon7
+  - 🇨🇦 Peyman_wire-g-6
+  - 🇨🇦 Peyman_wire-g-7
+  - 🏳️ Anon4
+  - 🇨🇦 Anon3
+  - 🏳️ Anon2
+  - 🇨🇦 Peyman_wire-g-8
+  - 🏳️ Anon8
+  - 🇨🇦 Peyman_wire-g-9
+  - 🇨🇦 Peyman_wire-g-10
 - name: خودکار (بهترین پینگ) 🤖
   type: url-test
   icon: https://www.svgrepo.com/show/7876/speedometer.svg
@@ -414,33 +414,33 @@ proxy-groups:
   tolerance: 10
   lazy: true
   proxies:
-  - Anon10
-  - $$$+jadid+💪💪💪@freeiranianv2rey
-  - mci jadid 💪💪💪@freeiranianv2rey
-  - Peyman_wire-g
-  - Peyman_wire-g-2
-  - Anon7
-  - Anon2
-  - کانال+freeiranianv2rey
-  - jadid+💪💪💪@freeiranianv2rey
-  - '@freeiranianv2rey+💯💯💯تا+ابد+رایگان'
-  - پرقدرت@freeiranianv2rey
-  - wg-2606:4700:d0::d91:179:c651:ed70
-  - Peyman_wire-g-3
-  - Peyman_wire-g-4
-  - Anon6
-  - Anon8
-  - Peyman_wire-g-5
-  - Peyman_wire-g-6
-  - Anon5
-  - Anon4
-  - Peyman_wire-g-7
-  - Anon3
-  - Peyman_wire-g-8
-  - Peyman_wire-g-9
-  - Anon9
-  - Anon1
-  - Peyman_wire-g-10
+  - 🏳️ Anon9
+  - 🏳️ $$$+jadid+💪💪💪@freeiranianv2rey
+  - 🇨🇦 mci jadid 💪💪💪@freeiranianv2rey
+  - 🇨🇦 Peyman_wire-g
+  - 🇨🇦 Peyman_wire-g-2
+  - 🇨🇦 Anon6
+  - 🇺🇸 Anon1
+  - 🇨🇦 Peyman_wire-g-3
+  - 🇨🇦 Peyman_wire-g-4
+  - 🇨🇦 کانال+freeiranianv2rey
+  - 🇨🇦 jadid+💪💪💪@freeiranianv2rey
+  - 🏳️ @freeiranianv2rey+💯💯💯تا+ابد+رایگان
+  - 🏳️ پرقدرت@freeiranianv2rey
+  - 🏳️ 2606:4700:d0::d91:179:c651:ed70
+  - 🇨🇦 Peyman_wire-g-5
+  - 🇺🇸 Anon10
+  - 🇺🇸 Anon5
+  - 🇺🇸 Anon7
+  - 🇨🇦 Peyman_wire-g-6
+  - 🇨🇦 Peyman_wire-g-7
+  - 🏳️ Anon4
+  - 🇨🇦 Anon3
+  - 🏳️ Anon2
+  - 🇨🇦 Peyman_wire-g-8
+  - 🏳️ Anon8
+  - 🇨🇦 Peyman_wire-g-9
+  - 🇨🇦 Peyman_wire-g-10
 - name: پشتیبان (در صورت قطعی) 🧯
   type: fallback
   icon: https://www.svgrepo.com/show/415208/backup-cloud-document.svg
@@ -450,33 +450,33 @@ proxy-groups:
   tolerance: 6
   lazy: true
   proxies:
-  - Anon10
-  - $$$+jadid+💪💪💪@freeiranianv2rey
-  - mci jadid 💪💪💪@freeiranianv2rey
-  - Peyman_wire-g
-  - Peyman_wire-g-2
-  - Anon7
-  - Anon2
-  - کانال+freeiranianv2rey
-  - jadid+💪💪💪@freeiranianv2rey
-  - '@freeiranianv2rey+💯💯💯تا+ابد+رایگان'
-  - پرقدرت@freeiranianv2rey
-  - wg-2606:4700:d0::d91:179:c651:ed70
-  - Peyman_wire-g-3
-  - Peyman_wire-g-4
-  - Anon6
-  - Anon8
-  - Peyman_wire-g-5
-  - Peyman_wire-g-6
-  - Anon5
-  - Anon4
-  - Peyman_wire-g-7
-  - Anon3
-  - Peyman_wire-g-8
-  - Peyman_wire-g-9
-  - Anon9
-  - Anon1
-  - Peyman_wire-g-10
+  - 🏳️ Anon9
+  - 🏳️ $$$+jadid+💪💪💪@freeiranianv2rey
+  - 🇨🇦 mci jadid 💪💪💪@freeiranianv2rey
+  - 🇨🇦 Peyman_wire-g
+  - 🇨🇦 Peyman_wire-g-2
+  - 🇨🇦 Anon6
+  - 🇺🇸 Anon1
+  - 🇨🇦 Peyman_wire-g-3
+  - 🇨🇦 Peyman_wire-g-4
+  - 🇨🇦 کانال+freeiranianv2rey
+  - 🇨🇦 jadid+💪💪💪@freeiranianv2rey
+  - 🏳️ @freeiranianv2rey+💯💯💯تا+ابد+رایگان
+  - 🏳️ پرقدرت@freeiranianv2rey
+  - 🏳️ 2606:4700:d0::d91:179:c651:ed70
+  - 🇨🇦 Peyman_wire-g-5
+  - 🇺🇸 Anon10
+  - 🇺🇸 Anon5
+  - 🇺🇸 Anon7
+  - 🇨🇦 Peyman_wire-g-6
+  - 🇨🇦 Peyman_wire-g-7
+  - 🏳️ Anon4
+  - 🇨🇦 Anon3
+  - 🏳️ Anon2
+  - 🇨🇦 Peyman_wire-g-8
+  - 🏳️ Anon8
+  - 🇨🇦 Peyman_wire-g-9
+  - 🇨🇦 Peyman_wire-g-10
 - name: تلگرام 💬
   type: select
   icon: https://www.svgrepo.com/show/354443/telegram.svg

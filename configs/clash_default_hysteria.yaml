@@ -112,7 +112,7 @@ tun:
   - any:53
   - tcp://any:53
 proxies:
-- name: hysteria-108.181.24.77
+- name: 🏳️ 108.181.24.77
   type: hysteria
   server: 108.181.24.77
   port: 11512
@@ -120,7 +120,7 @@ proxies:
   down: '100'
   sni: 108.181.24.77
   skip-cert-verify: true
-- name: hysteria-130.61.24.219
+- name: 🏳️ 130.61.24.219
   type: hysteria
   server: 130.61.24.219
   port: 443
@@ -128,7 +128,7 @@ proxies:
   down: '100'
   sni: 130.61.24.219
   skip-cert-verify: true
-- name: hysteria-141.145.194.153
+- name: 🏳️ 141.145.194.153
   type: hysteria
   server: 141.145.194.153
   port: 443
@@ -136,7 +136,7 @@ proxies:
   down: '100'
   sni: 141.145.194.153
   skip-cert-verify: true
-- name: hysteria-176.32.35.226
+- name: 🏳️ 176.32.35.226
   type: hysteria
   server: 176.32.35.226
   port: 62003
@@ -144,7 +144,7 @@ proxies:
   down: '100'
   sni: 176.32.35.226
   skip-cert-verify: true
-- name: hysteria-185.22.155.71
+- name: 🏳️ 185.22.155.71
   type: hysteria
   server: 185.22.155.71
   port: 10803
@@ -152,7 +152,7 @@ proxies:
   down: '100'
   sni: 185.22.155.71
   skip-cert-verify: true
-- name: hysteria-195.154.200.178
+- name: 🇫🇷 195.154.200.178
   type: hysteria
   server: 195.154.200.178
   port: 46938
@@ -160,7 +160,7 @@ proxies:
   down: '100'
   sni: 195.154.200.178
   skip-cert-verify: true
-- name: hysteria-195.154.200.40
+- name: 🇫🇷 195.154.200.40
   type: hysteria
   server: 195.154.200.40
   port: 15010
@@ -168,7 +168,7 @@ proxies:
   down: '100'
   sni: 195.154.200.40
   skip-cert-verify: true
-- name: hysteria-208.87.243.151
+- name: 🇺🇸 208.87.243.151
   type: hysteria
   server: 208.87.243.151
   port: 17549
@@ -176,7 +176,7 @@ proxies:
   down: '100'
   sni: 208.87.243.151
   skip-cert-verify: true
-- name: hysteria-208.87.243.187
+- name: 🏳️ 208.87.243.187
   type: hysteria
   server: 208.87.243.187
   port: 40528
@@ -184,7 +184,7 @@ proxies:
   down: '100'
   sni: 208.87.243.187
   skip-cert-verify: true
-- name: hysteria-46.17.41.174
+- name: 🏳️ 46.17.41.174
   type: hysteria
   server: 46.17.41.174
   port: 10469
@@ -192,7 +192,7 @@ proxies:
   down: '100'
   sni: 46.17.41.174
   skip-cert-verify: true
-- name: hysteria-51.158.54.46
+- name: 🏳️ 51.158.54.46-2
   type: hysteria
   server: 51.158.54.46
   port: 55396
@@ -200,7 +200,7 @@ proxies:
   down: '100'
   sni: 51.158.54.46
   skip-cert-verify: true
-- name: hysteria-51.159.226.1
+- name: 🇫🇷 51.159.226.1-4
   type: hysteria
   server: 51.159.226.1
   port: 14241
@@ -208,7 +208,7 @@ proxies:
   down: '100'
   sni: 51.159.226.1
   skip-cert-verify: true
-- name: hysteria-74.48.18.240
+- name: 🏳️ 74.48.18.240
   type: hysteria
   server: 74.48.18.240
   port: 27564
@@ -230,19 +230,19 @@ proxy-groups:
   type: select
   icon: https://www.svgrepo.com/show/372331/cursor-hand-click.svg
   proxies:
-  - hysteria-108.181.24.77
-  - hysteria-130.61.24.219
-  - hysteria-141.145.194.153
-  - hysteria-176.32.35.226
-  - hysteria-185.22.155.71
-  - hysteria-195.154.200.178
-  - hysteria-195.154.200.40
-  - hysteria-208.87.243.151
-  - hysteria-208.87.243.187
-  - hysteria-46.17.41.174
-  - hysteria-51.158.54.46
-  - hysteria-51.159.226.1
-  - hysteria-74.48.18.240
+  - 🏳️ 108.181.24.77
+  - 🏳️ 130.61.24.219
+  - 🏳️ 141.145.194.153
+  - 🏳️ 176.32.35.226
+  - 🏳️ 185.22.155.71
+  - 🇫🇷 195.154.200.178
+  - 🇫🇷 195.154.200.40
+  - 🇺🇸 208.87.243.151
+  - 🏳️ 208.87.243.187
+  - 🏳️ 46.17.41.174
+  - 🏳️ 51.158.54.46-2
+  - 🇫🇷 51.159.226.1-4
+  - 🏳️ 74.48.18.240
 - name: خودکار (بهترین پینگ) 🤖
   type: url-test
   icon: https://www.svgrepo.com/show/7876/speedometer.svg
@@ -252,19 +252,19 @@ proxy-groups:
   tolerance: 10
   lazy: true
   proxies:
-  - hysteria-108.181.24.77
-  - hysteria-130.61.24.219
-  - hysteria-141.145.194.153
-  - hysteria-176.32.35.226
-  - hysteria-185.22.155.71
-  - hysteria-195.154.200.178
-  - hysteria-195.154.200.40
-  - hysteria-208.87.243.151
-  - hysteria-208.87.243.187
-  - hysteria-46.17.41.174
-  - hysteria-51.158.54.46
-  - hysteria-51.159.226.1
-  - hysteria-74.48.18.240
+  - 🏳️ 108.181.24.77
+  - 🏳️ 130.61.24.219
+  - 🏳️ 141.145.194.153
+  - 🏳️ 176.32.35.226
+  - 🏳️ 185.22.155.71
+  - 🇫🇷 195.154.200.178
+  - 🇫🇷 195.154.200.40
+  - 🇺🇸 208.87.243.151
+  - 🏳️ 208.87.243.187
+  - 🏳️ 46.17.41.174
+  - 🏳️ 51.158.54.46-2
+  - 🇫🇷 51.159.226.1-4
+  - 🏳️ 74.48.18.240
 - name: پشتیبان (در صورت قطعی) 🧯
   type: fallback
   icon: https://www.svgrepo.com/show/415208/backup-cloud-document.svg
@@ -274,19 +274,19 @@ proxy-groups:
   tolerance: 6
   lazy: true
   proxies:
-  - hysteria-108.181.24.77
-  - hysteria-130.61.24.219
-  - hysteria-141.145.194.153
-  - hysteria-176.32.35.226
-  - hysteria-185.22.155.71
-  - hysteria-195.154.200.178
-  - hysteria-195.154.200.40
-  - hysteria-208.87.243.151
-  - hysteria-208.87.243.187
-  - hysteria-46.17.41.174
-  - hysteria-51.158.54.46
-  - hysteria-51.159.226.1
-  - hysteria-74.48.18.240
+  - 🏳️ 108.181.24.77
+  - 🏳️ 130.61.24.219
+  - 🏳️ 141.145.194.153
+  - 🏳️ 176.32.35.226
+  - 🏳️ 185.22.155.71
+  - 🇫🇷 195.154.200.178
+  - 🇫🇷 195.154.200.40
+  - 🇺🇸 208.87.243.151
+  - 🏳️ 208.87.243.187
+  - 🏳️ 46.17.41.174
+  - 🏳️ 51.158.54.46-2
+  - 🇫🇷 51.159.226.1-4
+  - 🏳️ 74.48.18.240
 - name: تلگرام 💬
   type: select
   icon: https://www.svgrepo.com/show/354443/telegram.svg

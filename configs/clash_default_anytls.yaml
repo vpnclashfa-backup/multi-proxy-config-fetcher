@@ -196,7 +196,7 @@ proxies:
   - http/1.1
   skip-cert-verify: true
   udp: true
-- name: 'Channel id: @ShadowProxy66🇭🇰'
+- name: '🏳️ Channel id: @ShadowProxy66🇭🇰'
   type: anytls
   server: 156.224.79.90
   port: 63251
@@ -208,7 +208,7 @@ proxies:
   - http/1.1
   skip-cert-verify: true
   udp: true
-- name: 'Channel id: @ShadowProxy66🇺🇸'
+- name: '🏳️ Channel id: @ShadowProxy66🇺🇸'
   type: anytls
   server: 209.54.106.176
   port: 31002
@@ -220,7 +220,7 @@ proxies:
   - http/1.1
   skip-cert-verify: true
   udp: true
-- name: 剩余流量：0
+- name: 🏳️ 剩余流量：0
   type: anytls
   server: 103.253.36.252
   port: 36001
@@ -232,7 +232,7 @@ proxies:
   - http/1.1
   skip-cert-verify: true
   udp: true
-- name: 套餐到期：2036-07-12
+- name: 🏳️ 套餐到期：2036-07-12
   type: anytls
   server: 103.253.36.252
   port: 36001
@@ -244,7 +244,7 @@ proxies:
   - http/1.1
   skip-cert-verify: true
   udp: true
-- name: 新加坡
+- name: 🏳️ 新加坡
   type: anytls
   server: 103.253.36.252
   port: 36001
@@ -256,7 +256,7 @@ proxies:
   - http/1.1
   skip-cert-verify: true
   udp: true
-- name: 距离下次重置剩余：7 天
+- name: 🏳️ 距离下次重置剩余：7 天
   type: anytls
   server: 103.253.36.252
   port: 36001
@@ -268,7 +268,7 @@ proxies:
   - http/1.1
   skip-cert-verify: true
   udp: true
-- name: 美国02
+- name: 🏳️ 美国02
   type: anytls
   server: 107.174.52.160
   port: 36001
@@ -280,7 +280,7 @@ proxies:
   - http/1.1
   skip-cert-verify: true
   udp: true
-- name: 美国03
+- name: 🏳️ 美国03
   type: anytls
   server: 152.53.54.139
   port: 36001
@@ -292,7 +292,7 @@ proxies:
   - http/1.1
   skip-cert-verify: true
   udp: true
-- name: 美国01
+- name: 🇺🇸 美国01
   type: anytls
   server: 192.227.237.62
   port: 36001
@@ -324,15 +324,15 @@ proxy-groups:
   - 🇺🇸美国 01
   - 🇺🇸美国 02
   - 🇺🇸美国 03
-  - 'Channel id: @ShadowProxy66🇭🇰'
-  - 'Channel id: @ShadowProxy66🇺🇸'
-  - 剩余流量：0
-  - 套餐到期：2036-07-12
-  - 新加坡
-  - 距离下次重置剩余：7 天
-  - 美国02
-  - 美国03
-  - 美国01
+  - '🏳️ Channel id: @ShadowProxy66🇭🇰'
+  - '🏳️ Channel id: @ShadowProxy66🇺🇸'
+  - 🏳️ 剩余流量：0
+  - 🏳️ 套餐到期：2036-07-12
+  - 🏳️ 新加坡
+  - 🏳️ 距离下次重置剩余：7 天
+  - 🏳️ 美国02
+  - 🏳️ 美国03
+  - 🇺🇸 美国01
 - name: خودکار (بهترین پینگ) 🤖
   type: url-test
   icon: https://www.svgrepo.com/show/7876/speedometer.svg
@@ -349,15 +349,15 @@ proxy-groups:
   - 🇺🇸美国 01
   - 🇺🇸美国 02
   - 🇺🇸美国 03
-  - 'Channel id: @ShadowProxy66🇭🇰'
-  - 'Channel id: @ShadowProxy66🇺🇸'
-  - 剩余流量：0
-  - 套餐到期：2036-07-12
-  - 新加坡
-  - 距离下次重置剩余：7 天
-  - 美国02
-  - 美国03
-  - 美国01
+  - '🏳️ Channel id: @ShadowProxy66🇭🇰'
+  - '🏳️ Channel id: @ShadowProxy66🇺🇸'
+  - 🏳️ 剩余流量：0
+  - 🏳️ 套餐到期：2036-07-12
+  - 🏳️ 新加坡
+  - 🏳️ 距离下次重置剩余：7 天
+  - 🏳️ 美国02
+  - 🏳️ 美国03
+  - 🇺🇸 美国01
 - name: پشتیبان (در صورت قطعی) 🧯
   type: fallback
   icon: https://www.svgrepo.com/show/415208/backup-cloud-document.svg
@@ -374,15 +374,15 @@ proxy-groups:
   - 🇺🇸美国 01
   - 🇺🇸美国 02
   - 🇺🇸美国 03
-  - 'Channel id: @ShadowProxy66🇭🇰'
-  - 'Channel id: @ShadowProxy66🇺🇸'
-  - 剩余流量：0
-  - 套餐到期：2036-07-12
-  - 新加坡
-  - 距离下次重置剩余：7 天
-  - 美国02
-  - 美国03
-  - 美国01
+  - '🏳️ Channel id: @ShadowProxy66🇭🇰'
+  - '🏳️ Channel id: @ShadowProxy66🇺🇸'
+  - 🏳️ 剩余流量：0
+  - 🏳️ 套餐到期：2036-07-12
+  - 🏳️ 新加坡
+  - 🏳️ 距离下次重置剩余：7 天
+  - 🏳️ 美国02
+  - 🏳️ 美国03
+  - 🇺🇸 美国01
 - name: تلگرام 💬
   type: select
   icon: https://www.svgrepo.com/show/354443/telegram.svg

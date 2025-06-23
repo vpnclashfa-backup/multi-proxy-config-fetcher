@@ -112,25 +112,20 @@ tun:
   - any:53
   - tcp://any:53
 proxies:
-- name: NorthXRAY - VMESS 🔥🇩🇪 🇺🇸
+- name: NASNET | 7 | Emergency
   type: vmess
-  server: prod02-lb02-cloud01.cyberscaler.com
-  port: 33678
-  uuid: fd83d63c-e97e-4a94-87db-27107dcbe293
+  server: npmjs.com
+  port: 8080
+  uuid: xymkalnrm8
   alterId: 0
   cipher: auto
   udp: true
-  network: tcp
-- name: Telegram @viturey🇩🇪🇩🇪
-  type: vmess
-  server: 151.101.66.219
-  port: 80
-  uuid: 0e180837-122d-4e7a-8307-bb059c2b554c
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: xhttp
-- name: Telegram@viturey  🇺🇸🇺🇸-2
+  network: ws
+  ws-opts:
+    path: /nasnet/cdn
+    headers:
+      Host: xymkalnrm8-16197102189.mashallahbet.com
+- name: Telegram@viturey  🇺🇸🇺🇸
   type: vmess
   server: 151.101.66.219
   port: 80
@@ -148,342 +143,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇨🇦CA-51.79.102.253-0973
-  type: vmess
-  server: 51.79.102.253
-  port: 80
-  uuid: 58fe1542-5290-40ad-815a-77707a81afe5
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /IOebhLMhl1CTbFHbL95myfRX2
-    headers:
-      Host: 51.79.102.253
-- name: 🇩🇪DE-57.129.24.125-7062
-  type: vmess
-  server: 57.129.24.125
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: ''
-  skip-cert-verify: true
-  ws-opts:
-    path: /linkvws
-    headers:
-      Host: wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc
-- name: 🏁RELAY-104.18.149.76-0672
-  type: vmess
-  server: 104.18.149.76
-  port: 443
-  uuid: de94cc0a-0592-4969-b1fc-97ea8f0ea0b3
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: us.kkp.me.eu.org
-  skip-cert-verify: true
-  ws-opts:
-    path: /aa
-    headers:
-      Host: us.kkp.me.eu.org
-- name: 🏁RELAY-104.21.112.1-0394
-  type: vmess
-  server: 104.21.112.1
-  port: 2096
-  uuid: b3928f8d-ea81-4d75-bcec-4016a072adff
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: ''
-  skip-cert-verify: true
-  ws-opts:
-    path: /
-    headers:
-      Host: de01.sh-cloudflare.sbs
-- name: 🏁RELAY-104.21.64.1-0395
-  type: vmess
-  server: 104.21.64.1
-  port: 2096
-  uuid: b3928f8d-ea81-4d75-bcec-4016a072adff
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: ''
-  skip-cert-verify: true
-  ws-opts:
-    path: /
-    headers:
-      Host: de01.sh-cloudflare.sbs
-- name: 🇨🇦CA-134.195.198.147-7058
-  type: vmess
-  server: 134.195.198.147
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: ''
-  skip-cert-verify: true
-  ws-opts:
-    path: /linkvws
-    headers:
-      Host: inna.cfd
-- name: 🏁RELAY-172.67.200.13-0219
-  type: vmess
-  server: 1a2d514b-37cf-499f-8d08-d017a92ab5bb.asoul-ava.top
-  port: 443
-  uuid: 5f726fe3-d82e-4da5-a711-8af0cbb2b682
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: 1a2d514b-37cf-499f-8d08-d017a92ab5bb.asoul-ava.top
-  skip-cert-verify: true
-  ws-opts:
-    path: /azumase.ren
-    headers:
-      Host: 1a2d514b-37cf-499f-8d08-d017a92ab5bb.asoul-ava.top
-- name: 🇨🇦CA-23.162.200.227-7063
-  type: vmess
-  server: 23.162.200.227
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: ''
-  skip-cert-verify: true
-  ws-opts:
-    path: /linkvws
-    headers:
-      Host: ''
-- name: 🏁RELAY-172.64.146.66-0666
-  type: vmess
-  server: www.hdmoli.com
-  port: 80
-  uuid: 2f38f848-a899-4c87-9807-207a41615e3c
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /rongseven?ed=2048
-    headers:
-      Host: fr.freeyyds.dpdns.org
-- name: 🏁RELAY-172.67.155.140-0985
-  type: vmess
-  server: xxxcvfgt6.huangshang.dpdns.org
-  port: 443
-  uuid: 91565d37-e81a-479d-9cb0-9cb2d86cea2c
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: ''
-  skip-cert-verify: true
-  ws-opts:
-    path: /w8kFMmZlXlyP0d3nfCNbqCRr57Xa
-    headers:
-      Host: xxxcvfgt6.huangshang.dpdns.org
-- name: 🏁RELAY-104.21.42.93-5247
-  type: vmess
-  server: FfffFfffFG.999864.xYz
-  port: 443
-  uuid: a96cb093-b164-4bc6-bd27-deb0e385de07
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: ''
-  skip-cert-verify: true
-  ws-opts:
-    path: /J2fxBvo8k3PpIlRig3qizHXb
-    headers:
-      Host: FfffFfffFG.999864.xYz
-- name: 🏁RELAY-172.67.149.202-5221
-  type: vmess
-  server: LllLLLllllLKJh.222560.xyZ
-  port: 80
-  uuid: ce921385-2b31-45fe-84c5-1843e8ae845b
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /VaaSEfNLHdW3I98dxLkez
-    headers:
-      Host: LllLLLllllLKJh.222560.xyZ
-- name: 🏁RELAY-104.21.68.76-5220
-  type: vmess
-  server: OOoOOOooOp.222769.XYZ
-  port: 80
-  uuid: ce921385-2b31-45fe-84c5-1843e8ae845b
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /VaaSEfNLHdW3I98dxLkez
-    headers:
-      Host: OOoOOOooOp.222769.XYZ
-- name: 🏁RELAY-172.67.149.202-0984
-  type: vmess
-  server: SssssssW.222560.XYz
-  port: 80
-  uuid: 393b1061-d615-459a-8616-3f9447bdff5a
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /iXfi0mMmPYp9UA6Y34zWUk6JUQ
-    headers:
-      Host: SssssssW.222560.XYz
-- name: 🏁RELAY-172.67.149.202-0220
-  type: vmess
-  server: SssssssW.222560.XYz
-  port: 80
-  uuid: 393b1061-d615-459a-8616-3f9447bdff5a
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /iXfi0mMmPYp9UA6Y34zWUk6JUQ
-    headers:
-      Host: sssssssw.222560.xyz
-- name: 🏁RELAY-104.21.29.205-5222
-  type: vmess
-  server: Xcvfgt5.222560.xyz
-  port: 80
-  uuid: 19a78eeb-d83a-4364-b095-b7dd93436320
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /7LBPethgWxDoVuzO0WLijID
-    headers:
-      Host: Xcvfgt5.222560.xyz
-- name: 🇫🇷FR-45.145.165.114-7054
-  type: vmess
-  server: beyonddsz.cfd
-  port: 443
-  uuid: 9b456c2a-f2c1-45e1-87a9-b7628b04bb24
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: ''
-  skip-cert-verify: true
-  ws-opts:
-    path: /linkws
-    headers:
-      Host: beyonddsz.cfd
-- name: 🏁RELAY-104.21.29.205-5223
-  type: vmess
-  server: dddddDDDDD4.222560.xyZ
-  port: 80
-  uuid: 393b1061-d615-459a-8616-3f9447bdff5a
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /iXfi0mMmPYp9UA6Y34zWUk6JUQ
-    headers:
-      Host: dddddDDDDD4.222560.xyZ
-- name: 🏁RELAY-104.21.112.1-0391
-  type: vmess
-  server: de01.sh-cloudflare.sbs
-  port: 2096
-  uuid: b3928f8d-ea81-4d75-bcec-4016a072adff
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: de01.sh-cloudflare.sbs
-  skip-cert-verify: true
-  ws-opts:
-    path: /
-    headers:
-      Host: de01.sh-cloudflare.sbs
-- name: 🏁RELAY-104.21.29.205-5225
-  type: vmess
-  server: iIiiI8.222560.xYZ
-  port: 80
-  uuid: 393b1061-d615-459a-8616-3f9447bdff5a
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /iXfi0mMmPYp9UA6Y34zWUk6JUQ
-    headers:
-      Host: iIiiI8.222560.xYZ
-- name: 🏁RELAY-172.67.149.202-0222
-  type: vmess
-  server: iIiiI8.222560.xYZ
-  port: 80
-  uuid: 393b1061-d615-459a-8616-3f9447bdff5a
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /iXfi0mMmPYp9UA6Y34zWUk6JUQ
-    headers:
-      Host: iiiii8.222560.xyz
-- name: 🏁RELAY-172.67.75.172-0712
-  type: vmess
-  server: ip.sb
-  port: 443
-  uuid: c9ddb489-7b5e-49ed-8b21-749f4a0ed56d
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: ''
-  skip-cert-verify: true
-  ws-opts:
-    path: /c9ddb489-7b5e-49ed-8b21-749f4a0ed56d-vmess
-    headers:
-      Host: usshs.atlen.dpdns.org
-- name: 🏁RELAY-104.17.176.171-0748
-  type: vmess
-  server: npmjs.com
-  port: 8080
-  uuid: 6cbc9c78-1cb1-57d4-a999-e2f4e34c1e03
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /nasnet/cdn
-    headers:
-      Host: ke7hz36ewz-4515017473.mashallahbet.com
-- name: Telegram @viturey🇩🇪🇩🇪-2
+- name: Telegram @viturey🇩🇪🇩🇪
   type: vmess
   server: 151.101.3.9
   port: 80
@@ -492,7 +152,7 @@ proxies:
   cipher: auto
   udp: true
   network: xhttp
-- name: Telegram @viturey🇩🇪🇩🇪-3
+- name: Telegram @viturey🇩🇪🇩🇪-2
   type: vmess
   server: 151.101.66.219
   port: 80
@@ -501,59 +161,6 @@ proxies:
   cipher: auto
   udp: true
   network: xhttp
-- name: Telegram @viturey🇩🇪🇩🇪-4
-  type: vmess
-  server: 151.101.3.9
-  port: 80
-  uuid: 5ccaa0b4-a1e9-40f5-89d3-230a7ec0d3d8
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: xhttp
-- name: Telegram@viturey  🇺🇸🇺🇸-3
-  type: vmess
-  server: 151.101.66.219
-  port: 80
-  uuid: c61ef47e-bb59-4c84-9783-6647f22916a3
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: xhttp
-- name: Telegram@viturey  🇺🇸🇺🇸-4
-  type: vmess
-  server: 151.101.3.9
-  port: 80
-  uuid: de6fa956-a46d-42ec-9dc9-9d7b40caca1a
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: xhttp
-- name: '%F0%9F%94%A5Mehduox_vpn'
-  type: vmess
-  server: www.speedtest.net
-  port: 80
-  uuid: 040a6bc6-82e9-4850-af39-4eb3b5007874
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /web?ed=2048
-    headers:
-      Host: mail.HamsterBOT.inFo
-- name: 13,14|美国3|@ripaojiedian
-  type: vmess
-  server: v24.heduian.link
-  port: 30824
-  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-  alterId: 2
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /oooo
-    headers:
-      Host: v24.heduian.link
 - name: 13,14|美国|@ripaojiedian
   type: vmess
   server: v32.heduian.link
@@ -567,49 +174,10 @@ proxies:
     path: /oooo
     headers:
       Host: baidu.com
-- name: 13,14|新加坡|@ripaojiedian
-  type: vmess
-  server: v12.heduian.link
-  port: 30812
-  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-  alterId: 2
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /oooo
-    headers:
-      Host: ocbc.com
-- name: 13,14|日本3|@ripaojiedian
-  type: vmess
-  server: v6.heduian.link
-  port: 30806
-  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-  alterId: 2
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /oooo
-    headers:
-      Host: ocbc.com
 - name: 13,14|日本4|@ripaojiedian
   type: vmess
   server: 112.29.213.228
   port: 46015
-  uuid: 4c5a8a75-7d65-40a9-8c3b-a67abae08534
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /zh-cn
-    headers:
-      Host: ''
-- name: 13,14|澳大利亚|@ripaojiedian
-  type: vmess
-  server: 112.29.213.228
-  port: 46022
   uuid: 4c5a8a75-7d65-40a9-8c3b-a67abae08534
   alterId: 0
   cipher: auto
@@ -659,33 +227,6 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 13|🇸🇬 新加坡2|@ripaojiedian
-  type: vmess
-  server: 183.236.51.38
-  port: 41024
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: 13|🇸🇬 新加坡4|@ripaojiedian
-  type: vmess
-  server: 38.47.176.251
-  port: 56051
-  uuid: 2bca3569-0662-47f7-fdf8-421f30e71f44
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: 14|新加坡3|@ripaojiedian
-  type: vmess
-  server: 120.232.153.40
-  port: 31209
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 64
-  cipher: auto
-  udp: true
-  network: tcp
 - name: 14|新加坡2|@ripaojiedian
   type: vmess
   server: 183.236.51.38
@@ -713,33 +254,6 @@ proxies:
   cipher: auto
   udp: true
   network: kcp
-- name: 14|韩国2|@ripaojiedian
-  type: vmess
-  server: 45.94.68.130
-  port: 18740
-  uuid: 0d90d331-6c70-4cb9-855b-c11bcfd227c4
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: 14|香港7|@ripaojiedian
-  type: vmess
-  server: 43.247.135.2
-  port: 20332
-  uuid: 8037ce00-c860-4213-b888-be5c7ed6ea48
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: 2|🇸🇬1 |  1.0MB/s|0%|Netflix|Disn...
-  type: vmess
-  server: 183.236.51.38
-  port: 49291
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 64
-  cipher: auto
-  udp: true
-  network: tcp
 - name: 2|🇺🇸62 |  3.3MB/s|Openai|Gemini
   type: vmess
   server: v29.heduian.link
@@ -753,18 +267,6 @@ proxies:
     path: /oooo
     headers:
       Host: ocbc.com
-- name: 2|🇩🇪5 |  1.4MB/s|0%|Youtube|Open...
-  type: vmess
-  server: de.vmess.comnpmjs.com
-  port: 443
-  uuid: ceaaf653-9874-58c6-b100-092c01a1f73d
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: grpc
-  tls: true
-  servername: de.vmess.comnpmjs.com
-  skip-cert-verify: true
 - name: 2|🇭🇰1 |  1.8MB/s|15%|Disney|Yout...
   type: vmess
   server: bc842b49-swexs0-t1rt5e-1s09x.hgc1.tcpbbr.net
@@ -778,22 +280,6 @@ proxies:
     path: /
     headers:
       Host: broadcastlv.chat.bilibili.com
-- name: 2|🇯🇵1 |  1.8MB/s|54%|Youtube|Ope...
-  type: vmess
-  server: sslvpn.51job.com
-  port: 1443
-  uuid: a6a0d901-67e9-460a-90b5-634c5c4f9782
-  alterId: 64
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: sslvpn.51job.com
-  skip-cert-verify: true
-  ws-opts:
-    path: /634c5c4f9782
-    headers:
-      Host: centos7
 - name: 2|🌀4-TH |  2.6MB/s|55%|Netflix|O...
   type: vmess
   server: 38.47.96.30
@@ -810,67 +296,20 @@ proxies:
     path: /lzjjj
     headers:
       Host: th.lzj520hxw.dpdns.org
-- name: '@Hope_Net-join-us-on-Telegram-40'
+- name: '@Hope_Net-join-us-on-Telegram'
   type: vmess
-  server: 103.67.79.157
-  port: 45365
-  uuid: 7d2a4e66-152c-49f5-9ff5-c19a836e8c89
+  server: 45.159.51.189
+  port: 55128
+  uuid: 84f9bc0e-400f-4839-98b5-637d5e9c6606
   alterId: 0
   cipher: auto
   udp: true
   network: tcp
-- name: '@Hope_Net-join-us-on-Telegram-41'
-  type: vmess
-  server: 38.14.107.233
-  port: 38003
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 64
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: www.23179753.xyz
-  skip-cert-verify: true
-  ws-opts:
-    path: /path/340434130032
-    headers:
-      Host: ''
-- name: '@Hope_Net-join-us-on-Telegram-42'
+- name: '@Hope_Net-join-us-on-Telegram-2'
   type: vmess
   server: 46.250.253.232
   port: 46617
   uuid: 55b88b14-0ff3-4f25-8983-e73d1f9f3a0a
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: '@Hope_Net-join-us-on-Telegram-43'
-  type: vmess
-  server: RAkSMARt-hIDdifY.818185.XyZ
-  port: 443
-  uuid: 0343d7ab-fa29-478a-8877-0d6a8b7d2ab8
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: RAkSMARt-hIDdifY.818185.XyZ
-- name: 广东省广州市 移动
-  type: vmess
-  server: 183.236.51.38
-  port: 41191
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 64
-  cipher: auto
-  udp: true
-  network: tcp
-- name: 广东省湛江市 移动
-  type: vmess
-  server: 120.198.71.214
-  port: 31180
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
   alterId: 0
   cipher: auto
   udp: true
@@ -893,70 +332,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇦🇺 一元机场:ssrsub.de 澳大利亚 01
-  type: vmess
-  server: haa.dashuai.cyou
-  port: 45062
-  uuid: 06af2d09-8604-4967-976b-d0d571b6fc58
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: 🇫🇷法国1 | ⬇️ 2.3MB/s
-  type: vmess
-  server: 172.67.198.187
-  port: 443
-  uuid: 93ea486a-bada-42a4-ac38-d088b320fa1e
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: xmivideo.cfd
-  skip-cert-verify: true
-  ws-opts:
-    path: /linkws
-    headers:
-      Host: xmivideo.cfd
-- name: 🇫🇷法国2 | ⬇️ 4.1MB/s
-  type: vmess
-  server: 104.19.32.0
-  port: 443
-  uuid: 93ea486a-bada-42a4-ac38-d088b320fa1e
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: xmivideo.cfd
-  skip-cert-verify: true
-  ws-opts:
-    path: /linkws
-    headers:
-      Host: xmivideo.cfd
-- name: 🇨🇦 一元机场:ssrsub.de 加拿大 02
-  type: vmess
-  server: haa.dashuai.cyou
-  port: 45064
-  uuid: adf60098-73d2-4546-92a5-798a485ec837
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: 🇨🇦 一元机场:ssrsub.de 加拿大 06
-  type: vmess
-  server: v35.heduian.link
-  port: 30835
-  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-  alterId: 2
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /oooo
-    headers:
-      Host: v35.heduian.link
-- name: 🇨🇳_CN_中国->🇺🇸_US_美国-3
+- name: 🔒 VM-WS-NA 🇨🇳 CN-111.26.109.79:30829
   type: vmess
   server: 111.26.109.79
   port: 30829
@@ -969,10 +345,10 @@ proxies:
     path: /oooo
     headers:
       Host: ocbc.com
-- name: 🇨🇳_CN_中国->🇺🇸_US_美国-4
+- name: 🇨🇦 一元机场:ssrsub.de 加拿大 05
   type: vmess
-  server: v29.heduian.link
-  port: 30829
+  server: v35.heduian.link
+  port: 30835
   uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
   alterId: 2
   cipher: auto
@@ -981,35 +357,26 @@ proxies:
   ws-opts:
     path: /oooo
     headers:
-      Host: ocbc.com
-- name: 🇯🇵 一元机场:ssrsub.de 日本 02
+      Host: v35.heduian.link
+- name: 🇨🇳 一元机场:ssrsub.de 台湾 03
   type: vmess
   server: xdd.dashuai.cyou
-  port: 45057
-  uuid: adf60098-73d2-4546-92a5-798a485ec837
+  port: 45077
+  uuid: 178c2d04-7251-4358-8793-875cb5e10b7f
   alterId: 0
   cipher: auto
   udp: true
   network: tcp
-- name: 🇯🇵 一元机场:ssrsub.de 日本 03
+- name: 🇨🇳 一元机场:ssrsub.de 台湾 04
   type: vmess
   server: haa.dashuai.cyou
-  port: 45056
-  uuid: adf60098-73d2-4546-92a5-798a485ec837
+  port: 45078
+  uuid: 333cc20b-43c1-4b19-8c1a-cf80aed0102b
   alterId: 0
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰 一元机场:ssrsub.de 香港 03
-  type: vmess
-  server: xdd.dashuai.cyou
-  port: 45051
-  uuid: adf60098-73d2-4546-92a5-798a485ec837
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: 🇭🇰 一元机场:ssrsub.de 香港 12
+- name: 🇭🇰 一元机场:ssrsub.de 香港 09
   type: vmess
   server: 183.236.51.38
   port: 49154
@@ -1018,7 +385,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰 一元机场:ssrsub.de 香港 14
+- name: 🇭🇰 一元机场:ssrsub.de 香港 13
   type: vmess
   server: v9.heduian.link
   port: 30809
@@ -1031,21 +398,12 @@ proxies:
     path: /oooo
     headers:
       Host: baidu.com
-- name: 🇭🇰 一元机场:ssrsub.de 香港 16
+- name: 🇭🇰 一元机场:ssrsub.de 香港 15
   type: vmess
   server: 43.247.135.170
   port: 46210
   uuid: d1eca706-1aae-42d3-bab0-69995d7b023d
   alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: 🇭🇰 一元机场:ssrsub.de 香港 17
-  type: vmess
-  server: 120.234.102.229
-  port: 41174
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 64
   cipher: auto
   udp: true
   network: tcp
@@ -1065,56 +423,22 @@ proxies:
     path: /register
     headers:
       Host: hk2.lrzdx.uk
-- name: 🇭🇰香港2 | ⬇️ 1.2MB/s
+- name: 🇮🇩 一元机场:ssrsub.de 印尼 01
   type: vmess
-  server: hk2.lrzdx.uk
+  server: quiz.int.vidio.com
   port: 443
-  uuid: db69d5bc-d36c-4903-f471-74b98c5cefe5
+  uuid: 31c6a754-32aa-46a1-b5ee-ce713b409bf9
   alterId: 0
   cipher: auto
   udp: true
   network: ws
   tls: true
-  servername: hk2.lrzdx.uk
+  servername: sg4.fastjing.web.id
   skip-cert-verify: true
   ws-opts:
-    path: /register
+    path: /vmess
     headers:
-      Host: hk2.lrzdx.uk
-- name: 🇭🇰香港3 | ⬇️ 3.1MB/s
-  type: vmess
-  server: 104.17.137.127
-  port: 443
-  uuid: 47eab0de-97f9-49be-f2f3-2e4eb17268e6
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: hk.niskakowski.ggff.net
-  skip-cert-verify: true
-  ws-opts:
-    path: /aa
-    headers:
-      Host: hk.niskakowski.ggff.net
-- name: 🇮🇳 一元机场:ssrsub.de 印度 01
-  type: vmess
-  server: xdd.dashuai.cyou
-  port: 45073
-  uuid: a64e8d29-8622-4e4a-b729-716b9c589d34
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: 🇮🇳 一元机场:ssrsub.de 印度 02
-  type: vmess
-  server: haa.dashuai.cyou
-  port: 45074
-  uuid: 06af2d09-8604-4967-976b-d0d571b6fc58
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
+      Host: sg4.fastjing.web.id
 - name: 🇸🇬新加坡2 | ⬇️ 1.7MB/s
   type: vmess
   server: a.886968.xyz
@@ -1131,20 +455,58 @@ proxies:
     path: /wfdef
     headers:
       Host: a.886968.xyz
-- name: 🇺🇸 一元机场:ssrsub.de 美国 17
+- name: 🇺🇸 一元机场:ssrsub.de 美国 22
   type: vmess
-  server: 45.147.201.231
-  port: 22069
-  uuid: a58a150c-e88b-4ed8-807f-33006fa8a061
+  server: haa.dashuai.cyou
+  port: 45052
+  uuid: 333cc20b-43c1-4b19-8c1a-cf80aed0102b
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: tcp
+- name: 🇺🇸 一元机场:ssrsub.de 美国 54
+  type: vmess
+  server: XxcdvFgtY.444652.xYZ
+  port: 443
+  uuid: 512d9674-db12-44ca-a1b5-654244549b65
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: ws
+  tls: true
+  servername: XxcdvFgtY.444652.xYZ
+  skip-cert-verify: true
+  ws-opts:
+    path: /uiAxvH6OkVk0VCfa7dX3JIrYk7zm
+    headers:
+      Host: xxcdvfgty.444652.xyz
+- name: 🇺🇸 一元机场:ssrsub.de 美国 80
+  type: vmess
+  server: sxcccvgbhnju.999834.xyz
+  port: 80
+  uuid: 30602b6d-5d5c-4f56-9b65-9ae2fd9348cb
   alterId: 0
   cipher: auto
   udp: true
   network: ws
   ws-opts:
-    path: /
+    path: /TetDjP6oSiF3sGVHqPd73hl
     headers:
-      Host: 45.147.201.231
-- name: 🇺🇸 一元机场:ssrsub.de 美国 36
+      Host: sxcccvgbhnju.999834.xyz
+- name: 🇺🇸 一元机场:ssrsub.de 美国 82
+  type: vmess
+  server: SSxXZASw.999824.Xyz
+  port: 80
+  uuid: 512d9674-db12-44ca-a1b5-654244549b65
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: ws
+  ws-opts:
+    path: /uiAxvH6OkVk0VCfa7dX3JIrYk7zm
+    headers:
+      Host: ssxxzasw.999824.xyz
+- name: 🇺🇸 一元机场:ssrsub.de 美国 87
   type: vmess
   server: 111.26.109.79
   port: 30828
@@ -1157,61 +519,6 @@ proxies:
     path: /oooo
     headers:
       Host: ocbc.com
-- name: 🇺🇸 一元机场:ssrsub.de 美国 41
-  type: vmess
-  server: v29.heduian.link
-  port: 30829
-  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-  alterId: 2
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /oooo
-    headers:
-      Host: ocbc.com
-- name: 🇺🇸 一元机场:ssrsub.de 美国 42
-  type: vmess
-  server: 111.26.109.79
-  port: 30825
-  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-  alterId: 2
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /oooo
-    headers:
-      Host: 111.26.109.79
-- name: 🇺🇸 一元机场:ssrsub.de 美国 65
-  type: vmess
-  server: 104.17.176.171
-  port: 8080
-  uuid: 6cbc9c78-1cb1-57d4-a999-e2f4e34c1e03
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /nasnet/cdn
-    headers:
-      Host: ke7hz36ewz-4515017473.mashallahbet.com
-- name: 🇺🇸美国104 | ⬇️ 3.3MB/s
-  type: vmess
-  server: cloudgetservice.mcloudservice.site
-  port: 443
-  uuid: 5428dcc2-9950-4404-b8a5-9dac82acb210
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: cloudgetservice.mcloudservice.site
-  skip-cert-verify: true
-  ws-opts:
-    path: /linkws
-    headers:
-      Host: maXNEtVIP-usA-VP3.nETKH3.SiTE
 - name: 🇺🇸美国11 | ⬇️ 2.8MB/s
   type: vmess
   server: u8.huvicloud.com
@@ -1324,22 +631,6 @@ proxies:
     path: /96c585de
     headers:
       Host: xcf036.facai2024.com
-- name: 🇺🇸美国20 | ⬇️ 1.8MB/s
-  type: vmess
-  server: ray.skymirror.cc
-  port: 443
-  uuid: c99929e1-9c82-4a33-d11e-f177247b8f63
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: ray.skymirror.cc
-  skip-cert-verify: true
-  ws-opts:
-    path: /
-    headers:
-      Host: ray.skymirror.cc
 - name: 🇺🇸美国21 | ⬇️ 2.2MB/s
   type: vmess
   server: xc115-1.meiziba5566.com
@@ -1432,12 +723,12 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1176575173947.vmus6.taobao.yyds.niaoba.top
+      Host: 1176531293330.vmus6.taobao.yyds.niaoba.top
 - name: (IEPL)英国1
   type: vmess
   server: haa.dashuai.cyou
   port: 45066
-  uuid: dc2410f6-616d-4646-ba58-eb73b23f3628
+  uuid: 715447a9-12e0-4d1e-86a3-ca128ba42bb0
   alterId: 0
   cipher: auto
   udp: true
@@ -1446,18 +737,9 @@ proxies:
   type: vmess
   server: xdd.dashuai.cyou
   port: 45067
-  uuid: dc2410f6-616d-4646-ba58-eb73b23f3628
+  uuid: 715447a9-12e0-4d1e-86a3-ca128ba42bb0
   alterId: 0
   cipher: auto
-  udp: true
-  network: tcp
-- name: '@VIProxys-50'
-  type: vmess
-  server: 46.245.67.54
-  port: 1102
-  uuid: 79bee1ec-39ee-497c-83a4-9ecd8929c846
-  alterId: 0
-  cipher: aes-128-gcm
   udp: true
   network: tcp
 - name: FRK.德国.A
@@ -1501,22 +783,6 @@ proxies:
     path: /31k64xkea01x
     headers:
       Host: hk3.runjustfast.com
-- name: HK | 香港 专线
-  type: vmess
-  server: gd.runjustfast.com
-  port: 35004
-  uuid: e8383f0e-31e7-427c-9df0-36d4dec4aa65
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: hk1.runjustfast.com
-  skip-cert-verify: true
-  ws-opts:
-    path: /31k64xkea01x
-    headers:
-      Host: hk1.runjustfast.com
 - name: HK.香港.A | 负载均衡
   type: vmess
   server: xctransfer1st.cokecloud.top
@@ -1580,15 +846,6 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: HK.香港（需V6，新疆专用）
-  type: vmess
-  server: v6.asdasfasfast.com
-  port: 21552
-  uuid: a01b5e27-ece5-4675-866f-36b23a65d2a8
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
 - name: JP | 日本 01
   type: vmess
   server: r.runjustfast.com
@@ -1639,32 +896,6 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: TG群:@helium_network_group
-  type: vmess
-  server: free-relay.themars.top
-  port: 39907
-  uuid: 631484bb-c085-4384-8c3a-d93db3d587ef
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /cctv1.m3u8
-    headers:
-      Host: www.cctv.com
-- name: TG群:@helium_network_group-2
-  type: vmess
-  server: free-relay.themars.top
-  port: 39907
-  uuid: 90030631-4027-4810-8ce9-3e9095390f2d
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /cctv1.m3u8
-    headers:
-      Host: www.cctv.com
 - name: TW | 台湾 01
   type: vmess
   server: r.runjustfast.com
@@ -1749,29 +980,11 @@ proxies:
     path: /4su6gxksa11c
     headers:
       Host: us1.runjustfast.com
-- name: US.美国.B
-  type: vmess
-  server: cokecloudus.cokecloud.top
-  port: 25619
-  uuid: a01b5e27-ece5-4675-866f-36b23a65d2a8
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: US.美国.E
-  type: vmess
-  server: cokecloudus.cokecloud.top
-  port: 20067
-  uuid: a01b5e27-ece5-4675-866f-36b23a65d2a8
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
 - name: '[3X]泰国NO1'
   type: vmess
   server: haa.dashuai.cyou
   port: 45060
-  uuid: dc2410f6-616d-4646-ba58-eb73b23f3628
+  uuid: 715447a9-12e0-4d1e-86a3-ca128ba42bb0
   alterId: 0
   cipher: auto
   udp: true
@@ -1780,25 +993,7 @@ proxies:
   type: vmess
   server: xdd.dashuai.cyou
   port: 45061
-  uuid: dc2410f6-616d-4646-ba58-eb73b23f3628
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: '[3X]韩国 专线NO1'
-  type: vmess
-  server: haa.dashuai.cyou
-  port: 45076
-  uuid: dc2410f6-616d-4646-ba58-eb73b23f3628
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: '[3X]韩国 专线NO2'
-  type: vmess
-  server: xdd.dashuai.cyou
-  port: 45075
-  uuid: dc2410f6-616d-4646-ba58-eb73b23f3628
+  uuid: 715447a9-12e0-4d1e-86a3-ca128ba42bb0
   alterId: 0
   cipher: auto
   udp: true
@@ -1807,7 +1002,7 @@ proxies:
   type: vmess
   server: haa.dashuai.cyou
   port: 45058
-  uuid: dc2410f6-616d-4646-ba58-eb73b23f3628
+  uuid: 715447a9-12e0-4d1e-86a3-ca128ba42bb0
   alterId: 0
   cipher: auto
   udp: true
@@ -1816,24 +1011,11 @@ proxies:
   type: vmess
   server: xdd.dashuai.cyou
   port: 45059
-  uuid: dc2410f6-616d-4646-ba58-eb73b23f3628
+  uuid: 715447a9-12e0-4d1e-86a3-ca128ba42bb0
   alterId: 0
   cipher: auto
   udp: true
   network: tcp
-- name: 俄罗斯1-CDN | 1X
-  type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2082
-  uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 1750660791.speed.rusfnkia.cccp.uruu.cn
 - name: 台湾-优化
   type: vmess
   server: yes.mojcn.com
@@ -1951,24 +1133,6 @@ proxies:
     path: /
     headers:
       Host: ae9c0de474c64c03db9edbf3fc4d8c68.mobgslb.tbcache.com
-- name: 台湾1(GPT等流媒体1.5倍）
-  type: vmess
-  server: haa.dashuai.cyou
-  port: 45078
-  uuid: dc2410f6-616d-4646-ba58-eb73b23f3628
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: 台湾2(GPT等流媒体1.5倍）
-  type: vmess
-  server: xdd.dashuai.cyou
-  port: 45077
-  uuid: dc2410f6-616d-4646-ba58-eb73b23f3628
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
 - name: 免费JP节点01
   type: vmess
   server: free-relay.themars.top
@@ -2138,10 +1302,10 @@ proxies:
     path: /
     headers:
       Host: ae9c0de474c64c03db9edbf3fc4d8c68.mobgslb.tbcache.com
-- name: 剩余流量：0-35
+- name: 剩余流量：0
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2082
+  server: 1750670541.tencentapp.cn
+  port: 8880
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -2150,8 +1314,8 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.sgsica.cccp.uruu.cn
-- name: 剩余流量：0-36
+      Host: 1750671051.speed.sgsica.cccp.uruu.cn
+- name: 剩余流量：0-2
   type: vmess
   server: 123.com
   port: 12346
@@ -2160,7 +1324,20 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 剩余流量：0-37
+- name: 剩余流量：0-3
+  type: vmess
+  server: 45.147.201.231
+  port: 22069
+  uuid: 41cc36aa-dfb6-47bb-8e39-133ad5f2cd83
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: ws
+  ws-opts:
+    path: ''
+    headers:
+      Host: ''
+- name: 剩余流量：0-4
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2173,7 +1350,7 @@ proxies:
     path: ''
     headers:
       Host: ''
-- name: 剩余流量：0-38
+- name: 剩余流量：0-5
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2186,7 +1363,7 @@ proxies:
     path: ''
     headers:
       Host: ''
-- name: 剩余流量：0-39
+- name: 剩余流量：0-6
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2199,7 +1376,7 @@ proxies:
     path: ''
     headers:
       Host: ''
-- name: 剩余流量：0-40
+- name: 剩余流量：0-7
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2212,7 +1389,7 @@ proxies:
     path: ''
     headers:
       Host: ''
-- name: 剩余流量：0-41
+- name: 剩余流量：0-8
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2225,7 +1402,7 @@ proxies:
     path: ''
     headers:
       Host: ''
-- name: 剩余流量：0-42
+- name: 剩余流量：0-9
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2238,7 +1415,7 @@ proxies:
     path: ''
     headers:
       Host: ''
-- name: 剩余流量：0-43
+- name: 剩余流量：0-10
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2251,7 +1428,7 @@ proxies:
     path: ''
     headers:
       Host: ''
-- name: 剩余流量：0-44
+- name: 剩余流量：0-11
   type: vmess
   server: free-relay.themars.top
   port: 39907
@@ -2264,7 +1441,7 @@ proxies:
     path: /cctv1.m3u8
     headers:
       Host: www.cctv.com
-- name: 剩余流量：0-45
+- name: 剩余流量：0-12
   type: vmess
   server: free-relay.themars.top
   port: 39907
@@ -2277,7 +1454,7 @@ proxies:
     path: /cctv1.m3u8
     headers:
       Host: www.cctv.com
-- name: 剩余流量：0-46
+- name: 剩余流量：0-13
   type: vmess
   server: hk.bethebest.eu.org
   port: 2052
@@ -2294,24 +1471,11 @@ proxies:
   type: vmess
   server: haa.dashuai.cyou
   port: 45050
-  uuid: dc2410f6-616d-4646-ba58-eb73b23f3628
+  uuid: 715447a9-12e0-4d1e-86a3-ca128ba42bb0
   alterId: 0
   cipher: auto
   udp: true
   network: tcp
-- name: 剩余流量：20.52 GB
-  type: vmess
-  server: 45.147.201.231
-  port: 22069
-  uuid: fceff025-b4ea-4fd2-9093-151b3bd503cd
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
 - name: 剩余流量：296.7 GB
   type: vmess
   server: xctransfer1st.cokecloud.top
@@ -2326,32 +1490,6 @@ proxies:
   server: 45.147.201.231
   port: 22069
   uuid: d1037421-3977-4cae-8462-0c7d22745e84
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 剩余流量：61.74 GB
-  type: vmess
-  server: 45.147.201.231
-  port: 22069
-  uuid: 219e2f40-759b-4e00-9d4b-4bd588e5b84e
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 剩余流量：64.92 GB
-  type: vmess
-  server: 45.147.201.231
-  port: 22069
-  uuid: 7d3dea75-4636-4de5-bf3b-47ccc3411434
   alterId: 0
   cipher: auto
   udp: true
@@ -2495,8 +1633,8 @@ proxies:
       Host: ae9c0de474c64c03db9edbf3fc4d8c68.mobgslb.tbcache.com
 - name: 加拿大-多伦多1-CDN | 1x
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 8880
+  server: 1750670541.tencentapp.cn
+  port: 2095
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -2505,12 +1643,12 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.chaoonla.cccp.uruu.cn
+      Host: 1750671051.speed.chaoonla.cccp.uruu.cn
 - name: 加拿大1
   type: vmess
   server: haa.dashuai.cyou
   port: 45064
-  uuid: dc2410f6-616d-4646-ba58-eb73b23f3628
+  uuid: 715447a9-12e0-4d1e-86a3-ca128ba42bb0
   alterId: 0
   cipher: auto
   udp: true
@@ -2519,37 +1657,11 @@ proxies:
   type: vmess
   server: xdd.dashuai.cyou
   port: 45065
-  uuid: dc2410f6-616d-4646-ba58-eb73b23f3628
+  uuid: 715447a9-12e0-4d1e-86a3-ca128ba42bb0
   alterId: 0
   cipher: auto
   udp: true
   network: tcp
-- name: 加群关注电报频道获取延期码
-  type: vmess
-  server: free-relay.themars.top
-  port: 39907
-  uuid: 631484bb-c085-4384-8c3a-d93db3d587ef
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /cctv1.m3u8
-    headers:
-      Host: www.cctv.com
-- name: 加群关注电报频道获取延期码-2
-  type: vmess
-  server: free-relay.themars.top
-  port: 39907
-  uuid: 90030631-4027-4810-8ce9-3e9095390f2d
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /cctv1.m3u8
-    headers:
-      Host: www.cctv.com
 - name: 印度-优化
   type: vmess
   server: yes.mojcn.com
@@ -2589,10 +1701,28 @@ proxies:
     path: /
     headers:
       Host: ae9c0de474c64c03db9edbf3fc4d8c68.mobgslb.tbcache.com
-- name: 印度-海得拉巴1-CDN | 1x
+- name: 印度1
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2082
+  server: haa.dashuai.cyou
+  port: 45074
+  uuid: 715447a9-12e0-4d1e-86a3-ca128ba42bb0
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: tcp
+- name: 印度2
+  type: vmess
+  server: xdd.dashuai.cyou
+  port: 45073
+  uuid: 715447a9-12e0-4d1e-86a3-ca128ba42bb0
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: tcp
+- name: 印度尼西亚1-CDN | 1x
+  type: vmess
+  server: 1750670541.tencentapp.cn
+  port: 2086
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -2601,11 +1731,11 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.inlopka.cccp.uruu.cn
-- name: 印度-海得拉巴2-CDN | 1x
+      Host: 1750671051.speed.ynxypoa.cccp.uruu.cn
+- name: 印度尼西亚2-CDN | 1x
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2082
+  server: 1750670541.tencentapp.cn
+  port: 2086
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -2614,10 +1744,10 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.inlopkb.cccp.uruu.cn
-- name: 印度-海得拉巴3-CDN | 1x
+      Host: 1750671051.speed.ynxypob.cccp.uruu.cn
+- name: 哥伦比亚-波哥大1-CDN | 1X
   type: vmess
-  server: 1750660341.tencentapp.cn
+  server: 1750670541.tencentapp.cn
   port: 2052
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
@@ -2627,81 +1757,11 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.inlopkc.cccp.uruu.cn
-- name: 印度-海得拉巴4-CDN | 1x
-  type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2086
-  uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 1750660791.speed.inlopkd.cccp.uruu.cn
-- name: 印度1-9
-  type: vmess
-  server: haa.dashuai.cyou
-  port: 45074
-  uuid: dc2410f6-616d-4646-ba58-eb73b23f3628
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: 印度2-9
-  type: vmess
-  server: xdd.dashuai.cyou
-  port: 45073
-  uuid: dc2410f6-616d-4646-ba58-eb73b23f3628
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: 印度尼西亚1-CDN | 1x
-  type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 8080
-  uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 1750660791.speed.ynxypoa.cccp.uruu.cn
-- name: 印度尼西亚2-CDN | 1x
-  type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 8080
-  uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 1750660791.speed.ynxypob.cccp.uruu.cn
-- name: 哥伦比亚-波哥大1-CDN | 1X
-  type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2086
-  uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 1750660791.speed.bomdauta.cccp.uruu.cn
+      Host: 1750671051.speed.bomdauta.cccp.uruu.cn
 - name: 哥伦比亚-波哥大2-CDN | 1X
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2086
+  server: 1750670541.tencentapp.cn
+  port: 2052
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -2710,7 +1770,7 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.bomdautb.cccp.uruu.cn
+      Host: 1750671051.speed.bomdautb.cccp.uruu.cn
 - name: 土耳其 伊斯坦布尔
   type: vmess
   server: hbyd.dengtacloud.net
@@ -2729,8 +1789,8 @@ proxies:
       Host: teq.718node.com
 - name: 土耳其1-无分流直出BAN-PT/BT/POOL-CDN | 0X
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2086
+  server: 1750670541.tencentapp.cn
+  port: 2052
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -2739,7 +1799,7 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.trsoovfa.cccp.uruu.cn
+      Host: 1750671051.speed.trsoovfa.cccp.uruu.cn
 - name: 备用网址www.fzdvd.cc
   type: vmess
   server: 123.com
@@ -2758,26 +1818,10 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 套餐到期：2025-06-01
+- name: 套餐到期：2025-06-23
   type: vmess
-  server: 1.example.com
-  port: 443
-  uuid: d68fa1c3-1dcc-4fb0-b906-68b9384f2b64
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: 1.example.com
-  skip-cert-verify: true
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 套餐到期：2025-06-23-2
-  type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2082
+  server: 1750670541.tencentapp.cn
+  port: 8880
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -2786,12 +1830,12 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.sgsica.cccp.uruu.cn
-- name: 套餐到期：2025-06-23-3
+      Host: 1750671051.speed.sgsica.cccp.uruu.cn
+- name: 套餐到期：2025-06-23-2
   type: vmess
   server: haa.dashuai.cyou
   port: 45050
-  uuid: dc2410f6-616d-4646-ba58-eb73b23f3628
+  uuid: 715447a9-12e0-4d1e-86a3-ca128ba42bb0
   alterId: 0
   cipher: auto
   udp: true
@@ -2835,7 +1879,7 @@ proxies:
     path: /
     headers:
       Host: us7.123417.xyz
-- name: 套餐到期：长期有效-28
+- name: 套餐到期：长期有效
   type: vmess
   server: 123.com
   port: 12346
@@ -2844,7 +1888,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 套餐到期：长期有效-29
+- name: 套餐到期：长期有效-2
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2857,7 +1901,20 @@ proxies:
     path: ''
     headers:
       Host: ''
-- name: 套餐到期：长期有效-30
+- name: 套餐到期：长期有效-3
+  type: vmess
+  server: 45.147.201.231
+  port: 22069
+  uuid: 41cc36aa-dfb6-47bb-8e39-133ad5f2cd83
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: ws
+  ws-opts:
+    path: ''
+    headers:
+      Host: ''
+- name: 套餐到期：长期有效-4
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2870,7 +1927,7 @@ proxies:
     path: ''
     headers:
       Host: ''
-- name: 套餐到期：长期有效-31
+- name: 套餐到期：长期有效-5
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2883,7 +1940,7 @@ proxies:
     path: ''
     headers:
       Host: ''
-- name: 套餐到期：长期有效-32
+- name: 套餐到期：长期有效-6
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2896,7 +1953,7 @@ proxies:
     path: ''
     headers:
       Host: ''
-- name: 套餐到期：长期有效-33
+- name: 套餐到期：长期有效-7
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2909,7 +1966,7 @@ proxies:
     path: ''
     headers:
       Host: ''
-- name: 套餐到期：长期有效-34
+- name: 套餐到期：长期有效-8
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2922,7 +1979,7 @@ proxies:
     path: ''
     headers:
       Host: ''
-- name: 套餐到期：长期有效-35
+- name: 套餐到期：长期有效-9
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2935,7 +1992,7 @@ proxies:
     path: ''
     headers:
       Host: ''
-- name: 套餐到期：长期有效-36
+- name: 套餐到期：长期有效-10
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2948,7 +2005,7 @@ proxies:
     path: ''
     headers:
       Host: ''
-- name: 套餐到期：长期有效-37
+- name: 套餐到期：长期有效-11
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2961,7 +2018,7 @@ proxies:
     path: ''
     headers:
       Host: ''
-- name: 套餐到期：长期有效-38
+- name: 套餐到期：长期有效-12
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2974,7 +2031,7 @@ proxies:
     path: ''
     headers:
       Host: ''
-- name: 套餐到期：长期有效-39
+- name: 套餐到期：长期有效-13
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2987,71 +2044,6 @@ proxies:
     path: ''
     headers:
       Host: ''
-- name: 套餐到期：长期有效-40
-  type: vmess
-  server: yes.mojcn.com
-  port: 16617
-  uuid: 918003d3-1f5d-425c-b39c-ff61781e48f1
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 51b0e42034dd75a815fa9eb16021fbda.mobgslb.tbcache.com
-- name: 套餐到期：长期有效-41
-  type: vmess
-  server: yes.mojcn.com
-  port: 16617
-  uuid: ba001863-ddd0-4beb-8933-8a75a898c7ec
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ba0f678896ea70308a3ea611bb985d7b.mobgslb.tbcache.com
-- name: 套餐到期：长期有效-42
-  type: vmess
-  server: yes.mojcn.com
-  port: 16617
-  uuid: da91214e-b022-4f61-a724-01c538170e62
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ae9c0de474c64c03db9edbf3fc4d8c68.mobgslb.tbcache.com
-- name: 官网地址：https://www.niao.icu
-  type: vmess
-  server: yx1.niaoba.top
-  port: 2052
-  uuid: 4000219a-a199-441d-abc7-70359c60ed44
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 1176575173947.vmus6.taobao.yyds.niaoba.top
-- name: 官网：最强机场.com
-  type: vmess
-  server: xxx
-  port: 8888
-  uuid: 867f512f-93d2-4344-853c-50965de9b103
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /uis
-    headers:
-      Host: y.qq.com
 - name: 官网：dash.henet.uk
   type: vmess
   server: free-relay.themars.top
@@ -3137,8 +2129,8 @@ proxies:
   network: tcp
 - name: 尼日利亚-双ISP原生家宽-无分流直出-CDN | 1X
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2052
+  server: 1750670541.tencentapp.cn
+  port: 8080
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -3147,10 +2139,49 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.ngnregknm.cccp.uruu.cn
+      Host: 1750671051.speed.ngnregknm.cccp.uruu.cn
 - name: 尼日利亚1-无分流直出-CDN | 1X
   type: vmess
-  server: 1750660341.tencentapp.cn
+  server: 1750670541.tencentapp.cn
+  port: 8880
+  uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 1750671051.speed.ngnsplosc.cccp.uruu.cn
+- name: 巴西-圣保罗1-CDN | 1X
+  type: vmess
+  server: 1750670541.tencentapp.cn
+  port: 2086
+  uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 1750671051.speed.baxqqopa.cccp.uruu.cn
+- name: 巴西-圣保罗2-CDN | 1X
+  type: vmess
+  server: 1750670541.tencentapp.cn
+  port: 2086
+  uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 1750671051.speed.baxqqopb.cccp.uruu.cn
+- name: 巴西-圣保罗3-CDN | 1X
+  type: vmess
+  server: 1750670541.tencentapp.cn
   port: 2082
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
@@ -3160,98 +2191,7 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.ngnsplosc.cccp.uruu.cn
-- name: 巴西-维涅社1-CDN | 1X
-  type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2086
-  uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 1750660791.speed.baxbvna.cccp.uruu.cn
-- name: 巴西-维涅社2-CDN | 1X
-  type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2086
-  uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 1750660791.speed.baxbvnb.cccp.uruu.cn
-- name: 巴西-维涅社3-CDN | 1X
-  type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2086
-  uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 1750660791.speed.baxbvnc.cccp.uruu.cn
-- name: 巴西-维涅社4-CDN | 1X
-  type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2086
-  uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 1750660791.speed.baxbvnd.cccp.uruu.cn
-- name: 巴西-圣保罗1-CDN | 1X
-  type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 8080
-  uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 1750660791.speed.baxqqopa.cccp.uruu.cn
-- name: 巴西-圣保罗2-CDN | 1X
-  type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 8080
-  uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 1750660791.speed.baxqqopb.cccp.uruu.cn
-- name: 巴西-圣保罗3-CDN | 1X
-  type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2095
-  uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 1750660791.speed.baxqqopc.cccp.uruu.cn
+      Host: 1750671051.speed.baxqqopc.cccp.uruu.cn
 - name: 已到期或流量已用完
   type: vmess
   server: 1.example.com
@@ -3268,32 +2208,6 @@ proxies:
     path: ''
     headers:
       Host: ''
-- name: 德国-纽伦堡1-CDN | 0x
-  type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2082
-  uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 1750660791.speed.dekbvca.cccp.uruu.cn
-- name: 德国-纽伦堡2-CDN | 0x
-  type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2082
-  uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 1750660791.speed.dekbvcb.cccp.uruu.cn
 - name: 德国-优化
   type: vmess
   server: yes.mojcn.com
@@ -3388,15 +2302,6 @@ proxies:
     path: null
     headers:
       Host: null
-- name: 您的服务已到期了
-  type: vmess
-  server: xctransfer1st.cokecloud.top
-  port: 21552
-  uuid: a01b5e27-ece5-4675-866f-36b23a65d2a8
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
 - name: 新加坡-优化
   type: vmess
   server: yes.mojcn.com
@@ -3516,8 +2421,8 @@ proxies:
       Host: ae9c0de474c64c03db9edbf3fc4d8c68.mobgslb.tbcache.com
 - name: 新加坡1-CDN | 1x
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2082
+  server: 1750670541.tencentapp.cn
+  port: 8880
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -3526,11 +2431,11 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.sgsica.cccp.uruu.cn
+      Host: 1750671051.speed.sgsica.cccp.uruu.cn
 - name: 新加坡2-CDN | 1x
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 8080
+  server: 1750670541.tencentapp.cn
+  port: 2086
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -3539,11 +2444,11 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.sgsicb.cccp.uruu.cn
+      Host: 1750671051.speed.sgsicb.cccp.uruu.cn
 - name: 新加坡3-CDN | 1x
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2052
+  server: 1750670541.tencentapp.cn
+  port: 8080
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -3552,11 +2457,11 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.sgsicc.cccp.uruu.cn
+      Host: 1750671051.speed.sgsicc.cccp.uruu.cn
 - name: 新加坡4-CDN | 1x
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 8080
+  server: 1750670541.tencentapp.cn
+  port: 2086
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -3565,11 +2470,11 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.sgsicd.cccp.uruu.cn
+      Host: 1750671051.speed.sgsicd.cccp.uruu.cn
 - name: 新加坡5-CDN | 1x
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 8080
+  server: 1750670541.tencentapp.cn
+  port: 2086
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -3578,11 +2483,11 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.asgddunaba.cccp.uruu.cn
+      Host: 1750671051.speed.asgddunaba.cccp.uruu.cn
 - name: 新加坡6-CDN | 1x
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 8080
+  server: 1750670541.tencentapp.cn
+  port: 2086
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -3591,12 +2496,12 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.sgyyyncava.cccp.uruu.cn
+      Host: 1750671051.speed.sgyyyncava.cccp.uruu.cn
 - name: 新加坡NO.1
   type: vmess
   server: haa.dashuai.cyou
   port: 45054
-  uuid: dc2410f6-616d-4646-ba58-eb73b23f3628
+  uuid: 715447a9-12e0-4d1e-86a3-ca128ba42bb0
   alterId: 0
   cipher: auto
   udp: true
@@ -3605,7 +2510,7 @@ proxies:
   type: vmess
   server: xdd.dashuai.cyou
   port: 45055
-  uuid: dc2410f6-616d-4646-ba58-eb73b23f3628
+  uuid: 715447a9-12e0-4d1e-86a3-ca128ba42bb0
   alterId: 0
   cipher: auto
   udp: true
@@ -3729,8 +2634,8 @@ proxies:
       Host: ae9c0de474c64c03db9edbf3fc4d8c68.mobgslb.tbcache.com
 - name: 日本1-CDN | 1x
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 8080
+  server: 1750670541.tencentapp.cn
+  port: 2086
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -3739,11 +2644,11 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.jpploa.cccp.uruu.cn
+      Host: 1750671051.speed.jpploa.cccp.uruu.cn
 - name: 日本2-CDN | 1x
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 8080
+  server: 1750670541.tencentapp.cn
+  port: 2086
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -3752,11 +2657,11 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.jpplob.cccp.uruu.cn
+      Host: 1750671051.speed.jpplob.cccp.uruu.cn
 - name: 日本3-CDN | 1x
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 8080
+  server: 1750670541.tencentapp.cn
+  port: 2086
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -3765,11 +2670,11 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.jpploc.cccp.uruu.cn
+      Host: 1750671051.speed.jpploc.cccp.uruu.cn
 - name: 日本4-CDN | 1x
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 8080
+  server: 1750670541.tencentapp.cn
+  port: 2086
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -3778,12 +2683,12 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.jpplod.cccp.uruu.cn
+      Host: 1750671051.speed.jpplod.cccp.uruu.cn
 - name: 日本NO.1
   type: vmess
   server: haa.dashuai.cyou
   port: 45056
-  uuid: dc2410f6-616d-4646-ba58-eb73b23f3628
+  uuid: 715447a9-12e0-4d1e-86a3-ca128ba42bb0
   alterId: 0
   cipher: auto
   udp: true
@@ -3792,7 +2697,7 @@ proxies:
   type: vmess
   server: xdd.dashuai.cyou
   port: 45057
-  uuid: dc2410f6-616d-4646-ba58-eb73b23f3628
+  uuid: 715447a9-12e0-4d1e-86a3-ca128ba42bb0
   alterId: 0
   cipher: auto
   udp: true
@@ -3825,8 +2730,8 @@ proxies:
       Host: www.cctv.com
 - name: 智利1-CDN | 1X
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2086
+  server: 1750670541.tencentapp.cn
+  port: 2052
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -3835,11 +2740,11 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.clancza.cccp.uruu.cn
+      Host: 1750671051.speed.clancza.cccp.uruu.cn
 - name: 智利2-CDN | 1X
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2086
+  server: 1750670541.tencentapp.cn
+  port: 2052
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -3848,7 +2753,7 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.clanczb.cccp.uruu.cn
+      Host: 1750671051.speed.clanczb.cccp.uruu.cn
 - name: 最新地址：gy888.xyz
   type: vmess
   server: 2.example.com
@@ -3876,8 +2781,8 @@ proxies:
   network: tcp
 - name: 法国1-CDN | 1X
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2086
+  server: 1750670541.tencentapp.cn
+  port: 2052
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -3886,12 +2791,12 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.fraovfdma.cccp.uruu.cn
+      Host: 1750671051.speed.fraovfdma.cccp.uruu.cn
 - name: 法国1
   type: vmess
   server: haa.dashuai.cyou
   port: 45072
-  uuid: dc2410f6-616d-4646-ba58-eb73b23f3628
+  uuid: 715447a9-12e0-4d1e-86a3-ca128ba42bb0
   alterId: 0
   cipher: auto
   udp: true
@@ -3900,15 +2805,15 @@ proxies:
   type: vmess
   server: xdd.dashuai.cyou
   port: 45071
-  uuid: dc2410f6-616d-4646-ba58-eb73b23f3628
+  uuid: 715447a9-12e0-4d1e-86a3-ca128ba42bb0
   alterId: 0
   cipher: auto
   udp: true
   network: tcp
 - name: 沙特阿拉伯1-CDN | 1x
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2082
+  server: 1750670541.tencentapp.cn
+  port: 8880
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -3917,11 +2822,11 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.saytnra.cccp.uruu.cn
+      Host: 1750671051.speed.saytnra.cccp.uruu.cn
 - name: 沙特阿拉伯2-CDN | 1x
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2082
+  server: 1750670541.tencentapp.cn
+  port: 8880
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -3930,7 +2835,7 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.saytnrb.cccp.uruu.cn
+      Host: 1750671051.speed.saytnrb.cccp.uruu.cn
 - name: 澳大利亚 01
   type: vmess
   server: hbyd.dengtacloud.net
@@ -3967,7 +2872,7 @@ proxies:
   type: vmess
   server: haa.dashuai.cyou
   port: 45062
-  uuid: dc2410f6-616d-4646-ba58-eb73b23f3628
+  uuid: 715447a9-12e0-4d1e-86a3-ca128ba42bb0
   alterId: 0
   cipher: auto
   udp: true
@@ -3976,41 +2881,15 @@ proxies:
   type: vmess
   server: xdd.dashuai.cyou
   port: 45063
-  uuid: dc2410f6-616d-4646-ba58-eb73b23f3628
+  uuid: 715447a9-12e0-4d1e-86a3-ca128ba42bb0
   alterId: 0
   cipher: auto
   udp: true
   network: tcp
-- name: 澳大利亚墨尔本1-CDN | 1X
-  type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 8080
-  uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 1750660791.speed.moerbena.cccp.uruu.cn
-- name: 澳大利亚墨尔本2-CDN | 1X
-  type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 8080
-  uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 1750660791.speed.moerbenb.cccp.uruu.cn
 - name: 瑞典100Mbps-CDN | 1X
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 8080
+  server: 1750670541.tencentapp.cn
+  port: 2086
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -4019,7 +2898,7 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.rscagvfbna.cccp.uruu.cn
+      Host: 1750671051.speed.rscagvfbna.cccp.uruu.cn
 - name: 用前请更新订阅！！！
   type: vmess
   server: xxx
@@ -4074,444 +2953,6 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 目前国内网址：xc2.shishi1.buzz 备用：ds1.dashi99.top
-  type: vmess
-  server: haa.dashuai.cyou
-  port: 45050
-  uuid: dc2410f6-616d-4646-ba58-eb73b23f3628
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: 美国-纽约-001
-  type: vmess
-  server: 45.147.201.231
-  port: 22069
-  uuid: 219e2f40-759b-4e00-9d4b-4bd588e5b84e
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 美国-纽约-001-2
-  type: vmess
-  server: 45.147.201.231
-  port: 22069
-  uuid: 7d3dea75-4636-4de5-bf3b-47ccc3411434
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 美国-纽约-001-3
-  type: vmess
-  server: 45.147.201.231
-  port: 22069
-  uuid: 60951a9f-46f9-46fc-bafe-efff0dad99b0
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 美国-纽约-001-4
-  type: vmess
-  server: 45.147.201.231
-  port: 22069
-  uuid: 791a9aad-1a8b-435d-862e-627f41025d73
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 美国-纽约-001-5
-  type: vmess
-  server: 45.147.201.231
-  port: 22069
-  uuid: a3beb5f6-b991-403f-9d21-f8cadccbdad5
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 美国-纽约-001-6
-  type: vmess
-  server: 45.147.201.231
-  port: 22069
-  uuid: c3f62fb7-5e43-4a82-aecd-fdc3c507ac02
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 美国-纽约-001-7
-  type: vmess
-  server: 45.147.201.231
-  port: 22069
-  uuid: d1037421-3977-4cae-8462-0c7d22745e84
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 美国-纽约-001-8
-  type: vmess
-  server: 45.147.201.231
-  port: 22069
-  uuid: e5a63557-9587-4695-804b-537e2dbfa2b3
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 美国-纽约-001-9
-  type: vmess
-  server: 45.147.201.231
-  port: 22069
-  uuid: eb186e3b-4c4a-4131-a717-f9c7bda6d80b
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 美国-纽约-001-10
-  type: vmess
-  server: 45.147.201.231
-  port: 22069
-  uuid: f5dc8f26-f472-4089-82f8-7af58ea887d3
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 美国-纽约-001-11
-  type: vmess
-  server: 45.147.201.231
-  port: 22069
-  uuid: fceff025-b4ea-4fd2-9093-151b3bd503cd
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 美国-拉斯维加斯-001
-  type: vmess
-  server: 45.147.201.231
-  port: 20065
-  uuid: 219e2f40-759b-4e00-9d4b-4bd588e5b84e
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 美国-拉斯维加斯-001-2
-  type: vmess
-  server: 45.147.201.231
-  port: 20065
-  uuid: 7d3dea75-4636-4de5-bf3b-47ccc3411434
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 美国-拉斯维加斯-001-3
-  type: vmess
-  server: 45.147.201.231
-  port: 20065
-  uuid: 60951a9f-46f9-46fc-bafe-efff0dad99b0
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 美国-拉斯维加斯-001-4
-  type: vmess
-  server: 45.147.201.231
-  port: 20065
-  uuid: 791a9aad-1a8b-435d-862e-627f41025d73
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 美国-拉斯维加斯-001-5
-  type: vmess
-  server: 45.147.201.231
-  port: 20065
-  uuid: a3beb5f6-b991-403f-9d21-f8cadccbdad5
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 美国-拉斯维加斯-001-6
-  type: vmess
-  server: 45.147.201.231
-  port: 20065
-  uuid: c3f62fb7-5e43-4a82-aecd-fdc3c507ac02
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 美国-拉斯维加斯-001-7
-  type: vmess
-  server: 45.147.201.231
-  port: 20065
-  uuid: d1037421-3977-4cae-8462-0c7d22745e84
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 美国-拉斯维加斯-001-8
-  type: vmess
-  server: 45.147.201.231
-  port: 20065
-  uuid: e5a63557-9587-4695-804b-537e2dbfa2b3
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 美国-拉斯维加斯-001-9
-  type: vmess
-  server: 45.147.201.231
-  port: 20065
-  uuid: eb186e3b-4c4a-4131-a717-f9c7bda6d80b
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 美国-拉斯维加斯-001-10
-  type: vmess
-  server: 45.147.201.231
-  port: 20065
-  uuid: f5dc8f26-f472-4089-82f8-7af58ea887d3
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 美国-拉斯维加斯-001-11
-  type: vmess
-  server: 45.147.201.231
-  port: 20065
-  uuid: fceff025-b4ea-4fd2-9093-151b3bd503cd
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 美国-拉斯维加斯-002
-  type: vmess
-  server: 45.147.201.231
-  port: 23107
-  uuid: 219e2f40-759b-4e00-9d4b-4bd588e5b84e
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 美国-拉斯维加斯-002-2
-  type: vmess
-  server: 45.147.201.231
-  port: 23107
-  uuid: 7d3dea75-4636-4de5-bf3b-47ccc3411434
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 美国-拉斯维加斯-002-3
-  type: vmess
-  server: 45.147.201.231
-  port: 23107
-  uuid: 60951a9f-46f9-46fc-bafe-efff0dad99b0
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 美国-拉斯维加斯-002-4
-  type: vmess
-  server: 45.147.201.231
-  port: 23107
-  uuid: 791a9aad-1a8b-435d-862e-627f41025d73
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 美国-拉斯维加斯-002-5
-  type: vmess
-  server: 45.147.201.231
-  port: 23107
-  uuid: a3beb5f6-b991-403f-9d21-f8cadccbdad5
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 美国-拉斯维加斯-002-6
-  type: vmess
-  server: 45.147.201.231
-  port: 23107
-  uuid: c3f62fb7-5e43-4a82-aecd-fdc3c507ac02
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 美国-拉斯维加斯-002-7
-  type: vmess
-  server: 45.147.201.231
-  port: 23107
-  uuid: d1037421-3977-4cae-8462-0c7d22745e84
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 美国-拉斯维加斯-002-8
-  type: vmess
-  server: 45.147.201.231
-  port: 23107
-  uuid: e5a63557-9587-4695-804b-537e2dbfa2b3
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 美国-拉斯维加斯-002-9
-  type: vmess
-  server: 45.147.201.231
-  port: 23107
-  uuid: eb186e3b-4c4a-4131-a717-f9c7bda6d80b
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 美国-拉斯维加斯-002-10
-  type: vmess
-  server: 45.147.201.231
-  port: 23107
-  uuid: f5dc8f26-f472-4089-82f8-7af58ea887d3
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 美国-拉斯维加斯-002-11
-  type: vmess
-  server: 45.147.201.231
-  port: 23107
-  uuid: fceff025-b4ea-4fd2-9093-151b3bd503cd
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
 - name: 美国01_免费
   type: vmess
   server: us01.sh-cloudflare.sbs
@@ -4649,7 +3090,7 @@ proxies:
   type: vmess
   server: haa.dashuai.cyou
   port: 45052
-  uuid: dc2410f6-616d-4646-ba58-eb73b23f3628
+  uuid: 715447a9-12e0-4d1e-86a3-ca128ba42bb0
   alterId: 0
   cipher: auto
   udp: true
@@ -4658,15 +3099,15 @@ proxies:
   type: vmess
   server: xdd.dashuai.cyou
   port: 45053
-  uuid: dc2410f6-616d-4646-ba58-eb73b23f3628
+  uuid: 715447a9-12e0-4d1e-86a3-ca128ba42bb0
   alterId: 0
   cipher: auto
   udp: true
   network: tcp
 - name: 美国东部纽约1-CDN | 0x
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 8880
+  server: 1750670541.tencentapp.cn
+  port: 2095
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -4675,11 +3116,11 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.nyaqwxa.cccp.uruu.cn
+      Host: 1750671051.speed.nyaqwxa.cccp.uruu.cn
 - name: 美国东部阿什本1-CDN | 1x
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2052
+  server: 1750670541.tencentapp.cn
+  port: 8080
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -4688,11 +3129,11 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.asbujma.cccp.uruu.cn
+      Host: 1750671051.speed.asbujma.cccp.uruu.cn
 - name: 美国东部阿什本2-CDN | 1x
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2052
+  server: 1750670541.tencentapp.cn
+  port: 8080
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -4701,24 +3142,11 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.asbujmb.cccp.uruu.cn
-- name: 美国中部芝加哥1-CDN | 1x
-  type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 8880
-  uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 1750660791.speed.chikvvta.cccp.uruu.cn
+      Host: 1750671051.speed.asbujmb.cccp.uruu.cn
 - name: 美国南部达拉斯1-CDN | 0x
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 8880
+  server: 1750670541.tencentapp.cn
+  port: 2095
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -4727,63 +3155,11 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.dalsfha.cccp.uruu.cn
-- name: 美国西部圣何塞1-CDN | 1x
-  type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 8080
-  uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 1750660791.speed.sjcuuyta.cccp.uruu.cn
-- name: 美国西部圣何塞2-CDN | 1x
-  type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 8080
-  uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 1750660791.speed.sjcuuytb.cccp.uruu.cn
-- name: 美国西部圣何塞3-CDN | 1x
-  type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 8080
-  uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 1750660791.speed.sjcuuytc.cccp.uruu.cn
-- name: 美国西部圣何塞4-CDN | 1x
-  type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 8080
-  uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 1750660791.speed.sjcuuytd.cccp.uruu.cn
+      Host: 1750671051.speed.dalsfha.cccp.uruu.cn
 - name: 美国西部洛杉矶1-CDN | 0x
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2095
+  server: 1750670541.tencentapp.cn
+  port: 2082
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -4792,11 +3168,11 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.laxnfga.cccp.uruu.cn
+      Host: 1750671051.speed.laxnfga.cccp.uruu.cn
 - name: 美国西部洛杉矶2-CDN | 1x
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2095
+  server: 1750670541.tencentapp.cn
+  port: 2082
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -4805,7 +3181,7 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.laxnfgb.cccp.uruu.cn
+      Host: 1750671051.speed.laxnfgb.cccp.uruu.cn
 - name: 菲律宾 马尼拉-中转
   type: vmess
   server: hbyd.dengtacloud.net
@@ -4973,8 +3349,8 @@ proxies:
       Host: ae9c0de474c64c03db9edbf3fc4d8c68.mobgslb.tbcache.com
 - name: 英国伦敦1-CDN | 1X
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2086
+  server: 1750670541.tencentapp.cn
+  port: 2052
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -4983,11 +3359,11 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.lhrdfvbua.cccp.uruu.cn
+      Host: 1750671051.speed.lhrdfvbua.cccp.uruu.cn
 - name: 英国伦敦2-CDN | 1X
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2086
+  server: 1750670541.tencentapp.cn
+  port: 2052
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -4996,11 +3372,11 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.lhrdfvbub.cccp.uruu.cn
+      Host: 1750671051.speed.lhrdfvbub.cccp.uruu.cn
 - name: 英国伦敦3-CDN | 1X
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2086
+  server: 1750670541.tencentapp.cn
+  port: 2052
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -5009,11 +3385,11 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.lhrdfvbuc.cccp.uruu.cn
+      Host: 1750671051.speed.lhrdfvbuc.cccp.uruu.cn
 - name: 英国伦敦4-CDN | 1X
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2086
+  server: 1750670541.tencentapp.cn
+  port: 2052
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -5022,11 +3398,11 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.lhrdfvbud.cccp.uruu.cn
+      Host: 1750671051.speed.lhrdfvbud.cccp.uruu.cn
 - name: 英国伦敦5-CDN | 1X
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2086
+  server: 1750670541.tencentapp.cn
+  port: 2052
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -5035,11 +3411,11 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.lhrdfvbue.cccp.uruu.cn
+      Host: 1750671051.speed.lhrdfvbue.cccp.uruu.cn
 - name: 英国伦敦6-CDN | 1X
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2082
+  server: 1750670541.tencentapp.cn
+  port: 8880
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -5048,11 +3424,11 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.lhrdfvbuf.cccp.uruu.cn
+      Host: 1750671051.speed.lhrdfvbuf.cccp.uruu.cn
 - name: 荷兰1-CDN | 1X
   type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2082
+  server: 1750670541.tencentapp.cn
+  port: 8880
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
   cipher: auto
@@ -5061,10 +3437,23 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.nluospa.cccp.uruu.cn
+      Host: 1750671051.speed.nluospa.cccp.uruu.cn
 - name: 荷兰2-CDN | 1X
   type: vmess
-  server: 1750660341.tencentapp.cn
+  server: 1750670541.tencentapp.cn
+  port: 8880
+  uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 1750671051.speed.nluospb.cccp.uruu.cn
+- name: 西班牙1-CDN | 1X
+  type: vmess
+  server: 1750670541.tencentapp.cn
   port: 2082
   uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
   alterId: 0
@@ -5074,34 +3463,8 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1750660791.speed.nluospb.cccp.uruu.cn
-- name: 西班牙1-CDN | 1X
-  type: vmess
-  server: 1750660341.tencentapp.cn
-  port: 2095
-  uuid: ffad2ef2-7b55-4f71-bc81-de5e0f769adc
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 1750660791.speed.xbysdaa.cccp.uruu.cn
-- name: 距离下次重置剩余：14 天
-  type: vmess
-  server: hk.bethebest.eu.org
-  port: 2052
-  uuid: 32d3795c-7e38-425a-8a8c-9d195d1cb351
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: us7.123417.xyz
-- name: 距离下次重置剩余：7 天-6
+      Host: 1750671051.speed.xbysdaa.cccp.uruu.cn
+- name: 距离下次重置剩余：7 天
   type: vmess
   server: free-relay.themars.top
   port: 39907
@@ -5114,7 +3477,7 @@ proxies:
     path: /cctv1.m3u8
     headers:
       Host: www.cctv.com
-- name: 距离下次重置剩余：7 天-7
+- name: 距离下次重置剩余：7 天-2
   type: vmess
   server: free-relay.themars.top
   port: 39907
@@ -5127,6 +3490,19 @@ proxies:
     path: /cctv1.m3u8
     headers:
       Host: www.cctv.com
+- name: 过滤掉3条线路
+  type: vmess
+  server: 45.147.201.231
+  port: 22069
+  uuid: 41cc36aa-dfb6-47bb-8e39-133ad5f2cd83
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: ws
+  ws-opts:
+    path: ''
+    headers:
+      Host: ''
 - name: 过滤掉3条线路-2
   type: vmess
   server: 45.147.201.231
@@ -5370,19 +3746,6 @@ proxies:
     path: /
     headers:
       Host: ae9c0de474c64c03db9edbf3fc4d8c68.mobgslb.tbcache.com
-- name: 过滤掉9条线路
-  type: vmess
-  server: xxx
-  port: 8888
-  uuid: 867f512f-93d2-4344-853c-50965de9b103
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /uis
-    headers:
-      Host: y.qq.com
 - name: 韩国-01
   type: vmess
   server: gdyd.dengtacloud.net
@@ -5431,105 +3794,11 @@ proxies:
     path: /shha
     headers:
       Host: h1.718node.com
-- name: 香港-03
-  type: vmess
-  server: gdyd.dengtacloud.net
-  port: 10002
-  uuid: 3c8b20b8-cd03-496d-a062-a80518a22cb7
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: kcd1.718node.com
-  skip-cert-verify: true
-  ws-opts:
-    path: /shha
-    headers:
-      Host: kcd1.718node.com
-- name: 香港HY-优化
-  type: vmess
-  server: yes.mojcn.com
-  port: 16632
-  uuid: 918003d3-1f5d-425c-b39c-ff61781e48f1
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 51b0e42034dd75a815fa9eb16021fbda.mobgslb.tbcache.com
-- name: 香港HY-优化-2
-  type: vmess
-  server: yes.mojcn.com
-  port: 16632
-  uuid: ba001863-ddd0-4beb-8933-8a75a898c7ec
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ba0f678896ea70308a3ea611bb985d7b.mobgslb.tbcache.com
-- name: 香港HY-优化-3
-  type: vmess
-  server: yes.mojcn.com
-  port: 16632
-  uuid: da91214e-b022-4f61-a724-01c538170e62
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ae9c0de474c64c03db9edbf3fc4d8c68.mobgslb.tbcache.com
-- name: 香港HY-优化2
-  type: vmess
-  server: m.cnmjin.net
-  port: 16632
-  uuid: 918003d3-1f5d-425c-b39c-ff61781e48f1
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 51b0e42034dd75a815fa9eb16021fbda.mobgslb.tbcache.com
-- name: 香港HY-优化2-2
-  type: vmess
-  server: m.cnmjin.net
-  port: 16632
-  uuid: ba001863-ddd0-4beb-8933-8a75a898c7ec
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ba0f678896ea70308a3ea611bb985d7b.mobgslb.tbcache.com
-- name: 香港HY-优化2-3
-  type: vmess
-  server: m.cnmjin.net
-  port: 16632
-  uuid: da91214e-b022-4f61-a724-01c538170e62
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ae9c0de474c64c03db9edbf3fc4d8c68.mobgslb.tbcache.com
 - name: 香港NO.1（GPT奈飞等）
   type: vmess
   server: haa.dashuai.cyou
   port: 45050
-  uuid: dc2410f6-616d-4646-ba58-eb73b23f3628
+  uuid: 715447a9-12e0-4d1e-86a3-ca128ba42bb0
   alterId: 0
   cipher: auto
   udp: true
@@ -5538,7 +3807,7 @@ proxies:
   type: vmess
   server: xdd.dashuai.cyou
   port: 45051
-  uuid: dc2410f6-616d-4646-ba58-eb73b23f3628
+  uuid: 715447a9-12e0-4d1e-86a3-ca128ba42bb0
   alterId: 0
   cipher: auto
   udp: true
@@ -5621,11 +3890,11 @@ proxies:
     path: /
     headers:
       Host: ae9c0de474c64c03db9edbf3fc4d8c68.mobgslb.tbcache.com
-- name: 香港（直连）
+- name: ⚜️Telegram:@IP_CF
   type: vmess
-  server: xg.dashuai.cyou
-  port: 19901
-  uuid: dc2410f6-616d-4646-ba58-eb73b23f3628
+  server: 219.151.20.62
+  port: 42349
+  uuid: 4381beae-45a6-4421-8547-65e312dd204a
   alterId: 0
   cipher: auto
   udp: true
@@ -5642,7 +3911,7 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1176575173947.vmus6.taobao.yyds.niaoba.top
+      Host: 1176531293330.vmus6.taobao.yyds.niaoba.top
 - name: '❗  请续费订阅后再更新订阅  ❗ '
   type: vmess
   server: yx1.niaoba.top
@@ -5655,20 +3924,7 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1176575173947.vmus6.taobao.yyds.niaoba.top
-- name: '❗ 您的订阅已过期  ❗ '
-  type: vmess
-  server: yx1.niaoba.top
-  port: 2052
-  uuid: 4000219a-a199-441d-abc7-70359c60ed44
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 1176575173947.vmus6.taobao.yyds.niaoba.top
+      Host: 1176531293330.vmus6.taobao.yyds.niaoba.top
 - name: ❗ 您的订阅已过期 ❗
   type: vmess
   server: yx1.niaoba.top
@@ -5681,7 +3937,7 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 1176575173947.vmus6.taobao.yyds.niaoba.top
+      Host: 1176531293330.vmus6.taobao.yyds.niaoba.top
 - name: 「加入会员解锁流媒体」x5
   type: vmess
   server: v2.emoyes.top
@@ -5714,38 +3970,6 @@ proxies:
     path: /
     headers:
       Host: v2.emoyes.top
-- name: 「🇩🇪」EMO | 冰灵果 x5
-  type: vmess
-  server: v37.emoyes.top
-  port: 8443
-  uuid: 08b24d8d-10ab-4c5a-990e-4e0e194870af
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: v37.emoyes.top
-  skip-cert-verify: true
-  ws-opts:
-    path: /
-    headers:
-      Host: v37.emoyes.top
-- name: 「🇩🇪」EMO | 冰灵果 x5-2
-  type: vmess
-  server: v37.emoyes.top
-  port: 8443
-  uuid: a78fc14e-4e8b-4fc0-8cab-86fd81c583ca
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: v37.emoyes.top
-  skip-cert-verify: true
-  ws-opts:
-    path: /
-    headers:
-      Host: v37.emoyes.top
 - name: 「🇫🇷」EMO | 冰糖心 x5
   type: vmess
   server: v35.emoyes.top
@@ -5778,102 +4002,6 @@ proxies:
     path: /
     headers:
       Host: v35.emoyes.top
-- name: 「🇬🇧」EMO | 红富士 x5
-  type: vmess
-  server: v34.emoyes.top
-  port: 8443
-  uuid: 08b24d8d-10ab-4c5a-990e-4e0e194870af
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: v34.emoyes.top
-  skip-cert-verify: true
-  ws-opts:
-    path: /
-    headers:
-      Host: v34.emoyes.top
-- name: 「🇬🇧」EMO | 红富士 x5-2
-  type: vmess
-  server: v34.emoyes.top
-  port: 8443
-  uuid: a78fc14e-4e8b-4fc0-8cab-86fd81c583ca
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: v34.emoyes.top
-  skip-cert-verify: true
-  ws-opts:
-    path: /
-    headers:
-      Host: v34.emoyes.top
-- name: 「🇮🇳」EMO | 牛油果 x5
-  type: vmess
-  server: v019.emovpn.xyz
-  port: 2087
-  uuid: 08b24d8d-10ab-4c5a-990e-4e0e194870af
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: v019.emovpn.xyz
-  skip-cert-verify: true
-  ws-opts:
-    path: /
-    headers:
-      Host: v019.emovpn.xyz
-- name: 「🇮🇳」EMO | 牛油果 x5-2
-  type: vmess
-  server: v019.emovpn.xyz
-  port: 2087
-  uuid: a78fc14e-4e8b-4fc0-8cab-86fd81c583ca
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: v019.emovpn.xyz
-  skip-cert-verify: true
-  ws-opts:
-    path: /
-    headers:
-      Host: v019.emovpn.xyz
-- name: 「🇸🇬」EMO | 西贡蕉 x5
-  type: vmess
-  server: v32.emoyes.top
-  port: 8443
-  uuid: 08b24d8d-10ab-4c5a-990e-4e0e194870af
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: v32.emoyes.top
-  skip-cert-verify: true
-  ws-opts:
-    path: /
-    headers:
-      Host: v32.emoyes.top
-- name: 「🇸🇬」EMO | 西贡蕉 x5-2
-  type: vmess
-  server: v32.emoyes.top
-  port: 8443
-  uuid: a78fc14e-4e8b-4fc0-8cab-86fd81c583ca
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: v32.emoyes.top
-  skip-cert-verify: true
-  ws-opts:
-    path: /
-    headers:
-      Host: v32.emoyes.top
 - name: 「🇺🇸」EMO | 天元果 x5
   type: vmess
   server: v33.emoyes.top
@@ -5906,38 +4034,6 @@ proxies:
     path: /
     headers:
       Host: v33.emoyes.top
-- name: 「🇺🇸」EMO | 芝麻蕉 x5
-  type: vmess
-  server: v20.emoyes.top
-  port: 8443
-  uuid: 08b24d8d-10ab-4c5a-990e-4e0e194870af
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: v20.emoyes.top
-  skip-cert-verify: true
-  ws-opts:
-    path: /
-    headers:
-      Host: v20.emoyes.top
-- name: 「🇺🇸」EMO | 芝麻蕉 x5-2
-  type: vmess
-  server: v20.emoyes.top
-  port: 8443
-  uuid: a78fc14e-4e8b-4fc0-8cab-86fd81c583ca
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: v20.emoyes.top
-  skip-cert-verify: true
-  ws-opts:
-    path: /
-    headers:
-      Host: v20.emoyes.top
 - name: 🇧🇷 巴西1|cf
   type: vmess
   server: hk.bethebest.eu.org
@@ -5977,32 +4073,6 @@ proxies:
     path: /
     headers:
       Host: br3.123417.xyz
-- name: 🇨🇦 加拿大1|cf
-  type: vmess
-  server: hk.bethebest.eu.org
-  port: 2052
-  uuid: 32d3795c-7e38-425a-8a8c-9d195d1cb351
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ca11.123417.xyz
-- name: 🇨🇦 加拿大2|cf
-  type: vmess
-  server: hk.bethebest.eu.org
-  port: 2052
-  uuid: 32d3795c-7e38-425a-8a8c-9d195d1cb351
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ca12.123417.xyz
 - name: 🇨🇳台湾01|1x
   type: vmess
   server: gy.youaremygod.top
@@ -6268,19 +4338,6 @@ proxies:
     path: /
     headers:
       Host: in4.123417.xyz
-- name: 🇯🇵日本 06
-  type: vmess
-  server: jp3.aeccssssss.xyz
-  port: 56225
-  uuid: 0991bb00-5a25-4c42-8205-153787512b5b
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: null
-    headers:
-      Host: null
 - name: 🇯🇵日本01|1x
   type: vmess
   server: gg.youaremygod.top
@@ -6414,51 +4471,6 @@ proxies:
     path: /
     headers:
       Host: us7.123417.xyz
-- name: 🇺🇸美国01|GPT|1x
-  type: vmess
-  server: gy.youaremygod.top
-  port: 48903
-  uuid: 54de5bc2-fd5d-4aa1-adc8-6beb11e402b5
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: 🇺🇸美国02|GPT|1x
-  type: vmess
-  server: gy.youaremygod.top
-  port: 12001
-  uuid: 54de5bc2-fd5d-4aa1-adc8-6beb11e402b5
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: 🇺🇸美国03|GPT|1x
-  type: vmess
-  server: gg.youaremygod.top
-  port: 12002
-  uuid: 54de5bc2-fd5d-4aa1-adc8-6beb11e402b5
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: 🇺🇸美国04|GPT|1x
-  type: vmess
-  server: gg.youaremygod.top
-  port: 43904
-  uuid: 54de5bc2-fd5d-4aa1-adc8-6beb11e402b5
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: 🇺🇸美国05|GPT|1x
-  type: vmess
-  server: gg.youaremygod.top
-  port: 13118
-  uuid: 54de5bc2-fd5d-4aa1-adc8-6beb11e402b5
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
 - name: 🇺🇸美国Las Vegas 04|防失联&下载专用|0.01x
   type: vmess
   server: uslv4.danidapigu.top
@@ -6511,33 +4523,20 @@ proxies:
     path: /scloud?ed=2048
     headers:
       Host: buyvmus2.fastcloud.top
-- name: 美国 CloudFlare节点
+- name: '@Hope_Net-join-us-on-Telegram-3'
   type: vmess
-  server: 104.17.176.171
-  port: 8080
-  uuid: 6cbc9c78-1cb1-57d4-a999-e2f4e34c1e03
+  server: 104.18.242.177
+  port: 2052
+  uuid: 2eec45db-dfcd-43d6-8514-b141aff651be
   alterId: 0
   cipher: auto
   udp: true
   network: ws
   ws-opts:
-    path: /nasnet/cdn
+    path: /video/GQ2qE5Us9g
     headers:
-      Host: ke7hz36ewz-4515017473.mashallahbet.com
-- name: '@Hope_Net-join-us-on-Telegram-44'
-  type: vmess
-  server: 104.24.206.115
-  port: 2082
-  uuid: 0afb8b2c-149a-49a8-e90f-d77884ac922f
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /blue
-    headers:
-      Host: ''
-- name: '@Hope_Net-join-us-on-Telegram-45'
+      Host: tw1bQiWSE4x.fzbqfrse.xyz
+- name: '@Hope_Net-join-us-on-Telegram-4'
   type: vmess
   server: 103.168.155.40
   port: 888
@@ -6553,7 +4552,7 @@ proxies:
     path: /
     headers:
       Host: cdn.cjhh.lol
-- name: '@Hope_Net-join-us-on-Telegram-46'
+- name: ⚡️Telegram = @SOSkeyNET
   type: vmess
   server: 127.0.0.1
   port: 8080
@@ -6562,7 +4561,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: '@Hope_Net-join-us-on-Telegram-47'
+- name: '@Hope_Net-join-us-on-Telegram-5'
   type: vmess
   server: 120.241.29.104
   port: 33202
@@ -6578,20 +4577,16 @@ proxies:
     path: /ray
     headers:
       Host: yd2.ainivp.com
-- name: 🔒 VM-WS-NA 🇨🇳 CN-120.238.98.150:30812
+- name: ⚡️Telegram = @SOSkeyNET-2
   type: vmess
-  server: 120.238.98.150
-  port: 30812
-  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+  server: 151.101.66.219
+  port: 80
+  uuid: 0e180837-122d-4e7a-8307-bb059c2b554c
   alterId: 0
   cipher: auto
   udp: true
-  network: ws
-  ws-opts:
-    path: /oooo
-    headers:
-      Host: ocbc.com
-- name: ⚡️Telegram = @SOSkeyNET
+  network: xhttp
+- name: ⚡️Telegram = @SOSkeyNET-3
   type: vmess
   server: 151.101.0.155
   port: 80
@@ -6604,6 +4599,19 @@ proxies:
     path: ws/?ed=2048
     headers:
       Host: freepanelll.com
+- name: '@Hope_Net-join-us-on-Telegram-6'
+  type: vmess
+  server: 172.67.42.232
+  port: 80
+  uuid: 4bf074f4-7e9c-4e4b-a10d-156e26199729
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: us03s.5d8ecf82.cfd
 - name: 🔒 VM-TCP-NA 🇮🇷 IR-2.144.7.202:45789
   type: vmess
   server: 2.144.7.202
@@ -6613,6 +4621,22 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
+- name: '@Hope_Net-join-us-on-Telegram-7'
+  type: vmess
+  server: 23.162.200.227
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: ws
+  tls: true
+  servername: ''
+  skip-cert-verify: true
+  ws-opts:
+    path: /linkvws
+    headers:
+      Host: ''
 - name: 🔒 VM-TCP-NA 🇳🇱 NL-24.144.77.93:898
   type: vmess
   server: 24.144.77.93
@@ -6622,75 +4646,36 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🔒 VM-TCP-NA 🇮🇷 IR-5.144.132.140:1221
+- name: '@Hope_Net-join-us-on-Telegram-8'
   type: vmess
-  server: 5.144.132.140
-  port: 1221
-  uuid: ca797ba2-13b2-473b-90ce-c455af9353e1
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: '@Hope_Net-join-us-on-Telegram-48'
-  type: vmess
-  server: 52.197.146.63
-  port: 14443
-  uuid: 3519dfc0-fa27-41cc-8c19-981818f9f6d5
+  server: 5.196.29.123
+  port: 2082
+  uuid: 112ac36f-3f53-4e26-8371-d25c028e1b9a
   alterId: 0
   cipher: auto
   udp: true
   network: ws
-  tls: true
-  servername: tls.14.node-for-bigairport.win
-  skip-cert-verify: true
   ws-opts:
     path: /
     headers:
-      Host: tls.14.node-for-bigairport.win
-- name: ⚡️Telegram = @SOSkeyNET-2
+      Host: ''
+- name: '@Hope_Net-join-us-on-Telegram-9'
   type: vmess
-  server: 81.12.33.196
-  port: 6008
-  uuid: 604fa262-146a-437f-9206-93b16ea30176
+  server: 57.129.24.125
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
   alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: ⚡️Telegram = @SOSkeyNET-3
-  type: vmess
-  server: 85.198.23.63
-  port: 52262
-  uuid: af5a0d0c-c898-4a51-ba6a-47179d483e41
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: '@Hope_Net-join-us-on-Telegram-49'
-  type: vmess
-  server: 89.163.231.19
-  port: 30005
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 64
   cipher: auto
   udp: true
   network: ws
   tls: true
-  servername: www.80347320.xyz
+  servername: ''
   skip-cert-verify: true
   ws-opts:
-    path: /path/240811062813
+    path: /linkvws
     headers:
-      Host: www.80347320.xyz
+      Host: wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc
 - name: ⚡️Telegram = @SOSkeyNET-4
-  type: vmess
-  server: hs2.multiproxy.info
-  port: 9979
-  uuid: 26d9ddd9-1e5d-46fc-8baa-a77475c29e68
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: ⚡️Telegram = @SOSkeyNET-5
   type: vmess
   server: pnl.shod-jjcod.com
   port: 443
@@ -6699,37 +4684,33 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰HK-1.65.202.165-5693
+- name: '@Hope_Net-join-us-on-Telegram-10'
   type: vmess
-  server: 4e909a9d-sv2sg0-sw26q2-php4.hk3.p5pv.com
-  port: 80
-  uuid: c648ecc0-838a-11ed-bd81-f23c913c8d2b
-  alterId: 2
+  server: s1.db-link01.top
+  port: 8880
+  uuid: 4b36625c-b9d9-3ea6-aed5-86d62c70e16d
+  alterId: 0
   cipher: auto
   udp: true
   network: ws
   ws-opts:
-    path: /
+    path: /dabai.in172.67.95.35
     headers:
-      Host: 4e909a9d-sv2sg0-sw26q2-php4.hk3.p5pv.com
-- name: 🇭🇰HK-1.65.202.165-5690
-  type: vmess
-  server: 4f8acdc9-sv0xs0-sw5wi7-ufc0.hk3.p5pv.com
-  port: 80
-  uuid: 22308988-8548-11ea-a22e-f23c91cfbbc9
-  alterId: 2
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 4f8acdc9-sv0xs0-sw5wi7-ufc0.hk3.p5pv.com
-- name: ⚜️Telegram:@IP_CF
+      Host: 100-250-32-53.s1.db-link01.top
+- name: ⚜️Telegram:@IP_CF-2
   type: vmess
   server: 5.144.132.140
   port: 1221
   uuid: ca797ba2-13b2-473b-90ce-c455af9353e1
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: tcp
+- name: ⚜️Telegram:@IP_CF-3
+  type: vmess
+  server: 5.180.30.146
+  port: 27773
+  uuid: b2347239-dd15-40b3-b683-50cc2ff19ae7
   alterId: 0
   cipher: auto
   udp: true
@@ -6743,7 +4724,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: '@V2ray1_Ng-12'
+- name: '@V2ray1_Ng'
   type: vmess
   server: 51.79.86.182
   port: 42610
@@ -6781,35 +4762,6 @@ proxies:
     path: /linkvws
     headers:
       Host: wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc
-- name: همه اپراتورها | V2ray_Hub1
-  type: vmess
-  server: 57.129.24.125
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc
-  skip-cert-verify: true
-  ws-opts:
-    path: /linkvws
-    headers:
-      Host: wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc
-- name: 🏁RELAY-104.21.112.1-0234
-  type: vmess
-  server: 5tghyu8.999820.xyz
-  port: 80
-  uuid: 90f357dd-79ac-47c6-b0b8-958e2d19de07
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /10W6SJaK0F0oVXeNU6S2RVRP
-    headers:
-      Host: 5tghyu8.999820.xyz
 - name: 🇭🇰HK-42.2.113.136-0364
   type: vmess
   server: 66500699-sv2sg0-sx8y86-uvgv.hk.p5pv.com
@@ -6836,33 +4788,11 @@ proxies:
     path: /
     headers:
       Host: 691232a1-sv6hs0-sx8y86-uvgv.hk.p5pv.com
-- name: 🇭🇰HK-1.65.202.165-5684
-  type: vmess
-  server: 77d7b6e4-sv2sg0-sw5wi7-ufc0.hk3.p5pv.com
-  port: 80
-  uuid: 22308988-8548-11ea-a22e-f23c91cfbbc9
-  alterId: 2
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 77d7b6e4-sv2sg0-sw5wi7-ufc0.hk3.p5pv.com
-- name: https://t.me/VPN4EVERYONE-13
+- name: https://t.me/VPN4EVERYONE
   type: vmess
   server: 81.12.33.196
   port: 6013
   uuid: 604fa262-146a-437f-9206-93b16ea30176
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: '@meli_proxyy-48'
-  type: vmess
-  server: 84.247.146.161
-  port: 39530
-  uuid: 7aa56e39-29b8-45c3-8b53-6d2a23b2461c
   alterId: 0
   cipher: auto
   udp: true
@@ -6878,18 +4808,9 @@ proxies:
   network: tcp
 - name: '@appsooner کانال تلگرام 🇸🇬-2'
   type: vmess
-  server: 84.247.146.189
-  port: 33754
-  uuid: 45f4f565-8c78-4906-a5b9-08ea9075cd31
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: '@meli_proxyy-49'
-  type: vmess
-  server: 84.247.146.189
-  port: 33754
-  uuid: 45f4f565-8c78-4906-a5b9-08ea9075cd31
+  server: 84.247.146.161
+  port: 39530
+  uuid: 7aa56e39-29b8-45c3-8b53-6d2a23b2461c
   alterId: 0
   cipher: auto
   udp: true
@@ -6903,20 +4824,11 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: '@meli_proxyy-50'
+- name: '@appsooner کانال تلگرام 🇸🇬-4'
   type: vmess
-  server: 84.247.147.243
-  port: 51566
-  uuid: ae6ae977-17f2-43fd-a336-20b3b3a9e791
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: IRAN 6 (@Outline_Vpn)
-  type: vmess
-  server: 84.247.147.243
-  port: 51566
-  uuid: ae6ae977-17f2-43fd-a336-20b3b3a9e791
+  server: 84.247.146.189
+  port: 33754
+  uuid: 45f4f565-8c78-4906-a5b9-08ea9075cd31
   alterId: 0
   cipher: auto
   udp: true
@@ -6930,7 +4842,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: '@meli_proxyy-51'
+- name: '@meli_proxyy'
   type: vmess
   server: 84.247.147.67
   port: 54179
@@ -6939,29 +4851,11 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 'Channel id: @ShadowProxy66🇸🇬-2'
+- name: 'Channel id: @ShadowProxy66🇸🇬'
   type: vmess
   server: 84.247.147.67
   port: 54179
   uuid: d143ebbc-7825-4b43-a55e-f11cb153bd5b
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: IRAN 7 (@Outline_Vpn)
-  type: vmess
-  server: 84.247.148.192
-  port: 44396
-  uuid: 3ca35e0a-e430-43fe-9c12-2e2eea70f873
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: '@meli_proxyy-52'
-  type: vmess
-  server: 84.247.150.177
-  port: 36141
-  uuid: d31ee52f-b6e4-4db8-9c95-98855ec823cc
   alterId: 0
   cipher: auto
   udp: true
@@ -6975,22 +4869,13 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: '@speeds_vpn-31'
+- name: '@speeds_vpn'
   type: vmess
   server: 87.236.215.157
   port: 9081
   uuid: f732eba3-a91f-46cb-aab0-ab5b860c8e2a
   alterId: 0
   cipher: auto
-  udp: true
-  network: tcp
-- name: 🔒 VM-TCP-NA 🇮🇷 IR-89.43.204.82:1102
-  type: vmess
-  server: 89.43.204.82
-  port: 1102
-  uuid: 79bee1ec-39ee-497c-83a4-9ecd8929c846
-  alterId: 0
-  cipher: aes-128-gcm
   udp: true
   network: tcp
 - name: 'Channel id: @ShadowProxy66🇦🇲'
@@ -7002,23 +4887,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 'Channel id: @ShadowProxy66-19'
-  type: vmess
-  server: 102.132.188.2
-  port: 443
-  uuid: 1eb86cc8-0302-4349-98be-dc621356fdce
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: q7.19kAla.co
-  skip-cert-verify: true
-  ws-opts:
-    path: /
-    headers:
-      Host: q7.19kAla.co
-- name: 'Channel id: @ShadowProxy66-20'
+- name: 'Channel id: @ShadowProxy66'
   type: vmess
   server: 102.132.188.220
   port: 80
@@ -7031,24 +4900,11 @@ proxies:
     path: /
     headers:
       Host: q7.19KAla.co
-- name: 'Channel id: @ShadowProxy66-21'
+- name: 'Channel id: @ShadowProxy66-2'
   type: vmess
   server: 102.177.189.30
   port: 80
   uuid: 5ccf6c13-f60f-4c34-91e4-ce8cd44b5fe5
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: q2.19kAla.co
-- name: 'Channel id: @ShadowProxy66-22'
-  type: vmess
-  server: 104.17.223.18
-  port: 80
-  uuid: ff2d17c6-0d96-4801-a270-9dba8334f8c6
   alterId: 0
   cipher: auto
   udp: true
@@ -7073,22 +4929,6 @@ proxies:
     path: /
     headers:
       Host: de01.sh-cloudflare.sbs
-- name: 🏁RELAY-104.21.112.1-1074
-  type: vmess
-  server: 104.21.112.1
-  port: 2087
-  uuid: 1c36906e-1a21-4330-b04f-85baf1a6ff26
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: rak1d3.777269.xyz
-  skip-cert-verify: true
-  ws-opts:
-    path: /
-    headers:
-      Host: rak1d3.777269.xyz
 - name: 🏁RELAY-104.21.64.1-0367
   type: vmess
   server: 104.21.64.1
@@ -7121,7 +4961,7 @@ proxies:
     path: /
     headers:
       Host: rak1d3.777269.xyz
-- name: 'Channel id: @ShadowProxy66-23'
+- name: 'Channel id: @ShadowProxy66-3'
   type: vmess
   server: 104.26.13.9
   port: 80
@@ -7134,227 +4974,6 @@ proxies:
     path: /
     headers:
       Host: q4.19kAla.co
-- name: 🇨🇳_CN_中国->🇺🇸_US_美国-5
-  type: vmess
-  server: 111.26.109.79
-  port: 30825
-  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-  alterId: 2
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /oooo
-    headers:
-      Host: ''
-- name: This-UUID-is-Wrong-or-Invalid
-  type: vmess
-  server: 127.0.0.1
-  port: 443
-  uuid: 5af5e263-f03e-4329-a4c5-9aac626efdc2
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: Amsterdam.domain.com
-  skip-cert-verify: true
-  ws-opts:
-    path: /speedtest
-    headers:
-      Host: Amsterdam.domain.com
-- name: ●此UUID是错误或无效的●
-  type: vmess
-  server: 127.0.0.1
-  port: 443
-  uuid: 5af5e263-f03e-4329-a4c5-9aac626efdc2
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: Amsterdam.domain.com
-  skip-cert-verify: true
-  ws-opts:
-    path: /speedtest
-    headers:
-      Host: Amsterdam.domain.com
-- name: Our-website:getafreenode.com
-  type: vmess
-  server: 127.0.0.1
-  port: 443
-  uuid: 5af5e263-f03e-4329-a4c5-9aac626efdc2
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: Frankfurt.domain.com
-  skip-cert-verify: true
-  ws-opts:
-    path: /speedtest
-    headers:
-      Host: Frankfurt.domain.com
-- name: ●网址：getafreenode.com●
-  type: vmess
-  server: 127.0.0.1
-  port: 443
-  uuid: 5af5e263-f03e-4329-a4c5-9aac626efdc2
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: Frankfurt.domain.com
-  skip-cert-verify: true
-  ws-opts:
-    path: /speedtest
-    headers:
-      Host: Frankfurt.domain.com
-- name: Please-click-AD-on-our-website
-  type: vmess
-  server: 127.0.0.1
-  port: 443
-  uuid: 5af5e263-f03e-4329-a4c5-9aac626efdc2
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: LosAngeles.domain.com
-  skip-cert-verify: true
-  ws-opts:
-    path: /speedtest
-    headers:
-      Host: LosAngeles.domain.com
-- name: ●请点击浏览网站广告数秒●
-  type: vmess
-  server: 127.0.0.1
-  port: 443
-  uuid: 5af5e263-f03e-4329-a4c5-9aac626efdc2
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: LosAngeles.domain.com
-  skip-cert-verify: true
-  ws-opts:
-    path: /speedtest
-    headers:
-      Host: LosAngeles.domain.com
-- name: Plz-go-website-to-get-new-one
-  type: vmess
-  server: 127.0.0.1
-  port: 443
-  uuid: 5af5e263-f03e-4329-a4c5-9aac626efdc2
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: Moscow.domain.com
-  skip-cert-verify: true
-  ws-opts:
-    path: /speedtest
-    headers:
-      Host: Moscow.domain.com
-- name: ●请前往网站获取有效订阅●
-  type: vmess
-  server: 127.0.0.1
-  port: 443
-  uuid: 5af5e263-f03e-4329-a4c5-9aac626efdc2
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: Moscow.domain.com
-  skip-cert-verify: true
-  ws-opts:
-    path: /speedtest
-    headers:
-      Host: Moscow.domain.com
-- name: Thanks-so-much-for-your-help
-  type: vmess
-  server: 127.0.0.1
-  port: 443
-  uuid: 5af5e263-f03e-4329-a4c5-9aac626efdc2
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: Wien.domain.com
-  skip-cert-verify: true
-  ws-opts:
-    path: /speedtest
-    headers:
-      Host: Wien.domain.com
-- name: To-help-obtain-operating-funds
-  type: vmess
-  server: 127.0.0.1
-  port: 443
-  uuid: 5af5e263-f03e-4329-a4c5-9aac626efdc2
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: Wien.domain.com
-  skip-cert-verify: true
-  ws-opts:
-    path: /speedtest
-    headers:
-      Host: Wien.domain.com
-- name: ●以帮助我们获得运营资金●
-  type: vmess
-  server: 127.0.0.1
-  port: 443
-  uuid: 5af5e263-f03e-4329-a4c5-9aac626efdc2
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: Wien.domain.com
-  skip-cert-verify: true
-  ws-opts:
-    path: /speedtest
-    headers:
-      Host: Wien.domain.com
-- name: ●在此向你表达诚挚的感谢●
-  type: vmess
-  server: 127.0.0.1
-  port: 443
-  uuid: 5af5e263-f03e-4329-a4c5-9aac626efdc2
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: Wien.domain.com
-  skip-cert-verify: true
-  ws-opts:
-    path: /speedtest
-    headers:
-      Host: Wien.domain.com
-- name: ●用于维护和添加更多节点●
-  type: vmess
-  server: 127.0.0.1
-  port: 443
-  uuid: 5af5e263-f03e-4329-a4c5-9aac626efdc2
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: Wien.domain.com
-  skip-cert-verify: true
-  ws-opts:
-    path: /speedtest
-    headers:
-      Host: Wien.domain.com
 - name: 🇨🇦CA-134.195.198.147-7604
   type: vmess
   server: 134.195.198.147
@@ -7371,7 +4990,7 @@ proxies:
     path: /linkvws
     headers:
       Host: inna.cfd
-- name: ' ❤️@Kayh_GNG - Github.com/kayhgng-157'
+- name: ' ❤️@Kayh_GNG - Github.com/kayhgng'
   type: vmess
   server: 146.19.168.161
   port: 443
@@ -7387,7 +5006,7 @@ proxies:
     path: /link
     headers:
       Host: az05.beyondy.cfd
-- name: همه اپراتورها | V2ray_Hub1-2
+- name: همه اپراتورها | V2ray_Hub1
   type: vmess
   server: 146.59.55.50
   port: 443
@@ -7403,23 +5022,7 @@ proxies:
     path: /linkvws
     headers:
       Host: o.metuji.com
-- name: 🏁RELAY-172.66.168.209-2453
-  type: vmess
-  server: 172.66.168.209
-  port: 443
-  uuid: 5428dcc2-9950-4404-b8a5-9dac82acb210
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: maXNEtVIP-usA-VP3.nETKH3.SiTE
-  skip-cert-verify: true
-  ws-opts:
-    path: /linkws
-    headers:
-      Host: maXNEtVIP-usA-VP3.nETKH3.SiTE
-- name: 'Channel id: @ShadowProxy66-24'
+- name: 'Channel id: @ShadowProxy66-4'
   type: vmess
   server: 172.67.22.14
   port: 80
@@ -7492,19 +5095,6 @@ proxies:
     path: /
     headers:
       Host: 338b2185-sw1z40-sw51rj-hkb8.hgc1.tcpbbr.net
-- name: 🇭🇰HK-1.36.218.184-0835
-  type: vmess
-  server: 338b2185-sw1z40-sw51rj-hkb8.hgc1.tcpbbr.net
-  port: 8080
-  uuid: 21a70fd2-c69c-11eb-8673-f23c9164ca5d
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: broadcastlv.chat.bilibili.com
 - name: 13|🇸🇬
   type: vmess
   server: 38.47.176.251
@@ -7514,19 +5104,6 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰HK-1.65.202.165-5691
-  type: vmess
-  server: 3fa5b1b6-sv2sg0-sx8y86-uvgv.hk3.p5pv.com
-  port: 80
-  uuid: ee67070a-ceb2-11ed-bb7d-f23c913c8d2b
-  alterId: 2
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 3fa5b1b6-sv2sg0-sx8y86-uvgv.hk3.p5pv.com
 - name: 🏁RELAY-104.21.48.1-0374
   type: vmess
   server: us01.sh-cloudflare.sbs
@@ -7543,32 +5120,6 @@ proxies:
     path: /
     headers:
       Host: us01.sh-cloudflare.sbs
-- name: 🇨🇳_CN_中国->🇷🇺_RU_俄罗斯-3
-  type: vmess
-  server: v25.heduian.link
-  port: 30825
-  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-  alterId: 2
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /oooo
-    headers:
-      Host: v25.heduian.link
-- name: 🇨🇳_CN_中国->🇨🇦_CA_加拿大
-  type: vmess
-  server: v35.heduian.link
-  port: 30835
-  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-  alterId: 2
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /oooo
-    headers:
-      Host: v35.heduian.link
 - name: 🏁RELAY-104.18.41.190-0699
   type: vmess
   server: www.hdmoli.com
@@ -7582,71 +5133,15 @@ proxies:
     path: /rongseven?ed=2048
     headers:
       Host: fr.freeyyds.dpdns.org
-- name: 🏁RELAY-104.21.73.59-0700
+- name: '@iProxy_Channel | Irancell'
   type: vmess
-  server: www.xinjuc.com
-  port: 80
-  uuid: 2f38f848-a899-4c87-9807-207a41615e3c
+  server: CoRe.CeNtRaLnEt.iR
+  port: 4951
+  uuid: 46d1dbfa-b0a2-43f7-ab13-a6fbf90387ac
   alterId: 0
   cipher: auto
   udp: true
-  network: ws
-  ws-opts:
-    path: /rongseven?ed=2048
-    headers:
-      Host: hk.freeyyds.dpdns.org
-- name: 🏁RELAY-104.21.64.1-0236
-  type: vmess
-  server: xcdvfrr54.999820.xyz
-  port: 80
-  uuid: 90f357dd-79ac-47c6-b0b8-958e2d19de07
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /10W6SJaK0F0oVXeNU6S2RVRP
-    headers:
-      Host: xcdvfrr54.999820.xyz
-- name: 🏁RELAY-104.21.96.1-1079
-  type: vmess
-  server: xscdddfr5.999820.xyz
-  port: 80
-  uuid: 90f357dd-79ac-47c6-b0b8-958e2d19de07
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /10W6SJaK0F0oVXeNU6S2RVRP
-    headers:
-      Host: xscdddfr5.999820.xyz
-- name: 🏁RELAY-172.67.206.152-5563
-  type: vmess
-  server: xxxsde4.freevpnatm2025.dpdns.org
-  port: 80
-  uuid: 90f357dd-79ac-47c6-b0b8-958e2d19de07
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /10W6SJaK0F0oVXeNU6S2RVRP
-    headers:
-      Host: xxxsde4.freevpnatm2025.dpdns.org
-- name: 🇭🇰HK-1.65.202.165-5689
-  type: vmess
-  server: a0ae8f27-sv4n40-sw5wi7-ufc0.hk3.p5pv.com
-  port: 80
-  uuid: 22308988-8548-11ea-a22e-f23c91cfbbc9
-  alterId: 2
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: a0ae8f27-sv4n40-sw5wi7-ufc0.hk3.p5pv.com
+  network: tcp
 - name: 🇭🇰HK-42.2.113.136-5686
   type: vmess
   server: ac759499-sv2sg0-sw26q2-php4.hk.p5pv.com
@@ -7660,59 +5155,6 @@ proxies:
     path: /
     headers:
       Host: ac759499-sv2sg0-sw26q2-php4.hk.p5pv.com
-- name: 🟡 Telegram= @VPN_SOLVE-9
-  type: vmess
-  server: arya.jahanprime.sbs
-  port: 443
-  uuid: cf332b94-e530-48f4-b948-c808d7689259
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: 🇭🇰HK-1.65.202.165-5688
-  type: vmess
-  server: be1c3b6c-sv0xs0-sw26q2-php4.hk3.p5pv.com
-  port: 80
-  uuid: c648ecc0-838a-11ed-bd81-f23c913c8d2b
-  alterId: 2
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: be1c3b6c-sv0xs0-sw26q2-php4.hk3.p5pv.com
-- name: 🏁RELAY-104.21.40.251-5572
-  type: vmess
-  server: c1xxdcswe.777169.xyz
-  port: 80
-  uuid: cad5a49f-14e5-4a05-aae9-c5df8fad394f
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /TjUzWyRmR4P2fGqXENw4Z4
-    headers:
-      Host: c1xxdcswe.777169.xyz
-- name: '@V2ry_Proxy  ✅ عضو شوید'
-  type: vmess
-  server: cat.liilliil.ir
-  port: 1085
-  uuid: ddc5dbec-edbe-5617-a89a-b1194af6d3b6
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: '@vpnserverrr✅ عضو شوید'
-  type: vmess
-  server: cat.liilliil.ir
-  port: 1085
-  uuid: ddc5dbec-edbe-5617-a89a-b1194af6d3b6
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
 - name: دوسم داری ؟!
   type: vmess
   server: cloud.jahanserver.sbs
@@ -7754,7 +5196,7 @@ proxies:
     path: /
     headers:
       Host: de01.sh-cloudflare.sbs
-- name: '@speeds_vpn-32'
+- name: '@speeds_vpn-2'
   type: vmess
   server: ger2many3.srjofood.ir
   port: 4535
@@ -7772,24 +5214,6 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: https://t.me/vpnserverrr-2
-  type: vmess
-  server: hs2.multiproxy.info
-  port: 9979
-  uuid: 26d9ddd9-1e5d-46fc-8baa-a77475c29e68
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: '@k.h_vpn  کانالمون'
-  type: vmess
-  server: irc.jahanrocket.sbs
-  port: 443
-  uuid: 410b1034-f5b2-46be-8f86-370ba9925e4c
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
 - name: 🇯🇵日本
   type: vmess
   server: jp3.aeccssssss.xyz
@@ -7803,7 +5227,7 @@ proxies:
     path: ''
     headers:
       Host: ''
-- name: 🟡 Telegram= @VPN_SOLVE-10
+- name: 🟡 Telegram= @VPN_SOLVE
   type: vmess
   server: l1.apland.ir
   port: 45090
@@ -7812,34 +5236,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🟡 Telegram= @VPN_SOLVE-11
-  type: vmess
-  server: pbarekh.turkmenviper.com
-  port: 51143
-  uuid: e7aace33-2ad1-4db3-b7b7-d2a8b963fec6
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: https://t.me/vpnserverrr-3
-  type: vmess
-  server: pnl.shod-jjcod.com
-  port: 443
-  uuid: cabcbc42-2940-4b6f-8196-d3a13a8c9b88
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: 🟡 Telegram= @VPN_SOLVE-12
-  type: vmess
-  server: sabzr81.greenbridge-conected.shop
-  port: 2028
-  uuid: 6ac95fbd-f649-4ced-b9f1-5e4bd2820684
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: '@SPEEDS_VPN'
+- name: 🟡 Telegram= @VPN_SOLVE-2
   type: vmess
   server: sabzr81.greenbridge-conected.shop
   port: 2028
@@ -7925,38 +5322,6 @@ proxies:
     path: /hls/cctv5phd.m3u8
     headers:
       Host: v2ams0356-v2bh3u.333789.xyz
-- name: "A05b-德国 倍率:0.01 dh\t"
-  type: vmess
-  server: v2dh0410-pqivoc.333789.xyz
-  port: 443
-  uuid: 60f45be4-65e1-354e-8e0e-9d775e699723
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: v2dh0410-pqivoc.333789.xyz
-  skip-cert-verify: true
-  ws-opts:
-    path: /hls/cctv5phd.m3u8
-    headers:
-      Host: v2dh0410-pqivoc.333789.xyz
-- name: A05-德国 倍率:0.01 dh
-  type: vmess
-  server: mpdh.cloudflare.182682.xyz
-  port: 443
-  uuid: 60f45be4-65e1-354e-8e0e-9d775e699723
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: v2dh0410-v2bh3u.333789.xyz
-  skip-cert-verify: true
-  ws-opts:
-    path: /hls/cctv5phd.m3u8
-    headers:
-      Host: v2dh0410-v2bh3u.333789.xyz
 - name: AB01b-美国 倍率:0.01 hcc
   type: vmess
   server: ushcc1.cloudflare.182682.xyz
@@ -7973,22 +5338,6 @@ proxies:
     path: /hls/cctv5phd.m3u8
     headers:
       Host: v2hcc0415-6a7b8c.902222.xyz
-- name: AB01-美国 倍率:0.01 hcc
-  type: vmess
-  server: ushcc.cloudflare.182682.xyz
-  port: 443
-  uuid: 60f45be4-65e1-354e-8e0e-9d775e699723
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  tls: true
-  servername: v2hcc0415-gjb2mkj.902222.xyz
-  skip-cert-verify: true
-  ws-opts:
-    path: /hls/cctv5phd.m3u8
-    headers:
-      Host: v2hcc0415-gjb2mkj.902222.xyz
 - name: '%F0%9F%87%BA%F0%9F%87%B8%20%E7%BE%8E%E5%9B%BD%20CloudFlare%E8%8A%82%E7%82%B9'
   type: vmess
   server: 104.17.176.171
@@ -8002,7 +5351,7 @@ proxies:
     path: /nasnet/cdn
     headers:
       Host: ke7hz36ewz-4515017473.mashallahbet.com
-- name: ⚡️Telegram = @SOSkeyNET-6
+- name: ⚡️Telegram = @SOSkeyNET-5
   type: vmess
   server: 185.14.160.80
   port: 80
@@ -8011,7 +5360,16 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 剩余流量：0-47
+- name: 剩余流量：0-14
+  type: vmess
+  server: www.google.com
+  port: 10086
+  uuid: 60f45be4-65e1-354e-8e0e-9d775e699723
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: tcp
+- name: 官网:miaopu.xyz 书签:no404.tk
   type: vmess
   server: www.google.com
   port: 10086
@@ -8051,97 +5409,42 @@ proxy-groups:
   type: select
   icon: https://www.svgrepo.com/show/372331/cursor-hand-click.svg
   proxies:
-  - NorthXRAY - VMESS 🔥🇩🇪 🇺🇸
-  - Telegram @viturey🇩🇪🇩🇪
-  - Telegram@viturey  🇺🇸🇺🇸-2
+  - NASNET | 7 | Emergency
+  - Telegram@viturey  🇺🇸🇺🇸
   - 只有爱懂的人才能用
-  - 🇨🇦CA-51.79.102.253-0973
-  - 🇩🇪DE-57.129.24.125-7062
-  - 🏁RELAY-104.18.149.76-0672
-  - 🏁RELAY-104.21.112.1-0394
-  - 🏁RELAY-104.21.64.1-0395
-  - 🇨🇦CA-134.195.198.147-7058
-  - 🏁RELAY-172.67.200.13-0219
-  - 🇨🇦CA-23.162.200.227-7063
-  - 🏁RELAY-172.64.146.66-0666
-  - 🏁RELAY-172.67.155.140-0985
-  - 🏁RELAY-104.21.42.93-5247
-  - 🏁RELAY-172.67.149.202-5221
-  - 🏁RELAY-104.21.68.76-5220
-  - 🏁RELAY-172.67.149.202-0984
-  - 🏁RELAY-172.67.149.202-0220
-  - 🏁RELAY-104.21.29.205-5222
-  - 🇫🇷FR-45.145.165.114-7054
-  - 🏁RELAY-104.21.29.205-5223
-  - 🏁RELAY-104.21.112.1-0391
-  - 🏁RELAY-104.21.29.205-5225
-  - 🏁RELAY-172.67.149.202-0222
-  - 🏁RELAY-172.67.75.172-0712
-  - 🏁RELAY-104.17.176.171-0748
+  - Telegram @viturey🇩🇪🇩🇪
   - Telegram @viturey🇩🇪🇩🇪-2
-  - Telegram @viturey🇩🇪🇩🇪-3
-  - Telegram @viturey🇩🇪🇩🇪-4
-  - Telegram@viturey  🇺🇸🇺🇸-3
-  - Telegram@viturey  🇺🇸🇺🇸-4
-  - '%F0%9F%94%A5Mehduox_vpn'
-  - 13,14|美国3|@ripaojiedian
   - 13,14|美国|@ripaojiedian
-  - 13,14|新加坡|@ripaojiedian
-  - 13,14|日本3|@ripaojiedian
   - 13,14|日本4|@ripaojiedian
-  - 13,14|澳大利亚|@ripaojiedian
   - 13,14|香港6|@ripaojiedian
   - 13|🇭🇰 香港7|@ripaojiedian
   - 13|🇰🇷 韩国2|@ripaojiedian
   - 13|🇸🇬 新加坡3|@ripaojiedian
-  - 13|🇸🇬 新加坡2|@ripaojiedian
-  - 13|🇸🇬 新加坡4|@ripaojiedian
-  - 14|新加坡3|@ripaojiedian
   - 14|新加坡2|@ripaojiedian
   - 14|新加坡4|@ripaojiedian
   - 14|日本V2|@ripaojiedian
-  - 14|韩国2|@ripaojiedian
-  - 14|香港7|@ripaojiedian
-  - 2|🇸🇬1 |  1.0MB/s|0%|Netflix|Disn...
   - 2|🇺🇸62 |  3.3MB/s|Openai|Gemini
-  - 2|🇩🇪5 |  1.4MB/s|0%|Youtube|Open...
   - 2|🇭🇰1 |  1.8MB/s|15%|Disney|Yout...
-  - 2|🇯🇵1 |  1.8MB/s|54%|Youtube|Ope...
   - 2|🌀4-TH |  2.6MB/s|55%|Netflix|O...
-  - '@Hope_Net-join-us-on-Telegram-40'
-  - '@Hope_Net-join-us-on-Telegram-41'
-  - '@Hope_Net-join-us-on-Telegram-42'
-  - '@Hope_Net-join-us-on-Telegram-43'
-  - 广东省广州市 移动
-  - 广东省湛江市 移动
+  - '@Hope_Net-join-us-on-Telegram'
+  - '@Hope_Net-join-us-on-Telegram-2'
   - 🔒 VM-TCP-NA 🇨🇳 CN-219.151.20.62:42349
   - 🔒 VM-TCP-NA 🇺🇸 US-2.58.87.221:46628
-  - 🇦🇺 一元机场:ssrsub.de 澳大利亚 01
-  - 🇫🇷法国1 | ⬇️ 2.3MB/s
-  - 🇫🇷法国2 | ⬇️ 4.1MB/s
-  - 🇨🇦 一元机场:ssrsub.de 加拿大 02
-  - 🇨🇦 一元机场:ssrsub.de 加拿大 06
-  - 🇨🇳_CN_中国->🇺🇸_US_美国-3
-  - 🇨🇳_CN_中国->🇺🇸_US_美国-4
-  - 🇯🇵 一元机场:ssrsub.de 日本 02
-  - 🇯🇵 一元机场:ssrsub.de 日本 03
-  - 🇭🇰 一元机场:ssrsub.de 香港 03
-  - 🇭🇰 一元机场:ssrsub.de 香港 12
-  - 🇭🇰 一元机场:ssrsub.de 香港 14
-  - 🇭🇰 一元机场:ssrsub.de 香港 16
-  - 🇭🇰 一元机场:ssrsub.de 香港 17
+  - 🔒 VM-WS-NA 🇨🇳 CN-111.26.109.79:30829
+  - 🇨🇦 一元机场:ssrsub.de 加拿大 05
+  - 🇨🇳 一元机场:ssrsub.de 台湾 03
+  - 🇨🇳 一元机场:ssrsub.de 台湾 04
+  - 🇭🇰 一元机场:ssrsub.de 香港 09
+  - 🇭🇰 一元机场:ssrsub.de 香港 13
+  - 🇭🇰 一元机场:ssrsub.de 香港 15
   - 🇭🇰香港4 | ⬇️ 1.1MB/s
-  - 🇭🇰香港2 | ⬇️ 1.2MB/s
-  - 🇭🇰香港3 | ⬇️ 3.1MB/s
-  - 🇮🇳 一元机场:ssrsub.de 印度 01
-  - 🇮🇳 一元机场:ssrsub.de 印度 02
+  - 🇮🇩 一元机场:ssrsub.de 印尼 01
   - 🇸🇬新加坡2 | ⬇️ 1.7MB/s
-  - 🇺🇸 一元机场:ssrsub.de 美国 17
-  - 🇺🇸 一元机场:ssrsub.de 美国 36
-  - 🇺🇸 一元机场:ssrsub.de 美国 41
-  - 🇺🇸 一元机场:ssrsub.de 美国 42
-  - 🇺🇸 一元机场:ssrsub.de 美国 65
-  - 🇺🇸美国104 | ⬇️ 3.3MB/s
+  - 🇺🇸 一元机场:ssrsub.de 美国 22
+  - 🇺🇸 一元机场:ssrsub.de 美国 54
+  - 🇺🇸 一元机场:ssrsub.de 美国 80
+  - 🇺🇸 一元机场:ssrsub.de 美国 82
+  - 🇺🇸 一元机场:ssrsub.de 美国 87
   - 🇺🇸美国11 | ⬇️ 2.8MB/s
   - 🇺🇸美国12 | ⬇️ 3.4MB/s
   - 🇺🇸美国13 | ⬇️ 1.8MB/s
@@ -8149,7 +5452,6 @@ proxy-groups:
   - 🇺🇸美国17 | ⬇️ 4.4MB/s
   - 🇺🇸美国18 | ⬇️ 2.3MB/s
   - 🇺🇸美国19 | ⬇️ 2.1MB/s
-  - 🇺🇸美国20 | ⬇️ 1.8MB/s
   - 🇺🇸美国21 | ⬇️ 2.2MB/s
   - 🇺🇸美国23 | ⬇️ 1.4MB/s
   - 🇺🇸美国24 | ⬇️ 3.4MB/s
@@ -8158,11 +5460,9 @@ proxy-groups:
   - ' ❗请到https://www.niao.icu❗续费'
   - (IEPL)英国1
   - (隧道)英国2
-  - '@VIProxys-50'
   - FRK.德国.A
   - HK | 香港 01
   - HK | 香港 BGP
-  - HK | 香港 专线
   - HK.香港.A | 负载均衡
   - HK.香港.B | 推荐
   - HK.香港.C | 高速.2x倍率
@@ -8170,13 +5470,10 @@ proxy-groups:
   - HK.香港.E
   - HK.香港.F
   - HK.香港.G | 多入口
-  - HK.香港（需V6，新疆专用）
   - JP | 日本 01
   - SG | 新加坡 01
   - SGP.新加坡.B | 负载均衡
   - SGP.新加坡.D | 推荐
-  - TG群:@helium_network_group
-  - TG群:@helium_network_group-2
   - TW | 台湾 01
   - TW.台湾.A
   - TW.台湾.B | 推荐
@@ -8184,15 +5481,10 @@ proxy-groups:
   - UK | 英国 01
   - UK.英国.A
   - US | 美国 01
-  - US.美国.B
-  - US.美国.E
   - '[3X]泰国NO1'
   - '[3X]泰国NO2'
-  - '[3X]韩国 专线NO1'
-  - '[3X]韩国 专线NO2'
   - '[3X]马来西亚专线NO1'
   - '[3X]马来西亚专线NO2'
-  - 俄罗斯1-CDN | 1X
   - 台湾-优化
   - 台湾-优化-2
   - 台湾-优化-3
@@ -8202,8 +5494,6 @@ proxy-groups:
   - 台湾-优化3
   - 台湾-优化3-2
   - 台湾-优化3-3
-  - 台湾1(GPT等流媒体1.5倍）
-  - 台湾2(GPT等流媒体1.5倍）
   - 免费JP节点01
   - 免费JP节点01-2
   - 免费SG节点02
@@ -8217,24 +5507,22 @@ proxy-groups:
   - 剩余流量：-0.84999999999997 GB
   - 剩余流量：-1.23 GB
   - 剩余流量：-2.8 GB
-  - 剩余流量：0-35
-  - 剩余流量：0-36
-  - 剩余流量：0-37
-  - 剩余流量：0-38
-  - 剩余流量：0-39
-  - 剩余流量：0-40
-  - 剩余流量：0-41
-  - 剩余流量：0-42
-  - 剩余流量：0-43
-  - 剩余流量：0-44
-  - 剩余流量：0-45
-  - 剩余流量：0-46
+  - 剩余流量：0
+  - 剩余流量：0-2
+  - 剩余流量：0-3
+  - 剩余流量：0-4
+  - 剩余流量：0-5
+  - 剩余流量：0-6
+  - 剩余流量：0-7
+  - 剩余流量：0-8
+  - 剩余流量：0-9
+  - 剩余流量：0-10
+  - 剩余流量：0-11
+  - 剩余流量：0-12
+  - 剩余流量：0-13
   - 剩余流量：2 GB
-  - 剩余流量：20.52 GB
   - 剩余流量：296.7 GB
   - 剩余流量：6.83 GB
-  - 剩余流量：61.74 GB
-  - 剩余流量：64.92 GB
   - 剩余流量：877.59 GB
   - 加拿大-优化
   - 加拿大-优化-2
@@ -8248,17 +5536,11 @@ proxy-groups:
   - 加拿大-多伦多1-CDN | 1x
   - 加拿大1
   - 加拿大2
-  - 加群关注电报频道获取延期码
-  - 加群关注电报频道获取延期码-2
   - 印度-优化
   - 印度-优化-2
   - 印度-优化-3
-  - 印度-海得拉巴1-CDN | 1x
-  - 印度-海得拉巴2-CDN | 1x
-  - 印度-海得拉巴3-CDN | 1x
-  - 印度-海得拉巴4-CDN | 1x
-  - 印度1-9
-  - 印度2-9
+  - 印度1
+  - 印度2
   - 印度尼西亚1-CDN | 1x
   - 印度尼西亚2-CDN | 1x
   - 哥伦比亚-波哥大1-CDN | 1X
@@ -8267,29 +5549,24 @@ proxy-groups:
   - 土耳其1-无分流直出BAN-PT/BT/POOL-CDN | 0X
   - 备用网址www.fzdvd.cc
   - 套餐到期：2024-08-25
-  - 套餐到期：2025-06-01
+  - 套餐到期：2025-06-23
   - 套餐到期：2025-06-23-2
-  - 套餐到期：2025-06-23-3
   - 套餐到期：2025-08-24
   - 套餐到期：2025-08-25
   - 套餐到期：2025-10-07
-  - 套餐到期：长期有效-28
-  - 套餐到期：长期有效-29
-  - 套餐到期：长期有效-30
-  - 套餐到期：长期有效-31
-  - 套餐到期：长期有效-32
-  - 套餐到期：长期有效-33
-  - 套餐到期：长期有效-34
-  - 套餐到期：长期有效-35
-  - 套餐到期：长期有效-36
-  - 套餐到期：长期有效-37
-  - 套餐到期：长期有效-38
-  - 套餐到期：长期有效-39
-  - 套餐到期：长期有效-40
-  - 套餐到期：长期有效-41
-  - 套餐到期：长期有效-42
-  - 官网地址：https://www.niao.icu
-  - 官网：最强机场.com
+  - 套餐到期：长期有效
+  - 套餐到期：长期有效-2
+  - 套餐到期：长期有效-3
+  - 套餐到期：长期有效-4
+  - 套餐到期：长期有效-5
+  - 套餐到期：长期有效-6
+  - 套餐到期：长期有效-7
+  - 套餐到期：长期有效-8
+  - 套餐到期：长期有效-9
+  - 套餐到期：长期有效-10
+  - 套餐到期：长期有效-11
+  - 套餐到期：长期有效-12
+  - 套餐到期：长期有效-13
   - 官网：dash.henet.uk
   - 官网：dash.henet.uk-2
   - 官网：vvs.e54.site
@@ -8298,16 +5575,10 @@ proxy-groups:
   - 导航页：www.可乐云.net
   - 尼日利亚-双ISP原生家宽-无分流直出-CDN | 1X
   - 尼日利亚1-无分流直出-CDN | 1X
-  - 巴西-维涅社1-CDN | 1X
-  - 巴西-维涅社2-CDN | 1X
-  - 巴西-维涅社3-CDN | 1X
-  - 巴西-维涅社4-CDN | 1X
   - 巴西-圣保罗1-CDN | 1X
   - 巴西-圣保罗2-CDN | 1X
   - 巴西-圣保罗3-CDN | 1X
   - 已到期或流量已用完
-  - 德国-纽伦堡1-CDN | 0x
-  - 德国-纽伦堡2-CDN | 0x
   - 德国-优化
   - 德国-优化-2
   - 德国-优化-3
@@ -8315,7 +5586,6 @@ proxy-groups:
   - 德国-优化2-2
   - 德国-优化2-3
   - 德国01_免费
-  - 您的服务已到期了
   - 新加坡-优化
   - 新加坡-优化-2
   - 新加坡-优化-3
@@ -8363,47 +5633,11 @@ proxy-groups:
   - 澳大利亚 02
   - 澳大利亚原生1
   - 澳大利亚原生2
-  - 澳大利亚墨尔本1-CDN | 1X
-  - 澳大利亚墨尔本2-CDN | 1X
   - 瑞典100Mbps-CDN | 1X
   - 用前请更新订阅！！！
   - '电报群: https://t.me/emovpn x5'
   - '电报群: https://t.me/emovpn x5-2'
   - 登录https://cokecloud.me 续费
-  - 目前国内网址：xc2.shishi1.buzz 备用：ds1.dashi99.top
-  - 美国-纽约-001
-  - 美国-纽约-001-2
-  - 美国-纽约-001-3
-  - 美国-纽约-001-4
-  - 美国-纽约-001-5
-  - 美国-纽约-001-6
-  - 美国-纽约-001-7
-  - 美国-纽约-001-8
-  - 美国-纽约-001-9
-  - 美国-纽约-001-10
-  - 美国-纽约-001-11
-  - 美国-拉斯维加斯-001
-  - 美国-拉斯维加斯-001-2
-  - 美国-拉斯维加斯-001-3
-  - 美国-拉斯维加斯-001-4
-  - 美国-拉斯维加斯-001-5
-  - 美国-拉斯维加斯-001-6
-  - 美国-拉斯维加斯-001-7
-  - 美国-拉斯维加斯-001-8
-  - 美国-拉斯维加斯-001-9
-  - 美国-拉斯维加斯-001-10
-  - 美国-拉斯维加斯-001-11
-  - 美国-拉斯维加斯-002
-  - 美国-拉斯维加斯-002-2
-  - 美国-拉斯维加斯-002-3
-  - 美国-拉斯维加斯-002-4
-  - 美国-拉斯维加斯-002-5
-  - 美国-拉斯维加斯-002-6
-  - 美国-拉斯维加斯-002-7
-  - 美国-拉斯维加斯-002-8
-  - 美国-拉斯维加斯-002-9
-  - 美国-拉斯维加斯-002-10
-  - 美国-拉斯维加斯-002-11
   - 美国01_免费
   - 美国LA-优化-GPT
   - 美国LA-优化-GPT-2
@@ -8419,12 +5653,7 @@ proxy-groups:
   - 美国东部纽约1-CDN | 0x
   - 美国东部阿什本1-CDN | 1x
   - 美国东部阿什本2-CDN | 1x
-  - 美国中部芝加哥1-CDN | 1x
   - 美国南部达拉斯1-CDN | 0x
-  - 美国西部圣何塞1-CDN | 1x
-  - 美国西部圣何塞2-CDN | 1x
-  - 美国西部圣何塞3-CDN | 1x
-  - 美国西部圣何塞4-CDN | 1x
   - 美国西部洛杉矶1-CDN | 0x
   - 美国西部洛杉矶2-CDN | 1x
   - 菲律宾 马尼拉-中转
@@ -8448,9 +5677,9 @@ proxy-groups:
   - 荷兰1-CDN | 1X
   - 荷兰2-CDN | 1X
   - 西班牙1-CDN | 1X
-  - 距离下次重置剩余：14 天
-  - 距离下次重置剩余：7 天-6
-  - 距离下次重置剩余：7 天-7
+  - 距离下次重置剩余：7 天
+  - 距离下次重置剩余：7 天-2
+  - 过滤掉3条线路
   - 过滤掉3条线路-2
   - 过滤掉3条线路-3
   - 过滤掉3条线路-4
@@ -8469,17 +5698,9 @@ proxy-groups:
   - 过滤掉5条线路
   - 过滤掉5条线路-2
   - 过滤掉5条线路-3
-  - 过滤掉9条线路
   - 韩国-01
   - 韩国-02
   - 韩国-03-电信用户
-  - 香港-03
-  - 香港HY-优化
-  - 香港HY-优化-2
-  - 香港HY-优化-3
-  - 香港HY-优化2
-  - 香港HY-优化2-2
-  - 香港HY-优化2-3
   - 香港NO.1（GPT奈飞等）
   - 香港NO.2（GPT奈飞等）
   - 香港WAP-优化
@@ -8488,32 +5709,19 @@ proxy-groups:
   - 香港WAP-优化2
   - 香港WAP-优化2-2
   - 香港WAP-优化2-3
-  - 香港（直连）
+  - ⚜️Telegram:@IP_CF
   - ❗  您的订阅已过期 ❗
   - '❗  请续费订阅后再更新订阅  ❗ '
-  - '❗ 您的订阅已过期  ❗ '
   - ❗ 您的订阅已过期 ❗
   - 「加入会员解锁流媒体」x5
   - 「加入会员解锁流媒体」x5-2
-  - 「🇩🇪」EMO | 冰灵果 x5
-  - 「🇩🇪」EMO | 冰灵果 x5-2
   - 「🇫🇷」EMO | 冰糖心 x5
   - 「🇫🇷」EMO | 冰糖心 x5-2
-  - 「🇬🇧」EMO | 红富士 x5
-  - 「🇬🇧」EMO | 红富士 x5-2
-  - 「🇮🇳」EMO | 牛油果 x5
-  - 「🇮🇳」EMO | 牛油果 x5-2
-  - 「🇸🇬」EMO | 西贡蕉 x5
-  - 「🇸🇬」EMO | 西贡蕉 x5-2
   - 「🇺🇸」EMO | 天元果 x5
   - 「🇺🇸」EMO | 天元果 x5-2
-  - 「🇺🇸」EMO | 芝麻蕉 x5
-  - 「🇺🇸」EMO | 芝麻蕉 x5-2
   - 🇧🇷 巴西1|cf
   - 🇧🇷 巴西2|cf
   - 🇧🇷 巴西3|cf
-  - 🇨🇦 加拿大1|cf
-  - 🇨🇦 加拿大2|cf
   - 🇨🇳台湾01|1x
   - 🇨🇳台湾02|1x
   - 🇨🇳台湾03|1x
@@ -8536,7 +5744,6 @@ proxy-groups:
   - 🇭🇰香港家宽hkbn 10x-2
   - 🇭🇰香港家宽hkbn 10x-3
   - 🇮🇳 印度1|cf
-  - 🇯🇵日本 06
   - 🇯🇵日本01|1x
   - 🇯🇵日本02|1x
   - 🇯🇵日本03|1x
@@ -8550,136 +5757,81 @@ proxy-groups:
   - 🇰🇷韩国 03
   - 🇰🇷韩国01|1x
   - 🇺🇸 美国1|cf
-  - 🇺🇸美国01|GPT|1x
-  - 🇺🇸美国02|GPT|1x
-  - 🇺🇸美国03|GPT|1x
-  - 🇺🇸美国04|GPT|1x
-  - 🇺🇸美国05|GPT|1x
   - 🇺🇸美国Las Vegas 04|防失联&下载专用|0.01x
   - 🇺🇸美国Las Vegas 01|防失联&下载专用|0.01x
   - 🇺🇸美国Las Vegas 02|防失联&下载专用|0.01x
   - 🇺🇸美国Las Vegas 03|防失联&下载专用|0.01x
-  - 美国 CloudFlare节点
-  - '@Hope_Net-join-us-on-Telegram-44'
-  - '@Hope_Net-join-us-on-Telegram-45'
-  - '@Hope_Net-join-us-on-Telegram-46'
-  - '@Hope_Net-join-us-on-Telegram-47'
-  - 🔒 VM-WS-NA 🇨🇳 CN-120.238.98.150:30812
+  - '@Hope_Net-join-us-on-Telegram-3'
+  - '@Hope_Net-join-us-on-Telegram-4'
   - ⚡️Telegram = @SOSkeyNET
-  - 🔒 VM-TCP-NA 🇮🇷 IR-2.144.7.202:45789
-  - 🔒 VM-TCP-NA 🇳🇱 NL-24.144.77.93:898
-  - 🔒 VM-TCP-NA 🇮🇷 IR-5.144.132.140:1221
-  - '@Hope_Net-join-us-on-Telegram-48'
+  - '@Hope_Net-join-us-on-Telegram-5'
   - ⚡️Telegram = @SOSkeyNET-2
   - ⚡️Telegram = @SOSkeyNET-3
-  - '@Hope_Net-join-us-on-Telegram-49'
+  - '@Hope_Net-join-us-on-Telegram-6'
+  - 🔒 VM-TCP-NA 🇮🇷 IR-2.144.7.202:45789
+  - '@Hope_Net-join-us-on-Telegram-7'
+  - 🔒 VM-TCP-NA 🇳🇱 NL-24.144.77.93:898
+  - '@Hope_Net-join-us-on-Telegram-8'
+  - '@Hope_Net-join-us-on-Telegram-9'
   - ⚡️Telegram = @SOSkeyNET-4
-  - ⚡️Telegram = @SOSkeyNET-5
-  - 🇭🇰HK-1.65.202.165-5693
-  - 🇭🇰HK-1.65.202.165-5690
-  - ⚜️Telegram:@IP_CF
+  - '@Hope_Net-join-us-on-Telegram-10'
+  - ⚜️Telegram:@IP_CF-2
+  - ⚜️Telegram:@IP_CF-3
   - 'Channel id: @ShadowProxy66🇨🇦'
-  - '@V2ray1_Ng-12'
+  - '@V2ray1_Ng'
   - 🇨🇦CA-51.79.102.253-1062
   - 🇩🇪DE-57.129.24.125-7603
-  - همه اپراتورها | V2ray_Hub1
-  - 🏁RELAY-104.21.112.1-0234
   - 🇭🇰HK-42.2.113.136-0364
   - 🇭🇰HK-42.2.113.136-5685
-  - 🇭🇰HK-1.65.202.165-5684
-  - https://t.me/VPN4EVERYONE-13
-  - '@meli_proxyy-48'
+  - https://t.me/VPN4EVERYONE
   - '@appsooner کانال تلگرام 🇸🇬'
   - '@appsooner کانال تلگرام 🇸🇬-2'
-  - '@meli_proxyy-49'
   - '@appsooner کانال تلگرام 🇸🇬-3'
-  - '@meli_proxyy-50'
-  - IRAN 6 (@Outline_Vpn)
+  - '@appsooner کانال تلگرام 🇸🇬-4'
   - 🔒 VM-TCP-NA 🇸🇬 SG-84.247.147.243:51566
-  - '@meli_proxyy-51'
-  - 'Channel id: @ShadowProxy66🇸🇬-2'
-  - IRAN 7 (@Outline_Vpn)
-  - '@meli_proxyy-52'
+  - '@meli_proxyy'
+  - 'Channel id: @ShadowProxy66🇸🇬'
   - 🔒 VM-TCP-NA 🇸🇬 SG-84.247.150.177:36141
-  - '@speeds_vpn-31'
-  - 🔒 VM-TCP-NA 🇮🇷 IR-89.43.204.82:1102
+  - '@speeds_vpn'
   - 'Channel id: @ShadowProxy66🇦🇲'
-  - 'Channel id: @ShadowProxy66-19'
-  - 'Channel id: @ShadowProxy66-20'
-  - 'Channel id: @ShadowProxy66-21'
-  - 'Channel id: @ShadowProxy66-22'
+  - 'Channel id: @ShadowProxy66'
+  - 'Channel id: @ShadowProxy66-2'
   - 🏁RELAY-104.21.112.1-0360
-  - 🏁RELAY-104.21.112.1-1074
   - 🏁RELAY-104.21.64.1-0367
   - 🏁RELAY-104.21.96.1-0370
-  - 'Channel id: @ShadowProxy66-23'
-  - 🇨🇳_CN_中国->🇺🇸_US_美国-5
-  - This-UUID-is-Wrong-or-Invalid
-  - ●此UUID是错误或无效的●
-  - Our-website:getafreenode.com
-  - ●网址：getafreenode.com●
-  - Please-click-AD-on-our-website
-  - ●请点击浏览网站广告数秒●
-  - Plz-go-website-to-get-new-one
-  - ●请前往网站获取有效订阅●
-  - Thanks-so-much-for-your-help
-  - To-help-obtain-operating-funds
-  - ●以帮助我们获得运营资金●
-  - ●在此向你表达诚挚的感谢●
-  - ●用于维护和添加更多节点●
+  - 'Channel id: @ShadowProxy66-3'
   - 🇨🇦CA-134.195.198.147-7604
-  - ' ❤️@Kayh_GNG - Github.com/kayhgng-157'
-  - همه اپراتورها | V2ray_Hub1-2
-  - 🏁RELAY-172.66.168.209-2453
-  - 'Channel id: @ShadowProxy66-24'
+  - ' ❤️@Kayh_GNG - Github.com/kayhgng'
+  - همه اپراتورها | V2ray_Hub1
+  - 'Channel id: @ShadowProxy66-4'
   - 🔒 VM-TCP-NA 🇮🇷 IR-212.23.214.162:12115
   - 🔒 VM-TCP-NA 🇮🇷 IR-212.23.214.165:12109
   - 🇨🇦CA-23.162.200.227-7595
   - 🏁RELAY-104.21.16.1-5580
   - 🇭🇰HK-1.36.218.184-5692
-  - 🇭🇰HK-1.36.218.184-0835
   - 13|🇸🇬
-  - 🇭🇰HK-1.65.202.165-5691
   - 🏁RELAY-104.21.48.1-0374
-  - 🇨🇳_CN_中国->🇷🇺_RU_俄罗斯-3
-  - 🇨🇳_CN_中国->🇨🇦_CA_加拿大
   - 🏁RELAY-104.18.41.190-0699
-  - 🏁RELAY-104.21.73.59-0700
-  - 🏁RELAY-104.21.64.1-0236
-  - 🏁RELAY-104.21.96.1-1079
-  - 🏁RELAY-172.67.206.152-5563
-  - 🇭🇰HK-1.65.202.165-5689
+  - '@iProxy_Channel | Irancell'
   - 🇭🇰HK-42.2.113.136-5686
-  - 🟡 Telegram= @VPN_SOLVE-9
-  - 🇭🇰HK-1.65.202.165-5688
-  - 🏁RELAY-104.21.40.251-5572
-  - '@V2ry_Proxy  ✅ عضو شوید'
-  - '@vpnserverrr✅ عضو شوید'
   - دوسم داری ؟!
   - 🏁RELAY-172.66.168.226-2490
   - 🏁RELAY-104.21.112.1-0359
-  - '@speeds_vpn-32'
+  - '@speeds_vpn-2'
   - 🇩🇪Germany➁
-  - https://t.me/vpnserverrr-2
-  - '@k.h_vpn  کانالمون'
   - 🇯🇵日本
-  - 🟡 Telegram= @VPN_SOLVE-10
-  - 🟡 Telegram= @VPN_SOLVE-11
-  - https://t.me/vpnserverrr-3
-  - 🟡 Telegram= @VPN_SOLVE-12
-  - '@SPEEDS_VPN'
+  - 🟡 Telegram= @VPN_SOLVE
+  - 🟡 Telegram= @VPN_SOLVE-2
   - 🏁RELAY-172.67.206.152-1078
   - A01-华沙 倍率:0.1 waw
   - A01b-华沙 倍率:0.1 waw
   - A02-荷兰 倍率:0.1 ams
   - A02b-荷兰 倍率:0.1 ams
-  - "A05b-德国 倍率:0.01 dh\t"
-  - A05-德国 倍率:0.01 dh
   - AB01b-美国 倍率:0.01 hcc
-  - AB01-美国 倍率:0.01 hcc
   - '%F0%9F%87%BA%F0%9F%87%B8%20%E7%BE%8E%E5%9B%BD%20CloudFlare%E8%8A%82%E7%82%B9'
-  - ⚡️Telegram = @SOSkeyNET-6
-  - 剩余流量：0-47
+  - ⚡️Telegram = @SOSkeyNET-5
+  - 剩余流量：0-14
+  - 官网:miaopu.xyz 书签:no404.tk
   - 等级到期，可签到使用
   - 过期时间：2025-06-03
 - name: خودکار (بهترین پینگ) 🤖
@@ -8691,97 +5843,42 @@ proxy-groups:
   tolerance: 10
   lazy: true
   proxies:
-  - NorthXRAY - VMESS 🔥🇩🇪 🇺🇸
-  - Telegram @viturey🇩🇪🇩🇪
-  - Telegram@viturey  🇺🇸🇺🇸-2
+  - NASNET | 7 | Emergency
+  - Telegram@viturey  🇺🇸🇺🇸
   - 只有爱懂的人才能用
-  - 🇨🇦CA-51.79.102.253-0973
-  - 🇩🇪DE-57.129.24.125-7062
-  - 🏁RELAY-104.18.149.76-0672
-  - 🏁RELAY-104.21.112.1-0394
-  - 🏁RELAY-104.21.64.1-0395
-  - 🇨🇦CA-134.195.198.147-7058
-  - 🏁RELAY-172.67.200.13-0219
-  - 🇨🇦CA-23.162.200.227-7063
-  - 🏁RELAY-172.64.146.66-0666
-  - 🏁RELAY-172.67.155.140-0985
-  - 🏁RELAY-104.21.42.93-5247
-  - 🏁RELAY-172.67.149.202-5221
-  - 🏁RELAY-104.21.68.76-5220
-  - 🏁RELAY-172.67.149.202-0984
-  - 🏁RELAY-172.67.149.202-0220
-  - 🏁RELAY-104.21.29.205-5222
-  - 🇫🇷FR-45.145.165.114-7054
-  - 🏁RELAY-104.21.29.205-5223
-  - 🏁RELAY-104.21.112.1-0391
-  - 🏁RELAY-104.21.29.205-5225
-  - 🏁RELAY-172.67.149.202-0222
-  - 🏁RELAY-172.67.75.172-0712
-  - 🏁RELAY-104.17.176.171-0748
+  - Telegram @viturey🇩🇪🇩🇪
   - Telegram @viturey🇩🇪🇩🇪-2
-  - Telegram @viturey🇩🇪🇩🇪-3
-  - Telegram @viturey🇩🇪🇩🇪-4
-  - Telegram@viturey  🇺🇸🇺🇸-3
-  - Telegram@viturey  🇺🇸🇺🇸-4
-  - '%F0%9F%94%A5Mehduox_vpn'
-  - 13,14|美国3|@ripaojiedian
   - 13,14|美国|@ripaojiedian
-  - 13,14|新加坡|@ripaojiedian
-  - 13,14|日本3|@ripaojiedian
   - 13,14|日本4|@ripaojiedian
-  - 13,14|澳大利亚|@ripaojiedian
   - 13,14|香港6|@ripaojiedian
   - 13|🇭🇰 香港7|@ripaojiedian
   - 13|🇰🇷 韩国2|@ripaojiedian
   - 13|🇸🇬 新加坡3|@ripaojiedian
-  - 13|🇸🇬 新加坡2|@ripaojiedian
-  - 13|🇸🇬 新加坡4|@ripaojiedian
-  - 14|新加坡3|@ripaojiedian
   - 14|新加坡2|@ripaojiedian
   - 14|新加坡4|@ripaojiedian
   - 14|日本V2|@ripaojiedian
-  - 14|韩国2|@ripaojiedian
-  - 14|香港7|@ripaojiedian
-  - 2|🇸🇬1 |  1.0MB/s|0%|Netflix|Disn...
   - 2|🇺🇸62 |  3.3MB/s|Openai|Gemini
-  - 2|🇩🇪5 |  1.4MB/s|0%|Youtube|Open...
   - 2|🇭🇰1 |  1.8MB/s|15%|Disney|Yout...
-  - 2|🇯🇵1 |  1.8MB/s|54%|Youtube|Ope...
   - 2|🌀4-TH |  2.6MB/s|55%|Netflix|O...
-  - '@Hope_Net-join-us-on-Telegram-40'
-  - '@Hope_Net-join-us-on-Telegram-41'
-  - '@Hope_Net-join-us-on-Telegram-42'
-  - '@Hope_Net-join-us-on-Telegram-43'
-  - 广东省广州市 移动
-  - 广东省湛江市 移动
+  - '@Hope_Net-join-us-on-Telegram'
+  - '@Hope_Net-join-us-on-Telegram-2'
   - 🔒 VM-TCP-NA 🇨🇳 CN-219.151.20.62:42349
   - 🔒 VM-TCP-NA 🇺🇸 US-2.58.87.221:46628
-  - 🇦🇺 一元机场:ssrsub.de 澳大利亚 01
-  - 🇫🇷法国1 | ⬇️ 2.3MB/s
-  - 🇫🇷法国2 | ⬇️ 4.1MB/s
-  - 🇨🇦 一元机场:ssrsub.de 加拿大 02
-  - 🇨🇦 一元机场:ssrsub.de 加拿大 06
-  - 🇨🇳_CN_中国->🇺🇸_US_美国-3
-  - 🇨🇳_CN_中国->🇺🇸_US_美国-4
-  - 🇯🇵 一元机场:ssrsub.de 日本 02
-  - 🇯🇵 一元机场:ssrsub.de 日本 03
-  - 🇭🇰 一元机场:ssrsub.de 香港 03
-  - 🇭🇰 一元机场:ssrsub.de 香港 12
-  - 🇭🇰 一元机场:ssrsub.de 香港 14
-  - 🇭🇰 一元机场:ssrsub.de 香港 16
-  - 🇭🇰 一元机场:ssrsub.de 香港 17
+  - 🔒 VM-WS-NA 🇨🇳 CN-111.26.109.79:30829
+  - 🇨🇦 一元机场:ssrsub.de 加拿大 05
+  - 🇨🇳 一元机场:ssrsub.de 台湾 03
+  - 🇨🇳 一元机场:ssrsub.de 台湾 04
+  - 🇭🇰 一元机场:ssrsub.de 香港 09
+  - 🇭🇰 一元机场:ssrsub.de 香港 13
+  - 🇭🇰 一元机场:ssrsub.de 香港 15
   - 🇭🇰香港4 | ⬇️ 1.1MB/s
-  - 🇭🇰香港2 | ⬇️ 1.2MB/s
-  - 🇭🇰香港3 | ⬇️ 3.1MB/s
-  - 🇮🇳 一元机场:ssrsub.de 印度 01
-  - 🇮🇳 一元机场:ssrsub.de 印度 02
+  - 🇮🇩 一元机场:ssrsub.de 印尼 01
   - 🇸🇬新加坡2 | ⬇️ 1.7MB/s
-  - 🇺🇸 一元机场:ssrsub.de 美国 17
-  - 🇺🇸 一元机场:ssrsub.de 美国 36
-  - 🇺🇸 一元机场:ssrsub.de 美国 41
-  - 🇺🇸 一元机场:ssrsub.de 美国 42
-  - 🇺🇸 一元机场:ssrsub.de 美国 65
-  - 🇺🇸美国104 | ⬇️ 3.3MB/s
+  - 🇺🇸 一元机场:ssrsub.de 美国 22
+  - 🇺🇸 一元机场:ssrsub.de 美国 54
+  - 🇺🇸 一元机场:ssrsub.de 美国 80
+  - 🇺🇸 一元机场:ssrsub.de 美国 82
+  - 🇺🇸 一元机场:ssrsub.de 美国 87
   - 🇺🇸美国11 | ⬇️ 2.8MB/s
   - 🇺🇸美国12 | ⬇️ 3.4MB/s
   - 🇺🇸美国13 | ⬇️ 1.8MB/s
@@ -8789,7 +5886,6 @@ proxy-groups:
   - 🇺🇸美国17 | ⬇️ 4.4MB/s
   - 🇺🇸美国18 | ⬇️ 2.3MB/s
   - 🇺🇸美国19 | ⬇️ 2.1MB/s
-  - 🇺🇸美国20 | ⬇️ 1.8MB/s
   - 🇺🇸美国21 | ⬇️ 2.2MB/s
   - 🇺🇸美国23 | ⬇️ 1.4MB/s
   - 🇺🇸美国24 | ⬇️ 3.4MB/s
@@ -8798,11 +5894,9 @@ proxy-groups:
   - ' ❗请到https://www.niao.icu❗续费'
   - (IEPL)英国1
   - (隧道)英国2
-  - '@VIProxys-50'
   - FRK.德国.A
   - HK | 香港 01
   - HK | 香港 BGP
-  - HK | 香港 专线
   - HK.香港.A | 负载均衡
   - HK.香港.B | 推荐
   - HK.香港.C | 高速.2x倍率
@@ -8810,13 +5904,10 @@ proxy-groups:
   - HK.香港.E
   - HK.香港.F
   - HK.香港.G | 多入口
-  - HK.香港（需V6，新疆专用）
   - JP | 日本 01
   - SG | 新加坡 01
   - SGP.新加坡.B | 负载均衡
   - SGP.新加坡.D | 推荐
-  - TG群:@helium_network_group
-  - TG群:@helium_network_group-2
   - TW | 台湾 01
   - TW.台湾.A
   - TW.台湾.B | 推荐
@@ -8824,15 +5915,10 @@ proxy-groups:
   - UK | 英国 01
   - UK.英国.A
   - US | 美国 01
-  - US.美国.B
-  - US.美国.E
   - '[3X]泰国NO1'
   - '[3X]泰国NO2'
-  - '[3X]韩国 专线NO1'
-  - '[3X]韩国 专线NO2'
   - '[3X]马来西亚专线NO1'
   - '[3X]马来西亚专线NO2'
-  - 俄罗斯1-CDN | 1X
   - 台湾-优化
   - 台湾-优化-2
   - 台湾-优化-3
@@ -8842,8 +5928,6 @@ proxy-groups:
   - 台湾-优化3
   - 台湾-优化3-2
   - 台湾-优化3-3
-  - 台湾1(GPT等流媒体1.5倍）
-  - 台湾2(GPT等流媒体1.5倍）
   - 免费JP节点01
   - 免费JP节点01-2
   - 免费SG节点02
@@ -8857,24 +5941,22 @@ proxy-groups:
   - 剩余流量：-0.84999999999997 GB
   - 剩余流量：-1.23 GB
   - 剩余流量：-2.8 GB
-  - 剩余流量：0-35
-  - 剩余流量：0-36
-  - 剩余流量：0-37
-  - 剩余流量：0-38
-  - 剩余流量：0-39
-  - 剩余流量：0-40
-  - 剩余流量：0-41
-  - 剩余流量：0-42
-  - 剩余流量：0-43
-  - 剩余流量：0-44
-  - 剩余流量：0-45
-  - 剩余流量：0-46
+  - 剩余流量：0
+  - 剩余流量：0-2
+  - 剩余流量：0-3
+  - 剩余流量：0-4
+  - 剩余流量：0-5
+  - 剩余流量：0-6
+  - 剩余流量：0-7
+  - 剩余流量：0-8
+  - 剩余流量：0-9
+  - 剩余流量：0-10
+  - 剩余流量：0-11
+  - 剩余流量：0-12
+  - 剩余流量：0-13
   - 剩余流量：2 GB
-  - 剩余流量：20.52 GB
   - 剩余流量：296.7 GB
   - 剩余流量：6.83 GB
-  - 剩余流量：61.74 GB
-  - 剩余流量：64.92 GB
   - 剩余流量：877.59 GB
   - 加拿大-优化
   - 加拿大-优化-2
@@ -8888,17 +5970,11 @@ proxy-groups:
   - 加拿大-多伦多1-CDN | 1x
   - 加拿大1
   - 加拿大2
-  - 加群关注电报频道获取延期码
-  - 加群关注电报频道获取延期码-2
   - 印度-优化
   - 印度-优化-2
   - 印度-优化-3
-  - 印度-海得拉巴1-CDN | 1x
-  - 印度-海得拉巴2-CDN | 1x
-  - 印度-海得拉巴3-CDN | 1x
-  - 印度-海得拉巴4-CDN | 1x
-  - 印度1-9
-  - 印度2-9
+  - 印度1
+  - 印度2
   - 印度尼西亚1-CDN | 1x
   - 印度尼西亚2-CDN | 1x
   - 哥伦比亚-波哥大1-CDN | 1X
@@ -8907,29 +5983,24 @@ proxy-groups:
   - 土耳其1-无分流直出BAN-PT/BT/POOL-CDN | 0X
   - 备用网址www.fzdvd.cc
   - 套餐到期：2024-08-25
-  - 套餐到期：2025-06-01
+  - 套餐到期：2025-06-23
   - 套餐到期：2025-06-23-2
-  - 套餐到期：2025-06-23-3
   - 套餐到期：2025-08-24
   - 套餐到期：2025-08-25
   - 套餐到期：2025-10-07
-  - 套餐到期：长期有效-28
-  - 套餐到期：长期有效-29
-  - 套餐到期：长期有效-30
-  - 套餐到期：长期有效-31
-  - 套餐到期：长期有效-32
-  - 套餐到期：长期有效-33
-  - 套餐到期：长期有效-34
-  - 套餐到期：长期有效-35
-  - 套餐到期：长期有效-36
-  - 套餐到期：长期有效-37
-  - 套餐到期：长期有效-38
-  - 套餐到期：长期有效-39
-  - 套餐到期：长期有效-40
-  - 套餐到期：长期有效-41
-  - 套餐到期：长期有效-42
-  - 官网地址：https://www.niao.icu
-  - 官网：最强机场.com
+  - 套餐到期：长期有效
+  - 套餐到期：长期有效-2
+  - 套餐到期：长期有效-3
+  - 套餐到期：长期有效-4
+  - 套餐到期：长期有效-5
+  - 套餐到期：长期有效-6
+  - 套餐到期：长期有效-7
+  - 套餐到期：长期有效-8
+  - 套餐到期：长期有效-9
+  - 套餐到期：长期有效-10
+  - 套餐到期：长期有效-11
+  - 套餐到期：长期有效-12
+  - 套餐到期：长期有效-13
   - 官网：dash.henet.uk
   - 官网：dash.henet.uk-2
   - 官网：vvs.e54.site
@@ -8938,16 +6009,10 @@ proxy-groups:
   - 导航页：www.可乐云.net
   - 尼日利亚-双ISP原生家宽-无分流直出-CDN | 1X
   - 尼日利亚1-无分流直出-CDN | 1X
-  - 巴西-维涅社1-CDN | 1X
-  - 巴西-维涅社2-CDN | 1X
-  - 巴西-维涅社3-CDN | 1X
-  - 巴西-维涅社4-CDN | 1X
   - 巴西-圣保罗1-CDN | 1X
   - 巴西-圣保罗2-CDN | 1X
   - 巴西-圣保罗3-CDN | 1X
   - 已到期或流量已用完
-  - 德国-纽伦堡1-CDN | 0x
-  - 德国-纽伦堡2-CDN | 0x
   - 德国-优化
   - 德国-优化-2
   - 德国-优化-3
@@ -8955,7 +6020,6 @@ proxy-groups:
   - 德国-优化2-2
   - 德国-优化2-3
   - 德国01_免费
-  - 您的服务已到期了
   - 新加坡-优化
   - 新加坡-优化-2
   - 新加坡-优化-3
@@ -9003,47 +6067,11 @@ proxy-groups:
   - 澳大利亚 02
   - 澳大利亚原生1
   - 澳大利亚原生2
-  - 澳大利亚墨尔本1-CDN | 1X
-  - 澳大利亚墨尔本2-CDN | 1X
   - 瑞典100Mbps-CDN | 1X
   - 用前请更新订阅！！！
   - '电报群: https://t.me/emovpn x5'
   - '电报群: https://t.me/emovpn x5-2'
   - 登录https://cokecloud.me 续费
-  - 目前国内网址：xc2.shishi1.buzz 备用：ds1.dashi99.top
-  - 美国-纽约-001
-  - 美国-纽约-001-2
-  - 美国-纽约-001-3
-  - 美国-纽约-001-4
-  - 美国-纽约-001-5
-  - 美国-纽约-001-6
-  - 美国-纽约-001-7
-  - 美国-纽约-001-8
-  - 美国-纽约-001-9
-  - 美国-纽约-001-10
-  - 美国-纽约-001-11
-  - 美国-拉斯维加斯-001
-  - 美国-拉斯维加斯-001-2
-  - 美国-拉斯维加斯-001-3
-  - 美国-拉斯维加斯-001-4
-  - 美国-拉斯维加斯-001-5
-  - 美国-拉斯维加斯-001-6
-  - 美国-拉斯维加斯-001-7
-  - 美国-拉斯维加斯-001-8
-  - 美国-拉斯维加斯-001-9
-  - 美国-拉斯维加斯-001-10
-  - 美国-拉斯维加斯-001-11
-  - 美国-拉斯维加斯-002
-  - 美国-拉斯维加斯-002-2
-  - 美国-拉斯维加斯-002-3
-  - 美国-拉斯维加斯-002-4
-  - 美国-拉斯维加斯-002-5
-  - 美国-拉斯维加斯-002-6
-  - 美国-拉斯维加斯-002-7
-  - 美国-拉斯维加斯-002-8
-  - 美国-拉斯维加斯-002-9
-  - 美国-拉斯维加斯-002-10
-  - 美国-拉斯维加斯-002-11
   - 美国01_免费
   - 美国LA-优化-GPT
   - 美国LA-优化-GPT-2
@@ -9059,12 +6087,7 @@ proxy-groups:
   - 美国东部纽约1-CDN | 0x
   - 美国东部阿什本1-CDN | 1x
   - 美国东部阿什本2-CDN | 1x
-  - 美国中部芝加哥1-CDN | 1x
   - 美国南部达拉斯1-CDN | 0x
-  - 美国西部圣何塞1-CDN | 1x
-  - 美国西部圣何塞2-CDN | 1x
-  - 美国西部圣何塞3-CDN | 1x
-  - 美国西部圣何塞4-CDN | 1x
   - 美国西部洛杉矶1-CDN | 0x
   - 美国西部洛杉矶2-CDN | 1x
   - 菲律宾 马尼拉-中转
@@ -9088,9 +6111,9 @@ proxy-groups:
   - 荷兰1-CDN | 1X
   - 荷兰2-CDN | 1X
   - 西班牙1-CDN | 1X
-  - 距离下次重置剩余：14 天
-  - 距离下次重置剩余：7 天-6
-  - 距离下次重置剩余：7 天-7
+  - 距离下次重置剩余：7 天
+  - 距离下次重置剩余：7 天-2
+  - 过滤掉3条线路
   - 过滤掉3条线路-2
   - 过滤掉3条线路-3
   - 过滤掉3条线路-4
@@ -9109,17 +6132,9 @@ proxy-groups:
   - 过滤掉5条线路
   - 过滤掉5条线路-2
   - 过滤掉5条线路-3
-  - 过滤掉9条线路
   - 韩国-01
   - 韩国-02
   - 韩国-03-电信用户
-  - 香港-03
-  - 香港HY-优化
-  - 香港HY-优化-2
-  - 香港HY-优化-3
-  - 香港HY-优化2
-  - 香港HY-优化2-2
-  - 香港HY-优化2-3
   - 香港NO.1（GPT奈飞等）
   - 香港NO.2（GPT奈飞等）
   - 香港WAP-优化
@@ -9128,32 +6143,19 @@ proxy-groups:
   - 香港WAP-优化2
   - 香港WAP-优化2-2
   - 香港WAP-优化2-3
-  - 香港（直连）
+  - ⚜️Telegram:@IP_CF
   - ❗  您的订阅已过期 ❗
   - '❗  请续费订阅后再更新订阅  ❗ '
-  - '❗ 您的订阅已过期  ❗ '
   - ❗ 您的订阅已过期 ❗
   - 「加入会员解锁流媒体」x5
   - 「加入会员解锁流媒体」x5-2
-  - 「🇩🇪」EMO | 冰灵果 x5
-  - 「🇩🇪」EMO | 冰灵果 x5-2
   - 「🇫🇷」EMO | 冰糖心 x5
   - 「🇫🇷」EMO | 冰糖心 x5-2
-  - 「🇬🇧」EMO | 红富士 x5
-  - 「🇬🇧」EMO | 红富士 x5-2
-  - 「🇮🇳」EMO | 牛油果 x5
-  - 「🇮🇳」EMO | 牛油果 x5-2
-  - 「🇸🇬」EMO | 西贡蕉 x5
-  - 「🇸🇬」EMO | 西贡蕉 x5-2
   - 「🇺🇸」EMO | 天元果 x5
   - 「🇺🇸」EMO | 天元果 x5-2
-  - 「🇺🇸」EMO | 芝麻蕉 x5
-  - 「🇺🇸」EMO | 芝麻蕉 x5-2
   - 🇧🇷 巴西1|cf
   - 🇧🇷 巴西2|cf
   - 🇧🇷 巴西3|cf
-  - 🇨🇦 加拿大1|cf
-  - 🇨🇦 加拿大2|cf
   - 🇨🇳台湾01|1x
   - 🇨🇳台湾02|1x
   - 🇨🇳台湾03|1x
@@ -9176,7 +6178,6 @@ proxy-groups:
   - 🇭🇰香港家宽hkbn 10x-2
   - 🇭🇰香港家宽hkbn 10x-3
   - 🇮🇳 印度1|cf
-  - 🇯🇵日本 06
   - 🇯🇵日本01|1x
   - 🇯🇵日本02|1x
   - 🇯🇵日本03|1x
@@ -9190,136 +6191,81 @@ proxy-groups:
   - 🇰🇷韩国 03
   - 🇰🇷韩国01|1x
   - 🇺🇸 美国1|cf
-  - 🇺🇸美国01|GPT|1x
-  - 🇺🇸美国02|GPT|1x
-  - 🇺🇸美国03|GPT|1x
-  - 🇺🇸美国04|GPT|1x
-  - 🇺🇸美国05|GPT|1x
   - 🇺🇸美国Las Vegas 04|防失联&下载专用|0.01x
   - 🇺🇸美国Las Vegas 01|防失联&下载专用|0.01x
   - 🇺🇸美国Las Vegas 02|防失联&下载专用|0.01x
   - 🇺🇸美国Las Vegas 03|防失联&下载专用|0.01x
-  - 美国 CloudFlare节点
-  - '@Hope_Net-join-us-on-Telegram-44'
-  - '@Hope_Net-join-us-on-Telegram-45'
-  - '@Hope_Net-join-us-on-Telegram-46'
-  - '@Hope_Net-join-us-on-Telegram-47'
-  - 🔒 VM-WS-NA 🇨🇳 CN-120.238.98.150:30812
+  - '@Hope_Net-join-us-on-Telegram-3'
+  - '@Hope_Net-join-us-on-Telegram-4'
   - ⚡️Telegram = @SOSkeyNET
-  - 🔒 VM-TCP-NA 🇮🇷 IR-2.144.7.202:45789
-  - 🔒 VM-TCP-NA 🇳🇱 NL-24.144.77.93:898
-  - 🔒 VM-TCP-NA 🇮🇷 IR-5.144.132.140:1221
-  - '@Hope_Net-join-us-on-Telegram-48'
+  - '@Hope_Net-join-us-on-Telegram-5'
   - ⚡️Telegram = @SOSkeyNET-2
   - ⚡️Telegram = @SOSkeyNET-3
-  - '@Hope_Net-join-us-on-Telegram-49'
+  - '@Hope_Net-join-us-on-Telegram-6'
+  - 🔒 VM-TCP-NA 🇮🇷 IR-2.144.7.202:45789
+  - '@Hope_Net-join-us-on-Telegram-7'
+  - 🔒 VM-TCP-NA 🇳🇱 NL-24.144.77.93:898
+  - '@Hope_Net-join-us-on-Telegram-8'
+  - '@Hope_Net-join-us-on-Telegram-9'
   - ⚡️Telegram = @SOSkeyNET-4
-  - ⚡️Telegram = @SOSkeyNET-5
-  - 🇭🇰HK-1.65.202.165-5693
-  - 🇭🇰HK-1.65.202.165-5690
-  - ⚜️Telegram:@IP_CF
+  - '@Hope_Net-join-us-on-Telegram-10'
+  - ⚜️Telegram:@IP_CF-2
+  - ⚜️Telegram:@IP_CF-3
   - 'Channel id: @ShadowProxy66🇨🇦'
-  - '@V2ray1_Ng-12'
+  - '@V2ray1_Ng'
   - 🇨🇦CA-51.79.102.253-1062
   - 🇩🇪DE-57.129.24.125-7603
-  - همه اپراتورها | V2ray_Hub1
-  - 🏁RELAY-104.21.112.1-0234
   - 🇭🇰HK-42.2.113.136-0364
   - 🇭🇰HK-42.2.113.136-5685
-  - 🇭🇰HK-1.65.202.165-5684
-  - https://t.me/VPN4EVERYONE-13
-  - '@meli_proxyy-48'
+  - https://t.me/VPN4EVERYONE
   - '@appsooner کانال تلگرام 🇸🇬'
   - '@appsooner کانال تلگرام 🇸🇬-2'
-  - '@meli_proxyy-49'
   - '@appsooner کانال تلگرام 🇸🇬-3'
-  - '@meli_proxyy-50'
-  - IRAN 6 (@Outline_Vpn)
+  - '@appsooner کانال تلگرام 🇸🇬-4'
   - 🔒 VM-TCP-NA 🇸🇬 SG-84.247.147.243:51566
-  - '@meli_proxyy-51'
-  - 'Channel id: @ShadowProxy66🇸🇬-2'
-  - IRAN 7 (@Outline_Vpn)
-  - '@meli_proxyy-52'
+  - '@meli_proxyy'
+  - 'Channel id: @ShadowProxy66🇸🇬'
   - 🔒 VM-TCP-NA 🇸🇬 SG-84.247.150.177:36141
-  - '@speeds_vpn-31'
-  - 🔒 VM-TCP-NA 🇮🇷 IR-89.43.204.82:1102
+  - '@speeds_vpn'
   - 'Channel id: @ShadowProxy66🇦🇲'
-  - 'Channel id: @ShadowProxy66-19'
-  - 'Channel id: @ShadowProxy66-20'
-  - 'Channel id: @ShadowProxy66-21'
-  - 'Channel id: @ShadowProxy66-22'
+  - 'Channel id: @ShadowProxy66'
+  - 'Channel id: @ShadowProxy66-2'
   - 🏁RELAY-104.21.112.1-0360
-  - 🏁RELAY-104.21.112.1-1074
   - 🏁RELAY-104.21.64.1-0367
   - 🏁RELAY-104.21.96.1-0370
-  - 'Channel id: @ShadowProxy66-23'
-  - 🇨🇳_CN_中国->🇺🇸_US_美国-5
-  - This-UUID-is-Wrong-or-Invalid
-  - ●此UUID是错误或无效的●
-  - Our-website:getafreenode.com
-  - ●网址：getafreenode.com●
-  - Please-click-AD-on-our-website
-  - ●请点击浏览网站广告数秒●
-  - Plz-go-website-to-get-new-one
-  - ●请前往网站获取有效订阅●
-  - Thanks-so-much-for-your-help
-  - To-help-obtain-operating-funds
-  - ●以帮助我们获得运营资金●
-  - ●在此向你表达诚挚的感谢●
-  - ●用于维护和添加更多节点●
+  - 'Channel id: @ShadowProxy66-3'
   - 🇨🇦CA-134.195.198.147-7604
-  - ' ❤️@Kayh_GNG - Github.com/kayhgng-157'
-  - همه اپراتورها | V2ray_Hub1-2
-  - 🏁RELAY-172.66.168.209-2453
-  - 'Channel id: @ShadowProxy66-24'
+  - ' ❤️@Kayh_GNG - Github.com/kayhgng'
+  - همه اپراتورها | V2ray_Hub1
+  - 'Channel id: @ShadowProxy66-4'
   - 🔒 VM-TCP-NA 🇮🇷 IR-212.23.214.162:12115
   - 🔒 VM-TCP-NA 🇮🇷 IR-212.23.214.165:12109
   - 🇨🇦CA-23.162.200.227-7595
   - 🏁RELAY-104.21.16.1-5580
   - 🇭🇰HK-1.36.218.184-5692
-  - 🇭🇰HK-1.36.218.184-0835
   - 13|🇸🇬
-  - 🇭🇰HK-1.65.202.165-5691
   - 🏁RELAY-104.21.48.1-0374
-  - 🇨🇳_CN_中国->🇷🇺_RU_俄罗斯-3
-  - 🇨🇳_CN_中国->🇨🇦_CA_加拿大
   - 🏁RELAY-104.18.41.190-0699
-  - 🏁RELAY-104.21.73.59-0700
-  - 🏁RELAY-104.21.64.1-0236
-  - 🏁RELAY-104.21.96.1-1079
-  - 🏁RELAY-172.67.206.152-5563
-  - 🇭🇰HK-1.65.202.165-5689
+  - '@iProxy_Channel | Irancell'
   - 🇭🇰HK-42.2.113.136-5686
-  - 🟡 Telegram= @VPN_SOLVE-9
-  - 🇭🇰HK-1.65.202.165-5688
-  - 🏁RELAY-104.21.40.251-5572
-  - '@V2ry_Proxy  ✅ عضو شوید'
-  - '@vpnserverrr✅ عضو شوید'
   - دوسم داری ؟!
   - 🏁RELAY-172.66.168.226-2490
   - 🏁RELAY-104.21.112.1-0359
-  - '@speeds_vpn-32'
+  - '@speeds_vpn-2'
   - 🇩🇪Germany➁
-  - https://t.me/vpnserverrr-2
-  - '@k.h_vpn  کانالمون'
   - 🇯🇵日本
-  - 🟡 Telegram= @VPN_SOLVE-10
-  - 🟡 Telegram= @VPN_SOLVE-11
-  - https://t.me/vpnserverrr-3
-  - 🟡 Telegram= @VPN_SOLVE-12
-  - '@SPEEDS_VPN'
+  - 🟡 Telegram= @VPN_SOLVE
+  - 🟡 Telegram= @VPN_SOLVE-2
   - 🏁RELAY-172.67.206.152-1078
   - A01-华沙 倍率:0.1 waw
   - A01b-华沙 倍率:0.1 waw
   - A02-荷兰 倍率:0.1 ams
   - A02b-荷兰 倍率:0.1 ams
-  - "A05b-德国 倍率:0.01 dh\t"
-  - A05-德国 倍率:0.01 dh
   - AB01b-美国 倍率:0.01 hcc
-  - AB01-美国 倍率:0.01 hcc
   - '%F0%9F%87%BA%F0%9F%87%B8%20%E7%BE%8E%E5%9B%BD%20CloudFlare%E8%8A%82%E7%82%B9'
-  - ⚡️Telegram = @SOSkeyNET-6
-  - 剩余流量：0-47
+  - ⚡️Telegram = @SOSkeyNET-5
+  - 剩余流量：0-14
+  - 官网:miaopu.xyz 书签:no404.tk
   - 等级到期，可签到使用
   - 过期时间：2025-06-03
 - name: پشتیبان (در صورت قطعی) 🧯
@@ -9331,97 +6277,42 @@ proxy-groups:
   tolerance: 6
   lazy: true
   proxies:
-  - NorthXRAY - VMESS 🔥🇩🇪 🇺🇸
-  - Telegram @viturey🇩🇪🇩🇪
-  - Telegram@viturey  🇺🇸🇺🇸-2
+  - NASNET | 7 | Emergency
+  - Telegram@viturey  🇺🇸🇺🇸
   - 只有爱懂的人才能用
-  - 🇨🇦CA-51.79.102.253-0973
-  - 🇩🇪DE-57.129.24.125-7062
-  - 🏁RELAY-104.18.149.76-0672
-  - 🏁RELAY-104.21.112.1-0394
-  - 🏁RELAY-104.21.64.1-0395
-  - 🇨🇦CA-134.195.198.147-7058
-  - 🏁RELAY-172.67.200.13-0219
-  - 🇨🇦CA-23.162.200.227-7063
-  - 🏁RELAY-172.64.146.66-0666
-  - 🏁RELAY-172.67.155.140-0985
-  - 🏁RELAY-104.21.42.93-5247
-  - 🏁RELAY-172.67.149.202-5221
-  - 🏁RELAY-104.21.68.76-5220
-  - 🏁RELAY-172.67.149.202-0984
-  - 🏁RELAY-172.67.149.202-0220
-  - 🏁RELAY-104.21.29.205-5222
-  - 🇫🇷FR-45.145.165.114-7054
-  - 🏁RELAY-104.21.29.205-5223
-  - 🏁RELAY-104.21.112.1-0391
-  - 🏁RELAY-104.21.29.205-5225
-  - 🏁RELAY-172.67.149.202-0222
-  - 🏁RELAY-172.67.75.172-0712
-  - 🏁RELAY-104.17.176.171-0748
+  - Telegram @viturey🇩🇪🇩🇪
   - Telegram @viturey🇩🇪🇩🇪-2
-  - Telegram @viturey🇩🇪🇩🇪-3
-  - Telegram @viturey🇩🇪🇩🇪-4
-  - Telegram@viturey  🇺🇸🇺🇸-3
-  - Telegram@viturey  🇺🇸🇺🇸-4
-  - '%F0%9F%94%A5Mehduox_vpn'
-  - 13,14|美国3|@ripaojiedian
   - 13,14|美国|@ripaojiedian
-  - 13,14|新加坡|@ripaojiedian
-  - 13,14|日本3|@ripaojiedian
   - 13,14|日本4|@ripaojiedian
-  - 13,14|澳大利亚|@ripaojiedian
   - 13,14|香港6|@ripaojiedian
   - 13|🇭🇰 香港7|@ripaojiedian
   - 13|🇰🇷 韩国2|@ripaojiedian
   - 13|🇸🇬 新加坡3|@ripaojiedian
-  - 13|🇸🇬 新加坡2|@ripaojiedian
-  - 13|🇸🇬 新加坡4|@ripaojiedian
-  - 14|新加坡3|@ripaojiedian
   - 14|新加坡2|@ripaojiedian
   - 14|新加坡4|@ripaojiedian
   - 14|日本V2|@ripaojiedian
-  - 14|韩国2|@ripaojiedian
-  - 14|香港7|@ripaojiedian
-  - 2|🇸🇬1 |  1.0MB/s|0%|Netflix|Disn...
   - 2|🇺🇸62 |  3.3MB/s|Openai|Gemini
-  - 2|🇩🇪5 |  1.4MB/s|0%|Youtube|Open...
   - 2|🇭🇰1 |  1.8MB/s|15%|Disney|Yout...
-  - 2|🇯🇵1 |  1.8MB/s|54%|Youtube|Ope...
   - 2|🌀4-TH |  2.6MB/s|55%|Netflix|O...
-  - '@Hope_Net-join-us-on-Telegram-40'
-  - '@Hope_Net-join-us-on-Telegram-41'
-  - '@Hope_Net-join-us-on-Telegram-42'
-  - '@Hope_Net-join-us-on-Telegram-43'
-  - 广东省广州市 移动
-  - 广东省湛江市 移动
+  - '@Hope_Net-join-us-on-Telegram'
+  - '@Hope_Net-join-us-on-Telegram-2'
   - 🔒 VM-TCP-NA 🇨🇳 CN-219.151.20.62:42349
   - 🔒 VM-TCP-NA 🇺🇸 US-2.58.87.221:46628
-  - 🇦🇺 一元机场:ssrsub.de 澳大利亚 01
-  - 🇫🇷法国1 | ⬇️ 2.3MB/s
-  - 🇫🇷法国2 | ⬇️ 4.1MB/s
-  - 🇨🇦 一元机场:ssrsub.de 加拿大 02
-  - 🇨🇦 一元机场:ssrsub.de 加拿大 06
-  - 🇨🇳_CN_中国->🇺🇸_US_美国-3
-  - 🇨🇳_CN_中国->🇺🇸_US_美国-4
-  - 🇯🇵 一元机场:ssrsub.de 日本 02
-  - 🇯🇵 一元机场:ssrsub.de 日本 03
-  - 🇭🇰 一元机场:ssrsub.de 香港 03
-  - 🇭🇰 一元机场:ssrsub.de 香港 12
-  - 🇭🇰 一元机场:ssrsub.de 香港 14
-  - 🇭🇰 一元机场:ssrsub.de 香港 16
-  - 🇭🇰 一元机场:ssrsub.de 香港 17
+  - 🔒 VM-WS-NA 🇨🇳 CN-111.26.109.79:30829
+  - 🇨🇦 一元机场:ssrsub.de 加拿大 05
+  - 🇨🇳 一元机场:ssrsub.de 台湾 03
+  - 🇨🇳 一元机场:ssrsub.de 台湾 04
+  - 🇭🇰 一元机场:ssrsub.de 香港 09
+  - 🇭🇰 一元机场:ssrsub.de 香港 13
+  - 🇭🇰 一元机场:ssrsub.de 香港 15
   - 🇭🇰香港4 | ⬇️ 1.1MB/s
-  - 🇭🇰香港2 | ⬇️ 1.2MB/s
-  - 🇭🇰香港3 | ⬇️ 3.1MB/s
-  - 🇮🇳 一元机场:ssrsub.de 印度 01
-  - 🇮🇳 一元机场:ssrsub.de 印度 02
+  - 🇮🇩 一元机场:ssrsub.de 印尼 01
   - 🇸🇬新加坡2 | ⬇️ 1.7MB/s
-  - 🇺🇸 一元机场:ssrsub.de 美国 17
-  - 🇺🇸 一元机场:ssrsub.de 美国 36
-  - 🇺🇸 一元机场:ssrsub.de 美国 41
-  - 🇺🇸 一元机场:ssrsub.de 美国 42
-  - 🇺🇸 一元机场:ssrsub.de 美国 65
-  - 🇺🇸美国104 | ⬇️ 3.3MB/s
+  - 🇺🇸 一元机场:ssrsub.de 美国 22
+  - 🇺🇸 一元机场:ssrsub.de 美国 54
+  - 🇺🇸 一元机场:ssrsub.de 美国 80
+  - 🇺🇸 一元机场:ssrsub.de 美国 82
+  - 🇺🇸 一元机场:ssrsub.de 美国 87
   - 🇺🇸美国11 | ⬇️ 2.8MB/s
   - 🇺🇸美国12 | ⬇️ 3.4MB/s
   - 🇺🇸美国13 | ⬇️ 1.8MB/s
@@ -9429,7 +6320,6 @@ proxy-groups:
   - 🇺🇸美国17 | ⬇️ 4.4MB/s
   - 🇺🇸美国18 | ⬇️ 2.3MB/s
   - 🇺🇸美国19 | ⬇️ 2.1MB/s
-  - 🇺🇸美国20 | ⬇️ 1.8MB/s
   - 🇺🇸美国21 | ⬇️ 2.2MB/s
   - 🇺🇸美国23 | ⬇️ 1.4MB/s
   - 🇺🇸美国24 | ⬇️ 3.4MB/s
@@ -9438,11 +6328,9 @@ proxy-groups:
   - ' ❗请到https://www.niao.icu❗续费'
   - (IEPL)英国1
   - (隧道)英国2
-  - '@VIProxys-50'
   - FRK.德国.A
   - HK | 香港 01
   - HK | 香港 BGP
-  - HK | 香港 专线
   - HK.香港.A | 负载均衡
   - HK.香港.B | 推荐
   - HK.香港.C | 高速.2x倍率
@@ -9450,13 +6338,10 @@ proxy-groups:
   - HK.香港.E
   - HK.香港.F
   - HK.香港.G | 多入口
-  - HK.香港（需V6，新疆专用）
   - JP | 日本 01
   - SG | 新加坡 01
   - SGP.新加坡.B | 负载均衡
   - SGP.新加坡.D | 推荐
-  - TG群:@helium_network_group
-  - TG群:@helium_network_group-2
   - TW | 台湾 01
   - TW.台湾.A
   - TW.台湾.B | 推荐
@@ -9464,15 +6349,10 @@ proxy-groups:
   - UK | 英国 01
   - UK.英国.A
   - US | 美国 01
-  - US.美国.B
-  - US.美国.E
   - '[3X]泰国NO1'
   - '[3X]泰国NO2'
-  - '[3X]韩国 专线NO1'
-  - '[3X]韩国 专线NO2'
   - '[3X]马来西亚专线NO1'
   - '[3X]马来西亚专线NO2'
-  - 俄罗斯1-CDN | 1X
   - 台湾-优化
   - 台湾-优化-2
   - 台湾-优化-3
@@ -9482,8 +6362,6 @@ proxy-groups:
   - 台湾-优化3
   - 台湾-优化3-2
   - 台湾-优化3-3
-  - 台湾1(GPT等流媒体1.5倍）
-  - 台湾2(GPT等流媒体1.5倍）
   - 免费JP节点01
   - 免费JP节点01-2
   - 免费SG节点02
@@ -9497,24 +6375,22 @@ proxy-groups:
   - 剩余流量：-0.84999999999997 GB
   - 剩余流量：-1.23 GB
   - 剩余流量：-2.8 GB
-  - 剩余流量：0-35
-  - 剩余流量：0-36
-  - 剩余流量：0-37
-  - 剩余流量：0-38
-  - 剩余流量：0-39
-  - 剩余流量：0-40
-  - 剩余流量：0-41
-  - 剩余流量：0-42
-  - 剩余流量：0-43
-  - 剩余流量：0-44
-  - 剩余流量：0-45
-  - 剩余流量：0-46
+  - 剩余流量：0
+  - 剩余流量：0-2
+  - 剩余流量：0-3
+  - 剩余流量：0-4
+  - 剩余流量：0-5
+  - 剩余流量：0-6
+  - 剩余流量：0-7
+  - 剩余流量：0-8
+  - 剩余流量：0-9
+  - 剩余流量：0-10
+  - 剩余流量：0-11
+  - 剩余流量：0-12
+  - 剩余流量：0-13
   - 剩余流量：2 GB
-  - 剩余流量：20.52 GB
   - 剩余流量：296.7 GB
   - 剩余流量：6.83 GB
-  - 剩余流量：61.74 GB
-  - 剩余流量：64.92 GB
   - 剩余流量：877.59 GB
   - 加拿大-优化
   - 加拿大-优化-2
@@ -9528,17 +6404,11 @@ proxy-groups:
   - 加拿大-多伦多1-CDN | 1x
   - 加拿大1
   - 加拿大2
-  - 加群关注电报频道获取延期码
-  - 加群关注电报频道获取延期码-2
   - 印度-优化
   - 印度-优化-2
   - 印度-优化-3
-  - 印度-海得拉巴1-CDN | 1x
-  - 印度-海得拉巴2-CDN | 1x
-  - 印度-海得拉巴3-CDN | 1x
-  - 印度-海得拉巴4-CDN | 1x
-  - 印度1-9
-  - 印度2-9
+  - 印度1
+  - 印度2
   - 印度尼西亚1-CDN | 1x
   - 印度尼西亚2-CDN | 1x
   - 哥伦比亚-波哥大1-CDN | 1X
@@ -9547,29 +6417,24 @@ proxy-groups:
   - 土耳其1-无分流直出BAN-PT/BT/POOL-CDN | 0X
   - 备用网址www.fzdvd.cc
   - 套餐到期：2024-08-25
-  - 套餐到期：2025-06-01
+  - 套餐到期：2025-06-23
   - 套餐到期：2025-06-23-2
-  - 套餐到期：2025-06-23-3
   - 套餐到期：2025-08-24
   - 套餐到期：2025-08-25
   - 套餐到期：2025-10-07
-  - 套餐到期：长期有效-28
-  - 套餐到期：长期有效-29
-  - 套餐到期：长期有效-30
-  - 套餐到期：长期有效-31
-  - 套餐到期：长期有效-32
-  - 套餐到期：长期有效-33
-  - 套餐到期：长期有效-34
-  - 套餐到期：长期有效-35
-  - 套餐到期：长期有效-36
-  - 套餐到期：长期有效-37
-  - 套餐到期：长期有效-38
-  - 套餐到期：长期有效-39
-  - 套餐到期：长期有效-40
-  - 套餐到期：长期有效-41
-  - 套餐到期：长期有效-42
-  - 官网地址：https://www.niao.icu
-  - 官网：最强机场.com
+  - 套餐到期：长期有效
+  - 套餐到期：长期有效-2
+  - 套餐到期：长期有效-3
+  - 套餐到期：长期有效-4
+  - 套餐到期：长期有效-5
+  - 套餐到期：长期有效-6
+  - 套餐到期：长期有效-7
+  - 套餐到期：长期有效-8
+  - 套餐到期：长期有效-9
+  - 套餐到期：长期有效-10
+  - 套餐到期：长期有效-11
+  - 套餐到期：长期有效-12
+  - 套餐到期：长期有效-13
   - 官网：dash.henet.uk
   - 官网：dash.henet.uk-2
   - 官网：vvs.e54.site
@@ -9578,16 +6443,10 @@ proxy-groups:
   - 导航页：www.可乐云.net
   - 尼日利亚-双ISP原生家宽-无分流直出-CDN | 1X
   - 尼日利亚1-无分流直出-CDN | 1X
-  - 巴西-维涅社1-CDN | 1X
-  - 巴西-维涅社2-CDN | 1X
-  - 巴西-维涅社3-CDN | 1X
-  - 巴西-维涅社4-CDN | 1X
   - 巴西-圣保罗1-CDN | 1X
   - 巴西-圣保罗2-CDN | 1X
   - 巴西-圣保罗3-CDN | 1X
   - 已到期或流量已用完
-  - 德国-纽伦堡1-CDN | 0x
-  - 德国-纽伦堡2-CDN | 0x
   - 德国-优化
   - 德国-优化-2
   - 德国-优化-3
@@ -9595,7 +6454,6 @@ proxy-groups:
   - 德国-优化2-2
   - 德国-优化2-3
   - 德国01_免费
-  - 您的服务已到期了
   - 新加坡-优化
   - 新加坡-优化-2
   - 新加坡-优化-3
@@ -9643,47 +6501,11 @@ proxy-groups:
   - 澳大利亚 02
   - 澳大利亚原生1
   - 澳大利亚原生2
-  - 澳大利亚墨尔本1-CDN | 1X
-  - 澳大利亚墨尔本2-CDN | 1X
   - 瑞典100Mbps-CDN | 1X
   - 用前请更新订阅！！！
   - '电报群: https://t.me/emovpn x5'
   - '电报群: https://t.me/emovpn x5-2'
   - 登录https://cokecloud.me 续费
-  - 目前国内网址：xc2.shishi1.buzz 备用：ds1.dashi99.top
-  - 美国-纽约-001
-  - 美国-纽约-001-2
-  - 美国-纽约-001-3
-  - 美国-纽约-001-4
-  - 美国-纽约-001-5
-  - 美国-纽约-001-6
-  - 美国-纽约-001-7
-  - 美国-纽约-001-8
-  - 美国-纽约-001-9
-  - 美国-纽约-001-10
-  - 美国-纽约-001-11
-  - 美国-拉斯维加斯-001
-  - 美国-拉斯维加斯-001-2
-  - 美国-拉斯维加斯-001-3
-  - 美国-拉斯维加斯-001-4
-  - 美国-拉斯维加斯-001-5
-  - 美国-拉斯维加斯-001-6
-  - 美国-拉斯维加斯-001-7
-  - 美国-拉斯维加斯-001-8
-  - 美国-拉斯维加斯-001-9
-  - 美国-拉斯维加斯-001-10
-  - 美国-拉斯维加斯-001-11
-  - 美国-拉斯维加斯-002
-  - 美国-拉斯维加斯-002-2
-  - 美国-拉斯维加斯-002-3
-  - 美国-拉斯维加斯-002-4
-  - 美国-拉斯维加斯-002-5
-  - 美国-拉斯维加斯-002-6
-  - 美国-拉斯维加斯-002-7
-  - 美国-拉斯维加斯-002-8
-  - 美国-拉斯维加斯-002-9
-  - 美国-拉斯维加斯-002-10
-  - 美国-拉斯维加斯-002-11
   - 美国01_免费
   - 美国LA-优化-GPT
   - 美国LA-优化-GPT-2
@@ -9699,12 +6521,7 @@ proxy-groups:
   - 美国东部纽约1-CDN | 0x
   - 美国东部阿什本1-CDN | 1x
   - 美国东部阿什本2-CDN | 1x
-  - 美国中部芝加哥1-CDN | 1x
   - 美国南部达拉斯1-CDN | 0x
-  - 美国西部圣何塞1-CDN | 1x
-  - 美国西部圣何塞2-CDN | 1x
-  - 美国西部圣何塞3-CDN | 1x
-  - 美国西部圣何塞4-CDN | 1x
   - 美国西部洛杉矶1-CDN | 0x
   - 美国西部洛杉矶2-CDN | 1x
   - 菲律宾 马尼拉-中转
@@ -9728,9 +6545,9 @@ proxy-groups:
   - 荷兰1-CDN | 1X
   - 荷兰2-CDN | 1X
   - 西班牙1-CDN | 1X
-  - 距离下次重置剩余：14 天
-  - 距离下次重置剩余：7 天-6
-  - 距离下次重置剩余：7 天-7
+  - 距离下次重置剩余：7 天
+  - 距离下次重置剩余：7 天-2
+  - 过滤掉3条线路
   - 过滤掉3条线路-2
   - 过滤掉3条线路-3
   - 过滤掉3条线路-4
@@ -9749,17 +6566,9 @@ proxy-groups:
   - 过滤掉5条线路
   - 过滤掉5条线路-2
   - 过滤掉5条线路-3
-  - 过滤掉9条线路
   - 韩国-01
   - 韩国-02
   - 韩国-03-电信用户
-  - 香港-03
-  - 香港HY-优化
-  - 香港HY-优化-2
-  - 香港HY-优化-3
-  - 香港HY-优化2
-  - 香港HY-优化2-2
-  - 香港HY-优化2-3
   - 香港NO.1（GPT奈飞等）
   - 香港NO.2（GPT奈飞等）
   - 香港WAP-优化
@@ -9768,32 +6577,19 @@ proxy-groups:
   - 香港WAP-优化2
   - 香港WAP-优化2-2
   - 香港WAP-优化2-3
-  - 香港（直连）
+  - ⚜️Telegram:@IP_CF
   - ❗  您的订阅已过期 ❗
   - '❗  请续费订阅后再更新订阅  ❗ '
-  - '❗ 您的订阅已过期  ❗ '
   - ❗ 您的订阅已过期 ❗
   - 「加入会员解锁流媒体」x5
   - 「加入会员解锁流媒体」x5-2
-  - 「🇩🇪」EMO | 冰灵果 x5
-  - 「🇩🇪」EMO | 冰灵果 x5-2
   - 「🇫🇷」EMO | 冰糖心 x5
   - 「🇫🇷」EMO | 冰糖心 x5-2
-  - 「🇬🇧」EMO | 红富士 x5
-  - 「🇬🇧」EMO | 红富士 x5-2
-  - 「🇮🇳」EMO | 牛油果 x5
-  - 「🇮🇳」EMO | 牛油果 x5-2
-  - 「🇸🇬」EMO | 西贡蕉 x5
-  - 「🇸🇬」EMO | 西贡蕉 x5-2
   - 「🇺🇸」EMO | 天元果 x5
   - 「🇺🇸」EMO | 天元果 x5-2
-  - 「🇺🇸」EMO | 芝麻蕉 x5
-  - 「🇺🇸」EMO | 芝麻蕉 x5-2
   - 🇧🇷 巴西1|cf
   - 🇧🇷 巴西2|cf
   - 🇧🇷 巴西3|cf
-  - 🇨🇦 加拿大1|cf
-  - 🇨🇦 加拿大2|cf
   - 🇨🇳台湾01|1x
   - 🇨🇳台湾02|1x
   - 🇨🇳台湾03|1x
@@ -9816,7 +6612,6 @@ proxy-groups:
   - 🇭🇰香港家宽hkbn 10x-2
   - 🇭🇰香港家宽hkbn 10x-3
   - 🇮🇳 印度1|cf
-  - 🇯🇵日本 06
   - 🇯🇵日本01|1x
   - 🇯🇵日本02|1x
   - 🇯🇵日本03|1x
@@ -9830,136 +6625,81 @@ proxy-groups:
   - 🇰🇷韩国 03
   - 🇰🇷韩国01|1x
   - 🇺🇸 美国1|cf
-  - 🇺🇸美国01|GPT|1x
-  - 🇺🇸美国02|GPT|1x
-  - 🇺🇸美国03|GPT|1x
-  - 🇺🇸美国04|GPT|1x
-  - 🇺🇸美国05|GPT|1x
   - 🇺🇸美国Las Vegas 04|防失联&下载专用|0.01x
   - 🇺🇸美国Las Vegas 01|防失联&下载专用|0.01x
   - 🇺🇸美国Las Vegas 02|防失联&下载专用|0.01x
   - 🇺🇸美国Las Vegas 03|防失联&下载专用|0.01x
-  - 美国 CloudFlare节点
-  - '@Hope_Net-join-us-on-Telegram-44'
-  - '@Hope_Net-join-us-on-Telegram-45'
-  - '@Hope_Net-join-us-on-Telegram-46'
-  - '@Hope_Net-join-us-on-Telegram-47'
-  - 🔒 VM-WS-NA 🇨🇳 CN-120.238.98.150:30812
+  - '@Hope_Net-join-us-on-Telegram-3'
+  - '@Hope_Net-join-us-on-Telegram-4'
   - ⚡️Telegram = @SOSkeyNET
-  - 🔒 VM-TCP-NA 🇮🇷 IR-2.144.7.202:45789
-  - 🔒 VM-TCP-NA 🇳🇱 NL-24.144.77.93:898
-  - 🔒 VM-TCP-NA 🇮🇷 IR-5.144.132.140:1221
-  - '@Hope_Net-join-us-on-Telegram-48'
+  - '@Hope_Net-join-us-on-Telegram-5'
   - ⚡️Telegram = @SOSkeyNET-2
   - ⚡️Telegram = @SOSkeyNET-3
-  - '@Hope_Net-join-us-on-Telegram-49'
+  - '@Hope_Net-join-us-on-Telegram-6'
+  - 🔒 VM-TCP-NA 🇮🇷 IR-2.144.7.202:45789
+  - '@Hope_Net-join-us-on-Telegram-7'
+  - 🔒 VM-TCP-NA 🇳🇱 NL-24.144.77.93:898
+  - '@Hope_Net-join-us-on-Telegram-8'
+  - '@Hope_Net-join-us-on-Telegram-9'
   - ⚡️Telegram = @SOSkeyNET-4
-  - ⚡️Telegram = @SOSkeyNET-5
-  - 🇭🇰HK-1.65.202.165-5693
-  - 🇭🇰HK-1.65.202.165-5690
-  - ⚜️Telegram:@IP_CF
+  - '@Hope_Net-join-us-on-Telegram-10'
+  - ⚜️Telegram:@IP_CF-2
+  - ⚜️Telegram:@IP_CF-3
   - 'Channel id: @ShadowProxy66🇨🇦'
-  - '@V2ray1_Ng-12'
+  - '@V2ray1_Ng'
   - 🇨🇦CA-51.79.102.253-1062
   - 🇩🇪DE-57.129.24.125-7603
-  - همه اپراتورها | V2ray_Hub1
-  - 🏁RELAY-104.21.112.1-0234
   - 🇭🇰HK-42.2.113.136-0364
   - 🇭🇰HK-42.2.113.136-5685
-  - 🇭🇰HK-1.65.202.165-5684
-  - https://t.me/VPN4EVERYONE-13
-  - '@meli_proxyy-48'
+  - https://t.me/VPN4EVERYONE
   - '@appsooner کانال تلگرام 🇸🇬'
   - '@appsooner کانال تلگرام 🇸🇬-2'
-  - '@meli_proxyy-49'
   - '@appsooner کانال تلگرام 🇸🇬-3'
-  - '@meli_proxyy-50'
-  - IRAN 6 (@Outline_Vpn)
+  - '@appsooner کانال تلگرام 🇸🇬-4'
   - 🔒 VM-TCP-NA 🇸🇬 SG-84.247.147.243:51566
-  - '@meli_proxyy-51'
-  - 'Channel id: @ShadowProxy66🇸🇬-2'
-  - IRAN 7 (@Outline_Vpn)
-  - '@meli_proxyy-52'
+  - '@meli_proxyy'
+  - 'Channel id: @ShadowProxy66🇸🇬'
   - 🔒 VM-TCP-NA 🇸🇬 SG-84.247.150.177:36141
-  - '@speeds_vpn-31'
-  - 🔒 VM-TCP-NA 🇮🇷 IR-89.43.204.82:1102
+  - '@speeds_vpn'
   - 'Channel id: @ShadowProxy66🇦🇲'
-  - 'Channel id: @ShadowProxy66-19'
-  - 'Channel id: @ShadowProxy66-20'
-  - 'Channel id: @ShadowProxy66-21'
-  - 'Channel id: @ShadowProxy66-22'
+  - 'Channel id: @ShadowProxy66'
+  - 'Channel id: @ShadowProxy66-2'
   - 🏁RELAY-104.21.112.1-0360
-  - 🏁RELAY-104.21.112.1-1074
   - 🏁RELAY-104.21.64.1-0367
   - 🏁RELAY-104.21.96.1-0370
-  - 'Channel id: @ShadowProxy66-23'
-  - 🇨🇳_CN_中国->🇺🇸_US_美国-5
-  - This-UUID-is-Wrong-or-Invalid
-  - ●此UUID是错误或无效的●
-  - Our-website:getafreenode.com
-  - ●网址：getafreenode.com●
-  - Please-click-AD-on-our-website
-  - ●请点击浏览网站广告数秒●
-  - Plz-go-website-to-get-new-one
-  - ●请前往网站获取有效订阅●
-  - Thanks-so-much-for-your-help
-  - To-help-obtain-operating-funds
-  - ●以帮助我们获得运营资金●
-  - ●在此向你表达诚挚的感谢●
-  - ●用于维护和添加更多节点●
+  - 'Channel id: @ShadowProxy66-3'
   - 🇨🇦CA-134.195.198.147-7604
-  - ' ❤️@Kayh_GNG - Github.com/kayhgng-157'
-  - همه اپراتورها | V2ray_Hub1-2
-  - 🏁RELAY-172.66.168.209-2453
-  - 'Channel id: @ShadowProxy66-24'
+  - ' ❤️@Kayh_GNG - Github.com/kayhgng'
+  - همه اپراتورها | V2ray_Hub1
+  - 'Channel id: @ShadowProxy66-4'
   - 🔒 VM-TCP-NA 🇮🇷 IR-212.23.214.162:12115
   - 🔒 VM-TCP-NA 🇮🇷 IR-212.23.214.165:12109
   - 🇨🇦CA-23.162.200.227-7595
   - 🏁RELAY-104.21.16.1-5580
   - 🇭🇰HK-1.36.218.184-5692
-  - 🇭🇰HK-1.36.218.184-0835
   - 13|🇸🇬
-  - 🇭🇰HK-1.65.202.165-5691
   - 🏁RELAY-104.21.48.1-0374
-  - 🇨🇳_CN_中国->🇷🇺_RU_俄罗斯-3
-  - 🇨🇳_CN_中国->🇨🇦_CA_加拿大
   - 🏁RELAY-104.18.41.190-0699
-  - 🏁RELAY-104.21.73.59-0700
-  - 🏁RELAY-104.21.64.1-0236
-  - 🏁RELAY-104.21.96.1-1079
-  - 🏁RELAY-172.67.206.152-5563
-  - 🇭🇰HK-1.65.202.165-5689
+  - '@iProxy_Channel | Irancell'
   - 🇭🇰HK-42.2.113.136-5686
-  - 🟡 Telegram= @VPN_SOLVE-9
-  - 🇭🇰HK-1.65.202.165-5688
-  - 🏁RELAY-104.21.40.251-5572
-  - '@V2ry_Proxy  ✅ عضو شوید'
-  - '@vpnserverrr✅ عضو شوید'
   - دوسم داری ؟!
   - 🏁RELAY-172.66.168.226-2490
   - 🏁RELAY-104.21.112.1-0359
-  - '@speeds_vpn-32'
+  - '@speeds_vpn-2'
   - 🇩🇪Germany➁
-  - https://t.me/vpnserverrr-2
-  - '@k.h_vpn  کانالمون'
   - 🇯🇵日本
-  - 🟡 Telegram= @VPN_SOLVE-10
-  - 🟡 Telegram= @VPN_SOLVE-11
-  - https://t.me/vpnserverrr-3
-  - 🟡 Telegram= @VPN_SOLVE-12
-  - '@SPEEDS_VPN'
+  - 🟡 Telegram= @VPN_SOLVE
+  - 🟡 Telegram= @VPN_SOLVE-2
   - 🏁RELAY-172.67.206.152-1078
   - A01-华沙 倍率:0.1 waw
   - A01b-华沙 倍率:0.1 waw
   - A02-荷兰 倍率:0.1 ams
   - A02b-荷兰 倍率:0.1 ams
-  - "A05b-德国 倍率:0.01 dh\t"
-  - A05-德国 倍率:0.01 dh
   - AB01b-美国 倍率:0.01 hcc
-  - AB01-美国 倍率:0.01 hcc
   - '%F0%9F%87%BA%F0%9F%87%B8%20%E7%BE%8E%E5%9B%BD%20CloudFlare%E8%8A%82%E7%82%B9'
-  - ⚡️Telegram = @SOSkeyNET-6
-  - 剩余流量：0-47
+  - ⚡️Telegram = @SOSkeyNET-5
+  - 剩余流量：0-14
+  - 官网:miaopu.xyz 书签:no404.tk
   - 等级到期，可签到使用
   - 过期时间：2025-06-03
 - name: تلگرام 💬
