@@ -112,19 +112,6 @@ tun:
   - any:53
   - tcp://any:53
 proxies:
-- name: NASNET | 7 | Emergency
-  type: vmess
-  server: npmjs.com
-  port: 8080
-  uuid: xymkalnrm8
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /nasnet/cdn
-    headers:
-      Host: xymkalnrm8-16197102189.mashallahbet.com
 - name: Telegram@viturey  🇺🇸🇺🇸
   type: vmess
   server: 151.101.66.219
@@ -305,11 +292,11 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: '@Hope_Net-join-us-on-Telegram-2'
+- name: 🔒 VM-TCP-NA 🇨🇳 CN-120.198.71.214:41175
   type: vmess
-  server: 45.159.51.189
-  port: 55128
-  uuid: 84f9bc0e-400f-4839-98b5-637d5e9c6606
+  server: 120.198.71.214
+  port: 41175
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
   alterId: 0
   cipher: auto
   udp: true
@@ -4523,7 +4510,7 @@ proxies:
     path: /scloud?ed=2048
     headers:
       Host: buyvmus2.fastcloud.top
-- name: '@Hope_Net-join-us-on-Telegram-3'
+- name: '@Hope_Net-join-us-on-Telegram-2'
   type: vmess
   server: 104.18.242.177
   port: 2052
@@ -4567,7 +4554,7 @@ proxies:
     path: ws/?ed=2048
     headers:
       Host: freepanelll.com
-- name: '@Hope_Net-join-us-on-Telegram-4'
+- name: '@Hope_Net-join-us-on-Telegram-3'
   type: vmess
   server: 172.67.42.232
   port: 80
@@ -4589,7 +4576,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: '@Hope_Net-join-us-on-Telegram-5'
+- name: '@Hope_Net-join-us-on-Telegram-4'
   type: vmess
   server: 23.162.200.227
   port: 443
@@ -4614,7 +4601,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: '@Hope_Net-join-us-on-Telegram-6'
+- name: '@Hope_Net-join-us-on-Telegram-5'
   type: vmess
   server: 38.14.107.225
   port: 38003
@@ -4630,20 +4617,7 @@ proxies:
     path: /path/181721272114
     headers:
       Host: www.23179753.xyz
-- name: '@Hope_Net-join-us-on-Telegram-7'
-  type: vmess
-  server: 5.196.29.123
-  port: 2082
-  uuid: 112ac36f-3f53-4e26-8371-d25c028e1b9a
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ''
-- name: '@Hope_Net-join-us-on-Telegram-8'
+- name: '@Hope_Net-join-us-on-Telegram-6'
   type: vmess
   server: 57.129.24.125
   port: 443
@@ -4661,6 +4635,15 @@ proxies:
       Host: wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc
 - name: ⚡️Telegram = @SOSkeyNET-4
   type: vmess
+  server: irc.jahanrocket.sbs
+  port: 443
+  uuid: 410b1034-f5b2-46be-8f86-370ba9925e4c
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: tcp
+- name: ⚡️Telegram = @SOSkeyNET-5
+  type: vmess
   server: pnl.shod-jjcod.com
   port: 443
   uuid: cabcbc42-2940-4b6f-8196-d3a13a8c9b88
@@ -4668,29 +4651,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: '@Hope_Net-join-us-on-Telegram-9'
-  type: vmess
-  server: s1.db-link01.top
-  port: 8880
-  uuid: 4b36625c-b9d9-3ea6-aed5-86d62c70e16d
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /dabai.in172.67.95.35
-    headers:
-      Host: 100-250-32-53.s1.db-link01.top
 - name: ⚜️Telegram:@IP_CF-2
-  type: vmess
-  server: 5.144.132.140
-  port: 1221
-  uuid: ca797ba2-13b2-473b-90ce-c455af9353e1
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: ⚜️Telegram:@IP_CF-3
   type: vmess
   server: 5.180.30.146
   port: 27773
@@ -4746,6 +4707,22 @@ proxies:
     path: /linkvws
     headers:
       Host: wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc
+- name: 'برای اتصال دائمی عضو کانال شوید: @V2ray_Hub1'
+  type: vmess
+  server: 57.129.25.20
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 1
+  cipher: auto
+  udp: true
+  network: ws
+  tls: true
+  servername: 57.129.25.20
+  skip-cert-verify: true
+  ws-opts:
+    path: linkvws
+    headers:
+      Host: 57.129.25.20
 - name: 🇭🇰HK-42.2.113.136-0364
   type: vmess
   server: 66500699-sv2sg0-sx8y86-uvgv.hk.p5pv.com
@@ -5117,15 +5094,6 @@ proxies:
     path: /rongseven?ed=2048
     headers:
       Host: fr.freeyyds.dpdns.org
-- name: '@iProxy_Channel | Irancell'
-  type: vmess
-  server: CoRe.CeNtRaLnEt.iR
-  port: 4951
-  uuid: 46d1dbfa-b0a2-43f7-ab13-a6fbf90387ac
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
 - name: 🇭🇰HK-42.2.113.136-5686
   type: vmess
   server: ac759499-sv2sg0-sw26q2-php4.hk.p5pv.com
@@ -5335,7 +5303,7 @@ proxies:
     path: /nasnet/cdn
     headers:
       Host: ke7hz36ewz-4515017473.mashallahbet.com
-- name: ⚡️Telegram = @SOSkeyNET-5
+- name: ⚡️Telegram = @SOSkeyNET-6
   type: vmess
   server: 185.14.160.80
   port: 80
@@ -5393,7 +5361,6 @@ proxy-groups:
   type: select
   icon: https://www.svgrepo.com/show/372331/cursor-hand-click.svg
   proxies:
-  - NASNET | 7 | Emergency
   - Telegram@viturey  🇺🇸🇺🇸
   - 只有爱懂的人才能用
   - Telegram @viturey🇩🇪🇩🇪
@@ -5411,7 +5378,7 @@ proxy-groups:
   - 2|🇭🇰1 |  1.8MB/s|15%|Disney|Yout...
   - 2|🌀4-TH |  2.6MB/s|55%|Netflix|O...
   - '@Hope_Net-join-us-on-Telegram'
-  - '@Hope_Net-join-us-on-Telegram-2'
+  - 🔒 VM-TCP-NA 🇨🇳 CN-120.198.71.214:41175
   - 🔒 VM-TCP-NA 🇨🇳 CN-219.151.20.62:42349
   - 🔒 VM-TCP-NA 🇺🇸 US-2.58.87.221:46628
   - 🔒 VM-WS-NA 🇨🇳 CN-111.26.109.79:30829
@@ -5745,25 +5712,24 @@ proxy-groups:
   - 🇺🇸美国Las Vegas 01|防失联&下载专用|0.01x
   - 🇺🇸美国Las Vegas 02|防失联&下载专用|0.01x
   - 🇺🇸美国Las Vegas 03|防失联&下载专用|0.01x
-  - '@Hope_Net-join-us-on-Telegram-3'
+  - '@Hope_Net-join-us-on-Telegram-2'
   - ⚡️Telegram = @SOSkeyNET
   - ⚡️Telegram = @SOSkeyNET-2
   - ⚡️Telegram = @SOSkeyNET-3
-  - '@Hope_Net-join-us-on-Telegram-4'
+  - '@Hope_Net-join-us-on-Telegram-3'
   - 🔒 VM-TCP-NA 🇮🇷 IR-2.144.7.202:45789
-  - '@Hope_Net-join-us-on-Telegram-5'
+  - '@Hope_Net-join-us-on-Telegram-4'
   - 🔒 VM-TCP-NA 🇳🇱 NL-24.144.77.93:898
+  - '@Hope_Net-join-us-on-Telegram-5'
   - '@Hope_Net-join-us-on-Telegram-6'
-  - '@Hope_Net-join-us-on-Telegram-7'
-  - '@Hope_Net-join-us-on-Telegram-8'
   - ⚡️Telegram = @SOSkeyNET-4
-  - '@Hope_Net-join-us-on-Telegram-9'
+  - ⚡️Telegram = @SOSkeyNET-5
   - ⚜️Telegram:@IP_CF-2
-  - ⚜️Telegram:@IP_CF-3
   - 'Channel id: @ShadowProxy66🇨🇦'
   - '@V2ray1_Ng'
   - 🇨🇦CA-51.79.102.253-1062
   - 🇩🇪DE-57.129.24.125-7603
+  - 'برای اتصال دائمی عضو کانال شوید: @V2ray_Hub1'
   - 🇭🇰HK-42.2.113.136-0364
   - 🇭🇰HK-42.2.113.136-5685
   - https://t.me/VPN4EVERYONE
@@ -5795,7 +5761,6 @@ proxy-groups:
   - 13|🇸🇬
   - 🏁RELAY-104.21.48.1-0374
   - 🏁RELAY-104.18.41.190-0699
-  - '@iProxy_Channel | Irancell'
   - 🇭🇰HK-42.2.113.136-5686
   - دوسم داری ؟!
   - 🏁RELAY-172.66.168.226-2490
@@ -5812,7 +5777,7 @@ proxy-groups:
   - A02b-荷兰 倍率:0.1 ams
   - AB01b-美国 倍率:0.01 hcc
   - '%F0%9F%87%BA%F0%9F%87%B8%20%E7%BE%8E%E5%9B%BD%20CloudFlare%E8%8A%82%E7%82%B9'
-  - ⚡️Telegram = @SOSkeyNET-5
+  - ⚡️Telegram = @SOSkeyNET-6
   - 剩余流量：0-14
   - 官网:miaopu.xyz 书签:no404.tk
   - 等级到期，可签到使用
@@ -5826,7 +5791,6 @@ proxy-groups:
   tolerance: 10
   lazy: true
   proxies:
-  - NASNET | 7 | Emergency
   - Telegram@viturey  🇺🇸🇺🇸
   - 只有爱懂的人才能用
   - Telegram @viturey🇩🇪🇩🇪
@@ -5844,7 +5808,7 @@ proxy-groups:
   - 2|🇭🇰1 |  1.8MB/s|15%|Disney|Yout...
   - 2|🌀4-TH |  2.6MB/s|55%|Netflix|O...
   - '@Hope_Net-join-us-on-Telegram'
-  - '@Hope_Net-join-us-on-Telegram-2'
+  - 🔒 VM-TCP-NA 🇨🇳 CN-120.198.71.214:41175
   - 🔒 VM-TCP-NA 🇨🇳 CN-219.151.20.62:42349
   - 🔒 VM-TCP-NA 🇺🇸 US-2.58.87.221:46628
   - 🔒 VM-WS-NA 🇨🇳 CN-111.26.109.79:30829
@@ -6178,25 +6142,24 @@ proxy-groups:
   - 🇺🇸美国Las Vegas 01|防失联&下载专用|0.01x
   - 🇺🇸美国Las Vegas 02|防失联&下载专用|0.01x
   - 🇺🇸美国Las Vegas 03|防失联&下载专用|0.01x
-  - '@Hope_Net-join-us-on-Telegram-3'
+  - '@Hope_Net-join-us-on-Telegram-2'
   - ⚡️Telegram = @SOSkeyNET
   - ⚡️Telegram = @SOSkeyNET-2
   - ⚡️Telegram = @SOSkeyNET-3
-  - '@Hope_Net-join-us-on-Telegram-4'
+  - '@Hope_Net-join-us-on-Telegram-3'
   - 🔒 VM-TCP-NA 🇮🇷 IR-2.144.7.202:45789
-  - '@Hope_Net-join-us-on-Telegram-5'
+  - '@Hope_Net-join-us-on-Telegram-4'
   - 🔒 VM-TCP-NA 🇳🇱 NL-24.144.77.93:898
+  - '@Hope_Net-join-us-on-Telegram-5'
   - '@Hope_Net-join-us-on-Telegram-6'
-  - '@Hope_Net-join-us-on-Telegram-7'
-  - '@Hope_Net-join-us-on-Telegram-8'
   - ⚡️Telegram = @SOSkeyNET-4
-  - '@Hope_Net-join-us-on-Telegram-9'
+  - ⚡️Telegram = @SOSkeyNET-5
   - ⚜️Telegram:@IP_CF-2
-  - ⚜️Telegram:@IP_CF-3
   - 'Channel id: @ShadowProxy66🇨🇦'
   - '@V2ray1_Ng'
   - 🇨🇦CA-51.79.102.253-1062
   - 🇩🇪DE-57.129.24.125-7603
+  - 'برای اتصال دائمی عضو کانال شوید: @V2ray_Hub1'
   - 🇭🇰HK-42.2.113.136-0364
   - 🇭🇰HK-42.2.113.136-5685
   - https://t.me/VPN4EVERYONE
@@ -6228,7 +6191,6 @@ proxy-groups:
   - 13|🇸🇬
   - 🏁RELAY-104.21.48.1-0374
   - 🏁RELAY-104.18.41.190-0699
-  - '@iProxy_Channel | Irancell'
   - 🇭🇰HK-42.2.113.136-5686
   - دوسم داری ؟!
   - 🏁RELAY-172.66.168.226-2490
@@ -6245,7 +6207,7 @@ proxy-groups:
   - A02b-荷兰 倍率:0.1 ams
   - AB01b-美国 倍率:0.01 hcc
   - '%F0%9F%87%BA%F0%9F%87%B8%20%E7%BE%8E%E5%9B%BD%20CloudFlare%E8%8A%82%E7%82%B9'
-  - ⚡️Telegram = @SOSkeyNET-5
+  - ⚡️Telegram = @SOSkeyNET-6
   - 剩余流量：0-14
   - 官网:miaopu.xyz 书签:no404.tk
   - 等级到期，可签到使用
@@ -6259,7 +6221,6 @@ proxy-groups:
   tolerance: 6
   lazy: true
   proxies:
-  - NASNET | 7 | Emergency
   - Telegram@viturey  🇺🇸🇺🇸
   - 只有爱懂的人才能用
   - Telegram @viturey🇩🇪🇩🇪
@@ -6277,7 +6238,7 @@ proxy-groups:
   - 2|🇭🇰1 |  1.8MB/s|15%|Disney|Yout...
   - 2|🌀4-TH |  2.6MB/s|55%|Netflix|O...
   - '@Hope_Net-join-us-on-Telegram'
-  - '@Hope_Net-join-us-on-Telegram-2'
+  - 🔒 VM-TCP-NA 🇨🇳 CN-120.198.71.214:41175
   - 🔒 VM-TCP-NA 🇨🇳 CN-219.151.20.62:42349
   - 🔒 VM-TCP-NA 🇺🇸 US-2.58.87.221:46628
   - 🔒 VM-WS-NA 🇨🇳 CN-111.26.109.79:30829
@@ -6611,25 +6572,24 @@ proxy-groups:
   - 🇺🇸美国Las Vegas 01|防失联&下载专用|0.01x
   - 🇺🇸美国Las Vegas 02|防失联&下载专用|0.01x
   - 🇺🇸美国Las Vegas 03|防失联&下载专用|0.01x
-  - '@Hope_Net-join-us-on-Telegram-3'
+  - '@Hope_Net-join-us-on-Telegram-2'
   - ⚡️Telegram = @SOSkeyNET
   - ⚡️Telegram = @SOSkeyNET-2
   - ⚡️Telegram = @SOSkeyNET-3
-  - '@Hope_Net-join-us-on-Telegram-4'
+  - '@Hope_Net-join-us-on-Telegram-3'
   - 🔒 VM-TCP-NA 🇮🇷 IR-2.144.7.202:45789
-  - '@Hope_Net-join-us-on-Telegram-5'
+  - '@Hope_Net-join-us-on-Telegram-4'
   - 🔒 VM-TCP-NA 🇳🇱 NL-24.144.77.93:898
+  - '@Hope_Net-join-us-on-Telegram-5'
   - '@Hope_Net-join-us-on-Telegram-6'
-  - '@Hope_Net-join-us-on-Telegram-7'
-  - '@Hope_Net-join-us-on-Telegram-8'
   - ⚡️Telegram = @SOSkeyNET-4
-  - '@Hope_Net-join-us-on-Telegram-9'
+  - ⚡️Telegram = @SOSkeyNET-5
   - ⚜️Telegram:@IP_CF-2
-  - ⚜️Telegram:@IP_CF-3
   - 'Channel id: @ShadowProxy66🇨🇦'
   - '@V2ray1_Ng'
   - 🇨🇦CA-51.79.102.253-1062
   - 🇩🇪DE-57.129.24.125-7603
+  - 'برای اتصال دائمی عضو کانال شوید: @V2ray_Hub1'
   - 🇭🇰HK-42.2.113.136-0364
   - 🇭🇰HK-42.2.113.136-5685
   - https://t.me/VPN4EVERYONE
@@ -6661,7 +6621,6 @@ proxy-groups:
   - 13|🇸🇬
   - 🏁RELAY-104.21.48.1-0374
   - 🏁RELAY-104.18.41.190-0699
-  - '@iProxy_Channel | Irancell'
   - 🇭🇰HK-42.2.113.136-5686
   - دوسم داری ؟!
   - 🏁RELAY-172.66.168.226-2490
@@ -6678,7 +6637,7 @@ proxy-groups:
   - A02b-荷兰 倍率:0.1 ams
   - AB01b-美国 倍率:0.01 hcc
   - '%F0%9F%87%BA%F0%9F%87%B8%20%E7%BE%8E%E5%9B%BD%20CloudFlare%E8%8A%82%E7%82%B9'
-  - ⚡️Telegram = @SOSkeyNET-5
+  - ⚡️Telegram = @SOSkeyNET-6
   - 剩余流量：0-14
   - 官网:miaopu.xyz 书签:no404.tk
   - 等级到期，可签到使用
