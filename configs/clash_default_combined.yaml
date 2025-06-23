@@ -398,25 +398,9 @@ proxies:
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
-  private-key: 4WuSJEDE5iRRIBw59gEn3GRJkx5tY8PtayJmOHujEUs%3D
-  public-key: ''
-  ip: 172.16.0.2/32,2606:4700:110:8fcc:f076:4fd7:eb70:d37c/128
-  udp: true
-- name: Peyman_wire-g
-  type: wireguard
-  server: engage.cloudflareclient.com
-  port: 2408
   private-key: 8yP7GczZO%2BrYweI%2Fkfe3CPh5y%2FgZeJHOH1Y0%2FYdCNQE%3D
   public-key: ''
   ip: 172.16.0.2/32,2606:4700:110:8732:b572:bd51:1319:701a/128
-  udp: true
-- name: Peyman_wire-g
-  type: wireguard
-  server: engage.cloudflareclient.com
-  port: 2408
-  private-key: CkZqMqcFHCKTCf6Mj9%2BJjn%2BeOr9X97V3dzBjprn3HyU%3D
-  public-key: ''
-  ip: 172.16.0.2/32,2606:4700:110:8fb5:2fa0:18d2:201a:c8ca/128
   udp: true
 - name: Anon7
   type: wireguard
@@ -562,6 +546,14 @@ proxies:
   public-key: ''
   ip: 172.16.0.2/32,2606:4700:110:8910:aac9:90ab:3612:51a6/128
   udp: true
+- name: Peyman_wire-g
+  type: wireguard
+  server: engage.cloudflareclient.com
+  port: 2408
+  private-key: vkvyxAA14slFt86XMj3SUX3Fs7ITF7g5uyNrnOpnOs0%3D
+  public-key: ''
+  ip: 172.16.0.2/32,2606:4700:110:8e4c:5487:8225:221d:b857/128
+  udp: true
 - name: Anon9
   type: wireguard
   server: 188.114.96.23
@@ -577,6 +569,14 @@ proxies:
   private-key: yINGSvsLXkPXD9Sp91UUNCVuyGgngJJRc8mPZkd5A10%3D
   public-key: ''
   ip: 172.16.0.2/32
+  udp: true
+- name: Peyman_wire-g
+  type: wireguard
+  server: engage.cloudflareclient.com
+  port: 2408
+  private-key: yTvOYffOc8M73zPCz2SiYdRmgbr65%2FyWNykzFsw4ac8%3D
+  public-key: ''
+  ip: 172.16.0.2/32,2606:4700:110:8c54:d0ff:6a5d:94a1:4303/128
   udp: true
 proxy-groups:
 - name: نوع انتخاب پروکسی 🔀
@@ -617,8 +617,6 @@ proxy-groups:
   - mci jadid 💪💪💪@freeiranianv2rey
   - Peyman_wire-g
   - Peyman_wire-g
-  - Peyman_wire-g
-  - Peyman_wire-g
   - Anon7
   - Anon2
   - کانال+freeiranianv2rey
@@ -637,8 +635,10 @@ proxy-groups:
   - Peyman_wire-g
   - Anon3
   - Peyman_wire-g
+  - Peyman_wire-g
   - Anon9
   - Anon1
+  - Peyman_wire-g
 - name: خودکار (بهترین پینگ) 🤖
   type: url-test
   icon: https://www.svgrepo.com/show/7876/speedometer.svg
@@ -674,8 +674,6 @@ proxy-groups:
   - mci jadid 💪💪💪@freeiranianv2rey
   - Peyman_wire-g
   - Peyman_wire-g
-  - Peyman_wire-g
-  - Peyman_wire-g
   - Anon7
   - Anon2
   - کانال+freeiranianv2rey
@@ -694,8 +692,10 @@ proxy-groups:
   - Peyman_wire-g
   - Anon3
   - Peyman_wire-g
+  - Peyman_wire-g
   - Anon9
   - Anon1
+  - Peyman_wire-g
 - name: پشتیبان (در صورت قطعی) 🧯
   type: fallback
   icon: https://www.svgrepo.com/show/415208/backup-cloud-document.svg
@@ -731,8 +731,6 @@ proxy-groups:
   - mci jadid 💪💪💪@freeiranianv2rey
   - Peyman_wire-g
   - Peyman_wire-g
-  - Peyman_wire-g
-  - Peyman_wire-g
   - Anon7
   - Anon2
   - کانال+freeiranianv2rey
@@ -751,8 +749,10 @@ proxy-groups:
   - Peyman_wire-g
   - Anon3
   - Peyman_wire-g
+  - Peyman_wire-g
   - Anon9
   - Anon1
+  - Peyman_wire-g
 - name: تلگرام 💬
   type: select
   icon: https://www.svgrepo.com/show/354443/telegram.svg
