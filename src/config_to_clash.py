@@ -1,3 +1,4 @@
+# کد کامل و نهایی config_to_clash.py
 import os
 import re
 import yaml
@@ -7,28 +8,17 @@ from urllib.parse import urlparse, parse_qs, unquote
 from typing import Optional, Dict, List
 
 class UriToClashConverter:
-    """
-    A comprehensive helper class to convert various proxy URI schemes 
-    into Clash-compatible dictionaries, based on extended Clash.Meta standards.
-    """
     @staticmethod
     def parse(uri: str) -> Optional[Dict]:
-        """Dispatches URI to the appropriate parser based on its scheme."""
         try:
             scheme = uri.split("://")[0]
             parsers = {
-                "vless": UriToClashConverter.parse_vless_trojan,
-                "trojan": UriToClashConverter.parse_vless_trojan,
-                "ss": UriToClashConverter.parse_ss,
-                "ssr": UriToClashConverter.parse_ssr,
-                "vmess": UriToClashConverter.parse_vmess,
-                "hysteria": UriToClashConverter.parse_hysteria,
-                "hysteria2": UriToClashConverter.parse_hysteria2,
-                "tuic": UriToClashConverter.parse_tuic,
-                "snell": UriToClashConverter.parse_snell,
-                "ssh": UriToClashConverter.parse_ssh,
-                "wireguard": UriToClashConverter.parse_wireguard,
-                "anytls": UriToClashConverter.parse_anytls,
+                "vless": UriToClashConverter.parse_vless_trojan, "trojan": UriToClashConverter.parse_vless_trojan,
+                "ss": UriToClashConverter.parse_ss, "ssr": UriToClashConverter.parse_ssr,
+                "vmess": UriToClashConverter.parse_vmess, "hysteria": UriToClashConverter.parse_hysteria,
+                "hysteria2": UriToClashConverter.parse_hysteria2, "tuic": UriToClashConverter.parse_tuic,
+                "snell": UriToClashConverter.parse_snell, "ssh": UriToClashConverter.parse_ssh,
+                "wireguard": UriToClashConverter.parse_wireguard, "anytls": UriToClashConverter.parse_anytls,
                 "mieru": UriToClashConverter.parse_mieru,
             }
             if scheme in parsers:
@@ -39,24 +29,17 @@ class UriToClashConverter:
 
     @staticmethod
     def _get_params(uri: str) -> Dict:
-        """Helper to parse query parameters from a URL."""
         return parse_qs(urlparse(uri).query)
 
     @staticmethod
     def parse_vless_trojan(uri: str) -> Dict:
         parsed_uri = urlparse(uri)
         params = UriToClashConverter._get_params(uri)
-        proxy = {
-            "name": unquote(parsed_uri.fragment) or f"{parsed_uri.scheme}-{parsed_uri.hostname}",
-            "type": parsed_uri.scheme,
-            "server": parsed_uri.hostname,
-            "port": parsed_uri.port,
-            "udp": True
-        }
+        proxy = {"name": unquote(parsed_uri.fragment) or f"{parsed_uri.scheme}-{parsed_uri.hostname}", "type": parsed_uri.scheme, "server": parsed_uri.hostname, "port": parsed_uri.port, "udp": True}
         if parsed_uri.scheme == 'vless':
             proxy['uuid'] = parsed_uri.username
             if params.get('flow'): proxy['flow'] = params['flow'][0]
-        else: # trojan
+        else:
             proxy['password'] = parsed_uri.username
         proxy['network'] = params.get('type', ['tcp'])[0]
         if proxy['network'] == 'ws':
@@ -65,21 +48,16 @@ class UriToClashConverter:
             proxy['grpc-opts'] = {'grpc-service-name': params.get('serviceName', [''])[0]}
         security = params.get('security', ['none'])[0]
         if security == 'tls':
-            proxy['tls'] = True
-            proxy['servername'] = params.get('sni', [proxy['server']])[0]
-            proxy['skip-cert-verify'] = True
+            proxy['tls'] = True; proxy['servername'] = params.get('sni', [proxy['server']])[0]; proxy['skip-cert-verify'] = True
             if params.get('alpn'): proxy['alpn'] = params['alpn'][0].split(',')
             if params.get('fp'): proxy['client-fingerprint'] = params['fp'][0]
         elif security == 'reality':
-            proxy['tls'] = True
-            proxy['servername'] = params.get('sni', [proxy['server']])[0]
-            proxy['client-fingerprint'] = params.get('fp', ['chrome'])[0]
+            proxy['tls'] = True; proxy['servername'] = params.get('sni', [proxy['server']])[0]; proxy['client-fingerprint'] = params.get('fp', ['chrome'])[0]
             proxy['reality-opts'] = {'public-key': params.get('pbk', [''])[0], 'short-id': params.get('sid', [''])[0]}
         return proxy
 
     @staticmethod
     def parse_ss(uri: str) -> Dict:
-        # Implementation remains the same, it's already robust
         parsed_uri = urlparse(uri)
         params = UriToClashConverter._get_params(uri)
         if '@' in parsed_uri.netloc:
@@ -92,8 +70,7 @@ class UriToClashConverter:
                 cipher, password = decoded_user_info.split(':', 1)
         else:
             decoded_full = base64.b64decode(unquote(parsed_uri.netloc) + '===').decode('utf-8')
-            match = re.match(r'(.+?):(.+)', decoded_full)
-            cipher, password = match.groups()
+            match = re.match(r'(.+?):(.+)', decoded_full); cipher, password = match.groups()
         proxy = {"name": unquote(parsed_uri.fragment) or f"ss-{parsed_uri.hostname}", "type": "ss", "server": parsed_uri.hostname, "port": parsed_uri.port, "cipher": cipher, "password": password, "udp": True}
         if 'plugin' in params:
             proxy['plugin'] = params['plugin'][0]
@@ -104,10 +81,9 @@ class UriToClashConverter:
         
     @staticmethod
     def parse_ssr(uri: str) -> Dict:
-        # Implementation remains the same
         try:
             decoded_str = base64.b64decode(uri[6:].rstrip('=') + '===').decode('utf-8')
-            parts = decoded_str.split(':')
+            parts = decoded_str.split(':');
             if len(parts) < 6: return None
             server, port, protocol, method, obfs, password_b64_and_params = parts[0:6]
             password_b64 = password_b64_and_params.split('/?')[0]
@@ -119,44 +95,35 @@ class UriToClashConverter:
             
     @staticmethod
     def parse_vmess(uri: str) -> Dict:
-        # Implementation remains the same
-        decoded_str = base64.b64decode(uri[8:]).decode('utf-8')
-        vmess_data = json.loads(decoded_str)
+        decoded_str = base64.b64decode(uri[8:]).decode('utf-8'); vmess_data = json.loads(decoded_str)
         proxy = {"name": vmess_data.get('ps', f"vmess-{vmess_data.get('add')}"), "type": "vmess", "server": vmess_data.get('add'), "port": int(vmess_data.get('port')), "uuid": vmess_data.get('id'), "alterId": int(vmess_data.get('aid', 0)), "cipher": vmess_data.get('scy', 'auto'), "udp": True, "network": vmess_data.get('net', 'tcp'),}
         if vmess_data.get('tls') in ['tls', 'reality']:
-            proxy['tls'] = True
-            proxy['servername'] = vmess_data.get('sni', vmess_data.get('add'))
-            proxy['skip-cert-verify'] = True
+            proxy['tls'] = True; proxy['servername'] = vmess_data.get('sni', vmess_data.get('add')); proxy['skip-cert-verify'] = True
         if vmess_data.get('net') == 'ws':
              proxy['ws-opts'] = {'path': vmess_data.get('path', '/'), 'headers': {'Host': vmess_data.get('host', vmess_data.get('add'))}}
         return proxy
 
     @staticmethod
     def parse_hysteria(uri: str) -> Dict:
-        parsed_uri = urlparse(uri)
-        params = UriToClashConverter._get_params(uri)
+        parsed_uri = urlparse(uri); params = UriToClashConverter._get_params(uri)
         proxy = {"name": unquote(parsed_uri.fragment) or f"hysteria-{parsed_uri.hostname}", "type": "hysteria", "server": parsed_uri.hostname, "port": parsed_uri.port, "auth-str": parsed_uri.username, "up": params.get('up', ['50'])[0], "down": params.get('down', ['100'])[0], "protocol": params.get('protocol', [None])[0], "sni": params.get('sni', [parsed_uri.hostname])[0], "skip-cert-verify": True}
         return {k: v for k, v in proxy.items() if v is not None}
 
     @staticmethod
     def parse_hysteria2(uri: str) -> Dict:
-        parsed_uri = urlparse(uri)
-        params = UriToClashConverter._get_params(uri)
+        parsed_uri = urlparse(uri); params = UriToClاشConverter._get_params(uri)
         proxy = {"name": unquote(parsed_uri.fragment) or f"hysteria2-{parsed_uri.hostname}", "type": "hysteria2", "server": parsed_uri.hostname, "port": parsed_uri.port, "password": parsed_uri.username, "sni": params.get('sni', [parsed_uri.hostname])[0], "skip-cert-verify": True}
         return proxy
 
     @staticmethod
     def parse_tuic(uri: str) -> Dict:
-        parsed_uri = urlparse(uri)
-        params = UriToClashConverter._get_params(uri)
-        uuid, password = parsed_uri.username.split(':', 1)
+        parsed_uri = urlparse(uri); params = UriToClashConverter._get_params(uri); uuid, password = parsed_uri.username.split(':', 1)
         proxy = {"name": unquote(parsed_uri.fragment) or f"tuic-{parsed_uri.hostname}", "type": "tuic", "server": parsed_uri.hostname, "port": parsed_uri.port, "uuid": uuid, "password": password, "sni": params.get('sni', [parsed_uri.hostname])[0], "alpn": [params.get('alpn', ['h3'])[0]], "skip-cert-verify": True, "udp-relay-mode": params.get('udp-relay-mode', ['native'])[0]}
         return proxy
 
     @staticmethod
     def parse_snell(uri: str) -> Dict:
-        parsed_uri = urlparse(uri)
-        params = UriToClashConverter._get_params(uri)
+        parsed_uri = urlparse(uri); params = UriToClashConverter._get_params(uri)
         proxy = {"name": unquote(parsed_uri.fragment) or f"snell-{parsed_uri.hostname}", "type": "snell", "server": parsed_uri.hostname, "port": parsed_uri.port, "psk": parsed_uri.username, "version": params.get('version', ['3'])[0],}
         if params.get('obfs'): proxy['obfs-opts'] = {'mode': params['obfs'][0]}
         return proxy
@@ -169,29 +136,26 @@ class UriToClashConverter:
         
     @staticmethod
     def parse_wireguard(uri: str) -> Dict:
-        parsed_uri = urlparse(uri)
-        params = UriToClashConverter._get_params(uri)
-        proxy = {"name": unquote(parsed_uri.fragment) or f"wg-{parsed_uri.hostname}", "type": "wireguard", "server": parsed_uri.hostname, "port": parsed_uri.port, "private-key": parsed_uri.username, "public-key": params.get('publicKey', [''])[0], "ip": params.get('address', ['172.16.0.2/32'])[0], "udp": True}
+        parsed_uri = urlparse(uri); params = UriToClashConverter._get_params(uri)
+        # URL-decode the private key from userinfo
+        private_key = unquote(parsed_uri.username)
+        proxy = {"name": unquote(parsed_uri.fragment) or f"wg-{parsed_uri.hostname}", "type": "wireguard", "server": parsed_uri.hostname, "port": parsed_uri.port, "private-key": private_key, "public-key": params.get('publicKey', [''])[0], "ip": params.get('address', ['172.16.0.2/32'])[0], "udp": True}
         if params.get('presharedKey'): proxy['pre-shared-key'] = params['presharedKey'][0]
         return proxy
 
     @staticmethod
     def parse_anytls(uri: str) -> Dict:
-        parsed_uri = urlparse(uri)
-        params = UriToClashConverter._get_params(uri)
+        parsed_uri = urlparse(uri); params = UriToClashConverter._get_params(uri)
         proxy = {"name": unquote(parsed_uri.fragment) or f"anytls-{parsed_uri.hostname}", "type": "anytls", "server": parsed_uri.hostname, "port": parsed_uri.port, "password": parsed_uri.username, "client-fingerprint": params.get('fp', ['chrome'])[0], "sni": params.get('sni', [parsed_uri.hostname])[0], "alpn": params.get('alpn', ['h2,http/1.1'])[0].split(','), "skip-cert-verify": True, "udp": True}
         return proxy
         
     @staticmethod
     def parse_mieru(uri: str) -> Dict:
-        # Assumes mieru://user@host:port?password=pass format
-        parsed_uri = urlparse(uri)
-        params = UriToClashConverter._get_params(uri)
+        parsed_uri = urlparse(uri); params = UriToClashConverter._get_params(uri)
         proxy = {"name": unquote(parsed_uri.fragment) or f"mieru-{parsed_uri.hostname}", "type": "mieru", "server": parsed_uri.hostname, "port": parsed_uri.port, "username": parsed_uri.username, "password": params.get('password', [''])[0], "transport": "TCP", "multiplexing": "MULTIPLEXING_LOW"}
         return proxy
 
 def replace_placeholders(data, proxy_names):
-    # Implementation remains the same
     if isinstance(data, dict):
         for key, value in data.items(): data[key] = replace_placeholders(value, proxy_names)
     elif isinstance(data, list):
@@ -203,42 +167,29 @@ def replace_placeholders(data, proxy_names):
     return data
 
 def main():
-    # Implementation remains the same
-    configs_dir, templates_dir = 'configs', 'templates'
+    configs_dir = 'configs'; templates_dir = 'templates'
     input_file_path = os.path.join(configs_dir, 'proxy_configs.txt')
-    if not os.path.exists(input_file_path):
-        print(f"ERROR: Input file not found: {input_file_path}")
-        return
-    with open(input_file_path, 'r', encoding='utf-8') as f:
-        all_uris = f.read().strip().split()
+    if not os.path.exists(input_file_path): print(f"ERROR: Input file not found: {input_file_path}"); return
+    with open(input_file_path, 'r', encoding='utf-8') as f: all_uris = f.read().strip().split()
     all_clash_proxies = []
     for uri in all_uris:
         clash_proxy = UriToClashConverter.parse(uri)
         if clash_proxy: all_clash_proxies.append(clash_proxy)
-    if not all_clash_proxies:
-        print("WARNING: No valid Clash-compatible proxies were generated.")
-        return
+    if not all_clash_proxies: print("WARNING: No valid Clash-compatible proxies were generated."); return
     print(f"Successfully converted {len(all_clash_proxies)} URIs to Clash format.")
-    if not os.path.isdir(templates_dir):
-        print(f"ERROR: Templates directory '{templates_dir}' not found.")
-        return
+    if not os.path.isdir(templates_dir): print(f"ERROR: Templates directory '{templates_dir}' not found."); return
     template_files = [f for f in os.listdir(templates_dir) if f.endswith(('.yaml', '.yml'))]
-    if not template_files:
-        print(f"WARNING: No templates found in '{templates_dir}'.")
-        return
+    if not template_files: print(f"WARNING: No templates found in '{templates_dir}'."); return
     for template_file in template_files:
         template_path = os.path.join(templates_dir, template_file)
         template_base_name = os.path.splitext(template_file)[0]
         print(f"\n--- Processing template: {template_file} ---")
-        with open(template_path, 'r', encoding='utf-8') as f:
-            template_data = yaml.safe_load(f)
+        with open(template_path, 'r', encoding='utf-8') as f: template_data = yaml.safe_load(f)
         proxy_names = [p['name'] for p in all_clash_proxies]
-        combined_data = dict(template_data)
-        combined_data['proxies'] = all_clash_proxies
+        combined_data = dict(template_data); combined_data['proxies'] = all_clash_proxies
         replace_placeholders(combined_data.get('proxy-groups', []), proxy_names)
         output_filename = os.path.join(configs_dir, f"{template_base_name}_combined.yaml")
-        with open(output_filename, 'w', encoding='utf-8') as f:
-            yaml.dump(combined_data, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
+        with open(output_filename, 'w', encoding='utf-8') as f: yaml.dump(combined_data, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
         print(f"-> Saved combined Clash config to: {output_filename}")
         categorized_proxies = {}
         for proxy in all_clash_proxies:
@@ -252,9 +203,7 @@ def main():
             per_protocol_proxy_names = [p['name'] for p in proxies_list]
             replace_placeholders(per_protocol_data.get('proxy-groups', []), per_protocol_proxy_names)
             output_filename = os.path.join(configs_dir, f"{template_base_name}_{ptype}.yaml")
-            with open(output_filename, 'w', encoding='utf-8') as f:
-                yaml.dump(per_protocol_data, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
+            with open(output_filename, 'w', encoding='utf-8') as f: yaml.dump(per_protocol_data, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
             print(f"-> Saved {ptype}-only Clash config to: {output_filename}")
 
-if __name__ == "__main__":
-    main()
+if __name__ == "__main__": main()
