@@ -5,10 +5,16 @@ import base64
 import json
 from urllib.parse import urlparse, parse_qs, unquote
 from typing import Optional, Dict, List
+import copy
 
 class UriToClashConverter:
+    """
+    A comprehensive helper class to convert various proxy URI schemes 
+    into Clash-compatible dictionaries, based on extended Clash.Meta standards.
+    """
     @staticmethod
     def parse(uri: str) -> Optional[Dict]:
+        """Dispatches URI to the appropriate parser based on its scheme."""
         try:
             scheme = uri.split("://")[0]
             parsers = {
@@ -34,6 +40,7 @@ class UriToClashConverter:
 
     @staticmethod
     def _get_params(uri: str) -> Dict:
+        """Helper to parse query parameters from a URL."""
         return parse_qs(urlparse(uri).query)
 
     @staticmethod
@@ -51,7 +58,7 @@ class UriToClashConverter:
             proxy['uuid'] = parsed_uri.username
             if params.get('flow'):
                 proxy['flow'] = params['flow'][0]
-        else:
+        else: # trojan
             proxy['password'] = parsed_uri.username
         proxy['network'] = params.get('type', ['tcp'])[0]
         if proxy['network'] == 'ws':
@@ -95,8 +102,12 @@ class UriToClashConverter:
             cipher, password = match.groups()
         proxy = {
             "name": unquote(parsed_uri.fragment) or f"ss-{parsed_uri.hostname}",
-            "type": "ss", "server": parsed_uri.hostname, "port": parsed_uri.port,
-            "cipher": cipher, "password": password, "udp": True
+            "type": "ss",
+            "server": parsed_uri.hostname,
+            "port": parsed_uri.port,
+            "cipher": cipher,
+            "password": password,
+            "udp": True
         }
         if 'plugin' in params:
             proxy['plugin'] = params['plugin'][0]
@@ -222,8 +233,11 @@ class UriToClashConverter:
         private_key = unquote(parsed_uri.username)
         proxy = {
             "name": unquote(parsed_uri.fragment) or f"wg-{parsed_uri.hostname}",
-            "type": "wireguard", "server": parsed_uri.hostname, "port": parsed_uri.port,
-            "private-key": private_key, "public-key": params.get('publicKey', [''])[0],
+            "type": "wireguard",
+            "server": parsed_uri.hostname,
+            "port": parsed_uri.port,
+            "private-key": private_key,
+            "public-key": params.get('publicKey', [''])[0],
             "udp": True
         }
         addresses = params.get('address', ['172.16.0.2/32'])[0].split(',')
@@ -297,11 +311,25 @@ def main():
         if clash_proxy:
             all_clash_proxies.append(clash_proxy)
 
+    # --- De-duplication Logic Added ---
+    name_counts = {}
+    unique_proxies = []
+    for proxy in all_clash_proxies:
+        name = proxy.get('name', 'proxy')
+        if name in name_counts:
+            name_counts[name] += 1
+            proxy['name'] = f"{name}-{name_counts[name]}"
+        else:
+            name_counts[name] = 1
+        unique_proxies.append(proxy)
+    all_clash_proxies = unique_proxies
+    # --- End of De-duplication Logic ---
+
     if not all_clash_proxies:
         print("WARNING: No valid Clash-compatible proxies were generated.")
         return
     
-    print(f"Successfully converted {len(all_clash_proxies)} URIs to Clash format.")
+    print(f"Successfully converted and de-duplicated {len(all_clash_proxies)} URIs to Clash format.")
     
     if not os.path.isdir(templates_dir):
         print(f"ERROR: Templates directory '{templates_dir}' not found.")
@@ -322,7 +350,6 @@ def main():
         
         proxy_names = [p['name'] for p in all_clash_proxies]
         
-        import copy
         combined_data = copy.deepcopy(template_data)
         combined_data['proxies'] = all_clash_proxies
         replace_placeholders(combined_data.get('proxy-groups', []), proxy_names)
@@ -341,7 +368,7 @@ def main():
             
         for ptype, proxies_list in categorized_proxies.items():
             if not proxies_list: continue
-
+            
             per_protocol_data = copy.deepcopy(template_data)
             per_protocol_data['proxies'] = proxies_list
             per_protocol_proxy_names = [p['name'] for p in proxies_list]
