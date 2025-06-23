@@ -8,8 +8,9 @@ class ConfigValidator:
     @staticmethod
     def is_base64(s: str) -> bool:
         try:
+            # Allow for URL-safe Base64 characters as well
             s = s.rstrip('=')
-            return bool(re.match(r'^[A-Za-z0-9+/\-_]*$', s))
+            return bool(re.match(r'^[A-Za-z0-9+/_-]*$', s))
         except:
             return False
 
@@ -81,7 +82,7 @@ class ConfigValidator:
 
     @staticmethod
     def is_base64_config(config: str) -> Tuple[bool, str]:
-        protocols = ['vmess://', 'vless://', 'ss://', 'tuic://']
+        protocols = ['vmess://', 'vless://', 'ss://', 'tuic://', 'ssr://']
         for protocol in protocols:
             if config.startswith(protocol):
                 base64_part = config[len(protocol):]
@@ -96,7 +97,9 @@ class ConfigValidator:
         try:
             decoded_text = ConfigValidator.decode_base64_text(text)
             if decoded_text:
-                protocols = ['vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'hy2://', 'wireguard://', 'tuic://', 'ssconf://']
+                protocols = ['vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'hy2://', 
+                             'wireguard://', 'tuic://', 'ssconf://', 'ssr://', 'hysteria://', 'snell://',
+                             'ssh://', 'mieru://', 'anytls://', 'warp://', 'juicity://'] # <-- Added juicity
                 for protocol in protocols:
                     if protocol in decoded_text:
                         return decoded_text
@@ -106,60 +109,39 @@ class ConfigValidator:
 
     @staticmethod
     def split_configs(text: str) -> List[str]:
-        configs = []
-        lines = text.split('\n')
+        all_protocols = [
+            'vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'hy2://', 
+            'wireguard://', 'tuic://', 'ssconf://', 'ssr://', 'hysteria://', 'snell://',
+            'ssh://', 'mieru://', 'anytls://', 'warp://', 'juicity://' # <-- Added juicity
+        ]
         
-        for line in lines:
-            line = line.strip()
-            if not line:
+        configs = []
+        potential_configs = re.split(r'[\s\n]+', text)
+
+        for p_config in potential_configs:
+            p_config = p_config.strip()
+            if not p_config:
                 continue
-                
-            if ConfigValidator.is_base64(line):
-                decoded_content = ConfigValidator.check_base64_content(line)
-                if decoded_content:
-                    text = decoded_content
-                    
-            protocols = ['vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'hy2://', 'wireguard://', 'tuic://', 'ssconf://']
-            current_pos = 0
-            text_length = len(text)
-            
-            while current_pos < text_length:
-                next_config_start = text_length
-                matching_protocol = None
-                
-                for protocol in protocols:
-                    protocol_pos = text.find(protocol, current_pos)
-                    if protocol_pos != -1 and protocol_pos < next_config_start:
-                        next_config_start = protocol_pos
-                        matching_protocol = protocol
-                
-                if matching_protocol:
-                    if current_pos < next_config_start and configs:
-                        current_config = text[current_pos:next_config_start].strip()
-                        if ConfigValidator.is_valid_config(current_config):
-                            configs.append(current_config)
-                    
-                    current_pos = next_config_start
-                    next_protocol_pos = text_length
-                    
-                    for protocol in protocols:
-                        pos = text.find(protocol, next_config_start + len(matching_protocol))
-                        if pos != -1 and pos < next_protocol_pos:
-                            next_protocol_pos = pos
-                    
-                    current_config = text[next_config_start:next_protocol_pos].strip()
-                    if matching_protocol == "vmess://":
-                        current_config = ConfigValidator.clean_vmess_config(current_config)
-                    elif matching_protocol == "hy2://":
-                        current_config = ConfigValidator.normalize_hysteria2_protocol(current_config)
-                    if ConfigValidator.is_valid_config(current_config):
-                        configs.append(current_config)
-                    
-                    current_pos = next_protocol_pos
-                else:
+
+            decoded_content = ConfigValidator.check_base64_content(p_config)
+            if decoded_content:
+                configs.extend(ConfigValidator.split_configs(decoded_content))
+                continue
+
+            for protocol in all_protocols:
+                if p_config.lower().startswith(protocol):
+                    if ConfigValidator.is_valid_config(p_config):
+                        clean_conf = ConfigValidator.clean_config(p_config)
+                        if clean_conf.startswith("vmess://"):
+                            clean_conf = ConfigValidator.clean_vmess_config(clean_conf)
+                        elif clean_conf.startswith("hy2://"):
+                            clean_conf = ConfigValidator.normalize_hysteria2_protocol(clean_conf)
+                        configs.append(clean_conf)
                     break
-                    
-        return configs
+        
+        seen = set()
+        return [x for x in configs if not (x in seen or seen.add(x))]
+
 
     @staticmethod
     def clean_config(config: str) -> str:
@@ -173,29 +155,46 @@ class ConfigValidator:
     def is_valid_config(config: str) -> bool:
         if not config:
             return False
-            
-        protocols = ['vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'hy2://', 'wireguard://', 'tuic://', 'ssconf://']
+
+        protocols = [
+            'vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'hy2://', 
+            'wireguard://', 'tuic://', 'ssconf://', 'ssr://', 'hysteria://', 'snell://',
+            'ssh://', 'mieru://', 'anytls://', 'warp://', 'juicity://' # <-- Added juicity
+        ]
         return any(config.startswith(p) for p in protocols)
 
     @classmethod
     def validate_protocol_config(cls, config: str, protocol: str) -> bool:
         try:
-            if protocol in ['vmess://', 'vless://', 'ss://', 'tuic://']:
+            if protocol in ['vmess://', 'vless://', 'ss://', 'tuic://', 'ssr://']:
                 if protocol == 'vmess://':
                     return cls.is_vmess_config(config)
                 if protocol == 'tuic://':
                     return cls.is_tuic_config(config)
+                
                 base64_part = config[len(protocol):]
+                if not base64_part: return False
+                
                 decoded_url = unquote(base64_part)
-                if cls.is_base64(decoded_url) or cls.is_base64(base64_part):
+                return cls.is_base64(decoded_url) or cls.is_base64(base64_part)
+
+            elif protocol in ['trojan://', 'hysteria2://', 'hy2://', 'wireguard://', 
+                              'hysteria://', 'snell://', 'ssh://', 'anytls://', 'mieru://', 'warp://',
+                              'juicity://']: # <-- Added juicity
+                if protocol == 'warp://':
                     return True
-                if cls.decode_base64_url(base64_part) or cls.decode_base64_url(decoded_url):
-                    return True
-            elif protocol in ['trojan://', 'hysteria2://', 'hy2://', 'wireguard://']:
+
                 parsed = urlparse(config)
-                return bool(parsed.netloc and '@' in parsed.netloc)
+                if not parsed.netloc:
+                    return False
+                # These protocols require user info (e.g., password@host)
+                if protocol in ['trojan://', 'hysteria://', 'ssh://', 'snell://', 'anytls://', 'juicity://']:
+                    return '@' in parsed.netloc
+                return True
+
             elif protocol == 'ssconf://':
                 return True
+
             return False
         except:
             return False
