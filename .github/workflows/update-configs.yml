@@ -48,6 +48,10 @@ jobs:
     - name: Convert configs to sing-box format
       run: python src/config_to_singbox.py
 
+    # --- Step جدید برای ساخت README پوشه configs اضافه شد ---
+    - name: Generate Output Directory README
+      run: python src/generate_output_readme.py
+
     - name: Update README timestamps and stats
       run: |
         timestamp=$(date +%s)
@@ -69,16 +73,16 @@ jobs:
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
     
-    # --- بخش Commit به‌روز شد ---
+    # --- بخش Commit برای افزودن تمام فایل‌های جدید بهینه شد ---
     - name: Commit and push changes
       run: |
-        # Add all generated files
+        # Add all new and modified files automatically
         git add -A
 
-        # Commit changes if there are any
+        # Commit changes only if there are any to commit
         git diff-index --quiet HEAD || git commit -m "Update proxy configs, stats and reports"
         
-        # Pull remote changes and rebase before pushing
+        # Pull remote changes and rebase before pushing to avoid conflicts
         git pull --rebase
         
         # Push the changes
