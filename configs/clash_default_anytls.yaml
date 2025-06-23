@@ -124,42 +124,6 @@ proxies:
   - http/1.1
   skip-cert-verify: true
   udp: true
-- name: 🇯🇵日本 01
-  type: anytls
-  server: jp.aeccssssss.xyz
-  port: 6563
-  password: 0991bb00-5a25-4c42-8205-153787512b5b
-  client-fingerprint: chrome
-  sni: jp.aeccssssss.xyz
-  alpn:
-  - h2
-  - http/1.1
-  skip-cert-verify: true
-  udp: true
-- name: 🇯🇵日本 02
-  type: anytls
-  server: jp.aeccssssss.xyz
-  port: 6563
-  password: 0991bb00-5a25-4c42-8205-153787512b5b
-  client-fingerprint: chrome
-  sni: jp.aeccssssss.xyz
-  alpn:
-  - h2
-  - http/1.1
-  skip-cert-verify: true
-  udp: true
-- name: 🇯🇵日本 03
-  type: anytls
-  server: jp2.aeccssssss.xyz
-  port: 6563
-  password: 0991bb00-5a25-4c42-8205-153787512b5b
-  client-fingerprint: chrome
-  sni: jp2.aeccssssss.xyz
-  alpn:
-  - h2
-  - http/1.1
-  skip-cert-verify: true
-  udp: true
 - name: 🇸🇬新加坡 01
   type: anytls
   server: sg.aeccssssss.xyz
@@ -354,9 +318,6 @@ proxy-groups:
   icon: https://www.svgrepo.com/show/372331/cursor-hand-click.svg
   proxies:
   - 🇭🇰香港 大B哥赞助
-  - 🇯🇵日本 01
-  - 🇯🇵日本 02
-  - 🇯🇵日本 03
   - 🇸🇬新加坡 01
   - 🇸🇬新加坡 02
   - 🇸🇬新加坡 03
@@ -382,9 +343,6 @@ proxy-groups:
   lazy: true
   proxies:
   - 🇭🇰香港 大B哥赞助
-  - 🇯🇵日本 01
-  - 🇯🇵日本 02
-  - 🇯🇵日本 03
   - 🇸🇬新加坡 01
   - 🇸🇬新加坡 02
   - 🇸🇬新加坡 03
@@ -410,9 +368,6 @@ proxy-groups:
   lazy: true
   proxies:
   - 🇭🇰香港 大B哥赞助
-  - 🇯🇵日本 01
-  - 🇯🇵日本 02
-  - 🇯🇵日本 03
   - 🇸🇬新加坡 01
   - 🇸🇬新加坡 02
   - 🇸🇬新加坡 03

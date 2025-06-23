@@ -124,42 +124,6 @@ proxies:
   - http/1.1
   skip-cert-verify: true
   udp: true
-- name: 🇯🇵日本 01
-  type: anytls
-  server: jp.aeccssssss.xyz
-  port: 6563
-  password: 0991bb00-5a25-4c42-8205-153787512b5b
-  client-fingerprint: chrome
-  sni: jp.aeccssssss.xyz
-  alpn:
-  - h2
-  - http/1.1
-  skip-cert-verify: true
-  udp: true
-- name: 🇯🇵日本 02
-  type: anytls
-  server: jp.aeccssssss.xyz
-  port: 6563
-  password: 0991bb00-5a25-4c42-8205-153787512b5b
-  client-fingerprint: chrome
-  sni: jp.aeccssssss.xyz
-  alpn:
-  - h2
-  - http/1.1
-  skip-cert-verify: true
-  udp: true
-- name: 🇯🇵日本 03
-  type: anytls
-  server: jp2.aeccssssss.xyz
-  port: 6563
-  password: 0991bb00-5a25-4c42-8205-153787512b5b
-  client-fingerprint: chrome
-  sni: jp2.aeccssssss.xyz
-  alpn:
-  - h2
-  - http/1.1
-  skip-cert-verify: true
-  udp: true
 - name: 🇸🇬新加坡 01
   type: anytls
   server: sg.aeccssssss.xyz
@@ -368,216 +332,227 @@ proxies:
   port: 1014
   private-key: +PKqyWtT0G14ecvjTFt+9UZqmrK0F/o3EiLh+sW+/2c=
   public-key: ''
-  ip: 172.16.0.2/32
   udp: true
+  ip: 172.16.0.2/32
 - name: $$$+jadid+💪💪💪@freeiranianv2rey
   type: wireguard
   server: 188.114.97.227
   port: 7156
   private-key: 0M+HdI1UAxACTEm5/KJ+HTAuro4BZkyAvHsQC3l2pn0=
   public-key: ''
-  ip: 172.16.0.2/32
   udp: true
+  ip: 172.16.0.2/32
 - name: mci jadid 💪💪💪@freeiranianv2rey
   type: wireguard
   server: 188.114.98.12
   port: 1002
   private-key: 0M+HdI1UAxACTEm5/KJ+HTAuro4BZkyAvHsQC3l2pn0=
   public-key: ''
-  ip: 172.16.0.2/32
   udp: true
+  ip: 172.16.0.2/32
 - name: Peyman_wire-g
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
   private-key: 2a7X8sypU59BI/fBgFz96pEOz2fuoLhyC+Wo/or7AG0=
   public-key: ''
-  ip: 172.16.0.2/32,2606:4700:110:830c:9cf:a820:97e4:eb58/128
   udp: true
+  ip: 172.16.0.2/32
+  ipv6: 2606:4700:110:830c:9cf:a820:97e4:eb58/128
 - name: Peyman_wire-g
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
   private-key: 8yP7GczZO+rYweI/kfe3CPh5y/gZeJHOH1Y0/YdCNQE=
   public-key: ''
-  ip: 172.16.0.2/32,2606:4700:110:8732:b572:bd51:1319:701a/128
   udp: true
+  ip: 172.16.0.2/32
+  ipv6: 2606:4700:110:8732:b572:bd51:1319:701a/128
 - name: Anon7
   type: wireguard
   server: 188.114.98.68
   port: 945
   private-key: GAQOBNPwbXpuMZP0tEZtjeWz9gW6YwCYiZp95Yb+gVQ=
   public-key: ''
-  ip: 172.16.0.2/32
   udp: true
+  ip: 172.16.0.2/32
 - name: Anon2
   type: wireguard
   server: 188.114.99.209
   port: 942
   private-key: IBMHSrdMjVoo/25L+k7aSLLuF/vZG46jA5I+nti0404=
   public-key: ''
-  ip: 172.16.0.2/32
   udp: true
+  ip: 172.16.0.2/32
 - name: کانال+freeiranianv2rey
   type: wireguard
   server: 162.159.195.178
   port: 942
   private-key: QKRFk8I+jwBi4WlpjC1a75bb7oQGmHQnYfw0rThENEk=
   public-key: ''
-  ip: 172.16.0.2/32
   udp: true
+  ip: 172.16.0.2/32
 - name: jadid+💪💪💪@freeiranianv2rey
   type: wireguard
   server: 188.114.96.16
   port: 4233
   private-key: QKRFk8I+jwBi4WlpjC1a75bb7oQGmHQnYfw0rThENEk=
   public-key: ''
-  ip: 172.16.0.2/32
   udp: true
+  ip: 172.16.0.2/32
 - name: '@freeiranianv2rey+💯💯💯تا+ابد+رایگان'
   type: wireguard
   server: 188.114.96.49
   port: 864
   private-key: QKRFk8I+jwBi4WlpjC1a75bb7oQGmHQnYfw0rThENEk=
   public-key: ''
-  ip: 172.16.0.2/32
   udp: true
+  ip: 172.16.0.2/32
 - name: پرقدرت@freeiranianv2rey
   type: wireguard
   server: 188.114.97.239
   port: 908
   private-key: QKRFk8I+jwBi4WlpjC1a75bb7oQGmHQnYfw0rThENEk=
   public-key: ''
-  ip: 172.16.0.2/32
   udp: true
+  ip: 172.16.0.2/32
 - name: wg-2606:4700:d0::d91:179:c651:ed70
   type: wireguard
   server: 2606:4700:d0::d91:179:c651:ed70
   port: 7281
   private-key: QKRFk8I+jwBi4WlpjC1a75bb7oQGmHQnYfw0rThENEk=
   public-key: ''
-  ip: 172.16.0.2/32
   udp: true
+  ip: 172.16.0.2/32
+  mtu: 1280
 - name: Peyman_wire-g
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
   private-key: TZ9KX5f4LS6yXXrrvGPDaXE4cSnREOXmSlvGX0HFDUk=
   public-key: ''
-  ip: 172.16.0.2/32,2606:4700:110:8333:6253:7e18:c968:a9b4/128
   udp: true
+  ip: 172.16.0.2/32
+  ipv6: 2606:4700:110:8333:6253:7e18:c968:a9b4/128
 - name: Peyman_wire-g
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
   private-key: XFKIlbz50cW1O6W/dDI/CUf84W09tDB95TxnFZeTUeg=
   public-key: ''
-  ip: 172.16.0.2/32,2606:4700:110:8b17:39d0:f36f:ff51:ae39/128
   udp: true
+  ip: 172.16.0.2/32
+  ipv6: 2606:4700:110:8b17:39d0:f36f:ff51:ae39/128
 - name: Peyman_wire-g
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
   private-key: dr7toN/qjMdAgC5e1ak6UUrIKqXkAOVxNA0zOlxONWo=
   public-key: ''
-  ip: 172.16.0.2/32,2606:4700:110:82db:e273:b86c:afce:682a/128
   udp: true
+  ip: 172.16.0.2/32
+  ipv6: 2606:4700:110:82db:e273:b86c:afce:682a/128
 - name: Anon6
   type: wireguard
   server: 188.114.99.77
   port: 1002
   private-key: gIauKnNzXKMWEKvB+sHgqsuvuRgH8znnV7zGOBwrG1c=
   public-key: ''
-  ip: 172.16.0.2/32
   udp: true
+  ip: 172.16.0.2/32
 - name: Anon8
   type: wireguard
   server: 188.114.99.162
   port: 945
   private-key: gO8yVa81i3qwTA3jF5SGaJvsUmB/VNpGoLUMKfMsW3Y=
   public-key: ''
-  ip: 172.16.0.2/32
   udp: true
+  ip: 172.16.0.2/32
 - name: Peyman_wire-g
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
   private-key: jqgQPISKRcThYc3zrJ9QlalbJqF1V1wvhZ2ZB/CHQcI=
   public-key: ''
-  ip: 172.16.0.2/32,2606:4700:110:8403:bee5:cb32:242e:6bef/128
   udp: true
+  ip: 172.16.0.2/32
+  ipv6: 2606:4700:110:8403:bee5:cb32:242e:6bef/128
 - name: Anon5
   type: wireguard
   server: 188.114.99.13
   port: 1014
   private-key: oHuAPQ+Zp27PIW9rCfVhC67cRF4hmQslv02RsvRKJFA=
   public-key: ''
-  ip: 172.16.0.2/32
   udp: true
+  ip: 172.16.0.2/32
 - name: Anon4
   type: wireguard
   server: 188.114.96.13
   port: 880
   private-key: oO1w9zWoj855k41EX5KeM1jCidPjSJtgMLSxnMKLW1M=
   public-key: ''
-  ip: 172.16.0.2/32
   udp: true
+  ip: 172.16.0.2/32
 - name: Peyman_wire-g
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
   private-key: p6mukTdYR+l6bZpcn9rV/Co+4xLuaq/Y94IGKbPKwrc=
   public-key: ''
-  ip: 172.16.0.2/32,2606:4700:110:88d8:302b:95a5:5c87:3f24/128
   udp: true
+  ip: 172.16.0.2/32
+  ipv6: 2606:4700:110:88d8:302b:95a5:5c87:3f24/128
 - name: Anon3
   type: wireguard
   server: 188.114.97.240
   port: 908
   private-key: qPvJ0+mwPeeY0I5APw6FSf4I1EOiMkRw36RdLiInpVY=
   public-key: ''
-  ip: 172.16.0.2/32
   udp: true
+  ip: 172.16.0.2/32
 - name: Peyman_wire-g
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
   private-key: sLonSHqEbXcTbHuYTPtk4YknU6TdMLu/BikQCp86O2s=
   public-key: ''
-  ip: 172.16.0.2/32,2606:4700:110:8910:aac9:90ab:3612:51a6/128
   udp: true
+  ip: 172.16.0.2/32
+  ipv6: 2606:4700:110:8910:aac9:90ab:3612:51a6/128
 - name: Peyman_wire-g
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
   private-key: vkvyxAA14slFt86XMj3SUX3Fs7ITF7g5uyNrnOpnOs0=
   public-key: ''
-  ip: 172.16.0.2/32,2606:4700:110:8e4c:5487:8225:221d:b857/128
   udp: true
+  ip: 172.16.0.2/32
+  ipv6: 2606:4700:110:8e4c:5487:8225:221d:b857/128
 - name: Anon9
   type: wireguard
   server: 188.114.96.23
   port: 945
   private-key: wDgEhNfjrpuiuGDgfQWpYvq27Rjyjj3eqTTx5n/gL28=
   public-key: ''
-  ip: 172.16.0.2/32
   udp: true
+  ip: 172.16.0.2/32
 - name: Anon1
   type: wireguard
   server: 188.114.97.164
   port: 968
   private-key: yINGSvsLXkPXD9Sp91UUNCVuyGgngJJRc8mPZkd5A10=
   public-key: ''
-  ip: 172.16.0.2/32
   udp: true
+  ip: 172.16.0.2/32
 - name: Peyman_wire-g
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
   private-key: yTvOYffOc8M73zPCz2SiYdRmgbr65/yWNykzFsw4ac8=
   public-key: ''
-  ip: 172.16.0.2/32,2606:4700:110:8c54:d0ff:6a5d:94a1:4303/128
   udp: true
+  ip: 172.16.0.2/32
+  ipv6: 2606:4700:110:8c54:d0ff:6a5d:94a1:4303/128
 proxy-groups:
 - name: نوع انتخاب پروکسی 🔀
   icon: https://www.svgrepo.com/show/412721/choose.svg
@@ -592,9 +567,6 @@ proxy-groups:
   icon: https://www.svgrepo.com/show/372331/cursor-hand-click.svg
   proxies:
   - 🇭🇰香港 大B哥赞助
-  - 🇯🇵日本 01
-  - 🇯🇵日本 02
-  - 🇯🇵日本 03
   - 🇸🇬新加坡 01
   - 🇸🇬新加坡 02
   - 🇸🇬新加坡 03
@@ -649,9 +621,6 @@ proxy-groups:
   lazy: true
   proxies:
   - 🇭🇰香港 大B哥赞助
-  - 🇯🇵日本 01
-  - 🇯🇵日本 02
-  - 🇯🇵日本 03
   - 🇸🇬新加坡 01
   - 🇸🇬新加坡 02
   - 🇸🇬新加坡 03
@@ -706,9 +675,6 @@ proxy-groups:
   lazy: true
   proxies:
   - 🇭🇰香港 大B哥赞助
-  - 🇯🇵日本 01
-  - 🇯🇵日本 02
-  - 🇯🇵日本 03
   - 🇸🇬新加坡 01
   - 🇸🇬新加坡 02
   - 🇸🇬新加坡 03
