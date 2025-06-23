@@ -49,7 +49,9 @@ class ClashConverter:
 
     @staticmethod
     def to_vless(proxy: Dict) -> str:
-        server, port, uuid = proxy.get("server", ""), proxy.get("port", ""), proxy.get("uuid", "")
+        server = proxy.get("server", "")
+        port = proxy.get("port", "")
+        uuid = proxy.get("uuid", "")
         name = quote(proxy.get("name", ""))
         params = {
             "type": proxy.get("network"),
@@ -140,7 +142,7 @@ class ClashConverter:
         params = {'publicKey': proxy.get('public-key', ''), 'address': proxy.get('ip', ''), 'presharedKey': proxy.get('pre-shared-key', '')}
         params = {k: v for k, v in params.items() if v}
         return f"wireguard://{private_key}@{server}:{port}?{urlencode(params)}#{name}"
-
+    
     @staticmethod
     def to_anytls(proxy: dict) -> str:
         password, server, port = quote(proxy.get('password', '')), proxy.get('server', ''), proxy.get('port', '')
@@ -148,7 +150,6 @@ class ClashConverter:
         params = {'sni': proxy.get('sni'), 'fp': proxy.get('client-fingerprint'), 'insecure': 1 if proxy.get('skip-cert-verify') else 0}
         params = {k: v for k, v in params.items() if v is not None}
         return f"anytls://{password}@{server}:{port}?{urlencode(params)}#{name}"
-
 
 class ConfigFetcher:
     def __init__(self, config: ProxyConfig):
@@ -288,7 +289,6 @@ class ConfigFetcher:
         unique_configs = sorted(list(dict.fromkeys(all_configs)))
         return self.balance_protocols(unique_configs)
 
-
 def save_configs(categorized_configs: Dict[str, List[str]], config: ProxyConfig):
     try:
         output_dir = os.path.dirname(config.OUTPUT_FILE)
@@ -346,15 +346,11 @@ def save_channel_stats(config: ProxyConfig):
         stats = {'timestamp': datetime.now(timezone.utc).isoformat(), 'channels': []}
         for channel in config.SOURCE_URLS:
             channel_stats = {
-                'url': channel.url,
-                'enabled': channel.enabled,
+                'url': channel.url, 'enabled': channel.enabled,
                 'metrics': {
-                    'total_configs': channel.metrics.total_configs,
-                    'valid_configs': channel.metrics.valid_configs,
-                    'unique_configs': channel.metrics.unique_configs,
-                    'avg_response_time': round(channel.metrics.avg_response_time, 2),
-                    'success_count': channel.metrics.success_count,
-                    'fail_count': channel.metrics.fail_count,
+                    'total_configs': channel.metrics.total_configs, 'valid_configs': channel.metrics.valid_configs,
+                    'unique_configs': channel.metrics.unique_configs, 'avg_response_time': round(channel.metrics.avg_response_time, 2),
+                    'success_count': channel.metrics.success_count, 'fail_count': channel.metrics.fail_count,
                     'overall_score': round(channel.metrics.overall_score, 2),
                     'last_success': channel.metrics.last_success_time.isoformat() if channel.metrics.last_success_time else None,
                     'protocol_counts': channel.metrics.protocol_counts,
