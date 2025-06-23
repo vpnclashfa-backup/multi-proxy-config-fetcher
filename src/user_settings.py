@@ -27,7 +27,6 @@ SOURCE_URLS = [
     "https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/refs/heads/main/protocols/juicity",
     "https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/refs/heads/main/protocols/tuic",
     "https://raw.githubusercontent.com/valid7996/Gozargah/refs/heads/main/Gozargah_Sub",
-    "https://raw.githubusercontent.com/yebekhe/TVC/refs/heads/main/subscriptions/warp/config",
 
 
     "https://t.me/s/ahmedhamoomi_servers",
