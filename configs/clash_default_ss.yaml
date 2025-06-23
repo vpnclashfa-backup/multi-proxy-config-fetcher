@@ -1211,56 +1211,28 @@ proxies:
   cipher: 2022-blake3-aes-128-gcm
   password: ZjljOTNlMzhhMjFmYTlhMg==:ZTQ2MzIwYmEtMzk1ZS00OA==
   udp: true
-- name: ss-mjaymi1ibgfrztmtywvzlti1ni1ny206vnqwoeg0qwrlqmdhehvevzivkzznv2lpsxd6kzy1ehb3dlpxk2xkejhlbz06cfnjqnpmk0gwbxv4tuzqzw1hsmrttwvwsudgv1nzvhkwb2graxnqmzuxrt0
-  type: ss
-  server: mjaymi1ibgfrztmtywvzlti1ni1ny206vnqwoeg0qwrlqmdhehvevzivkzznv2lpsxd6kzy1ehb3dlpxk2xkejhlbz06cfnjqnpmk0gwbxv4tuzqzw1hsmrttwvwsudgv1nzvhkwb2graxnqmzuxrt0
-  port: null
-  cipher: 2022-blake3-aes-256-gcm
-  password: Vt08H4AdKBgaxuDW2/+6MWiiIwz+65xpwvZq+ldz8Ko=:pSIBzL+H0muxMFjemGJdmMeVIGFWSYTy0oh+isj351E=
-  udp: true
-- name: 🇸🇬 新加�%A
-  type: ss
-  server: y2hhy2hhmja6rhzqzkthohzzvjllqde0lje4lji1my4xnzg6odmzna
-  port: null
-  cipher: chacha20
-  password: DvPfKa8vsV9K@14.18.253.178:8334
-  udp: true
-- name: 🇭🇰 香港
-  type: ss
-  server: y2hhy2hhmja6djvhvvv0bwuzanhzqde0lje4lji1my4xnzg6otawmw
-  port: null
-  cipher: chacha20
-  password: v5aUUtme3jxs@14.18.253.178:9003
-  udp: true
 - name: '@Hope_Net'
   type: ss
   server: free.2apzhfa.xyz
-  port: 31113
+  port: 31145
   cipher: chacha20-ietf-poly1305
   password: 45e7bf92-efab-4cbe-910f-667ed6ec1c75
   udp: true
 - name: '@Hope_Net-2'
   type: ss
   server: free.2apzhfa.xyz
-  port: 31143
+  port: 31171
   cipher: chacha20-ietf-poly1305
   password: 45e7bf92-efab-4cbe-910f-667ed6ec1c75
   udp: true
 - name: '@Hope_Net-3'
   type: ss
   server: free.2apzhfa.xyz
-  port: 31171
-  cipher: chacha20-ietf-poly1305
-  password: 45e7bf92-efab-4cbe-910f-667ed6ec1c75
-  udp: true
-- name: '@Hope_Net-4'
-  type: ss
-  server: free.2apzhfa.xyz
   port: 31341
   cipher: chacha20-ietf-poly1305
   password: 45e7bf92-efab-4cbe-910f-667ed6ec1c75
   udp: true
-- name: '@Hope_Net-5'
+- name: '@Hope_Net-4'
   type: ss
   server: free.2apzhfa.xyz
   port: 31511
@@ -1397,6 +1369,13 @@ proxies:
 - name: ' ❤️@Kayh_GNG - Github.com/kayhgng-4'
   type: ss
   server: 45.87.175.157
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: 4a2rfixophdjffa8KVA4Aa
+  udp: true
+- name: ss-45.87.175.164
+  type: ss
+  server: 45.87.175.164
   port: 8080
   cipher: chacha20-ietf-poly1305
   password: 4a2rfixophdjffa8KVA4Aa
@@ -1548,6 +1527,13 @@ proxies:
   port: 65262
   cipher: chacha20-ietf-poly1305
   password: 53zXtxNvx3MZykoPK58kGs
+  udp: true
+- name: ss-4.223.106.151
+  type: ss
+  server: 4.223.106.151
+  port: 48172
+  cipher: chacha20-ietf-poly1305
+  password: 51yloQC8D9w1Wae7FHtI65
   udp: true
 - name: ss-azure-sto.edgeservers.org
   type: ss
@@ -2116,49 +2102,28 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: 54de5bc2-fd5d-4aa1-adc8-6beb11e402b5
   udp: true
-- name: '@Hope_Net-6'
+- name: '@Hope_Net-5'
   type: ss
   server: free.2weradf.xyz
   port: 36115
   cipher: chacha20-ietf-poly1305
   password: 59d299c7-3696-4ea4-8948-a86dba7ebcf9
   udp: true
-- name: '@Hope_Net-7'
+- name: '@Hope_Net-6'
   type: ss
   server: free.2weradf.xyz
   port: 36213
   cipher: chacha20-ietf-poly1305
   password: 59d299c7-3696-4ea4-8948-a86dba7ebcf9
   udp: true
-- name: '@Hope_Net-8'
-  type: ss
-  server: free.2weradf.xyz
-  port: 36215
-  cipher: chacha20-ietf-poly1305
-  password: 59d299c7-3696-4ea4-8948-a86dba7ebcf9
-  udp: true
-- name: '@Hope_Net-9'
+- name: '@Hope_Net-7'
   type: ss
   server: free.2weradf.xyz
   port: 36271
   cipher: chacha20-ietf-poly1305
   password: 59d299c7-3696-4ea4-8948-a86dba7ebcf9
   udp: true
-- name: '@Hope_Net-10'
-  type: ss
-  server: free.2weradf.xyz
-  port: 36371
-  cipher: chacha20-ietf-poly1305
-  password: 59d299c7-3696-4ea4-8948-a86dba7ebcf9
-  udp: true
-- name: '@Hope_Net-11'
-  type: ss
-  server: free.2weradf.xyz
-  port: 36731
-  cipher: chacha20-ietf-poly1305
-  password: 59d299c7-3696-4ea4-8948-a86dba7ebcf9
-  udp: true
-- name: '['
+- name: '@Hope_Net-8'
   type: ss
   server: free.2weradf.xyz
   port: 36731
@@ -2576,13 +2541,6 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: 65abdb1c-1cdf-4630-a32b-8ae566b48c00
   udp: true
-- name: ss-y2hhy2hhmjatawv0zi1wb2x5mtmwnto2otlot05jcdrmbvd1oenrnmhfue0znhr0odlfcufkntbrn0ziukjkckjiegpymw4
-  type: ss
-  server: y2hhy2hhmjatawv0zi1wb2x5mtmwnto2otlot05jcdrmbvd1oenrnmhfue0znhr0odlfcufkntbrn0ziukjkckjiegpymw4
-  port: null
-  cipher: chacha20-ietf-poly1305
-  password: 699hONcp4LmWu8Ck6hEPM34tt89EqAJ50k7FbRBdrBbxjX1n
-  udp: true
 - name: ss-195.123.213.12
   type: ss
   server: 195.123.213.12
@@ -2607,6 +2565,13 @@ proxies:
 - name: ss-131.145.33.123
   type: ss
   server: 131.145.33.123
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: 69MUii7VDwMqh7Hz
+  udp: true
+- name: ss-131.145.94.193
+  type: ss
+  server: 131.145.94.193
   port: 443
   cipher: chacha20-ietf-poly1305
   password: 69MUii7VDwMqh7Hz
@@ -2640,13 +2605,6 @@ proxies:
   password: 69MUii7VDwMqh7Hz
   udp: true
 - name: 🇬🇧GB-131.145.94.193-0335
-  type: ss
-  server: admin.c4.webramz.co
-  port: 443
-  cipher: chacha20-ietf-poly1305
-  password: 69MUii7VDwMqh7Hz
-  udp: true
-- name: 🇺🇸US (611)
   type: ss
   server: admin.c4.webramz.co
   port: 443
@@ -2812,13 +2770,6 @@ proxies:
   type: ss
   server: ali.sudun2.top
   port: 41754
-  cipher: chacha20-ietf-poly1305
-  password: 7dbdba19-6a3b-4370-93b1-fb5a89adde0c
-  udp: true
-- name: TG售后群:@ChjsClub
-  type: ss
-  server: beiyong-.596743944.top
-  port: 42788
   cipher: chacha20-ietf-poly1305
   password: 7dbdba19-6a3b-4370-93b1-fb5a89adde0c
   udp: true
@@ -3822,7 +3773,7 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: 1RWwXhwfAB5gAEozU4G2Pg
   udp: true
-- name: ss-45.87.175.164
+- name: ss-45.87.175.164-2
   type: ss
   server: 45.87.175.164
   port: 8080
@@ -4263,6 +4214,13 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: 360e21d21977dc11
   udp: true
+- name: '@VIProxys'
+  type: ss
+  server: 45.139.24.24
+  port: 57456
+  cipher: chacha20-ietf-poly1305
+  password: 360e21d21977dc11
+  udp: true
 - name: ss-45.144.49.140
   type: ss
   server: 45.144.49.140
@@ -4466,7 +4424,7 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: 3c0a4b5f-4e49-4876-9b88-a5be67f73ba9
   udp: true
-- name: '@Hope_Net-12'
+- name: '@Hope_Net-9'
   type: ss
   server: 94.177.131.71
   port: 61019
@@ -5068,13 +5026,6 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: u17T3BvpYaaiuW2c
   udp: true
-- name: ss-series-a2-mec.varzesh360.co
-  type: ss
-  server: series-a2-mec.varzesh360.co
-  port: 443
-  cipher: chacha20-ietf-poly1305
-  password: u17T3BvpYaaiuW2c
-  udp: true
 - name: ' ❤️@Kayh_GNG - Github.com/kayhgng-34'
   type: ss
   server: series-a2-mec.varzesh360.co
@@ -5139,6 +5090,13 @@ proxies:
   password: uQS5ntVqC00sSKkeNzUiD3
   udp: true
 - name: 🇳🇱NL-89.23.103.125-0457
+  type: ss
+  server: 89.23.103.125
+  port: 42090
+  cipher: chacha20-ietf-poly1305
+  password: uQS5ntVqC00sSKkeNzUiD3
+  udp: true
+- name: '@Hope_Net-10'
   type: ss
   server: 89.23.103.125
   port: 42090
@@ -5550,13 +5508,6 @@ proxies:
   port: 29884
   cipher: chacha20-ietf-poly1305
   password: Kvi4Z9X4JsxwS0zxONiS1CNOuFezYyaj
-  udp: true
-- name: ss-y2hhy2hhmjatawv0zi1wb2x5mtmwntpmtvnoadixvhjyaliyb2synveybku4ru5umnpvqm1qdmthm1jdq1vbsfpftenuv29la1zqdmfmodlxd2nsa2rieevmzxayymmyyvv0bw54cxzgmwf5uvjlejfksgpvtgo
-  type: ss
-  server: y2hhy2hhmjatawv0zi1wb2x5mtmwntpmtvnoadixvhjyaliyb2synveybku4ru5umnpvqm1qdmthm1jdq1vbsfpftenuv29la1zqdmfmodlxd2nsa2rieevmzxayymmyyvv0bw54cxzgmwf5uvjlejfksgpvtgo
-  port: null
-  cipher: chacha20-ietf-poly1305
-  password: LMSNh21TrXjR2ok25Q2nE8ENT2zoBmPvka3RCCUAHZELCnWoekVjvaf89qwcRkdbxEfep2bc2aUtmnxqvF1ayQRez1JHjULj
   udp: true
 - name: ss-141.98.4.67
   type: ss
@@ -6041,13 +5992,6 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: VvTUk5LjFSWlZfhSr0wvCg
   udp: true
-- name: '[-2'
-  type: ss
-  server: 78.46.226.140
-  port: 60051
-  cipher: chacha20-ietf-poly1305
-  password: VvTUk5LjFSWlZfhSr0wvCg
-  udp: true
 - name: ss-147.45.136.147
   type: ss
   server: 147.45.136.147
@@ -6222,13 +6166,6 @@ proxies:
   port: 60117
   cipher: chacha20-ietf-poly1305
   password: Y1hjiUmSgucgzYYJ0WtqwW
-  udp: true
-- name: 🇷🇺_RU_俄罗斯
-  type: ss
-  server: y2hhy2hhmjatawv0zi1wb2x5mtmwntpzmwhqavvtu2d1y2d6wvlkmfd0cxdxqdc3lji0ni4xmdiumteyojywmte3
-  port: null
-  cipher: chacha20-ietf-poly1305
-  password: Y1hjiUmSgucgzYYJ0WtqwW@77.246.102.112:60117
   udp: true
 - name: ss-45.95.233.43
   type: ss
@@ -6443,13 +6380,6 @@ proxies:
 - name: ss-216.173.70.187
   type: ss
   server: 216.173.70.187
-  port: 57456
-  cipher: chacha20-ietf-poly1305
-  password: a58fa62b4944ddbf
-  udp: true
-- name: '@v2Source'
-  type: ss
-  server: 38.107.234.38
   port: 57456
   cipher: chacha20-ietf-poly1305
   password: a58fa62b4944ddbf
@@ -8888,6 +8818,13 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: f8f7aCzcPKbsF8p3
   udp: true
+- name: ss-185.93.173.218
+  type: ss
+  server: 185.93.173.218
+  port: 990
+  cipher: chacha20-ietf-poly1305
+  password: f8f7aCzcPKbsF8p3
+  udp: true
 - name: ss-195.181.160.6
   type: ss
   server: 195.181.160.6
@@ -8940,6 +8877,13 @@ proxies:
 - name: ss-38.54.2.182
   type: ss
   server: 38.54.2.182
+  port: 990
+  cipher: chacha20-ietf-poly1305
+  password: f8f7aCzcPKbsF8p3
+  udp: true
+- name: '@v2Source'
+  type: ss
+  server: 38.54.45.129
   port: 990
   cipher: chacha20-ietf-poly1305
   password: f8f7aCzcPKbsF8p3
@@ -9413,13 +9357,6 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: oXGp1+ihlfKg826H
   udp: true
-- name: SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-172.233.128.126:1866
-  type: ss
-  server: y2hhy2hhmjatawv0zi1wb2x5mtmwntpvwedwmstpagxms2c4mjziqde3mi4ymzmumti4ljeynjoxody2
-  port: null
-  cipher: chacha20-ietf-poly1305
-  password: oXGp1+ihlfKg826H@172.233.128.126:1866
-  udp: true
 - name: ss-103.104.247.47
   type: ss
   server: 103.104.247.47
@@ -9854,7 +9791,7 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: qscavF5UviIL-8V-E4raBA
   udp: true
-- name: '[-3'
+- name: '['
   type: ss
   server: 194.87.71.220
   port: 2222
@@ -11725,13 +11662,6 @@ proxies:
   cipher: aes-128-gcm
   password: OOSWDYXTSRWMTAEIJ8XUCD27R2F384ODKTHXF41YLRV4
   udp: true
-- name: '@vpnserverrr'
-  type: ss
-  server: vip-iran.interservervip.xyz
-  port: 31792
-  cipher: aes-128-gcm
-  password: OOSWDYXTSRWMTAEIJ8XUCD27R2F384ODKTHXF41YLRV4
-  udp: true
 - name: 🇸🇬 一元机场:ssrsub.de 新加坡 06
   type: ss
   server: pop.air.3278.0tk8a3a1q4t94dler.com
@@ -12327,6 +12257,20 @@ proxies:
   cipher: aes-128-gcm
   password: shadowsocks
   udp: true
+- name: ss-212.102.53.78
+  type: ss
+  server: 212.102.53.78
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: ss-37.19.198.244
+  type: ss
+  server: 37.19.198.244
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
 - name: ss-149.34.244.71
   type: ss
   server: 149.34.244.71
@@ -12677,7 +12621,7 @@ proxies:
   cipher: aes-128-gcm
   password: shadowsocks
   udp: true
-- name: ss-212.102.53.78
+- name: ss-212.102.53.78-2
   type: ss
   server: 212.102.53.78
   port: 443
@@ -12768,7 +12712,7 @@ proxies:
   cipher: aes-128-gcm
   password: shadowsocks
   udp: true
-- name: ss-37.19.198.244
+- name: ss-37.19.198.244-2
   type: ss
   server: 37.19.198.244
   port: 443
@@ -13104,6 +13048,13 @@ proxies:
   cipher: aes-256-cfb
   password: EXN3S3eQpjE7EJu8
   udp: true
+- name: '@Hope_Net-11'
+  type: ss
+  server: 5.188.181.201
+  port: 9027
+  cipher: aes-256-cfb
+  password: EXN3S3eQpjE7EJu8
+  udp: true
 - name: 🇪🇸ES-5.188.181.201-5607
   type: ss
   server: 5.188.181.201
@@ -13279,7 +13230,21 @@ proxies:
   cipher: aes-256-cfb
   password: UkXRsXvR6buDMG2Y
   udp: true
+- name: '@Hope_Net-12'
+  type: ss
+  server: 5.188.181.201
+  port: 9001
+  cipher: aes-256-cfb
+  password: UkXRsXvR6buDMG2Y
+  udp: true
 - name: ss-80.92.204.106-11
+  type: ss
+  server: 80.92.204.106
+  port: 9080
+  cipher: aes-256-cfb
+  password: VP8ZPxQpJtZRCjfZ
+  udp: true
+- name: '@Hope_Net-13'
   type: ss
   server: 80.92.204.106
   port: 9080
@@ -13804,7 +13769,7 @@ proxies:
   cipher: aes-256-cfb
   password: amazonskr05
   udp: true
-- name: '@Hope_Net-13'
+- name: '@Hope_Net-14'
   type: ss
   server: 13.250.96.5
   port: 443
@@ -13818,7 +13783,7 @@ proxies:
   cipher: aes-256-cfb
   password: amazonskr05
   udp: true
-- name: '@Hope_Net-14'
+- name: '@v2Source-2'
   type: ss
   server: 18.142.183.235
   port: 443
@@ -13875,6 +13840,13 @@ proxies:
   password: asdKkaskJKfnsa
   udp: true
 - name: '@Hope_Net-19'
+  type: ss
+  server: 37.19.222.214
+  port: 443
+  cipher: aes-256-cfb
+  password: asdKkaskJKfnsa
+  udp: true
+- name: '@v2Source-3'
   type: ss
   server: 37.19.222.214
   port: 443
@@ -14455,13 +14427,6 @@ proxies:
   cipher: aes-256-cfb
   password: f8f7aCzcPKbsF8p3
   udp: true
-- name: '@v2Source-2'
-  type: ss
-  server: 185.231.233.173
-  port: 989
-  cipher: aes-256-cfb
-  password: f8f7aCzcPKbsF8p3
-  udp: true
 - name: 🇬🇷GR-192.71.166.102-0455
   type: ss
   server: 192.71.166.102
@@ -14875,7 +14840,7 @@ proxies:
   cipher: aes-256-gcm
   password: 2WK50QVB8ULS2BD6
   udp: true
-- name: '[-4'
+- name: ss-38557654738726634736956357123082.international-ixp.com
   type: ss
   server: 38557654738726634736956357123082.international-ixp.com
   port: 11309
@@ -16206,13 +16171,6 @@ proxies:
   cipher: aes-256-gcm
   password: CDI0B8BN6DH1SASI
   udp: true
-- name: '@v2Source-3'
-  type: ss
-  server: 185.47.254.177
-  port: 20007
-  cipher: aes-256-gcm
-  password: A0H75XANJHLCNCIB
-  udp: true
 - name: 欧洲+V2CROSS.COM
   type: ss
   server: 185.47.254.177
@@ -16528,24 +16486,10 @@ proxies:
   cipher: aes-256-gcm
   password: KQVODZCP6ITTI17B
   udp: true
-- name: ss-None
-  type: ss
-  server: null
-  port: null
-  cipher: aes-256-gcm
-  password: KnYKwpw0w4c0RDnCo8KUcDQcwpp7w7bCv3nCgMOPHB/DnhLDj8OawrVVB2o5
-  udp: true
 - name: ss-134.195.196.193
   type: ss
   server: 134.195.196.193
   port: 8000
-  cipher: aes-256-gcm
-  password: KixLvKzwjekG00rm
-  udp: true
-- name: '@Hope_Net-20'
-  type: ss
-  server: 142.202.48.52
-  port: 8080
   cipher: aes-256-gcm
   password: KixLvKzwjekG00rm
   udp: true
@@ -16588,6 +16532,13 @@ proxies:
   type: ss
   server: 23.154.136.132
   port: 8080
+  cipher: aes-256-gcm
+  password: KixLvKzwjekG00rm
+  udp: true
+- name: '@Hope_Net-20'
+  type: ss
+  server: 38.121.43.27
+  port: 8000
   cipher: aes-256-gcm
   password: KixLvKzwjekG00rm
   udp: true
@@ -17095,6 +17046,13 @@ proxies:
   cipher: aes-256-gcm
   password: PCnnH6SQSnfoS27
   udp: true
+- name: '@Hope_Net-22'
+  type: ss
+  server: 38.121.43.97
+  port: 8091
+  cipher: aes-256-gcm
+  password: PCnnH6SQSnfoS27
+  udp: true
 - name: ss-38.68.134.202
   type: ss
   server: 38.68.134.202
@@ -17270,7 +17228,14 @@ proxies:
   cipher: aes-256-gcm
   password: RexnBgU7EV5ADxG
   udp: true
-- name: '@Hope_Net-22'
+- name: '@Hope_Net-23'
+  type: ss
+  server: 38.121.43.27
+  port: 7002
+  cipher: aes-256-gcm
+  password: RexnBgU7EV5ADxG
+  udp: true
+- name: '@v2Source-4'
   type: ss
   server: 38.121.43.27
   port: 7002
@@ -17718,6 +17683,13 @@ proxies:
   cipher: aes-256-gcm
   password: XKFKl2rULjIp74
   udp: true
+- name: '@Hope_Net-24'
+  type: ss
+  server: 38.121.43.71
+  port: 8009
+  cipher: aes-256-gcm
+  password: XKFKl2rULjIp74
+  udp: true
 - name: ss-67.220.95.102-6
   type: ss
   server: 67.220.95.102
@@ -17759,6 +17731,13 @@ proxies:
   port: 20006
   cipher: aes-256-gcm
   password: XQI426ARXPLB6CFK
+  udp: true
+- name: ss-67.220.95.230
+  type: ss
+  server: 67.220.95.230
+  port: 5601
+  cipher: aes-256-gcm
+  password: Y6R9pAtvxxzmGC
   udp: true
 - name: ss-192.46.209.146
   type: ss
@@ -17837,14 +17816,7 @@ proxies:
   cipher: aes-256-gcm
   password: Y6R9pAtvxxzmGC
   udp: true
-- name: '@Hope_Net-23'
-  type: ss
-  server: 38.114.114.19
-  port: 3389
-  cipher: aes-256-gcm
-  password: Y6R9pAtvxxzmGC
-  udp: true
-- name: '@Hope_Net-24'
+- name: '@Hope_Net-25'
   type: ss
   server: 38.121.43.27
   port: 3389
@@ -18005,7 +17977,7 @@ proxies:
   cipher: aes-256-gcm
   password: Y6R9pAtvxxzmGC
   udp: true
-- name: ss-67.220.95.230
+- name: ss-67.220.95.230-2
   type: ss
   server: 67.220.95.230
   port: 5601
@@ -18257,13 +18229,6 @@ proxies:
   cipher: aes-256-gcm
   password: ZDGC0Q2E112UAJO6
   udp: true
-- name: ss-thr.npvnot.com
-  type: ss
-  server: thr.npvnot.com
-  port: 10104
-  cipher: aes-256-gcm
-  password: ZDJhMDBhM2VkZjg1YzM2YmQzN2I5MmViMDhiNzQw
-  udp: true
 - name: ⚫️ Telegram= @Canfing_VPN-2
   type: ss
   server: thr.npvnot.com
@@ -18278,7 +18243,7 @@ proxies:
   cipher: aes-256-gcm
   password: ZFPFU731WARRKT3P
   udp: true
-- name: ss-thr.npvnot.com-2
+- name: ss-thr.npvnot.com
   type: ss
   server: thr.npvnot.com
   port: 10109
@@ -18369,6 +18334,13 @@ proxies:
   cipher: aes-256-gcm
   password: cdBIDV42DCwnfIN
   udp: true
+- name: '@Hope_Net-26'
+  type: ss
+  server: 38.121.43.71
+  port: 8118
+  cipher: aes-256-gcm
+  password: cdBIDV42DCwnfIN
+  udp: true
 - name: ss-38.121.43.71-21
   type: ss
   server: 38.121.43.71
@@ -18431,13 +18403,6 @@ proxies:
   port: 8119
   cipher: aes-256-gcm
   password: cdBIDV42DCwnfIN
-  udp: true
-- name: '@v2Source-4'
-  type: ss
-  server: 103.115.18.246
-  port: 50120
-  cipher: aes-256-gcm
-  password: b8ef46fefc3cac36
   udp: true
 - name: '@v2ray_vpn_ir  | نت ملی'
   type: ss
@@ -18761,7 +18726,7 @@ proxies:
   cipher: aes-256-gcm
   password: e4FCWrgpkji3QY
   udp: true
-- name: '@Hope_Net-25'
+- name: '@Hope_Net-27'
   type: ss
   server: 38.121.43.27
   port: 9101
@@ -19006,12 +18971,12 @@ proxies:
   cipher: aes-256-gcm
   password: faBAoD54k87UJG7
   udp: true
-- name: ss-38557654738726634736956357123082.international-ixp.com
+- name: '@Hope_Net-28'
   type: ss
-  server: 38557654738726634736956357123082.international-ixp.com
-  port: 11309
+  server: 142.202.48.105
+  port: 5004
   cipher: aes-256-gcm
-  password: fac140fc-9985-4418-08d1-7b473c3e0435
+  password: g5MeD6Ft3CWlJId
   udp: true
 - name: ss-23.150.248.235-5
   type: ss
@@ -19384,13 +19349,6 @@ proxies:
   cipher: aes-256-gcm
   password: lGqs95QkFHo2NV
   udp: true
-- name: '@Hope_Net-26'
-  type: ss
-  server: 142.202.48.58
-  port: 443
-  cipher: aes-256-gcm
-  password: pKEW8JPByTVTLtM
-  udp: true
 - name: ss-158.247.205.87
   type: ss
   server: 158.247.205.87
@@ -19406,13 +19364,6 @@ proxies:
   password: pKEW8JPByTVTLtM
   udp: true
 - name: ss-167.88.63.71
-  type: ss
-  server: 167.88.63.71
-  port: 443
-  cipher: aes-256-gcm
-  password: pKEW8JPByTVTLtM
-  udp: true
-- name: '@Hope_Net-27'
   type: ss
   server: 167.88.63.71
   port: 443
@@ -19475,7 +19426,7 @@ proxies:
   cipher: aes-256-gcm
   password: pKEW8JPByTVTLtM
   udp: true
-- name: '@Hope_Net-28'
+- name: '@Hope_Net-29'
   type: ss
   server: 38.121.43.71
   port: 443
@@ -19506,13 +19457,6 @@ proxies:
 - name: ss-38.64.138.145
   type: ss
   server: 38.64.138.145
-  port: 443
-  cipher: aes-256-gcm
-  password: pKEW8JPByTVTLtM
-  udp: true
-- name: '@Hope_Net-29'
-  type: ss
-  server: 38.68.134.85
   port: 443
   cipher: aes-256-gcm
   password: pKEW8JPByTVTLtM
@@ -19573,7 +19517,7 @@ proxies:
   cipher: aes-256-gcm
   password: zDNVedRFPQexG9v
   udp: true
-- name: '[-5'
+- name: '[-2'
   type: ss
   server: 67.220.95.102
   port: 6379
@@ -19834,16 +19778,6 @@ proxies:
   plugin-opts:
     mode: ''
     host: ''
-- name: ss-eyjhzgqioiaiz2vybwfues5mcmfuy2utbgvhcm5zlmlyiiwgimfpzci6iciwiiwgimhvc3qioiaism91uk5hbg9gyklnzefuqs5tcfjpbkdlcm9wrw4uy29nliisicjpzci6icixnmm2yjvizi0xyzu4ltqxzgetyjazmy1hmmy3mdfkowe3yzcilcaibmv0ijoginrjccisicjwyxroijogii8ilcaicg9ydci6idy0ntm1lcaichmioiaivgvszwdyyw06qgnvbmzpz19wcm94esdwn5sliiwginnjesi6icjhdxrviiwginrscyi6icjub25liiwginr5cguioiaiahr0ccisicj2ijogijiifq==
-  type: ss
-  server: eyjhzgqioiaiz2vybwfues5mcmfuy2utbgvhcm5zlmlyiiwgimfpzci6iciwiiwgimhvc3qioiaism91uk5hbg9gyklnzefuqs5tcfjpbkdlcm9wrw4uy29nliisicjpzci6icixnmm2yjvizi0xyzu4ltqxzgetyjazmy1hmmy3mdfkowe3yzcilcaibmv0ijoginrjccisicjwyxroijogii8ilcaicg9ydci6idy0ntm1lcaichmioiaivgvszwdyyw06qgnvbmzpz19wcm94esdwn5sliiwginnjesi6icjhdxrviiwginrscyi6icjub25liiwginr5cguioiaiahr0ccisicj2ijogijiifq==
-  port: null
-  cipher: '{"add"'
-  password: ' "germany.france-learns.ir", "aid": "0", "host": "JouRNaloFbIgdATA.SpRinGeropEn.coM.",
-    "id": "16c6b5bf-1c58-41da-b033-a2f701d9a7c7", "net": "tcp", "path": "/", "port":
-    64535, "ps": "Telegram:@config_proxy 🔥", "scy": "auto", "tls": "none", "type":
-    "http", "v": "2"}'
-  udp: true
 proxy-groups:
 - name: نوع انتخاب پروکسی 🔀
   icon: https://www.svgrepo.com/show/412721/choose.svg
@@ -20014,14 +19948,10 @@ proxy-groups:
   - 🇭🇰香港05
   - 🇭🇰香港06
   - 🇨🇳台湾04家宽
-  - ss-mjaymi1ibgfrztmtywvzlti1ni1ny206vnqwoeg0qwrlqmdhehvevzivkzznv2lpsxd6kzy1ehb3dlpxk2xkejhlbz06cfnjqnpmk0gwbxv4tuzqzw1hsmrttwvwsudgv1nzvhkwb2graxnqmzuxrt0
-  - 🇸🇬 新加�%A
-  - 🇭🇰 香港
   - '@Hope_Net'
   - '@Hope_Net-2'
   - '@Hope_Net-3'
   - '@Hope_Net-4'
-  - '@Hope_Net-5'
   - 🇺🇸 USA 086
   - 🇺🇸 USA 086-2
   - ss-91.99.22.179
@@ -20040,6 +19970,7 @@ proxy-groups:
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-3'
   - 🇱🇹LT-45.87.175.154-0308
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-4'
+  - ss-45.87.175.164
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-5'
   - 🇱🇹LT-45.87.175.164-0288
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-6'
@@ -20060,6 +19991,7 @@ proxy-groups:
   - 🇬🇧GB-185.5.38.111-0434
   - ss-83.217.9.4
   - ss-62.133.63.21
+  - ss-4.223.106.151
   - ss-azure-sto.edgeservers.org
   - Ainita
   - Server-1
@@ -20141,13 +20073,10 @@ proxy-groups:
   - 专线|🇸🇬新加坡02|GPT|2x
   - 专线|🇯🇵日本03|2x
   - 专线|🇯🇵日本04|2x
+  - '@Hope_Net-5'
   - '@Hope_Net-6'
   - '@Hope_Net-7'
   - '@Hope_Net-8'
-  - '@Hope_Net-9'
-  - '@Hope_Net-10'
-  - '@Hope_Net-11'
-  - '['
   - ss-62.84.102.28
   - '@𝗦𝗶𝗡𝗔𝗩𝗠👈🏻 تلگرام'
   - ss-185.135.86.86
@@ -20205,17 +20134,16 @@ proxy-groups:
   - 🇮🇹 Italy 091-2
   - ss-66.151.41.89
   - ss-5.187.51.212
-  - ss-y2hhy2hhmjatawv0zi1wb2x5mtmwnto2otlot05jcdrmbvd1oenrnmhfue0znhr0odlfcufkntbrn0ziukjkckjiegpymw4
   - ss-195.123.213.12
   - 🇱🇻LV | @OutlineReleasedKey
   - ss-131.145.122.145
   - ss-131.145.33.123
+  - ss-131.145.94.193
   - ss-4.250.140.221
   - ss-74.177.212.246
   - ss-admin.c4.webramz.co
   - 🇬🇧GB-131.145.45.24-0312
   - 🇬🇧GB-131.145.94.193-0335
-  - 🇺🇸US (611)
   - IRAN 13 (@Outline_Vpn) Free
   - ss-77.83.246.74
   - ss-77.238.229.244
@@ -20238,7 +20166,6 @@ proxy-groups:
   - 日本|广州移动|01 x1
   - 香港|广州移动|01x 1
   - 美国|广州移动|01 x1
-  - TG售后群:@ChjsClub
   - 新加坡|广东;联通|03  x1
   - 新加坡|广州移动|01 x1
   - 新加坡|IEPL专线|01 x1.5
@@ -20379,7 +20306,7 @@ proxy-groups:
   - 🇫🇷FR-45.158.171.151-0302
   - 🇫🇷FR-45.158.171.151-0303
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-22'
-  - ss-45.87.175.164
+  - ss-45.87.175.164-2
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-23'
   - 🇱🇹LT-45.87.175.164-5700
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-24'
@@ -20442,6 +20369,7 @@ proxy-groups:
   - ss-45.139.24.24
   - 🇷🇺RU-45.139.24.24-0367
   - 🇷🇺RU-45.139.24.24-5719
+  - '@VIProxys'
   - ss-45.144.49.140
   - ss-91.103.253.151
   - ss-194.87.216.218
@@ -20471,7 +20399,7 @@ proxy-groups:
   - '[ss]香港1[中转]'
   - '[ss]香港2[中转]'
   - 公益路线1-香港HK 限速50Mbps
-  - '@Hope_Net-12'
+  - '@Hope_Net-9'
   - 加拿大+V2CROSS.COM
   - 🇨🇦 一元机场:ssrsub.de 加拿大 05
   - ss-118.163.198.43
@@ -20557,7 +20485,6 @@ proxy-groups:
   - freeiranianv2reyکانال
   - 🇬🇧GB-85.210.55.181-0311
   - 🇬🇧GB-85.210.78.115-0322
-  - ss-series-a2-mec.varzesh360.co
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-34'
   - 𝐜𝐡𝐚𝐧𝐧𝐞𝐥:+⭐️@V2rayNG_Outlinee⭐️
   - 🇬🇧GB-85.210.55.181-0322
@@ -20568,6 +20495,7 @@ proxy-groups:
   - ss-89.23.103.125
   - 🇳🇱NL-89.23.103.125-0377
   - 🇳🇱NL-89.23.103.125-0457
+  - '@Hope_Net-10'
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-35'
   - ss-45.144.49.110
   - ss-94.156.79.244
@@ -20626,7 +20554,6 @@ proxy-groups:
   - ss-150.241.77.214
   - ss-3.255.250.127
   - ss-79.137.205.30
-  - ss-y2hhy2hhmjatawv0zi1wb2x5mtmwntpmtvnoadixvhjyaliyb2synveybku4ru5umnpvqm1qdmthm1jdq1vbsfpftenuv29la1zqdmfmodlxd2nsa2rieevmzxayymmyyvv0bw54cxzgmwf5uvjlejfksgpvtgo
   - ss-141.98.4.67
   - 🇳🇱NL-141.98.4.67-5764
   - 🇺🇸US (614)
@@ -20696,7 +20623,6 @@ proxy-groups:
   - باد اردیبهشت 🍓@xixv2ray
   - ⚫️ Telegram= @Canfing_VPN
   - '@meli_proxyy'
-  - '[-2'
   - ss-147.45.136.147
   - ss-104.21.80.1
   - 𝐜𝐡𝐚𝐧𝐧𝐞𝐥:+⭐️@V2rayNG_Outlinee⭐️-2
@@ -20722,7 +20648,6 @@ proxy-groups:
   - ss-77.246.102.112
   - 俄罗斯+V2CROSS.COM
   - 🇷🇺 一元机场:ssrsub.de 俄罗斯 04
-  - 🇷🇺_RU_俄罗斯
   - ss-45.95.233.43
   - ss-185.221.196.34
   - ss-185.39.207.60
@@ -20754,7 +20679,6 @@ proxy-groups:
   - ss-137.220.142.140
   - ss-147.45.178.200
   - ss-216.173.70.187
-  - '@v2Source'
   - ss-81.19.137.222
   - ss-193.29.139.248
   - ss-45.158.171.131
@@ -21097,6 +21021,7 @@ proxy-groups:
   - 🇪🇨EC-185.47.253.227-0456
   - ss-185.47.255.22
   - 🇵🇷PR-185.47.255.22-0446
+  - ss-185.93.173.218
   - ss-195.181.160.6
   - 🇨🇿CZ-195.181.160.6-0336
   - 🇨🇿CZ-195.181.160.6-0343
@@ -21105,6 +21030,7 @@ proxy-groups:
   - ss-38.165.233.18
   - 🇵🇾PY-38.165.233.18-5732
   - ss-38.54.2.182
+  - '@v2Source'
   - ss-45.154.206.192
   - 🇪🇸ES-45.154.206.192-0389
   - 🇪🇸ES-45.154.206.192-0481
@@ -21172,7 +21098,6 @@ proxy-groups:
   - 🇨🇭CH-204.136.10.115-0400
   - ss-64.176.85.73
   - 🇸🇬SG | @OutlineReleasedKey
-  - SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-172.233.128.126:1866
   - ss-103.104.247.47
   - 🇳🇱NL-103.104.247.47-0298
   - 🇳🇱NL-103.104.247.47-5714
@@ -21235,7 +21160,7 @@ proxy-groups:
   - ss-194.87.71.220
   - '@V2ray1_Ng-3'
   - 'Channel id: @ShadowProxy66🇩🇪'
-  - '[-3'
+  - '['
   - ss-194.87.71.221
   - ss-194.87.71.223
   - 🇩🇪DE-194.87.71.223-0357
@@ -21472,7 +21397,6 @@ proxy-groups:
   - 🇺🇸 USA 026-2
   - ss-173.234.79.117
   - '@speeds_vpn-2'
-  - '@vpnserverrr'
   - 🇸🇬 一元机场:ssrsub.de 新加坡 06
   - ss-193.57.138.81
   - 🇹🇼 Taiwan 065
@@ -21538,6 +21462,8 @@ proxy-groups:
   - 🇲🇾 Malaysia 075 *1.5
   - 🇲🇾 Malaysia 075 *1.5-2
   - ss-156.146.62.163
+  - ss-212.102.53.78
+  - ss-37.19.198.244
   - ss-149.34.244.71
   - ss-149.34.244.72
   - ss-149.34.244.82
@@ -21588,7 +21514,7 @@ proxy-groups:
   - 🇬🇧GB-212.102.53.197-0332
   - ss-212.102.53.198
   - 🇬🇧GB-212.102.53.198-0316
-  - ss-212.102.53.78
+  - ss-212.102.53.78-2
   - 🇬🇧GB-212.102.53.78-0326
   - ss-212.102.53.79
   - 🇬🇧GB-212.102.53.79-0330
@@ -21601,7 +21527,7 @@ proxy-groups:
   - 🇺🇸US-37.19.198.236-0269
   - ss-37.19.198.243
   - 🇺🇸US-37.19.198.243-0270
-  - ss-37.19.198.244
+  - ss-37.19.198.244-2
   - 🇺🇸US-37.19.198.244-0271
   - 🇬🇧GB-212.102.53.197-0313
   - 🇬🇧GB-141.98.101.178-0345
@@ -21649,6 +21575,7 @@ proxy-groups:
   - ss-5.188.181.201-3
   - ss-45.89.52.66-2
   - ss-5.188.181.201-4
+  - '@Hope_Net-11'
   - 🇪🇸ES-5.188.181.201-5607
   - 🇩🇪DE-80.92.204.106-5589
   - ss-80.92.204.106-6
@@ -21674,7 +21601,9 @@ proxy-groups:
   - ss-5.188.181.201-9
   - ss-45.89.52.66-9
   - ss-5.188.181.201-10
+  - '@Hope_Net-12'
   - ss-80.92.204.106-11
+  - '@Hope_Net-13'
   - ss-5.188.181.201-11
   - ss-5.188.181.201-12
   - ss-80.92.204.106-12
@@ -21749,9 +21678,9 @@ proxy-groups:
   - 🇹🇷TR-45.89.52.66-0464
   - ss-80.92.204.106-17
   - ss-13.215.49.89
-  - '@Hope_Net-13'
-  - ss-18.142.183.235
   - '@Hope_Net-14'
+  - ss-18.142.183.235
+  - '@v2Source-2'
   - ss-143.244.58.102
   - '@Hope_Net-15'
   - '@Hope_Net-16'
@@ -21760,6 +21689,7 @@ proxy-groups:
   - '@Hope_Net-18'
   - ss-37.19.222.214
   - '@Hope_Net-19'
+  - '@v2Source-3'
   - 13|tg频道:@ripaojiedian
   - ss-80.92.204.106-18
   - ss-217.30.10.18
@@ -21842,7 +21772,6 @@ proxy-groups:
   - 🇹🇷TR-185.123.101.241-5641
   - 🇲🇩MD-185.153.197.5-0250
   - 🇳🇴NO-185.213.23.226-0319
-  - '@v2Source-2'
   - 🇬🇷GR-192.71.166.102-0455
   - 🇸🇮SI-192.71.244.150-0471
   - 🇷🇸RS-194.71.126.31-0405
@@ -21902,7 +21831,7 @@ proxy-groups:
   - 🇸🇬 SG-13
   - TR-01
   - 🇨🇳 TW-01
-  - '[-4'
+  - ss-38557654738726634736956357123082.international-ixp.com
   - MA-01
   - 🇨🇦 Canada丨01
   - 🇭🇰 Hong Kong丨01
@@ -22091,7 +22020,6 @@ proxy-groups:
   - 🇯🇵 一元机场:ssrsub.de 日本 07
   - ss-183.56.220.243
   - 🇹🇷TR-185.123.100.140-0270
-  - '@v2Source-3'
   - 欧洲+V2CROSS.COM
   - 🇨🇴 一元机场:ssrsub.de 哥伦比亚 01vmess://eyJyZW1hcmsiOiLlrpjnvZE6bWlhb3B1Lnh5eiDkuabnrb46bm80MDQudGsiLCJ0eXBlIjpudWxsLCJhZGQiOiJ3d3cuZ29vZ2xlLmNvbSIsInBvcnQiOiIxMDA4NiIsImlkIjoiNjBmNDViZTQtNjVlMS0zNTRlLThlMGUtOWQ3NzVlNjk5NzIzIiwibmV0IjoidGNwIiwiYWlkIjoiMCIsInBzIjoi5a6Y572ROm1pYW9wdS54eXog5Lmm562+Om5vNDA0LnRrIn0=
   - 🇸🇬 SG-05
@@ -22137,15 +22065,14 @@ proxy-groups:
   - ss-185.186.79.135
   - 🇳🇱 一元机场:ssrsub.de 荷兰 02
   - ss-37.143.131.121
-  - ss-None
   - ss-134.195.196.193
-  - '@Hope_Net-20'
   - ss-167.88.62.62
   - ss-172.99.190.149
   - ss-23.154.136.103
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-107'
   - ss-23.154.136.132
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-108'
+  - '@Hope_Net-20'
   - ss-38.121.43.71-2
   - ss-38.121.43.71-3
   - 🇺🇸US-38.121.43.71-4997
@@ -22218,6 +22145,7 @@ proxy-groups:
   - 🇺🇸US-38.121.43.71-0421
   - 🇺🇸US-38.121.43.71-0442
   - 🇺🇸US-38.121.43.97-5598
+  - '@Hope_Net-22'
   - ss-38.68.134.202
   - 🇺🇸US-38.68.134.202-5545
   - 🇺🇸US-38.68.135.18-4908
@@ -22243,7 +22171,8 @@ proxy-groups:
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-115'
   - ss-23.154.136.132-3
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-116'
-  - '@Hope_Net-22'
+  - '@Hope_Net-23'
+  - '@v2Source-4'
   - ss-38.121.43.71-7
   - 🇺🇸US-38.121.43.71-0430
   - 🇺🇸US-38.121.43.71-0455
@@ -22307,12 +22236,14 @@ proxy-groups:
   - 🇺🇸US-38.121.43.71-0439
   - ss-38.121.43.71-12
   - 🇺🇸US-38.121.43.71-0463
+  - '@Hope_Net-24'
   - ss-67.220.95.102-6
   - ss-67.220.95.102-7
   - 🇺🇸US-38.121.43.71-0419
   - 🇺🇸US-38.121.43.71-0409
   - 🇺🇸US-38.68.135.18-4894
   - ss-31.40.212.221
+  - ss-67.220.95.230
   - ss-192.46.209.146
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-125'
   - ss-23.154.136.132-5
@@ -22324,8 +22255,7 @@ proxy-groups:
   - ss-23.154.136.51-2
   - ss-38.107.226.49
   - ss-38.110.1.88
-  - '@Hope_Net-23'
-  - '@Hope_Net-24'
+  - '@Hope_Net-25'
   - ss-38.121.43.71-13
   - ss-38.121.43.71-14
   - 🇺🇸US-38.121.43.71-0440
@@ -22348,7 +22278,7 @@ proxy-groups:
   - ss-67.220.95.102-10
   - ss-67.220.95.102-11
   - ss-67.220.95.102-12
-  - ss-67.220.95.230
+  - ss-67.220.95.230-2
   - ss-69.50.93.113
   - ss-69.50.93.47-3
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-130'
@@ -22384,10 +22314,9 @@ proxy-groups:
   - CL-01
   - ss-23.185.248.17
   - ss-156.245.190.23
-  - ss-thr.npvnot.com
   - ⚫️ Telegram= @Canfing_VPN-2
   - CO-01
-  - ss-thr.npvnot.com-2
+  - ss-thr.npvnot.com
   - 🇸🇬 SG-03
   - 🇸🇬 SG-08
   - tr-14473d98b1
@@ -22400,6 +22329,7 @@ proxy-groups:
   - ss-38.121.43.71-20
   - 🇺🇸US-38.121.43.71-0410
   - 🇺🇸US-38.121.43.71-0464
+  - '@Hope_Net-26'
   - ss-38.121.43.71-21
   - 🇺🇸US-38.121.43.71-0429
   - 🇺🇸US-38.68.135.18-5758
@@ -22409,7 +22339,6 @@ proxy-groups:
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-139'
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-140'
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-141'
-  - '@v2Source-4'
   - '@v2ray_vpn_ir  | نت ملی'
   - 套餐已到期或流量用尽
   - 续费请前往web1.bby011.com
@@ -22456,7 +22385,7 @@ proxy-groups:
   - 🇨🇳_CN_中国->🇷🇺_RU_俄罗斯-2
   - 🇷🇺 一元机场:ssrsub.de 俄罗斯 09
   - ss-23.154.136.132-8
-  - '@Hope_Net-25'
+  - '@Hope_Net-27'
   - ss-38.121.43.71-22
   - 🇺🇸US-38.121.43.71-0436
   - ss-38.121.43.71-23
@@ -22491,7 +22420,7 @@ proxy-groups:
   - ss-67.220.95.29-5
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-143'
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-144'
-  - ss-38557654738726634736956357123082.international-ixp.com
+  - '@Hope_Net-28'
   - ss-23.150.248.235-5
   - ss-23.154.136.132-10
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-145'
@@ -22545,11 +22474,9 @@ proxy-groups:
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-153'
   - 🇺🇸US-23.154.136.51-0444
   - 🇺🇸US-38.110.1.88-0466
-  - '@Hope_Net-26'
   - ss-158.247.205.87
   - ss-167.88.62.68
   - ss-167.88.63.71
-  - '@Hope_Net-27'
   - ss-172.99.190.149-2
   - ss-195.154.200.150
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-154'
@@ -22558,12 +22485,11 @@ proxy-groups:
   - ss-38.121.43.71-30
   - 🇺🇸US-38.121.43.71-0426
   - 🇺🇸US-38.121.43.71-0446vmess://eyJ2IjoiMiIsInBzIjoiXHU3ZjhlXHU1NmZkMDFfXHU1MTRkXHU4ZDM5IiwiYWRkIjoidXMwMS5zaC1jbG91ZGZsYXJlLnNicyIsInBvcnQiOiI4NDQzIiwiaWQiOiIyNzAzODY3ZC1kZDhmLTRmN2YtOTNmNC1hYzZlNGY1NmM3ZTgiLCJhaWQiOiIwIiwic2N5IjoiYXV0byIsIm5ldCI6IndzIiwidHlwZSI6Im5vbmUiLCJob3N0IjpudWxsLCJwYXRoIjpudWxsLCJ0bHMiOiJ0bHMiLCJmcCI6ImNocm9tZSIsInNuaSI6InVzMDEuc2gtY2xvdWRmbGFyZS5zYnMifQ==
-  - '@Hope_Net-28'
+  - '@Hope_Net-29'
   - ss-38.121.43.71-31
   - 🇺🇸US-38.121.43.71-0431
   - 🇺🇸US-38.121.43.71-0447
   - ss-38.64.138.145
-  - '@Hope_Net-29'
   - ss-38.68.135.123
   - 🇺🇸US-38.68.135.18-5775
   - ss-67.220.95.29-6
@@ -22572,7 +22498,7 @@ proxy-groups:
   - 🇺🇸US-38.121.43.71-0457
   - 🇺🇸US-38.143.66.87-5615
   - ss-67.220.95.102-19
-  - '[-5'
+  - '[-2'
   - ss-69.50.93.47-4
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-155'
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-156'
@@ -22607,7 +22533,6 @@ proxy-groups:
   - 🇺🇸 一元机场:ssrsub.de 美国 67
   - 日本|@ripaojiedian
   - 美国2|@ripaojiedian
-  - ss-eyjhzgqioiaiz2vybwfues5mcmfuy2utbgvhcm5zlmlyiiwgimfpzci6iciwiiwgimhvc3qioiaism91uk5hbg9gyklnzefuqs5tcfjpbkdlcm9wrw4uy29nliisicjpzci6icixnmm2yjvizi0xyzu4ltqxzgetyjazmy1hmmy3mdfkowe3yzcilcaibmv0ijoginrjccisicjwyxroijogii8ilcaicg9ydci6idy0ntm1lcaichmioiaivgvszwdyyw06qgnvbmzpz19wcm94esdwn5sliiwginnjesi6icjhdxrviiwginrscyi6icjub25liiwginr5cguioiaiahr0ccisicj2ijogijiifq==
 - name: خودکار (بهترین پینگ) 🤖
   type: url-test
   icon: https://www.svgrepo.com/show/7876/speedometer.svg
@@ -22774,14 +22699,10 @@ proxy-groups:
   - 🇭🇰香港05
   - 🇭🇰香港06
   - 🇨🇳台湾04家宽
-  - ss-mjaymi1ibgfrztmtywvzlti1ni1ny206vnqwoeg0qwrlqmdhehvevzivkzznv2lpsxd6kzy1ehb3dlpxk2xkejhlbz06cfnjqnpmk0gwbxv4tuzqzw1hsmrttwvwsudgv1nzvhkwb2graxnqmzuxrt0
-  - 🇸🇬 新加�%A
-  - 🇭🇰 香港
   - '@Hope_Net'
   - '@Hope_Net-2'
   - '@Hope_Net-3'
   - '@Hope_Net-4'
-  - '@Hope_Net-5'
   - 🇺🇸 USA 086
   - 🇺🇸 USA 086-2
   - ss-91.99.22.179
@@ -22800,6 +22721,7 @@ proxy-groups:
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-3'
   - 🇱🇹LT-45.87.175.154-0308
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-4'
+  - ss-45.87.175.164
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-5'
   - 🇱🇹LT-45.87.175.164-0288
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-6'
@@ -22820,6 +22742,7 @@ proxy-groups:
   - 🇬🇧GB-185.5.38.111-0434
   - ss-83.217.9.4
   - ss-62.133.63.21
+  - ss-4.223.106.151
   - ss-azure-sto.edgeservers.org
   - Ainita
   - Server-1
@@ -22901,13 +22824,10 @@ proxy-groups:
   - 专线|🇸🇬新加坡02|GPT|2x
   - 专线|🇯🇵日本03|2x
   - 专线|🇯🇵日本04|2x
+  - '@Hope_Net-5'
   - '@Hope_Net-6'
   - '@Hope_Net-7'
   - '@Hope_Net-8'
-  - '@Hope_Net-9'
-  - '@Hope_Net-10'
-  - '@Hope_Net-11'
-  - '['
   - ss-62.84.102.28
   - '@𝗦𝗶𝗡𝗔𝗩𝗠👈🏻 تلگرام'
   - ss-185.135.86.86
@@ -22965,17 +22885,16 @@ proxy-groups:
   - 🇮🇹 Italy 091-2
   - ss-66.151.41.89
   - ss-5.187.51.212
-  - ss-y2hhy2hhmjatawv0zi1wb2x5mtmwnto2otlot05jcdrmbvd1oenrnmhfue0znhr0odlfcufkntbrn0ziukjkckjiegpymw4
   - ss-195.123.213.12
   - 🇱🇻LV | @OutlineReleasedKey
   - ss-131.145.122.145
   - ss-131.145.33.123
+  - ss-131.145.94.193
   - ss-4.250.140.221
   - ss-74.177.212.246
   - ss-admin.c4.webramz.co
   - 🇬🇧GB-131.145.45.24-0312
   - 🇬🇧GB-131.145.94.193-0335
-  - 🇺🇸US (611)
   - IRAN 13 (@Outline_Vpn) Free
   - ss-77.83.246.74
   - ss-77.238.229.244
@@ -22998,7 +22917,6 @@ proxy-groups:
   - 日本|广州移动|01 x1
   - 香港|广州移动|01x 1
   - 美国|广州移动|01 x1
-  - TG售后群:@ChjsClub
   - 新加坡|广东;联通|03  x1
   - 新加坡|广州移动|01 x1
   - 新加坡|IEPL专线|01 x1.5
@@ -23139,7 +23057,7 @@ proxy-groups:
   - 🇫🇷FR-45.158.171.151-0302
   - 🇫🇷FR-45.158.171.151-0303
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-22'
-  - ss-45.87.175.164
+  - ss-45.87.175.164-2
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-23'
   - 🇱🇹LT-45.87.175.164-5700
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-24'
@@ -23202,6 +23120,7 @@ proxy-groups:
   - ss-45.139.24.24
   - 🇷🇺RU-45.139.24.24-0367
   - 🇷🇺RU-45.139.24.24-5719
+  - '@VIProxys'
   - ss-45.144.49.140
   - ss-91.103.253.151
   - ss-194.87.216.218
@@ -23231,7 +23150,7 @@ proxy-groups:
   - '[ss]香港1[中转]'
   - '[ss]香港2[中转]'
   - 公益路线1-香港HK 限速50Mbps
-  - '@Hope_Net-12'
+  - '@Hope_Net-9'
   - 加拿大+V2CROSS.COM
   - 🇨🇦 一元机场:ssrsub.de 加拿大 05
   - ss-118.163.198.43
@@ -23317,7 +23236,6 @@ proxy-groups:
   - freeiranianv2reyکانال
   - 🇬🇧GB-85.210.55.181-0311
   - 🇬🇧GB-85.210.78.115-0322
-  - ss-series-a2-mec.varzesh360.co
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-34'
   - 𝐜𝐡𝐚𝐧𝐧𝐞𝐥:+⭐️@V2rayNG_Outlinee⭐️
   - 🇬🇧GB-85.210.55.181-0322
@@ -23328,6 +23246,7 @@ proxy-groups:
   - ss-89.23.103.125
   - 🇳🇱NL-89.23.103.125-0377
   - 🇳🇱NL-89.23.103.125-0457
+  - '@Hope_Net-10'
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-35'
   - ss-45.144.49.110
   - ss-94.156.79.244
@@ -23386,7 +23305,6 @@ proxy-groups:
   - ss-150.241.77.214
   - ss-3.255.250.127
   - ss-79.137.205.30
-  - ss-y2hhy2hhmjatawv0zi1wb2x5mtmwntpmtvnoadixvhjyaliyb2synveybku4ru5umnpvqm1qdmthm1jdq1vbsfpftenuv29la1zqdmfmodlxd2nsa2rieevmzxayymmyyvv0bw54cxzgmwf5uvjlejfksgpvtgo
   - ss-141.98.4.67
   - 🇳🇱NL-141.98.4.67-5764
   - 🇺🇸US (614)
@@ -23456,7 +23374,6 @@ proxy-groups:
   - باد اردیبهشت 🍓@xixv2ray
   - ⚫️ Telegram= @Canfing_VPN
   - '@meli_proxyy'
-  - '[-2'
   - ss-147.45.136.147
   - ss-104.21.80.1
   - 𝐜𝐡𝐚𝐧𝐧𝐞𝐥:+⭐️@V2rayNG_Outlinee⭐️-2
@@ -23482,7 +23399,6 @@ proxy-groups:
   - ss-77.246.102.112
   - 俄罗斯+V2CROSS.COM
   - 🇷🇺 一元机场:ssrsub.de 俄罗斯 04
-  - 🇷🇺_RU_俄罗斯
   - ss-45.95.233.43
   - ss-185.221.196.34
   - ss-185.39.207.60
@@ -23514,7 +23430,6 @@ proxy-groups:
   - ss-137.220.142.140
   - ss-147.45.178.200
   - ss-216.173.70.187
-  - '@v2Source'
   - ss-81.19.137.222
   - ss-193.29.139.248
   - ss-45.158.171.131
@@ -23857,6 +23772,7 @@ proxy-groups:
   - 🇪🇨EC-185.47.253.227-0456
   - ss-185.47.255.22
   - 🇵🇷PR-185.47.255.22-0446
+  - ss-185.93.173.218
   - ss-195.181.160.6
   - 🇨🇿CZ-195.181.160.6-0336
   - 🇨🇿CZ-195.181.160.6-0343
@@ -23865,6 +23781,7 @@ proxy-groups:
   - ss-38.165.233.18
   - 🇵🇾PY-38.165.233.18-5732
   - ss-38.54.2.182
+  - '@v2Source'
   - ss-45.154.206.192
   - 🇪🇸ES-45.154.206.192-0389
   - 🇪🇸ES-45.154.206.192-0481
@@ -23932,7 +23849,6 @@ proxy-groups:
   - 🇨🇭CH-204.136.10.115-0400
   - ss-64.176.85.73
   - 🇸🇬SG | @OutlineReleasedKey
-  - SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-172.233.128.126:1866
   - ss-103.104.247.47
   - 🇳🇱NL-103.104.247.47-0298
   - 🇳🇱NL-103.104.247.47-5714
@@ -23995,7 +23911,7 @@ proxy-groups:
   - ss-194.87.71.220
   - '@V2ray1_Ng-3'
   - 'Channel id: @ShadowProxy66🇩🇪'
-  - '[-3'
+  - '['
   - ss-194.87.71.221
   - ss-194.87.71.223
   - 🇩🇪DE-194.87.71.223-0357
@@ -24232,7 +24148,6 @@ proxy-groups:
   - 🇺🇸 USA 026-2
   - ss-173.234.79.117
   - '@speeds_vpn-2'
-  - '@vpnserverrr'
   - 🇸🇬 一元机场:ssrsub.de 新加坡 06
   - ss-193.57.138.81
   - 🇹🇼 Taiwan 065
@@ -24298,6 +24213,8 @@ proxy-groups:
   - 🇲🇾 Malaysia 075 *1.5
   - 🇲🇾 Malaysia 075 *1.5-2
   - ss-156.146.62.163
+  - ss-212.102.53.78
+  - ss-37.19.198.244
   - ss-149.34.244.71
   - ss-149.34.244.72
   - ss-149.34.244.82
@@ -24348,7 +24265,7 @@ proxy-groups:
   - 🇬🇧GB-212.102.53.197-0332
   - ss-212.102.53.198
   - 🇬🇧GB-212.102.53.198-0316
-  - ss-212.102.53.78
+  - ss-212.102.53.78-2
   - 🇬🇧GB-212.102.53.78-0326
   - ss-212.102.53.79
   - 🇬🇧GB-212.102.53.79-0330
@@ -24361,7 +24278,7 @@ proxy-groups:
   - 🇺🇸US-37.19.198.236-0269
   - ss-37.19.198.243
   - 🇺🇸US-37.19.198.243-0270
-  - ss-37.19.198.244
+  - ss-37.19.198.244-2
   - 🇺🇸US-37.19.198.244-0271
   - 🇬🇧GB-212.102.53.197-0313
   - 🇬🇧GB-141.98.101.178-0345
@@ -24409,6 +24326,7 @@ proxy-groups:
   - ss-5.188.181.201-3
   - ss-45.89.52.66-2
   - ss-5.188.181.201-4
+  - '@Hope_Net-11'
   - 🇪🇸ES-5.188.181.201-5607
   - 🇩🇪DE-80.92.204.106-5589
   - ss-80.92.204.106-6
@@ -24434,7 +24352,9 @@ proxy-groups:
   - ss-5.188.181.201-9
   - ss-45.89.52.66-9
   - ss-5.188.181.201-10
+  - '@Hope_Net-12'
   - ss-80.92.204.106-11
+  - '@Hope_Net-13'
   - ss-5.188.181.201-11
   - ss-5.188.181.201-12
   - ss-80.92.204.106-12
@@ -24509,9 +24429,9 @@ proxy-groups:
   - 🇹🇷TR-45.89.52.66-0464
   - ss-80.92.204.106-17
   - ss-13.215.49.89
-  - '@Hope_Net-13'
-  - ss-18.142.183.235
   - '@Hope_Net-14'
+  - ss-18.142.183.235
+  - '@v2Source-2'
   - ss-143.244.58.102
   - '@Hope_Net-15'
   - '@Hope_Net-16'
@@ -24520,6 +24440,7 @@ proxy-groups:
   - '@Hope_Net-18'
   - ss-37.19.222.214
   - '@Hope_Net-19'
+  - '@v2Source-3'
   - 13|tg频道:@ripaojiedian
   - ss-80.92.204.106-18
   - ss-217.30.10.18
@@ -24602,7 +24523,6 @@ proxy-groups:
   - 🇹🇷TR-185.123.101.241-5641
   - 🇲🇩MD-185.153.197.5-0250
   - 🇳🇴NO-185.213.23.226-0319
-  - '@v2Source-2'
   - 🇬🇷GR-192.71.166.102-0455
   - 🇸🇮SI-192.71.244.150-0471
   - 🇷🇸RS-194.71.126.31-0405
@@ -24662,7 +24582,7 @@ proxy-groups:
   - 🇸🇬 SG-13
   - TR-01
   - 🇨🇳 TW-01
-  - '[-4'
+  - ss-38557654738726634736956357123082.international-ixp.com
   - MA-01
   - 🇨🇦 Canada丨01
   - 🇭🇰 Hong Kong丨01
@@ -24851,7 +24771,6 @@ proxy-groups:
   - 🇯🇵 一元机场:ssrsub.de 日本 07
   - ss-183.56.220.243
   - 🇹🇷TR-185.123.100.140-0270
-  - '@v2Source-3'
   - 欧洲+V2CROSS.COM
   - 🇨🇴 一元机场:ssrsub.de 哥伦比亚 01vmess://eyJyZW1hcmsiOiLlrpjnvZE6bWlhb3B1Lnh5eiDkuabnrb46bm80MDQudGsiLCJ0eXBlIjpudWxsLCJhZGQiOiJ3d3cuZ29vZ2xlLmNvbSIsInBvcnQiOiIxMDA4NiIsImlkIjoiNjBmNDViZTQtNjVlMS0zNTRlLThlMGUtOWQ3NzVlNjk5NzIzIiwibmV0IjoidGNwIiwiYWlkIjoiMCIsInBzIjoi5a6Y572ROm1pYW9wdS54eXog5Lmm562+Om5vNDA0LnRrIn0=
   - 🇸🇬 SG-05
@@ -24897,15 +24816,14 @@ proxy-groups:
   - ss-185.186.79.135
   - 🇳🇱 一元机场:ssrsub.de 荷兰 02
   - ss-37.143.131.121
-  - ss-None
   - ss-134.195.196.193
-  - '@Hope_Net-20'
   - ss-167.88.62.62
   - ss-172.99.190.149
   - ss-23.154.136.103
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-107'
   - ss-23.154.136.132
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-108'
+  - '@Hope_Net-20'
   - ss-38.121.43.71-2
   - ss-38.121.43.71-3
   - 🇺🇸US-38.121.43.71-4997
@@ -24978,6 +24896,7 @@ proxy-groups:
   - 🇺🇸US-38.121.43.71-0421
   - 🇺🇸US-38.121.43.71-0442
   - 🇺🇸US-38.121.43.97-5598
+  - '@Hope_Net-22'
   - ss-38.68.134.202
   - 🇺🇸US-38.68.134.202-5545
   - 🇺🇸US-38.68.135.18-4908
@@ -25003,7 +24922,8 @@ proxy-groups:
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-115'
   - ss-23.154.136.132-3
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-116'
-  - '@Hope_Net-22'
+  - '@Hope_Net-23'
+  - '@v2Source-4'
   - ss-38.121.43.71-7
   - 🇺🇸US-38.121.43.71-0430
   - 🇺🇸US-38.121.43.71-0455
@@ -25067,12 +24987,14 @@ proxy-groups:
   - 🇺🇸US-38.121.43.71-0439
   - ss-38.121.43.71-12
   - 🇺🇸US-38.121.43.71-0463
+  - '@Hope_Net-24'
   - ss-67.220.95.102-6
   - ss-67.220.95.102-7
   - 🇺🇸US-38.121.43.71-0419
   - 🇺🇸US-38.121.43.71-0409
   - 🇺🇸US-38.68.135.18-4894
   - ss-31.40.212.221
+  - ss-67.220.95.230
   - ss-192.46.209.146
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-125'
   - ss-23.154.136.132-5
@@ -25084,8 +25006,7 @@ proxy-groups:
   - ss-23.154.136.51-2
   - ss-38.107.226.49
   - ss-38.110.1.88
-  - '@Hope_Net-23'
-  - '@Hope_Net-24'
+  - '@Hope_Net-25'
   - ss-38.121.43.71-13
   - ss-38.121.43.71-14
   - 🇺🇸US-38.121.43.71-0440
@@ -25108,7 +25029,7 @@ proxy-groups:
   - ss-67.220.95.102-10
   - ss-67.220.95.102-11
   - ss-67.220.95.102-12
-  - ss-67.220.95.230
+  - ss-67.220.95.230-2
   - ss-69.50.93.113
   - ss-69.50.93.47-3
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-130'
@@ -25144,10 +25065,9 @@ proxy-groups:
   - CL-01
   - ss-23.185.248.17
   - ss-156.245.190.23
-  - ss-thr.npvnot.com
   - ⚫️ Telegram= @Canfing_VPN-2
   - CO-01
-  - ss-thr.npvnot.com-2
+  - ss-thr.npvnot.com
   - 🇸🇬 SG-03
   - 🇸🇬 SG-08
   - tr-14473d98b1
@@ -25160,6 +25080,7 @@ proxy-groups:
   - ss-38.121.43.71-20
   - 🇺🇸US-38.121.43.71-0410
   - 🇺🇸US-38.121.43.71-0464
+  - '@Hope_Net-26'
   - ss-38.121.43.71-21
   - 🇺🇸US-38.121.43.71-0429
   - 🇺🇸US-38.68.135.18-5758
@@ -25169,7 +25090,6 @@ proxy-groups:
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-139'
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-140'
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-141'
-  - '@v2Source-4'
   - '@v2ray_vpn_ir  | نت ملی'
   - 套餐已到期或流量用尽
   - 续费请前往web1.bby011.com
@@ -25216,7 +25136,7 @@ proxy-groups:
   - 🇨🇳_CN_中国->🇷🇺_RU_俄罗斯-2
   - 🇷🇺 一元机场:ssrsub.de 俄罗斯 09
   - ss-23.154.136.132-8
-  - '@Hope_Net-25'
+  - '@Hope_Net-27'
   - ss-38.121.43.71-22
   - 🇺🇸US-38.121.43.71-0436
   - ss-38.121.43.71-23
@@ -25251,7 +25171,7 @@ proxy-groups:
   - ss-67.220.95.29-5
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-143'
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-144'
-  - ss-38557654738726634736956357123082.international-ixp.com
+  - '@Hope_Net-28'
   - ss-23.150.248.235-5
   - ss-23.154.136.132-10
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-145'
@@ -25305,11 +25225,9 @@ proxy-groups:
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-153'
   - 🇺🇸US-23.154.136.51-0444
   - 🇺🇸US-38.110.1.88-0466
-  - '@Hope_Net-26'
   - ss-158.247.205.87
   - ss-167.88.62.68
   - ss-167.88.63.71
-  - '@Hope_Net-27'
   - ss-172.99.190.149-2
   - ss-195.154.200.150
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-154'
@@ -25318,12 +25236,11 @@ proxy-groups:
   - ss-38.121.43.71-30
   - 🇺🇸US-38.121.43.71-0426
   - 🇺🇸US-38.121.43.71-0446vmess://eyJ2IjoiMiIsInBzIjoiXHU3ZjhlXHU1NmZkMDFfXHU1MTRkXHU4ZDM5IiwiYWRkIjoidXMwMS5zaC1jbG91ZGZsYXJlLnNicyIsInBvcnQiOiI4NDQzIiwiaWQiOiIyNzAzODY3ZC1kZDhmLTRmN2YtOTNmNC1hYzZlNGY1NmM3ZTgiLCJhaWQiOiIwIiwic2N5IjoiYXV0byIsIm5ldCI6IndzIiwidHlwZSI6Im5vbmUiLCJob3N0IjpudWxsLCJwYXRoIjpudWxsLCJ0bHMiOiJ0bHMiLCJmcCI6ImNocm9tZSIsInNuaSI6InVzMDEuc2gtY2xvdWRmbGFyZS5zYnMifQ==
-  - '@Hope_Net-28'
+  - '@Hope_Net-29'
   - ss-38.121.43.71-31
   - 🇺🇸US-38.121.43.71-0431
   - 🇺🇸US-38.121.43.71-0447
   - ss-38.64.138.145
-  - '@Hope_Net-29'
   - ss-38.68.135.123
   - 🇺🇸US-38.68.135.18-5775
   - ss-67.220.95.29-6
@@ -25332,7 +25249,7 @@ proxy-groups:
   - 🇺🇸US-38.121.43.71-0457
   - 🇺🇸US-38.143.66.87-5615
   - ss-67.220.95.102-19
-  - '[-5'
+  - '[-2'
   - ss-69.50.93.47-4
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-155'
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-156'
@@ -25367,7 +25284,6 @@ proxy-groups:
   - 🇺🇸 一元机场:ssrsub.de 美国 67
   - 日本|@ripaojiedian
   - 美国2|@ripaojiedian
-  - ss-eyjhzgqioiaiz2vybwfues5mcmfuy2utbgvhcm5zlmlyiiwgimfpzci6iciwiiwgimhvc3qioiaism91uk5hbg9gyklnzefuqs5tcfjpbkdlcm9wrw4uy29nliisicjpzci6icixnmm2yjvizi0xyzu4ltqxzgetyjazmy1hmmy3mdfkowe3yzcilcaibmv0ijoginrjccisicjwyxroijogii8ilcaicg9ydci6idy0ntm1lcaichmioiaivgvszwdyyw06qgnvbmzpz19wcm94esdwn5sliiwginnjesi6icjhdxrviiwginrscyi6icjub25liiwginr5cguioiaiahr0ccisicj2ijogijiifq==
 - name: پشتیبان (در صورت قطعی) 🧯
   type: fallback
   icon: https://www.svgrepo.com/show/415208/backup-cloud-document.svg
@@ -25534,14 +25450,10 @@ proxy-groups:
   - 🇭🇰香港05
   - 🇭🇰香港06
   - 🇨🇳台湾04家宽
-  - ss-mjaymi1ibgfrztmtywvzlti1ni1ny206vnqwoeg0qwrlqmdhehvevzivkzznv2lpsxd6kzy1ehb3dlpxk2xkejhlbz06cfnjqnpmk0gwbxv4tuzqzw1hsmrttwvwsudgv1nzvhkwb2graxnqmzuxrt0
-  - 🇸🇬 新加�%A
-  - 🇭🇰 香港
   - '@Hope_Net'
   - '@Hope_Net-2'
   - '@Hope_Net-3'
   - '@Hope_Net-4'
-  - '@Hope_Net-5'
   - 🇺🇸 USA 086
   - 🇺🇸 USA 086-2
   - ss-91.99.22.179
@@ -25560,6 +25472,7 @@ proxy-groups:
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-3'
   - 🇱🇹LT-45.87.175.154-0308
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-4'
+  - ss-45.87.175.164
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-5'
   - 🇱🇹LT-45.87.175.164-0288
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-6'
@@ -25580,6 +25493,7 @@ proxy-groups:
   - 🇬🇧GB-185.5.38.111-0434
   - ss-83.217.9.4
   - ss-62.133.63.21
+  - ss-4.223.106.151
   - ss-azure-sto.edgeservers.org
   - Ainita
   - Server-1
@@ -25661,13 +25575,10 @@ proxy-groups:
   - 专线|🇸🇬新加坡02|GPT|2x
   - 专线|🇯🇵日本03|2x
   - 专线|🇯🇵日本04|2x
+  - '@Hope_Net-5'
   - '@Hope_Net-6'
   - '@Hope_Net-7'
   - '@Hope_Net-8'
-  - '@Hope_Net-9'
-  - '@Hope_Net-10'
-  - '@Hope_Net-11'
-  - '['
   - ss-62.84.102.28
   - '@𝗦𝗶𝗡𝗔𝗩𝗠👈🏻 تلگرام'
   - ss-185.135.86.86
@@ -25725,17 +25636,16 @@ proxy-groups:
   - 🇮🇹 Italy 091-2
   - ss-66.151.41.89
   - ss-5.187.51.212
-  - ss-y2hhy2hhmjatawv0zi1wb2x5mtmwnto2otlot05jcdrmbvd1oenrnmhfue0znhr0odlfcufkntbrn0ziukjkckjiegpymw4
   - ss-195.123.213.12
   - 🇱🇻LV | @OutlineReleasedKey
   - ss-131.145.122.145
   - ss-131.145.33.123
+  - ss-131.145.94.193
   - ss-4.250.140.221
   - ss-74.177.212.246
   - ss-admin.c4.webramz.co
   - 🇬🇧GB-131.145.45.24-0312
   - 🇬🇧GB-131.145.94.193-0335
-  - 🇺🇸US (611)
   - IRAN 13 (@Outline_Vpn) Free
   - ss-77.83.246.74
   - ss-77.238.229.244
@@ -25758,7 +25668,6 @@ proxy-groups:
   - 日本|广州移动|01 x1
   - 香港|广州移动|01x 1
   - 美国|广州移动|01 x1
-  - TG售后群:@ChjsClub
   - 新加坡|广东;联通|03  x1
   - 新加坡|广州移动|01 x1
   - 新加坡|IEPL专线|01 x1.5
@@ -25899,7 +25808,7 @@ proxy-groups:
   - 🇫🇷FR-45.158.171.151-0302
   - 🇫🇷FR-45.158.171.151-0303
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-22'
-  - ss-45.87.175.164
+  - ss-45.87.175.164-2
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-23'
   - 🇱🇹LT-45.87.175.164-5700
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-24'
@@ -25962,6 +25871,7 @@ proxy-groups:
   - ss-45.139.24.24
   - 🇷🇺RU-45.139.24.24-0367
   - 🇷🇺RU-45.139.24.24-5719
+  - '@VIProxys'
   - ss-45.144.49.140
   - ss-91.103.253.151
   - ss-194.87.216.218
@@ -25991,7 +25901,7 @@ proxy-groups:
   - '[ss]香港1[中转]'
   - '[ss]香港2[中转]'
   - 公益路线1-香港HK 限速50Mbps
-  - '@Hope_Net-12'
+  - '@Hope_Net-9'
   - 加拿大+V2CROSS.COM
   - 🇨🇦 一元机场:ssrsub.de 加拿大 05
   - ss-118.163.198.43
@@ -26077,7 +25987,6 @@ proxy-groups:
   - freeiranianv2reyکانال
   - 🇬🇧GB-85.210.55.181-0311
   - 🇬🇧GB-85.210.78.115-0322
-  - ss-series-a2-mec.varzesh360.co
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-34'
   - 𝐜𝐡𝐚𝐧𝐧𝐞𝐥:+⭐️@V2rayNG_Outlinee⭐️
   - 🇬🇧GB-85.210.55.181-0322
@@ -26088,6 +25997,7 @@ proxy-groups:
   - ss-89.23.103.125
   - 🇳🇱NL-89.23.103.125-0377
   - 🇳🇱NL-89.23.103.125-0457
+  - '@Hope_Net-10'
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-35'
   - ss-45.144.49.110
   - ss-94.156.79.244
@@ -26146,7 +26056,6 @@ proxy-groups:
   - ss-150.241.77.214
   - ss-3.255.250.127
   - ss-79.137.205.30
-  - ss-y2hhy2hhmjatawv0zi1wb2x5mtmwntpmtvnoadixvhjyaliyb2synveybku4ru5umnpvqm1qdmthm1jdq1vbsfpftenuv29la1zqdmfmodlxd2nsa2rieevmzxayymmyyvv0bw54cxzgmwf5uvjlejfksgpvtgo
   - ss-141.98.4.67
   - 🇳🇱NL-141.98.4.67-5764
   - 🇺🇸US (614)
@@ -26216,7 +26125,6 @@ proxy-groups:
   - باد اردیبهشت 🍓@xixv2ray
   - ⚫️ Telegram= @Canfing_VPN
   - '@meli_proxyy'
-  - '[-2'
   - ss-147.45.136.147
   - ss-104.21.80.1
   - 𝐜𝐡𝐚𝐧𝐧𝐞𝐥:+⭐️@V2rayNG_Outlinee⭐️-2
@@ -26242,7 +26150,6 @@ proxy-groups:
   - ss-77.246.102.112
   - 俄罗斯+V2CROSS.COM
   - 🇷🇺 一元机场:ssrsub.de 俄罗斯 04
-  - 🇷🇺_RU_俄罗斯
   - ss-45.95.233.43
   - ss-185.221.196.34
   - ss-185.39.207.60
@@ -26274,7 +26181,6 @@ proxy-groups:
   - ss-137.220.142.140
   - ss-147.45.178.200
   - ss-216.173.70.187
-  - '@v2Source'
   - ss-81.19.137.222
   - ss-193.29.139.248
   - ss-45.158.171.131
@@ -26617,6 +26523,7 @@ proxy-groups:
   - 🇪🇨EC-185.47.253.227-0456
   - ss-185.47.255.22
   - 🇵🇷PR-185.47.255.22-0446
+  - ss-185.93.173.218
   - ss-195.181.160.6
   - 🇨🇿CZ-195.181.160.6-0336
   - 🇨🇿CZ-195.181.160.6-0343
@@ -26625,6 +26532,7 @@ proxy-groups:
   - ss-38.165.233.18
   - 🇵🇾PY-38.165.233.18-5732
   - ss-38.54.2.182
+  - '@v2Source'
   - ss-45.154.206.192
   - 🇪🇸ES-45.154.206.192-0389
   - 🇪🇸ES-45.154.206.192-0481
@@ -26692,7 +26600,6 @@ proxy-groups:
   - 🇨🇭CH-204.136.10.115-0400
   - ss-64.176.85.73
   - 🇸🇬SG | @OutlineReleasedKey
-  - SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-172.233.128.126:1866
   - ss-103.104.247.47
   - 🇳🇱NL-103.104.247.47-0298
   - 🇳🇱NL-103.104.247.47-5714
@@ -26755,7 +26662,7 @@ proxy-groups:
   - ss-194.87.71.220
   - '@V2ray1_Ng-3'
   - 'Channel id: @ShadowProxy66🇩🇪'
-  - '[-3'
+  - '['
   - ss-194.87.71.221
   - ss-194.87.71.223
   - 🇩🇪DE-194.87.71.223-0357
@@ -26992,7 +26899,6 @@ proxy-groups:
   - 🇺🇸 USA 026-2
   - ss-173.234.79.117
   - '@speeds_vpn-2'
-  - '@vpnserverrr'
   - 🇸🇬 一元机场:ssrsub.de 新加坡 06
   - ss-193.57.138.81
   - 🇹🇼 Taiwan 065
@@ -27058,6 +26964,8 @@ proxy-groups:
   - 🇲🇾 Malaysia 075 *1.5
   - 🇲🇾 Malaysia 075 *1.5-2
   - ss-156.146.62.163
+  - ss-212.102.53.78
+  - ss-37.19.198.244
   - ss-149.34.244.71
   - ss-149.34.244.72
   - ss-149.34.244.82
@@ -27108,7 +27016,7 @@ proxy-groups:
   - 🇬🇧GB-212.102.53.197-0332
   - ss-212.102.53.198
   - 🇬🇧GB-212.102.53.198-0316
-  - ss-212.102.53.78
+  - ss-212.102.53.78-2
   - 🇬🇧GB-212.102.53.78-0326
   - ss-212.102.53.79
   - 🇬🇧GB-212.102.53.79-0330
@@ -27121,7 +27029,7 @@ proxy-groups:
   - 🇺🇸US-37.19.198.236-0269
   - ss-37.19.198.243
   - 🇺🇸US-37.19.198.243-0270
-  - ss-37.19.198.244
+  - ss-37.19.198.244-2
   - 🇺🇸US-37.19.198.244-0271
   - 🇬🇧GB-212.102.53.197-0313
   - 🇬🇧GB-141.98.101.178-0345
@@ -27169,6 +27077,7 @@ proxy-groups:
   - ss-5.188.181.201-3
   - ss-45.89.52.66-2
   - ss-5.188.181.201-4
+  - '@Hope_Net-11'
   - 🇪🇸ES-5.188.181.201-5607
   - 🇩🇪DE-80.92.204.106-5589
   - ss-80.92.204.106-6
@@ -27194,7 +27103,9 @@ proxy-groups:
   - ss-5.188.181.201-9
   - ss-45.89.52.66-9
   - ss-5.188.181.201-10
+  - '@Hope_Net-12'
   - ss-80.92.204.106-11
+  - '@Hope_Net-13'
   - ss-5.188.181.201-11
   - ss-5.188.181.201-12
   - ss-80.92.204.106-12
@@ -27269,9 +27180,9 @@ proxy-groups:
   - 🇹🇷TR-45.89.52.66-0464
   - ss-80.92.204.106-17
   - ss-13.215.49.89
-  - '@Hope_Net-13'
-  - ss-18.142.183.235
   - '@Hope_Net-14'
+  - ss-18.142.183.235
+  - '@v2Source-2'
   - ss-143.244.58.102
   - '@Hope_Net-15'
   - '@Hope_Net-16'
@@ -27280,6 +27191,7 @@ proxy-groups:
   - '@Hope_Net-18'
   - ss-37.19.222.214
   - '@Hope_Net-19'
+  - '@v2Source-3'
   - 13|tg频道:@ripaojiedian
   - ss-80.92.204.106-18
   - ss-217.30.10.18
@@ -27362,7 +27274,6 @@ proxy-groups:
   - 🇹🇷TR-185.123.101.241-5641
   - 🇲🇩MD-185.153.197.5-0250
   - 🇳🇴NO-185.213.23.226-0319
-  - '@v2Source-2'
   - 🇬🇷GR-192.71.166.102-0455
   - 🇸🇮SI-192.71.244.150-0471
   - 🇷🇸RS-194.71.126.31-0405
@@ -27422,7 +27333,7 @@ proxy-groups:
   - 🇸🇬 SG-13
   - TR-01
   - 🇨🇳 TW-01
-  - '[-4'
+  - ss-38557654738726634736956357123082.international-ixp.com
   - MA-01
   - 🇨🇦 Canada丨01
   - 🇭🇰 Hong Kong丨01
@@ -27611,7 +27522,6 @@ proxy-groups:
   - 🇯🇵 一元机场:ssrsub.de 日本 07
   - ss-183.56.220.243
   - 🇹🇷TR-185.123.100.140-0270
-  - '@v2Source-3'
   - 欧洲+V2CROSS.COM
   - 🇨🇴 一元机场:ssrsub.de 哥伦比亚 01vmess://eyJyZW1hcmsiOiLlrpjnvZE6bWlhb3B1Lnh5eiDkuabnrb46bm80MDQudGsiLCJ0eXBlIjpudWxsLCJhZGQiOiJ3d3cuZ29vZ2xlLmNvbSIsInBvcnQiOiIxMDA4NiIsImlkIjoiNjBmNDViZTQtNjVlMS0zNTRlLThlMGUtOWQ3NzVlNjk5NzIzIiwibmV0IjoidGNwIiwiYWlkIjoiMCIsInBzIjoi5a6Y572ROm1pYW9wdS54eXog5Lmm562+Om5vNDA0LnRrIn0=
   - 🇸🇬 SG-05
@@ -27657,15 +27567,14 @@ proxy-groups:
   - ss-185.186.79.135
   - 🇳🇱 一元机场:ssrsub.de 荷兰 02
   - ss-37.143.131.121
-  - ss-None
   - ss-134.195.196.193
-  - '@Hope_Net-20'
   - ss-167.88.62.62
   - ss-172.99.190.149
   - ss-23.154.136.103
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-107'
   - ss-23.154.136.132
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-108'
+  - '@Hope_Net-20'
   - ss-38.121.43.71-2
   - ss-38.121.43.71-3
   - 🇺🇸US-38.121.43.71-4997
@@ -27738,6 +27647,7 @@ proxy-groups:
   - 🇺🇸US-38.121.43.71-0421
   - 🇺🇸US-38.121.43.71-0442
   - 🇺🇸US-38.121.43.97-5598
+  - '@Hope_Net-22'
   - ss-38.68.134.202
   - 🇺🇸US-38.68.134.202-5545
   - 🇺🇸US-38.68.135.18-4908
@@ -27763,7 +27673,8 @@ proxy-groups:
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-115'
   - ss-23.154.136.132-3
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-116'
-  - '@Hope_Net-22'
+  - '@Hope_Net-23'
+  - '@v2Source-4'
   - ss-38.121.43.71-7
   - 🇺🇸US-38.121.43.71-0430
   - 🇺🇸US-38.121.43.71-0455
@@ -27827,12 +27738,14 @@ proxy-groups:
   - 🇺🇸US-38.121.43.71-0439
   - ss-38.121.43.71-12
   - 🇺🇸US-38.121.43.71-0463
+  - '@Hope_Net-24'
   - ss-67.220.95.102-6
   - ss-67.220.95.102-7
   - 🇺🇸US-38.121.43.71-0419
   - 🇺🇸US-38.121.43.71-0409
   - 🇺🇸US-38.68.135.18-4894
   - ss-31.40.212.221
+  - ss-67.220.95.230
   - ss-192.46.209.146
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-125'
   - ss-23.154.136.132-5
@@ -27844,8 +27757,7 @@ proxy-groups:
   - ss-23.154.136.51-2
   - ss-38.107.226.49
   - ss-38.110.1.88
-  - '@Hope_Net-23'
-  - '@Hope_Net-24'
+  - '@Hope_Net-25'
   - ss-38.121.43.71-13
   - ss-38.121.43.71-14
   - 🇺🇸US-38.121.43.71-0440
@@ -27868,7 +27780,7 @@ proxy-groups:
   - ss-67.220.95.102-10
   - ss-67.220.95.102-11
   - ss-67.220.95.102-12
-  - ss-67.220.95.230
+  - ss-67.220.95.230-2
   - ss-69.50.93.113
   - ss-69.50.93.47-3
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-130'
@@ -27904,10 +27816,9 @@ proxy-groups:
   - CL-01
   - ss-23.185.248.17
   - ss-156.245.190.23
-  - ss-thr.npvnot.com
   - ⚫️ Telegram= @Canfing_VPN-2
   - CO-01
-  - ss-thr.npvnot.com-2
+  - ss-thr.npvnot.com
   - 🇸🇬 SG-03
   - 🇸🇬 SG-08
   - tr-14473d98b1
@@ -27920,6 +27831,7 @@ proxy-groups:
   - ss-38.121.43.71-20
   - 🇺🇸US-38.121.43.71-0410
   - 🇺🇸US-38.121.43.71-0464
+  - '@Hope_Net-26'
   - ss-38.121.43.71-21
   - 🇺🇸US-38.121.43.71-0429
   - 🇺🇸US-38.68.135.18-5758
@@ -27929,7 +27841,6 @@ proxy-groups:
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-139'
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-140'
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-141'
-  - '@v2Source-4'
   - '@v2ray_vpn_ir  | نت ملی'
   - 套餐已到期或流量用尽
   - 续费请前往web1.bby011.com
@@ -27976,7 +27887,7 @@ proxy-groups:
   - 🇨🇳_CN_中国->🇷🇺_RU_俄罗斯-2
   - 🇷🇺 一元机场:ssrsub.de 俄罗斯 09
   - ss-23.154.136.132-8
-  - '@Hope_Net-25'
+  - '@Hope_Net-27'
   - ss-38.121.43.71-22
   - 🇺🇸US-38.121.43.71-0436
   - ss-38.121.43.71-23
@@ -28011,7 +27922,7 @@ proxy-groups:
   - ss-67.220.95.29-5
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-143'
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-144'
-  - ss-38557654738726634736956357123082.international-ixp.com
+  - '@Hope_Net-28'
   - ss-23.150.248.235-5
   - ss-23.154.136.132-10
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-145'
@@ -28065,11 +27976,9 @@ proxy-groups:
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-153'
   - 🇺🇸US-23.154.136.51-0444
   - 🇺🇸US-38.110.1.88-0466
-  - '@Hope_Net-26'
   - ss-158.247.205.87
   - ss-167.88.62.68
   - ss-167.88.63.71
-  - '@Hope_Net-27'
   - ss-172.99.190.149-2
   - ss-195.154.200.150
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-154'
@@ -28078,12 +27987,11 @@ proxy-groups:
   - ss-38.121.43.71-30
   - 🇺🇸US-38.121.43.71-0426
   - 🇺🇸US-38.121.43.71-0446vmess://eyJ2IjoiMiIsInBzIjoiXHU3ZjhlXHU1NmZkMDFfXHU1MTRkXHU4ZDM5IiwiYWRkIjoidXMwMS5zaC1jbG91ZGZsYXJlLnNicyIsInBvcnQiOiI4NDQzIiwiaWQiOiIyNzAzODY3ZC1kZDhmLTRmN2YtOTNmNC1hYzZlNGY1NmM3ZTgiLCJhaWQiOiIwIiwic2N5IjoiYXV0byIsIm5ldCI6IndzIiwidHlwZSI6Im5vbmUiLCJob3N0IjpudWxsLCJwYXRoIjpudWxsLCJ0bHMiOiJ0bHMiLCJmcCI6ImNocm9tZSIsInNuaSI6InVzMDEuc2gtY2xvdWRmbGFyZS5zYnMifQ==
-  - '@Hope_Net-28'
+  - '@Hope_Net-29'
   - ss-38.121.43.71-31
   - 🇺🇸US-38.121.43.71-0431
   - 🇺🇸US-38.121.43.71-0447
   - ss-38.64.138.145
-  - '@Hope_Net-29'
   - ss-38.68.135.123
   - 🇺🇸US-38.68.135.18-5775
   - ss-67.220.95.29-6
@@ -28092,7 +28000,7 @@ proxy-groups:
   - 🇺🇸US-38.121.43.71-0457
   - 🇺🇸US-38.143.66.87-5615
   - ss-67.220.95.102-19
-  - '[-5'
+  - '[-2'
   - ss-69.50.93.47-4
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-155'
   - ' ❤️@Kayh_GNG - Github.com/kayhgng-156'
@@ -28127,7 +28035,6 @@ proxy-groups:
   - 🇺🇸 一元机场:ssrsub.de 美国 67
   - 日本|@ripaojiedian
   - 美国2|@ripaojiedian
-  - ss-eyjhzgqioiaiz2vybwfues5mcmfuy2utbgvhcm5zlmlyiiwgimfpzci6iciwiiwgimhvc3qioiaism91uk5hbg9gyklnzefuqs5tcfjpbkdlcm9wrw4uy29nliisicjpzci6icixnmm2yjvizi0xyzu4ltqxzgetyjazmy1hmmy3mdfkowe3yzcilcaibmv0ijoginrjccisicjwyxroijogii8ilcaicg9ydci6idy0ntm1lcaichmioiaivgvszwdyyw06qgnvbmzpz19wcm94esdwn5sliiwginnjesi6icjhdxrviiwginrscyi6icjub25liiwginr5cguioiaiahr0ccisicj2ijogijiifq==
 - name: تلگرام 💬
   type: select
   icon: https://www.svgrepo.com/show/354443/telegram.svg

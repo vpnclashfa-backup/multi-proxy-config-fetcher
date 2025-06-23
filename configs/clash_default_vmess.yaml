@@ -810,7 +810,7 @@ proxies:
     path: /lzjjj
     headers:
       Host: th.lzj520hxw.dpdns.org
-- name: '@Hope_Net-join-us-on-Telegram-37'
+- name: '@Hope_Net-join-us-on-Telegram-40'
   type: vmess
   server: 103.67.79.157
   port: 45365
@@ -819,7 +819,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: '@Hope_Net-join-us-on-Telegram-38'
+- name: '@Hope_Net-join-us-on-Telegram-41'
   type: vmess
   server: 38.14.107.233
   port: 38003
@@ -835,25 +835,16 @@ proxies:
     path: /path/340434130032
     headers:
       Host: ''
-- name: '@Hope_Net-join-us-on-Telegram-39'
+- name: '@Hope_Net-join-us-on-Telegram-42'
   type: vmess
-  server: 38.147.189.213
-  port: 21639
-  uuid: 2d012bbb-0d12-45e5-ad35-92241360327f
+  server: 46.250.253.232
+  port: 46617
+  uuid: 55b88b14-0ff3-4f25-8983-e73d1f9f3a0a
   alterId: 0
   cipher: auto
   udp: true
   network: tcp
-- name: '@Hope_Net-join-us-on-Telegram-40'
-  type: vmess
-  server: 45.159.51.189
-  port: 55128
-  uuid: 84f9bc0e-400f-4839-98b5-637d5e9c6606
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: '@Hope_Net-join-us-on-Telegram-41'
+- name: '@Hope_Net-join-us-on-Telegram-43'
   type: vmess
   server: RAkSMARt-hIDdifY.818185.XyZ
   port: 443
@@ -866,32 +857,6 @@ proxies:
     path: /
     headers:
       Host: RAkSMARt-hIDdifY.818185.XyZ
-- name: '@Hope_Net-join-us-on-Telegram-42'
-  type: vmess
-  server: cdn2.bpcdn.cc
-  port: 2086
-  uuid: 6b63c87a-5045-4264-82ef-f3ec099afb12
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: gz4wah11v4bem6ws.lovebaipiao.com
-- name: '@Hope_Net-join-us-on-Telegram-43'
-  type: vmess
-  server: cdn3.bpcdn.cc
-  port: 2086
-  uuid: 6b63c87a-5045-4264-82ef-f3ec099afb12
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: gz4wah11v4bem6ws.lovebaipiao.com
 - name: 广东省广州市 移动
   type: vmess
   server: 183.236.51.38
@@ -2870,7 +2835,7 @@ proxies:
     path: /
     headers:
       Host: us7.123417.xyz
-- name: 套餐到期：长期有效-29
+- name: 套餐到期：长期有效-28
   type: vmess
   server: 123.com
   port: 12346
@@ -2879,7 +2844,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 套餐到期：长期有效-30
+- name: 套餐到期：长期有效-29
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2892,7 +2857,7 @@ proxies:
     path: ''
     headers:
       Host: ''
-- name: 套餐到期：长期有效-31
+- name: 套餐到期：长期有效-30
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2905,7 +2870,7 @@ proxies:
     path: ''
     headers:
       Host: ''
-- name: 套餐到期：长期有效-32
+- name: 套餐到期：长期有效-31
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2918,7 +2883,7 @@ proxies:
     path: ''
     headers:
       Host: ''
-- name: 套餐到期：长期有效-33
+- name: 套餐到期：长期有效-32
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2931,7 +2896,7 @@ proxies:
     path: ''
     headers:
       Host: ''
-- name: 套餐到期：长期有效-34
+- name: 套餐到期：长期有效-33
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2944,7 +2909,7 @@ proxies:
     path: ''
     headers:
       Host: ''
-- name: 套餐到期：长期有效-35
+- name: 套餐到期：长期有效-34
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2957,7 +2922,7 @@ proxies:
     path: ''
     headers:
       Host: ''
-- name: 套餐到期：长期有效-36
+- name: 套餐到期：长期有效-35
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2970,7 +2935,7 @@ proxies:
     path: ''
     headers:
       Host: ''
-- name: 套餐到期：长期有效-37
+- name: 套餐到期：长期有效-36
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2983,7 +2948,7 @@ proxies:
     path: ''
     headers:
       Host: ''
-- name: 套餐到期：长期有效-38
+- name: 套餐到期：长期有效-37
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -2996,7 +2961,7 @@ proxies:
     path: ''
     headers:
       Host: ''
-- name: 套餐到期：长期有效-39
+- name: 套餐到期：长期有效-38
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -3009,7 +2974,7 @@ proxies:
     path: ''
     headers:
       Host: ''
-- name: 套餐到期：长期有效-40
+- name: 套餐到期：长期有效-39
   type: vmess
   server: 45.147.201.231
   port: 22069
@@ -3022,7 +2987,7 @@ proxies:
     path: ''
     headers:
       Host: ''
-- name: 套餐到期：长期有效-41
+- name: 套餐到期：长期有效-40
   type: vmess
   server: yes.mojcn.com
   port: 16617
@@ -3035,7 +3000,7 @@ proxies:
     path: /
     headers:
       Host: 51b0e42034dd75a815fa9eb16021fbda.mobgslb.tbcache.com
-- name: 套餐到期：长期有效-42
+- name: 套餐到期：长期有效-41
   type: vmess
   server: yes.mojcn.com
   port: 16617
@@ -3048,7 +3013,7 @@ proxies:
     path: /
     headers:
       Host: ba0f678896ea70308a3ea611bb985d7b.mobgslb.tbcache.com
-- name: 套餐到期：长期有效-43
+- name: 套餐到期：长期有效-42
   type: vmess
   server: yes.mojcn.com
   port: 16617
@@ -3832,15 +3797,6 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 日本高速x1
-  type: vmess
-  server: beiyong-.596743944.top
-  port: 46150
-  uuid: 7dbdba19-6a3b-4370-93b1-fb5a89adde0c
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
 - name: 无墙地址 http://pcdn.giize.com:8011/
   type: vmess
   server: free-relay.themars.top
@@ -3945,15 +3901,6 @@ proxies:
   server: xdd.dashuai.cyou
   port: 45071
   uuid: dc2410f6-616d-4646-ba58-eb73b23f3628
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: 法国x1
-  type: vmess
-  server: beiyong-.596743944.top
-  port: 20763
-  uuid: 7dbdba19-6a3b-4370-93b1-fb5a89adde0c
   alterId: 0
   cipher: auto
   udp: true
@@ -4859,24 +4806,6 @@ proxies:
     path: /
     headers:
       Host: 1750660791.speed.laxnfgb.cccp.uruu.cn
-- name: 美国高速x1
-  type: vmess
-  server: beiyong-.596743944.top
-  port: 17437
-  uuid: 7dbdba19-6a3b-4370-93b1-fb5a89adde0c
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: 美国高速x2
-  type: vmess
-  server: beiyong-.596743944.top
-  port: 17437
-  uuid: 7dbdba19-6a3b-4370-93b1-fb5a89adde0c
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
 - name: 菲律宾 马尼拉-中转
   type: vmess
   server: hbyd.dengtacloud.net
@@ -5120,15 +5049,6 @@ proxies:
     path: /
     headers:
       Host: 1750660791.speed.lhrdfvbuf.cccp.uruu.cn
-- name: 英国高速x1
-  type: vmess
-  server: beiyong-.596743944.top
-  port: 56771
-  uuid: 7dbdba19-6a3b-4370-93b1-fb5a89adde0c
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
 - name: 荷兰1-CDN | 1X
   type: vmess
   server: 1750660341.tencentapp.cn
@@ -6617,42 +6537,23 @@ proxies:
     path: /blue
     headers:
       Host: ''
-- name: ⚡️Telegram = @SOSkeyNET
-  type: vmess
-  server: 104.26.13.9
-  port: 80
-  uuid: e5b0b085-6235-42c4-a608-b1c41c3eee50
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: q4.19kAla.co
 - name: '@Hope_Net-join-us-on-Telegram-45'
   type: vmess
-  server: 104.21.8.93
-  port: 2052
-  uuid: 55444c8f-fdeb-4af4-98ee-7cf5f4667659
+  server: 103.168.155.40
+  port: 888
+  uuid: 8d994cc0-a8a7-4f66-b1e4-771c7e7c6ecd
   alterId: 0
   cipher: auto
   udp: true
   network: ws
+  tls: true
+  servername: cdn.cjhh.lol
+  skip-cert-verify: true
   ws-opts:
     path: /
     headers:
-      Host: us3AJ8biuQx.fzbqfrse.xyz
+      Host: cdn.cjhh.lol
 - name: '@Hope_Net-join-us-on-Telegram-46'
-  type: vmess
-  server: 127.0.0.1
-  port: 2080
-  uuid: caabacb-abac-abac-cbda-ccbabacacbab
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: '@Hope_Net-join-us-on-Telegram-47'
   type: vmess
   server: 127.0.0.1
   port: 8080
@@ -6661,6 +6562,22 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
+- name: '@Hope_Net-join-us-on-Telegram-47'
+  type: vmess
+  server: 120.241.29.104
+  port: 33202
+  uuid: 9204afcd-023e-781f-1abc-c12efccd1344
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: ws
+  tls: true
+  servername: yd2.ainivp.com
+  skip-cert-verify: true
+  ws-opts:
+    path: /ray
+    headers:
+      Host: yd2.ainivp.com
 - name: 🔒 VM-WS-NA 🇨🇳 CN-120.238.98.150:30812
   type: vmess
   server: 120.238.98.150
@@ -6674,6 +6591,19 @@ proxies:
     path: /oooo
     headers:
       Host: ocbc.com
+- name: ⚡️Telegram = @SOSkeyNET
+  type: vmess
+  server: 151.101.0.155
+  port: 80
+  uuid: bdff7122-386f-45a6-9853-7807abf43f5d
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: ws
+  ws-opts:
+    path: ws/?ed=2048
+    headers:
+      Host: freepanelll.com
 - name: 🔒 VM-TCP-NA 🇮🇷 IR-2.144.7.202:45789
   type: vmess
   server: 2.144.7.202
@@ -6683,22 +6613,15 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: '@Hope_Net-join-us-on-Telegram-48'
+- name: 🔒 VM-TCP-NA 🇳🇱 NL-24.144.77.93:898
   type: vmess
-  server: 3.113.9.100
-  port: 23443
-  uuid: 3519dfc0-fa27-41cc-8c19-981818f9f6d5
+  server: 24.144.77.93
+  port: 898
+  uuid: df2efa4d-c275-410b-afdf-aae2d70777cc
   alterId: 0
   cipher: auto
   udp: true
-  network: ws
-  tls: true
-  servername: tls.04.node-for-bigairport.win
-  skip-cert-verify: true
-  ws-opts:
-    path: /
-    headers:
-      Host: tls.04.node-for-bigairport.win
+  network: tcp
 - name: 🔒 VM-TCP-NA 🇮🇷 IR-5.144.132.140:1221
   type: vmess
   server: 5.144.132.140
@@ -6708,7 +6631,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: '@Hope_Net-join-us-on-Telegram-49'
+- name: '@Hope_Net-join-us-on-Telegram-48'
   type: vmess
   server: 52.197.146.63
   port: 14443
@@ -6735,15 +6658,6 @@ proxies:
   network: tcp
 - name: ⚡️Telegram = @SOSkeyNET-3
   type: vmess
-  server: 81.12.33.196
-  port: 6013
-  uuid: 604fa262-146a-437f-9206-93b16ea30176
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: ⚡️Telegram = @SOSkeyNET-4
-  type: vmess
   server: 85.198.23.63
   port: 52262
   uuid: af5a0d0c-c898-4a51-ba6a-47179d483e41
@@ -6751,25 +6665,23 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: ⚡️Telegram = @SOSkeyNET-5
+- name: '@Hope_Net-join-us-on-Telegram-49'
   type: vmess
-  server: 92.114.50.233
-  port: 23819
-  uuid: 6dc687ec-5627-4e06-8f97-7c53a86f273d
-  alterId: 0
+  server: 89.163.231.19
+  port: 30005
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 64
   cipher: auto
   udp: true
-  network: tcp
-- name: ⚡️Telegram = @SOSkeyNET-6
-  type: vmess
-  server: cloud.jahanserver.sbs
-  port: 443
-  uuid: e3e19e04-75b7-492a-904f-dec2216643ff
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: ⚡️Telegram = @SOSkeyNET-7
+  network: ws
+  tls: true
+  servername: www.80347320.xyz
+  skip-cert-verify: true
+  ws-opts:
+    path: /path/240811062813
+    headers:
+      Host: www.80347320.xyz
+- name: ⚡️Telegram = @SOSkeyNET-4
   type: vmess
   server: hs2.multiproxy.info
   port: 9979
@@ -6778,25 +6690,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: ⚡️Telegram = @SOSkeyNET-8
-  type: vmess
-  server: m.ge3.dailydoseofmeme.uno
-  port: 17564
-  uuid: aa7dd96b0a7d81db2e71553abe192620
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: ⚡️Telegram = @SOSkeyNET-9
-  type: vmess
-  server: mk.sm1612.ir
-  port: 3015
-  uuid: f59a8716-2456-410c-b7b6-f372bda87fad
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
-- name: ⚡️Telegram = @SOSkeyNET-10
+- name: ⚡️Telegram = @SOSkeyNET-5
   type: vmess
   server: pnl.shod-jjcod.com
   port: 443
@@ -7099,19 +6993,6 @@ proxies:
   cipher: aes-128-gcm
   udp: true
   network: tcp
-- name: ⚜️Telegram:@IP_CF-2
-  type: vmess
-  server: 91.185.187.49
-  port: 18984
-  uuid: 955e16be-0def-405f-b685-6399601c561e
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ''
 - name: 'Channel id: @ShadowProxy66🇦🇲'
   type: vmess
   server: 92.223.2.46
@@ -7873,15 +7754,6 @@ proxies:
     path: /
     headers:
       Host: de01.sh-cloudflare.sbs
-- name: top%20%F0%9F%9A%80-Amir-1
-  type: vmess
-  server: ee1.daallygold.com
-  port: 52262
-  uuid: af5a0d0c-c898-4a51-ba6a-47179d483e41
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
 - name: '@speeds_vpn-32'
   type: vmess
   server: ger2many3.srjofood.ir
@@ -7905,6 +7777,15 @@ proxies:
   server: hs2.multiproxy.info
   port: 9979
   uuid: 26d9ddd9-1e5d-46fc-8baa-a77475c29e68
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: tcp
+- name: '@k.h_vpn  کانالمون'
+  type: vmess
+  server: irc.jahanrocket.sbs
+  port: 443
+  uuid: 410b1034-f5b2-46be-8f86-370ba9925e4c
   alterId: 0
   cipher: auto
   udp: true
@@ -8108,15 +7989,6 @@ proxies:
     path: /hls/cctv5phd.m3u8
     headers:
       Host: v2hcc0415-gjb2mkj.902222.xyz
-- name: ⚡️Telegram = @SOSkeyNET-11
-  type: vmess
-  server: CoRe.CeNtRaLnEt.iR
-  port: 4951
-  uuid: e5d50439-47a8-467f-bead-00d3c4ab86f3
-  alterId: 0
-  cipher: auto
-  udp: true
-  network: tcp
 - name: '%F0%9F%87%BA%F0%9F%87%B8%20%E7%BE%8E%E5%9B%BD%20CloudFlare%E8%8A%82%E7%82%B9'
   type: vmess
   server: 104.17.176.171
@@ -8130,7 +8002,7 @@ proxies:
     path: /nasnet/cdn
     headers:
       Host: ke7hz36ewz-4515017473.mashallahbet.com
-- name: ⚡️Telegram = @SOSkeyNET-12
+- name: ⚡️Telegram = @SOSkeyNET-6
   type: vmess
   server: 185.14.160.80
   port: 80
@@ -8236,9 +8108,6 @@ proxy-groups:
   - 2|🇭🇰1 |  1.8MB/s|15%|Disney|Yout...
   - 2|🇯🇵1 |  1.8MB/s|54%|Youtube|Ope...
   - 2|🌀4-TH |  2.6MB/s|55%|Netflix|O...
-  - '@Hope_Net-join-us-on-Telegram-37'
-  - '@Hope_Net-join-us-on-Telegram-38'
-  - '@Hope_Net-join-us-on-Telegram-39'
   - '@Hope_Net-join-us-on-Telegram-40'
   - '@Hope_Net-join-us-on-Telegram-41'
   - '@Hope_Net-join-us-on-Telegram-42'
@@ -8404,6 +8273,7 @@ proxy-groups:
   - 套餐到期：2025-08-24
   - 套餐到期：2025-08-25
   - 套餐到期：2025-10-07
+  - 套餐到期：长期有效-28
   - 套餐到期：长期有效-29
   - 套餐到期：长期有效-30
   - 套餐到期：长期有效-31
@@ -8418,7 +8288,6 @@ proxy-groups:
   - 套餐到期：长期有效-40
   - 套餐到期：长期有效-41
   - 套餐到期：长期有效-42
-  - 套餐到期：长期有效-43
   - 官网地址：https://www.niao.icu
   - 官网：最强机场.com
   - 官网：dash.henet.uk
@@ -8479,7 +8348,6 @@ proxy-groups:
   - 日本4-CDN | 1x
   - 日本NO.1
   - 日本NO.2
-  - 日本高速x1
   - 无墙地址 http://pcdn.giize.com:8011/
   - 无墙地址 http://pcdn.giize.com:8011/-2
   - 智利1-CDN | 1X
@@ -8489,7 +8357,6 @@ proxy-groups:
   - 法国1-CDN | 1X
   - 法国1
   - 法国2
-  - 法国x1
   - 沙特阿拉伯1-CDN | 1x
   - 沙特阿拉伯2-CDN | 1x
   - 澳大利亚 01
@@ -8560,8 +8427,6 @@ proxy-groups:
   - 美国西部圣何塞4-CDN | 1x
   - 美国西部洛杉矶1-CDN | 0x
   - 美国西部洛杉矶2-CDN | 1x
-  - 美国高速x1
-  - 美国高速x2
   - 菲律宾 马尼拉-中转
   - 英国-01
   - 英国-02
@@ -8580,7 +8445,6 @@ proxy-groups:
   - 英国伦敦4-CDN | 1X
   - 英国伦敦5-CDN | 1X
   - 英国伦敦6-CDN | 1X
-  - 英国高速x1
   - 荷兰1-CDN | 1X
   - 荷兰2-CDN | 1X
   - 西班牙1-CDN | 1X
@@ -8697,24 +8561,20 @@ proxy-groups:
   - 🇺🇸美国Las Vegas 03|防失联&下载专用|0.01x
   - 美国 CloudFlare节点
   - '@Hope_Net-join-us-on-Telegram-44'
-  - ⚡️Telegram = @SOSkeyNET
   - '@Hope_Net-join-us-on-Telegram-45'
   - '@Hope_Net-join-us-on-Telegram-46'
   - '@Hope_Net-join-us-on-Telegram-47'
   - 🔒 VM-WS-NA 🇨🇳 CN-120.238.98.150:30812
+  - ⚡️Telegram = @SOSkeyNET
   - 🔒 VM-TCP-NA 🇮🇷 IR-2.144.7.202:45789
-  - '@Hope_Net-join-us-on-Telegram-48'
+  - 🔒 VM-TCP-NA 🇳🇱 NL-24.144.77.93:898
   - 🔒 VM-TCP-NA 🇮🇷 IR-5.144.132.140:1221
-  - '@Hope_Net-join-us-on-Telegram-49'
+  - '@Hope_Net-join-us-on-Telegram-48'
   - ⚡️Telegram = @SOSkeyNET-2
   - ⚡️Telegram = @SOSkeyNET-3
+  - '@Hope_Net-join-us-on-Telegram-49'
   - ⚡️Telegram = @SOSkeyNET-4
   - ⚡️Telegram = @SOSkeyNET-5
-  - ⚡️Telegram = @SOSkeyNET-6
-  - ⚡️Telegram = @SOSkeyNET-7
-  - ⚡️Telegram = @SOSkeyNET-8
-  - ⚡️Telegram = @SOSkeyNET-9
-  - ⚡️Telegram = @SOSkeyNET-10
   - 🇭🇰HK-1.65.202.165-5693
   - 🇭🇰HK-1.65.202.165-5690
   - ⚜️Telegram:@IP_CF
@@ -8743,7 +8603,6 @@ proxy-groups:
   - 🔒 VM-TCP-NA 🇸🇬 SG-84.247.150.177:36141
   - '@speeds_vpn-31'
   - 🔒 VM-TCP-NA 🇮🇷 IR-89.43.204.82:1102
-  - ⚜️Telegram:@IP_CF-2
   - 'Channel id: @ShadowProxy66🇦🇲'
   - 'Channel id: @ShadowProxy66-19'
   - 'Channel id: @ShadowProxy66-20'
@@ -8799,10 +8658,10 @@ proxy-groups:
   - دوسم داری ؟!
   - 🏁RELAY-172.66.168.226-2490
   - 🏁RELAY-104.21.112.1-0359
-  - top%20%F0%9F%9A%80-Amir-1
   - '@speeds_vpn-32'
   - 🇩🇪Germany➁
   - https://t.me/vpnserverrr-2
+  - '@k.h_vpn  کانالمون'
   - 🇯🇵日本
   - 🟡 Telegram= @VPN_SOLVE-10
   - 🟡 Telegram= @VPN_SOLVE-11
@@ -8818,9 +8677,8 @@ proxy-groups:
   - A05-德国 倍率:0.01 dh
   - AB01b-美国 倍率:0.01 hcc
   - AB01-美国 倍率:0.01 hcc
-  - ⚡️Telegram = @SOSkeyNET-11
   - '%F0%9F%87%BA%F0%9F%87%B8%20%E7%BE%8E%E5%9B%BD%20CloudFlare%E8%8A%82%E7%82%B9'
-  - ⚡️Telegram = @SOSkeyNET-12
+  - ⚡️Telegram = @SOSkeyNET-6
   - 剩余流量：0-47
   - 等级到期，可签到使用
   - 过期时间：2025-06-03
@@ -8890,9 +8748,6 @@ proxy-groups:
   - 2|🇭🇰1 |  1.8MB/s|15%|Disney|Yout...
   - 2|🇯🇵1 |  1.8MB/s|54%|Youtube|Ope...
   - 2|🌀4-TH |  2.6MB/s|55%|Netflix|O...
-  - '@Hope_Net-join-us-on-Telegram-37'
-  - '@Hope_Net-join-us-on-Telegram-38'
-  - '@Hope_Net-join-us-on-Telegram-39'
   - '@Hope_Net-join-us-on-Telegram-40'
   - '@Hope_Net-join-us-on-Telegram-41'
   - '@Hope_Net-join-us-on-Telegram-42'
@@ -9058,6 +8913,7 @@ proxy-groups:
   - 套餐到期：2025-08-24
   - 套餐到期：2025-08-25
   - 套餐到期：2025-10-07
+  - 套餐到期：长期有效-28
   - 套餐到期：长期有效-29
   - 套餐到期：长期有效-30
   - 套餐到期：长期有效-31
@@ -9072,7 +8928,6 @@ proxy-groups:
   - 套餐到期：长期有效-40
   - 套餐到期：长期有效-41
   - 套餐到期：长期有效-42
-  - 套餐到期：长期有效-43
   - 官网地址：https://www.niao.icu
   - 官网：最强机场.com
   - 官网：dash.henet.uk
@@ -9133,7 +8988,6 @@ proxy-groups:
   - 日本4-CDN | 1x
   - 日本NO.1
   - 日本NO.2
-  - 日本高速x1
   - 无墙地址 http://pcdn.giize.com:8011/
   - 无墙地址 http://pcdn.giize.com:8011/-2
   - 智利1-CDN | 1X
@@ -9143,7 +8997,6 @@ proxy-groups:
   - 法国1-CDN | 1X
   - 法国1
   - 法国2
-  - 法国x1
   - 沙特阿拉伯1-CDN | 1x
   - 沙特阿拉伯2-CDN | 1x
   - 澳大利亚 01
@@ -9214,8 +9067,6 @@ proxy-groups:
   - 美国西部圣何塞4-CDN | 1x
   - 美国西部洛杉矶1-CDN | 0x
   - 美国西部洛杉矶2-CDN | 1x
-  - 美国高速x1
-  - 美国高速x2
   - 菲律宾 马尼拉-中转
   - 英国-01
   - 英国-02
@@ -9234,7 +9085,6 @@ proxy-groups:
   - 英国伦敦4-CDN | 1X
   - 英国伦敦5-CDN | 1X
   - 英国伦敦6-CDN | 1X
-  - 英国高速x1
   - 荷兰1-CDN | 1X
   - 荷兰2-CDN | 1X
   - 西班牙1-CDN | 1X
@@ -9351,24 +9201,20 @@ proxy-groups:
   - 🇺🇸美国Las Vegas 03|防失联&下载专用|0.01x
   - 美国 CloudFlare节点
   - '@Hope_Net-join-us-on-Telegram-44'
-  - ⚡️Telegram = @SOSkeyNET
   - '@Hope_Net-join-us-on-Telegram-45'
   - '@Hope_Net-join-us-on-Telegram-46'
   - '@Hope_Net-join-us-on-Telegram-47'
   - 🔒 VM-WS-NA 🇨🇳 CN-120.238.98.150:30812
+  - ⚡️Telegram = @SOSkeyNET
   - 🔒 VM-TCP-NA 🇮🇷 IR-2.144.7.202:45789
-  - '@Hope_Net-join-us-on-Telegram-48'
+  - 🔒 VM-TCP-NA 🇳🇱 NL-24.144.77.93:898
   - 🔒 VM-TCP-NA 🇮🇷 IR-5.144.132.140:1221
-  - '@Hope_Net-join-us-on-Telegram-49'
+  - '@Hope_Net-join-us-on-Telegram-48'
   - ⚡️Telegram = @SOSkeyNET-2
   - ⚡️Telegram = @SOSkeyNET-3
+  - '@Hope_Net-join-us-on-Telegram-49'
   - ⚡️Telegram = @SOSkeyNET-4
   - ⚡️Telegram = @SOSkeyNET-5
-  - ⚡️Telegram = @SOSkeyNET-6
-  - ⚡️Telegram = @SOSkeyNET-7
-  - ⚡️Telegram = @SOSkeyNET-8
-  - ⚡️Telegram = @SOSkeyNET-9
-  - ⚡️Telegram = @SOSkeyNET-10
   - 🇭🇰HK-1.65.202.165-5693
   - 🇭🇰HK-1.65.202.165-5690
   - ⚜️Telegram:@IP_CF
@@ -9397,7 +9243,6 @@ proxy-groups:
   - 🔒 VM-TCP-NA 🇸🇬 SG-84.247.150.177:36141
   - '@speeds_vpn-31'
   - 🔒 VM-TCP-NA 🇮🇷 IR-89.43.204.82:1102
-  - ⚜️Telegram:@IP_CF-2
   - 'Channel id: @ShadowProxy66🇦🇲'
   - 'Channel id: @ShadowProxy66-19'
   - 'Channel id: @ShadowProxy66-20'
@@ -9453,10 +9298,10 @@ proxy-groups:
   - دوسم داری ؟!
   - 🏁RELAY-172.66.168.226-2490
   - 🏁RELAY-104.21.112.1-0359
-  - top%20%F0%9F%9A%80-Amir-1
   - '@speeds_vpn-32'
   - 🇩🇪Germany➁
   - https://t.me/vpnserverrr-2
+  - '@k.h_vpn  کانالمون'
   - 🇯🇵日本
   - 🟡 Telegram= @VPN_SOLVE-10
   - 🟡 Telegram= @VPN_SOLVE-11
@@ -9472,9 +9317,8 @@ proxy-groups:
   - A05-德国 倍率:0.01 dh
   - AB01b-美国 倍率:0.01 hcc
   - AB01-美国 倍率:0.01 hcc
-  - ⚡️Telegram = @SOSkeyNET-11
   - '%F0%9F%87%BA%F0%9F%87%B8%20%E7%BE%8E%E5%9B%BD%20CloudFlare%E8%8A%82%E7%82%B9'
-  - ⚡️Telegram = @SOSkeyNET-12
+  - ⚡️Telegram = @SOSkeyNET-6
   - 剩余流量：0-47
   - 等级到期，可签到使用
   - 过期时间：2025-06-03
@@ -9544,9 +9388,6 @@ proxy-groups:
   - 2|🇭🇰1 |  1.8MB/s|15%|Disney|Yout...
   - 2|🇯🇵1 |  1.8MB/s|54%|Youtube|Ope...
   - 2|🌀4-TH |  2.6MB/s|55%|Netflix|O...
-  - '@Hope_Net-join-us-on-Telegram-37'
-  - '@Hope_Net-join-us-on-Telegram-38'
-  - '@Hope_Net-join-us-on-Telegram-39'
   - '@Hope_Net-join-us-on-Telegram-40'
   - '@Hope_Net-join-us-on-Telegram-41'
   - '@Hope_Net-join-us-on-Telegram-42'
@@ -9712,6 +9553,7 @@ proxy-groups:
   - 套餐到期：2025-08-24
   - 套餐到期：2025-08-25
   - 套餐到期：2025-10-07
+  - 套餐到期：长期有效-28
   - 套餐到期：长期有效-29
   - 套餐到期：长期有效-30
   - 套餐到期：长期有效-31
@@ -9726,7 +9568,6 @@ proxy-groups:
   - 套餐到期：长期有效-40
   - 套餐到期：长期有效-41
   - 套餐到期：长期有效-42
-  - 套餐到期：长期有效-43
   - 官网地址：https://www.niao.icu
   - 官网：最强机场.com
   - 官网：dash.henet.uk
@@ -9787,7 +9628,6 @@ proxy-groups:
   - 日本4-CDN | 1x
   - 日本NO.1
   - 日本NO.2
-  - 日本高速x1
   - 无墙地址 http://pcdn.giize.com:8011/
   - 无墙地址 http://pcdn.giize.com:8011/-2
   - 智利1-CDN | 1X
@@ -9797,7 +9637,6 @@ proxy-groups:
   - 法国1-CDN | 1X
   - 法国1
   - 法国2
-  - 法国x1
   - 沙特阿拉伯1-CDN | 1x
   - 沙特阿拉伯2-CDN | 1x
   - 澳大利亚 01
@@ -9868,8 +9707,6 @@ proxy-groups:
   - 美国西部圣何塞4-CDN | 1x
   - 美国西部洛杉矶1-CDN | 0x
   - 美国西部洛杉矶2-CDN | 1x
-  - 美国高速x1
-  - 美国高速x2
   - 菲律宾 马尼拉-中转
   - 英国-01
   - 英国-02
@@ -9888,7 +9725,6 @@ proxy-groups:
   - 英国伦敦4-CDN | 1X
   - 英国伦敦5-CDN | 1X
   - 英国伦敦6-CDN | 1X
-  - 英国高速x1
   - 荷兰1-CDN | 1X
   - 荷兰2-CDN | 1X
   - 西班牙1-CDN | 1X
@@ -10005,24 +9841,20 @@ proxy-groups:
   - 🇺🇸美国Las Vegas 03|防失联&下载专用|0.01x
   - 美国 CloudFlare节点
   - '@Hope_Net-join-us-on-Telegram-44'
-  - ⚡️Telegram = @SOSkeyNET
   - '@Hope_Net-join-us-on-Telegram-45'
   - '@Hope_Net-join-us-on-Telegram-46'
   - '@Hope_Net-join-us-on-Telegram-47'
   - 🔒 VM-WS-NA 🇨🇳 CN-120.238.98.150:30812
+  - ⚡️Telegram = @SOSkeyNET
   - 🔒 VM-TCP-NA 🇮🇷 IR-2.144.7.202:45789
-  - '@Hope_Net-join-us-on-Telegram-48'
+  - 🔒 VM-TCP-NA 🇳🇱 NL-24.144.77.93:898
   - 🔒 VM-TCP-NA 🇮🇷 IR-5.144.132.140:1221
-  - '@Hope_Net-join-us-on-Telegram-49'
+  - '@Hope_Net-join-us-on-Telegram-48'
   - ⚡️Telegram = @SOSkeyNET-2
   - ⚡️Telegram = @SOSkeyNET-3
+  - '@Hope_Net-join-us-on-Telegram-49'
   - ⚡️Telegram = @SOSkeyNET-4
   - ⚡️Telegram = @SOSkeyNET-5
-  - ⚡️Telegram = @SOSkeyNET-6
-  - ⚡️Telegram = @SOSkeyNET-7
-  - ⚡️Telegram = @SOSkeyNET-8
-  - ⚡️Telegram = @SOSkeyNET-9
-  - ⚡️Telegram = @SOSkeyNET-10
   - 🇭🇰HK-1.65.202.165-5693
   - 🇭🇰HK-1.65.202.165-5690
   - ⚜️Telegram:@IP_CF
@@ -10051,7 +9883,6 @@ proxy-groups:
   - 🔒 VM-TCP-NA 🇸🇬 SG-84.247.150.177:36141
   - '@speeds_vpn-31'
   - 🔒 VM-TCP-NA 🇮🇷 IR-89.43.204.82:1102
-  - ⚜️Telegram:@IP_CF-2
   - 'Channel id: @ShadowProxy66🇦🇲'
   - 'Channel id: @ShadowProxy66-19'
   - 'Channel id: @ShadowProxy66-20'
@@ -10107,10 +9938,10 @@ proxy-groups:
   - دوسم داری ؟!
   - 🏁RELAY-172.66.168.226-2490
   - 🏁RELAY-104.21.112.1-0359
-  - top%20%F0%9F%9A%80-Amir-1
   - '@speeds_vpn-32'
   - 🇩🇪Germany➁
   - https://t.me/vpnserverrr-2
+  - '@k.h_vpn  کانالمون'
   - 🇯🇵日本
   - 🟡 Telegram= @VPN_SOLVE-10
   - 🟡 Telegram= @VPN_SOLVE-11
@@ -10126,9 +9957,8 @@ proxy-groups:
   - A05-德国 倍率:0.01 dh
   - AB01b-美国 倍率:0.01 hcc
   - AB01-美国 倍率:0.01 hcc
-  - ⚡️Telegram = @SOSkeyNET-11
   - '%F0%9F%87%BA%F0%9F%87%B8%20%E7%BE%8E%E5%9B%BD%20CloudFlare%E8%8A%82%E7%82%B9'
-  - ⚡️Telegram = @SOSkeyNET-12
+  - ⚡️Telegram = @SOSkeyNET-6
   - 剩余流量：0-47
   - 等级到期，可签到使用
   - 过期时间：2025-06-03
