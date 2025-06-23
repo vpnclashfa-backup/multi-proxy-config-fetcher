@@ -82,7 +82,6 @@ class ConfigValidator:
 
     @staticmethod
     def is_base64_config(config: str) -> Tuple[bool, str]:
-        # Updated to include ssr
         protocols = ['vmess://', 'vless://', 'ss://', 'tuic://', 'ssr://']
         for protocol in protocols:
             if config.startswith(protocol):
@@ -90,7 +89,7 @@ class ConfigValidator:
                 decoded_url = unquote(base64_part)
                 if (ConfigValidator.is_base64(decoded_url) or 
                     ConfigValidator.is_base64(base64_part)):
-                    return True, protocol[:-3] # Return protocol name without '://'
+                    return True, protocol[:-3]
         return False, ''
 
     @staticmethod
@@ -98,10 +97,9 @@ class ConfigValidator:
         try:
             decoded_text = ConfigValidator.decode_base64_text(text)
             if decoded_text:
-                # Add all new protocols here
                 protocols = ['vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'hy2://', 
                              'wireguard://', 'tuic://', 'ssconf://', 'ssr://', 'hysteria://', 'snell://',
-                             'ssh://', 'mieru://', 'anytls://', 'warp://']
+                             'ssh://', 'mieru://', 'anytls://', 'warp://', 'juicity://'] # <-- Added juicity
                 for protocol in protocols:
                     if protocol in decoded_text:
                         return decoded_text
@@ -111,15 +109,13 @@ class ConfigValidator:
 
     @staticmethod
     def split_configs(text: str) -> List[str]:
-        # Define the list of all supported protocols for splitting
         all_protocols = [
             'vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'hy2://', 
             'wireguard://', 'tuic://', 'ssconf://', 'ssr://', 'hysteria://', 'snell://',
-            'ssh://', 'mieru://', 'anytls://', 'warp://'
+            'ssh://', 'mieru://', 'anytls://', 'warp://', 'juicity://' # <-- Added juicity
         ]
         
         configs = []
-        # First, try to split by common delimiters like newline or whitespace
         potential_configs = re.split(r'[\s\n]+', text)
 
         for p_config in potential_configs:
@@ -127,35 +123,28 @@ class ConfigValidator:
             if not p_config:
                 continue
 
-            # Check if the potential config is a Base64 encoded subscription
             decoded_content = ConfigValidator.check_base64_content(p_config)
             if decoded_content:
-                # If it is, recursively call split_configs on the decoded content
                 configs.extend(ConfigValidator.split_configs(decoded_content))
                 continue
 
-            # Check if the line starts with any of the known protocols
             for protocol in all_protocols:
                 if p_config.lower().startswith(protocol):
                     if ConfigValidator.is_valid_config(p_config):
                         clean_conf = ConfigValidator.clean_config(p_config)
-                        # Specific normalizations
                         if clean_conf.startswith("vmess://"):
                             clean_conf = ConfigValidator.clean_vmess_config(clean_conf)
                         elif clean_conf.startswith("hy2://"):
                             clean_conf = ConfigValidator.normalize_hysteria2_protocol(clean_conf)
                         configs.append(clean_conf)
-                    # Break after finding a match to avoid multiple additions of the same line
                     break
         
-        # Remove duplicates while preserving order
         seen = set()
         return [x for x in configs if not (x in seen or seen.add(x))]
 
 
     @staticmethod
     def clean_config(config: str) -> str:
-        # Removes emojis and other non-essential characters from the config string
         config = re.sub(r'[\U0001F300-\U0001F9FF]', '', config)
         config = re.sub(r'[\x00-\x08\x0B-\x1F\x7F-\x9F]', '', config)
         config = re.sub(r'[^\S\r\n]+', ' ', config)
@@ -167,44 +156,39 @@ class ConfigValidator:
         if not config:
             return False
 
-        # Add all new protocols to this list
         protocols = [
             'vmess://', 'vless://', 'ss://', 'trojan://', 'hysteria2://', 'hy2://', 
             'wireguard://', 'tuic://', 'ssconf://', 'ssr://', 'hysteria://', 'snell://',
-            'ssh://', 'mieru://', 'anytls://', 'warp://'
+            'ssh://', 'mieru://', 'anytls://', 'warp://', 'juicity://' # <-- Added juicity
         ]
         return any(config.startswith(p) for p in protocols)
 
     @classmethod
     def validate_protocol_config(cls, config: str, protocol: str) -> bool:
         try:
-            # Original protocols with Base64 content
             if protocol in ['vmess://', 'vless://', 'ss://', 'tuic://', 'ssr://']:
                 if protocol == 'vmess://':
                     return cls.is_vmess_config(config)
                 if protocol == 'tuic://':
                     return cls.is_tuic_config(config)
                 
-                # General Base64 check for vless, ss, ssr
                 base64_part = config[len(protocol):]
                 if not base64_part: return False
                 
                 decoded_url = unquote(base64_part)
                 return cls.is_base64(decoded_url) or cls.is_base64(base64_part)
 
-            # Original protocols with URL-like structure
             elif protocol in ['trojan://', 'hysteria2://', 'hy2://', 'wireguard://', 
-                              'hysteria://', 'snell://', 'ssh://', 'anytls://', 'mieru://', 'warp://']:
-                # For warp, host can be 'auto', so netloc might be empty
+                              'hysteria://', 'snell://', 'ssh://', 'anytls://', 'mieru://', 'warp://',
+                              'juicity://']: # <-- Added juicity
                 if protocol == 'warp://':
-                    return True # Assume warp links are valid if they start with the scheme
+                    return True
 
                 parsed = urlparse(config)
-                # Most URL-based protocols require a host/port part (netloc)
                 if not parsed.netloc:
                     return False
-                # Protocols like trojan, ssh, hysteria often require user info part
-                if protocol in ['trojan://', 'hysteria://', 'ssh://', 'snell://', 'anytls://']:
+                # These protocols require user info (e.g., password@host)
+                if protocol in ['trojan://', 'hysteria://', 'ssh://', 'snell://', 'anytls://', 'juicity://']:
                     return '@' in parsed.netloc
                 return True
 
