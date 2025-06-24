@@ -3,7 +3,7 @@ name: Update Proxy Configs
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 */6 * * *"
+    - cron: "0 */6 * * *" # هر 6 ساعت یکبار اجرا می‌شود
 
 permissions:
   contents: write
@@ -31,7 +31,10 @@ jobs:
       run: |
         mkdir -p assets
         mkdir -p configs
+        # پوشه converter رو ایجاد می‌کنیم، چون generator.py به اونجا می‌ره
+        mkdir -p src/converter 
         mkdir -p templates
+
 
     - name: Run config fetcher
       run: python src/fetch_configs.py
@@ -43,11 +46,12 @@ jobs:
     - name: Generate Source Statistics Report
       run: python src/generate_source_report.py
 
-    - name: Convert configs to sing-box format
-      run: python src/config_to_singbox.py
+    # این دو فایل فعلا غیرفعال هستند، همانطور که درخواست کردید
+    # - name: Convert configs to sing-box format
+    #   run: python src/config_to_singbox.py
 
-    - name: Convert configs to Clash format
-      run: python src/config_to_clash.py
+    # - name: Convert configs to Clash format
+    #   run: python src/config_to_clash.py
 
     - name: Generate Output Directory README
       run: python src/generate_output_readme.py
@@ -86,3 +90,35 @@ jobs:
 
         # Push the changes
         git push
+
+  ---
+
+  generate-clash-configs:
+    runs-on: ubuntu-latest
+    needs: update-configs # این Job بعد از 'update-configs' اجرا می‌شود
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python for Clash Configs
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10' # از نسخه خاص 3.10 استفاده می‌کنیم
+
+      - name: Install Dependencies for Clash Configs
+        run: pip install pyyaml requests
+
+      - name: Run Clash Config Generator
+        run: python src/converter/generator.py # مسیر فایل generator.py به src/converter/ تغییر کرد
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+
+      - name: Commit and Push Clash Config Changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: auto-generate configs via updated format"
+          file_pattern: "output/*.yaml providers/*.txt README.md format.txt"
+          commit_user_name: GitHub Actions Bot
+          commit_user_email: actions@github.com
+          commit_author: GitHub Actions Bot <actions@github.com>
