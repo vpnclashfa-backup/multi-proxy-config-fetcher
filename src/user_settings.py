@@ -28,6 +28,10 @@ SOURCE_URLS = [
     "https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/refs/heads/main/protocols/tuic",
     "https://raw.githubusercontent.com/valid7996/Gozargah/refs/heads/main/Gozargah_Sub",
 
+"https://Rayan-Config.github.io/NG",
+"https://raw.githubusercontent.com/Rayan-Config/C-Sub/refs/heads/main/configs/proxy.txt",
+"https://raw.githubusercontent.com/Rayan-Config/C-Sub/refs/heads/main/configs/singbox_configs.json",
+
 
     "https://t.me/s/ahmedhamoomi_servers",
     "https://t.me/s/ahwazigamingshop",
