@@ -112,7 +112,7 @@ tun:
   - any:53
   - tcp://any:53
 proxies:
-- name: 🇨🇦 Anon8
+- name: 🇨🇦 Anon5
   type: wireguard
   server: 188.114.96.172
   port: 1014
@@ -160,7 +160,57 @@ proxies:
   allowed-ips:
   - 0.0.0.0/0
   - ::/0
-- name: 🇨🇦 Anon5
+- name: 🇨🇦 Anon8
+  type: wireguard
+  server: 188.114.96.31
+  port: 968
+  private-key: 6EF4j/XhKN0L+lBOFlQQt/N+4z+h7h9bimEHoD8Kz0s=
+  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+  udp: true
+  ip: 172.16.0.2/32
+  reserved:
+  - 85
+  - 254
+  - 8
+  mtu: 1280
+  allowed-ips:
+  - 0.0.0.0/0
+  - ::/0
+- name: 🇨🇦 Peyman_wire-g
+  type: wireguard
+  server: engage.cloudflareclient.com
+  port: 2408
+  private-key: Av9Og71pHpvA2TbRid9nGfJn9/Z/0RUhAnvK6yRNJHI=
+  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+  udp: true
+  ip: 172.16.0.2/32
+  ipv6: 2606:4700:110:8c5d:73d:a157:26fe:4c60/128
+  reserved:
+  - 81
+  - 168
+  - 30
+  mtu: 1420
+  allowed-ips:
+  - 0.0.0.0/0
+  - ::/0
+- name: 🇨🇦 Peyman_wire-g-2
+  type: wireguard
+  server: engage.cloudflareclient.com
+  port: 2408
+  private-key: BBc6sVcJBxgcuLaifC+0bWXdfhVBDMfIkN1jd1Ac9K4=
+  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+  udp: true
+  ip: 172.16.0.2/32
+  ipv6: 2606:4700:110:889d:cb2:a79b:3cc8:af92/128
+  reserved:
+  - 156
+  - 74
+  - 215
+  mtu: 1420
+  allowed-ips:
+  - 0.0.0.0/0
+  - ::/0
+- name: 🇨🇦 Anon2
   type: wireguard
   server: 188.114.98.68
   port: 945
@@ -176,37 +226,19 @@ proxies:
   allowed-ips:
   - 0.0.0.0/0
   - ::/0
-- name: 🇨🇦 Peyman_wire-g
+- name: 🇨🇦 Anon10
   type: wireguard
-  server: engage.cloudflareclient.com
-  port: 2408
-  private-key: GJqSVBur83GBVwmO4Bq7GPu59pXy5JF9/MW7u2/p41s=
+  server: 188.114.97.247
+  port: 968
+  private-key: GLLbZ+ABa+0LBH6iy/FbX9cgIcyCaOGUZPQWDoLXxnQ=
   public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
   udp: true
   ip: 172.16.0.2/32
-  ipv6: 2606:4700:110:879a:8bb4:d3b3:d538:bae7/128
   reserved:
-  - 211
-  - 148
-  - 56
-  mtu: 1420
-  allowed-ips:
-  - 0.0.0.0/0
-  - ::/0
-- name: 🇨🇦 Peyman_wire-g-2
-  type: wireguard
-  server: engage.cloudflareclient.com
-  port: 2408
-  private-key: H+Qmpej6un84cv6pIjqntkQOqzM6QxrqJ89CVvgZQPI=
-  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
-  udp: true
-  ip: 172.16.0.2/32
-  ipv6: 2606:4700:110:837b:5be8:e1a1:a455:b585/128
-  reserved:
-  - 41
-  - 229
-  - 34
-  mtu: 1420
+  - 126
+  - 15
+  - 22
+  mtu: 1280
   allowed-ips:
   - 0.0.0.0/0
   - ::/0
@@ -214,50 +246,16 @@ proxies:
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
-  private-key: J5rjU1kn1eQUBAhJstmG/4QHbtUhbpxr640uO8OeFTk=
+  private-key: Htekr0CA0+6pdZMJItKL2tRkD4aWp25Hk5jVSN+1WnI=
   public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
   udp: true
   ip: 172.16.0.2/32
-  ipv6: 2606:4700:110:8b03:530e:fffb:cee8:640b/128
+  ipv6: 2606:4700:110:87c3:7a27:4c66:4d:78f2/128
   reserved:
-  - 206
-  - 54
-  - 234
+  - 9
+  - 244
+  - 46
   mtu: 1420
-  allowed-ips:
-  - 0.0.0.0/0
-  - ::/0
-- name: 🇨🇦 @An0nymousteam - W4
-  type: wireguard
-  server: 188.114.98.224
-  port: 2408
-  private-key: MHdFJ6p42DHy5b2tQ6pD/b00Xtqbvsq4kN6GRaXAHUQ=
-  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
-  udp: true
-  ip: 172.16.0.2/32
-  ipv6: 2606:4700:110:83fa:553:b178:9afd:d3b0/128
-  reserved:
-  - 0
-  - 0
-  - 0
-  mtu: 1280
-  allowed-ips:
-  - 0.0.0.0/0
-  - ::/0
-- name: 🇨🇦 @An0nymousteam - W5
-  type: wireguard
-  server: 188.114.98.224
-  port: 2408
-  private-key: MHdFJ6p42DHy5b2tQ6pD/b00Xtqbvsq4kN6GRaXAHUQ=
-  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
-  udp: true
-  ip: 172.16.0.2/32
-  ipv6: 2606:4700:110:83fa:553:b178:9afd:d3b0/128
-  reserved:
-  - 0
-  - 0
-  - 0
-  mtu: 1280
   allowed-ips:
   - 0.0.0.0/0
   - ::/0
@@ -265,15 +263,49 @@ proxies:
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
-  private-key: OV4B2f1lIsZM1WNFA6PzlPYWvjz3DBagBZrGI2pA9WQ=
+  private-key: M4VhSXMHkpxEQT1p50m9YSeeDnojaoO47cuP3ojz8yQ=
   public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
   udp: true
   ip: 172.16.0.2/32
-  ipv6: 2606:4700:110:8ab0:4a02:2465:b3b3:3974/128
+  ipv6: 2606:4700:110:80ea:1fe7:deb5:a0cd:1e1/128
   reserved:
-  - 239
-  - 4
-  - 47
+  - 156
+  - 166
+  - 172
+  mtu: 1420
+  allowed-ips:
+  - 0.0.0.0/0
+  - ::/0
+- name: 🇨🇦 Peyman_wire-g-5
+  type: wireguard
+  server: engage.cloudflareclient.com
+  port: 2408
+  private-key: PEDePsLTlwgowTLGshfOM/k/cjGwraNp8TY+vW9skjg=
+  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+  udp: true
+  ip: 172.16.0.2/32
+  ipv6: 2606:4700:110:86ca:b7c:ad0:a62e:9021/128
+  reserved:
+  - 30
+  - 70
+  - 241
+  mtu: 1420
+  allowed-ips:
+  - 0.0.0.0/0
+  - ::/0
+- name: 🇨🇦 Peyman_wire-g-6
+  type: wireguard
+  server: engage.cloudflareclient.com
+  port: 2408
+  private-key: Pg5YybUjTGvjae5ZOz0mEX4XiO334a4QtKt1Q1+e5SE=
+  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+  udp: true
+  ip: 172.16.0.2/32
+  ipv6: 2606:4700:110:8fbd:d522:6b29:e95f:a248/128
+  reserved:
+  - 169
+  - 110
+  - 128
   mtu: 1420
   allowed-ips:
   - 0.0.0.0/0
@@ -326,24 +358,7 @@ proxies:
   allowed-ips:
   - 0.0.0.0/0
   - ::/0
-- name: 🇨🇦 Peyman_wire-g-5
-  type: wireguard
-  server: engage.cloudflareclient.com
-  port: 2408
-  private-key: RZ3JzNczJ61pKEFdS5zRtAd99RVnI3z5VjnEuu52J6E=
-  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
-  udp: true
-  ip: 172.16.0.2/32
-  ipv6: 2606:4700:110:83b5:c2c0:6c1c:daa:bfb/128
-  reserved:
-  - 105
-  - 83
-  - 197
-  mtu: 1420
-  allowed-ips:
-  - 0.0.0.0/0
-  - ::/0
-- name: 🇨🇦 Anon10
+- name: 🇨🇦 Anon7
   type: wireguard
   server: 188.114.98.46
   port: 942
@@ -359,37 +374,36 @@ proxies:
   allowed-ips:
   - 0.0.0.0/0
   - ::/0
-- name: 🇨🇦 Peyman_wire-g-6
-  type: wireguard
-  server: engage.cloudflareclient.com
-  port: 2408
-  private-key: VDxVxWQ+vQHY4BnjS+XCamUtGZ+yPt3YUQITafJgk+c=
-  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
-  udp: true
-  ip: 172.16.0.2/32
-  ipv6: 2606:4700:110:84ee:6009:17fb:e751:3a4b/128
-  reserved:
-  - 67
-  - 93
-  - 163
-  mtu: 1420
-  allowed-ips:
-  - 0.0.0.0/0
-  - ::/0
 - name: 🇨🇦 Peyman_wire-g-7
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
-  private-key: VPJHv3WABigVVb//k0BivH3mhQNVIgkWzTK1I7k24+I=
+  private-key: TjT2FDtLT2trvh4Cq6/CgrfrsOQ0Y0E2NQQY4Aai8lU=
   public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
   udp: true
   ip: 172.16.0.2/32
-  ipv6: 2606:4700:110:8f89:650f:181:6757:78dd/128
+  ipv6: 2606:4700:110:8c40:359d:723c:eb12:c6a5/128
   reserved:
-  - 57
-  - 119
-  - 188
+  - 138
+  - 131
+  - 197
   mtu: 1420
+  allowed-ips:
+  - 0.0.0.0/0
+  - ::/0
+- name: 🇺🇸 Anon9
+  type: wireguard
+  server: 188.114.99.227
+  port: 1018
+  private-key: YPrA6a7Pm3ImB/8B5lZRWkAeS/WUlh6TDVQuYT+4J0s=
+  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+  udp: true
+  ip: 172.16.0.2/32
+  reserved:
+  - 198
+  - 45
+  - 121
+  mtu: 1280
   allowed-ips:
   - 0.0.0.0/0
   - ::/0
@@ -397,37 +411,20 @@ proxies:
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
-  private-key: aTeYaof4wPqHzJ+GBXk5TIwoWKvobmeAGswy82bOVxI=
+  private-key: ZdDilmb9GMW4VDQssMTsx5uPSWNjWkGfC0uEIuzbOBI=
   public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
   udp: true
   ip: 172.16.0.2/32
-  ipv6: 2606:4700:110:8909:a282:cd79:40d:e673/128
+  ipv6: 2606:4700:110:89ab:dcdd:b3c4:3111:c8cf/128
   reserved:
-  - 218
-  - 227
-  - 185
+  - 84
+  - 134
+  - 212
   mtu: 1420
   allowed-ips:
   - 0.0.0.0/0
   - ::/0
-- name: 🇨🇦 Peyman_wire-g-9
-  type: wireguard
-  server: engage.cloudflareclient.com
-  port: 2408
-  private-key: e8bPN+F/yffsy65NmH7/a/EC+VXVHLuJmmMJ8+f45Qs=
-  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
-  udp: true
-  ip: 172.16.0.2/32
-  ipv6: 2606:4700:110:8f59:aaa9:47d8:d66e:eaa2/128
-  reserved:
-  - 91
-  - 5
-  - 110
-  mtu: 1420
-  allowed-ips:
-  - 0.0.0.0/0
-  - ::/0
-- name: 🇺🇸 Anon9
+- name: 🇺🇸 Anon6
   type: wireguard
   server: 188.114.99.20
   port: 988
@@ -443,7 +440,7 @@ proxies:
   allowed-ips:
   - 0.0.0.0/0
   - ::/0
-- name: 🇺🇸 Anon4
+- name: 🇺🇸 Anon1
   type: wireguard
   server: 188.114.99.77
   port: 1002
@@ -459,7 +456,7 @@ proxies:
   allowed-ips:
   - 0.0.0.0/0
   - ::/0
-- name: 🇺🇸 Anon6
+- name: 🇺🇸 Anon3
   type: wireguard
   server: 188.114.99.162
   port: 945
@@ -475,35 +472,20 @@ proxies:
   allowed-ips:
   - 0.0.0.0/0
   - ::/0
-- name: 🇺🇸 Anon3
+- name: 🇨🇦 Peyman_wire-g-9
   type: wireguard
-  server: 188.114.99.13
-  port: 1014
-  private-key: oHuAPQ+Zp27PIW9rCfVhC67cRF4hmQslv02RsvRKJFA=
+  server: engage.cloudflareclient.com
+  port: 2408
+  private-key: oTo5MamhHvC40Cj0vPE1aRnqVfGF7m46Lrn2IbBEOak=
   public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
   udp: true
   ip: 172.16.0.2/32
+  ipv6: 2606:4700:110:8529:7299:7140:da45:5e54/128
   reserved:
-  - 131
-  - 10
-  - 229
-  mtu: 1280
-  allowed-ips:
-  - 0.0.0.0/0
-  - ::/0
-- name: 🇨🇦 Anon2
-  type: wireguard
-  server: 188.114.96.13
-  port: 880
-  private-key: oO1w9zWoj855k41EX5KeM1jCidPjSJtgMLSxnMKLW1M=
-  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
-  udp: true
-  ip: 172.16.0.2/32
-  reserved:
-  - 41
-  - 201
-  - 247
-  mtu: 1280
+  - 186
+  - 130
+  - 0
+  mtu: 1420
   allowed-ips:
   - 0.0.0.0/0
   - ::/0
@@ -511,36 +493,20 @@ proxies:
   type: wireguard
   server: engage.cloudflareclient.com
   port: 2408
-  private-key: pQDbEYtlraysU6wwgqF1/E3iV2pIwINF6fSGzQBlC9U=
+  private-key: pVyuPtp735LryywxuM3YD/nLz68CYg6A1WWlcFYgmAA=
   public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
   udp: true
   ip: 172.16.0.2/32
-  ipv6: 2606:4700:110:8722:b351:ead1:45a0:3147/128
+  ipv6: 2606:4700:110:8b56:ee47:8cbf:402e:3715/128
   reserved:
-  - 243
-  - 85
-  - 37
+  - 102
+  - 138
+  - 173
   mtu: 1420
   allowed-ips:
   - 0.0.0.0/0
   - ::/0
-- name: 🇨🇦 Anon1
-  type: wireguard
-  server: 188.114.97.240
-  port: 908
-  private-key: qPvJ0+mwPeeY0I5APw6FSf4I1EOiMkRw36RdLiInpVY=
-  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
-  udp: true
-  ip: 172.16.0.2/32
-  reserved:
-  - 51
-  - 195
-  - 74
-  mtu: 1280
-  allowed-ips:
-  - 0.0.0.0/0
-  - ::/0
-- name: 🇨🇦 Anon7
+- name: 🇨🇦 Anon4
   type: wireguard
   server: 188.114.96.23
   port: 945
@@ -569,33 +535,31 @@ proxy-groups:
   type: select
   icon: https://www.svgrepo.com/show/372331/cursor-hand-click.svg
   proxies:
-  - 🇨🇦 Anon8
+  - 🇨🇦 Anon5
   - 🇨🇦 $$$+jadid+💪💪💪@freeiranianv2rey
   - 🇨🇦 mci jadid 💪💪💪@freeiranianv2rey
-  - 🇨🇦 Anon5
+  - 🇨🇦 Anon8
   - 🇨🇦 Peyman_wire-g
   - 🇨🇦 Peyman_wire-g-2
+  - 🇨🇦 Anon2
+  - 🇨🇦 Anon10
   - 🇨🇦 Peyman_wire-g-3
-  - 🇨🇦 @An0nymousteam - W4
-  - 🇨🇦 @An0nymousteam - W5
   - 🇨🇦 Peyman_wire-g-4
+  - 🇨🇦 Peyman_wire-g-5
+  - 🇨🇦 Peyman_wire-g-6
   - 🇨🇦 jadid+💪💪💪@freeiranianv2rey
   - 🇨🇦 @freeiranianv2rey+💯💯💯تا+ابد+رایگان
   - 🇨🇦 پرقدرت@freeiranianv2rey
-  - 🇨🇦 Peyman_wire-g-5
-  - 🇨🇦 Anon10
-  - 🇨🇦 Peyman_wire-g-6
-  - 🇨🇦 Peyman_wire-g-7
-  - 🇨🇦 Peyman_wire-g-8
-  - 🇨🇦 Peyman_wire-g-9
-  - 🇺🇸 Anon9
-  - 🇺🇸 Anon4
-  - 🇺🇸 Anon6
-  - 🇺🇸 Anon3
-  - 🇨🇦 Anon2
-  - 🇨🇦 Peyman_wire-g-10
-  - 🇨🇦 Anon1
   - 🇨🇦 Anon7
+  - 🇨🇦 Peyman_wire-g-7
+  - 🇺🇸 Anon9
+  - 🇨🇦 Peyman_wire-g-8
+  - 🇺🇸 Anon6
+  - 🇺🇸 Anon1
+  - 🇺🇸 Anon3
+  - 🇨🇦 Peyman_wire-g-9
+  - 🇨🇦 Peyman_wire-g-10
+  - 🇨🇦 Anon4
 - name: خودکار (بهترین پینگ) 🤖
   type: url-test
   icon: https://www.svgrepo.com/show/7876/speedometer.svg
@@ -605,33 +569,31 @@ proxy-groups:
   tolerance: 500
   lazy: true
   proxies:
-  - 🇨🇦 Anon8
+  - 🇨🇦 Anon5
   - 🇨🇦 $$$+jadid+💪💪💪@freeiranianv2rey
   - 🇨🇦 mci jadid 💪💪💪@freeiranianv2rey
-  - 🇨🇦 Anon5
+  - 🇨🇦 Anon8
   - 🇨🇦 Peyman_wire-g
   - 🇨🇦 Peyman_wire-g-2
+  - 🇨🇦 Anon2
+  - 🇨🇦 Anon10
   - 🇨🇦 Peyman_wire-g-3
-  - 🇨🇦 @An0nymousteam - W4
-  - 🇨🇦 @An0nymousteam - W5
   - 🇨🇦 Peyman_wire-g-4
+  - 🇨🇦 Peyman_wire-g-5
+  - 🇨🇦 Peyman_wire-g-6
   - 🇨🇦 jadid+💪💪💪@freeiranianv2rey
   - 🇨🇦 @freeiranianv2rey+💯💯💯تا+ابد+رایگان
   - 🇨🇦 پرقدرت@freeiranianv2rey
-  - 🇨🇦 Peyman_wire-g-5
-  - 🇨🇦 Anon10
-  - 🇨🇦 Peyman_wire-g-6
-  - 🇨🇦 Peyman_wire-g-7
-  - 🇨🇦 Peyman_wire-g-8
-  - 🇨🇦 Peyman_wire-g-9
-  - 🇺🇸 Anon9
-  - 🇺🇸 Anon4
-  - 🇺🇸 Anon6
-  - 🇺🇸 Anon3
-  - 🇨🇦 Anon2
-  - 🇨🇦 Peyman_wire-g-10
-  - 🇨🇦 Anon1
   - 🇨🇦 Anon7
+  - 🇨🇦 Peyman_wire-g-7
+  - 🇺🇸 Anon9
+  - 🇨🇦 Peyman_wire-g-8
+  - 🇺🇸 Anon6
+  - 🇺🇸 Anon1
+  - 🇺🇸 Anon3
+  - 🇨🇦 Peyman_wire-g-9
+  - 🇨🇦 Peyman_wire-g-10
+  - 🇨🇦 Anon4
 - name: پشتیبان (در صورت قطعی) 🧯
   type: fallback
   icon: https://www.svgrepo.com/show/415208/backup-cloud-document.svg
@@ -640,33 +602,31 @@ proxy-groups:
   timeout: 120000
   lazy: true
   proxies:
-  - 🇨🇦 Anon8
+  - 🇨🇦 Anon5
   - 🇨🇦 $$$+jadid+💪💪💪@freeiranianv2rey
   - 🇨🇦 mci jadid 💪💪💪@freeiranianv2rey
-  - 🇨🇦 Anon5
+  - 🇨🇦 Anon8
   - 🇨🇦 Peyman_wire-g
   - 🇨🇦 Peyman_wire-g-2
+  - 🇨🇦 Anon2
+  - 🇨🇦 Anon10
   - 🇨🇦 Peyman_wire-g-3
-  - 🇨🇦 @An0nymousteam - W4
-  - 🇨🇦 @An0nymousteam - W5
   - 🇨🇦 Peyman_wire-g-4
+  - 🇨🇦 Peyman_wire-g-5
+  - 🇨🇦 Peyman_wire-g-6
   - 🇨🇦 jadid+💪💪💪@freeiranianv2rey
   - 🇨🇦 @freeiranianv2rey+💯💯💯تا+ابد+رایگان
   - 🇨🇦 پرقدرت@freeiranianv2rey
-  - 🇨🇦 Peyman_wire-g-5
-  - 🇨🇦 Anon10
-  - 🇨🇦 Peyman_wire-g-6
-  - 🇨🇦 Peyman_wire-g-7
-  - 🇨🇦 Peyman_wire-g-8
-  - 🇨🇦 Peyman_wire-g-9
-  - 🇺🇸 Anon9
-  - 🇺🇸 Anon4
-  - 🇺🇸 Anon6
-  - 🇺🇸 Anon3
-  - 🇨🇦 Anon2
-  - 🇨🇦 Peyman_wire-g-10
-  - 🇨🇦 Anon1
   - 🇨🇦 Anon7
+  - 🇨🇦 Peyman_wire-g-7
+  - 🇺🇸 Anon9
+  - 🇨🇦 Peyman_wire-g-8
+  - 🇺🇸 Anon6
+  - 🇺🇸 Anon1
+  - 🇺🇸 Anon3
+  - 🇨🇦 Peyman_wire-g-9
+  - 🇨🇦 Peyman_wire-g-10
+  - 🇨🇦 Anon4
 - name: تلگرام 💬
   type: select
   icon: https://www.svgrepo.com/show/354443/telegram.svg
