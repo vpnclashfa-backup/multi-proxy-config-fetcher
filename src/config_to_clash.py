@@ -12,9 +12,8 @@ from nacl.public import PrivateKey
 # Assuming utils.py exists in the same directory (src/)
 from utils import get_random_user_agent, generate_unique_name, clean_proxy_name
 
-# Add logging for better debugging
 import logging
-logging.basicConfig(level=logging.WARNING, format='%(levelname)s: %(message)s') # Changed level to WARNING to show meaningful errors
+logging.basicConfig(level=logging.WARNING, format='%(levelname)s: %(message)s')
 
 class UriToClashConverter:
     """
@@ -33,29 +32,41 @@ class UriToClashConverter:
     @staticmethod
     def _is_valid_server_port(server: str, port: any) -> bool:
         if not server or port is None:
-            logging.debug(f"Invalid server or port: server='{server}', port='{port}' (None or empty)")
+            logging.debug(f"Validation failed: Server is empty or port is None (server='{server}', port='{port}')")
             return False
         try:
             int_port = int(port)
             if not (1 <= int_port <= 65535):
-                logging.debug(f"Invalid port range: {int_port}")
+                logging.debug(f"Validation failed: Port {int_port} is out of valid range (1-65535)")
                 return False
         except (ValueError, TypeError):
-            logging.debug(f"Port is not a valid integer: {port}")
+            logging.debug(f"Validation failed: Port '{port}' is not a valid integer")
             return False
         
-        # Basic validation for IP addresses and hostnames
-        if re.match(r"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$", server):
-             return True
-        if re.match(r"^[a-zA-Z0-9.-]+$", server):
-             return True
-        # Allow IPv6 in brackets or without, simple check
-        if server.startswith('[') and server.endswith(']'):
-            server = server[1:-1] # Remove brackets for inner validation
-        if ':' in server and re.match(r'^([0-9a-fA-F]{1,4}:){1,7}[0-9a-fA-F]{1,4}$|^([0-9a-fA-F]{1,4}:){1,7}:|[0-9a-fA-F]{1,4}(:[0-9a-fA-F]{1,4}){1,7}$|::([0-9a-fA-F]{1,4}:){1,6}[0-9a-fA-F]{1,4}|[0-9a-fA-F]{1,4}::([0-9a-fA-F]{1,4}:){1,5}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,2}::([0-9a-fA-F]{1,4}:){1,4}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,3}::([0-9a-fA-F]{1,4}:){1,3}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,4}::([0-9a-fA-F]{1,4}:){1,2}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}::[0-9a-fA-F]{1,4}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,6}::[0-9a-fA-F]{1,4}$', server):
-            return True
+        # Comprehensive regex for IPv4, hostname, and IPv6 (with or without brackets)
+        # Simplified for common cases. Python's socket module offers more robust validation.
+        # This regex checks for:
+        # 1. IPv4 (e.g., 192.168.1.1)
+        # 2. Hostname (e.g., example.com, sub.example.co.uk)
+        # 3. IPv6 (e.g., ::1, 2001:db8::1, [2001:db8::1]) - simplified to just check for presence of ':'
+        #    If brackets are present, remove them for inner validation.
         
-        logging.debug(f"Invalid server format: {server}")
+        original_server = server
+        if server.startswith('[') and server.endswith(']'):
+            server = server[1:-1] # Remove brackets for internal check
+
+        if re.match(r"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$", server): # IPv4
+             return True
+        if re.match(r"^[a-zA-Z0-9.-]+$", server): # Hostname
+             return True
+        if ':' in server: # Simple check for IPv6
+             try:
+                 socket.inet_pton(socket.AF_INET6, server) # More robust IPv6 validation
+                 return True
+             except socket.error:
+                 pass # Not a valid IPv6, continue to next check or return False
+        
+        logging.debug(f"Validation failed: Server format '{original_server}' is not recognized as valid IP or hostname.")
         return False
 
 
@@ -63,8 +74,8 @@ class UriToClashConverter:
     def parse(uri: str, filter_deprecated: bool = False) -> Optional[Dict]:
         try:
             scheme_parts = uri.split("://")
-            if len(scheme_parts) < 2:
-                logging.warning(f"URI '{uri}' is malformed (missing '://'). Skipping.")
+            if len(scheme_parts) < 2 or not scheme_parts[0]:
+                logging.warning(f"Skipping malformed URI '{uri}': Missing scheme or '://' separator.")
                 return None
             scheme = scheme_parts[0]
             
@@ -81,17 +92,17 @@ class UriToClashConverter:
                 proxy = parsers[scheme](uri)
                 if proxy:
                     if filter_deprecated and proxy.get('cipher') in UriToClashConverter.DEPRECATED_CIPHERS:
-                        logging.info(f"Filtered deprecated cipher for proxy: {proxy.get('name', 'N/A')}")
+                        logging.info(f"Filtered deprecated cipher '{proxy.get('cipher', 'N/A')}' for proxy: {proxy.get('name', 'N/A')}.")
                         return None
                     return proxy
                 else:
-                    logging.warning(f"Parser for scheme '{scheme}' returned no proxy for URI: {uri}")
+                    logging.warning(f"Parser for scheme '{scheme}' could not generate a proxy from URI: {uri}.")
                     return None
             else:
-                logging.warning(f"Unsupported scheme '{scheme}' for URI: {uri}")
+                logging.warning(f"Skipping unsupported scheme '{scheme}' found in URI: {uri}.")
                 return None
         except Exception as e:
-            logging.error(f"An unexpected error occurred while parsing URI '{uri}': {e}", exc_info=False) # exc_info=False to avoid full traceback in common logs
+            logging.error(f"An unexpected error occurred during parsing of URI '{uri}': {e}", exc_info=False)
             return None
 
     @staticmethod
@@ -101,10 +112,21 @@ class UriToClashConverter:
     @staticmethod
     def parse_vmess(uri: str) -> Optional[Dict]:
         try:
-            decoded_str = base64.b64decode(uri[8:]).decode('utf-8')
+            # Clean and pad the base64 string before decoding
+            b64_str_raw = uri[8:]
+            b64_str_cleaned = re.sub(r'[^A-Za-z0-9+/=]', '', b64_str_raw) # Remove invalid base64 chars
+            # Add padding if necessary
+            missing_padding = len(b64_str_cleaned) % 4
+            if missing_padding != 0:
+                b64_str_cleaned += '=' * (4 - missing_padding)
+
+            decoded_str = base64.b64decode(b64_str_cleaned).decode('utf-8')
             vmess_data = json.loads(decoded_str)
+        except (base64.binascii.Error, json.JSONDecodeError, UnicodeDecodeError) as e:
+            logging.warning(f"Failed to decode or parse VMess JSON for URI '{uri}'. Error: {e}. Skipping VMess proxy.")
+            return None
         except Exception as e:
-            logging.warning(f"Error decoding or parsing VMess JSON for URI '{uri}': {e}. Skipping VMess proxy.")
+            logging.warning(f"An unexpected error occurred during VMess parsing for URI '{uri}': {e}. Skipping VMess proxy.")
             return None
 
         server_addr = vmess_data.get('add')
@@ -133,7 +155,7 @@ class UriToClashConverter:
         }
 
         network = vmess_data.get('net', 'tcp').lower()
-        # No warning for 'xhttp' as per user request
+        # 'xhttp' remains as is, no warning based on user feedback.
         proxy['network'] = network
 
         if vmess_data.get('tls') in ['tls', 'reality']:
@@ -145,7 +167,7 @@ class UriToClashConverter:
         if proxy['network'] == "ws":
             ws_host = vmess_data.get('host', server_addr) or server_addr
             ws_path = vmess_data.get('path', '/')
-            if ws_path is None: # Ensure path is a string, not null
+            if ws_path is None:
                 ws_path = '/'
                 logging.info(f"VMess proxy '{proxy['name']}' had null ws-opts path in URI. Defaulting to '/'.")
 
@@ -213,7 +235,7 @@ class UriToClashConverter:
                     ws_opts['max-early-data'] = int(params['ed'][0])
                     ws_opts['early-data-header-name'] = 'Sec-WebSocket-Protocol'
                 except (ValueError, TypeError):
-                    logging.warning(f"Invalid 'ed' parameter for VLESS/Trojan WS proxy '{proxy_name}' from URI: {uri}. Skipping 'max-early-data'.")
+                    logging.warning(f"Invalid 'ed' parameter '{params['ed'][0]}' for VLESS/Trojan WS proxy '{proxy_name}' from URI: {uri}. Skipping 'max-early-data'.")
             proxy['ws-opts'] = ws_opts
         elif proxy['network'] == 'grpc': 
             proxy['grpc-opts'] = {'grpc-service-name': params.get('serviceName', [''])[0]}
@@ -268,30 +290,43 @@ class UriToClashConverter:
                 parts = decoded_user_info.split(':', 1)
                 if len(parts) == 2: cipher, password = parts
                 else:
-                    logging.warning(f"Invalid user info format for SS proxy '{name or 'N/A'}': {decoded_user_info} in {uri}. Skipping.")
+                    logging.warning(f"Invalid user info format for SS proxy '{name or 'N/A'}': '{decoded_user_info}' in '{uri}'. Skipping.")
                     return None
-            else: # Attempt base64 decode if not plain text
+            else:
                 try:
-                    decoded = base64.b64decode(decoded_user_info + '===').decode('utf-8')
+                    # Clean and pad Base64 for user_info
+                    b64_user_info_cleaned = re.sub(r'[^A-Za-z0-9+/=]', '', decoded_user_info)
+                    missing_padding = len(b64_user_info_cleaned) % 4
+                    if missing_padding != 0:
+                        b64_user_info_cleaned += '=' * (4 - missing_padding)
+
+                    decoded = base64.b64decode(b64_user_info_cleaned).decode('utf-8')
                     parts = decoded.split(':', 1)
                     if len(parts) == 2: cipher, password = parts
                     else:
-                        logging.warning(f"Invalid base64 decoded user info for SS proxy '{name or 'N/A'}': {decoded} in {uri}. Skipping.")
+                        logging.warning(f"Invalid base64 decoded user info for SS proxy '{name or 'N/A'}': '{decoded}' in '{uri}'. Skipping.")
                         return None
-                except Exception as e:
-                    logging.warning(f"Could not base64 decode SS user info for URI '{uri}': {e}. Skipping.")
+                except (base64.binascii.Error, UnicodeDecodeError) as e:
+                    logging.warning(f"Could not decode SS user info from '{decoded_user_info}' in URI '{uri}': {e}. Skipping.")
                     return None
         else: # Entire netloc is base64 encoded
             try:
-                full_decoded = base64.b64decode(unquote(uri[5:].split('#')[0]) + '===').decode('utf-8')
+                # Clean and pad Base64 for full_decoded
+                b64_full_decoded_raw = unquote(uri[5:].split('#')[0])
+                b64_full_decoded_cleaned = re.sub(r'[^A-Za-z0-9+/=]', '', b64_full_decoded_raw)
+                missing_padding = len(b64_full_decoded_cleaned) % 4
+                if missing_padding != 0:
+                    b64_full_decoded_cleaned += '=' * (4 - missing_padding)
+
+                full_decoded = base64.b64decode(b64_full_decoded_cleaned).decode('utf-8')
                 match = re.match(r'(.+?):(.+?)@(.+?):(\d+)', full_decoded)
                 if match:
                     cipher, password, server, port = match.groups()
                 else:
-                    logging.warning(f"No match for full SS decoded URI: {full_decoded} in {uri}. Skipping.")
+                    logging.warning(f"No match for full SS decoded URI: '{full_decoded}' in '{uri}'. Skipping.")
                     return None
-            except Exception as e:
-                logging.warning(f"Could not base64 decode full SS URI '{uri}': {e}. Skipping.")
+            except (base64.binascii.Error, UnicodeDecodeError) as e:
+                logging.warning(f"Could not decode full SS URI '{uri}': {e}. Skipping.")
                 return None
 
         if not all([server, port, cipher, password]) or not UriToClashConverter._is_valid_server_port(server, port):
@@ -334,7 +369,7 @@ class UriToClashConverter:
                 try:
                     opts['version'] = int(params.get('version', [2])[0])
                 except (ValueError, TypeError):
-                    logging.warning(f"Invalid 'version' for shadow-tls plugin in {uri}. Defaulting to 2.")
+                    logging.warning(f"Invalid 'version' '{params.get('version', ['N/A'])[0]}' for shadow-tls plugin in '{uri}'. Defaulting to 2.")
                     opts['version'] = 2
             proxy['plugin-opts'] = {k: v for k, v in opts.items() if v}
 
@@ -343,7 +378,15 @@ class UriToClashConverter:
     @staticmethod
     def parse_ssr(uri: str) -> Optional[Dict]:
         try:
-            decoded_str = base64.b64decode(uri[6:].rstrip('=') + '===').decode('utf-8')
+            # SSR URI typically looks like ssr://base64encoded_params#name
+            # The base64 part often needs padding and cleaning
+            b64_str_raw = uri[6:].split('#')[0]
+            b64_str_cleaned = re.sub(r'[^A-Za-z0-9+/=]', '', b64_str_raw)
+            missing_padding = len(b64_str_cleaned) % 4
+            if missing_padding != 0:
+                b64_str_cleaned += '=' * (4 - missing_padding)
+
+            decoded_str = base64.b64decode(b64_str_cleaned).decode('utf-8')
             parts = decoded_str.split(':')
             if len(parts) < 6:
                 logging.warning(f"SSR URI has too few parts after decoding: '{decoded_str}' in '{uri}'. Skipping.")
@@ -363,16 +406,36 @@ class UriToClashConverter:
             
             password_b64 = password_b64_and_params.split('/?')[0]
             try:
-                password = base64.b64decode(password_b64 + '===').decode('utf-8')
-            except Exception as e:
-                logging.warning(f"Could not decode SSR password for URI '{uri}': {e}. Setting password to empty string.")
-                password = "" # Set to empty string if decoding fails
+                # Clean and pad Base64 for password
+                b64_password_cleaned = re.sub(r'[^A-Za-z0-9+/=]', '', password_b64)
+                missing_padding = len(b64_password_cleaned) % 4
+                if missing_padding != 0:
+                    b64_password_cleaned += '=' * (4 - missing_padding)
+                password = base64.b64decode(b64_password_cleaned).decode('utf-8')
+            except (base64.binascii.Error, UnicodeDecodeError) as e:
+                logging.warning(f"Could not decode SSR password from '{password_b64}' for URI '{uri}': {e}. Setting password to empty string.")
+                password = ""
 
             params = parse_qs(urlparse(decoded_str).query)
             
-            remarks = base64.b64decode(params.get('remarks', [''])[0] + '===').decode('utf-8')
-            obfs_param = base64.b64decode(params.get('obfsparam', [''])[0] + '===').decode('utf-8')
-            protocol_param = base64.b64decode(params.get('protoparam', [''])[0] + '===').decode('utf-8')
+            # Decode remarks, obfsparam, protoparam with cleaning and padding
+            remarks_b64 = params.get('remarks', [''])[0]
+            obfs_param_b64 = params.get('obfsparam', [''])[0]
+            protocol_param_b64 = params.get('protoparam', [''])[0]
+
+            try:
+                remarks = base64.b64decode(re.sub(r'[^A-Za-z0-9+/=]', '', remarks_b64) + '===').decode('utf-8')
+            except (base64.binascii.Error, UnicodeDecodeError):
+                remarks = ""
+            try:
+                obfs_param = base64.b64decode(re.sub(r'[^A-Za-z0-9+/=]', '', obfs_param_b64) + '===').decode('utf-8')
+            except (base64.binascii.Error, UnicodeDecodeError):
+                obfs_param = ""
+            try:
+                protocol_param = base64.b64decode(re.sub(r'[^A-Za-z0-9+/=]', '', protocol_param_b64) + '===').decode('utf-8')
+            except (base64.binascii.Error, UnicodeDecodeError):
+                protocol_param = ""
+
 
             proxy = {
                 "name": remarks or f"ssr-{server}",
@@ -576,14 +639,22 @@ class UriToClashConverter:
         params = UriToClashConverter._get_params(uri)
         private_key_b64 = unquote(parsed_uri.username)
 
+        # Public key handling (preferred from URI, otherwise generated)
+        # Check for both 'publicKey' and 'publickey' from URI params.
         public_key_b64 = params.get('publicKey', [''])[0] or params.get('publickey', [''])[0]
         if not public_key_b64:
             try:
-                private_key_bytes = base64.b64decode(private_key_b64)
+                # Clean and pad private_key_b64 before decoding
+                private_key_cleaned = re.sub(r'[^A-Za-z0-9+/=]', '', private_key_b64)
+                missing_padding = len(private_key_cleaned) % 4
+                if missing_padding != 0:
+                    private_key_cleaned += '=' * (4 - missing_padding)
+
+                private_key_bytes = base64.b64decode(private_key_cleaned)
                 priv_key_obj = PrivateKey(private_key_bytes)
                 pub_key_obj = priv_key_obj.public_key
                 public_key_b64 = base64.b64encode(bytes(pub_key_obj)).decode('utf-8')
-                logging.info(f"Generated public key for WireGuard proxy: {unquote(parsed_uri.fragment) or parsed_uri.hostname}")
+                logging.info(f"Generated public key for WireGuard proxy: {unquote(parsed_uri.fragment) or parsed_uri.hostname}.")
             except Exception as e:
                 logging.error(f"Could not generate public key for WireGuard config from URI '{uri}': {e}. Skipping WireGuard proxy.")
                 return None
@@ -593,11 +664,12 @@ class UriToClashConverter:
             "type": "wireguard",
             "server": parsed_uri.hostname,
             "port": int(parsed_uri.port),
-            "private-key": private_key_b64,
+            "private-key": private_key_b64, # Always keep raw private key
             "public-key": public_key_b64,
             "udp": True
         }
 
+        # Handle 'address' (ip and ipv6)
         if 'address' in params:
             addresses = params['address'][0].split(',')
             for addr in addresses:
@@ -607,6 +679,7 @@ class UriToClashConverter:
                 elif '.' in addr:
                     proxy['ip'] = addr
         
+        # Mihomo WireGuard configuration parameters based on docs and provided YAML
         if 'pre-shared-key' in params:
             proxy['pre-shared-key'] = params['pre-shared-key'][0]
         elif 'presharedKey' in params:
@@ -655,7 +728,7 @@ class UriToClashConverter:
                 try:
                     amnezia_wg_params[key_prefix] = int(params[key_prefix][0])
                 except (ValueError, TypeError):
-                    logging.warning(f"Invalid integer value for amnezia-wg-option '{key_prefix}' for proxy '{proxy['name']}' from URI: {uri}. Skipping.")
+                    logging.warning(f"Invalid integer value '{params[key_prefix][0]}' for amnezia-wg-option '{key_prefix}' for proxy '{proxy['name']}' from URI: {uri}. Skipping.")
         
         if amnezia_wg_params:
             proxy['amnezia-wg-option'] = amnezia_wg_params
@@ -664,16 +737,20 @@ class UriToClashConverter:
             logging.warning(f"WireGuard proxy '{proxy['name']}' missing local IP/IPv6 address from URI: {uri}. Skipping config.")
             return None
 
-        known_wireguard_params_list = [
+        # List of known parameters from URI query string that are handled or expected.
+        # This list prevents "Unknown or unsupported parameter" warnings for parameters
+        # that are indeed part of the URI but might not be directly mapped to a Clash field.
+        known_wireguard_uri_params = [
             'address', 'private-key', 'public-key', 'publicKey', 'pre-shared-key',
             'presharedKey', 'reserved', 'mtu', 'remote-dns-resolve', 'dns',
-            'allowed-ips', 'dialer-proxy', 'keepalive' # 'keepalive' is still in this list to avoid 'unknown parameter' warning from source URI
+            'allowed-ips', 'dialer-proxy', 'keepalive', # 'keepalive' is removed from Clash config, but known in URI
+            'wnoise', 'wnoisecount', 'wnoisedelay', 'wpayloadsize' # These are also known in URI but not supported by Mihomo
         ]
-        known_wireguard_params_list.extend(['jc', 'jmin', 'jmax', 's1', 's2', 'h1', 'h2', 'h3', 'h4'])
+        known_wireguard_uri_params.extend(['jc', 'jmin', 'jmax', 's1', 's2', 'h1', 'h2', 'h3', 'h4'])
 
         for key, value in params.items():
-            if key not in known_wireguard_params_list:
-                 logging.warning(f"Unknown or unsupported WireGuard parameter '{key}' for proxy '{proxy['name']}' with value '{value}' from URI: {uri}. Skipping this parameter.")
+            if key not in known_wireguard_uri_params:
+                 logging.warning(f"Unknown or unsupported WireGuard parameter '{key}' for proxy '{proxy['name']}' with value '{value}' from URI: {uri}. This parameter will be skipped.")
 
         return {k: v for k, v in proxy.items() if v is not None and v != ''}
 
@@ -749,9 +826,7 @@ def replace_placeholders(data, proxy_names):
     return data
 
 def main():
-    # These would be read from user_settings.py
-    # Changed APPEND_PROTOCOL_TO_NAME to False as per user request
-    APPEND_PROTOCOL_TO_NAME = False
+    APPEND_PROTOCOL_TO_NAME = False # As per user request
     FILTER_DEPRECATED = True
 
     configs_dir = 'configs'
@@ -768,8 +843,6 @@ def main():
     for uri in all_uris:
         clash_proxy = UriToClashConverter.parse(uri, filter_deprecated=FILTER_DEPRECATED)
         if clash_proxy:
-            # Removed the logic to append protocol to name here as per user request.
-            # The clean_proxy_name function in utils.py should handle general cleaning.
             all_clash_proxies.append(clash_proxy)
 
     name_counts = {}; unique_named_proxies = []
@@ -781,7 +854,7 @@ def main():
     all_clash_proxies = unique_named_proxies
 
     if not all_clash_proxies:
-        logging.warning("WARNING: No valid Clash-compatible proxies were generated from provided URIs.")
+        logging.warning("WARNING: No valid Clash-compatible proxies were generated from provided URIs. Please check input data and URI formats.")
         return
     logging.info(f"Successfully converted and de-duplicated {len(all_clash_proxies)} URIs to Clash format.")
 
