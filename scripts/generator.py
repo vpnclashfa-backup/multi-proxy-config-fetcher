@@ -5,12 +5,12 @@ import time
 from urllib.parse import urlparse, quote_plus
 
 # --- نام فایل‌ها و پوشه‌ها دقیقاً همان ساختار قبلی شماست ---
-TEMPLATE_FILE = 'template.yaml'
+# TEMPLATE_FILE حذف شد، زیرا دیگر فایل‌های YAML تولید نمی‌کنیم.
 SUBS_FILE = 'subscriptions.txt'
 FORMAT_FILE = 'format.txt'
-OUTPUT_DIR = 'output'
+# OUTPUT_DIR حذف شد، زیرا دیگر فایل‌های YAML تولید نمی‌کنیم.
 PROVIDERS_DIR = 'providers'
-README_FILE = 'README.md'
+# README_FILE و هرگونه ارتباط با آن حذف شد.
 GITHUB_REPO = os.environ.get('GITHUB_REPOSITORY')
 
 
@@ -21,66 +21,28 @@ def get_filename_from_url(url):
     return os.path.splitext(filename)[0]
 
 
-def update_readme(output_files):
-    """تابعی برای به‌روزرسانی فایل README.md"""
-    if not GITHUB_REPO:
-        sys.exit("Critical Error: GITHUB_REPOSITORY environment variable is not set.")
-
-    print(f"Updating README.md for repository: {GITHUB_REPO}")
-
-    links_md_content = "## 🔗 لینک‌های کانفیگ آماده (Raw)\n\n"
-    links_md_content += "برای استفاده، لینک‌های زیر را مستقیما در کلش کپی کنید.\n\n"
-    for filename in sorted(output_files):
-        raw_url = f"https://raw.githubusercontent.com/{GITHUB_REPO}/main/{OUTPUT_DIR}/{filename}"
-        title = os.path.splitext(filename)[0]
-        links_md_content += f"* **{title}**: `{raw_url}`\n"
-
-    try:
-        with open(README_FILE, 'r', encoding='utf-8') as f:
-            readme_content = f.read()
-    except FileNotFoundError:
-        sys.exit(f"CRITICAL ERROR: The '{README_FILE}' file was not found.")
-
-    start_marker = "<!-- START_LINKS -->"
-    end_marker = "<!-- END_LINKS -->"
-
-    if start_marker not in readme_content or end_marker not in readme_content:
-        sys.exit(f"CRITICAL ERROR: Markers not found in {README_FILE}.")
-
-    before_part = readme_content.split(start_marker)[0]
-    after_part = readme_content.split(end_marker)[1]
-
-    new_readme_content = (
-        before_part + start_marker + "\n\n" +
-        links_md_content + "\n" + end_marker + after_part
-    )
-
-    with open(README_FILE, 'w', encoding='utf-8') as f:
-        f.write(new_readme_content)
-
-    print("README.md updated successfully.")
+# تابع update_readme حذف شد.
 
 
 def main():
     """
-    تابع اصلی که از جایگزینی متن ساده و تلاش مجدد برای دانلود استفاده می‌کند.
+    تابع اصلی که فقط فایل‌های فراهم‌کننده (providers) را دانلود و ذخیره می‌کند.
     """
-    print("Starting robust generation process with retry logic...")
+    print("Starting robust provider generation process with retry logic...")
     try:
-        with open(TEMPLATE_FILE, 'r', encoding='utf-8') as f:
-            template_content = f.read()
+        # template_content و خواندن TEMPLATE_FILE حذف شد.
 
         with open(FORMAT_FILE, 'r', encoding='utf-8') as f:
             format_string = f.read().strip()
 
         if "[URL]" not in format_string:
-            print(f"Warning: Placeholder [URL] not found in {FORMAT_FILE}.")
+            print(f"Warning: Placeholder [URL] not found in {FORMAT_FILE}. Using default.")
             format_string = "[URL]"
 
     except FileNotFoundError as e:
         sys.exit(f"CRITICAL ERROR: A required file is missing: {e.filename}")
 
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    # os.makedirs(OUTPUT_DIR, exist_ok=True) حذف شد.
     os.makedirs(PROVIDERS_DIR, exist_ok=True)
 
     try:
@@ -89,7 +51,7 @@ def main():
     except FileNotFoundError:
         sys.exit(f"CRITICAL ERROR: Subscription file '{SUBS_FILE}' not found.")
 
-    generated_files = []
+    # generated_files دیگر مورد نیاز نیست.
 
     for sub_line in subscriptions:
         custom_name = None
@@ -111,7 +73,7 @@ def main():
         provider_filename = f"{file_name_base}.txt"
         provider_path = os.path.join(PROVIDERS_DIR, provider_filename)
 
-        # --- بخش کلیدی و جدید: منطق تلاش مجدد ---
+        # --- منطق تلاش مجدد برای دانلود ---
         response = None
         max_retries = 3
         retry_delay = 5  # 5 ثانیه تأخیر بین هر تلاش
@@ -137,27 +99,23 @@ def main():
         # ذخیره محتوای دانلود شده
         with open(provider_path, 'w', encoding='utf-8') as f:
             f.write(response.text)
-        print(f"  -> Successfully saved content to {provider_path}")
+        print(f"  -> Successfully saved content to {provider_path}\n")
 
-        if not GITHUB_REPO:
-            continue
+        # تمام منطق مربوط به جایگزینی URL و PATH در template و ذخیره فایل YAML حذف شد.
+        # if not GITHUB_REPO:
+        #    continue
+        # raw_provider_url = f"https://raw.githubusercontent.com/{GITHUB_REPO}/main/{provider_path}"
+        # modified_content = template_content
+        # modified_content = modified_content.replace("%%URL_PLACEHOLDER%%", raw_provider_url)
+        # modified_content = modified_content.replace("%%PATH_PLACEHOLDER%%", f"./{provider_path}")
+        # output_filename = f"{file_name_base}.yaml"
+        # output_path = os.path.join(OUTPUT_DIR, output_filename)
+        # with open(output_path, 'w', encoding='utf-8') as f:
+        #    f.write(modified_content)
+        # print(f"  -> Generated final config: {output_path}\n")
 
-        raw_provider_url = f"https://raw.githubusercontent.com/{GITHUB_REPO}/main/{provider_path}"
-
-        modified_content = template_content
-        modified_content = modified_content.replace("%%URL_PLACEHOLDER%%", raw_provider_url)
-        modified_content = modified_content.replace("%%PATH_PLACEHOLDER%%", f"./{provider_path}")
-
-        output_filename = f"{file_name_base}.yaml"
-        output_path = os.path.join(OUTPUT_DIR, output_filename)
-        with open(output_path, 'w', encoding='utf-8') as f:
-            f.write(modified_content)
-
-        generated_files.append(output_filename)
-        print(f"  -> Generated final config: {output_path}\n")
-
-    if generated_files:
-        update_readme(generated_files)
+    # هیچ فراخوانی به update_readme وجود ندارد.
 
 if __name__ == "__main__":
     main()
+
