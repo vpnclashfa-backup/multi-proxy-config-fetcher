@@ -43,11 +43,11 @@ jobs:
     - name: Generate Source Statistics Report
       run: python src/generate_source_report.py
 
-    # - name: Convert configs to sing-box format
-    #   run: python src/config_to_singbox.py
+    - name: Convert configs to sing-box format
+      run: python src/config_to_singbox.py
 
-    # - name: Convert configs to Clash format
-    #   run: python src/config_to_clash.py
+    - name: Convert configs to Clash format
+      run: python src/config_to_clash.py
 
     - name: Generate Output Directory README
       run: python src/generate_output_readme.py
