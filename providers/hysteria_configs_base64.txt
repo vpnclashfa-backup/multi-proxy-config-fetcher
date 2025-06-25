@@ -106,20 +106,7 @@ rule-providers:
     url: https://github.com/chocolate4u/Iran-clash-rules/releases/latest/download/apps.yaml
     path: ./ruleset/apps.yaml
     interval: 86400
-proxies:
-  - {name: 141.145.194.153, server: 141.145.194.153, port: 443, client-fingerprint: chrome, type: hysteria, auth_str: 483f8ef7-8480-490d-92fb-1fc392fb34b6, auth-str: 483f8ef7-8480-490d-92fb-1fc392fb34b6, up: 30, down: 70, fast-open: false, skip-cert-verify: true, alpn: [h3], udp: true}
-  - {name: 176.32.35.226, server: 176.32.35.226, port: 62003, client-fingerprint: chrome, type: hysteria, auth_str: dongtaiwang.com, auth-str: dongtaiwang.com, up: 11, down: 55, fast-open: false, sni: apple.com, skip-cert-verify: true, alpn: [h3], udp: true}
-  - {name: 195.154.200.40, server: 195.154.200.40, port: 15010, client-fingerprint: chrome, type: hysteria, auth_str: dongtaiwang.com, auth-str: dongtaiwang.com, up: 100, down: 100, fast-open: false, sni: apple.com, skip-cert-verify: true, alpn: [h3], udp: true}
-  - {name: 208.87.243.151, server: 208.87.243.151, port: 17549, client-fingerprint: chrome, type: hysteria, auth_str: dongtaiwang.com, auth-str: dongtaiwang.com, up: 10, down: 50, fast-open: false, sni: www.bing.com, skip-cert-verify: true, alpn: [h3], udp: true}
-  - {name: 208.87.243.187, server: 208.87.243.187, port: 40528, client-fingerprint: chrome, type: hysteria, auth_str: dongtaiwang.com, auth-str: dongtaiwang.com, up: 100, down: 100, fast-open: false, sni: apple.com, skip-cert-verify: true, alpn: [h3], udp: true}
-  - {name: 46.17.41.174, server: 46.17.41.174, port: 10469, client-fingerprint: chrome, type: hysteria, auth_str: dongtaiwang.com, auth-str: dongtaiwang.com, up: 11, down: 55, fast-open: false, sni: apple.com, skip-cert-verify: true, alpn: [h3], udp: true}
-  - {name: 51.159.226.1, server: 51.159.226.1, port: 14241, client-fingerprint: chrome, type: hysteria, auth_str: dongtaiwang.com, auth-str: dongtaiwang.com, up: 100, down: 100, fast-open: false, sni: apple.com, skip-cert-verify: false, alpn: [h3], udp: true}
-  - {name: ️ 108.181.24.77, server: 108.181.24.77, port: 11512, client-fingerprint: chrome, type: hysteria, auth_str: dongtaiwang.com, auth-str: dongtaiwang.com, up: 10, down: 50, fast-open: false, sni: apple.com, skip-cert-verify: true, alpn: [h3], udp: true}
-  - {name: ️ 130.61.24.219, server: 130.61.24.219, port: 443, client-fingerprint: chrome, type: hysteria, auth_str: 483f8ef7-8480-490d-92fb-1fc392fb34b6, auth-str: 483f8ef7-8480-490d-92fb-1fc392fb34b6, up: 30, down: 70, fast-open: false, skip-cert-verify: true, alpn: [h3], udp: true}
-  - {name: ️ 185.22.155.71, server: 185.22.155.71, port: 10803, client-fingerprint: chrome, type: hysteria, auth_str: dongtaiwang.com, auth-str: dongtaiwang.com, up: 1000, down: 1000, fast-open: false, sni: www.bing.com, skip-cert-verify: true, alpn: [h3], udp: true}
-  - {name: ️ 195.154.200.178, server: 195.154.200.178, port: 46938, client-fingerprint: chrome, type: hysteria, auth_str: dongtaiwang.com, auth-str: dongtaiwang.com, up: 11, down: 55, fast-open: false, sni: apple.com, skip-cert-verify: true, alpn: [h3], udp: true}
-  - {name: ️ 51.158.54.46, server: 51.158.54.46, port: 55396, client-fingerprint: chrome, type: hysteria, auth_str: dongtaiwang.com, auth-str: dongtaiwang.com, up: 11, down: 55, fast-open: false, sni: youku.com, skip-cert-verify: true, alpn: [h3], udp: true}
-  - {name: ️ 74.48.18.240, server: 74.48.18.240, port: 27564, client-fingerprint: chrome, type: hysteria, auth_str: sZEvQgYdkXmx76LH1aZmtqXVP1glIV5BnRiDALrdj9sNl2QfdE, auth-str: sZEvQgYdkXmx76LH1aZmtqXVP1glIV5BnRiDALrdj9sNl2QfdE, up: 11, down: 55, fast-open: false, protocol: wechat-video, sni: wechat.com, skip-cert-verify: true, alpn: [h3], udp: true}
+proxies: ~
 proxy-groups:
   - name: نوع انتخاب پروکسی 🔀
     type: select
@@ -131,57 +118,21 @@ proxy-groups:
   - name: دستی 🤏🏻
     type: select
     proxies:
-      - 141.145.194.153
-      - 176.32.35.226
-      - 195.154.200.40
-      - 208.87.243.151
-      - 208.87.243.187
-      - 46.17.41.174
-      - 51.159.226.1
-      - ️ 108.181.24.77
-      - ️ 130.61.24.219
-      - ️ 185.22.155.71
-      - ️ 195.154.200.178
-      - ️ 51.158.54.46
-      - ️ 74.48.18.240
+      - DIRECT
   - name: خودکار (بهترین پینگ) 🤖
     type: url-test
     url: http://cp.cloudflare.com/generate_204
     interval: 600
     tolerance: 120000
     proxies:
-      - 141.145.194.153
-      - 176.32.35.226
-      - 195.154.200.40
-      - 208.87.243.151
-      - 208.87.243.187
-      - 46.17.41.174
-      - 51.159.226.1
-      - ️ 108.181.24.77
-      - ️ 130.61.24.219
-      - ️ 185.22.155.71
-      - ️ 195.154.200.178
-      - ️ 51.158.54.46
-      - ️ 74.48.18.240
+      - DIRECT
   - name: پشتیبان (در صورت قطعی) 🧯
     type: fallback
     url: http://cp.cloudflare.com/generate_204
     interval: 600
     tolerance: 120000
     proxies:
-      - 141.145.194.153
-      - 176.32.35.226
-      - 195.154.200.40
-      - 208.87.243.151
-      - 208.87.243.187
-      - 46.17.41.174
-      - 51.159.226.1
-      - ️ 108.181.24.77
-      - ️ 130.61.24.219
-      - ️ 185.22.155.71
-      - ️ 195.154.200.178
-      - ️ 51.158.54.46
-      - ️ 74.48.18.240
+      - DIRECT
   - name: تلگرام 💬
     type: select
     proxies:
